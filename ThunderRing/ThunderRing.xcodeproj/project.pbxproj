@@ -18,6 +18,9 @@
 		926C7C3D2737FC4D0020F851 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 926C7C3C2737FC4D0020F851 /* Lottie */; };
 		926C7C402737FC850020F851 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 926C7C3F2737FC850020F851 /* Then */; };
 		926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C412737FE7B0020F851 /* UITextField+.swift */; };
+		926C7C442738022F0020F851 /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C432738022F0020F851 /* ChatListVC.swift */; };
+		926C7C47273802460020F851 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C46273802460020F851 /* Chat.storyboard */; };
+		926C7C49273802890020F851 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C48273802890020F851 /* ChatVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		926C7C272737F93F0020F851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		926C7C362737FB4C0020F851 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		926C7C412737FE7B0020F851 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		926C7C432738022F0020F851 /* ChatListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVC.swift; sourceTree = "<group>"; };
+		926C7C46273802460020F851 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		926C7C48273802890020F851 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,7 @@
 		926C7C312737F9F40020F851 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				926C7C452738023A0020F851 /* Chat */,
 				926C7C322737FA020020F851 /* Main */,
 				926C7C242737F93F0020F851 /* LaunchScreen.storyboard */,
 			);
@@ -138,6 +145,8 @@
 		926C7C342737FA170020F851 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				926C7C432738022F0020F851 /* ChatListVC.swift */,
+				926C7C48273802890020F851 /* ChatVC.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -149,6 +158,14 @@
 				926C7C412737FE7B0020F851 /* UITextField+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		926C7C452738023A0020F851 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C46273802460020F851 /* Chat.storyboard */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +238,7 @@
 			files = (
 				926C7C262737F93F0020F851 /* LaunchScreen.storyboard in Resources */,
 				926C7C232737F93F0020F851 /* Assets.xcassets in Resources */,
+				926C7C47273802460020F851 /* Chat.storyboard in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,9 +251,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
+				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
 				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
 				926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */,
+				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
