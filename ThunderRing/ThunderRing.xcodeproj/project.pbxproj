@@ -17,6 +17,7 @@
 		926C7C3A2737FC340020F851 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 926C7C392737FC340020F851 /* SnapKit */; };
 		926C7C3D2737FC4D0020F851 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 926C7C3C2737FC4D0020F851 /* Lottie */; };
 		926C7C402737FC850020F851 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 926C7C3F2737FC850020F851 /* Then */; };
+		926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C412737FE7B0020F851 /* UITextField+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		926C7C252737F93F0020F851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		926C7C272737F93F0020F851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		926C7C362737FB4C0020F851 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		926C7C412737FE7B0020F851 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				926C7C362737FB4C0020F851 /* UIView+.swift */,
+				926C7C412737FE7B0020F851 /* UITextField+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
+				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
 				926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */,
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
