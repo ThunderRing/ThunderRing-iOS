@@ -14,6 +14,9 @@
 		926C7C232737F93F0020F851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C222737F93F0020F851 /* Assets.xcassets */; };
 		926C7C262737F93F0020F851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C242737F93F0020F851 /* LaunchScreen.storyboard */; };
 		926C7C372737FB4C0020F851 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C362737FB4C0020F851 /* UIView+.swift */; };
+		926C7C3A2737FC340020F851 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 926C7C392737FC340020F851 /* SnapKit */; };
+		926C7C3D2737FC4D0020F851 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 926C7C3C2737FC4D0020F851 /* Lottie */; };
+		926C7C402737FC850020F851 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 926C7C3F2737FC850020F851 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926C7C3A2737FC340020F851 /* SnapKit in Frameworks */,
+				926C7C402737FC850020F851 /* Then in Frameworks */,
+				926C7C3D2737FC4D0020F851 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +164,11 @@
 			dependencies = (
 			);
 			name = ThunderRing;
+			packageProductDependencies = (
+				926C7C392737FC340020F851 /* SnapKit */,
+				926C7C3C2737FC4D0020F851 /* Lottie */,
+				926C7C3F2737FC850020F851 /* Then */,
+			);
 			productName = ThunderRing;
 			productReference = 926C7C162737F93E0020F851 /* ThunderRing.app */;
 			productType = "com.apple.product-type.application";
@@ -186,6 +197,11 @@
 				Base,
 			);
 			mainGroup = 926C7C0D2737F93E0020F851;
+			packageReferences = (
+				926C7C382737FC340020F851 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				926C7C3B2737FC4D0020F851 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				926C7C3E2737FC850020F851 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 926C7C172737F93E0020F851 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -436,6 +452,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		926C7C382737FC340020F851 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		926C7C3B2737FC4D0020F851 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		926C7C3E2737FC850020F851 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		926C7C392737FC340020F851 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 926C7C382737FC340020F851 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		926C7C3C2737FC4D0020F851 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 926C7C3B2737FC4D0020F851 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		926C7C3F2737FC850020F851 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 926C7C3E2737FC850020F851 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 926C7C0E2737F93E0020F851 /* Project object */;
 }
