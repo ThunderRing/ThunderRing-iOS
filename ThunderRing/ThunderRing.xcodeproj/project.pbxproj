@@ -21,6 +21,19 @@
 		926C7C442738022F0020F851 /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C432738022F0020F851 /* ChatListVC.swift */; };
 		926C7C47273802460020F851 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C46273802460020F851 /* Chat.storyboard */; };
 		926C7C49273802890020F851 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C48273802890020F851 /* ChatVC.swift */; };
+		926C7C4E273802F80020F851 /* ThunderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C4D273802F80020F851 /* ThunderVC.swift */; };
+		926C7C50273803020020F851 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C4F273803020020F851 /* AlarmVC.swift */; };
+		926C7C522738030F0020F851 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C512738030F0020F851 /* MyPageVC.swift */; };
+		926C7C57273803980020F851 /* Thunder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C56273803980020F851 /* Thunder.storyboard */; };
+		926C7C59273803A10020F851 /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C58273803A10020F851 /* Alarm.storyboard */; };
+		926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C5A273803AA0020F851 /* MyPage.storyboard */; };
+		926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C5C2738043D0020F851 /* TabBarController.swift */; };
+		926C7C62273805B70020F851 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C61273805B70020F851 /* NavigationController.swift */; };
+		92A5B29127398366004149B2 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29027398366004149B2 /* Storyboard.swift */; };
+		92A5B29327398378004149B2 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29227398378004149B2 /* Const.swift */; };
+		92A5B295273983F0004149B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B294273983F0004149B2 /* ViewController.swift */; };
+		92A5B29727398835004149B2 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29627398835004149B2 /* UITabBar+.swift */; };
+		92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29927398D47004149B2 /* CustomNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +50,19 @@
 		926C7C432738022F0020F851 /* ChatListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVC.swift; sourceTree = "<group>"; };
 		926C7C46273802460020F851 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		926C7C48273802890020F851 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		926C7C4D273802F80020F851 /* ThunderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThunderVC.swift; sourceTree = "<group>"; };
+		926C7C4F273803020020F851 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
+		926C7C512738030F0020F851 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		926C7C56273803980020F851 /* Thunder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Thunder.storyboard; sourceTree = "<group>"; };
+		926C7C58273803A10020F851 /* Alarm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alarm.storyboard; sourceTree = "<group>"; };
+		926C7C5A273803AA0020F851 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		926C7C5C2738043D0020F851 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		926C7C61273805B70020F851 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		92A5B29027398366004149B2 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		92A5B29227398378004149B2 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		92A5B294273983F0004149B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92A5B29627398835004149B2 /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
+		92A5B29927398D47004149B2 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +118,11 @@
 		926C7C2E2737F9CE0020F851 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				926C7C5C2738043D0020F851 /* TabBarController.swift */,
+				926C7C61273805B70020F851 /* NavigationController.swift */,
+				926C7C4C273802E80020F851 /* MyPage */,
+				926C7C4B273802E10020F851 /* Alarm */,
+				926C7C4A273802D30020F851 /* Thunder */,
 				926C7C342737FA170020F851 /* Chat */,
 				926C7C332737FA120020F851 /* Main */,
 			);
@@ -101,6 +132,8 @@
 		926C7C2F2737F9D30020F851 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				92A5B29827398D1D004149B2 /* Classes */,
+				92A5B28F2739834F004149B2 /* Constants */,
 				926C7C352737FB3A0020F851 /* Extensions */,
 				926C7C302737F9E60020F851 /* Supports */,
 			);
@@ -119,6 +152,9 @@
 		926C7C312737F9F40020F851 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				926C7C552738038E0020F851 /* MyPage */,
+				926C7C54273803890020F851 /* Alarm */,
+				926C7C53273803850020F851 /* Thunder */,
 				926C7C452738023A0020F851 /* Chat */,
 				926C7C322737FA020020F851 /* Main */,
 				926C7C242737F93F0020F851 /* LaunchScreen.storyboard */,
@@ -137,7 +173,7 @@
 		926C7C332737FA120020F851 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				926C7C1D2737F93E0020F851 /* MainVC.swift */,
+				926C7C60273804D40020F851 /* VCs */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -156,6 +192,7 @@
 			children = (
 				926C7C362737FB4C0020F851 /* UIView+.swift */,
 				926C7C412737FE7B0020F851 /* UITextField+.swift */,
+				92A5B29627398835004149B2 /* UITabBar+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -166,6 +203,88 @@
 				926C7C46273802460020F851 /* Chat.storyboard */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		926C7C4A273802D30020F851 /* Thunder */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C4D273802F80020F851 /* ThunderVC.swift */,
+			);
+			path = Thunder;
+			sourceTree = "<group>";
+		};
+		926C7C4B273802E10020F851 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C4F273803020020F851 /* AlarmVC.swift */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		926C7C4C273802E80020F851 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C5E273804A20020F851 /* VCs */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		926C7C53273803850020F851 /* Thunder */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C56273803980020F851 /* Thunder.storyboard */,
+			);
+			path = Thunder;
+			sourceTree = "<group>";
+		};
+		926C7C54273803890020F851 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C58273803A10020F851 /* Alarm.storyboard */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		926C7C552738038E0020F851 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C5A273803AA0020F851 /* MyPage.storyboard */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		926C7C5E273804A20020F851 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C512738030F0020F851 /* MyPageVC.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		926C7C60273804D40020F851 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C1D2737F93E0020F851 /* MainVC.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		92A5B28F2739834F004149B2 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				92A5B29227398378004149B2 /* Const.swift */,
+				92A5B29027398366004149B2 /* Storyboard.swift */,
+				92A5B294273983F0004149B2 /* ViewController.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		92A5B29827398D1D004149B2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				92A5B29927398D47004149B2 /* CustomNavigationBar.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,8 +355,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926C7C59273803A10020F851 /* Alarm.storyboard in Resources */,
+				926C7C57273803980020F851 /* Thunder.storyboard in Resources */,
 				926C7C262737F93F0020F851 /* LaunchScreen.storyboard in Resources */,
 				926C7C232737F93F0020F851 /* Assets.xcassets in Resources */,
+				926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */,
 				926C7C47273802460020F851 /* Chat.storyboard in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
 			);
@@ -250,13 +372,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A5B295273983F0004149B2 /* ViewController.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
+				926C7C62273805B70020F851 /* NavigationController.swift in Sources */,
+				926C7C50273803020020F851 /* AlarmVC.swift in Sources */,
+				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
 				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
 				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
 				926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */,
+				926C7C4E273802F80020F851 /* ThunderVC.swift in Sources */,
+				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
+				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
+				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
+				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,
+				92A5B29727398835004149B2 /* UITabBar+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
