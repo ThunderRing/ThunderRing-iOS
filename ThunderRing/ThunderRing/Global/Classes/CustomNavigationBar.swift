@@ -24,13 +24,6 @@ class CustomNavigationBar: UIView {
         return label
     }()
     
-    // closebtn
-//    let closeButton: UIButton = {
-//        let button = UIButton()
-//        button
-//        return button
-//    }()
-    
     let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .gray
@@ -39,43 +32,39 @@ class CustomNavigationBar: UIView {
     
     // MARK: - Methods
     
-    init(vc: UIViewController, title: String) {
+    init(vc: UIViewController, title: String, backBtnIsHidden: Bool) {
         super.init(frame: .zero)
-        setUI()
-        setupLayout()
-        setupAction(vc: vc)
-        setTitle(title: title)
+        
+        initUI()
+        initLayout()
+        initAction(vc: vc)
+        initTitle(title: title)
+        initBackButton(backBtnIsHidden: backBtnIsHidden)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUI() {
+    private func initUI() {
         self.backgroundColor = UIColor.white
     }
     
-    
-    private func setupLayout() {
+    private func initLayout() {
         addSubview(backButton)
         addSubview(titleLabel)
-        //addSubview(closeButton)
         addSubview(separatorView)
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//        closeButton.translatesAutoresizingMaskIntoConstraints = false
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             backButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 7),
+            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
             
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
-//            closeButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            closeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 7)
             
             separatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             separatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
@@ -84,19 +73,22 @@ class CustomNavigationBar: UIView {
         ])
     }
     
-    private func setTitle(title: String) {
+    private func initTitle(title: String) {
         self.titleLabel.text = title
     }
     
-    private func setupAction(vc: UIViewController) {
+    private func initAction(vc: UIViewController) {
         let backAction = UIAction { _ in
-//            vc.dismiss(animated: true, completion: nil)
             vc.navigationController?.popViewController(animated: true)
         }
         backButton.addAction(backAction, for: .touchUpInside)
     }
     
-    func setUpTitle(title: String) {
+    func setTitle(title: String) {
         titleLabel.text = title
+    }
+    
+    private func initBackButton(backBtnIsHidden: Bool) {
+        backButton.isHidden = backBtnIsHidden
     }
 }

@@ -38,7 +38,7 @@ class TabBarController: UITabBarController {
         alarmTab.tabBarItem = UITabBarItem(title: "알림", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
         let myStoryboard = UIStoryboard.init(name: "MyPage", bundle: nil)
-        let myTab = myStoryboard.instantiateViewController(identifier: "MyPageVC")
+        let myTab = myStoryboard.instantiateViewController(identifier: "NavigationController")
         myTab.tabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
         let tabs =  [mainTab, chatTab, thunderTab, alarmTab, myTab]

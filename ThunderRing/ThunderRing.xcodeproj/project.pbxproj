@@ -34,6 +34,7 @@
 		92A5B295273983F0004149B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B294273983F0004149B2 /* ViewController.swift */; };
 		92A5B29727398835004149B2 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29627398835004149B2 /* UITabBar+.swift */; };
 		92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29927398D47004149B2 /* CustomNavigationBar.swift */; };
+		92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29B27399997004149B2 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		92A5B294273983F0004149B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92A5B29627398835004149B2 /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
 		92A5B29927398D47004149B2 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		92A5B29B27399997004149B2 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				926C7C362737FB4C0020F851 /* UIView+.swift */,
 				926C7C412737FE7B0020F851 /* UITextField+.swift */,
 				92A5B29627398835004149B2 /* UITabBar+.swift */,
+				92A5B29B27399997004149B2 /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
+				92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */,
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
 				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,
 				92A5B29727398835004149B2 /* UITabBar+.swift in Sources */,
