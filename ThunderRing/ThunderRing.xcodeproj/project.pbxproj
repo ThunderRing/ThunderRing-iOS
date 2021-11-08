@@ -35,6 +35,11 @@
 		92A5B29727398835004149B2 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29627398835004149B2 /* UITabBar+.swift */; };
 		92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29927398D47004149B2 /* CustomNavigationBar.swift */; };
 		92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29B27399997004149B2 /* UIViewController+.swift */; };
+		92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29E2739AA2F004149B2 /* MyPageAlarmTVC.swift */; };
+		92A5B2A12739AA49004149B2 /* AccountTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A02739AA49004149B2 /* AccountTVC.swift */; };
+		92A5B2A32739AA83004149B2 /* QuestionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A22739AA83004149B2 /* QuestionTVC.swift */; };
+		92A5B2A52739AA95004149B2 /* InfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A42739AA95004149B2 /* InfoTVC.swift */; };
+		92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A62739AAA0004149B2 /* LogOutTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +70,11 @@
 		92A5B29627398835004149B2 /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
 		92A5B29927398D47004149B2 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		92A5B29B27399997004149B2 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		92A5B29E2739AA2F004149B2 /* MyPageAlarmTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTVC.swift; sourceTree = "<group>"; };
+		92A5B2A02739AA49004149B2 /* AccountTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTVC.swift; sourceTree = "<group>"; };
+		92A5B2A22739AA83004149B2 /* QuestionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTVC.swift; sourceTree = "<group>"; };
+		92A5B2A42739AA95004149B2 /* InfoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTVC.swift; sourceTree = "<group>"; };
+		92A5B2A62739AAA0004149B2 /* LogOutTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +237,7 @@
 		926C7C4C273802E80020F851 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				92A5B29D2739AA01004149B2 /* Cells */,
 				926C7C5E273804A20020F851 /* VCs */,
 			);
 			path = MyPage;
@@ -288,6 +299,18 @@
 				92A5B29927398D47004149B2 /* CustomNavigationBar.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		92A5B29D2739AA01004149B2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				92A5B29E2739AA2F004149B2 /* MyPageAlarmTVC.swift */,
+				92A5B2A02739AA49004149B2 /* AccountTVC.swift */,
+				92A5B2A22739AA83004149B2 /* QuestionTVC.swift */,
+				92A5B2A42739AA95004149B2 /* InfoTVC.swift */,
+				92A5B2A62739AAA0004149B2 /* LogOutTVC.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,21 +399,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A5B295273983F0004149B2 /* ViewController.swift in Sources */,
+				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
 				926C7C62273805B70020F851 /* NavigationController.swift in Sources */,
 				926C7C50273803020020F851 /* AlarmVC.swift in Sources */,
+				92A5B2A52739AA95004149B2 /* InfoTVC.swift in Sources */,
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
 				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
 				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
 				926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */,
 				926C7C4E273802F80020F851 /* ThunderVC.swift in Sources */,
+				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
 				92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */,
+				92A5B2A32739AA83004149B2 /* QuestionTVC.swift in Sources */,
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
+				92A5B2A12739AA49004149B2 /* AccountTVC.swift in Sources */,
 				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,
 				92A5B29727398835004149B2 /* UITabBar+.swift in Sources */,
 			);
