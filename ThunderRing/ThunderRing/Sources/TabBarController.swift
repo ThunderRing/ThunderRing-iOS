@@ -34,7 +34,7 @@ class TabBarController: UITabBarController {
         thunderTab.tabBarItem = UITabBarItem(title: "번개", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
         let alarmStoryboard = UIStoryboard.init(name: "Alarm", bundle: nil)
-        let alarmTab = alarmStoryboard.instantiateViewController(identifier: "AlarmVC")
+        let alarmTab = alarmStoryboard.instantiateViewController(identifier: "NavigationController")
         alarmTab.tabBarItem = UITabBarItem(title: "알림", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
         let myStoryboard = UIStoryboard.init(name: "MyPage", bundle: nil)
