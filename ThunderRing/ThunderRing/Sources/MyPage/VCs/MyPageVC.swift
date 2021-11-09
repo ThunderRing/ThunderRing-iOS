@@ -54,7 +54,7 @@ extension MyPageVC {
         
         userNameLabel.text = "양파링"
         userNameLabel.textColor = .black
-        userNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+//        userNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         
         userInfoView.layer.cornerRadius = 5
         userInfoView.layer.masksToBounds = true

@@ -17,7 +17,7 @@ class MyPageAlarmTVC: UITableViewCell {
     
     private var label = UILabel().then {
         $0.text = "알림"
-        $0.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+//        $0.font = .SpoqaHanSansNeo(.regular, size: 16)
     }
 
     // MARK: - Life Cycle
