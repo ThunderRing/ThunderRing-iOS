@@ -20,28 +20,28 @@ class TabBarController: UITabBarController {
     // MARK: - Custom Methods
     
     private func setTabBar() {
-        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let mainTab = mainStoryboard.instantiateViewController(identifier: "NavigationController")
+        let mainStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Main, bundle: nil)
+        let mainTab = mainStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
         mainTab.tabBarItem = UITabBarItem(title: "메인", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
         
-        let chatStoryboard = UIStoryboard.init(name: "Chat", bundle: nil)
-        let chatTab = chatStoryboard.instantiateViewController(identifier: "ChatListVC")
+        let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
+        let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.ChatList)
         chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
-        let thunderStoryboard = UIStoryboard.init(name: "Thunder", bundle: nil)
-        let thunderTab = thunderStoryboard.instantiateViewController(identifier: "ThunderVC")
-        thunderTab.tabBarItem = UITabBarItem(title: "번개", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
+        let lightningStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Lightning, bundle: nil)
+        let lightningTab = lightningStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Lightning)
+        lightningTab.tabBarItem = UITabBarItem(title: "번개", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
-        let alarmStoryboard = UIStoryboard.init(name: "Alarm", bundle: nil)
-        let alarmTab = alarmStoryboard.instantiateViewController(identifier: "NavigationController")
+        let alarmStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Alarm, bundle: nil)
+        let alarmTab = alarmStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
         alarmTab.tabBarItem = UITabBarItem(title: "알림", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
-        let myStoryboard = UIStoryboard.init(name: "MyPage", bundle: nil)
-        let myTab = myStoryboard.instantiateViewController(identifier: "NavigationController")
+        let myStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.MyPage, bundle: nil)
+        let myTab = myStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
         myTab.tabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
-        let tabs =  [mainTab, chatTab, thunderTab, alarmTab, myTab]
+        let tabs =  [mainTab, chatTab, lightningTab, alarmTab, myTab]
         
         self.setViewControllers(tabs, animated: false)
         self.selectedViewController = mainTab
@@ -50,8 +50,8 @@ class TabBarController: UITabBarController {
 
 extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if viewController is ThunderVC {
-            let dvc = UIStoryboard(name: Const.Storyboard.Name.Thunder, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Thunder)
+        if viewController is LightningVC {
+            let dvc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Lightning)
             dvc.modalPresentationStyle = .fullScreen
             tabBarController.present(dvc, animated: true)
             return false

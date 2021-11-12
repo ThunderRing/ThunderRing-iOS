@@ -11,9 +11,11 @@ extension Const {
     struct ViewController {
             struct Name {
                 static let TabBar = "TabBarController"
+                static let Navigation = "NavigationController"
+                
                 static let Main = "MainVC"
-                static let Chat = "ChatVC"
-                static let Thunder = "ThunderVC"
+                static let ChatList = "ChatListVC"
+                static let Lightning = "LightningVC"
                 static let Alarm = "AlarmVC"
                 static let MyPage = "MyPageVC"
             }

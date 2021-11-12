@@ -42,6 +42,8 @@ class AlarmVC: UIViewController {
     }
 }
 
+// MARK: - Custom Methods
+
 extension AlarmVC {
     private func initUI() {
         proceedLabel.text = "진행 중"
@@ -82,6 +84,8 @@ extension AlarmVC {
     }
 }
 
+// MARK: - @objc
+
 extension AlarmVC {
     @objc
     private func tapProceedLabel() {
@@ -111,6 +115,8 @@ extension AlarmVC {
         }
     }
 }
+
+// MARK: - CollectionView Delegate 
 
 extension AlarmVC: UICollectionViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -152,6 +158,8 @@ extension AlarmVC: UICollectionViewDelegateFlowLayout {
         return 0
     }
 }
+
+// MARK: - CollectionView DataSource
 
 extension AlarmVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
