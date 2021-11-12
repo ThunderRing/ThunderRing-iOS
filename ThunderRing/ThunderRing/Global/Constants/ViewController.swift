@@ -15,6 +15,7 @@ extension Const {
                 
                 static let Main = "MainVC"
                 static let ChatList = "ChatListVC"
+                static let Chat = "ChatVC"
                 static let Lightning = "LightningVC"
                 static let Alarm = "AlarmVC"
                 static let MyPage = "MyPageVC"

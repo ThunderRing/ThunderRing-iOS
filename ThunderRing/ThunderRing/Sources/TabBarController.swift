@@ -26,7 +26,7 @@ class TabBarController: UITabBarController {
         
         
         let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
-        let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.ChatList)
+        let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
         chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: ""), selectedImage: UIImage(named: ""))
         
         let lightningStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Lightning, bundle: nil)

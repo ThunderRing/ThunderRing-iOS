@@ -41,6 +41,7 @@
 		92A5B2A52739AA95004149B2 /* InfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A42739AA95004149B2 /* InfoTVC.swift */; };
 		92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A62739AAA0004149B2 /* LogOutTVC.swift */; };
 		92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2AF2739B3B1004149B2 /* UIFont+.swift */; };
+		92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */; };
 		92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBCE6D273B12EC00A3F36D /* CompleteCVC.swift */; };
 		92CBCE70273B12EC00A3F36D /* CompleteCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92CBCE6E273B12EC00A3F36D /* CompleteCVC.xib */; };
 		92CBCE73273B132600A3F36D /* ProceedCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBCE71273B132600A3F36D /* ProceedCVC.swift */; };
@@ -88,6 +89,7 @@
 		92A5B2AD2739B31D004149B2 /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
 		92A5B2AE2739B31D004149B2 /* SpoqaHanSansNeo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.otf"; sourceTree = "<group>"; };
 		92A5B2AF2739B3B1004149B2 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTVC.swift; sourceTree = "<group>"; };
 		92CBCE6D273B12EC00A3F36D /* CompleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCVC.swift; sourceTree = "<group>"; };
 		92CBCE6E273B12EC00A3F36D /* CompleteCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteCVC.xib; sourceTree = "<group>"; };
 		92CBCE71273B132600A3F36D /* ProceedCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceedCVC.swift; sourceTree = "<group>"; };
@@ -213,8 +215,8 @@
 		926C7C342737FA170020F851 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				926C7C432738022F0020F851 /* ChatListVC.swift */,
-				926C7C48273802890020F851 /* ChatVC.swift */,
+				92B619CD273EEF3700BE31D1 /* Cells */,
+				92B619CC273EEF2E00BE31D1 /* VCs */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -363,6 +365,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		92B619CC273EEF2E00BE31D1 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C432738022F0020F851 /* ChatListVC.swift */,
+				926C7C48273802890020F851 /* ChatVC.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		92B619CD273EEF3700BE31D1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		92CBCE5F273B11BF00A3F36D /* VCs */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +520,7 @@
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
 				926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */,
 				926C7C4E273802F80020F851 /* LightningVC.swift in Sources */,
+				92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */,
 				92CBCE79273B233F00A3F36D /* AlarmTVC.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
