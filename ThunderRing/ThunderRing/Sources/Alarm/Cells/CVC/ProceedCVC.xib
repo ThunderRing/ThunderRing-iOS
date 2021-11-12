@@ -16,13 +16,31 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1Gp-vk-QVZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </tableView>
+                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" systemColor="systemTealColor"/>
+            <constraints>
+                <constraint firstItem="1Gp-vk-QVZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cAs-0f-vEC"/>
+                <constraint firstAttribute="trailing" secondItem="1Gp-vk-QVZ" secondAttribute="trailing" id="rdl-Aw-fyk"/>
+                <constraint firstAttribute="bottom" secondItem="1Gp-vk-QVZ" secondAttribute="bottom" id="tkN-d9-1GN"/>
+                <constraint firstItem="1Gp-vk-QVZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wjW-NI-cFv"/>
+            </constraints>
+            <connections>
+                <outlet property="tableView" destination="1Gp-vk-QVZ" id="WqC-pr-moB"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

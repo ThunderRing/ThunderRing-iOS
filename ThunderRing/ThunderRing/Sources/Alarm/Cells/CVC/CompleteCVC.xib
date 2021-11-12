@@ -16,15 +16,29 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kwa-qN-WYq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </tableView>
+                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" systemColor="systemYellowColor"/>
+            <constraints>
+                <constraint firstItem="Kwa-qN-WYq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1hQ-MD-tRo"/>
+                <constraint firstAttribute="trailing" secondItem="Kwa-qN-WYq" secondAttribute="trailing" id="ZVn-eu-htY"/>
+                <constraint firstItem="Kwa-qN-WYq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jOh-55-2Bd"/>
+                <constraint firstAttribute="bottom" secondItem="Kwa-qN-WYq" secondAttribute="bottom" id="qnd-WR-OEg"/>
+            </constraints>
+            <connections>
+                <outlet property="tableView" destination="Kwa-qN-WYq" id="gDD-4o-swc"/>
+            </connections>
             <point key="canvasLocation" x="139" y="114"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

@@ -9,7 +9,18 @@ import UIKit
 
 class AlarmTVC: UITableViewCell {
     static let identifier = "AlarmTVC"
-
+    
+    // MARK: - UI
+    
+    @IBOutlet weak var backView: UIView!
+    
+    @IBOutlet weak var hashTagLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var markImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -22,8 +33,20 @@ class AlarmTVC: UITableViewCell {
     
 }
 
+// MARK: - Custom Methods
+
 extension AlarmTVC {
     private func initUI() {
+        backView.layer.borderColor = UIColor.gray.cgColor
+        backView.layer.borderWidth = 1
+        
+        backView.layer.cornerRadius = 12
+        backView.layer.masksToBounds = true
+        
+        if let image = UIImage(named: "Mark_Chatbook") {
+            markImageView.image = image
+        }
+        markImageView.contentMode = .scaleAspectFill
         
     }
 }
