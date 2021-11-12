@@ -24,11 +24,11 @@ class CustomNavigationBar: UIView {
         return label
     }()
     
-    let separatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray
-        return view
-    }()
+//    let separatorView: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .gray
+//        return view
+//    }()
     
     // MARK: - Methods
     
@@ -53,11 +53,11 @@ class CustomNavigationBar: UIView {
     private func initLayout() {
         addSubview(backButton)
         addSubview(titleLabel)
-        addSubview(separatorView)
+//        addSubview(separatorView)
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        separatorView.translatesAutoresizingMaskIntoConstraints = false
+//        separatorView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             backButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -66,10 +66,10 @@ class CustomNavigationBar: UIView {
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
-            separatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            separatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            separatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 0.5)
+//            separatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+//            separatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+//            separatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+//            separatorView.heightAnchor.constraint(equalToConstant: 0.5)
         ])
     }
     
