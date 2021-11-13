@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D45CB3B27400F70005726FF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45CB3A27400F70005726FF /* CardView.swift */; };
 		926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C192737F93E0020F851 /* AppDelegate.swift */; };
 		926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1B2737F93E0020F851 /* SceneDelegate.swift */; };
 		926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1D2737F93E0020F851 /* MainVC.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D45CB3A27400F70005726FF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		926C7C162737F93E0020F851 /* ThunderRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C7C192737F93E0020F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926C7C1B2737F93E0020F851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D45CB3927400F5D005726FF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1D45CB3A27400F70005726FF /* CardView.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		926C7C0D2737F93E0020F851 = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +203,7 @@
 		926C7C332737FA120020F851 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1D45CB3927400F5D005726FF /* Classes */,
 				926C7C60273804D40020F851 /* VCs */,
 			);
 			path = Main;
@@ -441,6 +452,7 @@
 				926C7C4E273802F80020F851 /* ThunderVC.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
+				1D45CB3B27400F70005726FF /* CardView.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */,
