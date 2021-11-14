@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D45CB3B27400F70005726FF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45CB3A27400F70005726FF /* CardView.swift */; };
+		1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */; };
 		926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C192737F93E0020F851 /* AppDelegate.swift */; };
 		926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1B2737F93E0020F851 /* SceneDelegate.swift */; };
 		926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1D2737F93E0020F851 /* MainVC.swift */; };
@@ -56,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D45CB3A27400F70005726FF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupTVC.swift; sourceTree = "<group>"; };
 		926C7C162737F93E0020F851 /* ThunderRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C7C192737F93E0020F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926C7C1B2737F93E0020F851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +121,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D45CB3927400F5D005726FF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1D45CB3A27400F70005726FF /* CardView.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		1DEAB5FA27405A5100074B72 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		926C7C0D2737F93E0020F851 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +232,8 @@
 		926C7C332737FA120020F851 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1DEAB5FA27405A5100074B72 /* Cells */,
+				1D45CB3927400F5D005726FF /* Classes */,
 				926C7C60273804D40020F851 /* VCs */,
 			);
 			path = Main;
@@ -257,7 +279,6 @@
 		926C7C4B273802E10020F851 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				92B619CB273EE74C00BE31D1 /* Models */,
 				92CBCE60273B11C500A3F36D /* Cells */,
 				92CBCE5F273B11BF00A3F36D /* VCs */,
 			);
@@ -361,13 +382,6 @@
 				92A5B2AA2739B31D004149B2 /* SpoqaHanSansNeo-Thin.otf */,
 			);
 			path = SpoqaHanSansNeo;
-			sourceTree = "<group>";
-		};
-		92B619CB273EE74C00BE31D1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		92B619CC273EEF2E00BE31D1 /* VCs */ = {
@@ -533,7 +547,9 @@
 				92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */,
 				92CBCE79273B233F00A3F36D /* AlarmTVC.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
+				1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
+				1D45CB3B27400F70005726FF /* CardView.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */,
