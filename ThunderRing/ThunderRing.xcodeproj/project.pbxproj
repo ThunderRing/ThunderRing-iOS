@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D45CB3B27400F70005726FF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45CB3A27400F70005726FF /* CardView.swift */; };
+		1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */; };
 		926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C192737F93E0020F851 /* AppDelegate.swift */; };
 		926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1B2737F93E0020F851 /* SceneDelegate.swift */; };
 		926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1D2737F93E0020F851 /* MainVC.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		1D45CB3A27400F70005726FF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupTVC.swift; sourceTree = "<group>"; };
 		926C7C162737F93E0020F851 /* ThunderRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C7C192737F93E0020F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926C7C1B2737F93E0020F851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 				1D45CB3A27400F70005726FF /* CardView.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		1DEAB5FA27405A5100074B72 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		926C7C0D2737F93E0020F851 = {
@@ -203,6 +213,7 @@
 		926C7C332737FA120020F851 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1DEAB5FA27405A5100074B72 /* Cells */,
 				1D45CB3927400F5D005726FF /* Classes */,
 				926C7C60273804D40020F851 /* VCs */,
 			);
@@ -451,6 +462,7 @@
 				926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */,
 				926C7C4E273802F80020F851 /* ThunderVC.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
+				1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
 				1D45CB3B27400F70005726FF /* CardView.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,

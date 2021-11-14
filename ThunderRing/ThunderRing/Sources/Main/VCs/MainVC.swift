@@ -19,9 +19,17 @@ class MainVC: UIViewController {
     @IBOutlet weak var attendanceLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var privateGroupCountLabel: UILabel!
+    @IBOutlet weak var privateGroupTableView: UITableView!
+    
+    @IBOutlet weak var publicGroupCountLabel: UILabel!
+    
     // MARK: - Properties
+    
     private var name = "파링"
     private var thunderCount = 1
+    private var privateGroupCount = 4
+    private var publicGroupCount = 4
     
     // MARK: - Life Cycle
     
@@ -36,6 +44,7 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         
         initUI()
+        setTableView()
         
     }
     
@@ -56,6 +65,21 @@ extension MainVC {
             .regular(string: "개가 진행 중입니다.", fontSize: 14)
         attendanceLabel.textColor = .white
         
+        privateGroupCountLabel.text = "\(privateGroupCount)"
+        
+        publicGroupCountLabel.text = "\(publicGroupCount)"
+
+    }
+    
+    func setTableView() {
+        privateGroupTableView.delegate = self
+        privateGroupTableView.dataSource = self
+
+        privateGroupTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        privateGroupTableView.separatorColor = .gray
+
+        privateGroupTableView.register(PrivateGroupTVC.self, forCellReuseIdentifier: PrivateGroupTVC.identifier)
+
     }
 }
 
@@ -72,4 +96,16 @@ extension NSMutableAttributedString {
             return self
         }
       
+}
+
+extension MainVC: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        return UITableViewCell()
+    }
 }
