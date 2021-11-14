@@ -48,6 +48,11 @@
 		92CBCE74273B132600A3F36D /* ProceedCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92CBCE72273B132600A3F36D /* ProceedCVC.xib */; };
 		92CBCE79273B233F00A3F36D /* AlarmTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBCE77273B233F00A3F36D /* AlarmTVC.swift */; };
 		92CBCE7A273B233F00A3F36D /* AlarmTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92CBCE78273B233F00A3F36D /* AlarmTVC.xib */; };
+		92CD3371273FA2A00094CB1C /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AC2739B31D004149B2 /* SpoqaHanSansNeo-Regular.otf */; };
+		92CD3372273FA2A00094CB1C /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AD2739B31D004149B2 /* SpoqaHanSansNeo-Bold.otf */; };
+		92CD3373273FA2A00094CB1C /* SpoqaHanSansNeo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AB2739B31D004149B2 /* SpoqaHanSansNeo-Light.otf */; };
+		92CD3374273FA2A00094CB1C /* SpoqaHanSansNeo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AA2739B31D004149B2 /* SpoqaHanSansNeo-Thin.otf */; };
+		92CD3375273FA2A00094CB1C /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AE2739B31D004149B2 /* SpoqaHanSansNeo-Medium.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -487,16 +492,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92CD3371273FA2A00094CB1C /* SpoqaHanSansNeo-Regular.otf in Resources */,
 				926C7C59273803A10020F851 /* Alarm.storyboard in Resources */,
 				926C7C57273803980020F851 /* Lightning.storyboard in Resources */,
+				92CD3372273FA2A00094CB1C /* SpoqaHanSansNeo-Bold.otf in Resources */,
 				926C7C262737F93F0020F851 /* LaunchScreen.storyboard in Resources */,
 				926C7C232737F93F0020F851 /* Assets.xcassets in Resources */,
 				926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */,
+				92CD3373273FA2A00094CB1C /* SpoqaHanSansNeo-Light.otf in Resources */,
+				92CD3375273FA2A00094CB1C /* SpoqaHanSansNeo-Medium.otf in Resources */,
 				92CBCE70273B12EC00A3F36D /* CompleteCVC.xib in Resources */,
 				926C7C47273802460020F851 /* Chat.storyboard in Resources */,
 				92CBCE7A273B233F00A3F36D /* AlarmTVC.xib in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
 				92CBCE74273B132600A3F36D /* ProceedCVC.xib in Resources */,
+				92CD3374273FA2A00094CB1C /* SpoqaHanSansNeo-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
