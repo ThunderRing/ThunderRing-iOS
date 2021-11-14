@@ -88,18 +88,18 @@ extension NSMutableAttributedString {
         let attrs = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: fontSize)]
         self.append(NSMutableAttributedString(string: text, attributes: attrs))
         return self
-      }
+    }
+    
     func regular(string: String, fontSize: CGFloat) -> NSMutableAttributedString {
-            let font = UIFont.systemFont(ofSize: fontSize)
-            let attributes: [NSAttributedString.Key: Any] = [.font: font]
-            self.append(NSAttributedString(string: string, attributes: attributes))
-            return self
-        }
-      
+        let font = UIFont.systemFont(ofSize: fontSize)
+        let attributes: [NSAttributedString.Key: Any] = [.font: font]
+        self.append(NSAttributedString(string: string, attributes: attributes))
+        return self
+    }
+    
 }
 
 extension MainVC: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
