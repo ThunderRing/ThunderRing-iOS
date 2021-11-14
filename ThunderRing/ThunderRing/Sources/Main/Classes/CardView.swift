@@ -7,7 +7,8 @@
 
 import UIKit
 
-@IBDesignable class CardView: UIView {
+@IBDesignable
+class CardView: UIView {
 
     @IBInspectable var cornerradius: CGFloat = 7
     @IBInspectable var cardviewColor: UIColor = UIColor.purple

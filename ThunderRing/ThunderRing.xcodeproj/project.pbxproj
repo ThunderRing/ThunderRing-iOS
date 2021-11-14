@@ -279,7 +279,6 @@
 		926C7C4B273802E10020F851 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				92B619CB273EE74C00BE31D1 /* Models */,
 				92CBCE60273B11C500A3F36D /* Cells */,
 				92CBCE5F273B11BF00A3F36D /* VCs */,
 			);
@@ -383,13 +382,6 @@
 				92A5B2AA2739B31D004149B2 /* SpoqaHanSansNeo-Thin.otf */,
 			);
 			path = SpoqaHanSansNeo;
-			sourceTree = "<group>";
-		};
-		92B619CB273EE74C00BE31D1 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		92B619CC273EEF2E00BE31D1 /* VCs */ = {
