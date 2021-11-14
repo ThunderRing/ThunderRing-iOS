@@ -8,15 +8,21 @@
 import UIKit
 
 extension UIFont {
-    public enum SpoqaHanSansNeoType: String {
+    class func SpoqaHanSansNeo(type: SpoqaHanSansNeoType, size: CGFloat) -> UIFont {
+        guard let font = UIFont(name: type.name, size: size) else { return UIFont.init() }
+        
+        return font
+    }
+
+    enum SpoqaHanSansNeoType: String {
         case bold = "Bold"
         case light = "Light"
         case medium = "Medium"
         case regular = "Regular"
-        case thin = "Thin"
-    }
-    
-    static func SpoqaHanSansNeo(_ type: SpoqaHanSansNeoType, size: CGFloat) -> UIFont {
-        return UIFont(name: "SpoqaHanSansNeo-\(type.rawValue)", size: size)!
+        case semiBold = "semiBold"
+        
+        var name: String {
+            return "SpoqaHanSansNeo-" + self.rawValue
+        }
     }
 }
