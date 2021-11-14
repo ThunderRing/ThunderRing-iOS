@@ -12,7 +12,7 @@ extension Const {
         struct Name {
             static let Main = "Main"
             static let Chat = "Chat"
-            static let Thunder = "Thunder"
+            static let Lightning = "Lightning"
             static let Alarm = "Alarm"
             static let MyPage = "MyPage"
         }

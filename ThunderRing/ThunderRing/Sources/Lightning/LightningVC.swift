@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ThunderVC: UIViewController {
+class LightningVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
