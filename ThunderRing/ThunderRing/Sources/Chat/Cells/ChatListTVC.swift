@@ -29,23 +29,10 @@ class ChatListTVC: UITableViewCell {
         $0.layer.masksToBounds = true
     }
     
-    private var emptyView = UIView().then {
-        $0.frame = CGRect(x: 0, y: 0, width: 10, height: 12)
-    }
-    
     private var hashTagLabel = UILabel().then {
         $0.text = "양파링 걸즈"
         $0.textColor = .purple
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
-//        $0.layer.borderWidth = 1
-//        $0.layer.borderColor = UIColor.purple.cgColor
-    }
-    
-    private var labelStackView = UIStackView().then {
-        $0.alignment = .fill
-        $0.axis = .horizontal
-        $0.distribution = .fillEqually
-        $0.spacing = 1
     }
     
     private var titleLabel = UILabel().then {
@@ -91,6 +78,7 @@ class ChatListTVC: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
 
 }
 
@@ -99,11 +87,7 @@ class ChatListTVC: UITableViewCell {
 extension ChatListTVC {
     private func setLayout() {
         contentView.addSubview(backView)
-        backView.addSubviews([chatImageView, labelStackView, titleLabel, subTitleLabel, countLabel, timeLabel])
-        
-        labelStackView.addArrangedSubview(emptyView)
-        labelStackView.addArrangedSubview(hashTagLabel)
-        labelStackView.addArrangedSubview(emptyView)
+        backView.addSubviews([chatImageView, hashTagLabel, titleLabel, subTitleLabel, countLabel, timeLabel])
         
         backView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(25)
@@ -116,14 +100,14 @@ extension ChatListTVC {
             $0.width.height.equalTo(56)
         }
         
-        labelStackView.snp.makeConstraints {
+        hashTagLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(83)
             $0.top.equalToSuperview().inset(16)
         }
         
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(83)
-            $0.top.equalTo(labelStackView.snp.bottom).offset(5)
+            $0.top.equalTo(hashTagLabel.snp.bottom).offset(5)
         }
         
         subTitleLabel.snp.makeConstraints {
