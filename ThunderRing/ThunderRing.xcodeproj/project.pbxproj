@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D45CB3B27400F70005726FF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45CB3A27400F70005726FF /* CardView.swift */; };
 		1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */; };
+		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
 		926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C192737F93E0020F851 /* AppDelegate.swift */; };
 		926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1B2737F93E0020F851 /* SceneDelegate.swift */; };
 		926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1D2737F93E0020F851 /* MainVC.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		1D45CB3A27400F70005726FF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupTVC.swift; sourceTree = "<group>"; };
+		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		926C7C162737F93E0020F851 /* ThunderRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C7C192737F93E0020F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926C7C1B2737F93E0020F851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		925BAC312742B75B00126166 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C222737F93F0020F851 /* Assets.xcassets */,
+				925BAC322742B77E00126166 /* Images.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		926C7C0D2737F93E0020F851 = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +178,7 @@
 		926C7C2D2737F9C80020F851 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				926C7C222737F93F0020F851 /* Assets.xcassets */,
+				925BAC312742B75B00126166 /* Assets */,
 				92A5B2A82739B24F004149B2 /* Fonts */,
 				926C7C312737F9F40020F851 /* Storyboards */,
 			);
@@ -507,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92CD3371273FA2A00094CB1C /* SpoqaHanSansNeo-Regular.otf in Resources */,
+				925BAC332742B77E00126166 /* Images.xcassets in Resources */,
 				926C7C59273803A10020F851 /* Alarm.storyboard in Resources */,
 				926C7C57273803980020F851 /* Lightning.storyboard in Resources */,
 				92CD3372273FA2A00094CB1C /* SpoqaHanSansNeo-Bold.otf in Resources */,

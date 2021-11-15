@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class ChatListTVC: UITableViewCell {
     static let identifier = "ChatListTVC"
 
@@ -16,34 +19,44 @@ class ChatListTVC: UITableViewCell {
         $0.backgroundColor = .white
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.lightGray.cgColor
+        $0.layer.cornerRadius = 10
+        $0.layer.masksToBounds = true
+    }
+    
+    private var chatImageView = UIImageView().then {
+        $0.image = UIImage(named: "image1")
+        $0.layer.cornerRadius = $0.frame.width / 2
+        $0.layer.masksToBounds = true
     }
     
     private var hashTagLabel = UILabel().then {
-        $0.text = " 양파링 걸즈 "
-        $0.textColor = .black
+        $0.text = "양파링 걸즈"
+        $0.textColor = .purple
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.purple.cgColor
     }
     
     private var titleLabel = UILabel().then {
-        $0.text = "모각공 할 사람"
+        $0.text = "혜화역 혼가츠 먹어요!"
         $0.textColor = .black
+        $0.font = .SpoqaHanSansNeo(type: .bold, size: 16)
     }
     
     private var subTitleLabel = UILabel().then {
         $0.text = "채팅을 먼저 시작해보세요.."
         $0.textColor = .darkGray
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
     }
     
     private var countLabel = UILabel().then {
-        $0.text = "0"
+        $0.text = "8"
         $0.textColor = .lightGray
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
     private var timeLabel = UILabel().then {
         $0.text = "시간 전"
         $0.textColor = .lightGray
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
     // MARK: - Properties
@@ -65,17 +78,26 @@ class ChatListTVC: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
 
 }
 
+// MARK: - Custom Methods
+
 extension ChatListTVC {
-    func setLayout() {
+    private func setLayout() {
         contentView.addSubview(backView)
-        backView.addSubviews([hashTagLabel, titleLabel, subTitleLabel, countLabel, timeLabel])
+        backView.addSubviews([chatImageView, hashTagLabel, titleLabel, subTitleLabel, countLabel, timeLabel])
         
         backView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.top.bottom.equalToSuperview().inset(7)
+        }
+        
+        chatImageView.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(16)
+            $0.centerY.equalToSuperview()
+            $0.width.height.equalTo(56)
         }
         
         hashTagLabel.snp.makeConstraints {
@@ -104,3 +126,4 @@ extension ChatListTVC {
         }
     }
 }
+
