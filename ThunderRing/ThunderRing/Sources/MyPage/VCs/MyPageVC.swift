@@ -49,7 +49,7 @@ extension MyPageVC {
     func initUI() {
         profileBackView.layer.cornerRadius = profileBackView.frame.width / 2
         profileBackView.layer.masksToBounds = true
-        profileBackView.layer.borderColor = UIColor.purple.cgColor
+        profileBackView.layer.borderColor = UIColor.purple100.cgColor
         profileBackView.layer.borderWidth = 1
         
         userNameLabel.text = "양파링"

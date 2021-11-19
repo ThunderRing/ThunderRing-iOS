@@ -52,7 +52,7 @@ extension AlarmVC {
         completeLabel.text = "완료"
         completeLabel.textColor = .gray
         
-        statusMovedView.backgroundColor = .purple
+        statusMovedView.backgroundColor = .purple100
     }
     
     private func setCollectionView() {

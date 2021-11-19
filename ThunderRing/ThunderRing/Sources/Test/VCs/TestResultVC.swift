@@ -28,7 +28,7 @@ class TestResultVC: UIViewController {
     }
     private lazy var resultLabel = UILabel().then {
         $0.text = "부지런한 동틀녁"
-        $0.textColor = .purple
+        $0.textColor = .purple100
         $0.font = .SpoqaHanSansNeo(type: .bold, size: 22)
     }
     
@@ -37,7 +37,7 @@ class TestResultVC: UIViewController {
     }
     
     private lazy var hashTagLabel = UILabel().then {
-        $0.textColor = .purple
+        $0.textColor = .purple100
         $0.font = .SpoqaHanSansNeo(type: .bold, size: 16)
     }
     
@@ -63,12 +63,12 @@ class TestResultVC: UIViewController {
     }
     private lazy var kakaoShareButton = UIButton().then {
         $0.setTitle("카카오", for: .normal)
-        $0.setTitleColor(.purple, for: .normal)
+        $0.setTitleColor(.purple100, for: .normal)
         $0.setImage(UIImage(named: "kakao"), for: .normal)
     }
     private lazy var faceBookShareButton = UIButton().then {
         $0.setTitle("페이스북", for: .normal)
-        $0.setTitleColor(.purple, for: .normal)
+        $0.setTitleColor(.purple100, for: .normal)
         $0.setImage(UIImage(named: "faceBook"), for: .normal)
     }
     
@@ -82,7 +82,7 @@ class TestResultVC: UIViewController {
         $0.setTitle("공개그룹 탐색", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 16)
-        $0.backgroundColor = .purple
+        $0.backgroundColor = .purple100
         $0.layer.cornerRadius = 16
         $0.layer.masksToBounds = true
     }

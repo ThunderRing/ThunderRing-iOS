@@ -25,7 +25,7 @@ class FirstTestVC: UIViewController {
     }
     
     private var progressView = UIProgressView().then {
-        $0.progressTintColor = .purple
+        $0.progressTintColor = .purple100
         $0.progress = 0
     }
     

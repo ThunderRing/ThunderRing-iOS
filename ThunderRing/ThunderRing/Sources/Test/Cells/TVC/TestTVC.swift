@@ -36,7 +36,7 @@ class TestTVC: UITableViewCell {
         
         if selected {
             contentView.layer.borderWidth = 2
-            contentView.layer.borderColor = UIColor.purple.cgColor
+            contentView.layer.borderColor = UIColor.purple100.cgColor
             
             contentView.backgroundColor = .systemGray6
             contentView.layer.cornerRadius = 10
