@@ -10,6 +10,10 @@
 		1D45CB3B27400F70005726FF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45CB3A27400F70005726FF /* CardView.swift */; };
 		1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */; };
 		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
+		925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */; };
+		925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC392742C5D400126166 /* PublicGroupDataModel.swift */; };
+		925BAC462742C76F00126166 /* PrivateListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC452742C76F00126166 /* PrivateListTVC.swift */; };
+		925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC472742C77C00126166 /* PublicListTVC.swift */; };
 		926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C192737F93E0020F851 /* AppDelegate.swift */; };
 		926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1B2737F93E0020F851 /* SceneDelegate.swift */; };
 		926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1D2737F93E0020F851 /* MainVC.swift */; };
@@ -62,6 +66,10 @@
 		1D45CB3A27400F70005726FF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupTVC.swift; sourceTree = "<group>"; };
 		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupDataModel.swift; sourceTree = "<group>"; };
+		925BAC392742C5D400126166 /* PublicGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupDataModel.swift; sourceTree = "<group>"; };
+		925BAC452742C76F00126166 /* PrivateListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateListTVC.swift; sourceTree = "<group>"; };
+		925BAC472742C77C00126166 /* PublicListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicListTVC.swift; sourceTree = "<group>"; };
 		926C7C162737F93E0020F851 /* ThunderRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C7C192737F93E0020F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926C7C1B2737F93E0020F851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +154,32 @@
 				925BAC322742B77E00126166 /* Images.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		925BAC342742C58B00126166 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */,
+				925BAC392742C5D400126166 /* PublicGroupDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		925BAC352742C59200126166 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C4D273802F80020F851 /* LightningVC.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		925BAC3B2742C6D000126166 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				925BAC452742C76F00126166 /* PrivateListTVC.swift */,
+				925BAC472742C77C00126166 /* PublicListTVC.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		926C7C0D2737F93E0020F851 = {
@@ -282,7 +316,9 @@
 		926C7C4A273802D30020F851 /* Lightning */ = {
 			isa = PBXGroup;
 			children = (
-				926C7C4D273802F80020F851 /* LightningVC.swift */,
+				925BAC3B2742C6D000126166 /* Cells */,
+				925BAC352742C59200126166 /* VCs */,
+				925BAC342742C58B00126166 /* Models */,
 			);
 			path = Lightning;
 			sourceTree = "<group>";
@@ -543,6 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				925BAC462742C76F00126166 /* PrivateListTVC.swift in Sources */,
 				92A5B295273983F0004149B2 /* ViewController.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
@@ -550,10 +587,12 @@
 				92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */,
 				926C7C50273803020020F851 /* AlarmVC.swift in Sources */,
 				92A5B2A52739AA95004149B2 /* InfoTVC.swift in Sources */,
+				925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */,
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
 				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
 				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
+				925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */,
 				926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */,
 				926C7C4E273802F80020F851 /* LightningVC.swift in Sources */,
 				92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */,
@@ -562,6 +601,7 @@
 				1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
 				1D45CB3B27400F70005726FF /* CardView.swift in Sources */,
+				925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */,
