@@ -10,6 +10,7 @@ import UIKit
 class LightningVC: UIViewController {
     
     // MARK: - UI
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     

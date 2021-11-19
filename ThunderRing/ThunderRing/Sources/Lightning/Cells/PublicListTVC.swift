@@ -37,6 +37,9 @@ class PublicListTVC: UITableViewCell {
         $0.textColor = .black
         $0.backgroundColor = .systemGray5
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+        $0.layer.cornerRadius = 3
+        $0.layer.masksToBounds = true
+        $0.textAlignment = .center
     }
 
     // MARK: - Life Cycle
@@ -68,17 +71,17 @@ extension PublicListTVC {
         
         groupNameLabel.snp.makeConstraints {
             $0.leading.equalTo(groupImageView.snp.trailing).offset(12)
-            $0.centerY.equalToSuperview()
+            $0.top.equalToSuperview().inset(24)
         }
         
         countLabel.snp.makeConstraints {
             $0.leading.equalTo(groupNameLabel.snp.trailing).offset(8)
-            $0.centerY.equalToSuperview()
+            $0.top.equalToSuperview().inset(24)
         }
         
         hashTagLabel.snp.makeConstraints {
-            $0.top.equalTo(countLabel.snp.top).offset(7)
-            $0.leading.equalTo(groupNameLabel.snp.leading)
+            $0.leading.equalTo(groupImageView.snp.trailing).offset(12)
+            $0.top.equalTo(countLabel.snp.bottom).offset(7)
         }
     }
 }
@@ -94,8 +97,13 @@ extension PublicListTVC {
         countLabel.text = "\(count)"
         
         if hashTag == "감성적인 새벽녁" {
+            hashTagLabel.text = "# \(hashTag)"
             hashTagLabel.textColor = .white
             hashTagLabel.backgroundColor = .purple
+            hashTagLabel.snp.makeConstraints {
+                $0.width.equalTo(111)
+                $0.height.equalTo(21)
+            }
         }
     }
 }
