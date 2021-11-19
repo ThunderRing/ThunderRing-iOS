@@ -30,8 +30,8 @@ extension UIViewController {
         }
     }
     
-    func setNavigationBar(customNavigationBarView: UIView, title: String, backBtnIsHidden: Bool) {
-        let navigationBar = CustomNavigationBar(vc: self, title: title, backBtnIsHidden: backBtnIsHidden)
+    func setNavigationBar(customNavigationBarView: UIView, title: String, backBtnIsHidden: Bool, closeBtnIsHidden: Bool) {
+        let navigationBar = CustomNavigationBar(vc: self, title: title, backBtnIsHidden: backBtnIsHidden, closeBtnIsHidden: closeBtnIsHidden)
         
         customNavigationBarView.addSubview(navigationBar)
         navigationBar.translatesAutoresizingMaskIntoConstraints = false

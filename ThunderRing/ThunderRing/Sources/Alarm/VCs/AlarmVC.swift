@@ -30,7 +30,7 @@ class AlarmVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "알림", backBtnIsHidden: true)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "알림", backBtnIsHidden: true, closeBtnIsHidden: true)
     }
     
     override func viewDidLoad() {
@@ -52,7 +52,7 @@ extension AlarmVC {
         completeLabel.text = "완료"
         completeLabel.textColor = .gray
         
-        statusMovedView.backgroundColor = .purple
+        statusMovedView.backgroundColor = .purple100
     }
     
     private func setCollectionView() {

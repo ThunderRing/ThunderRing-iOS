@@ -86,7 +86,7 @@ extension LightningVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = .black
+        view.tintColor = .white
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = .black
         header.textLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 18)

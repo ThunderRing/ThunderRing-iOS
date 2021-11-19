@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1D45CB3B27400F70005726FF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45CB3A27400F70005726FF /* CardView.swift */; };
 		1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */; };
+		9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212663E2747BB2B009DE534 /* TestDataModel.swift */; };
+		921266422747BC54009DE534 /* TestTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266412747BC54009DE534 /* TestTVC.swift */; };
+		921266442747C83B009DE534 /* FirstTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266432747C83B009DE534 /* FirstTestVC.swift */; };
+		9212667A2748055A009DE534 /* TestResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266792748055A009DE534 /* TestResultVC.swift */; };
+		9212667C2748167D009DE534 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212667B2748167D009DE534 /* UIColor+.swift */; };
 		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
 		925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */; };
 		925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC392742C5D400126166 /* PublicGroupDataModel.swift */; };
@@ -65,6 +70,11 @@
 /* Begin PBXFileReference section */
 		1D45CB3A27400F70005726FF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupTVC.swift; sourceTree = "<group>"; };
+		9212663E2747BB2B009DE534 /* TestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataModel.swift; sourceTree = "<group>"; };
+		921266412747BC54009DE534 /* TestTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTVC.swift; sourceTree = "<group>"; };
+		921266432747C83B009DE534 /* FirstTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTestVC.swift; sourceTree = "<group>"; };
+		921266792748055A009DE534 /* TestResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultVC.swift; sourceTree = "<group>"; };
+		9212667B2748167D009DE534 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupDataModel.swift; sourceTree = "<group>"; };
 		925BAC392742C5D400126166 /* PublicGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupDataModel.swift; sourceTree = "<group>"; };
@@ -147,6 +157,49 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		921266392747AB72009DE534 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				921266402747BC3C009DE534 /* Cells */,
+				9212663D2747BB1F009DE534 /* Models */,
+				9212663C2747BB1B009DE534 /* VCs */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		9212663C2747BB1B009DE534 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				921266432747C83B009DE534 /* FirstTestVC.swift */,
+				921266792748055A009DE534 /* TestResultVC.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		9212663D2747BB1F009DE534 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9212663E2747BB2B009DE534 /* TestDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		921266402747BC3C009DE534 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				921266482747C959009DE534 /* TVC */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		921266482747C959009DE534 /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				921266412747BC54009DE534 /* TestTVC.swift */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
 		925BAC312742B75B00126166 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +277,7 @@
 			children = (
 				926C7C5C2738043D0020F851 /* TabBarController.swift */,
 				926C7C61273805B70020F851 /* NavigationController.swift */,
+				921266392747AB72009DE534 /* Test */,
 				926C7C4C273802E80020F851 /* MyPage */,
 				926C7C4B273802E10020F851 /* Alarm */,
 				926C7C4A273802D30020F851 /* Lightning */,
@@ -301,6 +355,7 @@
 				92A5B29627398835004149B2 /* UITabBar+.swift */,
 				92A5B29B27399997004149B2 /* UIViewController+.swift */,
 				92A5B2AF2739B3B1004149B2 /* UIFont+.swift */,
+				9212667B2748167D009DE534 /* UIColor+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -589,9 +644,11 @@
 				92A5B2A52739AA95004149B2 /* InfoTVC.swift in Sources */,
 				925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */,
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
+				921266422747BC54009DE534 /* TestTVC.swift in Sources */,
 				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
 				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
+				9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */,
 				925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */,
 				926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */,
 				926C7C4E273802F80020F851 /* LightningVC.swift in Sources */,
@@ -600,11 +657,14 @@
 				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
 				1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
+				9212667C2748167D009DE534 /* UIColor+.swift in Sources */,
+				921266442747C83B009DE534 /* FirstTestVC.swift in Sources */,
 				1D45CB3B27400F70005726FF /* CardView.swift in Sources */,
 				925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */,
+				9212667A2748055A009DE534 /* TestResultVC.swift in Sources */,
 				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
 				92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */,
 				92CBCE73273B132600A3F36D /* ProceedCVC.swift in Sources */,

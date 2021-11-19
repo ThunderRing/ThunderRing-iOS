@@ -32,7 +32,7 @@ class MyPageVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "마이페이지", backBtnIsHidden: true)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true)
     }
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ extension MyPageVC {
     func initUI() {
         profileBackView.layer.cornerRadius = profileBackView.frame.width / 2
         profileBackView.layer.masksToBounds = true
-        profileBackView.layer.borderColor = UIColor.purple.cgColor
+        profileBackView.layer.borderColor = UIColor.purple100.cgColor
         profileBackView.layer.borderWidth = 1
         
         userNameLabel.text = "양파링"
