@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Test, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Test)
         
-        window?.rootViewController = FirstTestVC()
+        window?.rootViewController = TestResultVC()
         
         window?.makeKeyAndVisible()
     }
