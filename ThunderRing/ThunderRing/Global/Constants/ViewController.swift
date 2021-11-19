@@ -19,6 +19,8 @@ extension Const {
                 static let Lightning = "LightningVC"
                 static let Alarm = "AlarmVC"
                 static let MyPage = "MyPageVC"
+                
+                static let FirstTest = "FirstTestVC"
             }
     }
 }

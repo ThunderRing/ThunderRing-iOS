@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class TestVC: UIViewController {
+class FirstTestVC: UIViewController {
     
     // MARK: - UI
     
@@ -54,7 +54,7 @@ class TestVC: UIViewController {
     }
 }
 
-extension TestVC {
+extension FirstTestVC {
     private func initUI() {
         view.backgroundColor = .white
         
@@ -117,7 +117,7 @@ extension TestVC {
 
 // MARK: - TableView Delegate
 
-extension TestVC: UITableViewDelegate {
+extension FirstTestVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 92
     }
@@ -142,7 +142,7 @@ extension TestVC: UITableViewDelegate {
 
 // MARK: - TableView DataSource
 
-extension TestVC: UITableViewDataSource {
+extension FirstTestVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return testAnswers.count
     }
