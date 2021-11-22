@@ -99,7 +99,7 @@ extension PublicListTVC {
         if hashTag == "감성적인 새벽녁" {
             hashTagLabel.text = "# \(hashTag)"
             hashTagLabel.textColor = .white
-            hashTagLabel.backgroundColor = .purple
+            hashTagLabel.backgroundColor = .purple100
             hashTagLabel.snp.makeConstraints {
                 $0.width.equalTo(111)
                 $0.height.equalTo(21)

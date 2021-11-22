@@ -24,6 +24,12 @@ class LightningVC: UIViewController {
 
     // MARK: - Life Cycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -102,6 +108,18 @@ extension LightningVC: UITableViewDelegate {
             return 0
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLightningTitleVC") as? SetLightningTitleVC else { return }
+        
+        if indexPath.section == 0 {
+            dvc.groupName = privateGroup[indexPath.row].groupName
+        } else {
+            dvc.groupName = publicGroup[indexPath.row].groupName
+        }
+        
+        self.navigationController?.pushViewController(dvc, animated: true)
+    }
 }
 
 extension LightningVC: UITableViewDataSource {
@@ -122,10 +140,12 @@ extension LightningVC: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTVC.identifier) as? PrivateListTVC else { return UITableViewCell() }
             cell.initCell(groupImage: privateGroup[indexPath.row].groupImage, groupName: privateGroup[indexPath.row].groupName, count: privateGroup[indexPath.row].memberCounts)
+            cell.selectionStyle = .none
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PublicListTVC.identifier) as? PublicListTVC else { return UITableViewCell() }
             cell.initCell(groupImage: publicGroup[indexPath.row].groupImage, groupName: publicGroup[indexPath.row].groupName, count: publicGroup[indexPath.row].memberCounts, hashTag: publicGroup[indexPath.row].hashTag)
+            cell.selectionStyle = .none
             return cell
         default:
             return UITableViewCell()

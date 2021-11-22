@@ -94,6 +94,11 @@ class CustomNavigationBar: UIView {
             vc.navigationController?.popViewController(animated: true)
         }
         backButton.addAction(backAction, for: .touchUpInside)
+        
+        let closeAction = UIAction { _ in
+            vc.dismiss(animated: true, completion: nil)
+        }
+        closeButton.addAction(closeAction, for: .touchUpInside)
     }
     
     private func initBackButton(backBtnIsHidden: Bool) {

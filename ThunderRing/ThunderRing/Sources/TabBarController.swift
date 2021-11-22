@@ -30,7 +30,7 @@ class TabBarController: UITabBarController {
         chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(systemName: "dialog"), selectedImage: UIImage(systemName: "dialog.fill"))
         
         let lightningStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Lightning, bundle: nil)
-        let lightningTab = lightningStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Lightning)
+        let lightningTab = lightningStoryboard.instantiateViewController(identifier: Const.ViewController.Name.ModalNavigation)
         lightningTab.tabBarItem = UITabBarItem(title: "번개", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         
         let alarmStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Alarm, bundle: nil)
@@ -50,8 +50,8 @@ class TabBarController: UITabBarController {
 
 extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if viewController is LightningVC {
-            let dvc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Lightning)
+        if viewController is ModalNavigationController {
+            let dvc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.ModalNavigation)
             dvc.modalPresentationStyle = .fullScreen
             tabBarController.present(dvc, animated: true)
             return false
