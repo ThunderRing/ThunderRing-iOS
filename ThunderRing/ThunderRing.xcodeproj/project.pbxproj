@@ -19,6 +19,8 @@
 		925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC392742C5D400126166 /* PublicGroupDataModel.swift */; };
 		925BAC462742C76F00126166 /* PrivateListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC452742C76F00126166 /* PrivateListTVC.swift */; };
 		925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC472742C77C00126166 /* PublicListTVC.swift */; };
+		92609ACB274BB7E800F0E401 /* SetLightningTitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */; };
+		92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */; };
 		926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C192737F93E0020F851 /* AppDelegate.swift */; };
 		926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1B2737F93E0020F851 /* SceneDelegate.swift */; };
 		926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1D2737F93E0020F851 /* MainVC.swift */; };
@@ -65,6 +67,8 @@
 		92CD3373273FA2A00094CB1C /* SpoqaHanSansNeo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AB2739B31D004149B2 /* SpoqaHanSansNeo-Light.otf */; };
 		92CD3374273FA2A00094CB1C /* SpoqaHanSansNeo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AA2739B31D004149B2 /* SpoqaHanSansNeo-Thin.otf */; };
 		92CD3375273FA2A00094CB1C /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AE2739B31D004149B2 /* SpoqaHanSansNeo-Medium.otf */; };
+		92DD9FBA274BFF170045C8C7 /* SelectDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD9FB9274BFF170045C8C7 /* SelectDateVC.swift */; };
+		92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +84,8 @@
 		925BAC392742C5D400126166 /* PublicGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupDataModel.swift; sourceTree = "<group>"; };
 		925BAC452742C76F00126166 /* PrivateListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateListTVC.swift; sourceTree = "<group>"; };
 		925BAC472742C77C00126166 /* PublicListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicListTVC.swift; sourceTree = "<group>"; };
+		92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLightningTitleVC.swift; sourceTree = "<group>"; };
+		92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLigntningDetailVC.swift; sourceTree = "<group>"; };
 		926C7C162737F93E0020F851 /* ThunderRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C7C192737F93E0020F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926C7C1B2737F93E0020F851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +131,8 @@
 		92CBCE72273B132600A3F36D /* ProceedCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProceedCVC.xib; sourceTree = "<group>"; };
 		92CBCE77273B233F00A3F36D /* AlarmTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTVC.swift; sourceTree = "<group>"; };
 		92CBCE78273B233F00A3F36D /* AlarmTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmTVC.xib; sourceTree = "<group>"; };
+		92DD9FB9274BFF170045C8C7 /* SelectDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateVC.swift; sourceTree = "<group>"; };
+		92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +230,9 @@
 			isa = PBXGroup;
 			children = (
 				926C7C4D273802F80020F851 /* LightningVC.swift */,
+				92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */,
+				92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */,
+				92DD9FB9274BFF170045C8C7 /* SelectDateVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -277,6 +288,7 @@
 			children = (
 				926C7C5C2738043D0020F851 /* TabBarController.swift */,
 				926C7C61273805B70020F851 /* NavigationController.swift */,
+				92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */,
 				921266392747AB72009DE534 /* Test */,
 				926C7C4C273802E80020F851 /* MyPage */,
 				926C7C4B273802E10020F851 /* Alarm */,
@@ -636,6 +648,7 @@
 			files = (
 				925BAC462742C76F00126166 /* PrivateListTVC.swift in Sources */,
 				92A5B295273983F0004149B2 /* ViewController.swift in Sources */,
+				92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
 				926C7C62273805B70020F851 /* NavigationController.swift in Sources */,
@@ -648,6 +661,7 @@
 				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
 				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
+				92609ACB274BB7E800F0E401 /* SetLightningTitleVC.swift in Sources */,
 				9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */,
 				925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */,
 				926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */,
@@ -655,6 +669,7 @@
 				92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */,
 				92CBCE79273B233F00A3F36D /* AlarmTVC.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
+				92DD9FBA274BFF170045C8C7 /* SelectDateVC.swift in Sources */,
 				1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
 				9212667C2748167D009DE534 /* UIColor+.swift in Sources */,
@@ -671,6 +686,7 @@
 				92A5B2A32739AA83004149B2 /* QuestionTVC.swift in Sources */,
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
 				92A5B2A12739AA49004149B2 /* AccountTVC.swift in Sources */,
+				92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */,
 				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,
 				92A5B29727398835004149B2 /* UITabBar+.swift in Sources */,
 			);

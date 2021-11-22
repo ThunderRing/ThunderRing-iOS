@@ -12,6 +12,7 @@ extension Const {
             struct Name {
                 static let TabBar = "TabBarController"
                 static let Navigation = "NavigationController"
+                static let ModalNavigation = "ModalNavigationController"
                 
                 static let Main = "MainVC"
                 static let ChatList = "ChatListVC"

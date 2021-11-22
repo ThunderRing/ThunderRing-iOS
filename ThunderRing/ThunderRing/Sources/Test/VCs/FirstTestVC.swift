@@ -68,7 +68,7 @@ extension FirstTestVC {
         
         customNavigationBarView.snp.makeConstraints {
             $0.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(66)
+            $0.height.equalTo(57)
         }
         
         progressLabel.snp.makeConstraints {
