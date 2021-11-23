@@ -11,7 +11,7 @@ import UIKit
 class CardView: UIView {
 
     @IBInspectable var cornerradius: CGFloat = 7
-    @IBInspectable var cardviewColor: UIColor = UIColor.purple
+    @IBInspectable var cardviewColor: UIColor = UIColor.systemIndigo
 
     override func layoutSubviews() {
         layer.cornerRadius = cornerradius

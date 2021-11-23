@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1D45CB3B27400F70005726FF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45CB3A27400F70005726FF /* CardView.swift */; };
+		1DD056C1274AA82800A7D093 /* PrivateGroupCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD056C0274AA82800A7D093 /* PrivateGroupCVC.swift */; };
 		1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */; };
+		1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFC0BBF274C080300C5001D /* PublicGroupCVC.swift */; };
+		1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */; };
 		9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212663E2747BB2B009DE534 /* TestDataModel.swift */; };
 		921266422747BC54009DE534 /* TestTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266412747BC54009DE534 /* TestTVC.swift */; };
 		921266442747C83B009DE534 /* FirstTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266432747C83B009DE534 /* FirstTestVC.swift */; };
@@ -73,7 +76,10 @@
 
 /* Begin PBXFileReference section */
 		1D45CB3A27400F70005726FF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1DD056C0274AA82800A7D093 /* PrivateGroupCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupCVC.swift; sourceTree = "<group>"; };
 		1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupTVC.swift; sourceTree = "<group>"; };
+		1DFC0BBF274C080300C5001D /* PublicGroupCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupCVC.swift; sourceTree = "<group>"; };
+		1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicGroupCVC.xib; sourceTree = "<group>"; };
 		9212663E2747BB2B009DE534 /* TestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataModel.swift; sourceTree = "<group>"; };
 		921266412747BC54009DE534 /* TestTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTVC.swift; sourceTree = "<group>"; };
 		921266432747C83B009DE534 /* FirstTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTestVC.swift; sourceTree = "<group>"; };
@@ -160,9 +166,28 @@
 		1DEAB5FA27405A5100074B72 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */,
+				1DFC0BBC274C05D200C5001D /* TVC */,
+				1DFC0BBB274C05C700C5001D /* CVC */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		1DFC0BBB274C05C700C5001D /* CVC */ = {
+			isa = PBXGroup;
+			children = (
+				1DD056C0274AA82800A7D093 /* PrivateGroupCVC.swift */,
+				1DFC0BBF274C080300C5001D /* PublicGroupCVC.swift */,
+				1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */,
+			);
+			path = CVC;
+			sourceTree = "<group>";
+		};
+		1DFC0BBC274C05D200C5001D /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */,
+			);
+			path = TVC;
 			sourceTree = "<group>";
 		};
 		921266392747AB72009DE534 /* Test */ = {
@@ -632,6 +657,7 @@
 				92CD3375273FA2A00094CB1C /* SpoqaHanSansNeo-Medium.otf in Resources */,
 				92CBCE70273B12EC00A3F36D /* CompleteCVC.xib in Resources */,
 				926C7C47273802460020F851 /* Chat.storyboard in Resources */,
+				1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */,
 				92CBCE7A273B233F00A3F36D /* AlarmTVC.xib in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
 				92CBCE74273B132600A3F36D /* ProceedCVC.xib in Resources */,
@@ -651,6 +677,7 @@
 				92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
+				1DD056C1274AA82800A7D093 /* PrivateGroupCVC.swift in Sources */,
 				926C7C62273805B70020F851 /* NavigationController.swift in Sources */,
 				92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */,
 				926C7C50273803020020F851 /* AlarmVC.swift in Sources */,
@@ -680,6 +707,7 @@
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */,
 				9212667A2748055A009DE534 /* TestResultVC.swift in Sources */,
+				1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */,
 				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
 				92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */,
 				92CBCE73273B132600A3F36D /* ProceedCVC.swift in Sources */,
