@@ -46,7 +46,6 @@
 		926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C5A273803AA0020F851 /* MyPage.storyboard */; };
 		926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C5C2738043D0020F851 /* TabBarController.swift */; };
 		926C7C62273805B70020F851 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C61273805B70020F851 /* NavigationController.swift */; };
-		92800AD1274CAFFE00CA3E7E /* SendLightning.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92800AD0274CAFFE00CA3E7E /* SendLightning.xcassets */; };
 		92800AD3274CB3E200CA3E7E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92800AD2274CB3E200CA3E7E /* Colors.xcassets */; };
 		92A5B29127398366004149B2 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29027398366004149B2 /* Storyboard.swift */; };
 		92A5B29327398378004149B2 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29227398378004149B2 /* Const.swift */; };
@@ -74,6 +73,8 @@
 		92CD3375273FA2A00094CB1C /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AE2739B31D004149B2 /* SpoqaHanSansNeo-Medium.otf */; };
 		92DD9FBA274BFF170045C8C7 /* SelectDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD9FB9274BFF170045C8C7 /* SelectDateVC.swift */; };
 		92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */; };
+		92FFBBA7274CDE5500706099 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FFBBA6274CDE5500706099 /* Icons.xcassets */; };
+		92FFBBA9274CDE7E00706099 /* Buttons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FFBBA8274CDE7E00706099 /* Buttons.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,7 +116,6 @@
 		926C7C5A273803AA0020F851 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		926C7C5C2738043D0020F851 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		926C7C61273805B70020F851 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		92800AD0274CAFFE00CA3E7E /* SendLightning.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SendLightning.xcassets; sourceTree = "<group>"; };
 		92800AD2274CB3E200CA3E7E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		92A5B29027398366004149B2 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		92A5B29227398378004149B2 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -143,6 +143,8 @@
 		92CBCE78273B233F00A3F36D /* AlarmTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmTVC.xib; sourceTree = "<group>"; };
 		92DD9FB9274BFF170045C8C7 /* SelectDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateVC.swift; sourceTree = "<group>"; };
 		92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationController.swift; sourceTree = "<group>"; };
+		92FFBBA6274CDE5500706099 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		92FFBBA8274CDE7E00706099 /* Buttons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Buttons.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,7 +245,8 @@
 				926C7C222737F93F0020F851 /* Assets.xcassets */,
 				92800AD2274CB3E200CA3E7E /* Colors.xcassets */,
 				925BAC322742B77E00126166 /* Images.xcassets */,
-				92800AD0274CAFFE00CA3E7E /* SendLightning.xcassets */,
+				92FFBBA6274CDE5500706099 /* Icons.xcassets */,
+				92FFBBA8274CDE7E00706099 /* Buttons.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -654,10 +657,10 @@
 				92CD3371273FA2A00094CB1C /* SpoqaHanSansNeo-Regular.otf in Resources */,
 				925BAC332742B77E00126166 /* Images.xcassets in Resources */,
 				926C7C59273803A10020F851 /* Alarm.storyboard in Resources */,
+				92FFBBA9274CDE7E00706099 /* Buttons.xcassets in Resources */,
 				926C7C57273803980020F851 /* Lightning.storyboard in Resources */,
 				92CD3372273FA2A00094CB1C /* SpoqaHanSansNeo-Bold.otf in Resources */,
 				926C7C262737F93F0020F851 /* LaunchScreen.storyboard in Resources */,
-				92800AD1274CAFFE00CA3E7E /* SendLightning.xcassets in Resources */,
 				926C7C232737F93F0020F851 /* Assets.xcassets in Resources */,
 				926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */,
 				92CD3373273FA2A00094CB1C /* SpoqaHanSansNeo-Light.otf in Resources */,
@@ -665,6 +668,7 @@
 				92CBCE70273B12EC00A3F36D /* CompleteCVC.xib in Resources */,
 				92800AD3274CB3E200CA3E7E /* Colors.xcassets in Resources */,
 				926C7C47273802460020F851 /* Chat.storyboard in Resources */,
+				92FFBBA7274CDE5500706099 /* Icons.xcassets in Resources */,
 				1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */,
 				92CBCE7A273B233F00A3F36D /* AlarmTVC.xib in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
