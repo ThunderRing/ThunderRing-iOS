@@ -38,7 +38,7 @@ class MainVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "ThunderRing", backBtnIsHidden: true)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "ThunderRing", backBtnIsHidden: true, closeBtnIsHidden: true)
     }
     
     override func viewDidLoad() {

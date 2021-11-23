@@ -20,7 +20,7 @@ class CustomNavigationBar: UIView {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         return label
     }()
     
@@ -30,9 +30,15 @@ class CustomNavigationBar: UIView {
 //        return view
 //    }()
     
+    let closeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        return button
+    }()
+    
     // MARK: - Methods
     
-    init(vc: UIViewController, title: String, backBtnIsHidden: Bool) {
+    init(vc: UIViewController, title: String, backBtnIsHidden: Bool, closeBtnIsHidden: Bool) {
         super.init(frame: .zero)
         
         initUI()
@@ -40,6 +46,7 @@ class CustomNavigationBar: UIView {
         initAction(vc: vc)
         initTitle(title: title)
         initBackButton(backBtnIsHidden: backBtnIsHidden)
+        initCloseButton(closeBtnIsHidden: closeBtnIsHidden)
     }
     
     required init?(coder: NSCoder) {
@@ -54,10 +61,12 @@ class CustomNavigationBar: UIView {
         addSubview(backButton)
         addSubview(titleLabel)
 //        addSubview(separatorView)
+        addSubview(closeButton)
         
         backButton.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
 //        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             backButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -70,6 +79,9 @@ class CustomNavigationBar: UIView {
 //            separatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 //            separatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
 //            separatorView.heightAnchor.constraint(equalToConstant: 0.5)
+            
+            closeButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
         ])
     }
     
@@ -82,13 +94,22 @@ class CustomNavigationBar: UIView {
             vc.navigationController?.popViewController(animated: true)
         }
         backButton.addAction(backAction, for: .touchUpInside)
-    }
-    
-    func setTitle(title: String) {
-        titleLabel.text = title
+        
+        let closeAction = UIAction { _ in
+            vc.dismiss(animated: true, completion: nil)
+        }
+        closeButton.addAction(closeAction, for: .touchUpInside)
     }
     
     private func initBackButton(backBtnIsHidden: Bool) {
         backButton.isHidden = backBtnIsHidden
+    }
+    
+    private func initCloseButton(closeBtnIsHidden: Bool) {
+        closeButton.isHidden = closeBtnIsHidden
+    }
+    
+    func setTitle(title: String) {
+        titleLabel.text = title
     }
 }
