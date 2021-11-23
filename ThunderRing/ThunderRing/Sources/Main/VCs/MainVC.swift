@@ -20,9 +20,10 @@ class MainVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var privateGroupCountLabel: UILabel!
-    @IBOutlet weak var privateGroupTableView: UITableView!
+    @IBOutlet weak var privateGroupCollectionView: UICollectionView!
     
     @IBOutlet weak var publicGroupCountLabel: UILabel!
+    @IBOutlet weak var publicGroupCollectionView: UICollectionView!
     
     // MARK: - Properties
     
@@ -37,15 +38,14 @@ class MainVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "ThundeRing", backBtnIsHidden: true)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "ThunderRing", backBtnIsHidden: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initUI()
-        setTableView()
-        
+        setCollectionView()
     }
     
 }
@@ -71,16 +71,26 @@ extension MainVC {
 
     }
     
-    func setTableView() {
-        privateGroupTableView.delegate = self
-        privateGroupTableView.dataSource = self
-
-        privateGroupTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        privateGroupTableView.separatorColor = .gray
-
-        privateGroupTableView.register(PrivateGroupTVC.self, forCellReuseIdentifier: PrivateGroupTVC.identifier)
+    func setCollectionView() {
+        
+        let publicGroupCollectionViewlayout = publicGroupCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        publicGroupCollectionViewlayout?.scrollDirection = .horizontal
+        publicGroupCollectionViewlayout?.estimatedItemSize = .zero
+        
+        publicGroupCollectionView.showsHorizontalScrollIndicator = false
+        publicGroupCollectionView.showsVerticalScrollIndicator = false
+        
+        publicGroupCollectionView.delegate = self
+        publicGroupCollectionView.dataSource = self
+        
+        let publicGroupNib = UINib(nibName: PublicGroupCVC.identifier, bundle: nil)
+        publicGroupCollectionView.register(publicGroupNib, forCellWithReuseIdentifier: PublicGroupCVC.identifier)
+        
+        privateGroupCollectionView.delegate = self
+        privateGroupCollectionView.dataSource = self
 
     }
+
 }
 
 extension NSMutableAttributedString {
@@ -99,13 +109,49 @@ extension NSMutableAttributedString {
     
 }
 
-extension MainVC: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if collectionView == privateGroupCollectionView {
+            
+            return 2
+        } else if collectionView == publicGroupCollectionView {
+            
+            return 4
+        } else {
+            
+            return 1
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        return UITableViewCell()
+        if collectionView == privateGroupCollectionView {
+            
+            let privateGroupCell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as! PrivateGroupCVC
+            privateGroupCell.layer.borderWidth = 1
+            privateGroupCell.layer.cornerRadius = 5
+            privateGroupCell.layer.borderColor = UIColor.gray.cgColor
+            
+            return privateGroupCell
+            
+        } else if collectionView == publicGroupCollectionView {
+            
+            let publicGroupCell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as! PublicGroupCVC
+            
+            return publicGroupCell
+            
+        } else {
+            
+            let publicGroupCell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as! PublicGroupCVC
+            
+            return publicGroupCell
+        
+        }
+        
     }
+    
 }
+
+

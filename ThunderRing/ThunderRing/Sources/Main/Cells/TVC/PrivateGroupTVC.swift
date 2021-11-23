@@ -13,9 +13,19 @@ class PrivateGroupTVC: UITableViewCell {
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupExplainLabel: UILabel!
-    
     @IBOutlet weak var entryButton: UIButton!
     @IBOutlet weak var thunderButton: UIButton!
+    
+    // MARK: - Life Cycle
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+    }
+    
+    required init?(coder aDecorder: NSCoder) {
+        super.init(coder: aDecorder)
+    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -24,5 +34,4 @@ class PrivateGroupTVC: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
 }
