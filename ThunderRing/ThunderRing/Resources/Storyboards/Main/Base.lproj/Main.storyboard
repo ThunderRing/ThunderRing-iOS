@@ -303,7 +303,7 @@
                                     <constraint firstItem="wma-AJ-5HF" firstAttribute="leading" secondItem="a5i-9o-V0d" secondAttribute="leading" id="QwA-Ks-M1K"/>
                                     <constraint firstItem="wma-AJ-5HF" firstAttribute="width" secondItem="PiS-IZ-4Bm" secondAttribute="width" id="SOW-Em-Wlv"/>
                                     <constraint firstAttribute="height" constant="628" id="VKK-Vf-24H"/>
-                                    <constraint firstAttribute="bottom" secondItem="wma-AJ-5HF" secondAttribute="bottom" constant="-572" id="kcj-J4-80N"/>
+                                    <constraint firstAttribute="bottom" secondItem="wma-AJ-5HF" secondAttribute="bottom" id="kcj-J4-80N"/>
                                     <constraint firstItem="wma-AJ-5HF" firstAttribute="top" secondItem="a5i-9o-V0d" secondAttribute="top" id="qux-JA-AOg"/>
                                     <constraint firstItem="a5i-9o-V0d" firstAttribute="trailing" secondItem="wma-AJ-5HF" secondAttribute="trailing" id="zoY-HO-SHC"/>
                                 </constraints>
