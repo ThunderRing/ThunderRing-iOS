@@ -13,7 +13,7 @@ class CustomNavigationBar: UIView {
     
     let backButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        button.setImage(UIImage(named: "icnBack"), for: .normal)
         return button
     }()
     
@@ -32,7 +32,7 @@ class CustomNavigationBar: UIView {
     
     let closeButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.setImage(UIImage(named: "icnClose"), for: .normal)
         return button
     }()
     
@@ -70,7 +70,7 @@ class CustomNavigationBar: UIView {
         
         NSLayoutConstraint.activate([
             backButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
+            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 7),
             
             titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -81,7 +81,7 @@ class CustomNavigationBar: UIView {
 //            separatorView.heightAnchor.constraint(equalToConstant: 0.5)
             
             closeButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
+            closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -9),
         ])
     }
     
