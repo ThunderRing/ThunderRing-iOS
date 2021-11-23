@@ -20,26 +20,28 @@ class TabBarController: UITabBarController {
     // MARK: - Custom Methods
     
     private func setTabBar() {
+        UITabBar.appearance().tintColor = .lightGray
+        
         let mainStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Main, bundle: nil)
         let mainTab = mainStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-        mainTab.tabBarItem = UITabBarItem(title: "메인", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        mainTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
         
         
         let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
         let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-        chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(systemName: "dialog"), selectedImage: UIImage(systemName: "dialog.fill"))
+        chatTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "chatIn"), selectedImage: UIImage(named: "chat"))
         
         let lightningStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Lightning, bundle: nil)
         let lightningTab = lightningStoryboard.instantiateViewController(identifier: Const.ViewController.Name.ModalNavigation)
-        lightningTab.tabBarItem = UITabBarItem(title: "번개", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        lightningTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "thunder"), selectedImage: UIImage(named: "thunder"))
         
         let alarmStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Alarm, bundle: nil)
         let alarmTab = alarmStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-        alarmTab.tabBarItem = UITabBarItem(title: "알림", image: UIImage(systemName: "alarm"), selectedImage: UIImage(systemName: "alarm.fill"))
+        alarmTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "alarmIn"), selectedImage: UIImage(named: "alarm"))
         
         let myStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.MyPage, bundle: nil)
         let myTab = myStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-        myTab.tabBarItem = UITabBarItem(title: "마이페이지", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
+        myTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "mypageIn"), selectedImage: UIImage(named: "mypage"))
         
         let tabs =  [mainTab, chatTab, lightningTab, alarmTab, myTab]
         
