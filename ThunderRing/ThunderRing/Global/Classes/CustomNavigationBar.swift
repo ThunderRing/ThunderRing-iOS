@@ -19,8 +19,8 @@ class CustomNavigationBar: UIView {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
-        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .gray100
+        label.font = .SpoqaHanSansNeo(type: .medium, size: 18)
         return label
     }()
     

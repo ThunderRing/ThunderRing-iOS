@@ -47,6 +47,8 @@ class MyPageVC: UIViewController {
 
 extension MyPageVC {
     func initUI() {
+        customNavigationBarView.layer.applyShadow()
+        
         profileBackView.initViewBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: profileBackView.frame.width / 2, bounds: true)
         userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 5, bounds: true)
     }
