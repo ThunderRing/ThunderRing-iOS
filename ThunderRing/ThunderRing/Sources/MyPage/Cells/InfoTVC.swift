@@ -14,13 +14,15 @@ class InfoTVC: UITableViewCell {
     
     private var label = UILabel().then {
         $0.text = "서비스 관련 법률 및 개인정보"
-        $0.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
     }
 
     // MARK: - Life Cycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .grayBackground
         
         setLayout()
     }
@@ -40,7 +42,8 @@ extension InfoTVC {
         self.addSubviews([label])
         
         label.snp.makeConstraints {
-            $0.leading.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(15)
+            $0.centerY.equalToSuperview()
         }
     }
 }

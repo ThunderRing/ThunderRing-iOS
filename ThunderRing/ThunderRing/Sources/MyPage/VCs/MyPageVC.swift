@@ -47,19 +47,8 @@ class MyPageVC: UIViewController {
 
 extension MyPageVC {
     func initUI() {
-        profileBackView.layer.cornerRadius = profileBackView.frame.width / 2
-        profileBackView.layer.masksToBounds = true
-        profileBackView.layer.borderColor = UIColor.purple100.cgColor
-        profileBackView.layer.borderWidth = 1
-        
-        userNameLabel.text = "양파링"
-        userNameLabel.textColor = .black
-//        userNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        
-        userInfoView.layer.cornerRadius = 5
-        userInfoView.layer.masksToBounds = true
-        userInfoView.layer.borderColor = UIColor.gray.cgColor
-        userInfoView.layer.borderWidth = 1
+        profileBackView.initViewBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: profileBackView.frame.width / 2, bounds: true)
+        userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 5, bounds: true)
     }
     
     func setTableView() {
@@ -68,6 +57,7 @@ extension MyPageVC {
         
         myPageTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         myPageTableView.separatorColor = .gray
+        myPageTableView.backgroundColor = .grayBackground
         
         myPageTableView.register(MyPageAlarmTVC.self, forCellReuseIdentifier: MyPageAlarmTVC.identifier)
         myPageTableView.register(AccountTVC.self, forCellReuseIdentifier: AccountTVC.identifier)
