@@ -17,10 +17,7 @@ class PublicListTVC: UITableViewCell {
     
     private var groupImageView = UIImageView().then {
         $0.image = UIImage(named: "image1")
-        $0.layer.cornerRadius = $0.frame.width / 2
-        $0.layer.masksToBounds = false
-        $0.layer.borderColor = UIColor.lightGray.cgColor
-        $0.layer.borderWidth = 1
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: $0.frame.width / 2, bounds: true)
     }
     
     private var groupNameLabel = UILabel().then {
@@ -40,6 +37,10 @@ class PublicListTVC: UITableViewCell {
         $0.layer.cornerRadius = 3
         $0.layer.masksToBounds = true
         $0.textAlignment = .center
+    }
+    
+    private var hashTagImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
     }
 
     // MARK: - Life Cycle
@@ -62,7 +63,7 @@ class PublicListTVC: UITableViewCell {
 
 extension PublicListTVC {
     private func setLayout() {
-        self.addSubviews([groupImageView, groupNameLabel, countLabel, hashTagLabel])
+        self.addSubviews([groupImageView, groupNameLabel, countLabel, hashTagImageView])
         
         groupImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(25)
@@ -79,7 +80,7 @@ extension PublicListTVC {
             $0.top.equalToSuperview().inset(24)
         }
         
-        hashTagLabel.snp.makeConstraints {
+        hashTagImageView.snp.makeConstraints {
             $0.leading.equalTo(groupImageView.snp.trailing).offset(12)
             $0.top.equalTo(countLabel.snp.bottom).offset(7)
         }
@@ -96,14 +97,19 @@ extension PublicListTVC {
         
         countLabel.text = "\(count)"
         
-        if hashTag == "감성적인 새벽녁" {
-            hashTagLabel.text = "# \(hashTag)"
-            hashTagLabel.textColor = .white
-            hashTagLabel.backgroundColor = .purple100
-            hashTagLabel.snp.makeConstraints {
-                $0.width.equalTo(111)
-                $0.height.equalTo(21)
-            }
+        switch hashTag {
+        case "부지런한 동틀녘":
+            hashTagImageView.image = UIImage(named: "tagDiligent")
+        case "북적이는 오후":
+            hashTagImageView.image = UIImage(named: "tagCrowd")
+        case "감성적인 새벽녁]녘":
+            hashTagImageView.image = UIImage(named: "tagEmotion")
+        case "사근한 오전":
+            hashTagImageView.image = UIImage(named: "tagSoft")
+        case "포근한 해질녘":
+            hashTagImageView.image = UIImage(named: "tagCozy")
+        default:
+            return
         }
     }
 }

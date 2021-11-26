@@ -118,7 +118,7 @@ class TestResultVC: UIViewController {
 
 extension TestResultVC {
     private func initUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .grayBackground
         descriptionLabel.text = "\(resultDescription)"
     }
     

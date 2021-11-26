@@ -19,8 +19,8 @@ class CustomNavigationBar: UIView {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
-        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.textColor = .gray100
+        label.font = .SpoqaHanSansNeo(type: .medium, size: 18)
         return label
     }()
     
@@ -38,10 +38,10 @@ class CustomNavigationBar: UIView {
     
     // MARK: - Methods
     
-    init(vc: UIViewController, title: String, backBtnIsHidden: Bool, closeBtnIsHidden: Bool) {
+    init(vc: UIViewController, title: String, backBtnIsHidden: Bool, closeBtnIsHidden: Bool, bgColor: UIColor) {
         super.init(frame: .zero)
         
-        initUI()
+        initUI(bgColor: bgColor)
         initLayout()
         initAction(vc: vc)
         initTitle(title: title)
@@ -53,8 +53,8 @@ class CustomNavigationBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func initUI() {
-        self.backgroundColor = UIColor.white
+    private func initUI(bgColor: UIColor) {
+        self.backgroundColor = bgColor
     }
     
     private func initLayout() {
@@ -107,9 +107,5 @@ class CustomNavigationBar: UIView {
     
     private func initCloseButton(closeBtnIsHidden: Bool) {
         closeButton.isHidden = closeBtnIsHidden
-    }
-    
-    func setTitle(title: String) {
-        titleLabel.text = title
     }
 }

@@ -17,10 +17,7 @@ class PrivateListTVC: UITableViewCell {
     
     private lazy var groupImageView = UIImageView().then {
         $0.image = UIImage(named: "image1")
-        $0.layer.cornerRadius = $0.frame.width / 2
-        $0.layer.masksToBounds = true
-        $0.layer.borderColor = UIColor.lightGray.cgColor
-        $0.layer.borderWidth = 1
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: $0.frame.width / 2, bounds: true)
     }
     
     private lazy var groupNameLabel = UILabel().then {
@@ -53,11 +50,16 @@ class PrivateListTVC: UITableViewCell {
 }
 
 extension PrivateListTVC {
+    private func initUI() {
+        
+    }
+    
     private func setLayout() {
         self.addSubviews([groupImageView, groupNameLabel, countLabel])
         
         groupImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(30)
+            $0.width.height.equalTo(75)
             $0.centerY.equalToSuperview()
         }
         
