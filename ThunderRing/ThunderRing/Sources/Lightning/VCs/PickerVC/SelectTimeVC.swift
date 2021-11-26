@@ -1,17 +1,14 @@
 //
-//  SelectDateVC.swift
+//  SelectTimeVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/11/23.
+//  Created by soyeon on 2021/11/27.
 //
 
 import UIKit
 
-import SnapKit
-import Then
+class SelectTimeVC: UIViewController {
 
-class SelectDateVC: UIViewController {
-    
     // MARK: - UI
     
     private lazy var backView = UIView().then {
@@ -28,13 +25,11 @@ class SelectDateVC: UIViewController {
         $0.titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 15)
     }
     
-    private lazy var datePicker = UIDatePicker().then {
+    private lazy var timePicker = UIDatePicker().then {
         $0.preferredDatePickerStyle = .wheels
-        $0.datePickerMode = .date
+        $0.datePickerMode = .time
         $0.locale = Locale(identifier: "ko")
     }
-    
-    // MARK: - Properties
     
     // MARK: - Life Cycle
     
@@ -48,14 +43,14 @@ class SelectDateVC: UIViewController {
     
 }
 
-extension SelectDateVC {
+extension SelectTimeVC {
     private func initUI() {
         view.backgroundColor = UIColor(red: 0.0 / 255.0 , green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.5)
     }
     
     private func setLayout() {
         view.addSubviews([backView])
-        backView.addSubviews([topView, completeButton, datePicker])
+        backView.addSubviews([topView, completeButton, timePicker])
         
         backView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
@@ -72,7 +67,7 @@ extension SelectDateVC {
             $0.trailing.equalToSuperview().inset(25)
         }
         
-        datePicker.snp.makeConstraints {
+        timePicker.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
             $0.top.equalTo(topView.snp.bottom)
         }
@@ -80,7 +75,7 @@ extension SelectDateVC {
     
     private func setAction() {
         completeButton.addAction(UIAction(handler: { _ in
-            NotificationCenter.default.post(name: NSNotification.Name("SelectedDate"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name("SelectedTime"), object: self.timePicker.date)
             self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
     }
