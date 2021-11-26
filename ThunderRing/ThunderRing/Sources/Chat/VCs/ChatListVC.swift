@@ -10,13 +10,9 @@ import UIKit
 class ChatListVC: UIViewController {
 
     // MARK: - UI
-    
+    @IBOutlet weak var customNavigationBarView: UIView!
     @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var lineView: UIView!
-    
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subTitleLabel: UILabel!
-    
     @IBOutlet weak var chatListTableView: UITableView!
     
     // MARK: - Life Cycle
@@ -26,6 +22,7 @@ class ChatListVC: UIViewController {
         
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "채팅", backBtnIsHidden: true, closeBtnIsHidden: true)
     }
     
     override func viewDidLoad() {
@@ -40,15 +37,7 @@ class ChatListVC: UIViewController {
 
 extension ChatListVC {
     private func initUI() {
-        lineView.backgroundColor = .lightGray
-        
-        titleLabel.text = "채팅"
-        titleLabel.textColor = .black
-        titleLabel.font = .SpoqaHanSansNeo(type: .bold, size: 24)
-        
-        subTitleLabel.text = "24시간이 지난 후 채팅방은 사라집니다"
-        subTitleLabel.textColor = .lightGray
-        subTitleLabel.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+        topView.layer.applyShadow()
     }
     
     private func setTableView() {
@@ -57,6 +46,7 @@ extension ChatListVC {
         
         chatListTableView.separatorStyle = .none
         chatListTableView.contentInset = UIEdgeInsets(top: 18, left: 0, bottom: 0, right: 0)
+        chatListTableView.backgroundColor = .grayBackground
         
         chatListTableView.register(ChatListTVC.self, forCellReuseIdentifier: ChatListTVC.identifier)
     }
