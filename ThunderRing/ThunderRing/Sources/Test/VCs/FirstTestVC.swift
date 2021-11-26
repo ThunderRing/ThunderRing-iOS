@@ -41,7 +41,7 @@ class FirstTestVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "테스트 질문", backBtnIsHidden: true, closeBtnIsHidden: false)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "테스트 질문", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .white)
     }
 
     override func viewDidLoad() {

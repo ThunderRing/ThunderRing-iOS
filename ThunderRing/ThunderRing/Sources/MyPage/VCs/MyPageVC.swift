@@ -32,7 +32,7 @@ class MyPageVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
     }
     
     override func viewDidLoad() {

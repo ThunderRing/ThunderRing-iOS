@@ -17,21 +17,17 @@ class ChatListTVC: UITableViewCell {
     
     private var backView = UIView().then {
         $0.backgroundColor = .white
-        $0.layer.borderWidth = 1
-        $0.layer.borderColor = UIColor.lightGray.cgColor
-        $0.layer.cornerRadius = 10
-        $0.layer.masksToBounds = true
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 10, bounds: true)
     }
     
     private var chatImageView = UIImageView().then {
         $0.image = UIImage(named: "image1")
-        $0.layer.cornerRadius = $0.frame.width / 2
-        $0.layer.masksToBounds = true
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: $0.frame.width / 2, bounds: true)
     }
     
     private var hashTagLabel = UILabel().then {
         $0.text = "양파링 걸즈"
-        $0.textColor = .purple
+        $0.textColor = .purple100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
@@ -43,7 +39,7 @@ class ChatListTVC: UITableViewCell {
     
     private var subTitleLabel = UILabel().then {
         $0.text = "채팅을 먼저 시작해보세요.."
-        $0.textColor = .darkGray
+        $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
     }
     
@@ -67,6 +63,7 @@ class ChatListTVC: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .grayBackground
         
         setLayout()
     }

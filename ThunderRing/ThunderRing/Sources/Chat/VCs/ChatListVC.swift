@@ -22,7 +22,7 @@ class ChatListVC: UIViewController {
         
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "채팅", backBtnIsHidden: true, closeBtnIsHidden: true)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "채팅", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
     }
     
     override func viewDidLoad() {
