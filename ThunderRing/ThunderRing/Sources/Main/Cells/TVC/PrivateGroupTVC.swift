@@ -33,5 +33,16 @@ class PrivateGroupTVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        initUI()
+    }
+}
+
+extension PrivateGroupTVC {
+    private func initUI() {
+    
+        groupImageView.layer.cornerRadius = groupImageView.bounds.width / 2
+        groupImageView.layer.borderWidth = 1
+        groupImageView.layer.borderColor = UIColor.grayStroke.cgColor
     }
 }

@@ -3,6 +3,7 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,8 +28,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6b-zv-QNm" userLabel="Back View">
                         <rect key="frame" x="0.0" y="0.0" width="156" height="261"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.2.wave.2.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WHb-V6-Sb9">
-                                <rect key="frame" x="39.000000000000007" y="14.333333333333336" width="80.666666666666671" height="77.333333333333329"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="WHb-V6-Sb9">
+                                <rect key="frame" x="39" y="15" width="78" height="78"/>
                                 <color key="tintColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="78" id="AWj-sY-X89"/>
@@ -41,21 +42,18 @@
                                     <constraint firstAttribute="height" constant="23" id="8MW-0k-QUX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="18"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="gray100"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Si5-2K-iHu">
                                 <rect key="frame" x="35" y="195" width="87" height="48"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Qvw-m5-WH6"/>
                                     <constraint firstAttribute="width" constant="87" id="xmR-Py-GHm"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="번개">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="plain" image="btnLightning"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Hashtag" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyq-R6-w4U">
                                 <rect key="frame" x="47.333333333333343" y="166" width="61.666666666666657" height="21"/>
@@ -70,8 +68,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="8x0-rd-Sn8">
                                 <rect key="frame" x="56" y="137" width="44.333333333333343" height="15"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XDq-Oz-d9e">
-                                        <rect key="frame" x="0.0" y="1.6666666666666661" width="15" height="12.333333333333334"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icnUser" translatesAutoresizingMaskIntoConstraints="NO" id="XDq-Oz-d9e">
+                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="Awa-l9-Pjo"/>
@@ -135,8 +133,12 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="person" catalog="system" width="128" height="117"/>
-        <image name="person.2.wave.2.fill" catalog="system" width="128" height="84"/>
+        <image name="btnLightning" width="87" height="48"/>
+        <image name="icnUser" width="15" height="15"/>
+        <image name="image1" width="54" height="54"/>
+        <namedColor name="gray100">
+            <color red="0.31000000238418579" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
