@@ -9,7 +9,7 @@ import UIKit
 
 class SetLightningTitleVC: UIViewController {
 
-    // MARK: - IB Outlets
+    // MARK: - UI
     
     @IBOutlet weak var customNavigationBarView: UIView!
     
@@ -35,7 +35,8 @@ class SetLightningTitleVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .grayBackground)
+        setStatusBar(.grayBackground)
     }
     
     override func viewDidLoad() {
@@ -52,31 +53,19 @@ class SetLightningTitleVC: UIViewController {
 extension SetLightningTitleVC {
     private func initUI() {
         groupSelectView.layer.backgroundColor = UIColor.white.cgColor
-        groupSelectView.layer.borderWidth = 1
-        groupSelectView.layer.borderColor = UIColor.lightGray.cgColor
-        groupSelectView.layer.cornerRadius = 12
-        groupSelectView.layer.masksToBounds = true
+        groupSelectView.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
         
         groupNameLabel.text = groupName
         
         nameTextField.delegate = self
-        nameTextField.layer.borderWidth = 1
-        nameTextField.layer.borderColor = UIColor.lightGray.cgColor
-        nameTextField.layer.cornerRadius = 12
-        nameTextField.layer.masksToBounds = true
+        nameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
         nameTextField.setLeftPaddingPoints(15)
         
         detailTextView.delegate = self
-        detailTextView.layer.borderWidth = 1
-        detailTextView.layer.borderColor = UIColor.lightGray.cgColor
-        detailTextView.layer.cornerRadius = 12
-        detailTextView.layer.masksToBounds = true
-        detailTextView.textContainer.lineFragmentPadding = 18
+        detailTextView.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
+        detailTextView.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         
-        nextButton.backgroundColor = .lightGray
-        nextButton.setTitleColor(.gray, for: .normal)
-        nextButton.layer.cornerRadius = 12
-        nextButton.layer.masksToBounds = true
+        nextButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 27, bounds: true)
         nextButton.isEnabled = false
     }
     
@@ -95,6 +84,7 @@ extension SetLightningTitleVC {
     private func getAction() {
         nextButton.addAction(UIAction(handler: { _ in
             guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLigntningDetailVC") as? SetLigntningDetailVC else { return }
+            self.nextButton.titleLabel?.textColor = .white
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
     }
@@ -131,24 +121,20 @@ extension SetLightningTitleVC {
 extension SetLightningTitleVC: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.becomeFirstResponder()
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.purple100.cgColor
-        textField.layer.cornerRadius = 12
+        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
         
         nameCountLabel.textColor = .purple100
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.cornerRadius = 12
+        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
         
         nameCountLabel.textColor = .black
         
         if nameTextField.hasText {
             nextButton.isEnabled = true
             nextButton.backgroundColor = .purple100
-            nextButton.setTitleColor(.white, for: .normal)
+            nextButton.titleLabel?.textColor = .white
         }
     }
     
@@ -173,7 +159,7 @@ extension SetLightningTitleVC: UITextViewDelegate {
             detailTextView.text = ""
         } else {
             detailTextView.textColor = .black
-            detailTextView.layer.borderColor = UIColor.purple100.cgColor
+            detailTextView.layer.borderColor = UIColor.grayStroke.cgColor
         }
     }
     

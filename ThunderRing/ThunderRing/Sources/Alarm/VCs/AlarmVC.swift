@@ -23,6 +23,8 @@ class AlarmVC: UIViewController {
     // MARK: - Properties
     
     private var currentIndex = 0
+    private var proceedAlarms = [AlarmDataModel]()
+    private var completeAlarms = [AlarmDataModel]()
     
     // MARK: - Life Cycle
     
@@ -30,31 +32,21 @@ class AlarmVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "알림", backBtnIsHidden: true, closeBtnIsHidden: true)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "알림", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initUI()
         setCollectionView()
         setTextLabelGesture()
+        setData()
     }
 }
 
 // MARK: - Custom Methods
 
 extension AlarmVC {
-    private func initUI() {
-        proceedLabel.text = "진행 중"
-        proceedLabel.textColor = .black
-        
-        completeLabel.text = "완료"
-        completeLabel.textColor = .gray
-        
-        statusMovedView.backgroundColor = .purple100
-    }
-    
     private func setCollectionView() {
         let alarmCollectionViewlayout = alarmCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         alarmCollectionViewlayout?.scrollDirection = .horizontal
@@ -62,6 +54,7 @@ extension AlarmVC {
         
         alarmCollectionView.showsHorizontalScrollIndicator = false
         alarmCollectionView.showsVerticalScrollIndicator = false
+        alarmCollectionView.backgroundColor = .grayBackground
         
         alarmCollectionView.delegate = self
         alarmCollectionView.dataSource = self
@@ -82,6 +75,18 @@ extension AlarmVC {
         completeLabel.addGestureRecognizer(tapCompleteLabelGesture)
         completeLabel.isUserInteractionEnabled = true
     }
+    
+    private func setData() {
+        proceedAlarms.append(contentsOf: [
+            AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, title: "스벅가서 모각공", description: "채팅방에 먼저 참가해보세요", time: "1시간 전", hashTag: ""),
+            AlarmDataModel(isThunder: true, isLightning: false, isFailed: false, title: "혜화역 혼카츠 먹자", description: "오후 6:00 | 혜화역 1번 출구", time: "30분 전", hashTag: "양파링걸즈")
+        ])
+        
+        completeAlarms.append(contentsOf: [
+            AlarmDataModel(isThunder: true, isLightning: false, isFailed: false, title: "[실패] 방탈출 하실 분", description: "번개가 취소되었습니다", time: "3일 전", hashTag: ""),
+            AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, title: "스벅가서 모각공", description: "채팅방에 먼저 참가해보세요", time: "1시간 전", hashTag: "")
+        ])
+    }
 }
 
 // MARK: - @objc
@@ -97,7 +102,7 @@ extension AlarmVC {
             }
             currentIndex = 0
             self.proceedLabel.textColor = .black
-            self.completeLabel.textColor = .gray
+            self.completeLabel.textColor = .grayTextNonInput
         }
     }
     
@@ -110,7 +115,7 @@ extension AlarmVC {
                 self.statusMovedView.transform = CGAffineTransform(translationX: 165, y: 0)
             }
             currentIndex = 1
-            self.proceedLabel.textColor = .gray
+            self.proceedLabel.textColor = .grayTextNonInput
             self.completeLabel.textColor = .black
         }
     }
@@ -171,11 +176,13 @@ extension AlarmVC: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProceedCVC.identifier, for: indexPath) as? ProceedCVC else {
                 return UICollectionViewCell()
             }
+            cell.setCellData(alarms: proceedAlarms)
             return cell
         } else if indexPath.row == 1 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompleteCVC.identifier, for: indexPath) as? CompleteCVC else {
                 return UICollectionViewCell()
             }
+            cell.setCellData(alarms: completeAlarms)
             return cell
         }
         return UICollectionViewCell()

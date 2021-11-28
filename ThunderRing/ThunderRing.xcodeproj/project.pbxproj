@@ -20,6 +20,7 @@
 		921266442747C83B009DE534 /* FirstTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266432747C83B009DE534 /* FirstTestVC.swift */; };
 		9212667A2748055A009DE534 /* TestResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266792748055A009DE534 /* TestResultVC.swift */; };
 		9212667C2748167D009DE534 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212667B2748167D009DE534 /* UIColor+.swift */; };
+		92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92270D732750E1EB00364F3A /* AlarmDataModel.swift */; };
 		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
 		925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */; };
 		925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC392742C5D400126166 /* PublicGroupDataModel.swift */; };
@@ -27,6 +28,7 @@
 		925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC472742C77C00126166 /* PublicListTVC.swift */; };
 		92609ACB274BB7E800F0E401 /* SetLightningTitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */; };
 		92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */; };
+		92687A5727501E5C000D9A5D /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92687A5627501E5C000D9A5D /* CALayer+.swift */; };
 		926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C192737F93E0020F851 /* AppDelegate.swift */; };
 		926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1B2737F93E0020F851 /* SceneDelegate.swift */; };
 		926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1D2737F93E0020F851 /* MainVC.swift */; };
@@ -76,6 +78,8 @@
 		92CD3375273FA2A00094CB1C /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AE2739B31D004149B2 /* SpoqaHanSansNeo-Medium.otf */; };
 		92DD9FBA274BFF170045C8C7 /* SelectDateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD9FB9274BFF170045C8C7 /* SelectDateVC.swift */; };
 		92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */; };
+		92F43A33274E8491006025EC /* CompleteLightningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F43A32274E8491006025EC /* CompleteLightningVC.swift */; };
+		92FDC023275153080080EF20 /* SelectTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FDC022275153080080EF20 /* SelectTimeVC.swift */; };
 		92FFBBA7274CDE5500706099 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FFBBA6274CDE5500706099 /* Icons.xcassets */; };
 		92FFBBA9274CDE7E00706099 /* Buttons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FFBBA8274CDE7E00706099 /* Buttons.xcassets */; };
 /* End PBXBuildFile section */
@@ -94,6 +98,7 @@
 		921266432747C83B009DE534 /* FirstTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTestVC.swift; sourceTree = "<group>"; };
 		921266792748055A009DE534 /* TestResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultVC.swift; sourceTree = "<group>"; };
 		9212667B2748167D009DE534 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		92270D732750E1EB00364F3A /* AlarmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDataModel.swift; sourceTree = "<group>"; };
 		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupDataModel.swift; sourceTree = "<group>"; };
 		925BAC392742C5D400126166 /* PublicGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupDataModel.swift; sourceTree = "<group>"; };
@@ -101,6 +106,7 @@
 		925BAC472742C77C00126166 /* PublicListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicListTVC.swift; sourceTree = "<group>"; };
 		92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLightningTitleVC.swift; sourceTree = "<group>"; };
 		92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLigntningDetailVC.swift; sourceTree = "<group>"; };
+		92687A5627501E5C000D9A5D /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		926C7C162737F93E0020F851 /* ThunderRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C7C192737F93E0020F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926C7C1B2737F93E0020F851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +155,8 @@
 		92CBCE78273B233F00A3F36D /* AlarmTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmTVC.xib; sourceTree = "<group>"; };
 		92DD9FB9274BFF170045C8C7 /* SelectDateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateVC.swift; sourceTree = "<group>"; };
 		92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationController.swift; sourceTree = "<group>"; };
+		92F43A32274E8491006025EC /* CompleteLightningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteLightningVC.swift; sourceTree = "<group>"; };
+		92FDC022275153080080EF20 /* SelectTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeVC.swift; sourceTree = "<group>"; };
 		92FFBBA6274CDE5500706099 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		92FFBBA8274CDE7E00706099 /* Buttons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Buttons.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +255,14 @@
 			path = TVC;
 			sourceTree = "<group>";
 		};
+		92270D722750E17B00364F3A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				92270D732750E1EB00364F3A /* AlarmDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		925BAC312742B75B00126166 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,7 +290,8 @@
 				926C7C4D273802F80020F851 /* LightningVC.swift */,
 				92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */,
 				92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */,
-				92DD9FB9274BFF170045C8C7 /* SelectDateVC.swift */,
+				92F43A32274E8491006025EC /* CompleteLightningVC.swift */,
+				92FDC0242751530F0080EF20 /* PickerVC */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -410,6 +427,7 @@
 				92A5B29B27399997004149B2 /* UIViewController+.swift */,
 				92A5B2AF2739B3B1004149B2 /* UIFont+.swift */,
 				9212667B2748167D009DE534 /* UIColor+.swift */,
+				92687A5627501E5C000D9A5D /* CALayer+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -435,6 +453,7 @@
 		926C7C4B273802E10020F851 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				92270D722750E17B00364F3A /* Models */,
 				92CBCE60273B11C500A3F36D /* Cells */,
 				92CBCE5F273B11BF00A3F36D /* VCs */,
 			);
@@ -595,6 +614,15 @@
 			path = CVC;
 			sourceTree = "<group>";
 		};
+		92FDC0242751530F0080EF20 /* PickerVC */ = {
+			isa = PBXGroup;
+			children = (
+				92DD9FB9274BFF170045C8C7 /* SelectDateVC.swift */,
+				92FDC022275153080080EF20 /* SelectTimeVC.swift */,
+			);
+			path = PickerVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -697,6 +725,7 @@
 				925BAC462742C76F00126166 /* PrivateListTVC.swift in Sources */,
 				92A5B295273983F0004149B2 /* ViewController.swift in Sources */,
 				92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */,
+				92687A5727501E5C000D9A5D /* CALayer+.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
 				1DD056C1274AA82800A7D093 /* PrivateGroupCVC.swift in Sources */,
@@ -732,6 +761,7 @@
 				9212667A2748055A009DE534 /* TestResultVC.swift in Sources */,
 				1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */,
 				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
+				92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */,
 				92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */,
 				92CBCE73273B132600A3F36D /* ProceedCVC.swift in Sources */,
 				92A5B2A32739AA83004149B2 /* QuestionTVC.swift in Sources */,
@@ -740,7 +770,9 @@
 				92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */,
 				1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */,
 				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,
+				92F43A33274E8491006025EC /* CompleteLightningVC.swift in Sources */,
 				92A5B29727398835004149B2 /* UITabBar+.swift in Sources */,
+				92FDC023275153080080EF20 /* SelectTimeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

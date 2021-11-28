@@ -20,12 +20,11 @@ class TabBarController: UITabBarController {
     // MARK: - Custom Methods
     
     private func setTabBar() {
-        UITabBar.appearance().tintColor = .lightGray
+        UITabBar.appearance().tintColor = .gray100
         
         let mainStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Main, bundle: nil)
         let mainTab = mainStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
         mainTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
-        
         
         let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
         let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)

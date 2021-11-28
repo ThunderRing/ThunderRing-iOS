@@ -42,7 +42,8 @@ class LightningVC: UIViewController {
 
 extension LightningVC {
     private func initUI() {
-        titleLabel.text = "번개 치기"
+        titleLabel.text = ""
+        view.backgroundColor = .grayBackground
     }
     
     private func setAction() {
@@ -55,15 +56,14 @@ extension LightningVC {
         privateGroup.append(contentsOf: [
             PrivateGroupDataModel(groupImage: "image1", groupName: "양파링걸즈", memberCounts: 4),
             PrivateGroupDataModel(groupImage: "image1", groupName: "크롱", memberCounts: 30),
-            PrivateGroupDataModel(groupImage: "image1", groupName: "오렌지쥬스", memberCounts: 7),
-            PrivateGroupDataModel(groupImage: "image1", groupName: "마법사쥬쥬", memberCounts: 5)
+            PrivateGroupDataModel(groupImage: "image1", groupName: "오렌지쥬스", memberCounts: 7)
         ])
         
         publicGroup.append(contentsOf: [
             PublicGroupDataModel(groupImage: "image1", groupName: "Rich ball", memberCounts: 3, hashTag: "사근한 오전"),
-            PublicGroupDataModel(groupImage: "image1", groupName: "곰돌아이", memberCounts: 7, hashTag: "감성적인 새벽녁"),
-            PublicGroupDataModel(groupImage: "image1", groupName: "동물의 숲", memberCounts: 3, hashTag: "감성적인 새벽녁"),
-            PublicGroupDataModel(groupImage: "image1", groupName: "이지언니", memberCounts: 3, hashTag: "사근한 오전")
+            PublicGroupDataModel(groupImage: "image1", groupName: "곰돌아이", memberCounts: 7, hashTag: "북적이는 오후"),
+            PublicGroupDataModel(groupImage: "image1", groupName: "동물의 숲", memberCounts: 3, hashTag: "감성적인 새벽녘"),
+            PublicGroupDataModel(groupImage: "image1", groupName: "이지언니", memberCounts: 3, hashTag: "부지런한 동틀녘")
         ])
     }
     
@@ -72,6 +72,7 @@ extension LightningVC {
         groupListTableView.dataSource = self
         
         groupListTableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
+        groupListTableView.backgroundColor = .grayBackground
         
         groupListTableView.register(PrivateListTVC.self, forCellReuseIdentifier: PrivateListTVC.identifier)
         groupListTableView.register(PublicListTVC.self, forCellReuseIdentifier: PublicListTVC.identifier)
@@ -101,7 +102,7 @@ extension LightningVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 80
+            return 147
         case 1:
             return 96
         default:
