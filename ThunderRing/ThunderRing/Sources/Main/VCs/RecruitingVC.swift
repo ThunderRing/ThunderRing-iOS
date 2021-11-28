@@ -19,7 +19,7 @@ class RecruitingVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "모집 중인 번개", backBtnIsHidden: true, closeBtnIsHidden: false)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "모집 중인 번개", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .grayBackground)
     }
     
     override func viewDidLoad() {
