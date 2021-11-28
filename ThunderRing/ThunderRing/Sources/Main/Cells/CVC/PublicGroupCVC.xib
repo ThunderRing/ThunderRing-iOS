@@ -55,16 +55,6 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="btnLightning"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#Hashtag" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyq-R6-w4U">
-                                <rect key="frame" x="47.333333333333343" y="166" width="61.666666666666657" height="21"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="0LM-Ac-Jrc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="8x0-rd-Sn8">
                                 <rect key="frame" x="56" y="137" width="44.333333333333343" height="15"/>
                                 <subviews>
@@ -93,22 +83,29 @@
                                     <constraint firstItem="XDq-Oz-d9e" firstAttribute="top" secondItem="8x0-rd-Sn8" secondAttribute="top" id="yFz-Y3-Jo5"/>
                                 </constraints>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tagCozy" translatesAutoresizingMaskIntoConstraints="NO" id="lUL-no-D5O">
+                                <rect key="frame" x="22" y="166" width="112" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Bnv-BZ-l4h"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8x0-rd-Sn8" firstAttribute="centerX" secondItem="U6b-zv-QNm" secondAttribute="centerX" id="1B7-j7-7L3"/>
+                            <constraint firstItem="lUL-no-D5O" firstAttribute="top" secondItem="8x0-rd-Sn8" secondAttribute="bottom" constant="14" id="2ZW-jN-H9P"/>
                             <constraint firstItem="WHb-V6-Sb9" firstAttribute="leading" secondItem="U6b-zv-QNm" secondAttribute="leading" constant="39" id="B0P-Zz-E0d"/>
                             <constraint firstItem="5OJ-uh-RaK" firstAttribute="leading" secondItem="U6b-zv-QNm" secondAttribute="leading" id="Jeb-yG-NTe"/>
                             <constraint firstAttribute="trailing" secondItem="Si5-2K-iHu" secondAttribute="trailing" constant="34" id="Kar-x9-GDY"/>
                             <constraint firstItem="5OJ-uh-RaK" firstAttribute="top" secondItem="WHb-V6-Sb9" secondAttribute="bottom" constant="14" id="LpH-VS-0dV"/>
                             <constraint firstItem="Si5-2K-iHu" firstAttribute="leading" secondItem="U6b-zv-QNm" secondAttribute="leading" constant="35" id="WmT-t8-hLW"/>
                             <constraint firstItem="WHb-V6-Sb9" firstAttribute="top" secondItem="U6b-zv-QNm" secondAttribute="top" constant="15" id="Zxx-jt-gqt"/>
-                            <constraint firstItem="Oyq-R6-w4U" firstAttribute="centerX" secondItem="U6b-zv-QNm" secondAttribute="centerX" id="eK9-iW-PuP"/>
-                            <constraint firstItem="Si5-2K-iHu" firstAttribute="top" secondItem="Oyq-R6-w4U" secondAttribute="bottom" constant="8" id="eRK-sf-cgb"/>
-                            <constraint firstItem="Oyq-R6-w4U" firstAttribute="top" secondItem="8x0-rd-Sn8" secondAttribute="bottom" constant="14" id="eb2-Lh-crU"/>
+                            <constraint firstItem="Si5-2K-iHu" firstAttribute="top" secondItem="lUL-no-D5O" secondAttribute="bottom" constant="8" id="ck0-Uj-PdU"/>
                             <constraint firstAttribute="trailing" secondItem="WHb-V6-Sb9" secondAttribute="trailing" constant="39" id="iyF-sv-Y0v"/>
                             <constraint firstAttribute="trailing" secondItem="5OJ-uh-RaK" secondAttribute="trailing" id="jHP-4M-D6z"/>
                             <constraint firstItem="8x0-rd-Sn8" firstAttribute="top" secondItem="5OJ-uh-RaK" secondAttribute="bottom" constant="7" id="pjc-rt-ujk"/>
+                            <constraint firstAttribute="trailing" secondItem="lUL-no-D5O" secondAttribute="trailing" constant="22" id="rhT-HN-xYG"/>
+                            <constraint firstItem="lUL-no-D5O" firstAttribute="leading" secondItem="U6b-zv-QNm" secondAttribute="leading" constant="22" id="v5J-S9-jJ9"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -125,7 +122,7 @@
                 <outlet property="countLabel" destination="UOA-Ox-dGB" id="dU7-lO-EE3"/>
                 <outlet property="groupImageView" destination="WHb-V6-Sb9" id="KIE-PO-Pi5"/>
                 <outlet property="groupLabel" destination="5OJ-uh-RaK" id="fnx-3g-IO4"/>
-                <outlet property="hashtagLabel" destination="Oyq-R6-w4U" id="C4H-sG-xSv"/>
+                <outlet property="hashTagImageView" destination="lUL-no-D5O" id="HFg-TX-Wbp"/>
                 <outlet property="imageView" destination="XDq-Oz-d9e" id="bQV-DK-cV5"/>
                 <outlet property="thunderButton" destination="Si5-2K-iHu" id="K8i-PE-lgt"/>
             </connections>
@@ -136,6 +133,7 @@
         <image name="btnLightning" width="87" height="48"/>
         <image name="icnUser" width="15" height="15"/>
         <image name="image1" width="54" height="54"/>
+        <image name="tagCozy" width="99" height="21"/>
         <namedColor name="gray100">
             <color red="0.31000000238418579" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -144,9 +142,6 @@
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -11,13 +11,13 @@ class CustomNavigationBar: UIView {
     
     // MARK: - Properties
     
-    let backButton: UIButton = {
+    private let backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "icnBack"), for: .normal)
         return button
     }()
     
-    var titleLabel: UILabel = {
+    private var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray100
         label.font = .SpoqaHanSansNeo(type: .medium, size: 18)
@@ -30,7 +30,7 @@ class CustomNavigationBar: UIView {
 //        return view
 //    }()
     
-    let closeButton: UIButton = {
+    private let closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "icnClose"), for: .normal)
         return button
