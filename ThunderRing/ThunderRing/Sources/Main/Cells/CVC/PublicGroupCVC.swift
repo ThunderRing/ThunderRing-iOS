@@ -21,7 +21,7 @@ class PublicGroupCVC: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var countLabel: UILabel!
     
-    @IBOutlet weak var hashtagLabel: UILabel!
+    @IBOutlet weak var hashTagImageView: UIImageView!
     @IBOutlet weak var thunderButton: UIButton!
     
     override func awakeFromNib() {
@@ -45,8 +45,6 @@ extension PublicGroupCVC {
         groupImageView.layer.cornerRadius = groupImageView.bounds.width / 2
         groupImageView.layer.borderWidth = 1
         groupImageView.layer.borderColor = UIColor.grayStroke.cgColor
-
-        hashtagLabel.layer.cornerRadius = 3
 
     }
 }

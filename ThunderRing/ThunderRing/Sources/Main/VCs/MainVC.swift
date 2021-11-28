@@ -12,6 +12,7 @@ class MainVC: UIViewController {
     // MARK: - UI
     
     @IBOutlet weak var customNavigationBarView: UIView!
+    @IBOutlet weak var recruitButton: UIButton!
     
     @IBOutlet weak var cardView: CardView!
     
@@ -38,7 +39,7 @@ class MainVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "ThunderRing", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
+        setStatusBar(.white)
     }
     
     override func viewDidLoad() {
@@ -46,14 +47,15 @@ class MainVC: UIViewController {
         
         initUI()
         setCollectionView()
+        setAction()
     }
-    
 }
 
 // MARK: - Custom Methods
 
 extension MainVC {
-    func initUI() {
+    private func initUI() {
+        customNavigationBarView.layer.applyShadow()
         
         userNameLabel.text = "\(name)님"
         userNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -75,7 +77,7 @@ extension MainVC {
 
     }
     
-    func setCollectionView() {
+    private func setCollectionView() {
         
         let publicGroupCollectionViewlayout = publicGroupCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         publicGroupCollectionViewlayout?.scrollDirection = .horizontal
@@ -93,6 +95,15 @@ extension MainVC {
         privateGroupCollectionView.delegate = self
         privateGroupCollectionView.dataSource = self
 
+    }
+    
+    private func setAction() {
+        recruitButton.addAction(UIAction(handler: { _ in
+            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "RecruitingVC") else { return }
+            dvc.modalTransitionStyle = .coverVertical
+            dvc.modalPresentationStyle = .fullScreen
+            self.present(dvc, animated: true, completion: nil)
+        }), for: .touchUpInside)
     }
 
 }
@@ -156,6 +167,14 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        switch collectionView {
+        case privateGroupCollectionView:
+            return UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
+        default:
+            return .zero
+        }
+    }
 }
 
 

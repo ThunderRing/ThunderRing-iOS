@@ -126,6 +126,7 @@ extension SetLigntningDetailVC: UITextFieldDelegate {
             dateTextField.resignFirstResponder()
             dateTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
             let dvc = SelectDateVC()
+            dvc.modalTransitionStyle = .crossDissolve
             dvc.modalPresentationStyle = .overCurrentContext
             self.present(dvc, animated: true, completion: nil)
         }

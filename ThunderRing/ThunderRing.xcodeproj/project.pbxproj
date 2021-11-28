@@ -20,6 +20,7 @@
 		921266442747C83B009DE534 /* FirstTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266432747C83B009DE534 /* FirstTestVC.swift */; };
 		9212667A2748055A009DE534 /* TestResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266792748055A009DE534 /* TestResultVC.swift */; };
 		9212667C2748167D009DE534 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212667B2748167D009DE534 /* UIColor+.swift */; };
+		921A45C3275355AD001E8727 /* CreatePrivateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921A45C2275355AD001E8727 /* CreatePrivateGroup.storyboard */; };
 		92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92270D732750E1EB00364F3A /* AlarmDataModel.swift */; };
 		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
 		925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */; };
@@ -98,6 +99,7 @@
 		921266432747C83B009DE534 /* FirstTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTestVC.swift; sourceTree = "<group>"; };
 		921266792748055A009DE534 /* TestResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultVC.swift; sourceTree = "<group>"; };
 		9212667B2748167D009DE534 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		921A45C2275355AD001E8727 /* CreatePrivateGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePrivateGroup.storyboard; sourceTree = "<group>"; };
 		92270D732750E1EB00364F3A /* AlarmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDataModel.swift; sourceTree = "<group>"; };
 		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupDataModel.swift; sourceTree = "<group>"; };
@@ -255,6 +257,14 @@
 			path = TVC;
 			sourceTree = "<group>";
 		};
+		921A45C12753557C001E8727 /* PrivateGroup */ = {
+			isa = PBXGroup;
+			children = (
+				921A45C2275355AD001E8727 /* CreatePrivateGroup.storyboard */,
+			);
+			path = PrivateGroup;
+			sourceTree = "<group>";
+		};
 		92270D722750E17B00364F3A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +391,7 @@
 		926C7C312737F9F40020F851 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				921A45C12753557C001E8727 /* PrivateGroup */,
 				926C7C552738038E0020F851 /* MyPage */,
 				926C7C54273803890020F851 /* Alarm */,
 				926C7C53273803850020F851 /* Lightning */,
@@ -709,6 +720,7 @@
 				1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */,
 				1D25F5FC2752D1C600BF7C31 /* RecruitingTVC.xib in Resources */,
 				92CBCE7A273B233F00A3F36D /* AlarmTVC.xib in Resources */,
+				921A45C3275355AD001E8727 /* CreatePrivateGroup.storyboard in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
 				92CBCE74273B132600A3F36D /* ProceedCVC.xib in Resources */,
 				92CD3374273FA2A00094CB1C /* SpoqaHanSansNeo-Thin.otf in Resources */,
