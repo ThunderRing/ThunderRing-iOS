@@ -19,6 +19,8 @@ class RecruitingTVC: UITableViewCell {
     @IBOutlet weak var recruiterImageView: UIImageView!
     @IBOutlet weak var plusButton: UIButton!
     
+    @IBOutlet weak var remainView: UIView!
+    @IBOutlet weak var remainLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +46,6 @@ extension RecruitingTVC {
         
         recruiterImageView.layer.cornerRadius = recruiterImageView.bounds.width / 2
         
-        
+        remainView.layer.cornerRadius = 24.16
     }
 }

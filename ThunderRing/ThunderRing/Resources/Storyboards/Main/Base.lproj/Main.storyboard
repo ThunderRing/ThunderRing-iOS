@@ -29,16 +29,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncg-J0-9OP" userLabel="Custom Navigation Bar View">
                                 <rect key="frame" x="0.0" y="88" width="375" height="57"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYH-j4-hdT">
-                                        <rect key="frame" x="300" y="13" width="67" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYH-j4-hdT">
+                                        <rect key="frame" x="314" y="4.6666666666666714" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="GOG-Co-n2t"/>
+                                            <constraint firstAttribute="height" constant="48" id="IrP-XC-V0y"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="icnHappy"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="EZg-2S-CUf"/>
+                                    <constraint firstItem="EYH-j4-hdT" firstAttribute="centerY" secondItem="ncg-J0-9OP" secondAttribute="centerY" id="fYw-pt-FCQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="EYH-j4-hdT" secondAttribute="trailing" constant="13" id="ft5-Ua-4Rh"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6h-MM-iyz" userLabel="Main Scroll View">
@@ -375,17 +380,18 @@
                                     <constraint firstAttribute="height" constant="57" id="6VF-cg-sCQ"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vtp-Kw-riZ" userLabel="Recruiting Table View">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="194" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="vtp-Kw-riZ" userLabel="Recruiting Table View">
                                 <rect key="frame" x="0.0" y="101" width="375" height="677"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecruitingTVC" rowHeight="194" id="wBD-lH-FkB" customClass="RecruitingTVC" customModule="ThunderRing" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecruitingTVC" rowHeight="194" id="wBD-lH-FkB" customClass="RecruitingTVC" customModule="ThunderRing" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="194"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wBD-lH-FkB" id="Xuj-ee-coY">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -406,6 +412,7 @@
                     </view>
                     <connections>
                         <outlet property="customNavigationBarView" destination="aWf-LU-pfz" id="3fw-Z5-nS1"/>
+                        <outlet property="recruitingTableView" destination="vtp-Kw-riZ" id="167-jc-Ezu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bux-Le-1oK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -454,6 +461,7 @@
         <image name="btnAll" width="75" height="48"/>
         <image name="btnEnter" width="87" height="48"/>
         <image name="btnLightning" width="87" height="48"/>
+        <image name="icnHappy" width="24" height="24"/>
         <image name="image1" width="54" height="54"/>
         <namedColor name="gray100">
             <color red="0.31000000238418579" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
