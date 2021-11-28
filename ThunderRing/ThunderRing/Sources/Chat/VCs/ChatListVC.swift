@@ -10,6 +10,7 @@ import UIKit
 class ChatListVC: UIViewController {
 
     // MARK: - UI
+    
     @IBOutlet weak var customNavigationBarView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
