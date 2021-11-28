@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25F5F92752D1C600BF7C31 /* RecruitingTVC.swift */; };
+		1D25F5FC2752D1C600BF7C31 /* RecruitingTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D25F5FA2752D1C600BF7C31 /* RecruitingTVC.xib */; };
 		1D45CB3B27400F70005726FF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45CB3A27400F70005726FF /* CardView.swift */; };
 		1DD056C1274AA82800A7D093 /* PrivateGroupCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD056C0274AA82800A7D093 /* PrivateGroupCVC.swift */; };
 		1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */; };
+		1DF615C62752CD8F00D0CF7C /* RecruitingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF615C52752CD8F00D0CF7C /* RecruitingVC.swift */; };
 		1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFC0BBF274C080300C5001D /* PublicGroupCVC.swift */; };
 		1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */; };
 		9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212663E2747BB2B009DE534 /* TestDataModel.swift */; };
@@ -78,9 +81,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D25F5F92752D1C600BF7C31 /* RecruitingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitingTVC.swift; sourceTree = "<group>"; };
+		1D25F5FA2752D1C600BF7C31 /* RecruitingTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitingTVC.xib; sourceTree = "<group>"; };
 		1D45CB3A27400F70005726FF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1DD056C0274AA82800A7D093 /* PrivateGroupCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupCVC.swift; sourceTree = "<group>"; };
 		1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupTVC.swift; sourceTree = "<group>"; };
+		1DF615C52752CD8F00D0CF7C /* RecruitingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitingVC.swift; sourceTree = "<group>"; };
 		1DFC0BBF274C080300C5001D /* PublicGroupCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupCVC.swift; sourceTree = "<group>"; };
 		1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicGroupCVC.xib; sourceTree = "<group>"; };
 		9212663E2747BB2B009DE534 /* TestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataModel.swift; sourceTree = "<group>"; };
@@ -192,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */,
+				1D25F5F92752D1C600BF7C31 /* RecruitingTVC.swift */,
+				1D25F5FA2752D1C600BF7C31 /* RecruitingTVC.xib */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -478,6 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				926C7C1D2737F93E0020F851 /* MainVC.swift */,
+				1DF615C52752CD8F00D0CF7C /* RecruitingVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -670,6 +679,7 @@
 				926C7C47273802460020F851 /* Chat.storyboard in Resources */,
 				92FFBBA7274CDE5500706099 /* Icons.xcassets in Resources */,
 				1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */,
+				1D25F5FC2752D1C600BF7C31 /* RecruitingTVC.xib in Resources */,
 				92CBCE7A273B233F00A3F36D /* AlarmTVC.xib in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
 				92CBCE74273B132600A3F36D /* ProceedCVC.xib in Resources */,
@@ -714,6 +724,7 @@
 				9212667C2748167D009DE534 /* UIColor+.swift in Sources */,
 				921266442747C83B009DE534 /* FirstTestVC.swift in Sources */,
 				1D45CB3B27400F70005726FF /* CardView.swift in Sources */,
+				1DF615C62752CD8F00D0CF7C /* RecruitingVC.swift in Sources */,
 				925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
@@ -727,6 +738,7 @@
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
 				92A5B2A12739AA49004149B2 /* AccountTVC.swift in Sources */,
 				92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */,
+				1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */,
 				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,
 				92A5B29727398835004149B2 /* UITabBar+.swift in Sources */,
 			);

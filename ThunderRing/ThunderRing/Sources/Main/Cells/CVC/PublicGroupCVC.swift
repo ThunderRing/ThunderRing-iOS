@@ -38,10 +38,14 @@ extension PublicGroupCVC {
     
     private func initUI() {
         
-        backView.layer.borderWidth = 1.06
+        backView.layer.borderWidth = 1
         backView.layer.cornerRadius = 5
-        backView.layer.borderColor = UIColor.darkGray.cgColor
+        backView.layer.borderColor = UIColor.grayStroke.cgColor
         
+        groupImageView.layer.cornerRadius = groupImageView.bounds.width / 2
+        groupImageView.layer.borderWidth = 1
+        groupImageView.layer.borderColor = UIColor.grayStroke.cgColor
+
         hashtagLabel.layer.cornerRadius = 3
 
     }

@@ -15,6 +15,8 @@ extension Const {
                 static let ModalNavigation = "ModalNavigationController"
                 
                 static let Main = "MainVC"
+                static let Recruiting = "RecruitingVC"
+                
                 static let ChatList = "ChatListVC"
                 static let Chat = "ChatVC"
                 static let Lightning = "LightningVC"

@@ -33,7 +33,7 @@ class MainVC: UIViewController {
     private var publicGroupCount = 4
     
     // MARK: - Life Cycle
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -58,6 +58,10 @@ extension MainVC {
         userNameLabel.text = "\(name)님"
         userNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         userNameLabel.textColor = .white
+        
+        imageView.layer.cornerRadius = imageView.bounds.width / 2
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor.grayStroke.cgColor
         
         attendanceLabel.attributedText = NSMutableAttributedString()
             .regular(string: "번개 ", fontSize: 14)
@@ -132,7 +136,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             let privateGroupCell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as! PrivateGroupCVC
             privateGroupCell.layer.borderWidth = 1
             privateGroupCell.layer.cornerRadius = 5
-            privateGroupCell.layer.borderColor = UIColor.gray.cgColor
+            privateGroupCell.layer.borderColor = UIColor.grayStroke.cgColor
             
             return privateGroupCell
             
