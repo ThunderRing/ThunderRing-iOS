@@ -24,6 +24,10 @@ extension Const {
                 static let MyPage = "MyPageVC"
                 
                 static let FirstTest = "FirstTestVC"
+                
+                static let SetLightningTitle = "SetLightningTitleVC"
+                static let SetLightningDetail = "SetLightningDetailVC"
+                static let CompleteLightning = "CompleteLightningVC"
             }
     }
 }
