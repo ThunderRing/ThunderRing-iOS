@@ -39,6 +39,7 @@ class MainVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
         setStatusBar(.white)
     }
     
@@ -100,9 +101,7 @@ extension MainVC {
     private func setAction() {
         recruitButton.addAction(UIAction(handler: { _ in
             guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "RecruitingVC") else { return }
-            dvc.modalTransitionStyle = .coverVertical
-            dvc.modalPresentationStyle = .fullScreen
-            self.present(dvc, animated: true, completion: nil)
+            self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
     }
 
