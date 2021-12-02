@@ -20,6 +20,11 @@
 		921266442747C83B009DE534 /* FirstTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266432747C83B009DE534 /* FirstTestVC.swift */; };
 		9212667A2748055A009DE534 /* TestResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266792748055A009DE534 /* TestResultVC.swift */; };
 		9212667C2748167D009DE534 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212667B2748167D009DE534 /* UIColor+.swift */; };
+		92159C93275896EF0081F20B /* DINPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92159C90275896E80081F20B /* DINPro-Regular.otf */; };
+		92159C94275896EF0081F20B /* DINPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92159C8E275896E80081F20B /* DINPro-Bold.otf */; };
+		92159C95275896EF0081F20B /* DINPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92159C8F275896E80081F20B /* DINPro-Black.otf */; };
+		92159C96275896EF0081F20B /* DINPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92159C92275896E80081F20B /* DINPro-Light.otf */; };
+		92159C97275896EF0081F20B /* DINPro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92159C91275896E80081F20B /* DINPro-Medium.otf */; };
 		921A45C3275355AD001E8727 /* CreatePrivateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921A45C2275355AD001E8727 /* CreatePrivateGroup.storyboard */; };
 		92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92270D732750E1EB00364F3A /* AlarmDataModel.swift */; };
 		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
@@ -99,6 +104,11 @@
 		921266432747C83B009DE534 /* FirstTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTestVC.swift; sourceTree = "<group>"; };
 		921266792748055A009DE534 /* TestResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultVC.swift; sourceTree = "<group>"; };
 		9212667B2748167D009DE534 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		92159C8E275896E80081F20B /* DINPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Bold.otf"; sourceTree = "<group>"; };
+		92159C8F275896E80081F20B /* DINPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Black.otf"; sourceTree = "<group>"; };
+		92159C90275896E80081F20B /* DINPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Regular.otf"; sourceTree = "<group>"; };
+		92159C91275896E80081F20B /* DINPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Medium.otf"; sourceTree = "<group>"; };
+		92159C92275896E80081F20B /* DINPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Light.otf"; sourceTree = "<group>"; };
 		921A45C2275355AD001E8727 /* CreatePrivateGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePrivateGroup.storyboard; sourceTree = "<group>"; };
 		92270D732750E1EB00364F3A /* AlarmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDataModel.swift; sourceTree = "<group>"; };
 		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -255,6 +265,18 @@
 				921266412747BC54009DE534 /* TestTVC.swift */,
 			);
 			path = TVC;
+			sourceTree = "<group>";
+		};
+		92159C8D275896D40081F20B /* Dinpro */ = {
+			isa = PBXGroup;
+			children = (
+				92159C8F275896E80081F20B /* DINPro-Black.otf */,
+				92159C8E275896E80081F20B /* DINPro-Bold.otf */,
+				92159C92275896E80081F20B /* DINPro-Light.otf */,
+				92159C91275896E80081F20B /* DINPro-Medium.otf */,
+				92159C90275896E80081F20B /* DINPro-Regular.otf */,
+			);
+			path = Dinpro;
 			sourceTree = "<group>";
 		};
 		921A45C12753557C001E8727 /* PrivateGroup */ = {
@@ -554,6 +576,7 @@
 		92A5B2A82739B24F004149B2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				92159C8D275896D40081F20B /* Dinpro */,
 				92A5B2A92739B2DD004149B2 /* SpoqaHanSansNeo */,
 			);
 			path = Fonts;
@@ -709,18 +732,23 @@
 				926C7C57273803980020F851 /* Lightning.storyboard in Resources */,
 				92CD3372273FA2A00094CB1C /* SpoqaHanSansNeo-Bold.otf in Resources */,
 				926C7C262737F93F0020F851 /* LaunchScreen.storyboard in Resources */,
+				92159C97275896EF0081F20B /* DINPro-Medium.otf in Resources */,
 				926C7C232737F93F0020F851 /* Assets.xcassets in Resources */,
 				926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */,
 				92CD3373273FA2A00094CB1C /* SpoqaHanSansNeo-Light.otf in Resources */,
 				92CD3375273FA2A00094CB1C /* SpoqaHanSansNeo-Medium.otf in Resources */,
 				92CBCE70273B12EC00A3F36D /* CompleteCVC.xib in Resources */,
+				92159C95275896EF0081F20B /* DINPro-Black.otf in Resources */,
 				92800AD3274CB3E200CA3E7E /* Colors.xcassets in Resources */,
 				926C7C47273802460020F851 /* Chat.storyboard in Resources */,
 				92FFBBA7274CDE5500706099 /* Icons.xcassets in Resources */,
 				1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */,
+				92159C94275896EF0081F20B /* DINPro-Bold.otf in Resources */,
 				1D25F5FC2752D1C600BF7C31 /* RecruitingTVC.xib in Resources */,
 				92CBCE7A273B233F00A3F36D /* AlarmTVC.xib in Resources */,
+				92159C96275896EF0081F20B /* DINPro-Light.otf in Resources */,
 				921A45C3275355AD001E8727 /* CreatePrivateGroup.storyboard in Resources */,
+				92159C93275896EF0081F20B /* DINPro-Regular.otf in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
 				92CBCE74273B132600A3F36D /* ProceedCVC.xib in Resources */,
 				92CD3374273FA2A00094CB1C /* SpoqaHanSansNeo-Thin.otf in Resources */,
