@@ -11,8 +11,7 @@ class SetLigntningDetailVC: UIViewController {
 
     // MARK: - UI
     
-    
-    @IBOutlet weak var topAnchor: NSLayoutConstraint!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var customNavigationBarView: UIView!
@@ -28,10 +27,17 @@ class SetLigntningDetailVC: UIViewController {
     
     @IBOutlet weak var completeButton: UIButton!
     
-    // MARK: - Properties
+    private lazy var datePickerView = UIDatePicker().then {
+        $0.preferredDatePickerStyle = .wheels
+        $0.datePickerMode = .date
+        $0.locale = Locale(identifier: "ko")
+    }
     
-    private var restoreFrameYValue = 0.0
-    private let labelTopAnchor: CGFloat = -120
+    private lazy var timePickerView = UIDatePicker().then {
+        $0.preferredDatePickerStyle = .wheels
+        $0.datePickerMode = .time
+        $0.locale = Locale(identifier: "ko")
+    }
     
     // MARK: - Life Cycle
     
@@ -46,13 +52,14 @@ class SetLigntningDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        restoreFrameYValue = self.view.frame.origin.y
-        
         initUI()
         setToolBar()
         setTextField()
         setAction()
         getNotification()
+        
+        setDatePickerView()
+        setTimePickerView()
     }
 }
 
@@ -79,42 +86,102 @@ extension SetLigntningDetailVC {
         dateTextField.placeholder = dateFormatter.string(from: nowDate)
         
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "a H:mm"
+        timeFormatter.dateFormat = "a h:mm"
         timeFormatter.locale = Locale(identifier:"ko")
         timeTextField.placeholder = timeFormatter.string(from: nowDate)
+    }
+    
+    private func setTextField() {
+        [dateTextField, timeTextField, locationTextField, minTextField, maxTextField].forEach {
+            $0?.delegate = self
+            $0?.tintColor = .clear
+        }
     }
     
     private func setToolBar() {
         let toolBar = UIToolbar(frame:CGRect(x:0, y:0, width: view.frame.width, height: 44))
         toolBar.sizeToFit()
         toolBar.translatesAutoresizingMaskIntoConstraints = false
-        
-        let leftSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(touchUpDoneButton))
-        toolBar.items = [leftSpace, doneButton]
         toolBar.backgroundColor = .systemGray6
         toolBar.tintColor = .purple100
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(touchUpDoneButton))
+        toolBar.items = [flexibleSpace, doneButton]
         
         minTextField.inputAccessoryView = toolBar
         maxTextField.inputAccessoryView = toolBar
     }
     
+    private func setDatePickerView() {
+        dateTextField.inputView = datePickerView
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.backgroundColor = .systemGray6
+        toolbar.tintColor = .purple100
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(touchUpDateDoneButton))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar.setItems([flexibleSpace, doneButton], animated: true)
+        datePickerView.preferredDatePickerStyle = .wheels
+        datePickerView.datePickerMode = .date
+        
+        dateTextField.inputAccessoryView = toolbar
+    }
+    
+    private func setTimePickerView() {
+        timeTextField.inputView = timePickerView
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.backgroundColor = .systemGray6
+        toolbar.tintColor = .purple100
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(touchUpTimeDoneButton))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar.setItems([flexibleSpace, doneButton], animated: true)
+        timePickerView.preferredDatePickerStyle = .wheels
+        timePickerView.datePickerMode = .time
+        
+        timeTextField.inputAccessoryView = toolbar
+    }
+    
+    private func setAction() {
+        completeButton.addAction(UIAction(handler: { _ in
+            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: Const.ViewController.Name.CompleteLightning) else { return }
+            self.navigationController?.pushViewController(dvc, animated: true)
+        }), for: .touchUpInside)
+    }
+}
+
+// MARK: - @objc
+
+extension SetLigntningDetailVC {
     @objc
     func touchUpDoneButton() {
         NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHideNotification"), object: nil)
         self.view.endEditing(true)
     }
     
-    private func setTextField() {
-        [dateTextField, timeTextField, locationTextField, minTextField, maxTextField].forEach {
-            $0?.delegate = self
-        }
+    @objc
+    func touchUpDateDoneButton() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        dateFormatter.locale = Locale(identifier:"ko")
+        dateTextField.text = dateFormatter.string(from: datePickerView.date)
+        self.view.endEditing(true)
     }
     
-    private func setAction() {
-        completeButton.addAction(UIAction(handler: { _ in
-            // 완료 화면으로 이동
-        }), for: .touchUpInside)
+    @objc
+    func touchUpTimeDoneButton() {
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "a h:mm"
+        timeFormatter.locale = Locale(identifier:"ko")
+        timeTextField.text = timeFormatter.string(from: timePickerView.date)
+        self.view.endEditing(true)
     }
 }
 
@@ -123,19 +190,10 @@ extension SetLigntningDetailVC {
 extension SetLigntningDetailVC: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == dateTextField {
-            dateTextField.resignFirstResponder()
             dateTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
-            let dvc = SelectDateVC()
-            dvc.modalTransitionStyle = .crossDissolve
-            dvc.modalPresentationStyle = .overCurrentContext
-            self.present(dvc, animated: true, completion: nil)
         }
         if textField == timeTextField {
-            timeTextField.resignFirstResponder()
             timeTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
-            let dvc = SelectTimeVC()
-            dvc.modalPresentationStyle = .overCurrentContext
-            self.present(dvc, animated: true, completion: nil)
         }
         if textField == locationTextField {
             locationTextField.becomeFirstResponder()
@@ -171,6 +229,10 @@ extension SetLigntningDetailVC: UITextFieldDelegate {
             completeButton.isEnabled = true
             completeButton.backgroundColor = .purple100
             completeButton.titleLabel?.textColor = .white
+        } else {
+            completeButton.isEnabled = false
+            completeButton.backgroundColor = .grayTextNonInput
+            completeButton.titleLabel?.textColor = .white
         }
     }
     
@@ -189,45 +251,16 @@ extension SetLigntningDetailVC: UITextFieldDelegate {
 
 extension SetLigntningDetailVC {
     private func getNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(selectedDate(_:)), name: NSNotification.Name("SelectedDate"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(selectedTime(_:)), name: NSNotification.Name("SelectedTime"), object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name("KeyboardWillShowNotification"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name("KeyboardWillHideNotification"), object: nil)
-    }
-        
-    @objc
-    func selectedDate(_ notification: Notification) {
-        dateTextField.resignFirstResponder()
-        
-        let date = notification.object
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
-        dateFormatter.locale = Locale(identifier:"ko")
-        dateTextField.text = dateFormatter.string(from: date as! Date)
-        
-        dateTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
-    }
-    
-    @objc
-    func selectedTime(_ notification: Notification) {
-        timeTextField.resignFirstResponder()
-        
-        let time = notification.object
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "a H:mm"
-        timeFormatter.locale = Locale(identifier:"ko")
-        timeTextField.text = timeFormatter.string(from: time as! Date)
-
-        timeTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
     }
     
     @objc
     func keyboardWillShow(_ notification: Notification) {
-        let topAnchor = self.topAnchor.constant - 580
+        let topAnchor = self.topConstraint.constant - 240
         
         self.dateLabel.snp.updateConstraints { make in
-            make.centerY.equalToSuperview().offset(topAnchor)
+            make.top.equalToSuperview().offset(topAnchor)
         }
         
         UIView.animate(withDuration: 0.5) {
@@ -237,10 +270,10 @@ extension SetLigntningDetailVC {
     
     @objc
     func keyboardWillHide(_ notification: Notification) {
-        let topAnchor = self.topAnchor.constant - 310
+        let topAnchor = self.topConstraint.constant + 50
         
         self.dateLabel.snp.updateConstraints { make in
-            make.centerY.equalToSuperview().offset(topAnchor)
+            make.top.equalToSuperview().offset(topAnchor)
         }
         
         UIView.animate(withDuration: 0.5) {
