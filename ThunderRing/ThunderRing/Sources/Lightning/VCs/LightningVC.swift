@@ -114,7 +114,8 @@ extension LightningVC: UITableViewDelegate {
         guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLightningTitleVC") as? SetLightningTitleVC else { return }
         
         if indexPath.section == 0 {
-            dvc.groupName = privateGroup[indexPath.row].groupName
+//            dvc.groupName = privateGroup[indexPath.row].groupName
+            dvc.index = indexPath.row
         } else {
             dvc.groupName = publicGroup[indexPath.row].groupName
         }
