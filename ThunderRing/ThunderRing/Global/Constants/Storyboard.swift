@@ -15,6 +15,8 @@ extension Const {
             static let Lightning = "Lightning"
             static let Alarm = "Alarm"
             static let MyPage = "MyPage"
+            
+            static let CreatePrivate = "CreatePrivate"
         }
     }
 }
