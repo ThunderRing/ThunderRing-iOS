@@ -27,7 +27,7 @@ class MemberCVC: UICollectionViewCell {
             if isSelected {
                 nameLabel.textColor = UIColor.purple100
             } else {
-                nameLabel.textColor = UIColor.grayTextNonInput
+                nameLabel.textColor = UIColor.gray200
             }
         }
     }

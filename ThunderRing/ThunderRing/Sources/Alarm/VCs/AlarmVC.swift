@@ -54,7 +54,7 @@ extension AlarmVC {
         
         alarmCollectionView.showsHorizontalScrollIndicator = false
         alarmCollectionView.showsVerticalScrollIndicator = false
-        alarmCollectionView.backgroundColor = .grayBackground
+        alarmCollectionView.backgroundColor = .background
         
         alarmCollectionView.delegate = self
         alarmCollectionView.dataSource = self
@@ -102,7 +102,7 @@ extension AlarmVC {
             }
             currentIndex = 0
             self.proceedLabel.textColor = .black
-            self.completeLabel.textColor = .grayTextNonInput
+            self.completeLabel.textColor = .gray200
         }
     }
     
@@ -115,7 +115,7 @@ extension AlarmVC {
                 self.statusMovedView.transform = CGAffineTransform(translationX: 165, y: 0)
             }
             currentIndex = 1
-            self.proceedLabel.textColor = .grayTextNonInput
+            self.proceedLabel.textColor = .gray200
             self.completeLabel.textColor = .black
         }
     }

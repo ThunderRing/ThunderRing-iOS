@@ -43,6 +43,6 @@ extension PrivateGroupTVC {
     
         groupImageView.layer.cornerRadius = groupImageView.bounds.width / 2
         groupImageView.layer.borderWidth = 1
-        groupImageView.layer.borderColor = UIColor.grayStroke.cgColor
+        groupImageView.layer.borderColor = UIColor.gray300.cgColor
     }
 }

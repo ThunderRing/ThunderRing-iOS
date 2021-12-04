@@ -43,7 +43,7 @@ class LightningVC: UIViewController {
 extension LightningVC {
     private func initUI() {
         titleLabel.text = ""
-        view.backgroundColor = .grayBackground
+        view.backgroundColor = .background
     }
     
     private func setAction() {
@@ -72,7 +72,7 @@ extension LightningVC {
         groupListTableView.dataSource = self
         
         groupListTableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
-        groupListTableView.backgroundColor = .grayBackground
+        groupListTableView.backgroundColor = .background
         
         groupListTableView.register(PrivateListTVC.self, forCellReuseIdentifier: PrivateListTVC.identifier)
         groupListTableView.register(PublicListTVC.self, forCellReuseIdentifier: PublicListTVC.identifier)

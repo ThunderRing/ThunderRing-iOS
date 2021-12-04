@@ -30,8 +30,8 @@ class CompleteCreateVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .grayBackground)
-        setStatusBar(.grayBackground)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
     }
     
     override func viewDidLoad() {

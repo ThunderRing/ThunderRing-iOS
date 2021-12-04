@@ -60,7 +60,7 @@ extension AddMemberVC {
         memberTableView.contentInsetAdjustmentBehavior = .never
         memberTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
         
-        memberTableView.backgroundColor = .grayBackground
+        memberTableView.backgroundColor = .background
         memberTableView.layer.borderColor = UIColor.lightGray.cgColor
         memberTableView.showsVerticalScrollIndicator = false
         memberTableView.allowsMultipleSelection = true
