@@ -33,8 +33,8 @@ class CreatePrivateDetailVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .grayBackground)
-        setStatusBar(.grayBackground)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
     }
     
     override func viewDidLoad() {
@@ -53,12 +53,12 @@ extension CreatePrivateDetailVC {
         nextButton.setTitleColor(.gray100, for: .normal)
         nextButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 27, bounds: true)
         
-        descriptionTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
+        descriptionTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         descriptionTextField.setLeftPaddingPoints(15)
         
         memberCollectionView.isHidden = true
         
-        addMemberButton.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 10, bounds: true)
+        addMemberButton.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
     }
     
     private func setAction() {
@@ -136,7 +136,7 @@ extension CreatePrivateDetailVC: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
+        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         
         if descriptionTextField.hasText {
             descriptionCountLabel.textColor = .black
@@ -145,10 +145,10 @@ extension CreatePrivateDetailVC: UITextFieldDelegate {
             nextButton.backgroundColor = .purple100
             nextButton.setTitleColor(.white, for: .normal)
         } else {
-            descriptionCountLabel.textColor = .grayTextNonInput
+            descriptionCountLabel.textColor = .gray200
             
             nextButton.isEnabled = true
-            nextButton.backgroundColor = .grayTextNonInput
+            nextButton.backgroundColor = .gray200
             nextButton.setTitleColor(.gray100, for: .normal)
         }
     }

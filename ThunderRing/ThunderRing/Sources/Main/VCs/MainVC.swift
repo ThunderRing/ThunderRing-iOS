@@ -64,7 +64,7 @@ extension MainVC {
         
         imageView.layer.cornerRadius = imageView.bounds.width / 2
         imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.grayStroke.cgColor
+        imageView.layer.borderColor = UIColor.gray300.cgColor
         
         attendanceLabel.attributedText = NSMutableAttributedString()
             .regular(string: "번개 ", fontSize: 14)
@@ -146,7 +146,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             let privateGroupCell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as! PrivateGroupCVC
             privateGroupCell.layer.borderWidth = 1
             privateGroupCell.layer.cornerRadius = 5
-            privateGroupCell.layer.borderColor = UIColor.grayStroke.cgColor
+            privateGroupCell.layer.borderColor = UIColor.gray300.cgColor
             
             return privateGroupCell
             

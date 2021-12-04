@@ -45,8 +45,8 @@ class SetLigntningDetailVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .grayBackground)
-        setStatusBar(.grayBackground)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
     }
     
     override func viewDidLoad() {
@@ -67,10 +67,10 @@ class SetLigntningDetailVC: UIViewController {
 
 extension SetLigntningDetailVC {
     private func initUI() {
-        view.backgroundColor = .grayBackground
+        view.backgroundColor = .background
         
         [dateTextField, timeTextField, locationTextField, minTextField, maxTextField].forEach {
-            $0?.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
+            $0?.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
             $0?.setLeftPaddingPoints(15)
         }
         
@@ -213,7 +213,7 @@ extension SetLigntningDetailVC: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
+        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         
         if textField == locationTextField {
             countLabel.isHidden = true
@@ -231,7 +231,7 @@ extension SetLigntningDetailVC: UITextFieldDelegate {
             completeButton.titleLabel?.textColor = .white
         } else {
             completeButton.isEnabled = false
-            completeButton.backgroundColor = .grayTextNonInput
+            completeButton.backgroundColor = .gray200
             completeButton.titleLabel?.textColor = .white
         }
     }

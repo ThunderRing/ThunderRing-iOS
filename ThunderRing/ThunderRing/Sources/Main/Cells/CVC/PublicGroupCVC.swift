@@ -40,11 +40,11 @@ extension PublicGroupCVC {
         
         backView.layer.borderWidth = 1
         backView.layer.cornerRadius = 5
-        backView.layer.borderColor = UIColor.grayStroke.cgColor
+        backView.layer.borderColor = UIColor.gray300.cgColor
         
         groupImageView.layer.cornerRadius = groupImageView.bounds.width / 2
         groupImageView.layer.borderWidth = 1
-        groupImageView.layer.borderColor = UIColor.grayStroke.cgColor
+        groupImageView.layer.borderColor = UIColor.gray300.cgColor
 
     }
 }

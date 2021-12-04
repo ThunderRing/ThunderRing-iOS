@@ -83,9 +83,8 @@
                                     <color key="baseForegroundColor" name="white"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4Q-UO-iQZ">
-                                <rect key="frame" x="233" y="306" width="46" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4Q-UO-iQZ">
+                                <rect key="frame" x="229" y="296" width="72" height="62"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="btnEdit"/>
                             </button>
@@ -94,6 +93,7 @@
                         <color key="backgroundColor" name="grayBackground"/>
                         <constraints>
                             <constraint firstItem="ks9-Tv-gGM" firstAttribute="top" secondItem="BoB-44-nDZ" secondAttribute="bottom" constant="287" id="DYn-db-otR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="D4Q-UO-iQZ" secondAttribute="trailing" constant="113" id="Ke6-dk-6VO"/>
                             <constraint firstItem="0Be-By-WmL" firstAttribute="top" secondItem="3Ig-Lm-Uho" secondAttribute="bottom" constant="40" id="LhK-h6-1WO"/>
                             <constraint firstItem="BoB-44-nDZ" firstAttribute="top" secondItem="0Be-By-WmL" secondAttribute="bottom" constant="20" id="OPI-W0-apS"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="o7q-xf-apK" secondAttribute="trailing" constant="25" id="RPH-3Z-V1S"/>
@@ -105,6 +105,7 @@
                             <constraint firstItem="fGx-Uu-lTh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="jlG-bW-U9u"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bUm-4A-Tcb" secondAttribute="trailing" id="kSk-Vv-BXN"/>
                             <constraint firstItem="bUm-4A-Tcb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="nPE-Wl-BBU"/>
+                            <constraint firstItem="D4Q-UO-iQZ" firstAttribute="top" secondItem="bUm-4A-Tcb" secondAttribute="bottom" constant="151" id="pA2-Rm-uVI"/>
                             <constraint firstItem="bUm-4A-Tcb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="pwo-fz-58i"/>
                             <constraint firstItem="0Be-By-WmL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="rfd-94-yGT"/>
                             <constraint firstItem="BoB-44-nDZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="tnz-zK-wVa"/>

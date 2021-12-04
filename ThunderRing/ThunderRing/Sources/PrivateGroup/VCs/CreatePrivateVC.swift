@@ -27,8 +27,8 @@ class CreatePrivateVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .grayBackground)
-        setStatusBar(.grayBackground)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
     }
     
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ extension CreatePrivateVC {
         nextButton.isEnabled = false
         nextButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 27, bounds: true)
         
-        groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
+        groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         groupNameTextField.setLeftPaddingPoints(15)
     }
     
@@ -73,7 +73,7 @@ extension CreatePrivateVC: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
+        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         
         if groupNameTextField.hasText {
             countLabel.textColor = .black
@@ -83,10 +83,10 @@ extension CreatePrivateVC: UITextFieldDelegate {
             nextButton.setTitleColor(.white, for: .normal)
         } else {
             groupNameTextField.textColor = .black
-            countLabel.textColor = .grayTextNonInput
+            countLabel.textColor = .gray200
             
             nextButton.isEnabled = true
-            nextButton.backgroundColor = .grayTextNonInput
+            nextButton.backgroundColor = .gray200
             nextButton.setTitleColor(.white, for: .normal)
         }
     }

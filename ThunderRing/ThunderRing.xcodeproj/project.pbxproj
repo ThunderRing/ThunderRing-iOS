@@ -62,6 +62,13 @@
 		926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C5A273803AA0020F851 /* MyPage.storyboard */; };
 		926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C5C2738043D0020F851 /* TabBarController.swift */; };
 		926C7C62273805B70020F851 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C61273805B70020F851 /* NavigationController.swift */; };
+		9276B060275B443F00915F57 /* MyChatCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276B05F275B443F00915F57 /* MyChatCVC.swift */; };
+		9276B065275B44F700915F57 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276B064275B44F700915F57 /* BaseCell.swift */; };
+		9276B067275B453E00915F57 /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276B066275B453E00915F57 /* BasePaddingLabel.swift */; };
+		9276B069275B457700915F57 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276B068275B457700915F57 /* UILabel+.swift */; };
+		9276B06B275B458B00915F57 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276B06A275B458B00915F57 /* String+.swift */; };
+		9276B06E275B462900915F57 /* ChatDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276B06D275B462900915F57 /* ChatDataModel.swift */; };
+		9276B070275B477A00915F57 /* CounterpartChatCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276B06F275B477A00915F57 /* CounterpartChatCVC.swift */; };
 		92800AD3274CB3E200CA3E7E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92800AD2274CB3E200CA3E7E /* Colors.xcassets */; };
 		92A5B29127398366004149B2 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29027398366004149B2 /* Storyboard.swift */; };
 		92A5B29327398378004149B2 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29227398378004149B2 /* Const.swift */; };
@@ -151,6 +158,13 @@
 		926C7C5A273803AA0020F851 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		926C7C5C2738043D0020F851 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		926C7C61273805B70020F851 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		9276B05F275B443F00915F57 /* MyChatCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatCVC.swift; sourceTree = "<group>"; };
+		9276B064275B44F700915F57 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		9276B066275B453E00915F57 /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
+		9276B068275B457700915F57 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		9276B06A275B458B00915F57 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		9276B06D275B462900915F57 /* ChatDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataModel.swift; sourceTree = "<group>"; };
+		9276B06F275B477A00915F57 /* CounterpartChatCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartChatCVC.swift; sourceTree = "<group>"; };
 		92800AD2274CB3E200CA3E7E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		92A5B29027398366004149B2 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		92A5B29227398378004149B2 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -418,9 +432,7 @@
 		926C7C2E2737F9CE0020F851 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				926C7C5C2738043D0020F851 /* TabBarController.swift */,
-				926C7C61273805B70020F851 /* NavigationController.swift */,
-				92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */,
+				9276B061275B44C100915F57 /* Base */,
 				92159C982758C2010081F20B /* PrivateGroup */,
 				921266392747AB72009DE534 /* Test */,
 				926C7C4C273802E80020F851 /* MyPage */,
@@ -487,6 +499,7 @@
 		926C7C342737FA170020F851 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				9276B06C275B460500915F57 /* Model */,
 				92B619CD273EEF3700BE31D1 /* Cells */,
 				92B619CC273EEF2E00BE31D1 /* VCs */,
 			);
@@ -503,6 +516,8 @@
 				92A5B2AF2739B3B1004149B2 /* UIFont+.swift */,
 				9212667B2748167D009DE534 /* UIColor+.swift */,
 				92687A5627501E5C000D9A5D /* CALayer+.swift */,
+				9276B068275B457700915F57 /* UILabel+.swift */,
+				9276B06A275B458B00915F57 /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -585,6 +600,59 @@
 			path = VCs;
 			sourceTree = "<group>";
 		};
+		9276B05D275B442200915F57 /* TVC */ = {
+			isa = PBXGroup;
+			children = (
+				92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */,
+			);
+			path = TVC;
+			sourceTree = "<group>";
+		};
+		9276B05E275B442600915F57 /* CVC */ = {
+			isa = PBXGroup;
+			children = (
+				9276B05F275B443F00915F57 /* MyChatCVC.swift */,
+				9276B06F275B477A00915F57 /* CounterpartChatCVC.swift */,
+			);
+			name = CVC;
+			sourceTree = "<group>";
+		};
+		9276B061275B44C100915F57 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9276B063275B44D000915F57 /* Views */,
+				9276B062275B44C500915F57 /* Controllers */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9276B062275B44C500915F57 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				926C7C5C2738043D0020F851 /* TabBarController.swift */,
+				926C7C61273805B70020F851 /* NavigationController.swift */,
+				92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9276B063275B44D000915F57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9276B064275B44F700915F57 /* BaseCell.swift */,
+				9276B066275B453E00915F57 /* BasePaddingLabel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9276B06C275B460500915F57 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9276B06D275B462900915F57 /* ChatDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		92A5B28F2739834F004149B2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,7 +716,8 @@
 		92B619CD273EEF3700BE31D1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */,
+				9276B05E275B442600915F57 /* CVC */,
+				9276B05D275B442200915F57 /* TVC */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -820,9 +889,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9276B060275B443F00915F57 /* MyChatCVC.swift in Sources */,
 				925BAC462742C76F00126166 /* PrivateListTVC.swift in Sources */,
 				92A5B295273983F0004149B2 /* ViewController.swift in Sources */,
 				92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */,
+				9276B06B275B458B00915F57 /* String+.swift in Sources */,
 				92687A5727501E5C000D9A5D /* CALayer+.swift in Sources */,
 				92159CA22758D76D0081F20B /* MemberCVC.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
@@ -851,12 +922,16 @@
 				92FF59B0275AB15000916189 /* MemberTVC.swift in Sources */,
 				1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
+				9276B06E275B462900915F57 /* ChatDataModel.swift in Sources */,
 				92159CA02758D5620081F20B /* AddMemberVC.swift in Sources */,
 				9212667C2748167D009DE534 /* UIColor+.swift in Sources */,
 				921266442747C83B009DE534 /* FirstTestVC.swift in Sources */,
+				9276B067275B453E00915F57 /* BasePaddingLabel.swift in Sources */,
+				9276B070275B477A00915F57 /* CounterpartChatCVC.swift in Sources */,
 				1D45CB3B27400F70005726FF /* CardView.swift in Sources */,
 				1DF615C62752CD8F00D0CF7C /* RecruitingVC.swift in Sources */,
 				925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */,
+				9276B069275B457700915F57 /* UILabel+.swift in Sources */,
 				92159C9C2758C5B10081F20B /* CreatePrivateDetailVC.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
@@ -870,6 +945,7 @@
 				92A5B2A32739AA83004149B2 /* QuestionTVC.swift in Sources */,
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
 				92A5B2A12739AA49004149B2 /* AccountTVC.swift in Sources */,
+				9276B065275B44F700915F57 /* BaseCell.swift in Sources */,
 				92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */,
 				92159C9A2758C21A0081F20B /* CreatePrivateVC.swift in Sources */,
 				1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */,

@@ -94,20 +94,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jee-3L-O5g">
-                                <rect key="frame" x="0.0" y="44" width="414" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jee-3L-O5g">
+                                <rect key="frame" x="0.0" y="44" width="414" height="57"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="0XJ-di-2a4"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acP-vi-3FW">
-                                <rect key="frame" x="0.0" y="124" width="414" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acP-vi-3FW">
+                                <rect key="frame" x="0.0" y="101" width="414" height="47"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnH-2x-7DN">
+                                        <rect key="frame" x="186" y="13" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="rnH-2x-7DN" firstAttribute="centerX" secondItem="acP-vi-3FW" secondAttribute="centerX" id="5aC-yP-HjJ"/>
+                                    <constraint firstItem="rnH-2x-7DN" firstAttribute="centerY" secondItem="acP-vi-3FW" secondAttribute="centerY" id="MMZ-Y7-L6I"/>
+                                    <constraint firstAttribute="height" constant="47" id="djY-vn-L7E"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pFh-ib-nEh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jee-3L-O5g" firstAttribute="leading" secondItem="pFh-ib-nEh" secondAttribute="leading" id="415-B7-T8T"/>
+                            <constraint firstItem="acP-vi-3FW" firstAttribute="top" secondItem="jee-3L-O5g" secondAttribute="bottom" id="4mA-Fa-Gka"/>
+                            <constraint firstItem="acP-vi-3FW" firstAttribute="trailing" secondItem="pFh-ib-nEh" secondAttribute="trailing" id="59G-Ig-UyM"/>
+                            <constraint firstItem="jee-3L-O5g" firstAttribute="top" secondItem="pFh-ib-nEh" secondAttribute="top" id="JTY-WF-9Ef"/>
+                            <constraint firstItem="jee-3L-O5g" firstAttribute="trailing" secondItem="pFh-ib-nEh" secondAttribute="trailing" id="sRI-tx-XiD"/>
+                            <constraint firstItem="acP-vi-3FW" firstAttribute="leading" secondItem="pFh-ib-nEh" secondAttribute="leading" id="xJG-sM-tuG"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="customNavigationBarView" destination="jee-3L-O5g" id="24S-Eu-hXh"/>
+                        <outlet property="descriptionLabel" destination="rnH-2x-7DN" id="ecZ-ga-WYl"/>
+                        <outlet property="topView" destination="acP-vi-3FW" id="ijp-Os-6rW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yer-FC-cLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

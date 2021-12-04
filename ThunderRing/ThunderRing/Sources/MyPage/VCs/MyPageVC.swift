@@ -50,7 +50,7 @@ extension MyPageVC {
         customNavigationBarView.layer.applyShadow()
         
         profileBackView.initViewBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: profileBackView.frame.width / 2, bounds: true)
-        userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 5, bounds: true)
+        userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
     }
     
     func setTableView() {
@@ -59,7 +59,7 @@ extension MyPageVC {
         
         myPageTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         myPageTableView.separatorColor = .gray
-        myPageTableView.backgroundColor = .grayBackground
+        myPageTableView.backgroundColor = .background
         
         myPageTableView.register(MyPageAlarmTVC.self, forCellReuseIdentifier: MyPageAlarmTVC.identifier)
         myPageTableView.register(AccountTVC.self, forCellReuseIdentifier: AccountTVC.identifier)
