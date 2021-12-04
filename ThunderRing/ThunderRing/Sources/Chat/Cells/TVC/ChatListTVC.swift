@@ -17,12 +17,12 @@ class ChatListTVC: UITableViewCell {
     
     private var backView = UIView().then {
         $0.backgroundColor = .white
-        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 10, bounds: true)
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
     }
     
     private var chatImageView = UIImageView().then {
         $0.image = UIImage(named: "image1")
-        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: $0.frame.width / 2, bounds: true)
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 28, bounds: true)
     }
     
     private var hashTagLabel = UILabel().then {
@@ -63,7 +63,7 @@ class ChatListTVC: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .grayBackground
+        self.backgroundColor = .background
         
         setLayout()
     }
