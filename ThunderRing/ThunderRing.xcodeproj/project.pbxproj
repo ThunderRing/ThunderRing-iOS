@@ -33,6 +33,8 @@
 		921A45C3275355AD001E8727 /* CreatePrivate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921A45C2275355AD001E8727 /* CreatePrivate.storyboard */; };
 		92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92270D732750E1EB00364F3A /* AlarmDataModel.swift */; };
 		92291C522759130F0012927B /* CompleteCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92291C512759130F0012927B /* CompleteCreateVC.swift */; };
+		9258354E275C997900F64DC0 /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9258354D275C997900F64DC0 /* AccountInfo.storyboard */; };
+		92583550275C999100F64DC0 /* AccountInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258354F275C999100F64DC0 /* AccountInfoVC.swift */; };
 		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
 		925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */; };
 		925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC392742C5D400126166 /* PublicGroupDataModel.swift */; };
@@ -131,6 +133,8 @@
 		921A45C2275355AD001E8727 /* CreatePrivate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePrivate.storyboard; sourceTree = "<group>"; };
 		92270D732750E1EB00364F3A /* AlarmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDataModel.swift; sourceTree = "<group>"; };
 		92291C512759130F0012927B /* CompleteCreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreateVC.swift; sourceTree = "<group>"; };
+		9258354D275C997900F64DC0 /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
+		9258354F275C999100F64DC0 /* AccountInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoVC.swift; sourceTree = "<group>"; };
 		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupDataModel.swift; sourceTree = "<group>"; };
 		925BAC392742C5D400126166 /* PublicGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupDataModel.swift; sourceTree = "<group>"; };
@@ -581,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				926C7C5A273803AA0020F851 /* MyPage.storyboard */,
+				9258354D275C997900F64DC0 /* AccountInfo.storyboard */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				926C7C512738030F0020F851 /* MyPageVC.swift */,
+				9258354F275C999100F64DC0 /* AccountInfoVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -873,6 +879,7 @@
 				926C7C47273802460020F851 /* Chat.storyboard in Resources */,
 				92FFBBA7274CDE5500706099 /* Icons.xcassets in Resources */,
 				1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */,
+				9258354E275C997900F64DC0 /* AccountInfo.storyboard in Resources */,
 				92159C94275896EF0081F20B /* DINPro-Bold.otf in Resources */,
 				1D25F5FC2752D1C600BF7C31 /* RecruitingTVC.xib in Resources */,
 				92CBCE7A273B233F00A3F36D /* AlarmTVC.xib in Resources */,
@@ -938,6 +945,7 @@
 				9276B069275B457700915F57 /* UILabel+.swift in Sources */,
 				92159C9C2758C5B10081F20B /* CreatePrivateDetailVC.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
+				92583550275C999100F64DC0 /* AccountInfoVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */,
 				9212667A2748055A009DE534 /* TestResultVC.swift in Sources */,
