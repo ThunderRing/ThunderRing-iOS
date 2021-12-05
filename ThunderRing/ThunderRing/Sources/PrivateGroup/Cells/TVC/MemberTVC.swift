@@ -15,7 +15,7 @@ class MemberTVC: UITableViewCell {
     // MARK: - UI
     
     private var userImageView = UIImageView().then {
-        $0.image = UIImage(named: "image2")
+        $0.image = UIImage(named: "15")
     }
     
     private var userNameLabel = UILabel().then {
