@@ -10,6 +10,7 @@
 		1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25F5F92752D1C600BF7C31 /* RecruitingTVC.swift */; };
 		1D25F5FC2752D1C600BF7C31 /* RecruitingTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D25F5FA2752D1C600BF7C31 /* RecruitingTVC.xib */; };
 		1D45CB3B27400F70005726FF /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D45CB3A27400F70005726FF /* CardView.swift */; };
+		1DA5D064275BD7A100F78579 /* JoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA5D063275BD7A100F78579 /* JoinVC.swift */; };
 		1DD056C1274AA82800A7D093 /* PrivateGroupCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD056C0274AA82800A7D093 /* PrivateGroupCVC.swift */; };
 		1DEAB600274067F000074B72 /* PrivateGroupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */; };
 		1DF615C62752CD8F00D0CF7C /* RecruitingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF615C52752CD8F00D0CF7C /* RecruitingVC.swift */; };
@@ -20,6 +21,7 @@
 		921266442747C83B009DE534 /* FirstTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266432747C83B009DE534 /* FirstTestVC.swift */; };
 		9212667A2748055A009DE534 /* TestResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266792748055A009DE534 /* TestResultVC.swift */; };
 		9212667C2748167D009DE534 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212667B2748167D009DE534 /* UIColor+.swift */; };
+		921A45C3275355AD001E8727 /* CreatePrivateGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921A45C2275355AD001E8727 /* CreatePrivateGroup.storyboard */; };
 		92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92270D732750E1EB00364F3A /* AlarmDataModel.swift */; };
 		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
 		925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */; };
@@ -88,6 +90,7 @@
 		1D25F5F92752D1C600BF7C31 /* RecruitingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitingTVC.swift; sourceTree = "<group>"; };
 		1D25F5FA2752D1C600BF7C31 /* RecruitingTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitingTVC.xib; sourceTree = "<group>"; };
 		1D45CB3A27400F70005726FF /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1DA5D063275BD7A100F78579 /* JoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVC.swift; sourceTree = "<group>"; };
 		1DD056C0274AA82800A7D093 /* PrivateGroupCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupCVC.swift; sourceTree = "<group>"; };
 		1DEAB5FF274067F000074B72 /* PrivateGroupTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupTVC.swift; sourceTree = "<group>"; };
 		1DF615C52752CD8F00D0CF7C /* RecruitingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitingVC.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		921266432747C83B009DE534 /* FirstTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTestVC.swift; sourceTree = "<group>"; };
 		921266792748055A009DE534 /* TestResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultVC.swift; sourceTree = "<group>"; };
 		9212667B2748167D009DE534 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		921A45C2275355AD001E8727 /* CreatePrivateGroup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePrivateGroup.storyboard; sourceTree = "<group>"; };
 		92270D732750E1EB00364F3A /* AlarmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDataModel.swift; sourceTree = "<group>"; };
 		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupDataModel.swift; sourceTree = "<group>"; };
@@ -255,6 +259,14 @@
 			path = TVC;
 			sourceTree = "<group>";
 		};
+		921A45C12753557C001E8727 /* PrivateGroup */ = {
+			isa = PBXGroup;
+			children = (
+				921A45C2275355AD001E8727 /* CreatePrivateGroup.storyboard */,
+			);
+			path = PrivateGroup;
+			sourceTree = "<group>";
+		};
 		92270D722750E17B00364F3A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +393,7 @@
 		926C7C312737F9F40020F851 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				921A45C12753557C001E8727 /* PrivateGroup */,
 				926C7C552738038E0020F851 /* MyPage */,
 				926C7C54273803890020F851 /* Alarm */,
 				926C7C53273803850020F851 /* Lightning */,
@@ -506,6 +519,7 @@
 			children = (
 				926C7C1D2737F93E0020F851 /* MainVC.swift */,
 				1DF615C52752CD8F00D0CF7C /* RecruitingVC.swift */,
+				1DA5D063275BD7A100F78579 /* JoinVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -709,6 +723,7 @@
 				1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */,
 				1D25F5FC2752D1C600BF7C31 /* RecruitingTVC.xib in Resources */,
 				92CBCE7A273B233F00A3F36D /* AlarmTVC.xib in Resources */,
+				921A45C3275355AD001E8727 /* CreatePrivateGroup.storyboard in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
 				92CBCE74273B132600A3F36D /* ProceedCVC.xib in Resources */,
 				92CD3374273FA2A00094CB1C /* SpoqaHanSansNeo-Thin.otf in Resources */,
@@ -738,6 +753,7 @@
 				921266422747BC54009DE534 /* TestTVC.swift in Sources */,
 				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
 				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
+				1DA5D064275BD7A100F78579 /* JoinVC.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
 				92609ACB274BB7E800F0E401 /* SetLightningTitleVC.swift in Sources */,
 				9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */,

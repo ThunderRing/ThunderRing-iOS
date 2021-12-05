@@ -1,9 +1,9 @@
 {
   "images" : [
     {
-      "scale" : "1x",
       "idiom" : "universal",
-      "filename" : "menuChatIn.png"
+      "filename" : "menuChatIn.png",
+      "scale" : "1x"
     },
     {
       "scale" : "2x",
@@ -12,8 +12,8 @@
     },
     {
       "scale" : "3x",
-      "filename" : "menuChatIn@3x.png",
-      "idiom" : "universal"
+      "idiom" : "universal",
+      "filename" : "menuChatIn@3x.png"
     }
   ],
   "info" : {

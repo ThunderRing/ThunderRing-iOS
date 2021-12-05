@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -56,8 +55,8 @@
                                 <color key="textColor" name="black"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXO-2L-NkD" userLabel="Participant Stack View">
-                                <rect key="frame" x="23" y="96.333333333333329" width="302" height="56.999999999999986"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" distribution="equalSpacing" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="gXO-2L-NkD" userLabel="Participant Stack View">
+                                <rect key="frame" x="23" y="96.333333333333329" width="119" height="56.999999999999986"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="8yN-Ol-Cne">
                                         <rect key="frame" x="0.0" y="0.0" width="57" height="57"/>
@@ -83,6 +82,7 @@
                                     <constraint firstItem="3Bc-We-aHP" firstAttribute="leading" secondItem="8yN-Ol-Cne" secondAttribute="trailing" constant="10" id="RCU-60-W1Z"/>
                                     <constraint firstItem="8yN-Ol-Cne" firstAttribute="leading" secondItem="gXO-2L-NkD" secondAttribute="leading" id="d0s-wu-70m"/>
                                     <constraint firstItem="8yN-Ol-Cne" firstAttribute="centerY" secondItem="gXO-2L-NkD" secondAttribute="centerY" id="lBi-Ch-LDj"/>
+                                    <constraint firstAttribute="width" constant="119" id="pMR-FH-1AY"/>
                                     <constraint firstItem="3Bc-We-aHP" firstAttribute="centerY" secondItem="8yN-Ol-Cne" secondAttribute="centerY" id="pmy-kk-S0W"/>
                                 </constraints>
                             </stackView>
@@ -90,8 +90,8 @@
                         <color key="backgroundColor" name="white"/>
                         <constraints>
                             <constraint firstItem="Wql-uL-GxN" firstAttribute="top" secondItem="0ae-nS-6Lr" secondAttribute="bottom" constant="5" id="4WI-9s-Zk9"/>
-                            <constraint firstAttribute="trailing" secondItem="gXO-2L-NkD" secondAttribute="trailing" id="8E0-3Z-e6C"/>
                             <constraint firstAttribute="width" constant="325" id="93h-9n-reC"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="gXO-2L-NkD" secondAttribute="trailing" constant="183" id="CbU-ZV-kpC"/>
                             <constraint firstItem="0ae-nS-6Lr" firstAttribute="leading" secondItem="j8i-S7-Dlu" secondAttribute="leading" constant="20" id="EDZ-KV-dTK"/>
                             <constraint firstItem="0ae-nS-6Lr" firstAttribute="top" secondItem="j8i-S7-Dlu" secondAttribute="top" constant="36" id="a24-Fd-0zT"/>
                             <constraint firstItem="gXO-2L-NkD" firstAttribute="leading" secondItem="j8i-S7-Dlu" secondAttribute="leading" constant="23" id="ef3-Ei-1MD"/>
@@ -119,7 +119,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                <color key="backgroundColor" name="grayBackground"/>
                 <constraints>
                     <constraint firstItem="2zM-WN-vLB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="2jK-Gp-Ah1"/>
                     <constraint firstAttribute="trailing" secondItem="j8i-S7-Dlu" secondAttribute="trailing" id="E7a-tr-wcK"/>
@@ -131,6 +131,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="grayBackground"/>
             <connections>
                 <outlet property="backView" destination="j8i-S7-Dlu" id="tMu-Jm-omx"/>
                 <outlet property="groupTitleLabel" destination="Wql-uL-GxN" id="Nh0-wn-nMy"/>
@@ -153,14 +154,14 @@
         <namedColor name="gray100">
             <color red="0.31000000238418579" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="grayBackground">
+            <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="purple100">
             <color red="0.36500000953674316" green="0.23899999260902405" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="white">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

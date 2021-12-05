@@ -16,6 +16,7 @@ extension Const {
                 
                 static let Main = "MainVC"
                 static let Recruiting = "RecruitingVC"
+                static let Join = "JoinVC"
                 
                 static let ChatList = "ChatListVC"
                 static let Chat = "ChatVC"
