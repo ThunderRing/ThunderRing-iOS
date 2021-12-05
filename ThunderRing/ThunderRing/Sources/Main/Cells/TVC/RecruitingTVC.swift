@@ -19,6 +19,8 @@ class RecruitingTVC: UITableViewCell {
     @IBOutlet weak var recruiterImageView: UIImageView!
     @IBOutlet weak var plusButton: UIButton!
     
+    @IBOutlet weak var remainView: UIView!
+    @IBOutlet weak var remainLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,6 +34,12 @@ class RecruitingTVC: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 20, left: 25, bottom: 0, right: 25))
+    }
+    
 }
 
 // MARK: - UI
@@ -41,9 +49,10 @@ extension RecruitingTVC {
         
         backView.layer.cornerRadius = 5
         backView.layer.borderColor = UIColor.gray300.cgColor
+        backView.layer.borderWidth = 1
         
         recruiterImageView.layer.cornerRadius = recruiterImageView.bounds.width / 2
         
-        
+        remainView.layer.cornerRadius = 15
     }
 }
