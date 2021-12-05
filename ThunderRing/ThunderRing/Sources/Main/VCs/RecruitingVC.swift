@@ -8,7 +8,7 @@
 import UIKit
 
 class RecruitingVC: UIViewController {
-
+    
     // MARK: - UI
     
     @IBOutlet weak var customNavigationBarView: UIView!
@@ -16,6 +16,7 @@ class RecruitingVC: UIViewController {
     @IBOutlet weak var recruitingTableView: UITableView!
     
     // MARK: - Life Cycle
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -30,37 +31,6 @@ class RecruitingVC: UIViewController {
         
         initUI()
         setTableView()
-        
-    }
-    
-}
-
-extension RecruitingVC {
-    func setTableView() {
-        
-        let nib = UINib(nibName: "RecruitingTVC",bundle: nil)
-        
-        recruitingTableView.delegate = self
-        recruitingTableView.dataSource = self
-        
-        recruitingTableView.register(nib, forCellReuseIdentifier: RecruitingTVC.identifier)
-    }
-}
-
-extension RecruitingVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let customCell = recruitingTableView.dequeueReusableCell(withIdentifier: RecruitingTVC.identifier, for: indexPath)as! RecruitingTVC
-        customCell.selectionStyle = .none
-        
-        return customCell
     }
     
 }
@@ -68,5 +38,43 @@ extension RecruitingVC: UITableViewDelegate, UITableViewDataSource {
 extension RecruitingVC {
     func initUI(){
         customNavigationBarView.layer.applyShadow()
+    }
+    
+    func setTableView() {
+        recruitingTableView.delegate = self
+        recruitingTableView.dataSource = self
+        
+        recruitingTableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        
+        let nib = UINib(nibName: "RecruitingTVC",bundle: nil)
+        recruitingTableView.register(nib, forCellReuseIdentifier: RecruitingTVC.identifier)
+    }
+}
+
+extension RecruitingVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 222
+    }
+}
+
+extension RecruitingVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let customCell = tableView.dequeueReusableCell(withIdentifier: RecruitingTVC.identifier, for: indexPath) as? RecruitingTVC else { return UITableViewCell() }
+        customCell.recruitingDelegate = self
+        customCell.selectionStyle = .none
+        return customCell
+    }
+}
+
+extension RecruitingVC : RecruitingCellDelegate {
+    func touchUpPlus() {
+        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "JoinVC") as? JoinVC else { return }
+        dvc.modalTransitionStyle = .crossDissolve
+        dvc.modalPresentationStyle = .overCurrentContext
+        self.present(dvc, animated: true, completion: nil)
     }
 }
