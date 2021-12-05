@@ -64,7 +64,7 @@ class CounterpartChatCVC: BaseCell {
     }
     
     func bindData(data: MessageData) {
-        profileImageView.image = UIImage(named: "image2")
+        profileImageView.image = UIImage(named: data.profileImageName)
         nicknameLabel.text = data.nickname
         couterpartTextLabel.text = data.messageText
         sendTimeLabel.text = data.sendTime
