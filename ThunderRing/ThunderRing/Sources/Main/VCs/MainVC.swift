@@ -33,6 +33,10 @@ class MainVC: UIViewController {
     private var privateGroupCount = 4
     private var publicGroupCount = 4
     
+    private var privateGroups = [[PrivateGroupDataModel]]()
+    private var privateGroup1 = [PrivateGroupDataModel]()
+    private var privateGroup2 = [PrivateGroupDataModel]()
+    
     // MARK: - Life Cycle
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +53,7 @@ class MainVC: UIViewController {
         initUI()
         setCollectionView()
         setAction()
+        setData()
     }
 }
 
@@ -79,7 +84,6 @@ extension MainVC {
     }
     
     private func setCollectionView() {
-        
         let publicGroupCollectionViewlayout = publicGroupCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         publicGroupCollectionViewlayout?.scrollDirection = .horizontal
         publicGroupCollectionViewlayout?.estimatedItemSize = .zero
@@ -104,7 +108,21 @@ extension MainVC {
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
     }
-
+    
+    private func setData() {
+        privateGroup1.append(contentsOf: [
+            PrivateGroupDataModel(groupImage: "imgRabbit", groupName: "양파링걸즈", memberCounts: 4, groupDescription: "우린 양파링은 킹왕짱이다"),
+            PrivateGroupDataModel(groupImage: "imgCrong", groupName: "크롱", memberCounts: 4, groupDescription: "크롱크롱 크롱크크크롱")
+        ])
+        
+        privateGroup2.append(contentsOf: [
+            PrivateGroupDataModel(groupImage: "imgButterfly", groupName: "오렌지쥬스", memberCounts: 7, groupDescription: "착즙주스 사랑해"),
+            PrivateGroupDataModel(groupImage: "imgJuju", groupName: "마법사쥬쥬", memberCounts: 5, groupDescription: "들어오고 싶으면 주문을 외워")
+        ])
+        
+        privateGroups.append(privateGroup1)
+        privateGroups.append(privateGroup2)
+    }
 }
 
 extension NSMutableAttributedString {
@@ -124,46 +142,35 @@ extension NSMutableAttributedString {
 }
 
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if collectionView == privateGroupCollectionView {
-            
-            return 2
+            return privateGroups.count
         } else if collectionView == publicGroupCollectionView {
-            
             return 4
         } else {
-            
             return 1
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if collectionView == privateGroupCollectionView {
-            
             let privateGroupCell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as! PrivateGroupCVC
             privateGroupCell.layer.borderWidth = 1
             privateGroupCell.layer.cornerRadius = 5
             privateGroupCell.layer.borderColor = UIColor.gray300.cgColor
-            
+            privateGroupCell.initCell(groups: privateGroups[indexPath.row])
             return privateGroupCell
             
         } else if collectionView == publicGroupCollectionView {
-            
             let publicGroupCell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as! PublicGroupCVC
             
             return publicGroupCell
-            
         } else {
-            
             let publicGroupCell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as! PublicGroupCVC
             
             return publicGroupCell
         
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
