@@ -27,12 +27,39 @@ class ChatVC: UIViewController {
         $0.collectionViewLayout = layout
     }
     
+    private lazy var textField = UITextField().then {
+        $0.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 24, bounds: true)
+        $0.backgroundColor = .gray350
+        $0.placeholder = "메시지 입력하기"
+        $0.setLeftPaddingPoints(19)
+    }
+    
+    private lazy var backgroundView = UIVisualEffectView().then {
+//        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 0, bounds: true)
+        $0.backgroundColor = .white
+    }
+    
+    private lazy var sendButton = UIButton().then {
+        $0.setTitle("", for: .normal)
+        $0.setImage(UIImage(named: "btnSend"), for: .normal)
+    }
+    
     // MARK: - Properties
     
     var chatTitle: String?
     
     private let nowDate = Date()
-    private var memberNum = 1
+    private var memberNum = 3
+    
+    private let dateFormatter = DateFormatter().then {
+        $0.dateFormat = "MM월 dd일 h:mm (E)"
+        $0.locale = Locale(identifier:"ko")
+    }
+    
+    private let timeFormatter = DateFormatter().then {
+        $0.dateFormat = "a hh:mm"
+        $0.locale = Locale(identifier:"ko")
+    }
 
     // MARK: - Life Cycle
     
@@ -51,6 +78,8 @@ class ChatVC: UIViewController {
         initUI()
         setLayout()
         setCollectionView()
+        getNotification()
+        setAction()
     }
 }
 
@@ -60,10 +89,6 @@ extension ChatVC {
         
         topView.backgroundColor = .white
         topView.layer.applyShadow()
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM월 dd일 h:mm (E)"
-        dateFormatter.locale = Locale(identifier:"ko")
         
         descriptionLabel.text = "펑 시각 " + dateFormatter.string(from: nowDate)
         descriptionLabel.textColor = .purple100
@@ -77,16 +102,43 @@ extension ChatVC {
         self.descriptionLabel.attributedText = attributeString
         
         chatCollectionView.backgroundColor = .background
+        
+        textField.delegate = self
     }
     
     private func setLayout() {
-        view.addSubviews([chatCollectionView])
+        view.addSubviews([chatCollectionView, backgroundView])
+        backgroundView.contentView.addSubviews([textField, sendButton])
         
         chatCollectionView.snp.makeConstraints {
             $0.top.equalTo(topView.snp.bottom).offset(10)
             $0.leading.trailing.equalTo(self.view)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(80)
         }
+        
+        backgroundView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(59)
+        }
+        
+        textField.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(25)
+            $0.centerY.equalToSuperview()
+            $0.width.equalTo(276)
+            $0.height.equalTo(46)
+        }
+        
+        sendButton.snp.makeConstraints {
+            $0.leading.equalTo(textField.snp.trailing).offset(10)
+            $0.centerY.equalTo(textField.snp.centerY)
+        }
+        
+        NSLayoutConstraint.activate([
+            view.keyboardLayoutGuide.topAnchor.constraint(
+                equalTo: backgroundView.bottomAnchor,
+                constant: 0
+            )
+        ])
     }
     
     private func setCollectionView() {
@@ -95,6 +147,29 @@ extension ChatVC {
         
         chatCollectionView.register(CounterpartChatCVC.self, forCellWithReuseIdentifier: "CounterpartChatCVC")
         chatCollectionView.register(MyChatCVC.self, forCellWithReuseIdentifier: "MyChatCVC")
+    }
+    
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(sendMessage(_:)), name: NSNotification.Name("SendMessage"), object: nil)
+    }
+    
+    private func setAction() {
+        sendButton.addAction(UIAction(handler: { _ in
+            NotificationCenter.default.post(name: NSNotification.Name("SendMessage"), object: self.textField.text ?? "")
+            self.view.endEditing(true)
+        }), for: .touchUpInside)
+    }
+}
+
+extension ChatVC {
+    @objc
+    func sendMessage(_ notification: Notification) {
+        textField.text = ""
+        let getValue = notification.object as! String
+        if !getValue.isEmpty {
+            chatData.append(MessageData(chatType: .me, messageText: getValue, profileImageName: "", nickname: "", sendTime: timeFormatter.string(from: nowDate)))
+            chatCollectionView.reloadData()
+        }
     }
 }
 
@@ -119,10 +194,10 @@ extension ChatVC: UICollectionViewDelegateFlowLayout {
                 return CGSize(width: self.view.frame.width, height: height + 28)
             }
             else if height >= 20 && height < 40 {
-                return CGSize(width: self.view.frame.width, height: height + 80)
+                return CGSize(width: self.view.frame.width, height: height + 20)
             }
             else {
-                return CGSize(width: self.view.frame.width, height: height + 100)
+                return CGSize(width: self.view.frame.width, height: height + 20)
             }
         } else {
             return CGSize(width: self.view.frame.width, height: self.view.frame.height)
@@ -174,5 +249,14 @@ extension ChatVC {
     
     @objc func dismissChatView() {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - UITextField Delegate
+
+extension ChatVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

@@ -41,12 +41,18 @@ class MyPageAlarmTVC: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        if selected {
+            alarmSwitch.isOn = false
+        } else {
+            alarmSwitch.isOn = true
+        }
     }
 
 }
 
 extension MyPageAlarmTVC {
-    func setLayout() {
+    private func setLayout() {
         self.addSubviews([label, alarmSwitch])
         
         label.snp.makeConstraints {

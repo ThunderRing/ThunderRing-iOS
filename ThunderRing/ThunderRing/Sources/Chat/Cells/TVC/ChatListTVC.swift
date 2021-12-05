@@ -21,7 +21,7 @@ class ChatListTVC: UITableViewCell {
     }
     
     private var chatImageView = UIImageView().then {
-        $0.image = UIImage(named: "image1")
+        $0.image = UIImage(named: "imgRabbit")
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 28, bounds: true)
     }
     
