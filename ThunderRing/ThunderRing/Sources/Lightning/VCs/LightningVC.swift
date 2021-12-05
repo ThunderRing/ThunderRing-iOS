@@ -54,16 +54,16 @@ extension LightningVC {
     
     private func setData() {
         privateGroup.append(contentsOf: [
-            PrivateGroupDataModel(groupImage: "image1", groupName: "양파링걸즈", memberCounts: 4),
-            PrivateGroupDataModel(groupImage: "image1", groupName: "크롱", memberCounts: 30),
-            PrivateGroupDataModel(groupImage: "image1", groupName: "오렌지쥬스", memberCounts: 7)
+            PrivateGroupDataModel(groupImage: "imgRabbit", groupName: "양파링걸즈", memberCounts: 4),
+            PrivateGroupDataModel(groupImage: "imgRabbit", groupName: "크롱", memberCounts: 30),
+            PrivateGroupDataModel(groupImage: "imgRabbit", groupName: "오렌지쥬스", memberCounts: 7)
         ])
         
         publicGroup.append(contentsOf: [
-            PublicGroupDataModel(groupImage: "image1", groupName: "Rich ball", memberCounts: 3, hashTag: "사근한 오전"),
-            PublicGroupDataModel(groupImage: "image1", groupName: "곰돌아이", memberCounts: 7, hashTag: "북적이는 오후"),
-            PublicGroupDataModel(groupImage: "image1", groupName: "동물의 숲", memberCounts: 3, hashTag: "감성적인 새벽녘"),
-            PublicGroupDataModel(groupImage: "image1", groupName: "이지언니", memberCounts: 3, hashTag: "부지런한 동틀녘")
+            PublicGroupDataModel(groupImage: "imgRabbit", groupName: "Rich ball", memberCounts: 3, hashTag: "사근한 오전"),
+            PublicGroupDataModel(groupImage: "imgRabbit", groupName: "곰돌아이", memberCounts: 7, hashTag: "북적이는 오후"),
+            PublicGroupDataModel(groupImage: "imgRabbit", groupName: "동물의 숲", memberCounts: 3, hashTag: "감성적인 새벽녘"),
+            PublicGroupDataModel(groupImage: "imgRabbit", groupName: "이지언니", memberCounts: 3, hashTag: "부지런한 동틀녘")
         ])
     }
     
