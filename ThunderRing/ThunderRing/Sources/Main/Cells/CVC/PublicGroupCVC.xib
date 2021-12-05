@@ -28,7 +28,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6b-zv-QNm" userLabel="Back View">
                         <rect key="frame" x="0.0" y="0.0" width="156" height="261"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="WHb-V6-Sb9">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgRabbit" translatesAutoresizingMaskIntoConstraints="NO" id="WHb-V6-Sb9">
                                 <rect key="frame" x="39" y="15" width="78" height="78"/>
                                 <color key="tintColor" systemColor="systemIndigoColor"/>
                                 <constraints>
@@ -132,7 +132,7 @@
     <resources>
         <image name="btnLightning" width="87" height="48"/>
         <image name="icnUser" width="15" height="15"/>
-        <image name="image1" width="54" height="54"/>
+        <image name="imgRabbit" width="75" height="75"/>
         <image name="tagCozy" width="99" height="21"/>
         <namedColor name="gray100">
             <color red="0.31000000238418579" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
