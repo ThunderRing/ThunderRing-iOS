@@ -16,22 +16,39 @@ class JoinVC: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var joinButton: UIButton!
     
-    
     // MARK: - Life Cycle
-  override func viewDidLoad() {
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
-      
-      initUI()
         
+        initUI()
+        setAction()
     }
     
 }
 
 extension JoinVC {
     func initUI() {
-        
+        view.backgroundColor = UIColor(red: 0.0 / 255.0 , green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.5)
         popUpView.layer.cornerRadius = 8
         
+        joinButton.clipsToBounds = true
+        joinButton.layer.cornerRadius = 9
+        joinButton.layer.maskedCorners = [.layerMaxXMaxYCorner]
         
+        cancelButton.clipsToBounds = true
+        cancelButton.layer.cornerRadius = 9
+        cancelButton.layer.maskedCorners = [.layerMinXMaxYCorner]
+    }
+    
+    func setAction() {
+        cancelButton.addAction(UIAction(handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        }), for: .touchUpInside)
+        
+        joinButton.addAction(UIAction(handler: { _ in
+            NotificationCenter.default.post(name: NSNotification.Name("AddMember"), object: nil)
+            self.dismiss(animated: true, completion: nil)
+        }), for: .touchUpInside)
     }
 }

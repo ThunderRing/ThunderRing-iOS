@@ -11,4 +11,6 @@ struct PrivateGroupDataModel {
     var groupImage: String
     var groupName: String
     var memberCounts: Int
+    
+    var groupDescription: String?
 }
