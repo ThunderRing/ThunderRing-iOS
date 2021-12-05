@@ -16,8 +16,8 @@ class PublicListTVC: UITableViewCell {
     // MARK: - UI
     
     private var groupImageView = UIImageView().then {
-        $0.image = UIImage(named: "image1")
-        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: $0.frame.width / 2, bounds: true)
+        $0.image = UIImage(named: "imgRabbit")
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: $0.frame.width / 2, bounds: true)
     }
     
     private var groupNameLabel = UILabel().then {

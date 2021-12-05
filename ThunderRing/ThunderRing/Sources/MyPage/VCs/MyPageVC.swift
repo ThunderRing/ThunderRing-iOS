@@ -50,7 +50,7 @@ extension MyPageVC {
         customNavigationBarView.layer.applyShadow()
         
         profileBackView.initViewBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: profileBackView.frame.width / 2, bounds: true)
-        userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 5, bounds: true)
+        userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
     }
     
     func setTableView() {
@@ -59,7 +59,8 @@ extension MyPageVC {
         
         myPageTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         myPageTableView.separatorColor = .gray
-        myPageTableView.backgroundColor = .grayBackground
+        myPageTableView.backgroundColor = .background
+        myPageTableView.allowsMultipleSelection = true
         
         myPageTableView.register(MyPageAlarmTVC.self, forCellReuseIdentifier: MyPageAlarmTVC.identifier)
         myPageTableView.register(AccountTVC.self, forCellReuseIdentifier: AccountTVC.identifier)
@@ -88,18 +89,23 @@ extension MyPageVC: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageAlarmTVC.identifier) as? MyPageAlarmTVC else { return UITableViewCell() }
+            cell.selectionStyle = .none
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountTVC.identifier) as? AccountTVC else { return UITableViewCell() }
+            cell.selectionStyle = .none
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: QuestionTVC.identifier) as? QuestionTVC else { return UITableViewCell() }
+            cell.selectionStyle = .none
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoTVC.identifier) as? InfoTVC else { return UITableViewCell() }
+            cell.selectionStyle = .none
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: LogOutTVC.identifier) as? LogOutTVC else { return UITableViewCell() }
+            cell.selectionStyle = .none
             return cell
         default:
             return UITableViewCell()

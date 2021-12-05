@@ -48,7 +48,7 @@ extension RecruitingTVC {
     func initUI() {
         
         backView.layer.cornerRadius = 5
-        backView.layer.borderColor = UIColor.grayStroke.cgColor
+        backView.layer.borderColor = UIColor.gray300.cgColor
         backView.layer.borderWidth = 1
         
         recruiterImageView.layer.cornerRadius = recruiterImageView.bounds.width / 2

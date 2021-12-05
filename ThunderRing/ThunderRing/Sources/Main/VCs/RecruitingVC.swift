@@ -20,7 +20,8 @@ class RecruitingVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "모집 중인 번개", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .white)
+        self.tabBarController?.tabBar.isHidden = true
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "모집 중인 번개", backBtnIsHidden: false, closeBtnIsHidden: true, bgColor: .white)
         setStatusBar(.white)
     }
     

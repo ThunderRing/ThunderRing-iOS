@@ -56,7 +56,7 @@ class FirstTestVC: UIViewController {
 
 extension FirstTestVC {
     private func initUI() {
-        view.backgroundColor = .grayBackground
+        view.backgroundColor = .background
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
             self.updateProgressViewWithAnimation()

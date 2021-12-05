@@ -75,7 +75,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="MRt-sA-ka8">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgRabbit" translatesAutoresizingMaskIntoConstraints="NO" id="MRt-sA-ka8">
                                                         <rect key="frame" x="246" y="12" width="60" height="60"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -151,7 +151,7 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="299" height="147"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="f3W-GJ-KIz">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgRabbit" translatesAutoresizingMaskIntoConstraints="NO" id="f3W-GJ-KIz">
                                                                                         <rect key="frame" x="18" y="36" width="75" height="75"/>
                                                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <constraints>
@@ -480,7 +480,7 @@
                                         <color key="textColor" name="gray100"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2" translatesAutoresizingMaskIntoConstraints="NO" id="lBH-JL-9I6" userLabel="Character Image View">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgRabbit" translatesAutoresizingMaskIntoConstraints="NO" id="lBH-JL-9I6" userLabel="Character Image View">
                                         <rect key="frame" x="104" y="8" width="62" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="62" id="N9i-DW-sJC"/>
@@ -577,8 +577,7 @@
         <image name="btnEnter" width="87" height="48"/>
         <image name="btnLightning" width="87" height="48"/>
         <image name="btnRecruit" width="48" height="48"/>
-        <image name="image1" width="54" height="54"/>
-        <image name="image2" width="128" height="128"/>
+        <image name="imgRabbit" width="75" height="75"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

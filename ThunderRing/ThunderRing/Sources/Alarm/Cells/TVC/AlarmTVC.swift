@@ -37,7 +37,7 @@ class AlarmTVC: UITableViewCell {
 
 extension AlarmTVC {
     private func initUI() {
-        backView.initViewBorder(borderWidth: 1, borderColor: UIColor.grayStroke.cgColor, cornerRadius: 12, bounds: true)
+        backView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
     }
 }
 

@@ -34,9 +34,13 @@ class SelectDateVC: UIViewController {
         $0.locale = Locale(identifier: "ko")
     }
     
-    // MARK: - Properties
-    
     // MARK: - Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.45, execute: {
+            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
