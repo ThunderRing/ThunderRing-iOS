@@ -44,7 +44,7 @@ class CompleteCreateVC: UIViewController {
 
 extension CompleteCreateVC {
     private func initUI() {
-        if let image = UIImage(named: "image2") {
+        if let image = UIImage(named: "15") {
             self.groupImageView.image = image
         }
         
