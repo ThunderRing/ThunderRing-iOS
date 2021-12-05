@@ -18,10 +18,10 @@ class JoinVC: UIViewController {
     
     
     // MARK: - Life Cycle
-  override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-      
-      initUI()
+        
+        initUI()
         
     }
     
