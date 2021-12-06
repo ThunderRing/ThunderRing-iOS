@@ -8,7 +8,7 @@
 import UIKit
 
 class SetLightningTitleVC: UIViewController {
-
+    
     // MARK: - UI
     
     @IBOutlet weak var customNavigationBarView: UIView!
@@ -30,7 +30,7 @@ class SetLightningTitleVC: UIViewController {
     
     var groupName = ""
     var index = 0
-    var groupNames = ["양파링 걸즈", "크롱", "오렌지쥬스"]
+    var groupNames = ["양파링 걸즈", "크롱", "오렌지쥬스", "마법사쥬쥬"]
     
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
@@ -58,7 +58,7 @@ class SetLightningTitleVC: UIViewController {
 
 extension SetLightningTitleVC {
     private func initUI() {
-        groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray200.cgColor, cornerRadius: 12, bounds: true)
+        groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         groupNameTextField.setLeftPaddingPoints(15)
         groupNameTextField.setRightPaddingPoints(15)
         groupNameTextField.text = groupNames[index]
@@ -159,7 +159,7 @@ extension SetLightningTitleVC: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray200.cgColor, cornerRadius: 12, bounds: true)
+        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         
         if nameTextField.hasText {
             nextButton.isEnabled = true
@@ -210,6 +210,7 @@ extension SetLightningTitleVC: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
+            NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHide"), object: nil)
             textView.resignFirstResponder()
         }
         return true
@@ -224,15 +225,15 @@ extension SetLightningTitleVC: UITextViewDelegate {
 
 extension SetLightningTitleVC: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-         return 1
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return groupNames.count
+        return groupNames.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-           return groupNames[row]
+        return groupNames[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

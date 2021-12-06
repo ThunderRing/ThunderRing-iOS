@@ -99,7 +99,7 @@ extension SetLigntningDetailVC {
     }
     
     private func setToolBar() {
-        let toolBar = UIToolbar(frame:CGRect(x:0, y:0, width: view.frame.width, height: 44))
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 375, height: 44))
         toolBar.sizeToFit()
         toolBar.translatesAutoresizingMaskIntoConstraints = false
         toolBar.backgroundColor = .systemGray6
@@ -116,37 +116,39 @@ extension SetLigntningDetailVC {
     private func setDatePickerView() {
         dateTextField.inputView = datePickerView
         
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        toolbar.backgroundColor = .systemGray6
-        toolbar.tintColor = .purple100
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 375, height: 44))
+        toolBar.sizeToFit()
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+        toolBar.backgroundColor = .systemGray6
+        toolBar.tintColor = .purple100
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(touchUpDateDoneButton))
+        let doneButton = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(touchUpDateDoneButton))
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        toolbar.setItems([flexibleSpace, doneButton], animated: true)
+        toolBar.setItems([flexibleSpace, doneButton], animated: true)
         datePickerView.preferredDatePickerStyle = .wheels
         datePickerView.datePickerMode = .date
         
-        dateTextField.inputAccessoryView = toolbar
+        dateTextField.inputAccessoryView = toolBar
     }
     
     private func setTimePickerView() {
         timeTextField.inputView = timePickerView
         
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        toolbar.backgroundColor = .systemGray6
-        toolbar.tintColor = .purple100
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 375, height: 44))
+        toolBar.sizeToFit()
+        toolBar.translatesAutoresizingMaskIntoConstraints = false
+        toolBar.backgroundColor = .systemGray6
+        toolBar.tintColor = .purple100
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(touchUpTimeDoneButton))
+        let doneButton = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(touchUpTimeDoneButton))
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-        toolbar.setItems([flexibleSpace, doneButton], animated: true)
+        toolBar.setItems([flexibleSpace, doneButton], animated: true)
         timePickerView.preferredDatePickerStyle = .wheels
         timePickerView.datePickerMode = .time
         
-        timeTextField.inputAccessoryView = toolbar
+        timeTextField.inputAccessoryView = toolBar
     }
     
     private func setAction() {
@@ -270,7 +272,7 @@ extension SetLigntningDetailVC {
     
     @objc
     func keyboardWillHide(_ notification: Notification) {
-        let topAnchor = self.topConstraint.constant + 50
+        let topAnchor = self.topConstraint.constant + 60
         
         self.dateLabel.snp.updateConstraints { make in
             make.top.equalToSuperview().offset(topAnchor)

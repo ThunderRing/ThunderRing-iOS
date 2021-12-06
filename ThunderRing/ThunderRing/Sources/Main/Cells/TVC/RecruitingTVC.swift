@@ -54,6 +54,7 @@ extension RecruitingTVC {
     private func initUI() {
         backView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
         
+        memberStackView.spacing = 8
         remainView.layer.cornerRadius = 15
     }
     
@@ -76,7 +77,7 @@ extension RecruitingTVC {
         let userImageView = UIImageView()
         userImageView.image = UIImage(named: "imgUser3")
         
-        memberStackView.spacing = 10
+        memberStackView.spacing = 8
         memberStackView.addArrangedSubview(userImageView)
     }
 }

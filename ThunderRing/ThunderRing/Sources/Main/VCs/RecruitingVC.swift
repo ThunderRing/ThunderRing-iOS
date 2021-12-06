@@ -22,8 +22,8 @@ class RecruitingVC: UIViewController {
         
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "모집 중인 번개", backBtnIsHidden: false, closeBtnIsHidden: true, bgColor: .white)
-        setStatusBar(.white)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "모집 중인 번개", backBtnIsHidden: false, closeBtnIsHidden: true, bgColor: .background)
+        setStatusBar(.background)
     }
     
     override func viewDidLoad() {
@@ -37,6 +37,7 @@ class RecruitingVC: UIViewController {
 
 extension RecruitingVC {
     func initUI(){
+        view.backgroundColor = .background
         customNavigationBarView.layer.applyShadow()
     }
     

@@ -2,7 +2,7 @@
 //  PrivateGroupTVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/12/05.
+//  Created by HM on 2021/11/14.
 //
 
 import UIKit
@@ -12,9 +12,7 @@ class PrivateGroupTVC: UITableViewCell {
     
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
-    @IBOutlet weak var groupDescriptionLabel: UILabel!
-    @IBOutlet weak var countImageView: UIImageView!
-    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var groupExplainLabel: UILabel!
     @IBOutlet weak var entryButton: UIButton!
     @IBOutlet weak var thunderButton: UIButton!
     
@@ -43,7 +41,6 @@ extension PrivateGroupTVC {
     func initCell(group: PrivateGroupDataModel) {
         groupImageView.image = UIImage(named: group.groupImage)
         groupNameLabel.text = group.groupName
-        groupDescriptionLabel.text = group.groupDescription
-        countLabel.text = "\(group.memberCounts)"
+        groupExplainLabel.text = group.groupDescription
     }
 }

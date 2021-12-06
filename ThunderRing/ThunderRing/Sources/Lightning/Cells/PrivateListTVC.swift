@@ -17,16 +17,20 @@ class PrivateListTVC: UITableViewCell {
     
     private lazy var groupImageView = UIImageView().then {
         $0.image = UIImage(named: "imgRabbit")
-        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: $0.frame.width / 2, bounds: true)
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 27, bounds: true)
     }
     
     private lazy var groupNameLabel = UILabel().then {
-        $0.textColor = .black
+        $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
+    private lazy var countImageView = UIImageView().then {
+        $0.image = UIImage(named: "icnUser")
+    }
+    
     private lazy var countLabel = UILabel().then {
-        $0.textColor = .darkGray
+        $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
@@ -36,6 +40,7 @@ class PrivateListTVC: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        initUI()
         setLayout()
     }
     
@@ -51,15 +56,15 @@ class PrivateListTVC: UITableViewCell {
 
 extension PrivateListTVC {
     private func initUI() {
-        
+        self.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 0, bounds: true)
     }
     
     private func setLayout() {
-        self.addSubviews([groupImageView, groupNameLabel, countLabel])
+        self.addSubviews([groupImageView, groupNameLabel, countImageView, countLabel])
         
         groupImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(30)
-            $0.width.height.equalTo(75)
+            $0.leading.equalToSuperview().inset(25)
+            $0.width.height.equalTo(54)
             $0.centerY.equalToSuperview()
         }
         
@@ -68,9 +73,14 @@ extension PrivateListTVC {
             $0.centerY.equalToSuperview()
         }
         
-        countLabel.snp.makeConstraints {
+        countImageView.snp.makeConstraints {
             $0.leading.equalTo(groupNameLabel.snp.trailing).offset(8)
             $0.centerY.equalToSuperview()
+        }
+        
+        countLabel.snp.makeConstraints {
+            $0.leading.equalTo(countImageView.snp.trailing).offset(2)
+            $0.centerY.equalTo(countImageView.snp.centerY)
         }
     }
 }

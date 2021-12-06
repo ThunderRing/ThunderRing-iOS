@@ -17,12 +17,16 @@ class PublicListTVC: UITableViewCell {
     
     private var groupImageView = UIImageView().then {
         $0.image = UIImage(named: "imgRabbit")
-        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: $0.frame.width / 2, bounds: true)
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 27, bounds: true)
     }
     
     private var groupNameLabel = UILabel().then {
-        $0.textColor = .black
+        $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
+    }
+    
+    private lazy var countImageView = UIImageView().then {
+        $0.image = UIImage(named: "icnUser")
     }
     
     private var countLabel = UILabel().then {
@@ -31,7 +35,7 @@ class PublicListTVC: UITableViewCell {
     }
     
     private var hashTagLabel = UILabel().then {
-        $0.textColor = .black
+        $0.textColor = .gray100
         $0.backgroundColor = .systemGray5
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
         $0.layer.cornerRadius = 3
@@ -48,6 +52,7 @@ class PublicListTVC: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        initUI()
         setLayout()
     }
     
@@ -62,11 +67,17 @@ class PublicListTVC: UITableViewCell {
 }
 
 extension PublicListTVC {
+    private func initUI() {
+        self.layer.borderColor = UIColor.gray350.cgColor
+        self.layer.borderWidth = 1
+    }
+    
     private func setLayout() {
-        self.addSubviews([groupImageView, groupNameLabel, countLabel, hashTagImageView])
+        self.addSubviews([groupImageView, groupNameLabel, countImageView, countLabel, hashTagImageView])
         
         groupImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(25)
+            $0.width.height.equalTo(54)
             $0.centerY.equalToSuperview()
         }
         
@@ -75,8 +86,13 @@ extension PublicListTVC {
             $0.top.equalToSuperview().inset(24)
         }
         
-        countLabel.snp.makeConstraints {
+        countImageView.snp.makeConstraints {
             $0.leading.equalTo(groupNameLabel.snp.trailing).offset(8)
+            $0.top.equalToSuperview().inset(24)
+        }
+        
+        countLabel.snp.makeConstraints {
+            $0.leading.equalTo(countImageView.snp.trailing).offset(2)
             $0.top.equalToSuperview().inset(24)
         }
         
@@ -102,7 +118,7 @@ extension PublicListTVC {
             hashTagImageView.image = UIImage(named: "tagDiligent")
         case "북적이는 오후":
             hashTagImageView.image = UIImage(named: "tagCrowd")
-        case "감성적인 새벽녁]녘":
+        case "감성적인 새벽녘":
             hashTagImageView.image = UIImage(named: "tagEmotion")
         case "사근한 오전":
             hashTagImageView.image = UIImage(named: "tagSoft")
