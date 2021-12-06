@@ -12,4 +12,6 @@ struct PublicGroupDataModel {
     var groupName: String
     var memberCounts: Int
     var hashTag: String
+    
+    var memberTotalCounts: Int?
 }
