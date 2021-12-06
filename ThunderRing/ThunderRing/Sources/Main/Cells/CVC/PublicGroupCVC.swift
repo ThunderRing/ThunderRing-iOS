@@ -18,7 +18,6 @@ class PublicGroupCVC: UICollectionViewCell {
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var groupLabel: UILabel!
     
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var countLabel: UILabel!
     
     @IBOutlet weak var hashTagImageView: UIImageView!
@@ -26,7 +25,6 @@ class PublicGroupCVC: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         initUI()
     }
@@ -35,16 +33,34 @@ class PublicGroupCVC: UICollectionViewCell {
 // MARK: - Custom Methods
 
 extension PublicGroupCVC {
-    
     private func initUI() {
+        backView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
         
-        backView.layer.borderWidth = 1
-        backView.layer.cornerRadius = 5
-        backView.layer.borderColor = UIColor.gray300.cgColor
-        
-        groupImageView.layer.cornerRadius = groupImageView.bounds.width / 2
-        groupImageView.layer.borderWidth = 1
-        groupImageView.layer.borderColor = UIColor.gray300.cgColor
+        groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: groupImageView.bounds.width / 2, bounds: true)
+    }
+}
 
+extension PublicGroupCVC {
+    func initCell(group: PublicGroupDataModel) {
+        groupImageView.image = UIImage(named: group.groupImage)
+        
+        groupLabel.text = group.groupName
+        countLabel.text = "\(group.memberCounts)/\(group.memberTotalCounts!)"
+        
+        switch group.hashTag {
+        case "부지런한 동틀녘":
+            hashTagImageView.image = UIImage(named: "tagDiligent")
+        case "북적이는 오후":
+            hashTagImageView.image = UIImage(named: "tagCrowd")
+        case "감성적인 새벽녘":
+            hashTagImageView.image = UIImage(named: "tagEmotion")
+        case "사근한 오전":
+            hashTagImageView.image = UIImage(named: "tagSoft")
+        case "포근한 해질녘":
+            hashTagImageView.image = UIImage(named: "tagCozy")
+        default:
+            return
+        }
+        hashTagImageView.contentMode = .scaleAspectFit
     }
 }

@@ -14,7 +14,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var customNavigationBarView: UIView!
     @IBOutlet weak var recruitButton: UIButton!
     
-    @IBOutlet weak var cardView: CardView!
+    @IBOutlet weak var cardView: UIView!
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var attendanceLabel: UILabel!
@@ -36,6 +36,8 @@ class MainVC: UIViewController {
     private var privateGroups = [[PrivateGroupDataModel]]()
     private var privateGroup1 = [PrivateGroupDataModel]()
     private var privateGroup2 = [PrivateGroupDataModel]()
+    
+    private var publicGroups = [PublicGroupDataModel]()
     
     // MARK: - Life Cycle
 
@@ -63,13 +65,10 @@ extension MainVC {
     private func initUI() {
         customNavigationBarView.layer.applyShadow()
         
-        userNameLabel.text = "\(name)님"
-        userNameLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        userNameLabel.textColor = .white
+        cardView.layer.cornerRadius = 7
+        cardView.layer.masksToBounds = true
         
-        imageView.layer.cornerRadius = imageView.bounds.width / 2
-        imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor.gray300.cgColor
+        imageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: imageView.bounds.width / 2, bounds: true)
         
         attendanceLabel.attributedText = NSMutableAttributedString()
             .regular(string: "번개 ", fontSize: 14)
@@ -94,6 +93,9 @@ extension MainVC {
         publicGroupCollectionView.delegate = self
         publicGroupCollectionView.dataSource = self
         
+        let privateGroupNib = UINib(nibName: PrivateGroupCVC.identifier, bundle: nil)
+        privateGroupCollectionView.register(privateGroupNib, forCellWithReuseIdentifier: PrivateGroupCVC.identifier)
+        
         let publicGroupNib = UINib(nibName: PublicGroupCVC.identifier, bundle: nil)
         publicGroupCollectionView.register(publicGroupNib, forCellWithReuseIdentifier: PublicGroupCVC.identifier)
         
@@ -110,6 +112,7 @@ extension MainVC {
     }
     
     private func setData() {
+        // private
         privateGroup1.append(contentsOf: [
             PrivateGroupDataModel(groupImage: "imgRabbit", groupName: "양파링걸즈", memberCounts: 4, groupDescription: "우린 양파링은 킹왕짱이다"),
             PrivateGroupDataModel(groupImage: "imgCrong", groupName: "크롱", memberCounts: 4, groupDescription: "크롱크롱 크롱크크크롱")
@@ -122,6 +125,14 @@ extension MainVC {
         
         privateGroups.append(privateGroup1)
         privateGroups.append(privateGroup2)
+        
+        // public
+        publicGroups.append(contentsOf: [
+            PublicGroupDataModel(groupImage: "imgRice", groupName: "Rice ball", memberCounts: 4, hashTag: "부지런한 동틀녁", memberTotalCounts: 100),
+            PublicGroupDataModel(groupImage: "imgBear", groupName: "곰돌아이", memberCounts: 4, hashTag: "북적이는 오후", memberTotalCounts: 10),
+            PublicGroupDataModel(groupImage: "imgNintendo", groupName: "동물의 숲", memberCounts: 3, hashTag: "감성적인 새벽녘", memberTotalCounts: 30),
+            PublicGroupDataModel(groupImage: "imgDog", groupName: "이지언니", memberCounts: 4, hashTag: "사근한 오전", memberTotalCounts: 300)
+        ])
     }
 }
 
@@ -146,30 +157,27 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         if collectionView == privateGroupCollectionView {
             return privateGroups.count
         } else if collectionView == publicGroupCollectionView {
-            return 4
+            return publicGroups.count
         } else {
             return 1
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == privateGroupCollectionView {
-            let privateGroupCell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as! PrivateGroupCVC
-            privateGroupCell.layer.borderWidth = 1
-            privateGroupCell.layer.cornerRadius = 5
-            privateGroupCell.layer.borderColor = UIColor.gray300.cgColor
-            privateGroupCell.initCell(groups: privateGroups[indexPath.row])
-            return privateGroupCell
-            
-        } else if collectionView == publicGroupCollectionView {
-            let publicGroupCell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as! PublicGroupCVC
-            
-            return publicGroupCell
-        } else {
-            let publicGroupCell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as! PublicGroupCVC
-            
-            return publicGroupCell
-        
+        switch collectionView {
+        case privateGroupCollectionView:
+            guard let cell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as?  PrivateGroupCVC else { return UICollectionViewCell() }
+            cell.layer.borderWidth = 1
+            cell.layer.cornerRadius = 5
+            cell.layer.borderColor = UIColor.gray300.cgColor
+            cell.initCell(groups: privateGroups[indexPath.row])
+            return cell
+        case publicGroupCollectionView:
+            guard let cell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as?   PublicGroupCVC else { return UICollectionViewCell() }
+            cell.initCell(group: publicGroups[indexPath.row])
+            return cell
+        default:
+            return UICollectionViewCell()
         }
     }
     
