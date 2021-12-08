@@ -61,6 +61,7 @@ extension MyPageVC {
         myPageTableView.separatorColor = .gray
         myPageTableView.backgroundColor = .background
         myPageTableView.allowsMultipleSelection = true
+        myPageTableView.isScrollEnabled = false
         
         myPageTableView.register(MyPageAlarmTVC.self, forCellReuseIdentifier: MyPageAlarmTVC.identifier)
         myPageTableView.register(AccountTVC.self, forCellReuseIdentifier: AccountTVC.identifier)
