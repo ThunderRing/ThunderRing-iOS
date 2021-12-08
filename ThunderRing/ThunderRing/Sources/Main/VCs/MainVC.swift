@@ -28,6 +28,9 @@ class MainVC: UIViewController {
     @IBOutlet weak var publicGroupCountLabel: UILabel!
     @IBOutlet weak var publicGroupCollectionView: UICollectionView!
     
+    @IBOutlet weak var seePrivateButton: UIButton!
+    @IBOutlet weak var seePublicButton: UIButton!
+    
     // MARK: - Properties
     
     private var name = "파링"
@@ -83,6 +86,9 @@ extension MainVC {
         
         publicGroupCountLabel.text = "\(publicGroupCount)"
         
+        [attendanceLabel, privateGroupCountLabel, publicGroupCountLabel].forEach {
+            $0?.addCharacterSpacing()
+        }
     }
     
     private func setCollectionView() {
@@ -112,6 +118,11 @@ extension MainVC {
     private func setAction() {
         recruitButton.addAction(UIAction(handler: { _ in
             guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "RecruitingVC") else { return }
+            self.navigationController?.pushViewController(dvc, animated: true)
+        }), for: .touchUpInside)
+        
+        seePrivateButton.addAction(UIAction(handler: { _ in
+            guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPrivate, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPrivate) as? MyPrivateVC else { return }
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
     }

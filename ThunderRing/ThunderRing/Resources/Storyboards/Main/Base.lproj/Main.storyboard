@@ -260,6 +260,8 @@
                         <outlet property="publicGroupCollectionView" destination="gzL-T0-cpd" id="Rut-qa-RM6"/>
                         <outlet property="publicGroupCountLabel" destination="BRn-MD-gDX" id="qZR-gQ-EBy"/>
                         <outlet property="recruitButton" destination="EYH-j4-hdT" id="d9a-PM-fvM"/>
+                        <outlet property="seePrivateButton" destination="oea-e6-SMO" id="zKi-O7-r2j"/>
+                        <outlet property="seePublicButton" destination="3es-JU-J9w" id="nuS-pW-Zjw"/>
                         <outlet property="userNameLabel" destination="ivf-nm-we5" id="FGj-Ve-Gqc"/>
                     </connections>
                 </viewController>
@@ -449,6 +451,7 @@
                 <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" id="UR1-RG-MD1" customClass="TabBarController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FWr-gb-wCf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
