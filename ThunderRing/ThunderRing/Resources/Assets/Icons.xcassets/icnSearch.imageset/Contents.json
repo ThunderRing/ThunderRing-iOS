@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icn_happy.png",
+      "filename" : "icnSearch.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icn_happy@2x.png",
+      "filename" : "icnSearch@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icn_happy@3x.png",
+      "filename" : "icnSearch@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
