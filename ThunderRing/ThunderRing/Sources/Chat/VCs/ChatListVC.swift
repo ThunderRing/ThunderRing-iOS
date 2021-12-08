@@ -39,6 +39,7 @@ class ChatListVC: UIViewController {
 extension ChatListVC {
     private func initUI() {
         topView.layer.applyShadow()
+        titleLabel.addCharacterSpacing()
     }
     
     private func setTableView() {
