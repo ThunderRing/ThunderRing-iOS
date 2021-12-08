@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SpoqaHanSansNeo-Medium.otf">
+            <string>SpoqaHanSansNeo-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--My PrivateVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MyPrivateVC" id="Y6W-OH-hqX" customClass="MyPrivateVC" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1aC-DP-2Cx">
+                                <rect key="frame" x="0.0" y="101" width="414" height="761"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSI-Fx-M7V">
+                                <rect key="frame" x="0.0" y="44" width="414" height="57"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubm-Lw-Qak">
+                                        <rect key="frame" x="7" y="4.5" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="VLi-RU-55l"/>
+                                            <constraint firstAttribute="width" constant="48" id="kGh-Mj-ujr"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="btnBack"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비공개 그룹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkp-Qk-jHw">
+                                        <rect key="frame" x="163.5" y="17" width="87" height="23"/>
+                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
+                                        <color key="textColor" name="gray100"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i67-Zb-27R">
+                                        <rect key="frame" x="356" y="4.5" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="2XA-Gl-Gtk"/>
+                                            <constraint firstAttribute="width" constant="48" id="ikL-Ro-xv7"/>
+                                        </constraints>
+                                        <color key="tintColor" name="gray100"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="btnSearch"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="i67-Zb-27R" secondAttribute="trailing" constant="10" id="9K3-2P-Pap"/>
+                                    <constraint firstAttribute="height" constant="57" id="Obi-dO-3BK"/>
+                                    <constraint firstItem="Dkp-Qk-jHw" firstAttribute="centerY" secondItem="nSI-Fx-M7V" secondAttribute="centerY" id="R7C-zK-34t"/>
+                                    <constraint firstItem="ubm-Lw-Qak" firstAttribute="centerY" secondItem="nSI-Fx-M7V" secondAttribute="centerY" id="VYc-bM-vhi"/>
+                                    <constraint firstItem="ubm-Lw-Qak" firstAttribute="leading" secondItem="nSI-Fx-M7V" secondAttribute="leading" constant="7" id="aWj-DF-0cA"/>
+                                    <constraint firstItem="Dkp-Qk-jHw" firstAttribute="centerX" secondItem="nSI-Fx-M7V" secondAttribute="centerX" id="kb9-s1-6tB"/>
+                                    <constraint firstItem="i67-Zb-27R" firstAttribute="centerY" secondItem="nSI-Fx-M7V" secondAttribute="centerY" id="w1V-oN-7mC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="background"/>
+                        <constraints>
+                            <constraint firstItem="nSI-Fx-M7V" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="C4Z-Co-CAx"/>
+                            <constraint firstItem="1aC-DP-2Cx" firstAttribute="top" secondItem="nSI-Fx-M7V" secondAttribute="bottom" id="Lvf-v7-OGm"/>
+                            <constraint firstItem="1aC-DP-2Cx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="glU-XF-iCN"/>
+                            <constraint firstItem="nSI-Fx-M7V" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="k9h-ln-k0F"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nSI-Fx-M7V" secondAttribute="trailing" id="mcW-2i-BoQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1aC-DP-2Cx" secondAttribute="trailing" id="oak-di-hWv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1aC-DP-2Cx" secondAttribute="bottom" id="xew-1M-po9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customNavigationBarView" destination="nSI-Fx-M7V" id="yAH-kE-KJF"/>
+                        <outlet property="groupTableView" destination="1aC-DP-2Cx" id="ZCI-W0-JUJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46" y="84"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="btnBack" width="48" height="48"/>
+        <image name="btnSearch" width="48" height="48"/>
+        <namedColor name="background">
+            <color red="0.98799997568130493" green="0.98799997568130493" blue="0.98799997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray100">
+            <color red="0.31000000238418579" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
