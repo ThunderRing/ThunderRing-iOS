@@ -14,14 +14,24 @@ class TabBarController: UITabBarController {
         
         self.delegate = self
         
+        initUI()
         setTabBar()
     }
     
     // MARK: - Custom Methods
     
-    private func setTabBar() {
-        UITabBar.appearance().tintColor = .gray100
+    private func initUI() {
+        UITabBar.appearance().backgroundColor = .white
+        UITabBar.appearance().tintColor = UIColor(red: 157.0 / 255.0, green: 157.0 / 255.0, blue: 157.0 / 255.0, alpha: 1.0)
         
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        self.tabBar.standardAppearance = appearance;
+        self.tabBar.scrollEdgeAppearance = self.tabBar.standardAppearance
+    }
+    
+    private func setTabBar() {
         let mainStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Main, bundle: nil)
         let mainTab = mainStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
         mainTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
