@@ -58,9 +58,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LA-aM-aIX">
-                        <rect key="frame" x="174" y="95" width="87" height="30"/>
+                        <rect key="frame" x="174" y="95" width="84" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="87" id="18O-w2-mG5"/>
                             <constraint firstAttribute="height" constant="30" id="CMF-ex-bb5"/>
                         </constraints>
                         <state key="normal" title="Button"/>
@@ -80,6 +79,7 @@
                     <constraint firstItem="9LA-aM-aIX" firstAttribute="centerY" secondItem="Bbt-aF-bFe" secondAttribute="centerY" id="5uW-PU-urL"/>
                     <constraint firstItem="dh7-KW-w7k" firstAttribute="leading" secondItem="bTV-yz-dnv" secondAttribute="trailing" constant="2" id="6Oi-dT-9oN"/>
                     <constraint firstItem="wpm-yU-4by" firstAttribute="leading" secondItem="PQd-dz-DiQ" secondAttribute="trailing" constant="9" id="F29-8T-SbN"/>
+                    <constraint firstAttribute="trailing" secondItem="9LA-aM-aIX" secondAttribute="trailing" constant="17" id="HdJ-Xd-XWe"/>
                     <constraint firstItem="pDd-6J-9Jp" firstAttribute="leading" secondItem="wpm-yU-4by" secondAttribute="leading" id="KJ2-pa-tK8"/>
                     <constraint firstItem="PQd-dz-DiQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="M6E-RU-D8p"/>
                     <constraint firstItem="Bbt-aF-bFe" firstAttribute="leading" secondItem="wpm-yU-4by" secondAttribute="leading" id="S9a-cn-dfk"/>
