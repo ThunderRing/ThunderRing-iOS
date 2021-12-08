@@ -30,6 +30,8 @@ extension Const {
                 static let SetLightningDetail = "SetLightningDetailVC"
                 static let CompleteLightning = "CompleteLightningVC"
                 
+                static let MyPrivate = "MyPrivateVC"
+                static let PrivateDetail = "PrivateDetailVC"
                 static let CreatePrivate = "CreatePrivateVC"
             }
     }

@@ -14,6 +14,11 @@ class ChatVC: UIViewController {
     // MARK: - UI
     
     @IBOutlet weak var customNavigationBarView: UIView!
+    
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var hamburgerButton: UIButton!
+    
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -52,7 +57,7 @@ class ChatVC: UIViewController {
     private var memberNum = 3
     
     private let dateFormatter = DateFormatter().then {
-        $0.dateFormat = "MM월 dd일 h:mm (E)"
+        $0.dateFormat = "MM월 dd일 (E) h:mm"
         $0.locale = Locale(identifier:"ko")
     }
     
@@ -68,7 +73,6 @@ class ChatVC: UIViewController {
         
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "\(chatTitle!) \(memberNum)", backBtnIsHidden: false, closeBtnIsHidden: true, bgColor: .white)
         setStatusBar(.white)
     }
     
@@ -87,23 +91,31 @@ extension ChatVC {
     private func initUI() {
         view.backgroundColor = .background
         
+        customNavigationBarView.backgroundColor = .white
+        titleLabel.text = "\(chatTitle!) \(memberNum)"
+        
         topView.backgroundColor = .white
         topView.layer.applyShadow()
         
-        descriptionLabel.text = "펑 시각 " + dateFormatter.string(from: nowDate)
+        descriptionLabel.text = "펑 시각 " + dateFormatter.string(from: nowDate.addingTimeInterval(+(60*60*24)))
         descriptionLabel.textColor = .purple100
+        
+        [titleLabel, descriptionLabel].forEach {
+            $0?.addCharacterSpacing()
+        }
         
         guard let text = self.descriptionLabel.text else { return }
         let attributeString = NSMutableAttributedString(string: text)
         let font = UIFont.SpoqaHanSansNeo(type: .medium, size: 14)
         attributeString.addAttribute(.font, value: font, range: (text as NSString).range(of: "펑 시각"))
         attributeString.addAttribute(.foregroundColor, value: UIColor.gray100.cgColor, range: (text as NSString).range(of: "펑 시각"))
-
-        self.descriptionLabel.attributedText = attributeString
+        descriptionLabel.attributedText = attributeString
         
         chatCollectionView.backgroundColor = .background
         
         textField.delegate = self
+        textField.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+        textField.setRightIcon(13, 17, UIImage(named: "icnHappy")!)
     }
     
     private func setLayout() {
@@ -111,7 +123,7 @@ extension ChatVC {
         backgroundView.contentView.addSubviews([textField, sendButton])
         
         chatCollectionView.snp.makeConstraints {
-            $0.top.equalTo(topView.snp.bottom).offset(10)
+            $0.top.equalTo(topView.snp.bottom).offset(5)
             $0.leading.trailing.equalTo(self.view)
             $0.bottom.equalToSuperview().inset(80)
         }
@@ -154,9 +166,17 @@ extension ChatVC {
     }
     
     private func setAction() {
+        backButton.addAction(UIAction(handler: { _ in
+            self.navigationController?.popViewController(animated: true)
+        }), for: .touchUpInside)
+        
         sendButton.addAction(UIAction(handler: { _ in
             NotificationCenter.default.post(name: NSNotification.Name("SendMessage"), object: self.textField.text ?? "")
             self.view.endEditing(true)
+        }), for: .touchUpInside)
+        
+        hamburgerButton.addAction(UIAction(handler: { _ in
+            // fix me
         }), for: .touchUpInside)
     }
 }
@@ -178,29 +198,31 @@ extension ChatVC: UICollectionViewDelegateFlowLayout {
         if chatData[indexPath.row].chatType == .counterpart {
             let height = heightForView(text: chatData[indexPath.row].messageText, font: .systemFont(ofSize: 14), width: 220)
             
-            if height < 20 {
-                return CGSize(width: self.view.frame.width, height: height + 60)
-            }
-            else if height >= 20 && height < 40 {
-                return CGSize(width: self.view.frame.width, height: height + 80)
-            }
-            else {
-                return CGSize(width: self.view.frame.width, height: height + 100)
-            }
+            return CGSize(width: self.view.frame.width, height: height + 60)
+//            if height < 20 {
+//                return CGSize(width: self.view.frame.width, height: height + 60)
+//            }
+//            else if height >= 20 && height < 40 {
+//                return CGSize(width: self.view.frame.width, height: height + 80)
+//            }
+//            else {
+//                return CGSize(width: self.view.frame.width, height: height + 100)
+//            }
         } else if chatData[indexPath.row].chatType == .me {
             let height = heightForView(text: chatData[indexPath.row].messageText, font: .systemFont(ofSize: 14), width: 220)
             
-            if height < 20 {
-                return CGSize(width: self.view.frame.width, height: height + 28)
-            }
-            else if height >= 20 && height < 40 {
-                return CGSize(width: self.view.frame.width, height: height + 20)
-            }
-            else {
-                return CGSize(width: self.view.frame.width, height: height + 20)
-            }
+            return CGSize(width: self.view.frame.width, height: height + 40)
+//            if height < 20 {
+//                return CGSize(width: self.view.frame.width, height: height + 60)
+//            }
+//            else if height >= 20 && height < 40 {
+//                return CGSize(width: self.view.frame.width, height: height + 80)
+//            }
+//            else {
+//                return CGSize(width: self.view.frame.width, height: height + 100)
+//            }
         } else {
-            return CGSize(width: self.view.frame.width, height: self.view.frame.height)
+            return CGSize(width: self.view.frame.width, height: self.view.frame.height + 20)
         }
     }
     
@@ -245,10 +267,6 @@ extension ChatVC {
         label.text = text
         label.sizeToFit()
         return label.frame.height
-    }
-    
-    @objc func dismissChatView() {
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
 

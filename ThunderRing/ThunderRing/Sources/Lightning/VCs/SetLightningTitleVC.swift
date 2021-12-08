@@ -73,6 +73,10 @@ extension SetLightningTitleVC {
         
         nextButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 27, bounds: true)
         nextButton.isEnabled = false
+        
+        [groupSelectLabel, nameCountLabel, detailCountLabel].forEach {
+            $0?.addCharacterSpacing()
+        }
     }
     
     private func setAction() {

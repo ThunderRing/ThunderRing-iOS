@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Group 828.png",
+      "filename" : "btnDelete.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 828@2x.png",
+      "filename" : "btnDelete@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Group 828@3x.png",
+      "filename" : "btnDelete@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

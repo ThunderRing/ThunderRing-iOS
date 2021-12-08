@@ -54,8 +54,11 @@ extension RecruitingTVC {
     private func initUI() {
         backView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
         
-        memberStackView.spacing = 8
+        memberStackView.spacing = 15
         remainView.layer.cornerRadius = 15
+        
+        groupTitleLabel.addCharacterSpacing()
+        remainLabel.addCharacterSpacing()
     }
     
     private func setAction() {
@@ -77,7 +80,11 @@ extension RecruitingTVC {
         let userImageView = UIImageView()
         userImageView.image = UIImage(named: "imgUser3")
         
-        memberStackView.spacing = 8
+        memberStackView.spacing = 15
         memberStackView.addArrangedSubview(userImageView)
+        
+        remainLabel.text = "잔여 \(2)자리"
+        
+        plusButton.isHidden = true
     }
 }

@@ -74,6 +74,7 @@ class CounterpartChatCVC: BaseCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         chatGrayBackView.roundCorners(corners: [.topRight, .bottomLeft, .bottomRight], radius: 10.0)
+        profileImageView.roundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 22)
     }
 }
 // MARK: - Layout

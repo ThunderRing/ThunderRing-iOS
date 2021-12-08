@@ -21,14 +21,25 @@ class PrivateGroupCVC: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        initUI()
         setTableView()
     }
 }
 
 extension PrivateGroupCVC {
+    private func initUI() {
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 5
+        self.layer.borderColor = UIColor.gray350.cgColor
+    }
+    
     private func setTableView() {
         privateGroupTableView.delegate = self
         privateGroupTableView.dataSource = self
+        
+        privateGroupTableView.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        privateGroupTableView.separatorColor = .gray350
+        privateGroupTableView.isScrollEnabled = false
         
         privateGroupTableView.register(UINib(nibName: PrivateGroupTVC.identifier, bundle: nil), forCellReuseIdentifier: PrivateGroupTVC.identifier)
     }

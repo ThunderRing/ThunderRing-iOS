@@ -38,12 +38,15 @@ class LightningVC: UIViewController {
         setAction()
         setData()
         setTableView()
+        setTextField()
     }
 }
 
 extension LightningVC {
     private func initUI() {
         titleLabel.text = "번개 치기"
+        titleLabel.addCharacterSpacing()
+        
         searchBackView.backgroundColor = .background
     }
     
@@ -79,6 +82,10 @@ extension LightningVC {
         
         groupListTableView.register(PrivateListTVC.self, forCellReuseIdentifier: PrivateListTVC.identifier)
         groupListTableView.register(PublicListTVC.self, forCellReuseIdentifier: PublicListTVC.identifier)
+    }
+    
+    private func setTextField() {
+        searchTextField.setLeftIcon(17, 16, UIImage(named: "icnSearch")!)
     }
 }
 

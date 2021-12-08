@@ -16,6 +16,8 @@ extension Const {
             static let Alarm = "Alarm"
             static let MyPage = "MyPage"
             
+            static let MyPrivate = "MyPrivate"
+            static let PrivateDetail = "PrivateDetail"
             static let CreatePrivate = "CreatePrivate"
         }
     }

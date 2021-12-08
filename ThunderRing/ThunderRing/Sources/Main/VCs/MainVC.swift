@@ -8,11 +8,13 @@
 import UIKit
 
 class MainVC: UIViewController {
-
+    
     // MARK: - UI
     
     @IBOutlet weak var customNavigationBarView: UIView!
     @IBOutlet weak var recruitButton: UIButton!
+    
+    @IBOutlet weak var mainScrollView: UIScrollView!
     
     @IBOutlet weak var cardView: UIView!
     
@@ -25,6 +27,9 @@ class MainVC: UIViewController {
     
     @IBOutlet weak var publicGroupCountLabel: UILabel!
     @IBOutlet weak var publicGroupCollectionView: UICollectionView!
+    
+    @IBOutlet weak var seePrivateButton: UIButton!
+    @IBOutlet weak var seePublicButton: UIButton!
     
     // MARK: - Properties
     
@@ -40,7 +45,7 @@ class MainVC: UIViewController {
     private var publicGroups = [PublicGroupDataModel]()
     
     // MARK: - Life Cycle
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -56,6 +61,7 @@ class MainVC: UIViewController {
         setCollectionView()
         setAction()
         setData()
+        setGesture()
     }
 }
 
@@ -79,10 +85,22 @@ extension MainVC {
         privateGroupCountLabel.text = "\(privateGroupCount)"
         
         publicGroupCountLabel.text = "\(publicGroupCount)"
-
+        
+        [attendanceLabel, privateGroupCountLabel, publicGroupCountLabel].forEach {
+            $0?.addCharacterSpacing()
+        }
     }
     
     private func setCollectionView() {
+        // private group
+        privateGroupCollectionView.delegate = self
+        privateGroupCollectionView.dataSource = self
+        
+        let privateGroupNib = UINib(nibName: PrivateGroupCVC.identifier, bundle: nil)
+        privateGroupCollectionView.register(privateGroupNib, forCellWithReuseIdentifier: PrivateGroupCVC.identifier)
+        
+        
+        // public group
         let publicGroupCollectionViewlayout = publicGroupCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         publicGroupCollectionViewlayout?.scrollDirection = .horizontal
         publicGroupCollectionViewlayout?.estimatedItemSize = .zero
@@ -93,20 +111,18 @@ extension MainVC {
         publicGroupCollectionView.delegate = self
         publicGroupCollectionView.dataSource = self
         
-        let privateGroupNib = UINib(nibName: PrivateGroupCVC.identifier, bundle: nil)
-        privateGroupCollectionView.register(privateGroupNib, forCellWithReuseIdentifier: PrivateGroupCVC.identifier)
-        
         let publicGroupNib = UINib(nibName: PublicGroupCVC.identifier, bundle: nil)
         publicGroupCollectionView.register(publicGroupNib, forCellWithReuseIdentifier: PublicGroupCVC.identifier)
-        
-        privateGroupCollectionView.delegate = self
-        privateGroupCollectionView.dataSource = self
-
     }
     
     private func setAction() {
         recruitButton.addAction(UIAction(handler: { _ in
             guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "RecruitingVC") else { return }
+            self.navigationController?.pushViewController(dvc, animated: true)
+        }), for: .touchUpInside)
+        
+        seePrivateButton.addAction(UIAction(handler: { _ in
+            guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPrivate, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPrivate) as? MyPrivateVC else { return }
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
     }
@@ -152,35 +168,7 @@ extension NSMutableAttributedString {
     
 }
 
-extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == privateGroupCollectionView {
-            return privateGroups.count
-        } else if collectionView == publicGroupCollectionView {
-            return publicGroups.count
-        } else {
-            return 1
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch collectionView {
-        case privateGroupCollectionView:
-            guard let cell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as?  PrivateGroupCVC else { return UICollectionViewCell() }
-            cell.layer.borderWidth = 1
-            cell.layer.cornerRadius = 5
-            cell.layer.borderColor = UIColor.gray300.cgColor
-            cell.initCell(groups: privateGroups[indexPath.row])
-            return cell
-        case publicGroupCollectionView:
-            guard let cell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as?   PublicGroupCVC else { return UICollectionViewCell() }
-            cell.initCell(group: publicGroups[indexPath.row])
-            return cell
-        default:
-            return UICollectionViewCell()
-        }
-    }
-    
+extension MainVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch collectionView {
         case privateGroupCollectionView:
@@ -191,4 +179,57 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
 }
 
+extension MainVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch collectionView {
+        case privateGroupCollectionView:
+            return privateGroups.count
+        case publicGroupCollectionView:
+            return publicGroups.count
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch collectionView {
+        case privateGroupCollectionView:
+            guard let cell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as? PrivateGroupCVC else { return UICollectionViewCell() }
+            cell.initCell(groups: privateGroups[indexPath.row])
+            return cell
+        case publicGroupCollectionView:
+            guard let cell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as? PublicGroupCVC else { return UICollectionViewCell() }
+            cell.initCell(group: publicGroups[indexPath.row])
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
+    }
+}
 
+
+extension MainVC: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let panGestureRecongnizer = UIPanGestureRecognizer(target: self, action: #selector(panAction(_ :)))
+        panGestureRecongnizer.delegate = self
+        self.view.addGestureRecognizer(panGestureRecongnizer)
+    }
+    
+    
+    @objc func panAction (_ sender : UIPanGestureRecognizer){
+        let velocity = sender.velocity(in: mainScrollView)
+        if abs(velocity.y) > abs(velocity.x) {
+            if velocity.y < 0 {
+                customNavigationBarView.layer.applyShadow(color: UIColor.black, alpha: 0.26, x: -3, y: 0, blur: 28, spread: 0)
+            }
+            if velocity.y > 0 && mainScrollView.contentOffset.y < 30 {
+                customNavigationBarView.layer.applyShadow()
+            }
+        }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool{
+            return true
+        }
+
+}
