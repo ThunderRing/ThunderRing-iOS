@@ -37,8 +37,9 @@ extension PrivateGroupTVC {
         groupImageView.layer.borderWidth = 1
         groupImageView.layer.borderColor = UIColor.gray300.cgColor
         
-        groupNameLabel.addCharacterSpacing()
-        countLabel.addCharacterSpacing()
+        [groupNameLabel, countLabel].forEach {
+            $0?.addCharacterSpacing()
+        }
     }
 }
 

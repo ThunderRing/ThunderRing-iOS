@@ -13,7 +13,7 @@ class CustomNavigationBar: UIView {
     
     private let backButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "icnBack"), for: .normal)
+        button.setImage(UIImage(named: "btnBack"), for: .normal)
         return button
     }()
     

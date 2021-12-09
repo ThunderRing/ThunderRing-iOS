@@ -66,10 +66,12 @@ extension SetLightningTitleVC {
         nameTextField.delegate = self
         nameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         nameTextField.setLeftPaddingPoints(15)
+        nameTextField.tintColor = .purple100
         
         detailTextView.delegate = self
         detailTextView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         detailTextView.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        detailTextView.tintColor = .purple100
         
         nextButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 27, bounds: true)
         nextButton.isEnabled = false
@@ -122,6 +124,7 @@ extension SetLightningTitleVC {
     @objc
     func touchUpDoneButton() {
         NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHide"), object: nil)
+        groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         self.view.endEditing(true)
     }
     
@@ -158,6 +161,7 @@ extension SetLightningTitleVC: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.becomeFirstResponder()
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
+        textField.setRightIcon(0, textField.frame.height, UIImage(named: "btnDelete")!)
         
         nameCountLabel.textColor = .purple100
     }
@@ -166,9 +170,6 @@ extension SetLightningTitleVC: UITextFieldDelegate {
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         
         if nameTextField.hasText {
-            nextButton.isEnabled = true
-            nextButton.backgroundColor = .purple100
-            nextButton.titleLabel?.textColor = .white
             nameCountLabel.textColor = .black
             
             nextButton.isEnabled = true
@@ -177,13 +178,14 @@ extension SetLightningTitleVC: UITextFieldDelegate {
         } else {
             nameCountLabel.textColor = .gray200
             
-            nextButton.isEnabled = true
+            nextButton.isEnabled = false
             nextButton.backgroundColor = .gray200
             nextButton.setTitleColor(.white, for: .normal)
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.setRightPaddingPoints(30)
         return textField.resignFirstResponder()
     }
     
@@ -242,5 +244,6 @@ extension SetLightningTitleVC: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         groupNameTextField.text = groupNames[row]
+        groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
     }
 }

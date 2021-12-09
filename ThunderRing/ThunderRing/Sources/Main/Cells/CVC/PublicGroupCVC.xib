@@ -37,16 +37,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GroupName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OJ-uh-RaK">
-                                <rect key="frame" x="0.0" y="107" width="156" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="8MW-0k-QUX"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="107" width="156" height="22.666666666666657"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="18"/>
                                 <color key="textColor" name="gray100"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Si5-2K-iHu">
-                                <rect key="frame" x="35" y="195" width="87" height="48"/>
+                                <rect key="frame" x="35" y="194.66666666666666" width="87" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Qvw-m5-WH6"/>
                                     <constraint firstAttribute="width" constant="87" id="xmR-Py-GHm"/>
@@ -56,7 +53,7 @@
                                 <buttonConfiguration key="configuration" style="plain" image="btnLightning"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="8x0-rd-Sn8">
-                                <rect key="frame" x="56" y="137" width="44.333333333333343" height="15"/>
+                                <rect key="frame" x="56" y="136.66666666666666" width="44.333333333333343" height="15"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icnUser" translatesAutoresizingMaskIntoConstraints="NO" id="XDq-Oz-d9e">
                                         <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -84,7 +81,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tagCozy" translatesAutoresizingMaskIntoConstraints="NO" id="lUL-no-D5O">
-                                <rect key="frame" x="22" y="166" width="112" height="21"/>
+                                <rect key="frame" x="22" y="165.66666666666666" width="112" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Bnv-BZ-l4h"/>
                                 </constraints>
