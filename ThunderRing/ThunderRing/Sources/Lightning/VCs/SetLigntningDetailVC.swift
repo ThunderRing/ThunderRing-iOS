@@ -54,7 +54,6 @@ class SetLigntningDetailVC: UIViewController {
         
         initUI()
         setToolBar()
-        setTextField()
         setAction()
         getNotification()
         
@@ -72,6 +71,14 @@ extension SetLigntningDetailVC {
         [dateTextField, timeTextField, locationTextField, minTextField, maxTextField].forEach {
             $0?.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
             $0?.setLeftPaddingPoints(15)
+            $0?.setRightPaddingPoints(15)
+            
+            $0?.delegate = self
+            $0?.tintColor = .purple100
+        }
+        
+        [dateTextField, timeTextField].forEach {
+            $0?.setRightIcon(0, 56, UIImage(named: "btnDown")!)
         }
         
         countLabel.isHidden = true
@@ -89,13 +96,6 @@ extension SetLigntningDetailVC {
         timeFormatter.dateFormat = "a h:mm"
         timeFormatter.locale = Locale(identifier:"ko")
         timeTextField.placeholder = timeFormatter.string(from: nowDate)
-    }
-    
-    private func setTextField() {
-        [dateTextField, timeTextField, locationTextField, minTextField, maxTextField].forEach {
-            $0?.delegate = self
-            $0?.tintColor = .clear
-        }
     }
     
     private func setToolBar() {
@@ -204,11 +204,13 @@ extension SetLigntningDetailVC: UITextFieldDelegate {
         }
         if textField == minTextField {
             minTextField.becomeFirstResponder()
+            minTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
             numGuideLabel.isHidden = false
             NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillShowNotification"), object: nil)
         }
         if textField == maxTextField {
             maxTextField.becomeFirstResponder()
+            maxTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
             numGuideLabel.isHidden = false
             NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillShowNotification"), object: nil)
         }

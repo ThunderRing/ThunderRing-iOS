@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class LightningVC: UIViewController {
     
     // MARK: - UI
@@ -17,6 +20,24 @@ class LightningVC: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var searchBackView: UIView!
     @IBOutlet weak var groupListTableView: UITableView!
+    
+    private lazy var privateHeaderView = UIView().then {
+        $0.backgroundColor = .background
+    }
+    private lazy var publicHeaderView = UIView().then {
+        $0.backgroundColor = .background
+    }
+    
+    private lazy var privateHeaderLabel = UILabel().then {
+        $0.text = "비공개그룹"
+        $0.textColor = .black
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+    }
+    private lazy var publicHeaderLabel = UILabel().then {
+        $0.text = "공개그룹"
+        $0.textColor = .black
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+    }
     
     // MARK: - Properties
     
@@ -37,6 +58,7 @@ class LightningVC: UIViewController {
         initUI()
         setAction()
         setData()
+        setTableHeaderView()
         setTableView()
         setTextField()
     }
@@ -72,6 +94,18 @@ extension LightningVC {
         ])
     }
     
+    private func setTableHeaderView() {
+        privateHeaderView.addSubview(privateHeaderLabel)
+        publicHeaderView.addSubview(publicHeaderLabel)
+        
+        [privateHeaderLabel, publicHeaderLabel].forEach {
+            $0.snp.makeConstraints {
+                $0.leading.equalToSuperview()
+                $0.bottom.equalToSuperview().inset(15)
+            }
+        }
+    }
+    
     private func setTableView() {
         groupListTableView.delegate = self
         groupListTableView.dataSource = self
@@ -94,19 +128,12 @@ extension LightningVC: UITableViewDelegate {
         return 73
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            return "비공개 그룹"
+            return privateHeaderView
         } else {
-            return "공개 그룹"
+            return publicHeaderView
         }
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = .white
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .black
-        header.textLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 18)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
