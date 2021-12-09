@@ -38,9 +38,7 @@ extension PublicGroupCVC {
         
         groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: groupImageView.bounds.width / 2, bounds: true)
         
-        [groupLabel, countLabel].forEach {
-            $0?.addCharacterSpacing()
-        }
+        countLabel.addCharacterSpacing()
     }
 }
 
