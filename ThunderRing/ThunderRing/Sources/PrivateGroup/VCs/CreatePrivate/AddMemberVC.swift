@@ -34,6 +34,11 @@ class AddMemberVC: UIViewController {
         setAction()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 extension AddMemberVC {
@@ -80,6 +85,10 @@ extension AddMemberVC {
     
     private func setAction() {
         confirmButton.addAction(UIAction(handler: { _ in
+            // MARK: FIX ME
+//            guard let presentingVC = self.presentingViewController as? CreatePrivateDetailVC else { return }
+//            presentingVC.isCollectionViewHidden = false
+            NotificationCenter.default.post(name: NSNotification.Name("AddMember"), object: nil)
             self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
     }
@@ -118,6 +127,7 @@ extension AddMemberVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MemberTVC.identifier) as? MemberTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.isSelected = false
+        cell.initCell(name: members[indexPath.row])
         return cell
     }
 }

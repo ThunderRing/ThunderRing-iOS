@@ -8,7 +8,7 @@
 import UIKit
 
 class CreatePrivateDetailVC: UIViewController {
-
+    
     // MARK: - UI
     
     @IBOutlet weak var customNavigationBarView: UIView!
@@ -25,7 +25,9 @@ class CreatePrivateDetailVC: UIViewController {
     // MARK: - Properties
     
     var groupName = "그룹명"
-    var members = ["김소연", "윤하민", "이지원", "마얘지"]
+    var members = ["김소연", "윤하민", "이지원", "마예지"]
+    
+    var isCollectionViewHidden = true
     
     // MARK: - Life Cycle
     
@@ -44,6 +46,7 @@ class CreatePrivateDetailVC: UIViewController {
         setAction()
         setTextField()
         setCollectionView()
+        getNotification()
     }
 }
 
@@ -56,7 +59,7 @@ extension CreatePrivateDetailVC {
         descriptionTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         descriptionTextField.setLeftPaddingPoints(15)
         
-        memberCollectionView.isHidden = true
+        memberCollectionView.isHidden = isCollectionViewHidden
         
         addMemberButton.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
     }
@@ -159,5 +162,20 @@ extension CreatePrivateDetailVC: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         self.descriptionCountLabel.text = String("\(textField.text!.count)/15")
+    }
+}
+
+// MARK: - Notificaiton
+
+extension CreatePrivateDetailVC {
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showCollectionView),
+                                               name: NSNotification.Name("AddMember"), object: nil)
+    }
+    
+    @objc
+    func showCollectionView(_ notification: Notification) {
+        memberCollectionView.isHidden = false
     }
 }

@@ -19,6 +19,10 @@ extension Const {
             static let MyPrivate = "MyPrivate"
             static let PrivateDetail = "PrivateDetail"
             static let CreatePrivate = "CreatePrivate"
+            
+            static let MyPublic = "MyPublic"
+            static let PublicDetail = "PublicDetail"
+            static let CreatePublic = "CreatePublic"
         }
     }
 }

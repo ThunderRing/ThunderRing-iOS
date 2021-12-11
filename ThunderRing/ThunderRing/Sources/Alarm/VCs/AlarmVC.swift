@@ -67,11 +67,11 @@ extension AlarmVC {
     }
     
     private func setTextLabelGesture() {
-        let tapProceedLabelGesture = UITapGestureRecognizer(target: self, action: #selector(tapProceedLabel))
+        let tapProceedLabelGesture = UITapGestureRecognizer(target: self, action: #selector(dragToProceed))
         proceedLabel.addGestureRecognizer(tapProceedLabelGesture)
         proceedLabel.isUserInteractionEnabled = true
         
-        let tapCompleteLabelGesture = UITapGestureRecognizer(target: self, action: #selector(dragToProceed))
+        let tapCompleteLabelGesture = UITapGestureRecognizer(target: self, action: #selector(dragToComplete))
         completeLabel.addGestureRecognizer(tapCompleteLabelGesture)
         completeLabel.isUserInteractionEnabled = true
     }
@@ -93,7 +93,7 @@ extension AlarmVC {
 
 extension AlarmVC {
     @objc
-    private func tapProceedLabel() {
+    private func dragToProceed() {
         if currentIndex == 1 {
             let indexPath = IndexPath(item: 0, section: 0)
             alarmCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
@@ -107,7 +107,7 @@ extension AlarmVC {
     }
     
     @objc
-    private func dragToProceed() {
+    private func dragToComplete() {
         let indexPath = IndexPath(item: 1, section: 0)
         alarmCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
         if currentIndex == 0 {

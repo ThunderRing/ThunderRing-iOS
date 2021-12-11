@@ -90,3 +90,9 @@ extension MemberTVC {
         }
     }
 }
+
+extension MemberTVC {
+    func initCell(name: String) {
+        userNameLabel.text = name
+    }
+}

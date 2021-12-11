@@ -33,6 +33,10 @@ extension Const {
                 static let MyPrivate = "MyPrivateVC"
                 static let PrivateDetail = "PrivateDetailVC"
                 static let CreatePrivate = "CreatePrivateVC"
+                
+                static let MyPublic = "MyPublicVC"
+                static let PublicDetail = "PublicDetailVC"
+                static let CreatePublic = "CreatePublicVC"
             }
     }
 }
