@@ -102,7 +102,8 @@ extension SetLigntningDetailVC {
         timeFormatter.locale = Locale(identifier:"ko")
         timeTextField.placeholder = timeFormatter.string(from: nowDate)
         
-        self.minTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        self.minTextField.addTarget(self, action: #selector(self.minFieldDidChange(_:)), for: .editingChanged)
+        self.dateTextField.addTarget(self, action: #selector(self.dateFieldDidChange), for: .valueChanged)
     }
     
     private func setToolBar() {
@@ -185,6 +186,8 @@ extension SetLigntningDetailVC {
         let date = Date()
         if dateFormatter.string(from: datePickerView.date) == dateFormatter.string(from: date) {
             timePickerView.minimumDate = date
+        } else {
+            timePickerView.minimumDate = .none
         }
         
         self.view.endEditing(true)
@@ -199,13 +202,29 @@ extension SetLigntningDetailVC {
         self.view.endEditing(true)
     }
     
-    @objc func textFieldDidChange(_ sender: Any?) {
+    @objc
+    func minFieldDidChange(_ sender: Any?) {
         if minTextField.text == "0" || minTextField.text == "1"{
-            numGuideLabel.font = .SpoqaHanSansNeo(type: .medium, size: 14)
+            numGuideLabel.font = .SpoqaHanSansNeo(type: .bold, size: 14)
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
         } else {
-            numGuideLabel.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+            numGuideLabel.font = .SpoqaHanSansNeo(type: .bold, size: 14)
+        }
+    }
+    
+    @objc
+    func dateFieldDidChange(_ sender: Any?) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        dateFormatter.locale = Locale(identifier:"ko")
+        dateTextField.text = dateFormatter.string(from: datePickerView.date)
+        
+        let date = Date()
+        if dateFormatter.string(from: datePickerView.date) == dateFormatter.string(from: date) {
+            timePickerView.minimumDate = date
+        } else {
+            timePickerView.minimumDate = .none
         }
     }
 }
