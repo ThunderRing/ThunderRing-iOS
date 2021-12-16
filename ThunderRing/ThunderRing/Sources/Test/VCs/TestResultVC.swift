@@ -33,7 +33,7 @@ class TestResultVC: UIViewController {
     }
     
     private lazy var resultImageView = UIImageView().then {
-        $0.image = UIImage(named: "15")
+        $0.image = UIImage(named: "tendency1")
     }
     
     private lazy var hashTagLabel = UILabel().then {

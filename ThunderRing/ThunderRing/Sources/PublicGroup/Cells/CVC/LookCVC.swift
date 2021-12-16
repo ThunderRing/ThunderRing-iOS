@@ -49,12 +49,12 @@ extension LookCVC {
     
     private func setData() {
         lookGroups.append(contentsOf: [
-            PublicGroupDataModel(groupImage: "imgRice", groupName: "캐치마인드", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 100),
-            PublicGroupDataModel(groupImage: "imgBear", groupName: "공부모임", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 10),
-            PublicGroupDataModel(groupImage: "imgNintendo", groupName: "아쿠아맨", memberCounts: 3, hashTag: "부지런한 동틀녘", memberTotalCounts: 30),
-            PublicGroupDataModel(groupImage: "imgDog", groupName: "마보리네", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 300),
-            PublicGroupDataModel(groupImage: "imgRice", groupName: "캐치마인드", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 100),
-            PublicGroupDataModel(groupImage: "imgBear", groupName: "공부모임", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 10)
+            PublicGroupDataModel(groupImage: "imgDrama", groupName: "드라마 같이 봐요", memberCounts: 11, hashTag: "부지런한 동틀녘", memberTotalCounts: 100),
+            PublicGroupDataModel(groupImage: "imgBear1", groupName: "줌으로 같이 공부", memberCounts: 4, hashTag: "북적이는 오후", memberTotalCounts: 10),
+            PublicGroupDataModel(groupImage: "imgCatch", groupName: "캐치마인드", memberCounts: 10, hashTag: "부지런한 동틀녘", memberTotalCounts: 160),
+            PublicGroupDataModel(groupImage: "imgRun", groupName: "러닝크루", memberCounts: 8, hashTag: "감성적인 새벽녘", memberTotalCounts: 10),
+            PublicGroupDataModel(groupImage: "imgCoin", groupName: "주식 스터디", memberCounts: 8, hashTag: "북적이는 오후", memberTotalCounts: 10),
+            PublicGroupDataModel(groupImage: "imgNeedle", groupName: "펀치니들 배워요", memberCounts: 10, hashTag: "감성적인 새벽녘", memberTotalCounts: 160)
         ])
     }
 }
@@ -77,7 +77,7 @@ extension LookCVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
+        return UIEdgeInsets(top: 0, left: 25, bottom: 25, right: 25)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -98,7 +98,7 @@ extension LookCVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LookDetailCVC.identifier, for: indexPath) as? LookDetailCVC else { return UICollectionViewCell() }
-        cell.initCell(group: lookGroups[indexPath.row])
+        cell.initCell(group: lookGroups[indexPath.item])
         return cell
     }
 }
@@ -111,12 +111,12 @@ extension LookCVC: SortHeaderDelegate {
         switch index {
         case 0:
             lookGroups.append(contentsOf: [
-                PublicGroupDataModel(groupImage: "imgRice", groupName: "캐치마인드", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 100),
-                PublicGroupDataModel(groupImage: "imgBear", groupName: "공부모임", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 10),
-                PublicGroupDataModel(groupImage: "imgNintendo", groupName: "아쿠아맨", memberCounts: 3, hashTag: "부지런한 동틀녘", memberTotalCounts: 30),
-                PublicGroupDataModel(groupImage: "imgDog", groupName: "마보리네", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 300),
-                PublicGroupDataModel(groupImage: "imgRice", groupName: "캐치마인드", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 100),
-                PublicGroupDataModel(groupImage: "imgBear", groupName: "공부모임", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 10)
+                PublicGroupDataModel(groupImage: "imgDrama", groupName: "드라마 같이 봐요", memberCounts: 11, hashTag: "부지런한 동틀녘", memberTotalCounts: 100),
+                PublicGroupDataModel(groupImage: "imgBear1", groupName: "줌으로 같이 공부", memberCounts: 4, hashTag: "부지런한 동틀녘", memberTotalCounts: 10),
+                PublicGroupDataModel(groupImage: "imgCatch", groupName: "캐치마인드", memberCounts: 10, hashTag: "부지런한 동틀녘", memberTotalCounts: 160),
+                PublicGroupDataModel(groupImage: "imgRun", groupName: "러닝크루", memberCounts: 8, hashTag: "부지런한 동틀녘", memberTotalCounts: 10),
+                PublicGroupDataModel(groupImage: "imgCoin", groupName: "주식 스터디", memberCounts: 8, hashTag: "부지런한 동틀녘", memberTotalCounts: 10),
+                PublicGroupDataModel(groupImage: "imgNeedle", groupName: "펀치니들 배워요", memberCounts: 10, hashTag: "부지런한 동틀녘", memberTotalCounts: 160)
             ])
         case 1:
             lookGroups.append(contentsOf: [

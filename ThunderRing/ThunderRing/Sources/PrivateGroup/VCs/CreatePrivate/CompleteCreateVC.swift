@@ -21,8 +21,10 @@ class CompleteCreateVC: UIViewController {
     
     // MARK: - Properties
     
+    var groupImage = UIImage()
     var groupName = "그룹명"
     var groupDescrption = "그룹 간단 소개"
+    var groupCounts = 0
     
     // MARK: - Life Cycle
     
@@ -40,13 +42,19 @@ class CompleteCreateVC: UIViewController {
         initUI()
         setAction()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 extension CompleteCreateVC {
     private func initUI() {
-        if let image = UIImage(named: "15") {
-            self.groupImageView.image = image
-        }
+        groupImageView.image = self.groupImage
+        groupImageView.layer.cornerRadius = 20
+        groupImageView.layer.masksToBounds = true
         
         titleLabel.text = "\(groupName)"
         descriptionLabel.text = "\(groupDescrption)"
@@ -56,6 +64,7 @@ extension CompleteCreateVC {
     
     private func setAction() {
         completeButton.addAction(UIAction(handler: { _ in
+            privateGroupData.append(PrivateGroupDataModel(groupImage: self.groupImage, groupName: self.groupName, memberCounts: self.groupCounts, groupDescription: self.groupDescrption))
             self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
     }

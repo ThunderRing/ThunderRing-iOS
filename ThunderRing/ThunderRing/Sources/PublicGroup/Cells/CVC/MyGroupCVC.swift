@@ -19,15 +19,11 @@ class MyGroupCVC: UICollectionViewCell {
     }
     
     private lazy var testButton = UIButton().then {
-        $0.setTitle("성향 테스트", for: .normal)
-        $0.setTitleColor(.purple100, for: .normal)
-//        $0.setImage(UIImage(named: ""), for: .normal)
+        $0.setImage(UIImage(named: "btnTest"), for: .normal)
     }
     
     private lazy var createButton = UIButton().then {
-        $0.setTitle("공개그룹 생성", for: .normal)
-        $0.setTitleColor(.purple100, for: .normal)
-//        $0.setImage(UIImage(named: ""), for: .normal)
+        $0.setImage(UIImage(named: "btnCreate"), for: .normal)
     }
     
     // MARK: - Life Cycle
@@ -42,6 +38,8 @@ class MyGroupCVC: UICollectionViewCell {
 
 }
 
+// MARK: - Custom Methods
+
 extension MyGroupCVC {
     private func initUI() {
         self.backgroundColor = .white
@@ -51,8 +49,8 @@ extension MyGroupCVC {
         groupTableView.delegate = self
         groupTableView.dataSource = self
         
-        groupTableView.separatorColor = .gray350
-        groupTableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
+        groupTableView.backgroundColor = .background
+        groupTableView.separatorStyle = .none
         groupTableView.showsVerticalScrollIndicator = false
         
         groupTableView.register(MyGroupTVC.self, forCellReuseIdentifier: MyGroupTVC.identifier)
@@ -62,16 +60,18 @@ extension MyGroupCVC {
         headerView.addSubviews([testButton, createButton])
         
         testButton.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(26)
+            $0.leading.equalToSuperview().inset(25)
             $0.centerY.equalToSuperview()
         }
         
         createButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(26)
+            $0.leading.equalTo(testButton.snp.trailing).offset(7)
             $0.centerY.equalToSuperview()
         }
     }
 }
+
+// MARK: - UITableView Delegate
 
 extension MyGroupCVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -83,9 +83,13 @@ extension MyGroupCVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        headerView.addAboveTheBottomBorderWithColor(color: .background)
+        headerView.addBottomBorderWithColor(color: .background)
         return headerView
     }
 }
+
+// MARK: - UITableView DataSource
 
 extension MyGroupCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,6 +99,19 @@ extension MyGroupCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyGroupTVC.identifier) as? MyGroupTVC else { return UITableViewCell() }
         cell.initCell(group: publicGroupData[indexPath.row])
+        
+        if indexPath.row == 0 {
+            cell.clipsToBounds = true
+            cell.backView.layer.cornerRadius = 9
+            cell.backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
+        if indexPath.row == publicGroupData.count - 1 {
+            cell.clipsToBounds = true
+            cell.backView.layer.cornerRadius = 5
+            cell.backView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
+        
+        cell.selectionStyle = .none
         return cell
     }
 }

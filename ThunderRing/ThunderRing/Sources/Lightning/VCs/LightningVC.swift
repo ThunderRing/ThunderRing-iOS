@@ -39,17 +39,13 @@ class LightningVC: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
     }
     
-    // MARK: - Properties
-    
-    var privateGroup = [PrivateGroupDataModel]()
-    var publicGroup = [PublicGroupDataModel]()
-
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
+        self.groupListTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -57,7 +53,6 @@ class LightningVC: UIViewController {
 
         initUI()
         setAction()
-        setData()
         setTableHeaderView()
         setTableView()
         setTextField()
@@ -76,22 +71,6 @@ extension LightningVC {
         closeButton.addAction(UIAction(handler: { _ in
             self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
-    }
-    
-    private func setData() {
-        privateGroup.append(contentsOf: [
-            PrivateGroupDataModel(groupImage: "imgRabbit", groupName: "양파링걸즈", memberCounts: 4),
-            PrivateGroupDataModel(groupImage: "imgCrong", groupName: "크롱", memberCounts: 30),
-            PrivateGroupDataModel(groupImage: "imgButterfly", groupName: "오렌지쥬스", memberCounts: 7),
-            PrivateGroupDataModel(groupImage: "imgJuju", groupName: "마법사쥬쥬", memberCounts: 7)
-        ])
-        
-        publicGroup.append(contentsOf: [
-            PublicGroupDataModel(groupImage: "imgRabbit", groupName: "Rich ball", memberCounts: 3, hashTag: "부지런한 동틀녘"),
-            PublicGroupDataModel(groupImage: "imgBear", groupName: "곰돌아이", memberCounts: 7, hashTag: "북적이는 오후"),
-            PublicGroupDataModel(groupImage: "imgNintendo", groupName: "동물의 숲", memberCounts: 3, hashTag: "감성적인 새벽녘"),
-            PublicGroupDataModel(groupImage: "imgDog", groupName: "이지언니", memberCounts: 3, hashTag: "사근한 오전")
-        ])
     }
     
     private func setTableHeaderView() {
@@ -149,12 +128,14 @@ extension LightningVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLightningTitleVC") as? SetLightningTitleVC else { return }
+        dvc.index = indexPath.row
         
         if indexPath.section == 0 {
-//            dvc.groupName = privateGroup[indexPath.row].groupName
-            dvc.index = indexPath.row
+            for i in 0 ... indexPath.row {
+                dvc.groupNames.append(privateGroupData[i].groupName)
+            }
         } else {
-            dvc.groupName = publicGroup[indexPath.row].groupName
+            dvc.groupNames = ["서울숲 플로깅", "05년생 모여", "서울중학교", "닌텐도 할 사람"]
         }
         
         self.navigationController?.pushViewController(dvc, animated: true)
@@ -176,9 +157,9 @@ extension LightningVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return privateGroup.count
+            return privateGroupData.count
         } else {
-            return publicGroup.count
+            return publicGroupData.count
         }
     }
     
@@ -186,7 +167,7 @@ extension LightningVC: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTVC.identifier) as? PrivateListTVC else { return UITableViewCell() }
-            cell.initCell(groupImage: privateGroup[indexPath.row].groupImage, groupName: privateGroup[indexPath.row].groupName, count: privateGroup[indexPath.row].memberCounts)
+            cell.initCell(group: privateGroupData[indexPath.row])
             cell.selectionStyle = .none
             
             if indexPath.row == 0 {
@@ -194,7 +175,7 @@ extension LightningVC: UITableViewDataSource {
                 cell.layer.cornerRadius = 9
                 cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             }
-            if indexPath.row == privateGroup.count - 1 {
+            if indexPath.row == privateGroupData.count - 1 {
                 cell.clipsToBounds = true
                 cell.layer.cornerRadius = 9
                 cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -202,7 +183,7 @@ extension LightningVC: UITableViewDataSource {
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PublicListTVC.identifier) as? PublicListTVC else { return UITableViewCell() }
-            cell.initCell(groupImage: publicGroup[indexPath.row].groupImage, groupName: publicGroup[indexPath.row].groupName, count: publicGroup[indexPath.row].memberCounts, hashTag: publicGroup[indexPath.row].hashTag)
+            cell.initCell(groupImage: publicGroupData[indexPath.row].groupImage, groupName: publicGroupData[indexPath.row].groupName, count: publicGroupData[indexPath.row].memberCounts, hashTag: publicGroupData[indexPath.row].hashTag)
             cell.selectionStyle = .none
             
             if indexPath.row == 0 {
@@ -210,7 +191,7 @@ extension LightningVC: UITableViewDataSource {
                 cell.layer.cornerRadius = 9
                 cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             }
-            if indexPath.row == privateGroup.count - 1 {
+            if indexPath.row == publicGroupData.count - 1 {
                 cell.clipsToBounds = true
                 cell.layer.cornerRadius = 9
                 cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]

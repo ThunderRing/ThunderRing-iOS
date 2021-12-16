@@ -30,7 +30,8 @@ class SetLightningTitleVC: UIViewController {
     
     var groupName = ""
     var index = 0
-    var groupNames = ["양파링 걸즈", "크롱", "오렌지쥬스", "마법사쥬쥬"]
+    
+    var groupNames = [String]()
     
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
@@ -130,27 +131,33 @@ extension SetLightningTitleVC {
     
     @objc
     func keyboardWillShow() {
-        let topAnchor = self.topConstraint.constant - 120
+//        let topAnchor = self.topConstraint.constant - 120
+//
+//
+//        self.groupSelectLabel.snp.updateConstraints { make in
+//            make.top.equalToSuperview().offset(topAnchor)
+//        }
         
-        self.groupSelectLabel.snp.updateConstraints { make in
-            make.top.equalToSuperview().offset(topAnchor)
-        }
+        self.view.frame.origin.y = -120
         
         UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
+//            self.view.layoutIfNeeded()
+            self.view.transform = CGAffineTransform.identity
         }
     }
     
     @objc
     func keyboardWillHide() {
-        let topAnchor = self.topConstraint.constant + 50
-        
-        self.groupSelectLabel.snp.updateConstraints { make in
-            make.top.equalToSuperview().offset(topAnchor)
-        }
+//        let topAnchor = self.topConstraint.constant + 67
+//
+//        self.groupSelectLabel.snp.updateConstraints { make in
+//            make.top.equalToSuperview().offset(topAnchor)
+//        }
+        self.view.frame.origin.y = 0
         
         UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
+//            self.view.layoutIfNeeded()
+            self.view.transform = CGAffineTransform.identity
         }
     }
 }

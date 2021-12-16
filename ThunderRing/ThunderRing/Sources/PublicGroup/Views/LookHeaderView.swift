@@ -83,12 +83,18 @@ extension LookHeaderView {
     }
 }
 
+// MARK: - UICollectionView Delegate
+
 extension LookHeaderView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         sortHeaderDelegate?.touchUpSort(index: selectedIndex)
+        
+        collectionView.scrollToItem(at: IndexPath(item: indexPath.row, section: 0), at: .centeredHorizontally, animated: true)
     }
 }
+
+// MARK: - UICollectionView DelegateFlowLayout
 
 extension LookHeaderView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -108,6 +114,8 @@ extension LookHeaderView: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - UICollectionView DataSource
+
 extension LookHeaderView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sortList.count
@@ -115,10 +123,10 @@ extension LookHeaderView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LookSortCVC.identifier, for: indexPath) as? LookSortCVC else { return UICollectionViewCell() }
-        if indexPath.item == 0 {
-            cell.isSelected = true
-            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
-        }
+//        if indexPath.item == 0 {
+//            cell.isSelected = true
+//            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+//        }
         cell.setLabel(sort: sortList[indexPath.item])
         return cell
     }

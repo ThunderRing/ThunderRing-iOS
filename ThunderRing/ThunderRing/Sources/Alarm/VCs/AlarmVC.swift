@@ -32,7 +32,8 @@ class AlarmVC: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "알림", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
+        customNavigationBarView.layer.applyShadow()
+        setStatusBar(.white)
     }
     
     override func viewDidLoad() {

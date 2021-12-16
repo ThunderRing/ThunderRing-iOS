@@ -15,7 +15,7 @@ class MemberTVC: UITableViewCell {
     // MARK: - UI
     
     private var userImageView = UIImageView().then {
-        $0.image = UIImage(named: "15")
+        $0.image = UIImage(named: "tendency1")
     }
     
     private var userNameLabel = UILabel().then {
@@ -92,7 +92,8 @@ extension MemberTVC {
 }
 
 extension MemberTVC {
-    func initCell(name: String) {
-        userNameLabel.text = name
+    func initCell(contact: ContactDataModel) {
+        userNameLabel.text = contact.familyName + contact.givenName
+        phoneNumberLabel.text = contact.phoneNumber
     }
 }

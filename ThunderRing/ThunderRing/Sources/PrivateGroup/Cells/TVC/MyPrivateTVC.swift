@@ -57,6 +57,7 @@ class MyPrivateTVC: UITableViewCell {
 extension MyPrivateTVC {
     private func initUI() {
         self.backgroundColor = .white
+        self.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 0, bounds: true)
         
         groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 37, bounds: true)
         
@@ -98,7 +99,12 @@ extension MyPrivateTVC {
 
 extension MyPrivateTVC {
     func initCell(group: PrivateGroupDataModel) {
-        groupImageView.image = UIImage(named: group.groupImage)
+        if group.groupImageName != nil {
+            groupImageView.image = UIImage(named: group.groupImageName!)
+        } else {
+            groupImageView.image = group.groupImage
+        }
+        
         groupNameLabel.text = group.groupName
         groupDescriptionLabel.text = group.groupDescription
         countLabel.text = "\(group.memberCounts)"

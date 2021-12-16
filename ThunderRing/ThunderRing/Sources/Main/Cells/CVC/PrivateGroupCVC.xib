@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,6 +25,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" name="grayBackground"/>
             <constraints>
                 <constraint firstItem="9L0-3Y-UMQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DwR-UX-Nt0"/>
                 <constraint firstAttribute="bottom" secondItem="9L0-3Y-UMQ" secondAttribute="bottom" id="S2a-gq-nX9"/>
@@ -33,10 +35,13 @@
             <connections>
                 <outlet property="privateGroupTableView" destination="9L0-3Y-UMQ" id="xu0-NK-mtP"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+            <point key="canvasLocation" x="136.95652173913044" y="113.83928571428571"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <namedColor name="grayBackground">
+            <color red="0.98799997568130493" green="0.98799997568130493" blue="0.98799997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

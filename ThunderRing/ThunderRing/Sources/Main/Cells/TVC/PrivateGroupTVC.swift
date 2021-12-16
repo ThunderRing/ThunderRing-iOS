@@ -10,6 +10,9 @@ import UIKit
 class PrivateGroupTVC: UITableViewCell {
     static let identifier = "PrivateGroupTVC"
     
+    // MARK: - UI
+    
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var groupNameLabel: UILabel!
     @IBOutlet weak var groupDescriptionLabel: UILabel!
@@ -33,11 +36,11 @@ class PrivateGroupTVC: UITableViewCell {
 
 extension PrivateGroupTVC {
     private func initUI() {
-        groupImageView.layer.cornerRadius = groupImageView.bounds.width / 2
-        groupImageView.layer.borderWidth = 1
-        groupImageView.layer.borderColor = UIColor.gray300.cgColor
+        backView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 5, bounds: true)
         
-        [groupNameLabel, countLabel].forEach {
+        groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: groupImageView.bounds.width / 2, bounds: true)
+        
+        [groupNameLabel, groupDescriptionLabel, countLabel].forEach {
             $0?.addCharacterSpacing()
         }
     }
@@ -45,7 +48,7 @@ extension PrivateGroupTVC {
 
 extension PrivateGroupTVC {
     func initCell(group: PrivateGroupDataModel) {
-        groupImageView.image = UIImage(named: group.groupImage)
+        groupImageView.image = UIImage(named: group.groupImageName!)
         groupNameLabel.text = group.groupName
         groupDescriptionLabel.text = group.groupDescription
         countLabel.text = "\(group.memberCounts)"

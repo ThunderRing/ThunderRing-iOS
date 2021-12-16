@@ -12,6 +12,10 @@ class MyGroupTVC: UITableViewCell {
     
     // MARK: - UI
     
+    var backView = UIView().then {
+        $0.backgroundColor = .white
+    }
+    
     private lazy var groupImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 38, bounds: true)
@@ -44,8 +48,8 @@ class MyGroupTVC: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .white
         
+        initUI()
         setLayout()
     }
     
@@ -60,11 +64,24 @@ class MyGroupTVC: UITableViewCell {
 }
 
 extension MyGroupTVC {
+    private func initUI() {
+        self.backgroundColor = .background
+        
+        backView.layer.borderColor = UIColor.gray350.cgColor
+        backView.layer.borderWidth = 1
+    }
+    
     private func setLayout() {
-        self.addSubviews([groupImageView, groupNameLabel, countImageView, countLabel, descriptionLabel, hashTagImageView])
+        self.addSubviews([backView, groupImageView, groupNameLabel, countImageView, countLabel, descriptionLabel, hashTagImageView])
+        
+        backView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.top.equalToSuperview().inset(1)
+            $0.bottom.equalToSuperview()
+        }
         
         groupImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(31)
+            $0.leading.equalTo(backView.snp.leading).offset(31)
             $0.centerY.equalToSuperview()
         }
         
@@ -102,7 +119,7 @@ extension MyGroupTVC {
         groupNameLabel.text = group.groupName
         countLabel.text = "\(group.memberCounts)/\(group.memberTotalCounts!)"
         
-        descriptionLabel.text = "그룹에 대한 설명"
+        descriptionLabel.text = group.description
         
         switch group.hashTag {
         case "부지런한 동틀녘":

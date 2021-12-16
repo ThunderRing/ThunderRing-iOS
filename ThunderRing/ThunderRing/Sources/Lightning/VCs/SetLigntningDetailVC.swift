@@ -31,6 +31,11 @@ class SetLigntningDetailVC: UIViewController {
         $0.preferredDatePickerStyle = .wheels
         $0.datePickerMode = .date
         $0.locale = Locale(identifier: "ko")
+        
+        let date = Date()
+        let maximumDate = Calendar.current.date(byAdding: .day, value: 1, to: date)
+        $0.minimumDate = date
+        $0.maximumDate = maximumDate
     }
     
     private lazy var timePickerView = UIDatePicker().then {
@@ -96,6 +101,9 @@ extension SetLigntningDetailVC {
         timeFormatter.dateFormat = "a h:mm"
         timeFormatter.locale = Locale(identifier:"ko")
         timeTextField.placeholder = timeFormatter.string(from: nowDate)
+        
+        self.minTextField.addTarget(self, action: #selector(self.minFieldDidChange(_:)), for: .editingChanged)
+        self.dateTextField.addTarget(self, action: #selector(self.dateFieldDidChange), for: .valueChanged)
     }
     
     private func setToolBar() {
@@ -174,6 +182,14 @@ extension SetLigntningDetailVC {
         dateFormatter.dateFormat = "yyyy년 MM월 dd일"
         dateFormatter.locale = Locale(identifier:"ko")
         dateTextField.text = dateFormatter.string(from: datePickerView.date)
+        
+        let date = Date()
+        if dateFormatter.string(from: datePickerView.date) == dateFormatter.string(from: date) {
+            timePickerView.minimumDate = date
+        } else {
+            timePickerView.minimumDate = .none
+        }
+        
         self.view.endEditing(true)
     }
     
@@ -184,6 +200,32 @@ extension SetLigntningDetailVC {
         timeFormatter.locale = Locale(identifier:"ko")
         timeTextField.text = timeFormatter.string(from: timePickerView.date)
         self.view.endEditing(true)
+    }
+    
+    @objc
+    func minFieldDidChange(_ sender: Any?) {
+        if minTextField.text == "0" || minTextField.text == "1"{
+            numGuideLabel.font = .SpoqaHanSansNeo(type: .bold, size: 14)
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+        } else {
+            numGuideLabel.font = .SpoqaHanSansNeo(type: .bold, size: 14)
+        }
+    }
+    
+    @objc
+    func dateFieldDidChange(_ sender: Any?) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
+        dateFormatter.locale = Locale(identifier:"ko")
+        dateTextField.text = dateFormatter.string(from: datePickerView.date)
+        
+        let date = Date()
+        if dateFormatter.string(from: datePickerView.date) == dateFormatter.string(from: date) {
+            timePickerView.minimumDate = date
+        } else {
+            timePickerView.minimumDate = .none
+        }
     }
 }
 
@@ -242,7 +284,7 @@ extension SetLigntningDetailVC: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if textField == locationTextField {
-            self.countLabel.text = String("\(textField.text!.count)/20")
+            self.countLabel.text = String("\(textField.text!.count)/10")
         }
     }
     
@@ -261,27 +303,33 @@ extension SetLigntningDetailVC {
     
     @objc
     func keyboardWillShow(_ notification: Notification) {
-        let topAnchor = self.topConstraint.constant - 240
+//        let topAnchor = self.topConstraint.constant - 240
+//
+//        self.dateLabel.snp.updateConstraints { make in
+//            make.top.equalToSuperview().offset(topAnchor)
+//        }
         
-        self.dateLabel.snp.updateConstraints { make in
-            make.top.equalToSuperview().offset(topAnchor)
-        }
+        self.view.frame.origin.y = -240
         
         UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
+//            self.view.layoutIfNeeded()
+            self.view.transform = .identity
         }
     }
     
     @objc
     func keyboardWillHide(_ notification: Notification) {
-        let topAnchor = self.topConstraint.constant + 60
+//        let topAnchor = self.topConstraint.constant + 60
+//
+//        self.dateLabel.snp.updateConstraints { make in
+//            make.top.equalToSuperview().offset(topAnchor)
+//        }
         
-        self.dateLabel.snp.updateConstraints { make in
-            make.top.equalToSuperview().offset(topAnchor)
-        }
+        self.view.frame.origin.y = 0
         
         UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
+//            self.view.layoutIfNeeded()
+            self.view.transform = .identity
         }
     }
 }

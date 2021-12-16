@@ -42,8 +42,6 @@ class MainVC: UIViewController {
     private var privateGroup1 = [PrivateGroupDataModel]()
     private var privateGroup2 = [PrivateGroupDataModel]()
     
-    private var publicGroups = [PublicGroupDataModel]()
-    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +50,8 @@ class MainVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = false
         setStatusBar(.white)
+        
+        privateGroupCollectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -60,7 +60,7 @@ class MainVC: UIViewController {
         initUI()
         setCollectionView()
         setAction()
-        setData()
+//        setData()
         setGesture()
     }
 }
@@ -74,7 +74,7 @@ extension MainVC {
         cardView.layer.cornerRadius = 7
         cardView.layer.masksToBounds = true
         
-        imageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: imageView.bounds.width / 2, bounds: true)
+        imageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: imageView.bounds.width / 2, bounds: true)
         
         attendanceLabel.attributedText = NSMutableAttributedString()
             .regular(string: "번개 ", fontSize: 14)
@@ -82,9 +82,9 @@ extension MainVC {
             .regular(string: "개가 진행 중입니다.", fontSize: 14)
         attendanceLabel.textColor = .white
         
-        privateGroupCountLabel.text = "\(privateGroupCount)"
+        privateGroupCountLabel.text = "\(privateGroupData.count)"
         
-        publicGroupCountLabel.text = "\(publicGroupCount)"
+        publicGroupCountLabel.text = "\(publicGroupData.count)"
         
         [attendanceLabel, privateGroupCountLabel, publicGroupCountLabel].forEach {
             $0?.addCharacterSpacing()
@@ -96,20 +96,14 @@ extension MainVC {
         privateGroupCollectionView.delegate = self
         privateGroupCollectionView.dataSource = self
         
-        let privateGroupNib = UINib(nibName: PrivateGroupCVC.identifier, bundle: nil)
-        privateGroupCollectionView.register(privateGroupNib, forCellWithReuseIdentifier: PrivateGroupCVC.identifier)
-        
+        privateGroupCollectionView.register(MainPrivateCVC.self, forCellWithReuseIdentifier: MainPrivateCVC.identifier)
         
         // public group
-        let publicGroupCollectionViewlayout = publicGroupCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        publicGroupCollectionViewlayout?.scrollDirection = .horizontal
-        publicGroupCollectionViewlayout?.estimatedItemSize = .zero
-        
-        publicGroupCollectionView.showsHorizontalScrollIndicator = false
-        publicGroupCollectionView.showsVerticalScrollIndicator = false
-        
         publicGroupCollectionView.delegate = self
         publicGroupCollectionView.dataSource = self
+        
+        publicGroupCollectionView.backgroundColor = .background
+        publicGroupCollectionView.isScrollEnabled = false
         
         let publicGroupNib = UINib(nibName: PublicGroupCVC.identifier, bundle: nil)
         publicGroupCollectionView.register(publicGroupNib, forCellWithReuseIdentifier: PublicGroupCVC.identifier)
@@ -135,25 +129,17 @@ extension MainVC {
     private func setData() {
         // private
         privateGroup1.append(contentsOf: [
-            PrivateGroupDataModel(groupImage: "imgRabbit", groupName: "양파링걸즈", memberCounts: 4, groupDescription: "우린 양파링은 킹왕짱이다"),
-            PrivateGroupDataModel(groupImage: "imgCrong", groupName: "크롱", memberCounts: 4, groupDescription: "크롱크롱 크롱크크크롱")
+            PrivateGroupDataModel(groupImageName: "imgDog1", groupName: "양파링걸즈", memberCounts: 4, groupDescription: "캡스톤 아자아자"),
+            PrivateGroupDataModel(groupImageName: "imgHike", groupName: "대한 산악회", memberCounts: 22, groupDescription: "대한의 모든 산 정복을 위해")
         ])
         
         privateGroup2.append(contentsOf: [
-            PrivateGroupDataModel(groupImage: "imgButterfly", groupName: "오렌지쥬스", memberCounts: 7, groupDescription: "착즙주스 사랑해"),
-            PrivateGroupDataModel(groupImage: "imgJuju", groupName: "마법사쥬쥬", memberCounts: 5, groupDescription: "들어오고 싶으면 주문을 외워")
+            PrivateGroupDataModel(groupImageName: "imgSwu", groupName: "서울여대 디미과", memberCounts: 80, groupDescription: "디지털미디어학과 18학번"),
+            PrivateGroupDataModel(groupImageName: "imgBike", groupName: "5기 자전거동호회", memberCounts: 30, groupDescription: "매주 일요일 아침 정기모임")
         ])
         
         privateGroups.append(privateGroup1)
         privateGroups.append(privateGroup2)
-        
-        // public
-        publicGroups.append(contentsOf: [
-            PublicGroupDataModel(groupImage: "imgRice", groupName: "Rice ball", memberCounts: 4, hashTag: "부지런한 동틀녁", memberTotalCounts: 100),
-            PublicGroupDataModel(groupImage: "imgBear", groupName: "곰돌아이", memberCounts: 4, hashTag: "북적이는 오후", memberTotalCounts: 10),
-            PublicGroupDataModel(groupImage: "imgNintendo", groupName: "동물의 숲", memberCounts: 3, hashTag: "감성적인 새벽녘", memberTotalCounts: 30),
-            PublicGroupDataModel(groupImage: "imgDog", groupName: "이지언니", memberCounts: 4, hashTag: "사근한 오전", memberTotalCounts: 300)
-        ])
     }
 }
 
@@ -173,10 +159,52 @@ extension NSMutableAttributedString {
     
 }
 
-extension MainVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+// MARK: - UICollectionView Delegate
+
+extension MainVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch collectionView {
+        case privateGroupCollectionView:
+            let cellWidth = (collectionView.frame.width - 25 - 25 - 7 - 9)
+            let cellHeight = (collectionView.frame.height - 7) / 2
+            return CGSize(width: cellWidth, height: cellHeight)
+        case publicGroupCollectionView:
+            let cellWidth = (collectionView.frame.width - 25 - 25 - 11) / 2
+            let cellHeight = (collectionView.frame.height - 11) / 2
+            return CGSize(width: cellWidth, height: cellHeight)
+        default:
+            return .zero
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        switch collectionView {
+        case privateGroupCollectionView:
+            return 5
+        case publicGroupCollectionView:
+            return 11
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        switch collectionView {
+        case privateGroupCollectionView:
+            return 5
+        case publicGroupCollectionView:
+            return 11
+        default:
+            return 0
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch collectionView {
         case privateGroupCollectionView:
+            return UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        case publicGroupCollectionView:
             return UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
         default:
             return .zero
@@ -184,13 +212,15 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - UICollectionView DataSource
+
 extension MainVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case privateGroupCollectionView:
-            return privateGroups.count
+            return privateGroupData.count
         case publicGroupCollectionView:
-            return publicGroups.count
+            return publicGroupData.count
         default:
             return 0
         }
@@ -199,12 +229,12 @@ extension MainVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case privateGroupCollectionView:
-            guard let cell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as? PrivateGroupCVC else { return UICollectionViewCell() }
-            cell.initCell(groups: privateGroups[indexPath.row])
+            guard let cell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: MainPrivateCVC.identifier, for: indexPath) as? MainPrivateCVC else { return UICollectionViewCell() }
+            cell.initCell(group: privateGroupData[indexPath.item])
             return cell
         case publicGroupCollectionView:
             guard let cell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as? PublicGroupCVC else { return UICollectionViewCell() }
-            cell.initCell(group: publicGroups[indexPath.row])
+            cell.initCell(group: publicGroupData[indexPath.item])
             return cell
         default:
             return UICollectionViewCell()

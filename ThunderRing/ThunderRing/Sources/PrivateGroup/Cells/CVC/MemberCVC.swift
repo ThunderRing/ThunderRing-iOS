@@ -22,16 +22,6 @@ class MemberCVC: UICollectionViewCell {
         return label
     }()
     
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                nameLabel.textColor = UIColor.purple100
-            } else {
-                nameLabel.textColor = UIColor.gray200
-            }
-        }
-    }
-    
     // MARK: - Initializer
     
     override init(frame: CGRect) {

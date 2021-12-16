@@ -20,7 +20,7 @@ class ChatListTVC: UITableViewCell {
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
     }
     
-    private var chatImageView = UIImageView().then {
+    private var groupImageView = UIImageView().then {
         $0.image = UIImage(named: "imgRabbit")
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 28, bounds: true)
     }
@@ -84,14 +84,15 @@ class ChatListTVC: UITableViewCell {
 extension ChatListTVC {
     private func setLayout() {
         contentView.addSubview(backView)
-        backView.addSubviews([chatImageView, hashTagLabel, titleLabel, subTitleLabel, countLabel, timeLabel])
+        
+        backView.addSubviews([groupImageView, hashTagLabel, titleLabel, subTitleLabel, countLabel, timeLabel])
         
         backView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.top.bottom.equalToSuperview().inset(7)
         }
         
-        chatImageView.snp.makeConstraints {
+        groupImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(16)
             $0.centerY.equalToSuperview()
             $0.width.height.equalTo(56)
@@ -121,6 +122,21 @@ extension ChatListTVC {
             $0.top.equalToSuperview().inset(18)
             $0.trailing.equalToSuperview().inset(20)
         }
+    }
+}
+
+extension ChatListTVC {
+    func initCell(chatList: ChatListDataModel) {
+        groupImageView.image = UIImage(named: chatList.groupImage)
+        
+        hashTagLabel.text = chatList.hashTag
+        
+        titleLabel.text = chatList.title
+        subTitleLabel.text = chatList.subTitle
+        
+        countLabel.text = "\(chatList.count)"
+        
+        timeLabel.text = "\(chatList.time)시간 전"
     }
 }
 

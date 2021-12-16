@@ -13,6 +13,10 @@ class CompleteLightningVC: UIViewController {
     
     @IBOutlet weak var confirmButton: UIButton!
     
+    // MARK: - Properties
+    
+    var appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -32,6 +36,7 @@ extension CompleteLightningVC {
     private func setAction() {
         confirmButton.addAction(UIAction(handler: { _ in
             self.dismiss(animated: true, completion: nil)
+            self.appDelegate?.scheduleNotification(groupName: "양파링걸즈")
         }), for: .touchUpInside)
     }
 }
