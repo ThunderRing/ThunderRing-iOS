@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Mark_Chatbook.png",
+      "filename" : "imgDrama.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Mark_Chatbook@2x.png",
+      "filename" : "imgDrama@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Mark_Chatbook@3x.png",
+      "filename" : "imgDrama@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
