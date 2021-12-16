@@ -16,6 +16,10 @@ class ChatListVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var chatListTableView: UITableView!
     
+    // MARK: - Properties
+    
+    private var chatLists = [ChatListDataModel]()
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +35,7 @@ class ChatListVC: UIViewController {
         
         initUI()
         setTableView()
+        setData()
     }
 }
 
@@ -51,6 +56,14 @@ extension ChatListVC {
         chatListTableView.backgroundColor = .background
         
         chatListTableView.register(ChatListTVC.self, forCellReuseIdentifier: ChatListTVC.identifier)
+    }
+    
+    private func setData() {
+        chatLists.append(contentsOf: [
+            ChatListDataModel(groupImage: "imgRabbit", hashTag: "양파링 걸즈", title: "혜화역 혼가츠 먹어요!", subTitle: "안녕하세요!", count: 8, time: 1),
+            ChatListDataModel(groupImage: "imgNintendo", hashTag: "동물의 숲", title: "모각공 할 사람", subTitle: "채팅을 먼저 시작해보세요..", count: 20, time: 1),
+            ChatListDataModel(groupImage: "imgCrong", hashTag: "크롱", title: "아름관 세미나실 가자", subTitle: "채팅을 먼저 시작해보세요..", count: 4, time: 1)
+            ])
     }
 }
 
@@ -78,6 +91,7 @@ extension ChatListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTVC.identifier) as? ChatListTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
+        cell.initCell(chatList: chatLists[indexPath.row])
         return cell
     }
 }
