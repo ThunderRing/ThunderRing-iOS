@@ -25,9 +25,8 @@ class CreatePrivateDetailVC: UIViewController {
     // MARK: - Properties
     
     var groupName = "그룹명"
-    var members = ["김소연", "윤하민", "이지원", "마예지"]
-    
-    var isCollectionViewHidden = true
+    var groupImage = UIImage()
+    var members = [String]()
     
     // MARK: - Life Cycle
     
@@ -50,6 +49,8 @@ class CreatePrivateDetailVC: UIViewController {
     }
 }
 
+// MARK: - Custom Methods
+
 extension CreatePrivateDetailVC {
     private func initUI() {
         nextButton.isEnabled = false
@@ -59,16 +60,16 @@ extension CreatePrivateDetailVC {
         descriptionTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         descriptionTextField.setLeftPaddingPoints(15)
         
-        memberCollectionView.isHidden = isCollectionViewHidden
-        
         addMemberButton.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
     }
     
     private func setAction() {
         nextButton.addAction(UIAction(handler: { _ in
             guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteCreateVC") as? CompleteCreateVC else { return }
+            dvc.groupImage = self.groupImage
             dvc.groupName = self.groupName
             dvc.groupDescrption = self.descriptionTextField.text!
+            dvc.groupCounts = self.members.count
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
         
@@ -176,6 +177,8 @@ extension CreatePrivateDetailVC {
     
     @objc
     func showCollectionView(_ notification: Notification) {
+        members = notification.object as! [String]
+        memberCollectionView.reloadData()
         memberCollectionView.isHidden = false
     }
 }
