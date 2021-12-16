@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1aC-DP-2Cx">
-                                <rect key="frame" x="0.0" y="101" width="414" height="761"/>
+                                <rect key="frame" x="10" y="101" width="394" height="761"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nSI-Fx-M7V">
                                 <rect key="frame" x="0.0" y="44" width="414" height="57"/>
@@ -71,16 +71,18 @@
                         <constraints>
                             <constraint firstItem="nSI-Fx-M7V" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="C4Z-Co-CAx"/>
                             <constraint firstItem="1aC-DP-2Cx" firstAttribute="top" secondItem="nSI-Fx-M7V" secondAttribute="bottom" id="Lvf-v7-OGm"/>
-                            <constraint firstItem="1aC-DP-2Cx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="glU-XF-iCN"/>
+                            <constraint firstItem="1aC-DP-2Cx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="glU-XF-iCN"/>
                             <constraint firstItem="nSI-Fx-M7V" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="k9h-ln-k0F"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nSI-Fx-M7V" secondAttribute="trailing" id="mcW-2i-BoQ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1aC-DP-2Cx" secondAttribute="trailing" id="oak-di-hWv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="1aC-DP-2Cx" secondAttribute="trailing" constant="10" id="oak-di-hWv"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1aC-DP-2Cx" secondAttribute="bottom" id="xew-1M-po9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="ubm-Lw-Qak" id="DcI-XQ-Jku"/>
                         <outlet property="customNavigationBarView" destination="nSI-Fx-M7V" id="yAH-kE-KJF"/>
                         <outlet property="groupTableView" destination="1aC-DP-2Cx" id="ZCI-W0-JUJ"/>
+                        <outlet property="searchButton" destination="i67-Zb-27R" id="NRr-SX-J43"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
