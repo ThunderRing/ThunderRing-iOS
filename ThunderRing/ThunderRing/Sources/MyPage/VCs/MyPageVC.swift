@@ -14,6 +14,7 @@ class MyPageVC: UIViewController {
     @IBOutlet weak var customNavigationBarView: UIView!
     
     @IBOutlet weak var profileBackView: UIView!
+    @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var userInfoView: UIView!
@@ -25,6 +26,8 @@ class MyPageVC: UIViewController {
     private var friendCount = 0
     private var groupCount = 0
     private var thunderCount = 0
+    
+    let imagePicker = UIImagePickerController()
     
     // MARK: - Life Cycle
     
@@ -40,6 +43,7 @@ class MyPageVC: UIViewController {
         
         initUI()
         setTableView()
+        setImagePicker()
     }
 }
 
@@ -69,13 +73,36 @@ extension MyPageVC {
         myPageTableView.register(InfoTVC.self, forCellReuseIdentifier: InfoTVC.identifier)
         myPageTableView.register(LogOutTVC.self, forCellReuseIdentifier: LogOutTVC.identifier)
     }
+    
+    private func setImagePicker() {
+        self.imagePicker.sourceType = .photoLibrary
+        self.imagePicker.allowsEditing = true
+        self.imagePicker.delegate = self
+        
+        userImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
+        userImageView.addGestureRecognizer(tapGesture)
+    }
 }
+
+// MARK: - @objc
+
+extension MyPageVC {
+    @objc
+    func pickImage() {
+        self.present(self.imagePicker, animated: true)
+    }
+}
+
+// MARK: - UITableView Delegate
 
 extension MyPageVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 52
     }
 }
+
+// MARK: - UITableView DataSource
 
 extension MyPageVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -111,5 +138,24 @@ extension MyPageVC: UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+}
+
+// MARK: - UIImagePickerController Delegate
+ 
+extension MyPageVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        var newImage: UIImage? = nil
+        
+        if let possibleImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            newImage = possibleImage
+        } else if let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            newImage = possibleImage
+        }
+        
+        self.userImageView.image = newImage
+        picker.dismiss(animated: true, completion: nil) 
+        
     }
 }
