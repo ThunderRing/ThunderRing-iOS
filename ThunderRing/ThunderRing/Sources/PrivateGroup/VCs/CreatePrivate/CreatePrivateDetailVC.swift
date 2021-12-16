@@ -69,7 +69,7 @@ extension CreatePrivateDetailVC {
             dvc.groupImage = self.groupImage
             dvc.groupName = self.groupName
             dvc.groupDescrption = self.descriptionTextField.text!
-            dvc.groupCounts = self.members.count
+            dvc.groupCounts = self.members.count + 1
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
         
