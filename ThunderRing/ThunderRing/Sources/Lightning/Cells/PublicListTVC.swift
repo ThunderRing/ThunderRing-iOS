@@ -88,17 +88,17 @@ extension PublicListTVC {
         
         countImageView.snp.makeConstraints {
             $0.leading.equalTo(groupNameLabel.snp.trailing).offset(8)
-            $0.top.equalToSuperview().inset(24)
+            $0.centerY.equalTo(groupNameLabel.snp.centerY)
         }
         
         countLabel.snp.makeConstraints {
             $0.leading.equalTo(countImageView.snp.trailing).offset(2)
-            $0.top.equalToSuperview().inset(24)
+            $0.centerY.equalTo(countImageView.snp.centerY)
         }
         
         hashTagImageView.snp.makeConstraints {
             $0.leading.equalTo(groupImageView.snp.trailing).offset(12)
-            $0.top.equalTo(countLabel.snp.bottom).offset(7)
+            $0.top.equalTo(countLabel.snp.bottom).offset(9)
         }
     }
 }

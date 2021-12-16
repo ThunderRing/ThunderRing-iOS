@@ -75,7 +75,7 @@ extension PrivateListTVC {
         
         countImageView.snp.makeConstraints {
             $0.leading.equalTo(groupNameLabel.snp.trailing).offset(8)
-            $0.centerY.equalToSuperview()
+            $0.centerY.equalTo(groupNameLabel.snp.centerY)
         }
         
         countLabel.snp.makeConstraints {
@@ -86,13 +86,14 @@ extension PrivateListTVC {
 }
 
 extension PrivateListTVC {
-    func initCell(groupImage: String, groupName: String, count: Int) {
-        if let image = UIImage(named: groupImage) {
-            groupImageView.image = image
+    func initCell(group: PrivateGroupDataModel) {
+        if group.groupImageName != nil {
+            groupImageView.image = UIImage(named: group.groupImageName!)
+        } else {
+            groupImageView.image = group.groupImage
         }
         
-        groupNameLabel.text = groupName
-        
-        countLabel.text = "\(count)"
+        groupNameLabel.text = group.groupName
+        countLabel.text = "\(group.memberCounts)"
     }
 }
