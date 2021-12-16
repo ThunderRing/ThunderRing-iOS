@@ -37,7 +37,7 @@ class AlarmTVC: UITableViewCell {
 
 extension AlarmTVC {
     private func initUI() {
-        backView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
+        backView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 12, bounds: true)
     }
 }
 
@@ -49,19 +49,19 @@ extension AlarmTVC {
         timeLabel.text = time
         
         if isThunder {
-            if let image = UIImage(named: "Mark_Chatbook") {
+            if let image = UIImage(named: "icnAlarmThunder") {
                 markImageView.image = image
             }
             markImageView.contentMode = .scaleAspectFill
         }
         if isLightning {
-            if let image = UIImage(named: " ") {
+            if let image = UIImage(named: "icnAlarmLight") {
                 markImageView.image = image
             }
             markImageView.contentMode = .scaleAspectFill
         }
         if isFailed {
-            if let image = UIImage(named: " ") {
+            if let image = UIImage(named: "iconAlarmCancel") {
                 markImageView.image = image
             }
             markImageView.contentMode = .scaleAspectFill
