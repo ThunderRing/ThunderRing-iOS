@@ -44,6 +44,12 @@ class SetLigntningDetailVC: UIViewController {
         $0.locale = Locale(identifier: "ko")
     }
     
+    // MARK: - Properties
+    
+    var groupName: String?
+    var lightningName: String?
+    var lightningDescription: String?
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -161,7 +167,19 @@ extension SetLigntningDetailVC {
     
     private func setAction() {
         completeButton.addAction(UIAction(handler: { _ in
-            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: Const.ViewController.Name.CompleteLightning) else { return }
+            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: Const.ViewController.Name.CompleteLightning) as? CompleteLightningVC else { return }
+            dvc.groupName = self.groupName
+            dvc.lightningName = self.lightningName
+            dvc.lightningDescription = self.lightningDescription
+            dvc.date = self.dateTextField.text
+            dvc.time = self.timeTextField.text
+            dvc.location = self.locationTextField.text
+            if let minNumber = self.minTextField.text {
+                dvc.minNumber = Int(minNumber)
+            }
+            if let maxNumber = self.maxTextField.text {
+                dvc.maxNumber = Int(maxNumber)
+            }
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
     }
