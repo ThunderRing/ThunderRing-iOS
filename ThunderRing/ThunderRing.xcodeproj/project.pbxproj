@@ -118,6 +118,7 @@
 		92E497762768C42E0029682C /* ChatListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E497752768C42E0029682C /* ChatListDataModel.swift */; };
 		92F43A33274E8491006025EC /* CompleteLightningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F43A32274E8491006025EC /* CompleteLightningVC.swift */; };
 		92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */; };
+		92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */; };
 		92FDC023275153080080EF20 /* SelectTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FDC022275153080080EF20 /* SelectTimeVC.swift */; };
 		92FF59B0275AB15000916189 /* MemberTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF59AF275AB15000916189 /* MemberTVC.swift */; };
 		92FFBBA7274CDE5500706099 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FFBBA6274CDE5500706099 /* Icons.xcassets */; };
@@ -239,6 +240,7 @@
 		92E497752768C42E0029682C /* ChatListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListDataModel.swift; sourceTree = "<group>"; };
 		92F43A32274E8491006025EC /* CompleteLightningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteLightningVC.swift; sourceTree = "<group>"; };
 		92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookHeaderView.swift; sourceTree = "<group>"; };
+		92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningDataModel.swift; sourceTree = "<group>"; };
 		92FDC022275153080080EF20 /* SelectTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeVC.swift; sourceTree = "<group>"; };
 		92FF59AF275AB15000916189 /* MemberTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTVC.swift; sourceTree = "<group>"; };
 		92FFBBA6274CDE5500706099 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 			children = (
 				925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */,
 				925BAC392742C5D400126166 /* PublicGroupDataModel.swift */,
+				92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1118,6 +1121,7 @@
 				926C7C50273803020020F851 /* AlarmVC.swift in Sources */,
 				92A5B2A52739AA95004149B2 /* InfoTVC.swift in Sources */,
 				925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */,
+				92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */,
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
 				92BCCCAA27650B3D00AA70D6 /* LookDetailCVC.swift in Sources */,
 				921266422747BC54009DE534 /* TestTVC.swift in Sources */,
