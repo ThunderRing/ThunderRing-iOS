@@ -17,6 +17,15 @@ class CompleteLightningVC: UIViewController {
     
     var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
+    var groupName: String?
+    var lightningName: String?
+    var lightningDescription: String?
+    var date: String?
+    var time: String?
+    var location: String?
+    var minNumber: Int?
+    var maxNumber: Int?
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -25,7 +34,6 @@ class CompleteLightningVC: UIViewController {
         initUI()
         setAction()
     }
-    
 }
 
 extension CompleteLightningVC {
@@ -35,8 +43,16 @@ extension CompleteLightningVC {
     
     private func setAction() {
         confirmButton.addAction(UIAction(handler: { _ in
-            self.dismiss(animated: true, completion: nil)
-            self.appDelegate?.scheduleNotification(groupName: "양파링걸즈")
+            lightningDatas.append(LightningDataModel(groupName: self.groupName!, lightningName: self.lightningName!, description: self.lightningDescription, date: self.date!, time: self.time!, location: self.location!, minNumber: self.minNumber!, maxNumber: self.maxNumber!))
+            
+            alarmDatas.append(AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, lightningName: self.lightningName!, description: self.time! + " | " +  self.location!, time: "방금", groupName: self.groupName!))
+            alarmDatas = alarmDatas.reversed()
+            
+            self.dismiss(animated: true) {
+                dump(lightningDatas)
+            }
+            
+            self.appDelegate?.scheduleNotification(groupName: self.groupName!, lightningName: self.lightningName!)
         }), for: .touchUpInside)
     }
 }

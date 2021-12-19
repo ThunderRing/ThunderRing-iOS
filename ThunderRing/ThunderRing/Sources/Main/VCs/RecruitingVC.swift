@@ -24,6 +24,8 @@ class RecruitingVC: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "모집 중인 번개", backBtnIsHidden: false, closeBtnIsHidden: true, bgColor: .background)
         setStatusBar(.background)
+        
+        recruitingTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -60,14 +62,15 @@ extension RecruitingVC: UITableViewDelegate {
 
 extension RecruitingVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return lightningDatas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let customCell = tableView.dequeueReusableCell(withIdentifier: RecruitingTVC.identifier, for: indexPath) as? RecruitingTVC else { return UITableViewCell() }
-        customCell.recruitingDelegate = self
-        customCell.selectionStyle = .none
-        return customCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RecruitingTVC.identifier, for: indexPath) as? RecruitingTVC else { return UITableViewCell() }
+        cell.recruitingDelegate = self
+        cell.selectionStyle = .none
+        cell.initCell(lightning: lightningDatas[indexPath.row])
+        return cell
     }
 }
 

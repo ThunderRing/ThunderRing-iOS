@@ -63,15 +63,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        if response.notification.request.identifier == "Local Notification" {
-            print("Handling notifications with the Local Notification Identifier")
-        }
-        
+        print("푸시 알림 클릭 후 앱 진입")
+        NotificationCenter.default.post(name: NSNotification.Name("EnterAppByPush"), object: nil)
         completionHandler()
     }
     
-    func scheduleNotification(groupName: String) {
+    func scheduleNotification(groupName: String, lightningName: String) {
 //        let imageName = "icon"
 //        guard let imageURL = Bundle.main.url(forResource: imageName, withExtension: ".png") else { return }
 //        let attachment = try! UNNotificationAttachment(identifier: imageName, url: imageURL, options: .none)
@@ -80,7 +77,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let categoryIdentifire = "Delete Notification Type"
         
         content.title = "⚡썬더링⚡"
-        content.body = "[비공개]" + groupName + "에서 번개를 쳤어요!"
+        content.body = groupName + "에서 " + lightningName + " 번개를 쳤어요"
         content.sound = UNNotificationSound.default
         content.badge = 1
         content.categoryIdentifier = categoryIdentifire

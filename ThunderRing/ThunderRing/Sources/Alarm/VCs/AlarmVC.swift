@@ -34,6 +34,8 @@ class AlarmVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         customNavigationBarView.layer.applyShadow()
         setStatusBar(.white)
+        
+        alarmCollectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -78,14 +80,11 @@ extension AlarmVC {
     }
     
     private func setData() {
-        proceedAlarms.append(contentsOf: [
-            AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, title: "스벅가서 모각공", description: "채팅방에 먼저 참가해보세요", time: "1시간 전", hashTag: ""),
-            AlarmDataModel(isThunder: true, isLightning: false, isFailed: false, title: "혜화역 혼카츠 먹자", description: "오후 6:00 | 혜화역 1번 출구", time: "30분 전", hashTag: "양파링걸즈")
-        ])
+        proceedAlarms = alarmDatas
         
         completeAlarms.append(contentsOf: [
-            AlarmDataModel(isThunder: true, isLightning: false, isFailed: false, title: "[실패] 방탈출 하실 분", description: "번개가 취소되었습니다", time: "3일 전", hashTag: ""),
-            AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, title: "스벅가서 모각공", description: "채팅방에 먼저 참가해보세요", time: "1시간 전", hashTag: "")
+            AlarmDataModel(isThunder: true, isLightning: false, isFailed: false, lightningName: "[실패] 방탈출 하실 분", description: "번개가 취소되었습니다", time: "3일 전", groupName: ""),
+            AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, lightningName: "스벅가서 모각공", description: "채팅방에 먼저 참가해보세요", time: "1시간 전", groupName: "")
         ])
     }
 }

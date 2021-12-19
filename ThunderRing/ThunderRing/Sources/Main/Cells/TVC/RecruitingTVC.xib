@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,8 +35,8 @@
                                     <constraint firstAttribute="width" constant="10" id="h8d-Wy-3vc"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[양파링] 혜화역 혼가츠 먹어요!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wql-uL-GxN">
-                                <rect key="frame" x="20" y="56" width="203" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[그룹명] 번개명" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wql-uL-GxN">
+                                <rect key="frame" x="20" y="56" width="103" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="2rt-Hs-L2v"/>
                                 </constraints>
@@ -76,8 +76,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="btnPlus"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="혜화역 10/27  오전 11:00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrm-YX-VrO">
-                                <rect key="frame" x="35" y="36" width="131" height="15.333333333333336"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소 및 시간" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nrm-YX-VrO">
+                                <rect key="frame" x="35" y="36" width="60.666666666666657" height="15.333333333333336"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                 <color key="textColor" name="gray100"/>
                                 <nil key="highlightedColor"/>
@@ -100,8 +100,8 @@
                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zM-WN-vLB" userLabel="Remain View">
                         <rect key="frame" x="45" y="14" width="98" height="31"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔여 3자리" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfN-Rz-syC">
-                                <rect key="frame" x="15.333333333333336" y="6" width="67.666666666666657" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔여" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfN-Rz-syC">
+                                <rect key="frame" x="35.333333333333329" y="6" width="27.666666666666671" height="19"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
                                 <color key="textColor" name="white"/>
                                 <nil key="highlightedColor"/>
@@ -132,11 +132,11 @@
             <color key="backgroundColor" name="grayBackground"/>
             <connections>
                 <outlet property="backView" destination="j8i-S7-Dlu" id="tMu-Jm-omx"/>
-                <outlet property="groupTitleLabel" destination="Wql-uL-GxN" id="Nh0-wn-nMy"/>
-                <outlet property="locationLabel" destination="Nrm-YX-VrO" id="QHG-fl-doA"/>
+                <outlet property="detailLabel" destination="Nrm-YX-VrO" id="QHG-fl-doA"/>
                 <outlet property="memberStackView" destination="gXO-2L-NkD" id="Dew-5i-TuZ"/>
                 <outlet property="plusButton" destination="3Bc-We-aHP" id="hiG-4U-jpI"/>
-                <outlet property="remainLabel" destination="AfN-Rz-syC" id="Ze8-9L-ZdN"/>
+                <outlet property="recruitingTitleLabel" destination="Wql-uL-GxN" id="Nh0-wn-nMy"/>
+                <outlet property="remainCountLabel" destination="AfN-Rz-syC" id="Ze8-9L-ZdN"/>
                 <outlet property="remainView" destination="2zM-WN-vLB" id="soz-vB-mLP"/>
             </connections>
             <point key="canvasLocation" x="138.40000000000001" y="152.95566502463055"/>

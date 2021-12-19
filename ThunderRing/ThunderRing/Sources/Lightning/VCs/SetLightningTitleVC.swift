@@ -28,9 +28,7 @@ class SetLightningTitleVC: UIViewController {
     
     // MARK: - Properties
     
-    var groupName = ""
     var index = 0
-    
     var groupNames = [String]()
     
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
@@ -85,6 +83,9 @@ extension SetLightningTitleVC {
     private func setAction() {
         nextButton.addAction(UIAction(handler: { _ in
             guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLigntningDetailVC") as? SetLigntningDetailVC else { return }
+            dvc.groupName = self.groupNameTextField.text
+            dvc.lightningName = self.nameTextField.text
+            dvc.lightningDescription = self.detailTextView.text
             self.nextButton.titleLabel?.textColor = .white
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
@@ -197,7 +198,7 @@ extension SetLightningTitleVC: UITextFieldDelegate {
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        self.nameCountLabel.text = String("\(textField.text!.count)/20")
+        self.nameCountLabel.text = String("\(textField.text!.count)/15")
     }
 }
 

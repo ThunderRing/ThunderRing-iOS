@@ -135,7 +135,9 @@ extension LightningVC: UITableViewDelegate {
                 dvc.groupNames.append(privateGroupData[i].groupName)
             }
         } else {
-            dvc.groupNames = ["서울숲 플로깅", "05년생 모여", "서울중학교", "닌텐도 할 사람"]
+            for i in 0 ... indexPath.row {
+                dvc.groupNames.append(publicGroupData[i].groupName)
+            }
         }
         
         self.navigationController?.pushViewController(dvc, animated: true)
