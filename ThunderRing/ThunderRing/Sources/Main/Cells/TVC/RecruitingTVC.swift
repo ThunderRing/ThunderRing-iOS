@@ -19,19 +19,20 @@ class RecruitingTVC: UITableViewCell {
     
     @IBOutlet weak var backView: UIView!
     
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var groupTitleLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var recruitingTitleLabel: UILabel!
     
     @IBOutlet weak var plusButton: UIButton!
     
     @IBOutlet weak var remainView: UIView!
-    @IBOutlet weak var remainLabel: UILabel!
+    @IBOutlet weak var remainCountLabel: UILabel!
     
     @IBOutlet weak var memberStackView: UIStackView!
     
     // MARK: - Properties
     
-    var recruitingDelegate : RecruitingCellDelegate?
+    var recruitingDelegate: RecruitingCellDelegate?
+    private var remainCount: Int?
     
     // MARK: - Life Cycle
     
@@ -57,7 +58,7 @@ extension RecruitingTVC {
         memberStackView.spacing = 15
         remainView.layer.cornerRadius = 15
         
-        [groupTitleLabel, remainLabel].forEach {
+        [recruitingTitleLabel, remainCountLabel].forEach {
             $0?.addCharacterSpacing()
         }
     }
@@ -84,8 +85,27 @@ extension RecruitingTVC {
         memberStackView.spacing = 15
         memberStackView.addArrangedSubview(userImageView)
         
-        remainLabel.text = "잔여 \(2)자리"
+        if let count = self.remainCount {
+            remainCountLabel.text = "잔여 \(count - 1)자리"
+        }
         
         plusButton.isHidden = true
+    }
+}
+
+extension RecruitingTVC {
+    func initCell(lightning: LightningDataModel) {
+        self.remainCount = lightning.maxNumber - (lightning.members?.count ?? 1)
+        self.remainCountLabel.text = "잔여 \(remainCount!)자리"
+        
+//        if lightning.members?.count == 0 {
+//            let count = 1
+//            self.remainCountLabel.text = "잔여 \(String(lightning.maxNumber - count))자리"
+//        } else {
+//            self.remainCountLabel.text = "잔여 \(String(lightning.maxNumber - lightning.members!.count))자리"
+//        }
+        
+        self.detailLabel.text = "\(lightning.location) \(lightning.date) \(lightning.time)"
+        self.recruitingTitleLabel.text = "[\(lightning.groupName)]" + " \(lightning.lightningName)"
     }
 }
