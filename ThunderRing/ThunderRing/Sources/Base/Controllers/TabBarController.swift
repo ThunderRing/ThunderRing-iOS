@@ -16,6 +16,7 @@ class TabBarController: UITabBarController {
         
         initUI()
         setTabBar()
+        getNotification()
     }
     
     // MARK: - Custom Methods
@@ -71,4 +72,15 @@ extension TabBarController: UITabBarControllerDelegate {
     }
 }
 
+extension TabBarController {
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setSelectedTab(_:)), name: NSNotification.Name("EnterAppByPush"), object: nil)
+    }
+    
+    @objc
+    func setSelectedTab(_ notification: Notification) {
+        print("알람 탭으로 이동")
+        self.selectedIndex = 3
+    }
+}
 

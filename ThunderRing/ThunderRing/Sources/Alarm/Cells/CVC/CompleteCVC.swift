@@ -62,7 +62,7 @@ extension CompleteCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AlarmTVC.identifier) as? AlarmTVC else { return UITableViewCell() }
         let cellData = alarms[indexPath.row]
-        cell.initCell(isThunder: cellData.isThunder, isLightning: cellData.isLightning, isFailed: cellData.isFailed, title: cellData.title, description: cellData.description, time: cellData.time, hashTag: cellData.hashTag)
+        cell.initCell(isThunder: cellData.isThunder, isLightning: cellData.isLightning, isFailed: cellData.isFailed, title: cellData.lightningName, description: cellData.description, time: cellData.time, hashTag: cellData.groupName)
         return cell
     }
 }

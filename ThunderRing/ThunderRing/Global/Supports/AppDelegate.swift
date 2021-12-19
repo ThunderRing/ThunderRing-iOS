@@ -63,11 +63,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-        if response.notification.request.identifier == "Local Notification" {
-            print("Handling notifications with the Local Notification Identifier")
-        }
-        
+        print("푸시 알림 클릭 후 앱 진입")
+        NotificationCenter.default.post(name: NSNotification.Name("EnterAppByPush"), object: nil)
         completionHandler()
     }
     
