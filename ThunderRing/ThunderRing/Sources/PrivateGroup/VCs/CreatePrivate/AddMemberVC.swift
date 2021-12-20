@@ -176,6 +176,7 @@ extension AddMemberVC: UITableViewDataSource {
         cell.selectionStyle = .none
         cell.isSelected = false
         cell.initCell(contact: contacts[indexPath.row])
+        cell.setUserImage(index: indexPath.row)
         return cell
     }
 }

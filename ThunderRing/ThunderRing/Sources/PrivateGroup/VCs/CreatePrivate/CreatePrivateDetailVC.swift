@@ -164,6 +164,11 @@ extension CreatePrivateDetailVC: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         self.descriptionCountLabel.text = String("\(textField.text!.count)/15")
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newLength = (textField.text?.count)! + string.count - range.length
+        return !(newLength > 15)
+    }
 }
 
 // MARK: - Notificaiton
@@ -177,7 +182,9 @@ extension CreatePrivateDetailVC {
     
     @objc
     func showCollectionView(_ notification: Notification) {
-        members = notification.object as! [String]
+        if let members = notification.object {
+            self.members = members as! [String]
+        }
         memberCollectionView.reloadData()
         memberCollectionView.isHidden = false
     }
