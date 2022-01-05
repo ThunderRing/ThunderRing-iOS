@@ -125,6 +125,11 @@ extension CreatePrivateVC: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         self.countLabel.text = String("\(textField.text!.count)/10")
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newLength = (textField.text?.count)! + string.count - range.length
+        return !(newLength > 10)
+    }
 }
 
 // MARK: - UIImagePickerController Delegate

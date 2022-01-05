@@ -15,7 +15,7 @@ class MemberTVC: UITableViewCell {
     // MARK: - UI
     
     private var userImageView = UIImageView().then {
-        $0.image = UIImage(named: "tendency1")
+        $0.image = UIImage(named: "icnUser")
     }
     
     private var userNameLabel = UILabel().then {
@@ -95,5 +95,22 @@ extension MemberTVC {
     func initCell(contact: ContactDataModel) {
         userNameLabel.text = contact.familyName + contact.givenName
         phoneNumberLabel.text = contact.phoneNumber
+    }
+    
+    func setUserImage(index: Int) {
+        switch index {
+        case 0:
+            self.userImageView.image = UIImage(named: "tendency1")
+        case 1:
+            self.userImageView.image = UIImage(named: "tendency2")
+        case 2:
+            self.userImageView.image = UIImage(named: "tendency3")
+        case 3:
+            self.userImageView.image = UIImage(named: "tendency4")
+        case 4:
+            self.userImageView.image = UIImage(named: "tendency5")
+        default :
+            self.userImageView.image = UIImage(named: "icnUser")
+        }
     }
 }

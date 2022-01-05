@@ -43,13 +43,12 @@ extension CompleteLightningVC {
     
     private func setAction() {
         confirmButton.addAction(UIAction(handler: { _ in
-            lightningDatas.append(LightningDataModel(groupName: self.groupName!, lightningName: self.lightningName!, description: self.lightningDescription, date: self.date!, time: self.time!, location: self.location!, minNumber: self.minNumber!, maxNumber: self.maxNumber!))
+            lightningData.append(LightningDataModel(groupName: self.groupName!, lightningName: self.lightningName!, description: self.lightningDescription, date: self.date!, time: self.time!, location: self.location!, minNumber: self.minNumber!, maxNumber: self.maxNumber!))
             
-            alarmDatas.append(AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, lightningName: self.lightningName!, description: self.time! + " | " +  self.location!, time: "방금", groupName: self.groupName!))
-            alarmDatas = alarmDatas.reversed()
+            alarmData.append(AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, lightningName: self.lightningName!, description: self.time! + " | " +  self.location!, time: "방금", groupName: self.groupName!))
             
             self.dismiss(animated: true) {
-                dump(lightningDatas)
+                dump(alarmData)
             }
             
             self.appDelegate?.scheduleNotification(groupName: self.groupName!, lightningName: self.lightningName!)

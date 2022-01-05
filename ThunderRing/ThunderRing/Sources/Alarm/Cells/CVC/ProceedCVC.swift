@@ -45,6 +45,8 @@ extension ProceedCVC {
 extension ProceedCVC {
     func setCellData(alarms: [AlarmDataModel]) {
         self.alarms = alarms
+        self.alarms.reverse()
+        self.tableView.reloadData()
     }
 }
 

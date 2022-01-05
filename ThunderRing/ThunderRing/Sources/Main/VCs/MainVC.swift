@@ -33,14 +33,7 @@ class MainVC: UIViewController {
     
     // MARK: - Properties
     
-    private var name = "파링"
-    private var thunderCount = 1
-    private var privateGroupCount = 4
-    private var publicGroupCount = 4
-    
-    private var privateGroups = [[PrivateGroupDataModel]]()
-    private var privateGroup1 = [PrivateGroupDataModel]()
-    private var privateGroup2 = [PrivateGroupDataModel]()
+    private var userName = "소연"
     
     // MARK: - Life Cycle
     
@@ -52,6 +45,14 @@ class MainVC: UIViewController {
         setStatusBar(.white)
         
         privateGroupCollectionView.reloadData()
+        
+        privateGroupCountLabel.text = "\(privateGroupData.count)"
+        publicGroupCountLabel.text = "\(publicGroupData.count)"
+        attendanceLabel.attributedText = NSMutableAttributedString()
+            .regular(string: "번개 ", fontSize: 14)
+            .bold("\(lightningData.count)", fontSize: 14)
+            .regular(string: "개가 진행 중입니다.", fontSize: 14)
+        attendanceLabel.textColor = .white
     }
     
     override func viewDidLoad() {
@@ -60,7 +61,6 @@ class MainVC: UIViewController {
         initUI()
         setCollectionView()
         setAction()
-//        setData()
         setGesture()
     }
 }
@@ -74,17 +74,9 @@ extension MainVC {
         cardView.layer.cornerRadius = 7
         cardView.layer.masksToBounds = true
         
+        userNameLabel.text = "\(userName)님"
+        
         imageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: imageView.bounds.width / 2, bounds: true)
-        
-        attendanceLabel.attributedText = NSMutableAttributedString()
-            .regular(string: "번개 ", fontSize: 14)
-            .bold("\(thunderCount)", fontSize: 14)
-            .regular(string: "개가 진행 중입니다.", fontSize: 14)
-        attendanceLabel.textColor = .white
-        
-        privateGroupCountLabel.text = "\(privateGroupData.count)"
-        
-        publicGroupCountLabel.text = "\(publicGroupData.count)"
         
         [attendanceLabel, privateGroupCountLabel, publicGroupCountLabel].forEach {
             $0?.addCharacterSpacing()
@@ -125,38 +117,6 @@ extension MainVC {
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
     }
-    
-    private func setData() {
-        // private
-        privateGroup1.append(contentsOf: [
-            PrivateGroupDataModel(groupImageName: "imgDog1", groupName: "양파링걸즈", memberCounts: 4, groupDescription: "캡스톤 아자아자"),
-            PrivateGroupDataModel(groupImageName: "imgHike", groupName: "대한 산악회", memberCounts: 22, groupDescription: "대한의 모든 산 정복을 위해")
-        ])
-        
-        privateGroup2.append(contentsOf: [
-            PrivateGroupDataModel(groupImageName: "imgSwu", groupName: "서울여대 디미과", memberCounts: 80, groupDescription: "디지털미디어학과 18학번"),
-            PrivateGroupDataModel(groupImageName: "imgBike", groupName: "5기 자전거동호회", memberCounts: 30, groupDescription: "매주 일요일 아침 정기모임")
-        ])
-        
-        privateGroups.append(privateGroup1)
-        privateGroups.append(privateGroup2)
-    }
-}
-
-extension NSMutableAttributedString {
-    func bold(_ text: String, fontSize: CGFloat) -> NSMutableAttributedString {
-        let attrs = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: fontSize)]
-        self.append(NSMutableAttributedString(string: text, attributes: attrs))
-        return self
-    }
-    
-    func regular(string: String, fontSize: CGFloat) -> NSMutableAttributedString {
-        let font = UIFont.systemFont(ofSize: fontSize)
-        let attributes: [NSAttributedString.Key: Any] = [.font: font]
-        self.append(NSAttributedString(string: string, attributes: attributes))
-        return self
-    }
-    
 }
 
 // MARK: - UICollectionView Delegate
@@ -242,6 +202,7 @@ extension MainVC: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UIGestureRecognizer Delegate
 
 extension MainVC: UIGestureRecognizerDelegate {
     func setGesture() {
@@ -264,7 +225,7 @@ extension MainVC: UIGestureRecognizerDelegate {
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool{
-            return true
-        }
+        return true
+    }
 
 }

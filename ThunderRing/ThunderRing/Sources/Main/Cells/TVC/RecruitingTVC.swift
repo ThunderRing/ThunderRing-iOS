@@ -74,13 +74,14 @@ extension RecruitingTVC {
 
 extension RecruitingTVC {
     func getNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(addMember(_:)), name: NSNotification.Name("AddMember"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addMember(_:)), name: NSNotification.Name("JoinLightning"), object: nil)
     }
     
     @objc
     func addMember(_ notification: Notification) {
         let userImageView = UIImageView()
-        userImageView.image = UIImage(named: "imgUser3")
+        userImageView.image = UIImage(named: "imgRabbit")
+        userImageView.contentMode = .scaleAspectFit
         
         memberStackView.spacing = 15
         memberStackView.addArrangedSubview(userImageView)
@@ -97,13 +98,6 @@ extension RecruitingTVC {
     func initCell(lightning: LightningDataModel) {
         self.remainCount = lightning.maxNumber - (lightning.members?.count ?? 1)
         self.remainCountLabel.text = "잔여 \(remainCount!)자리"
-        
-//        if lightning.members?.count == 0 {
-//            let count = 1
-//            self.remainCountLabel.text = "잔여 \(String(lightning.maxNumber - count))자리"
-//        } else {
-//            self.remainCountLabel.text = "잔여 \(String(lightning.maxNumber - lightning.members!.count))자리"
-//        }
         
         self.detailLabel.text = "\(lightning.location) \(lightning.date) \(lightning.time)"
         self.recruitingTitleLabel.text = "[\(lightning.groupName)]" + " \(lightning.lightningName)"
