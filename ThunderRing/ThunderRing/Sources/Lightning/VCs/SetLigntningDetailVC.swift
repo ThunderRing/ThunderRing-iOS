@@ -227,7 +227,7 @@ extension SetLigntningDetailVC {
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
         } else {
-            numGuideLabel.font = .SpoqaHanSansNeo(type: .bold, size: 14)
+            numGuideLabel.font = .SpoqaHanSansNeo(type: .regular, size: 14)
         }
     }
     

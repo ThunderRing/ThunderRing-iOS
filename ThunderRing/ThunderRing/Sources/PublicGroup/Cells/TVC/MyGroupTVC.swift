@@ -69,6 +69,7 @@ extension MyGroupTVC {
         
         backView.layer.borderColor = UIColor.gray350.cgColor
         backView.layer.borderWidth = 1
+        backView.layer.addBorder([.bottom], color: UIColor.gray350, width: 2)
     }
     
     private func setLayout() {
@@ -76,7 +77,6 @@ extension MyGroupTVC {
         
         backView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(25)
-            $0.top.equalToSuperview().inset(1)
             $0.bottom.equalToSuperview()
         }
         

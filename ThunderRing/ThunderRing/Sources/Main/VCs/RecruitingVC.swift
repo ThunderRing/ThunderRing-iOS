@@ -37,6 +37,8 @@ class RecruitingVC: UIViewController {
     
 }
 
+// MARK: - Custom Methods
+
 extension RecruitingVC {
     func initUI(){
         view.backgroundColor = .background
@@ -54,25 +56,31 @@ extension RecruitingVC {
     }
 }
 
+// MARK: - UITableView Delegate
+
 extension RecruitingVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 222
     }
 }
 
+// MARK: - UITableView DataSource
+
 extension RecruitingVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lightningDatas.count
+        return lightningData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RecruitingTVC.identifier, for: indexPath) as? RecruitingTVC else { return UITableViewCell() }
         cell.recruitingDelegate = self
         cell.selectionStyle = .none
-        cell.initCell(lightning: lightningDatas[indexPath.row])
+        cell.initCell(lightning: lightningData[indexPath.row])
         return cell
     }
 }
+
+// MARK: - Protocols
 
 extension RecruitingVC : RecruitingCellDelegate {
     func touchUpPlus() {

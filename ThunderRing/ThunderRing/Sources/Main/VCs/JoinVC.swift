@@ -9,6 +9,8 @@ import UIKit
 
 class JoinVC: UIViewController {
     
+    // MARK: - UI
+    
     @IBOutlet weak var characterImageView: UIImageView!
     
     @IBOutlet weak var popUpView: UIView!
@@ -26,6 +28,8 @@ class JoinVC: UIViewController {
     }
     
 }
+
+// MARK: - Custom Methods
 
 extension JoinVC {
     func initUI() {
@@ -47,7 +51,7 @@ extension JoinVC {
         }), for: .touchUpInside)
         
         joinButton.addAction(UIAction(handler: { _ in
-            NotificationCenter.default.post(name: NSNotification.Name("AddMember"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name("JoinLightning"), object: nil)
             self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
     }

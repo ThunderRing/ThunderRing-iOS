@@ -80,10 +80,8 @@ extension AlarmVC {
     }
     
     private func setData() {
-        proceedAlarms = alarmDatas
-        
         completeAlarms.append(contentsOf: [
-            AlarmDataModel(isThunder: true, isLightning: false, isFailed: false, lightningName: "[실패] 방탈출 하실 분", description: "번개가 취소되었습니다", time: "3일 전", groupName: ""),
+            AlarmDataModel(isThunder: true, isLightning: false, isFailed: false, lightningName: "방탈출 하자", description: "번개가 취소되었습니다", time: "3일 전", groupName: ""),
             AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, lightningName: "스벅가서 모각공", description: "채팅방에 먼저 참가해보세요", time: "1시간 전", groupName: "")
         ])
     }
@@ -112,7 +110,7 @@ extension AlarmVC {
         alarmCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
         if currentIndex == 0 {
             UIView.animate(withDuration: 0.3) {
-                self.statusMovedView.transform = CGAffineTransform(translationX: 165, y: 0)
+                self.statusMovedView.transform = CGAffineTransform(translationX: (self.view.frame.width - 50) / 2 , y: 0)
             }
             currentIndex = 1
             self.proceedLabel.textColor = .gray200
@@ -128,7 +126,7 @@ extension AlarmVC: UICollectionViewDelegate {
         let targetIndex = targetContentOffset.pointee.x / scrollView.frame.size.width
         if targetIndex == 1 && currentIndex == 0 {
             UIView.animate(withDuration: 0.5) {
-                self.statusMovedView.transform = CGAffineTransform(translationX: 165, y: 0)
+                self.statusMovedView.transform = CGAffineTransform(translationX: (self.view.frame.width - 50) / 2, y: 0)
             }
             currentIndex = 1
             self.proceedLabel.textColor = .gray
@@ -176,7 +174,7 @@ extension AlarmVC: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProceedCVC.identifier, for: indexPath) as? ProceedCVC else {
                 return UICollectionViewCell()
             }
-            cell.setCellData(alarms: proceedAlarms)
+            cell.setCellData(alarms: alarmData)
             return cell
         } else if indexPath.row == 1 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompleteCVC.identifier, for: indexPath) as? CompleteCVC else {

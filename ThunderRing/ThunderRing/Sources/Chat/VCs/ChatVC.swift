@@ -97,7 +97,7 @@ extension ChatVC {
         topView.backgroundColor = .white
         topView.layer.applyShadow()
         
-        descriptionLabel.text = "펑 시각 " + dateFormatter.string(from: nowDate.addingTimeInterval(+(60*60*24)))
+        descriptionLabel.text = "펑 시각 " + dateFormatter.string(from: nowDate.addingTimeInterval(+(60 * 60 * 24)))
         descriptionLabel.textColor = .purple100
         
         [titleLabel, descriptionLabel].forEach {

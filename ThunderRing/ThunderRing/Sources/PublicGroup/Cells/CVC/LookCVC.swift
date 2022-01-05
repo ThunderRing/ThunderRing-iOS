@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class LookCVC: UICollectionViewCell {
     static let identifier = "LookCVC"
     

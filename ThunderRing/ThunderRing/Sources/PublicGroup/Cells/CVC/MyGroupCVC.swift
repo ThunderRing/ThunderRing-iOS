@@ -104,6 +104,13 @@ extension MyGroupCVC: UITableViewDataSource {
             cell.clipsToBounds = true
             cell.backView.layer.cornerRadius = 9
             cell.backView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            cell.backView.snp.makeConstraints {
+                $0.top.equalToSuperview().inset(1)
+            }
+        } else {
+            cell.backView.snp.makeConstraints {
+                $0.top.equalToSuperview()
+            }
         }
         if indexPath.row == publicGroupData.count - 1 {
             cell.clipsToBounds = true

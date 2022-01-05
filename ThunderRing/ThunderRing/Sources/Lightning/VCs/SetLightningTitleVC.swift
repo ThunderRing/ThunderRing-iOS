@@ -200,6 +200,11 @@ extension SetLightningTitleVC: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         self.nameCountLabel.text = String("\(textField.text!.count)/15")
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newLength = (textField.text?.count)! + string.count - range.length
+        return !(newLength > 15)
+    }
 }
 
 extension SetLightningTitleVC: UITextViewDelegate {
