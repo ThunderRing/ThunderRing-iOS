@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xe3-o5-vPN">
-                                <rect key="frame" x="0.0" y="194" width="414" height="668"/>
+                                <rect key="frame" x="0.0" y="193" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0b0-KU-qRv">
                                     <size key="itemSize" width="128" height="128"/>
@@ -44,7 +44,7 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o95-Vx-Pj1">
-                                <rect key="frame" x="0.0" y="88" width="414" height="105"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="104"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2E-lY-XWh">
                                         <rect key="frame" x="190.5" y="16" width="33.5" height="23"/>
@@ -53,13 +53,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="진행 중" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unM-JR-T1x">
-                                        <rect key="frame" x="82" y="73.5" width="51" height="21.5"/>
+                                        <rect key="frame" x="82" y="72.5" width="51" height="21.5"/>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adp-Hn-eZR">
-                                        <rect key="frame" x="289.5" y="71" width="33.5" height="23"/>
+                                        <rect key="frame" x="289.5" y="70" width="33.5" height="23"/>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
                                         <color key="textColor" name="grayTextNonInput"/>
                                         <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="E2E-lY-XWh" firstAttribute="top" secondItem="o95-Vx-Pj1" secondAttribute="top" constant="16" id="5Vs-OG-h9v"/>
-                                    <constraint firstAttribute="height" constant="105" id="Fy3-bQ-g8Z"/>
+                                    <constraint firstAttribute="height" constant="104" id="Fy3-bQ-g8Z"/>
                                     <constraint firstItem="E2E-lY-XWh" firstAttribute="centerX" secondItem="o95-Vx-Pj1" secondAttribute="centerX" id="H4F-nC-oWE"/>
                                     <constraint firstAttribute="bottom" secondItem="Adp-Hn-eZR" secondAttribute="bottom" constant="11" id="JwN-er-4my"/>
                                     <constraint firstAttribute="trailing" secondItem="Adp-Hn-eZR" secondAttribute="trailing" constant="91" id="SCM-wz-NOG"/>
