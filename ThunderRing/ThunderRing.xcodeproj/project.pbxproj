@@ -30,7 +30,7 @@
 		92159CA22758D76D0081F20B /* MemberCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92159CA12758D76D0081F20B /* MemberCVC.swift */; };
 		921A45C3275355AD001E8727 /* CreatePrivate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921A45C2275355AD001E8727 /* CreatePrivate.storyboard */; };
 		92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92270D732750E1EB00364F3A /* AlarmDataModel.swift */; };
-		92291C522759130F0012927B /* CompleteCreateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92291C512759130F0012927B /* CompleteCreateVC.swift */; };
+		92291C522759130F0012927B /* CompleteCreatePrivateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92291C512759130F0012927B /* CompleteCreatePrivateVC.swift */; };
 		9252EB952769CA9100809FEA /* ContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252EB942769CA9100809FEA /* ContactDataModel.swift */; };
 		9252EB97276A159F00809FEA /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252EB96276A159F00809FEA /* UIImage+.swift */; };
 		9258354E275C997900F64DC0 /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9258354D275C997900F64DC0 /* AccountInfo.storyboard */; };
@@ -42,6 +42,8 @@
 		925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC472742C77C00126166 /* PublicListTVC.swift */; };
 		92609ACB274BB7E800F0E401 /* SetLightningTitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */; };
 		92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */; };
+		926290E127A40543006A3B58 /* PublicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290E027A40543006A3B58 /* PublicDetailVC.swift */; };
+		926290E427A4055E006A3B58 /* CreatePublicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290E327A4055E006A3B58 /* CreatePublicDetailVC.swift */; };
 		92687A5727501E5C000D9A5D /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92687A5627501E5C000D9A5D /* CALayer+.swift */; };
 		926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C192737F93E0020F851 /* AppDelegate.swift */; };
 		926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1B2737F93E0020F851 /* SceneDelegate.swift */; };
@@ -150,7 +152,7 @@
 		92159CA12758D76D0081F20B /* MemberCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCVC.swift; sourceTree = "<group>"; };
 		921A45C2275355AD001E8727 /* CreatePrivate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePrivate.storyboard; sourceTree = "<group>"; };
 		92270D732750E1EB00364F3A /* AlarmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDataModel.swift; sourceTree = "<group>"; };
-		92291C512759130F0012927B /* CompleteCreateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreateVC.swift; sourceTree = "<group>"; };
+		92291C512759130F0012927B /* CompleteCreatePrivateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreatePrivateVC.swift; sourceTree = "<group>"; };
 		9252EB942769CA9100809FEA /* ContactDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataModel.swift; sourceTree = "<group>"; };
 		9252EB96276A159F00809FEA /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		9258354D275C997900F64DC0 /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
@@ -162,6 +164,8 @@
 		925BAC472742C77C00126166 /* PublicListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicListTVC.swift; sourceTree = "<group>"; };
 		92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLightningTitleVC.swift; sourceTree = "<group>"; };
 		92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLigntningDetailVC.swift; sourceTree = "<group>"; };
+		926290E027A40543006A3B58 /* PublicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicDetailVC.swift; sourceTree = "<group>"; };
+		926290E327A4055E006A3B58 /* CreatePublicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicDetailVC.swift; sourceTree = "<group>"; };
 		92687A5627501E5C000D9A5D /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		926C7C162737F93E0020F851 /* ThunderRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C7C192737F93E0020F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -445,6 +449,30 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		926290DE27A4050D006A3B58 /* MyPublic */ = {
+			isa = PBXGroup;
+			children = (
+				92B156892761426300939048 /* MyPublicVC.swift */,
+			);
+			path = MyPublic;
+			sourceTree = "<group>";
+		};
+		926290DF27A40517006A3B58 /* PublicDetail */ = {
+			isa = PBXGroup;
+			children = (
+				926290E027A40543006A3B58 /* PublicDetailVC.swift */,
+			);
+			path = PublicDetail;
+			sourceTree = "<group>";
+		};
+		926290E227A40546006A3B58 /* CreatePublic */ = {
+			isa = PBXGroup;
+			children = (
+				926290E327A4055E006A3B58 /* CreatePublicDetailVC.swift */,
+			);
+			path = CreatePublic;
+			sourceTree = "<group>";
+		};
 		926C7C0D2737F93E0020F851 = {
 			isa = PBXGroup;
 			children = (
@@ -720,7 +748,7 @@
 				92159C992758C21A0081F20B /* CreatePrivateVC.swift */,
 				92159C9B2758C5B10081F20B /* CreatePrivateDetailVC.swift */,
 				92159C9F2758D5620081F20B /* AddMemberVC.swift */,
-				92291C512759130F0012927B /* CompleteCreateVC.swift */,
+				92291C512759130F0012927B /* CompleteCreatePrivateVC.swift */,
 			);
 			path = CreatePrivate;
 			sourceTree = "<group>";
@@ -835,7 +863,9 @@
 		92B156882761423E00939048 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				92B156892761426300939048 /* MyPublicVC.swift */,
+				926290E227A40546006A3B58 /* CreatePublic */,
+				926290DF27A40517006A3B58 /* PublicDetail */,
+				926290DE27A4050D006A3B58 /* MyPublic */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -1114,6 +1144,7 @@
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
 				9252EB97276A159F00809FEA /* UIImage+.swift in Sources */,
+				926290E427A4055E006A3B58 /* CreatePublicDetailVC.swift in Sources */,
 				92B1568A2761426300939048 /* MyPublicVC.swift in Sources */,
 				926C7C62273805B70020F851 /* NavigationController.swift in Sources */,
 				92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */,
@@ -1125,9 +1156,10 @@
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
 				92BCCCAA27650B3D00AA70D6 /* LookDetailCVC.swift in Sources */,
 				921266422747BC54009DE534 /* TestTVC.swift in Sources */,
-				92291C522759130F0012927B /* CompleteCreateVC.swift in Sources */,
+				92291C522759130F0012927B /* CompleteCreatePrivateVC.swift in Sources */,
 				92AFB39A276339F000977712 /* MyGroupCVC.swift in Sources */,
 				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
+				926290E127A40543006A3B58 /* PublicDetailVC.swift in Sources */,
 				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
 				1DA5D064275BD7A100F78579 /* JoinVC.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
