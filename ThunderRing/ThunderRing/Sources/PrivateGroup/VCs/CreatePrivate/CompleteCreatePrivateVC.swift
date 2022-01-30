@@ -7,7 +7,8 @@
 
 import UIKit
 
-class CompleteCreateVC: UIViewController {
+
+class CompleteCreatePrivateVC: UIViewController {
 
     // MARK: - UI
     
@@ -50,7 +51,7 @@ class CompleteCreateVC: UIViewController {
     }
 }
 
-extension CompleteCreateVC {
+extension CompleteCreatePrivateVC {
     private func initUI() {
         groupImageView.image = self.groupImage
         groupImageView.layer.cornerRadius = 20

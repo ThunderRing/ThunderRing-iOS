@@ -65,7 +65,7 @@ extension CreatePrivateDetailVC {
     
     private func setAction() {
         nextButton.addAction(UIAction(handler: { _ in
-            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteCreateVC") as? CompleteCreateVC else { return }
+            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteCreateVC") as? CompleteCreatePrivateVC else { return }
             dvc.groupImage = self.groupImage
             dvc.groupName = self.groupName
             dvc.groupDescrption = self.descriptionTextField.text!
