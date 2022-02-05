@@ -7,7 +7,12 @@
 
 import UIKit
 
-class MyGroupCVC: UICollectionViewCell {
+protocol MyGroupCVCDelegate {
+    func touchUpTestButton()
+    func touchUpCreateButton()
+}
+
+final class MyGroupCVC: UICollectionViewCell {
     static let identifier = "MyGroupCVC"
 
     // MARK: - UI
@@ -20,11 +25,17 @@ class MyGroupCVC: UICollectionViewCell {
     
     private lazy var testButton = UIButton().then {
         $0.setImage(UIImage(named: "btnTest"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpTestButton), for: .touchUpInside)
     }
     
     private lazy var createButton = UIButton().then {
         $0.setImage(UIImage(named: "btnCreate"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpCreateButton), for: .touchUpInside)
     }
+    
+    // MARK: - Properties
+    
+    var delegate: MyGroupCVCDelegate?
     
     // MARK: - Life Cycle
     
@@ -68,6 +79,16 @@ extension MyGroupCVC {
             $0.leading.equalTo(testButton.snp.trailing).offset(7)
             $0.centerY.equalToSuperview()
         }
+    }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpTestButton() {
+        delegate?.touchUpTestButton()
+    }
+    
+    @objc func touchUpCreateButton() {
+        delegate?.touchUpCreateButton()
     }
 }
 
