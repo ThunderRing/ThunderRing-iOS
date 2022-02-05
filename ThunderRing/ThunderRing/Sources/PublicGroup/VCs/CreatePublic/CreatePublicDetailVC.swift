@@ -32,6 +32,7 @@ final class CreatePublicDetailVC: UIViewController {
     
     private var hashtagLabel = UILabel().then {
         $0.text = "해시태그"
+        $0.textColor = .gray100
     }
     
     private var hashtagTextField = UITextField().then {
@@ -40,6 +41,7 @@ final class CreatePublicDetailVC: UIViewController {
     
     private var maxCountLabel = UILabel().then {
         $0.text = "최대 정원"
+        $0.textColor = .gray100
     }
     
     private var maxCountTextField = UITextField().then {
@@ -49,11 +51,13 @@ final class CreatePublicDetailVC: UIViewController {
     private var countLabel = UILabel().then {
         $0.text = "명"
         $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
     }
     
     private var warningLabel = UILabel().then {
         $0.text = "*최대 정원은 주최자를 포함이며, 최대 500명 입니다"
         $0.textColor = .purple100
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
     
     private var nextButton = UIButton().then {
@@ -61,7 +65,8 @@ final class CreatePublicDetailVC: UIViewController {
         $0.titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 16)
         $0.setTitleColor(.gray150, for: .normal)
         $0.backgroundColor = .gray200
-        $0.isUserInteractionEnabled = false
+        $0.isEnabled = false
+        $0.addTarget(self, action: #selector(touchUpNextButton), for: .touchUpInside)
     }
     
     // MARK: - Life Cycle
@@ -78,14 +83,25 @@ final class CreatePublicDetailVC: UIViewController {
         bind()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
     // MARK: - InitUI
     
     private func configUI() {
         view.backgroundColor = .background
         
-        [onelineLabel, hashtagLabel, maxCountLabel, countLabel, warningLabel].forEach {
-            $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        [onelineLabel, hashtagLabel, maxCountLabel].forEach {
+            $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
         }
+        
+        [onelineTextField, hashtagTextField, maxCountTextField].forEach {
+            $0.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
+            $0.setLeftPaddingPoints(15)
+        }
+        
+        maxCountTextField.keyboardType = .numberPad
         
         nextButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 26, bounds: true)
     }
@@ -171,10 +187,54 @@ final class CreatePublicDetailVC: UIViewController {
             $0.delegate = self
         }
     }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpNextButton() {
+        let dvc = CompleteCreatePublicVC()
+        navigationController?.pushViewController(dvc, animated: true)
+    }
 }
 
 // MARK: - TextField Delegate
 
 extension CreatePublicDetailVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.purple100.cgColor
+    }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.setRightPaddingPoints(30)
+        return textField.resignFirstResponder()
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField == onelineTextField {
+            guard let text = textField.text else { return }
+            onelineTextCountLabel.text = String("\(text.count)/15")
+            onelineTextCountLabel.textColor = .black
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        textField.layer.borderColor = UIColor.gray300.cgColor
+        
+        if textField == maxCountTextField {
+            guard let text = maxCountTextField.text else { return }
+            guard let textCount = Int(text) else { return }
+            if textCount > 500 {
+                maxCountTextField.text = "500"
+                
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.error)
+            }
+        }
+        
+        if onelineTextField.hasText && hashtagTextField.hasText && maxCountTextField.hasText {
+            nextButton.isEnabled = true
+            
+            nextButton.backgroundColor = .purple100
+            nextButton.setTitleColor(.white, for: .normal)
+        }
+    }
 }
