@@ -185,9 +185,7 @@ extension MyPublicVC: UICollectionViewDataSource {
 
 extension MyPublicVC: MyGroupCVCDelegate {
     func touchUpTestButton() {
-        let dvc = FirstTestVC()
-        dvc.modalPresentationStyle = .fullScreen
-        present(dvc, animated: true, completion: nil)
+        // 성향테스트 뷰로 이동
     }
     
     func touchUpCreateButton() {
