@@ -15,8 +15,6 @@
 		1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */; };
 		76F17246B58289076DF19965 /* Pods_ThunderRing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E4DD19CD69E27D0BA6EDBC /* Pods_ThunderRing.framework */; };
 		9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212663E2747BB2B009DE534 /* TestDataModel.swift */; };
-		921266422747BC54009DE534 /* TestTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266412747BC54009DE534 /* TestTVC.swift */; };
-		921266442747C83B009DE534 /* FirstTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266432747C83B009DE534 /* FirstTestVC.swift */; };
 		9212667A2748055A009DE534 /* TestResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266792748055A009DE534 /* TestResultVC.swift */; };
 		9212667C2748167D009DE534 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212667B2748167D009DE534 /* UIColor+.swift */; };
 		92159C93275896EF0081F20B /* DINPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92159C90275896E80081F20B /* DINPro-Regular.otf */; };
@@ -122,6 +120,7 @@
 		92E497762768C42E0029682C /* ChatListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E497752768C42E0029682C /* ChatListDataModel.swift */; };
 		92F43A33274E8491006025EC /* CompleteLightningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F43A32274E8491006025EC /* CompleteLightningVC.swift */; };
 		92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */; };
+		92F9A53F27AFF4E3004F41FE /* TempCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9A53E27AFF4E3004F41FE /* TempCell.swift */; };
 		92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */; };
 		92FDC023275153080080EF20 /* SelectTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FDC022275153080080EF20 /* SelectTimeVC.swift */; };
 		92FF59B0275AB15000916189 /* MemberTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF59AF275AB15000916189 /* MemberTVC.swift */; };
@@ -139,8 +138,6 @@
 		56E4DD19CD69E27D0BA6EDBC /* Pods_ThunderRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThunderRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79421393DC8C74F93D07628F /* Pods-ThunderRing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderRing.debug.xcconfig"; path = "Target Support Files/Pods-ThunderRing/Pods-ThunderRing.debug.xcconfig"; sourceTree = "<group>"; };
 		9212663E2747BB2B009DE534 /* TestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataModel.swift; sourceTree = "<group>"; };
-		921266412747BC54009DE534 /* TestTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTVC.swift; sourceTree = "<group>"; };
-		921266432747C83B009DE534 /* FirstTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTestVC.swift; sourceTree = "<group>"; };
 		921266792748055A009DE534 /* TestResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultVC.swift; sourceTree = "<group>"; };
 		9212667B2748167D009DE534 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		92159C8E275896E80081F20B /* DINPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Bold.otf"; sourceTree = "<group>"; };
@@ -248,6 +245,7 @@
 		92E497752768C42E0029682C /* ChatListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListDataModel.swift; sourceTree = "<group>"; };
 		92F43A32274E8491006025EC /* CompleteLightningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteLightningVC.swift; sourceTree = "<group>"; };
 		92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookHeaderView.swift; sourceTree = "<group>"; };
+		92F9A53E27AFF4E3004F41FE /* TempCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCell.swift; sourceTree = "<group>"; };
 		92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningDataModel.swift; sourceTree = "<group>"; };
 		92FDC022275153080080EF20 /* SelectTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeVC.swift; sourceTree = "<group>"; };
 		92FF59AF275AB15000916189 /* MemberTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTVC.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 		9212663C2747BB1B009DE534 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				921266432747C83B009DE534 /* FirstTestVC.swift */,
 				921266792748055A009DE534 /* TestResultVC.swift */,
 			);
 			path = VCs;
@@ -330,17 +327,9 @@
 		921266402747BC3C009DE534 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				921266482747C959009DE534 /* TVC */,
+				92F9A53E27AFF4E3004F41FE /* TempCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		921266482747C959009DE534 /* TVC */ = {
-			isa = PBXGroup;
-			children = (
-				921266412747BC54009DE534 /* TestTVC.swift */,
-			);
-			path = TVC;
 			sourceTree = "<group>";
 		};
 		92159C8D275896D40081F20B /* Dinpro */ = {
@@ -1145,6 +1134,7 @@
 				92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */,
 				9276B06B275B458B00915F57 /* String+.swift in Sources */,
 				92687A5727501E5C000D9A5D /* CALayer+.swift in Sources */,
+				92F9A53F27AFF4E3004F41FE /* TempCell.swift in Sources */,
 				928AE07B276B0D4C001155EE /* MainPrivateCVC.swift in Sources */,
 				92159CA22758D76D0081F20B /* MemberCVC.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
@@ -1162,7 +1152,6 @@
 				92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */,
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
 				92BCCCAA27650B3D00AA70D6 /* LookDetailCVC.swift in Sources */,
-				921266422747BC54009DE534 /* TestTVC.swift in Sources */,
 				92291C522759130F0012927B /* CompleteCreatePrivateVC.swift in Sources */,
 				92AFB39A276339F000977712 /* MyGroupCVC.swift in Sources */,
 				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
@@ -1190,7 +1179,6 @@
 				9212667C2748167D009DE534 /* UIColor+.swift in Sources */,
 				92BCCCAC2765180800AA70D6 /* LookSortCVC.swift in Sources */,
 				928FDA0B2760D1B5009AC059 /* MyPrivateVC.swift in Sources */,
-				921266442747C83B009DE534 /* FirstTestVC.swift in Sources */,
 				9276B067275B453E00915F57 /* BasePaddingLabel.swift in Sources */,
 				9276B070275B477A00915F57 /* CounterpartChatCVC.swift in Sources */,
 				1DF615C62752CD8F00D0CF7C /* RecruitingVC.swift in Sources */,
