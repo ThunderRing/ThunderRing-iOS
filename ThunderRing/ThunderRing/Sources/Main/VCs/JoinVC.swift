@@ -22,11 +22,14 @@ class JoinVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
         setAction()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 // MARK: - Custom Methods

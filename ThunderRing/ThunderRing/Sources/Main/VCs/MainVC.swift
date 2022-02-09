@@ -211,7 +211,6 @@ extension MainVC: UIGestureRecognizerDelegate {
         self.view.addGestureRecognizer(panGestureRecongnizer)
     }
     
-    
     @objc func panAction (_ sender : UIPanGestureRecognizer){
         let velocity = sender.velocity(in: mainScrollView)
         if abs(velocity.y) > abs(velocity.x) {
@@ -227,5 +226,4 @@ extension MainVC: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool{
         return true
     }
-
 }

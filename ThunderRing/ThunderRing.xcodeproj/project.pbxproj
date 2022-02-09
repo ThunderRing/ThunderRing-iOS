@@ -121,6 +121,7 @@
 		92F43A33274E8491006025EC /* CompleteLightningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F43A32274E8491006025EC /* CompleteLightningVC.swift */; };
 		92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */; };
 		92F9A53F27AFF4E3004F41FE /* TempCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9A53E27AFF4E3004F41FE /* TempCell.swift */; };
+		92FA76DF27B3A69600CB54C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */; };
 		92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */; };
 		92FDC023275153080080EF20 /* SelectTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FDC022275153080080EF20 /* SelectTimeVC.swift */; };
 		92FF59B0275AB15000916189 /* MemberTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF59AF275AB15000916189 /* MemberTVC.swift */; };
@@ -246,6 +247,7 @@
 		92F43A32274E8491006025EC /* CompleteLightningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteLightningVC.swift; sourceTree = "<group>"; };
 		92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookHeaderView.swift; sourceTree = "<group>"; };
 		92F9A53E27AFF4E3004F41FE /* TempCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCell.swift; sourceTree = "<group>"; };
+		92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningDataModel.swift; sourceTree = "<group>"; };
 		92FDC022275153080080EF20 /* SelectTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeVC.swift; sourceTree = "<group>"; };
 		92FF59AF275AB15000916189 /* MemberTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTVC.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 		926C7C182737F93E0020F851 /* ThunderRing */ = {
 			isa = PBXGroup;
 			children = (
+				92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */,
 				926C7C272737F93F0020F851 /* Info.plist */,
 				926C7C2F2737F9D30020F851 /* Global */,
 				926C7C2D2737F9C80020F851 /* Resources */,
@@ -1070,6 +1073,7 @@
 				1D25F5FC2752D1C600BF7C31 /* RecruitingTVC.xib in Resources */,
 				92CBCE7A273B233F00A3F36D /* AlarmTVC.xib in Resources */,
 				92159C96275896EF0081F20B /* DINPro-Light.otf in Resources */,
+				92FA76DF27B3A69600CB54C1 /* GoogleService-Info.plist in Resources */,
 				921A45C3275355AD001E8727 /* CreatePrivate.storyboard in Resources */,
 				92159C93275896EF0081F20B /* DINPro-Regular.otf in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,

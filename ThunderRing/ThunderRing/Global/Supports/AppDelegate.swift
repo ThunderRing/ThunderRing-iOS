@@ -5,6 +5,8 @@
 //  Created by soyeon on 2021/11/07.
 //
 
+import Firebase
+
 import UIKit
 import UserNotifications
 
@@ -14,19 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let notificationCenter = UNUserNotificationCenter.current()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // 스플래쉬 화면
         sleep(1)
         
+        // 로컬 notification
         notificationCenter.delegate = self
-        
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-        
         notificationCenter.requestAuthorization(options: options) {
             (didAllow, error) in
             if !didAllow {
                 print("User has declined notifications")
             }
         }
+        
+        // 구글 파이어베이스
+        FirebaseApp.configure()
         
         return true
     }
