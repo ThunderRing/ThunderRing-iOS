@@ -21,5 +21,5 @@ struct LightningDataModel {
 }
 
 var lightningData : [LightningDataModel] = [
-    LightningDataModel(groupName: "양파링걸즈", lightningName: "혜화역 혼카츠 먹자", description: "", date: "10/27", time: "오전 11:00", location: "혜화", minNumber: 2, maxNumber: 4, members: ["이지원", "마예지"])
+    
 ]
