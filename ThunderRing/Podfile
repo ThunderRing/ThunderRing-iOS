@@ -6,6 +6,8 @@ target 'ThunderRing' do
   use_frameworks!
 	pod 'SnapKit', '~> 5.0.0'
 	pod 'Then'
+	pod 'Firebase/Core'
+	pod 'Firebase/Database'
   # Pods for ThunderRing
 
 end
