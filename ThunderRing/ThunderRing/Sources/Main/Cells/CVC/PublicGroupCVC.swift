@@ -7,8 +7,7 @@
 
 import UIKit
 
-class PublicGroupCVC: UICollectionViewCell {
-    
+final class PublicGroupCVC: UICollectionViewCell {
     static let identifier = "PublicGroupCVC"
     
     //MARK: - UI
@@ -25,7 +24,6 @@ class PublicGroupCVC: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         initUI()
     }
 
@@ -38,7 +36,9 @@ extension PublicGroupCVC {
         
         groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: groupImageView.bounds.width / 2, bounds: true)
         
-        countLabel.addCharacterSpacing()
+        [groupLabel, countLabel].forEach {
+            $0?.addCharacterSpacing()
+        }
     }
 }
 

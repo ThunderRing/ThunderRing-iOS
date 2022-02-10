@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JoinVC: UIViewController {
+final class JoinVC: UIViewController {
     
     // MARK: - UI
     

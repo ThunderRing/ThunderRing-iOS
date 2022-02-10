@@ -11,8 +11,7 @@ protocol RecruitingCellDelegate {
     func touchUpPlus()
 }
 
-class RecruitingTVC: UITableViewCell {
-    
+final class RecruitingTVC: UITableViewCell {
     static let identifier = "RecruitingTVC"
 
     // MARK: - UI
@@ -38,7 +37,6 @@ class RecruitingTVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         initUI()
         setAction()
         getNotification()
@@ -93,6 +91,8 @@ extension RecruitingTVC {
         plusButton.isHidden = true
     }
 }
+
+// MARK: - Public Methods
 
 extension RecruitingTVC {
     func initCell(lightning: LightningDataModel) {
