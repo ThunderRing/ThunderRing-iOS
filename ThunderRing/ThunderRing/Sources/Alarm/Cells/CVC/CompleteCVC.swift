@@ -7,28 +7,24 @@
 
 import UIKit
 
-class CompleteCVC: UICollectionViewCell {
+final class CompleteCVC: UICollectionViewCell {
     static let identifier = "CompleteCVC"
 
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
     
-    // MARK: - Properties
-    
     private var alarms = [AlarmDataModel]()
     
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         setTableView()
     }
-
-}
-
-extension CompleteCVC {
+    
+    // MARK: - Custom Method
+    
     private func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -40,19 +36,21 @@ extension CompleteCVC {
         let nib = UINib(nibName: AlarmTVC.identifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: AlarmTVC.identifier)
     }
-}
-
-extension CompleteCVC {
+    
     func setCellData(alarms: [AlarmDataModel]) {
         self.alarms = alarms
     }
 }
+
+// MARK: - UITableView Delegate
 
 extension CompleteCVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 125
     }
 }
+
+// MARK: - UITableView DataSource
 
 extension CompleteCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

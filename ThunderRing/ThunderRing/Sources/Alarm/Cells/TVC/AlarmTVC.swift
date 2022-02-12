@@ -7,10 +7,10 @@
 
 import UIKit
 
-class AlarmTVC: UITableViewCell {
+final class AlarmTVC: UITableViewCell {
     static let identifier = "AlarmTVC"
     
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var backView: UIView!
     
@@ -23,25 +23,17 @@ class AlarmTVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        initUI()
+        configUI()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+    // MARK: - Init UI
     
-}
-
-// MARK: - Custom Methods
-
-extension AlarmTVC {
-    private func initUI() {
+    private func configUI() {
         backView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 12, bounds: true)
     }
-}
-
-extension AlarmTVC {
+    
+    // MARK: - Custom Method
+    
     func initCell(isThunder: Bool, isLightning: Bool, isFailed: Bool, title: String, description: String, time: String, hashTag: String) {
         hashTagLabel.text = hashTag
         titleLabel.text = title

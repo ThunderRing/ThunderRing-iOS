@@ -7,28 +7,24 @@
 
 import UIKit
 
-class ProceedCVC: UICollectionViewCell {
+final class ProceedCVC: UICollectionViewCell {
     static let identifier = "ProceedCVC"
 
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var tableView: UITableView!
     
-    // MARK: - Properties
-    
     private var alarms = [AlarmDataModel]()
     
-    // MARK: - Life Cycle
+    // MARK: - Initialzier
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         setTableView()
     }
-
-}
-
-extension ProceedCVC {
+    
+    // MARK: - Custom Method
+    
     private func setTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -40,9 +36,7 @@ extension ProceedCVC {
         let nib = UINib(nibName: AlarmTVC.identifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: AlarmTVC.identifier)
     }
-}
-
-extension ProceedCVC {
+    
     func setCellData(alarms: [AlarmDataModel]) {
         self.alarms = alarms
         self.alarms.reverse()
@@ -50,11 +44,15 @@ extension ProceedCVC {
     }
 }
 
+// MARK: - UITableView Delegate
+
 extension ProceedCVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 125
     }
 }
+
+// MARK: - UITableView DataSource
 
 extension ProceedCVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
