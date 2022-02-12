@@ -13,7 +13,7 @@ import Then
 final class PrivateGroupCVC: UICollectionViewCell {
     static let identifier = "MainPrivateCVC"
     
-    // MARK: - UI
+    // MARK: - Properties
     
     private lazy var backView = UIView().then {
         $0.backgroundColor = .white
@@ -58,23 +58,23 @@ final class PrivateGroupCVC: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        initUI()
-        setLayout()
+        configUI()
+        setupLayout()
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension PrivateGroupCVC {
-    private func initUI() {
+    
+    // MARK: - Init UI
+    
+    private func configUI() {
         groupImageView.layer.cornerRadius = 37
         groupImageView.layer.masksToBounds = true
     }
     
-    private func setLayout() {
+    private func setupLayout() {
         self.addSubviews([backView, groupImageView, groupNameLabel, groupDescriptionLabel, countImageView, countLabel, enterButton, lightningButton])
         
         backView.snp.makeConstraints {
@@ -118,6 +118,8 @@ extension PrivateGroupCVC {
         }
     }
 }
+
+// MARK: - Custom Method
 
 extension PrivateGroupCVC {
     func initCell(group: PrivateGroupDataModel) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol RecruitingCellDelegate {
+protocol RecruitingCellDelegate: AnyObject {
     func touchUpPlus()
 }
 
@@ -30,7 +30,7 @@ final class RecruitingTVC: UITableViewCell {
     
     // MARK: - Properties
     
-    var recruitingDelegate: RecruitingCellDelegate?
+    weak var recruitingDelegate: RecruitingCellDelegate?
     private var remainCount: Int?
     
     // MARK: - Life Cycle
@@ -96,10 +96,10 @@ extension RecruitingTVC {
 
 extension RecruitingTVC {
     func initCell(lightning: LightningDataModel) {
-        self.remainCount = lightning.maxNumber - (lightning.members?.count ?? 1)
-        self.remainCountLabel.text = "잔여 \(remainCount!)자리"
+        remainCount = lightning.maxNumber - (lightning.members?.count ?? 1)
+        remainCountLabel.text = "잔여 \(remainCount!)자리"
         
-        self.detailLabel.text = "\(lightning.location) \(lightning.date) \(lightning.time)"
-        self.recruitingTitleLabel.text = "[\(lightning.groupName)]" + " \(lightning.lightningName)"
+        detailLabel.text = "\(lightning.location) \(lightning.date) \(lightning.time)"
+        recruitingTitleLabel.text = "[\(lightning.groupName)]" + " \(lightning.lightningName)"
     }
 }

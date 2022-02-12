@@ -41,7 +41,6 @@ final class MainVC: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = false
-        setStatusBar(.white)
         privateGroupCollectionView.reloadData()
     }
     
@@ -58,6 +57,8 @@ final class MainVC: UIViewController {
 
 extension MainVC {
     private func initUI() {
+        setStatusBar(.white)
+        
         cardView.layer.cornerRadius = 7
         cardView.layer.masksToBounds = true
         
@@ -131,7 +132,6 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
             return .zero
         }
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         switch collectionView {

@@ -10,7 +10,7 @@ import UIKit
 final class PublicGroupCVC: UICollectionViewCell {
     static let identifier = "PublicGroupCVC"
     
-    //MARK: - UI
+    //MARK: - Properties
     
     @IBOutlet weak var backView: UIView!
     
@@ -22,16 +22,16 @@ final class PublicGroupCVC: UICollectionViewCell {
     @IBOutlet weak var hashTagImageView: UIImageView!
     @IBOutlet weak var thunderButton: UIButton!
     
+    // MARK: - Initializer
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        initUI()
+        configUI()
     }
-
-}
-// MARK: - Custom Methods
-
-extension PublicGroupCVC {
-    private func initUI() {
+    
+    // MARK: - Init UI
+    
+    private func configUI() {
         backView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 5, bounds: true)
         
         groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: groupImageView.bounds.width / 2, bounds: true)
@@ -41,6 +41,8 @@ extension PublicGroupCVC {
         }
     }
 }
+
+// MARK: - Custom Method
 
 extension PublicGroupCVC {
     func initCell(group: PublicGroupDataModel) {

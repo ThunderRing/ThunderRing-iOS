@@ -29,7 +29,6 @@ final class RecruitingVC: UIViewController {
         initUI()
         setTableView()
     }
-    
 }
 
 // MARK: - Custom Methods
