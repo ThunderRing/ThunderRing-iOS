@@ -112,6 +112,9 @@
 		92CD3374273FA2A00094CB1C /* SpoqaHanSansNeo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AA2739B31D004149B2 /* SpoqaHanSansNeo-Thin.otf */; };
 		92CD3375273FA2A00094CB1C /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B2AE2739B31D004149B2 /* SpoqaHanSansNeo-Medium.otf */; };
 		92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */; };
+		92E416EB27B8237900FD008F /* TDSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E416EA27B8237900FD008F /* TDSTextField.swift */; };
+		92E416ED27B824CF00FD008F /* TDSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E416EC27B824CF00FD008F /* TDSButton.swift */; };
+		92E416EF27B8264B00FD008F /* Adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E416EE27B8264B00FD008F /* Adjust+.swift */; };
 		92E497762768C42E0029682C /* ChatListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E497752768C42E0029682C /* ChatListDataModel.swift */; };
 		92F43A33274E8491006025EC /* CompleteLightningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F43A32274E8491006025EC /* CompleteLightningVC.swift */; };
 		92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */; };
@@ -232,6 +235,9 @@
 		92CBCE77273B233F00A3F36D /* AlarmTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTVC.swift; sourceTree = "<group>"; };
 		92CBCE78273B233F00A3F36D /* AlarmTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmTVC.xib; sourceTree = "<group>"; };
 		92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalNavigationController.swift; sourceTree = "<group>"; };
+		92E416EA27B8237900FD008F /* TDSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDSTextField.swift; sourceTree = "<group>"; };
+		92E416EC27B824CF00FD008F /* TDSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDSButton.swift; sourceTree = "<group>"; };
+		92E416EE27B8264B00FD008F /* Adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adjust+.swift"; sourceTree = "<group>"; };
 		92E497752768C42E0029682C /* ChatListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListDataModel.swift; sourceTree = "<group>"; };
 		92F43A32274E8491006025EC /* CompleteLightningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteLightningVC.swift; sourceTree = "<group>"; };
 		92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookHeaderView.swift; sourceTree = "<group>"; };
@@ -512,6 +518,7 @@
 		926C7C2F2737F9D30020F851 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				92E416E927B8232800FD008F /* DesignSystem */,
 				92A5B29827398D1D004149B2 /* Classes */,
 				92A5B28F2739834F004149B2 /* Constants */,
 				926C7C352737FB3A0020F851 /* Extensions */,
@@ -584,6 +591,7 @@
 				9276B068275B457700915F57 /* UILabel+.swift */,
 				9276B06A275B458B00915F57 /* String+.swift */,
 				9252EB96276A159F00809FEA /* UIImage+.swift */,
+				92E416EE27B8264B00FD008F /* Adjust+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -914,6 +922,15 @@
 			path = CVC;
 			sourceTree = "<group>";
 		};
+		92E416E927B8232800FD008F /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				92E416EA27B8237900FD008F /* TDSTextField.swift */,
+				92E416EC27B824CF00FD008F /* TDSButton.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
 		92F98DFF2767BEB400CA10FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1112,6 +1129,7 @@
 				92687A5727501E5C000D9A5D /* CALayer+.swift in Sources */,
 				92F9A53F27AFF4E3004F41FE /* TempCell.swift in Sources */,
 				928AE07B276B0D4C001155EE /* PrivateGroupCVC.swift in Sources */,
+				92E416EF27B8264B00FD008F /* Adjust+.swift in Sources */,
 				92159CA22758D76D0081F20B /* MemberCVC.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
@@ -1127,6 +1145,7 @@
 				925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */,
 				92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */,
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
+				92E416ED27B824CF00FD008F /* TDSButton.swift in Sources */,
 				92BCCCAA27650B3D00AA70D6 /* LookDetailCVC.swift in Sources */,
 				92291C522759130F0012927B /* CompleteCreatePrivateVC.swift in Sources */,
 				92AFB39A276339F000977712 /* MyGroupCVC.swift in Sources */,
@@ -1169,6 +1188,7 @@
 				9212667A2748055A009DE534 /* TestResultVC.swift in Sources */,
 				1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */,
 				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
+				92E416EB27B8237900FD008F /* TDSTextField.swift in Sources */,
 				92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */,
 				92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */,
 				92CBCE73273B132600A3F36D /* ProceedCVC.swift in Sources */,
