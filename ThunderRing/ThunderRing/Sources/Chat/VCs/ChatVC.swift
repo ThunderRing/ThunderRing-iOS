@@ -6,10 +6,11 @@
 //
 
 import UIKit
+
 import SnapKit
 import Then
 
-class ChatVC: UIViewController {
+final class ChatVC: UIViewController {
     
     // MARK: - UI
     
@@ -32,16 +33,19 @@ class ChatVC: UIViewController {
         $0.collectionViewLayout = layout
     }
     
-    private lazy var textField = UITextField().then {
+    private var backgroundView = UIView().then {
+        $0.backgroundColor = .white
+    }
+    
+    private var lineView = UIView().then {
+        $0.backgroundColor = .gray300
+    }
+    
+    private var textField = UITextField().then {
         $0.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 24, bounds: true)
         $0.backgroundColor = .gray350
         $0.placeholder = "메시지 입력하기"
         $0.setLeftPaddingPoints(19)
-    }
-    
-    private lazy var backgroundView = UIVisualEffectView().then {
-//        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 0, bounds: true)
-        $0.backgroundColor = .white
     }
     
     private lazy var sendButton = UIButton().then {
@@ -120,7 +124,7 @@ extension ChatVC {
     
     private func setLayout() {
         view.addSubviews([chatCollectionView, backgroundView])
-        backgroundView.contentView.addSubviews([textField, sendButton])
+        backgroundView.addSubviews([textField, sendButton])
         
         chatCollectionView.snp.makeConstraints {
             $0.top.equalTo(topView.snp.bottom).offset(5)
@@ -176,7 +180,7 @@ extension ChatVC {
         }), for: .touchUpInside)
         
         hamburgerButton.addAction(UIAction(handler: { _ in
-            // fix me
+            // FIXME: - 화면 연결 
         }), for: .touchUpInside)
     }
 }

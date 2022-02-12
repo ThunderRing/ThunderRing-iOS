@@ -7,9 +7,9 @@
 
 import UIKit
 
-class AlarmVC: UIViewController {
+final class AlarmVC: UIViewController {
     
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var customNavigationBarView: UIView!
     
@@ -19,8 +19,6 @@ class AlarmVC: UIViewController {
     @IBOutlet weak var statusMovedView: UIView!
     
     @IBOutlet weak var alarmCollectionView: UICollectionView!
-    
-    // MARK: - Properties
     
     private var currentIndex = 0
     private var proceedAlarms = [AlarmDataModel]()
