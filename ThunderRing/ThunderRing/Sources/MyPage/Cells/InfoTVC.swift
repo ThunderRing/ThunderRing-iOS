@@ -7,7 +7,10 @@
 
 import UIKit
 
-class InfoTVC: UITableViewCell {
+import SnapKit
+import Then
+
+final class InfoTVC: UITableViewCell {
     static let identifier = "InfoTVC"
 
     // MARK: - UI
@@ -18,12 +21,10 @@ class InfoTVC: UITableViewCell {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
     }
 
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .background
-        
         setLayout()
     }
     
@@ -31,15 +32,14 @@ class InfoTVC: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    // MARK: - Init UI
+    
+    func configUI() {
+        backgroundColor = .background
     }
-
-}
-
-extension InfoTVC {
+    
     func setLayout() {
-        self.addSubviews([label])
+        addSubview(label)
         
         label.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(15)
@@ -47,4 +47,3 @@ extension InfoTVC {
         }
     }
 }
-

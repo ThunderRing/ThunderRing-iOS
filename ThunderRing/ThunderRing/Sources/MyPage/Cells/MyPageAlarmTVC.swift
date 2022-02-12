@@ -10,10 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
-class MyPageAlarmTVC: UITableViewCell {
+final class MyPageAlarmTVC: UITableViewCell {
     static let identifier = "MyPageAlarmTVC"
     
-    // MARK: - UI
+    // MARK: - Properties
     
     private var label = UILabel().then {
         $0.text = "알림"
@@ -24,34 +24,24 @@ class MyPageAlarmTVC: UITableViewCell {
     private var alarmSwitch = UISwitch().then {
         $0.onTintColor = .purple100
         $0.isOn = true
+        $0.isEnabled = true
+        $0.addTarget(self, action: #selector(touchUpSwitch), for: .touchUpInside)
     }
 
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .background
-        
         setLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - Init UI
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        if selected {
-            alarmSwitch.isOn = false
-        } else {
-            alarmSwitch.isOn = true
-        }
-    }
-
-}
-
-extension MyPageAlarmTVC {
     private func setLayout() {
         self.addSubviews([label, alarmSwitch])
         
@@ -65,4 +55,16 @@ extension MyPageAlarmTVC {
             $0.centerY.equalToSuperview()
         }
     }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpSwitch(sender: UISwitch){
+        // FIXME: - 알람 켰을 때와 껐을 때 분기 처리 (커스텀 팝업)
+        if sender.isOn {
+            
+        } else {
+            
+        }
+    }
 }
+

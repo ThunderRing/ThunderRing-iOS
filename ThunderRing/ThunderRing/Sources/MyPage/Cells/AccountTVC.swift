@@ -7,10 +7,13 @@
 
 import UIKit
 
-class AccountTVC: UITableViewCell {
-    static let identifier = "AccountTVC"
+import SnapKit
+import Then
 
-    // MARK: - UI
+final class AccountTVC: UITableViewCell {
+    static let identifier = "AccountTVC"
+    
+    // MARK: - Properties
     
     private var label = UILabel().then {
         $0.text = "계좌정보"
@@ -18,12 +21,10 @@ class AccountTVC: UITableViewCell {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
     }
 
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .background
-        
         setLayout()
     }
     
@@ -31,15 +32,14 @@ class AccountTVC: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    // MARK: - Init UI
+    
+    func configUI() {
+        backgroundColor = .background
     }
-
-}
-
-extension AccountTVC {
+    
     func setLayout() {
-        self.addSubviews([label])
+        addSubview(label)
         
         label.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(15)
@@ -47,4 +47,3 @@ extension AccountTVC {
         }
     }
 }
-
