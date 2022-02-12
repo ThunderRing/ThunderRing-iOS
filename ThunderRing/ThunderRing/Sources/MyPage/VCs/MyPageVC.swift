@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyPageVC: UIViewController {
+final class MyPageVC: UIViewController {
     
     // MARK: - UI
     
@@ -27,20 +27,17 @@ class MyPageVC: UIViewController {
     private var groupCount = 0
     private var thunderCount = 0
     
-    let imagePicker = UIImagePickerController()
+    private let imagePicker = UIImagePickerController()
     
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
         setTableView()
         setImagePicker()
@@ -51,9 +48,11 @@ class MyPageVC: UIViewController {
 
 extension MyPageVC {
     func initUI() {
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
         customNavigationBarView.layer.applyShadow()
         
         profileBackView.initViewBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: profileBackView.frame.width / 2, bounds: true)
+        
         userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
     }
     
@@ -75,9 +74,9 @@ extension MyPageVC {
     }
     
     private func setImagePicker() {
-        self.imagePicker.sourceType = .photoLibrary
-        self.imagePicker.allowsEditing = true
-        self.imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
         
         userImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
@@ -88,8 +87,7 @@ extension MyPageVC {
 // MARK: - @objc
 
 extension MyPageVC {
-    @objc
-    func pickImage() {
+    @objc func pickImage() {
         self.present(self.imagePicker, animated: true)
     }
 }
@@ -118,6 +116,7 @@ extension MyPageVC: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageAlarmTVC.identifier) as? MyPageAlarmTVC else { return UITableViewCell() }
             cell.selectionStyle = .none
+            cell.contentView.isUserInteractionEnabled = false
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountTVC.identifier) as? AccountTVC else { return UITableViewCell() }
@@ -154,8 +153,7 @@ extension MyPageVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
             newImage = possibleImage
         }
         
-        self.userImageView.image = newImage
+        userImageView.image = newImage
         picker.dismiss(animated: true, completion: nil) 
-        
     }
 }
