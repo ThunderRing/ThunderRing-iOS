@@ -11,9 +11,9 @@ class ChatListVC: UIViewController {
 
     // MARK: - UI
     
-    @IBOutlet weak var customNavigationBarView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var chatListTableView: UITableView!
     
     // MARK: - Properties
@@ -24,15 +24,12 @@ class ChatListVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationController?.navigationBar.isHidden = true
         tabBarController?.tabBar.isHidden = false
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "채팅", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
         setTableView()
         setData()
@@ -44,7 +41,7 @@ class ChatListVC: UIViewController {
 extension ChatListVC {
     private func initUI() {
         topView.layer.applyShadow()
-        titleLabel.addCharacterSpacing()
+        descriptionLabel.addCharacterSpacing()
     }
     
     private func setTableView() {
@@ -74,7 +71,7 @@ extension ChatListVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as? ChatVC else { return }
-        dvc.chatTitle = "혜화역 혼가츠 먹어요!"
+        dvc.chatTitle = chatLists[indexPath.row].title
         self.navigationController?.pushViewController(dvc, animated: true)
     }
 }
