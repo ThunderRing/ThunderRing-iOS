@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainVC: UIViewController {
+final class MainVC: UIViewController {
     
     // MARK: - UI
     
@@ -39,25 +39,13 @@ class MainVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = false
-        setStatusBar(.white)
-        
         privateGroupCollectionView.reloadData()
-        
-        privateGroupCountLabel.text = "\(privateGroupData.count)"
-        publicGroupCountLabel.text = "\(publicGroupData.count)"
-        attendanceLabel.attributedText = NSMutableAttributedString()
-            .regular(string: "번개 ", fontSize: 14)
-            .bold("\(lightningData.count)", fontSize: 14)
-            .regular(string: "개가 진행 중입니다.", fontSize: 14)
-        attendanceLabel.textColor = .white
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
         setCollectionView()
         setAction()
@@ -69,7 +57,7 @@ class MainVC: UIViewController {
 
 extension MainVC {
     private func initUI() {
-        customNavigationBarView.layer.applyShadow()
+        setStatusBar(.white)
         
         cardView.layer.cornerRadius = 7
         cardView.layer.masksToBounds = true
@@ -81,6 +69,14 @@ extension MainVC {
         [attendanceLabel, privateGroupCountLabel, publicGroupCountLabel].forEach {
             $0?.addCharacterSpacing()
         }
+        
+        privateGroupCountLabel.text = "\(privateGroupData.count)"
+        publicGroupCountLabel.text = "\(publicGroupData.count)"
+        attendanceLabel.attributedText = NSMutableAttributedString()
+            .regular(string: "번개 ", fontSize: 14)
+            .bold("\(lightningData.count)", fontSize: 14)
+            .regular(string: "개가 진행 중입니다.", fontSize: 14)
+        attendanceLabel.textColor = .white
     }
     
     private func setCollectionView() {
@@ -88,7 +84,7 @@ extension MainVC {
         privateGroupCollectionView.delegate = self
         privateGroupCollectionView.dataSource = self
         
-        privateGroupCollectionView.register(MainPrivateCVC.self, forCellWithReuseIdentifier: MainPrivateCVC.identifier)
+        privateGroupCollectionView.register(PrivateGroupCVC.self, forCellWithReuseIdentifier: PrivateGroupCVC.identifier)
         
         // public group
         publicGroupCollectionView.delegate = self
@@ -136,7 +132,6 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
             return .zero
         }
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         switch collectionView {
@@ -189,7 +184,7 @@ extension MainVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case privateGroupCollectionView:
-            guard let cell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: MainPrivateCVC.identifier, for: indexPath) as? MainPrivateCVC else { return UICollectionViewCell() }
+            guard let cell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as? PrivateGroupCVC else { return UICollectionViewCell() }
             cell.initCell(group: privateGroupData[indexPath.item])
             return cell
         case publicGroupCollectionView:

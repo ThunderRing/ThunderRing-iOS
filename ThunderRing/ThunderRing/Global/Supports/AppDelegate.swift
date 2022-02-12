@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import FirebaseDatabase
 
 import UIKit
 import UserNotifications
@@ -29,8 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // 구글 파이어베이스
+        // 구글 파이어베이스 연동 
         FirebaseApp.configure()
+        
+        // FIXME: - DB 설계 후 번개 데이터 읽기 
         
         return true
     }
@@ -55,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+// MARK: - Local Notification
+
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -73,10 +78,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func scheduleNotification(groupName: String, lightningName: String) {
-//        let imageName = "icon"
-//        guard let imageURL = Bundle.main.url(forResource: imageName, withExtension: ".png") else { return }
-//        let attachment = try! UNNotificationAttachment(identifier: imageName, url: imageURL, options: .none)
-        
         let content = UNMutableNotificationContent()
         let categoryIdentifire = "Delete Notification Type"
         
@@ -85,7 +86,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         content.sound = UNNotificationSound.default
         content.badge = 1
         content.categoryIdentifier = categoryIdentifire
-//        content.attachments = [attachment]
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let identifier = "Local Notification"
@@ -106,4 +106,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
         notificationCenter.setNotificationCategories([category])
     }
+}
+
+// MARK: - Read Firebase Database
+
+extension AppDelegate {
+    
 }

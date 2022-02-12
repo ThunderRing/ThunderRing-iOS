@@ -7,9 +7,12 @@
 
 import UIKit
 
-class SetLigntningDetailVC: UIViewController {
+import SnapKit
+import Then
 
-    // MARK: - UI
+final class SetLigntningDetailVC: UIViewController {
+    
+    // MARK: - Properties
     
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var dateLabel: UILabel!
@@ -33,8 +36,9 @@ class SetLigntningDetailVC: UIViewController {
         $0.locale = Locale(identifier: "ko")
         
         let date = Date()
-        let maximumDate = Calendar.current.date(byAdding: .day, value: 1, to: date)
         $0.minimumDate = date
+        
+        let maximumDate = Calendar.current.date(byAdding: .day, value: 1, to: date)
         $0.maximumDate = maximumDate
     }
     
@@ -44,7 +48,17 @@ class SetLigntningDetailVC: UIViewController {
         $0.locale = Locale(identifier: "ko")
     }
     
-    // MARK: - Properties
+    private let dateFormatter = DateFormatter().then {
+        $0.dateFormat = "yyyy년 MM월 dd일"
+        $0.locale = Locale(identifier:"ko")
+    }
+    
+    private let timeFormatter = DateFormatter().then {
+        $0.dateFormat = "a h:mm"
+        $0.locale = Locale(identifier:"ko")
+    }
+    
+    private let nowDate = Date()
     
     var groupName: String?
     var lightningName: String?
@@ -54,30 +68,26 @@ class SetLigntningDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
-        setStatusBar(.background)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initUI()
+        configUI()
         setToolBar()
         setAction()
         getNotification()
-        
         setDatePickerView()
         setTimePickerView()
     }
-}
-
-// MARK: - Custom Methods
-
-extension SetLigntningDetailVC {
-    private func initUI() {
+    
+    // MARK: - Init UI
+    
+    private func configUI() {
         view.backgroundColor = .background
+        
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
         
         [dateTextField, timeTextField, locationTextField, minTextField, maxTextField].forEach {
             $0?.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
@@ -92,25 +102,23 @@ extension SetLigntningDetailVC {
             $0?.setRightIcon(0, 56, UIImage(named: "btnDown")!)
         }
         
-        countLabel.isHidden = true
-        numGuideLabel.isHidden = true
+        [countLabel, numGuideLabel].forEach {
+            $0?.isHidden = true
+            $0?.addCharacterSpacing()
+        }
         
         completeButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 27, bounds: true)
         completeButton.isEnabled = false
         
-        let nowDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
         dateTextField.placeholder = dateFormatter.string(from: nowDate)
         
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "a h:mm"
-        timeFormatter.locale = Locale(identifier:"ko")
         timeTextField.placeholder = timeFormatter.string(from: nowDate)
         
-        self.minTextField.addTarget(self, action: #selector(self.minFieldDidChange(_:)), for: .editingChanged)
-        self.dateTextField.addTarget(self, action: #selector(self.dateFieldDidChange), for: .valueChanged)
+        minTextField.addTarget(self, action: #selector(self.minFieldDidChange(_:)), for: .editingChanged)
+        dateTextField.addTarget(self, action: #selector(self.dateFieldDidChange), for: .valueChanged)
     }
+    
+    // MARK: - Custom Method
     
     private func setToolBar() {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 375, height: 44))
@@ -174,31 +182,31 @@ extension SetLigntningDetailVC {
             dvc.date = self.dateTextField.text
             dvc.time = self.timeTextField.text
             dvc.location = self.locationTextField.text
+            
             if let minNumber = self.minTextField.text {
                 dvc.minNumber = Int(minNumber)
             }
+            
             if let maxNumber = self.maxTextField.text {
                 dvc.maxNumber = Int(maxNumber)
             }
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
     }
-}
-
-// MARK: - @objc
-
-extension SetLigntningDetailVC {
-    @objc
-    func touchUpDoneButton() {
+    
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name("KeyboardWillShowNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name("KeyboardWillHideNotification"), object: nil)
+    }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpDoneButton() {
         NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHideNotification"), object: nil)
         self.view.endEditing(true)
     }
     
-    @objc
-    func touchUpDateDoneButton() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
-        dateFormatter.locale = Locale(identifier:"ko")
+    @objc func touchUpDateDoneButton() {
         dateTextField.text = dateFormatter.string(from: datePickerView.date)
         
         let date = Date()
@@ -211,17 +219,12 @@ extension SetLigntningDetailVC {
         self.view.endEditing(true)
     }
     
-    @objc
-    func touchUpTimeDoneButton() {
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "a h:mm"
-        timeFormatter.locale = Locale(identifier:"ko")
+    @objc func touchUpTimeDoneButton() {
         timeTextField.text = timeFormatter.string(from: timePickerView.date)
         self.view.endEditing(true)
     }
     
-    @objc
-    func minFieldDidChange(_ sender: Any?) {
+    @objc func minFieldDidChange(_ sender: Any?) {
         if minTextField.text == "0" || minTextField.text == "1"{
             numGuideLabel.font = .SpoqaHanSansNeo(type: .bold, size: 14)
             let generator = UINotificationFeedbackGenerator()
@@ -231,11 +234,7 @@ extension SetLigntningDetailVC {
         }
     }
     
-    @objc
-    func dateFieldDidChange(_ sender: Any?) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy년 MM월 dd일"
-        dateFormatter.locale = Locale(identifier:"ko")
+    @objc func dateFieldDidChange(_ sender: Any?) {
         dateTextField.text = dateFormatter.string(from: datePickerView.date)
         
         let date = Date()
@@ -245,34 +244,41 @@ extension SetLigntningDetailVC {
             timePickerView.minimumDate = .none
         }
     }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        self.view.frame.origin.y = -240
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.transform = .identity
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        self.view.frame.origin.y = 0
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.transform = .identity
+        }
+    }
 }
 
-// MARK: - TextField Delegate
+// MARK: - UITextField Delegate
 
 extension SetLigntningDetailVC: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == dateTextField {
-            dateTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
-        }
-        if textField == timeTextField {
-            timeTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
-        }
-        if textField == locationTextField {
-            locationTextField.becomeFirstResponder()
-            locationTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
+        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
+        
+        switch textField {
+        case locationTextField:
             countLabel.isHidden = false
-        }
-        if textField == minTextField {
-            minTextField.becomeFirstResponder()
-            minTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
+        case minTextField:
             numGuideLabel.isHidden = false
             NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillShowNotification"), object: nil)
-        }
-        if textField == maxTextField {
-            maxTextField.becomeFirstResponder()
-            maxTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
+        case maxTextField:
             numGuideLabel.isHidden = false
             NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillShowNotification"), object: nil)
+        default:
+            return
         }
     }
     
@@ -291,10 +297,12 @@ extension SetLigntningDetailVC: UITextFieldDelegate {
         
         if dateTextField.hasText && timeTextField.hasText && locationTextField.hasText && minTextField.hasText && maxTextField.hasText {
             completeButton.isEnabled = true
+            
             completeButton.backgroundColor = .purple100
             completeButton.titleLabel?.textColor = .white
         } else {
             completeButton.isEnabled = false
+            
             completeButton.backgroundColor = .gray200
             completeButton.titleLabel?.textColor = .white
         }
@@ -310,45 +318,3 @@ extension SetLigntningDetailVC: UITextFieldDelegate {
         return textField.resignFirstResponder()
     }
 }
-
-// MARK: - Notification
-
-extension SetLigntningDetailVC {
-    private func getNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name("KeyboardWillShowNotification"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name("KeyboardWillHideNotification"), object: nil)
-    }
-    
-    @objc
-    func keyboardWillShow(_ notification: Notification) {
-//        let topAnchor = self.topConstraint.constant - 240
-//
-//        self.dateLabel.snp.updateConstraints { make in
-//            make.top.equalToSuperview().offset(topAnchor)
-//        }
-        
-        self.view.frame.origin.y = -240
-        
-        UIView.animate(withDuration: 0.5) {
-//            self.view.layoutIfNeeded()
-            self.view.transform = .identity
-        }
-    }
-    
-    @objc
-    func keyboardWillHide(_ notification: Notification) {
-//        let topAnchor = self.topConstraint.constant + 60
-//
-//        self.dateLabel.snp.updateConstraints { make in
-//            make.top.equalToSuperview().offset(topAnchor)
-//        }
-        
-        self.view.frame.origin.y = 0
-        
-        UIView.animate(withDuration: 0.5) {
-//            self.view.layoutIfNeeded()
-            self.view.transform = .identity
-        }
-    }
-}
-

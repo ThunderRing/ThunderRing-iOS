@@ -457,7 +457,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tendency2" translatesAutoresizingMaskIntoConstraints="NO" id="dBO-gY-Gvw">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tendencySoft" translatesAutoresizingMaskIntoConstraints="NO" id="dBO-gY-Gvw">
                                 <rect key="frame" x="132" y="244" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="ROD-7k-oBx"/>
@@ -512,7 +512,7 @@
         <image name="icnClose" width="48" height="48"/>
         <image name="icnLocation" width="22" height="22"/>
         <image name="icnPeople" width="22" height="22"/>
-        <image name="tendency2" width="145" height="128"/>
+        <image name="tendencySoft" width="145" height="128"/>
         <namedColor name="gray100">
             <color red="0.31000000238418579" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

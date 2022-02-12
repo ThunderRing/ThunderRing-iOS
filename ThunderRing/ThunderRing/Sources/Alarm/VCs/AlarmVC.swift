@@ -7,9 +7,9 @@
 
 import UIKit
 
-class AlarmVC: UIViewController {
+final class AlarmVC: UIViewController {
     
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var customNavigationBarView: UIView!
     
@@ -20,8 +20,6 @@ class AlarmVC: UIViewController {
     
     @IBOutlet weak var alarmCollectionView: UICollectionView!
     
-    // MARK: - Properties
-    
     private var currentIndex = 0
     private var proceedAlarms = [AlarmDataModel]()
     private var completeAlarms = [AlarmDataModel]()
@@ -30,26 +28,27 @@ class AlarmVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
-        customNavigationBarView.layer.applyShadow()
-        setStatusBar(.white)
-        
         alarmCollectionView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configUI()
         setCollectionView()
         setTextLabelGesture()
         setData()
     }
-}
-
-// MARK: - Custom Methods
-
-extension AlarmVC {
+    
+    // MARK: - Init UI
+    
+    private func configUI() {
+        customNavigationBarView.layer.applyShadow()
+        setStatusBar(.white)
+    }
+    
+    // MARK: - Custom Method
+    
     private func setCollectionView() {
         let alarmCollectionViewlayout = alarmCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         alarmCollectionViewlayout?.scrollDirection = .horizontal
@@ -81,63 +80,70 @@ extension AlarmVC {
     
     private func setData() {
         completeAlarms.append(contentsOf: [
-            AlarmDataModel(isThunder: true, isLightning: false, isFailed: false, lightningName: "방탈출 하자", description: "번개가 취소되었습니다", time: "3일 전", groupName: ""),
-            AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, lightningName: "스벅가서 모각공", description: "채팅방에 먼저 참가해보세요", time: "1시간 전", groupName: "")
+            AlarmDataModel(alarmType: .failed, lightningName: "방탈출 하자", description: "번개가 취소되었습니다", time: "3일 전", groupName: ""),
+            AlarmDataModel(alarmType: .thunder, lightningName: "스벅가서 모각공", description: "채팅방에 먼저 참가해보세요", time: "1시간 전", groupName: "")
         ])
     }
-}
-
-// MARK: - @objc
-
-extension AlarmVC {
-    @objc
-    private func dragToProceed() {
+    
+    // MARK: - @objc
+    
+    @objc func dragToProceed() {
         if currentIndex == 1 {
             let indexPath = IndexPath(item: 0, section: 0)
+            
             alarmCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+            
             UIView.animate(withDuration: 0.3) {
                 self.statusMovedView.transform = .identity
             }
+            
             currentIndex = 0
-            self.proceedLabel.textColor = .black
-            self.completeLabel.textColor = .gray200
+            
+            proceedLabel.textColor = .black
+            completeLabel.textColor = .gray200
         }
     }
     
-    @objc
-    private func dragToComplete() {
+    @objc func dragToComplete() {
         let indexPath = IndexPath(item: 1, section: 0)
         alarmCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
         if currentIndex == 0 {
             UIView.animate(withDuration: 0.3) {
                 self.statusMovedView.transform = CGAffineTransform(translationX: (self.view.frame.width - 50) / 2 , y: 0)
             }
+            
             currentIndex = 1
-            self.proceedLabel.textColor = .gray200
-            self.completeLabel.textColor = .black
+            
+            proceedLabel.textColor = .gray200
+            completeLabel.textColor = .black
         }
     }
 }
 
-// MARK: - CollectionView Delegate 
+// MARK: - UICollectionView Delegate
 
 extension AlarmVC: UICollectionViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let targetIndex = targetContentOffset.pointee.x / scrollView.frame.size.width
+        
         if targetIndex == 1 && currentIndex == 0 {
             UIView.animate(withDuration: 0.5) {
                 self.statusMovedView.transform = CGAffineTransform(translationX: (self.view.frame.width - 50) / 2, y: 0)
             }
+            
             currentIndex = 1
-            self.proceedLabel.textColor = .gray
-            self.completeLabel.textColor = .black
+            
+            proceedLabel.textColor = .gray
+            completeLabel.textColor = .black
         } else if targetIndex == 0 && currentIndex == 1 {
             UIView.animate(withDuration: 0.5) {
                 self.statusMovedView.transform = .identity
             }
+            
             currentIndex = 0
-            self.proceedLabel.textColor = .black
-            self.completeLabel.textColor = .gray
+            
+            proceedLabel.textColor = .black
+            completeLabel.textColor = .gray
         }
     }
 }
@@ -162,7 +168,7 @@ extension AlarmVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - CollectionView DataSource
+// MARK: - UICollectionView DataSource
 
 extension AlarmVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

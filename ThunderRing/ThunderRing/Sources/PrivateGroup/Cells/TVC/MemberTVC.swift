@@ -100,17 +100,18 @@ extension MemberTVC {
     func setUserImage(index: Int) {
         switch index {
         case 0:
-            self.userImageView.image = UIImage(named: "tendency1")
+            self.userImageView.image = UIImage(named: "tendencyEmotion")
         case 1:
-            self.userImageView.image = UIImage(named: "tendency2")
+            self.userImageView.image = UIImage(named: "tendencySoft")
         case 2:
-            self.userImageView.image = UIImage(named: "tendency3")
+            self.userImageView.image = UIImage(named: "tendencyCrowd")
         case 3:
-            self.userImageView.image = UIImage(named: "tendency4")
+            self.userImageView.image = UIImage(named: "tendencyCozy")
         case 4:
-            self.userImageView.image = UIImage(named: "tendency5")
+            self.userImageView.image = UIImage(named: "tendencyDiligent")
         default :
-            self.userImageView.image = UIImage(named: "icnUser")
+            // FIXME: - empty icon으로 설정 
+            self.userImageView.image = UIImage(named: "mypageIn")
         }
     }
 }

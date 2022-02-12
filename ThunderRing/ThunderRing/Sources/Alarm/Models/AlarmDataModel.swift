@@ -7,11 +7,14 @@
 
 import Foundation
 
+enum AlarmType {
+    case thunder
+    case lightning
+    case failed
+}
+
 struct AlarmDataModel {
-    var isThunder: Bool
-    var isLightning: Bool
-    var isFailed: Bool
-    
+    var alarmType: AlarmType
     var lightningName: String
     var description: String
     var time: String
@@ -19,5 +22,5 @@ struct AlarmDataModel {
 }
 
 var alarmData : [AlarmDataModel] = [
-    AlarmDataModel(isThunder: true, isLightning: false, isFailed: false, lightningName: "혜화역 혼카츠 먹자", description: "오후 6:00 | 혜화역 1번 출구", time: "30분 전", groupName: "양파링걸즈")
+    AlarmDataModel(alarmType: .lightning, lightningName: "혜화역 혼카츠 먹자", description: "오후 6:00 | 혜화역 1번 출구", time: "30분 전", groupName: "양파링걸즈")
 ]

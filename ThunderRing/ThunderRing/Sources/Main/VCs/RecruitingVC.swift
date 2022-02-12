@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecruitingVC: UIViewController {
+final class RecruitingVC: UIViewController {
     
     // MARK: - UI
     
@@ -19,22 +19,16 @@ class RecruitingVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "모집 중인 번개", backBtnIsHidden: false, closeBtnIsHidden: true, bgColor: .background)
-        setStatusBar(.background)
-        
         recruitingTableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
         setTableView()
     }
-    
 }
 
 // MARK: - Custom Methods
@@ -42,6 +36,8 @@ class RecruitingVC: UIViewController {
 extension RecruitingVC {
     func initUI(){
         view.backgroundColor = .background
+        setStatusBar(.background)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "모집 중인 번개", backBtnIsHidden: false, closeBtnIsHidden: true, bgColor: .background)
         customNavigationBarView.layer.applyShadow()
     }
     

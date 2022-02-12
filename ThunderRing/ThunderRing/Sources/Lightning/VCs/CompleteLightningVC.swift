@@ -11,11 +11,9 @@ import UIKit
 
 class CompleteLightningVC: UIViewController {
 
-    // MARK: - UI
+    /// MARK: - Properties
     
     @IBOutlet weak var confirmButton: UIButton!
-    
-    // MARK: - Properties
     
     var appDelegate = UIApplication.shared.delegate as? AppDelegate
     
@@ -34,23 +32,22 @@ class CompleteLightningVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
         setAction()
     }
-}
-
-extension CompleteLightningVC {
+    
+    // MARK: - Init UI
+    
     private func initUI() {
         confirmButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 27, bounds: true)
     }
     
+    // MARK: - Custom Method
+    
     private func setAction() {
         confirmButton.addAction(UIAction(handler: { _ in
-            // MARK: - TODO REMOVE
-            lightningData.append(LightningDataModel(groupName: self.groupName!, lightningName: self.lightningName!, description: self.lightningDescription, date: self.date!, time: self.time!, location: self.location!, minNumber: self.minNumber!, maxNumber: self.maxNumber!))
-            
-            alarmData.append(AlarmDataModel(isThunder: false, isLightning: true, isFailed: false, lightningName: self.lightningName!, description: self.time! + " | " +  self.location!, time: "방금", groupName: self.groupName!))
+            // FIXME: - Firebase Database와 연동
+            alarmData.append(AlarmDataModel(alarmType: .lightning, lightningName: self.lightningName!, description: self.time! + " | " +  self.location!, time: "방금", groupName: self.groupName!))
             
             // Firebase Datebase로 데이터 저장
             let lightningData: [String : Any] = [
@@ -62,6 +59,7 @@ extension CompleteLightningVC {
                 "minNumber" : self.minNumber as Any,
                 "maxNumber" : self.maxNumber as Any
             ]
+            
             guard let name = self.groupName else { return }
             self.database.child(name).setValue(lightningData)
 

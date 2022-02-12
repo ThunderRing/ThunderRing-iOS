@@ -7,11 +7,13 @@
 
 import UIKit
 
-class QuestionTVC: UITableViewCell {
+import SnapKit
+import Then
+
+final class QuestionTVC: UITableViewCell {
     static let identifier = "QuestionTVC"
     
-
-    // MARK: - UI
+    // MARK: - Properties
     
     private var label = UILabel().then {
         $0.text = "문의하기"
@@ -19,12 +21,10 @@ class QuestionTVC: UITableViewCell {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
     }
 
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .background
-        
         setLayout()
     }
     
@@ -32,15 +32,14 @@ class QuestionTVC: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    // MARK: - Init UI
+    
+    func configUI() {
+        backgroundColor = .background
     }
-
-}
-
-extension QuestionTVC {
+    
     func setLayout() {
-        self.addSubviews([label])
+        addSubview(label)
         
         label.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(15)
@@ -48,4 +47,3 @@ extension QuestionTVC {
         }
     }
 }
-

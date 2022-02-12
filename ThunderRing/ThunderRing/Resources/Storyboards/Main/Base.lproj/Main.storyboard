@@ -375,7 +375,7 @@
                                         <color key="textColor" name="gray100"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tendency1" translatesAutoresizingMaskIntoConstraints="NO" id="lBH-JL-9I6" userLabel="Character Image View">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tendencyEmotion" translatesAutoresizingMaskIntoConstraints="NO" id="lBH-JL-9I6" userLabel="Character Image View">
                                         <rect key="frame" x="104" y="8" width="62" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="62" id="N9i-DW-sJC"/>
@@ -469,7 +469,7 @@
         <image name="icnLogo" width="52" height="17"/>
         <image name="imgPopUP" width="270" height="208"/>
         <image name="imgRabbit" width="75" height="75"/>
-        <image name="tendency1" width="62" height="55"/>
+        <image name="tendencyEmotion" width="62" height="55"/>
         <namedColor name="background">
             <color red="0.98799997568130493" green="0.98799997568130493" blue="0.98799997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

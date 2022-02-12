@@ -10,10 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
-class PublicListTVC: UITableViewCell {
+final class PublicListTVC: UITableViewCell {
     static let identifier = "PublicListTVC"
     
-    // MARK: - UI
+    // MARK: - Properties
     
     private var groupImageView = UIImageView().then {
         $0.image = UIImage(named: "imgRabbit")
@@ -51,8 +51,7 @@ class PublicListTVC: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        initUI()
+        configUI()
         setLayout()
     }
     
@@ -60,14 +59,9 @@ class PublicListTVC: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
-}
-
-extension PublicListTVC {
-    private func initUI() {
+    // MARK: - Init UI
+    
+    private func configUI() {
         self.layer.borderColor = UIColor.gray350.cgColor
         self.layer.borderWidth = 1
     }
@@ -101,31 +95,27 @@ extension PublicListTVC {
             $0.top.equalTo(countLabel.snp.bottom).offset(9)
         }
     }
-}
-
-extension PublicListTVC {
-    func initCell(groupImage: String, groupName: String, count: Int, hashTag: String) {
-        if let image = UIImage(named: groupImage) {
-            groupImageView.image = image
-        }
+    
+    // MARK: - Custom Method
+    
+    func initCell(group: PublicGroupDataModel) {
+        groupImageView.image = UIImage(named: group.groupImage)
         
-        groupNameLabel.text = groupName
+        groupNameLabel.text = group.groupName
         
-        countLabel.text = "\(count)"
+        countLabel.text = "\(group.memberCounts)"
         
-        switch hashTag {
-        case "부지런한 동틀녘":
+        switch group.publicGroupType {
+        case .diligent:
             hashTagImageView.image = UIImage(named: "tagDiligent")
-        case "북적이는 오후":
+        case .crowd:
             hashTagImageView.image = UIImage(named: "tagCrowd")
-        case "감성적인 새벽녘":
+        case .emotion:
             hashTagImageView.image = UIImage(named: "tagEmotion")
-        case "사근한 오전":
+        case .soft:
             hashTagImageView.image = UIImage(named: "tagSoft")
-        case "포근한 해질녘":
+        case .cozy:
             hashTagImageView.image = UIImage(named: "tagCozy")
-        default:
-            return
         }
     }
 }
