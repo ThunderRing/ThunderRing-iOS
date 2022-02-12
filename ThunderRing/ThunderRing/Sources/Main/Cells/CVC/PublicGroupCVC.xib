@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,7 +37,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GroupName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5OJ-uh-RaK">
-                                <rect key="frame" x="0.0" y="107" width="156" height="22.666666666666657"/>
+                                <rect key="frame" x="24.333333333333336" y="107" width="107.33333333333331" height="22.666666666666657"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="18"/>
                                 <color key="textColor" name="gray100"/>
                                 <nil key="highlightedColor"/>
@@ -92,14 +92,13 @@
                             <constraint firstItem="8x0-rd-Sn8" firstAttribute="centerX" secondItem="U6b-zv-QNm" secondAttribute="centerX" id="1B7-j7-7L3"/>
                             <constraint firstItem="lUL-no-D5O" firstAttribute="top" secondItem="8x0-rd-Sn8" secondAttribute="bottom" constant="14" id="2ZW-jN-H9P"/>
                             <constraint firstItem="WHb-V6-Sb9" firstAttribute="leading" secondItem="U6b-zv-QNm" secondAttribute="leading" constant="39" id="B0P-Zz-E0d"/>
-                            <constraint firstItem="5OJ-uh-RaK" firstAttribute="leading" secondItem="U6b-zv-QNm" secondAttribute="leading" id="Jeb-yG-NTe"/>
                             <constraint firstAttribute="trailing" secondItem="Si5-2K-iHu" secondAttribute="trailing" constant="34" id="Kar-x9-GDY"/>
                             <constraint firstItem="5OJ-uh-RaK" firstAttribute="top" secondItem="WHb-V6-Sb9" secondAttribute="bottom" constant="14" id="LpH-VS-0dV"/>
                             <constraint firstItem="Si5-2K-iHu" firstAttribute="leading" secondItem="U6b-zv-QNm" secondAttribute="leading" constant="35" id="WmT-t8-hLW"/>
                             <constraint firstItem="WHb-V6-Sb9" firstAttribute="top" secondItem="U6b-zv-QNm" secondAttribute="top" constant="15" id="Zxx-jt-gqt"/>
                             <constraint firstItem="Si5-2K-iHu" firstAttribute="top" secondItem="lUL-no-D5O" secondAttribute="bottom" constant="8" id="ck0-Uj-PdU"/>
+                            <constraint firstItem="5OJ-uh-RaK" firstAttribute="centerX" secondItem="U6b-zv-QNm" secondAttribute="centerX" id="cq2-Xu-3oh"/>
                             <constraint firstAttribute="trailing" secondItem="WHb-V6-Sb9" secondAttribute="trailing" constant="39" id="iyF-sv-Y0v"/>
-                            <constraint firstAttribute="trailing" secondItem="5OJ-uh-RaK" secondAttribute="trailing" id="jHP-4M-D6z"/>
                             <constraint firstItem="8x0-rd-Sn8" firstAttribute="top" secondItem="5OJ-uh-RaK" secondAttribute="bottom" constant="7" id="pjc-rt-ujk"/>
                             <constraint firstAttribute="trailing" secondItem="lUL-no-D5O" secondAttribute="trailing" constant="22" id="rhT-HN-xYG"/>
                             <constraint firstItem="lUL-no-D5O" firstAttribute="leading" secondItem="U6b-zv-QNm" secondAttribute="leading" constant="22" id="v5J-S9-jJ9"/>
