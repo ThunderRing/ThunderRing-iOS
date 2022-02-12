@@ -10,9 +10,9 @@ import UIKit
 import SnapKit
 import Then
 
-class LightningVC: UIViewController {
+final class LightningVC: UIViewController {
     
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
@@ -21,51 +21,55 @@ class LightningVC: UIViewController {
     @IBOutlet weak var searchBackView: UIView!
     @IBOutlet weak var groupListTableView: UITableView!
     
-    private lazy var privateHeaderView = UIView().then {
-        $0.backgroundColor = .background
-    }
-    private lazy var publicHeaderView = UIView().then {
-        $0.backgroundColor = .background
+    private var privateHeaderView = UIView()
+    private var publicHeaderView = UIView()
+    
+    private var privateHeaderLabel = UILabel().then {
+        $0.text = "비공개그룹"
     }
     
-    private lazy var privateHeaderLabel = UILabel().then {
-        $0.text = "비공개그룹"
-        $0.textColor = .black
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
-    }
-    private lazy var publicHeaderLabel = UILabel().then {
+    private var publicHeaderLabel = UILabel().then {
         $0.text = "공개그룹"
-        $0.textColor = .black
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
     }
     
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
         self.groupListTableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         initUI()
         setAction()
         setTableHeaderView()
         setTableView()
         setTextField()
     }
-}
-
-extension LightningVC {
+    
+    // MARK: - Init UI
+    
     private func initUI() {
         titleLabel.text = "번개 치기"
-        titleLabel.addCharacterSpacing()
+        [titleLabel, privateHeaderLabel, publicHeaderLabel].forEach {
+            $0?.addCharacterSpacing()
+        }
+        
+        [privateHeaderLabel, publicHeaderLabel].forEach {
+            $0.textColor = .black
+            $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        }
+        
+        [privateHeaderView, publicHeaderView].forEach {
+            $0.backgroundColor = .background
+        }
         
         searchBackView.backgroundColor = .background
     }
+    
+    // MARK: - Custom Method
     
     private func setAction() {
         closeButton.addAction(UIAction(handler: { _ in
@@ -101,6 +105,8 @@ extension LightningVC {
         searchTextField.setLeftIcon(17, 16, UIImage(named: "icnSearch")!)
     }
 }
+
+// MARK: - UITableView Delegate
 
 extension LightningVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -152,6 +158,8 @@ extension LightningVC: UITableViewDelegate {
     }
 }
 
+// MARK: - UITableView DataSource
+
 extension LightningVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -185,7 +193,7 @@ extension LightningVC: UITableViewDataSource {
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PublicListTVC.identifier) as? PublicListTVC else { return UITableViewCell() }
-            cell.initCell(groupImage: publicGroupData[indexPath.row].groupImage, groupName: publicGroupData[indexPath.row].groupName, count: publicGroupData[indexPath.row].memberCounts, hashTag: publicGroupData[indexPath.row].hashTag)
+            cell.initCell(group: publicGroupData[indexPath.row])
             cell.selectionStyle = .none
             
             if indexPath.row == 0 {

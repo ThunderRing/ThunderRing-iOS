@@ -10,10 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
-class PrivateListTVC: UITableViewCell {
+final class PrivateListTVC: UITableViewCell {
     static let identifier = "PrivateListTVC"
     
-    // MARK: - UI
+    // MARK: - Properties
     
     private lazy var groupImageView = UIImageView().then {
         $0.image = UIImage(named: "imgRabbit")
@@ -34,13 +34,11 @@ class PrivateListTVC: UITableViewCell {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
-
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        initUI()
+        configUI()
         setLayout()
     }
     
@@ -48,15 +46,14 @@ class PrivateListTVC: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
-}
-
-extension PrivateListTVC {
-    private func initUI() {
-        self.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 0, bounds: true)
+    // MARK: - Init UI
+    
+    private func configUI() {
+        initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 0, bounds: true)
+        
+        [groupNameLabel, countLabel].forEach {
+            $0.addCharacterSpacing()
+        }
     }
     
     private func setLayout() {
@@ -83,15 +80,12 @@ extension PrivateListTVC {
             $0.centerY.equalTo(countImageView.snp.centerY)
         }
     }
-}
-
-extension PrivateListTVC {
+    
+    // MARK: - Custom Method
+    
     func initCell(group: PrivateGroupDataModel) {
-        if group.groupImageName != nil {
-            groupImageView.image = UIImage(named: group.groupImageName!)
-        } else {
-            groupImageView.image = group.groupImage
-        }
+        guard let groupImageName = group.groupImageName else { return }
+        groupImageView.image = UIImage(named: groupImageName)
         
         groupNameLabel.text = group.groupName
         countLabel.text = "\(group.memberCounts)"

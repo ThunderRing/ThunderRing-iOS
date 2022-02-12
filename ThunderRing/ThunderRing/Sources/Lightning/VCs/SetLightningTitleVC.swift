@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SetLightningTitleVC: UIViewController {
+final class SetLightningTitleVC: UIViewController {
     
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var customNavigationBarView: UIView!
     
@@ -24,50 +24,47 @@ class SetLightningTitleVC: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     
-    private let groupPickerView = UIPickerView()
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
-    // MARK: - Properties
+    private let groupPickerView = UIPickerView()
     
     var index = 0
     var groupNames = [String]()
-    
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
-    
     
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
-        setStatusBar(.background)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initUI()
+        configUI()
+        bind()
         setAction()
-        setPickerView()
         setToolbar()
         getNotification()
     }
-}
-
-extension SetLightningTitleVC {
-    private func initUI() {
-        groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-        groupNameTextField.setLeftPaddingPoints(15)
-        groupNameTextField.setRightPaddingPoints(15)
+    
+    // MARK: - Init UI
+    
+    private func configUI() {
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
+        
+        [groupNameTextField, nameTextField].forEach {
+            $0?.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
+            $0?.setLeftPaddingPoints(15)
+            $0?.setRightPaddingPoints(15)
+        }
+        
+        groupNameTextField.tintColor = .clear
+        groupNameTextField.inputView = groupPickerView
         groupNameTextField.text = groupNames[index]
         
-        nameTextField.delegate = self
-        nameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-        nameTextField.setLeftPaddingPoints(15)
         nameTextField.tintColor = .purple100
         
-        detailTextView.delegate = self
         detailTextView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         detailTextView.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         detailTextView.tintColor = .purple100
@@ -80,23 +77,26 @@ extension SetLightningTitleVC {
         }
     }
     
+    // MARK: - Custom Method
+    
+    private func bind() {
+        groupPickerView.delegate = self
+        groupPickerView.dataSource = self
+        
+        nameTextField.delegate = self
+        detailTextView.delegate = self
+    }
+    
     private func setAction() {
         nextButton.addAction(UIAction(handler: { _ in
             guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLigntningDetailVC") as? SetLigntningDetailVC else { return }
             dvc.groupName = self.groupNameTextField.text
             dvc.lightningName = self.nameTextField.text
             dvc.lightningDescription = self.detailTextView.text
+            
             self.nextButton.titleLabel?.textColor = .white
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
-    }
-    
-    private func setPickerView() {
-        groupPickerView.delegate = self
-        groupPickerView.dataSource = self
-        
-        groupNameTextField.tintColor = .clear
-        groupNameTextField.inputView = groupPickerView
     }
     
     private func setToolbar() {
@@ -118,46 +118,27 @@ extension SetLightningTitleVC {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name("KeyboardWillShow"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name("KeyboardWillHide"), object: nil)
     }
-}
-
-// MARK: - @objc
-
-extension SetLightningTitleVC {
-    @objc
-    func touchUpDoneButton() {
+    
+    // MARK: - @objc
+    
+    @objc func touchUpDoneButton() {
         NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHide"), object: nil)
         groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         self.view.endEditing(true)
     }
     
-    @objc
-    func keyboardWillShow() {
-//        let topAnchor = self.topConstraint.constant - 120
-//
-//
-//        self.groupSelectLabel.snp.updateConstraints { make in
-//            make.top.equalToSuperview().offset(topAnchor)
-//        }
-        
+    @objc func keyboardWillShow() {
         self.view.frame.origin.y = -120
         
         UIView.animate(withDuration: 0.5) {
-//            self.view.layoutIfNeeded()
             self.view.transform = CGAffineTransform.identity
         }
     }
     
-    @objc
-    func keyboardWillHide() {
-//        let topAnchor = self.topConstraint.constant + 67
-//
-//        self.groupSelectLabel.snp.updateConstraints { make in
-//            make.top.equalToSuperview().offset(topAnchor)
-//        }
+    @objc func keyboardWillHide() {
         self.view.frame.origin.y = 0
         
         UIView.animate(withDuration: 0.5) {
-//            self.view.layoutIfNeeded()
             self.view.transform = CGAffineTransform.identity
         }
     }
@@ -167,7 +148,6 @@ extension SetLightningTitleVC {
 
 extension SetLightningTitleVC: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.becomeFirstResponder()
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
         textField.setRightIcon(0, textField.frame.height, UIImage(named: "btnDelete")!)
         
