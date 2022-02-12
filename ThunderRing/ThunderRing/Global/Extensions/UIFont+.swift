@@ -7,6 +7,11 @@
 
 import UIKit
 
+
+enum FontWeight {
+    case bold, light, medium, regular, semiBold
+}
+
 extension UIFont {
     // SpoqaHanSansNeo
     class func SpoqaHanSansNeo(type: SpoqaHanSansNeoType, size: CGFloat) -> UIFont {
