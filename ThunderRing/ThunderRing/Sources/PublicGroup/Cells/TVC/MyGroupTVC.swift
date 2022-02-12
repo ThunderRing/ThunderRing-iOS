@@ -121,19 +121,17 @@ extension MyGroupTVC {
         
         descriptionLabel.text = group.description
         
-        switch group.hashTag {
-        case "부지런한 동틀녘":
+        switch group.publicGroupType {
+        case .diligent:
             hashTagImageView.image = UIImage(named: "tagDiligent")
-        case "북적이는 오후":
+        case .crowd:
             hashTagImageView.image = UIImage(named: "tagCrowd")
-        case "감성적인 새벽녘":
+        case .emotion:
             hashTagImageView.image = UIImage(named: "tagEmotion")
-        case "사근한 오전":
+        case .soft:
             hashTagImageView.image = UIImage(named: "tagSoft")
-        case "포근한 해질녘":
+        case .cozy:
             hashTagImageView.image = UIImage(named: "tagCozy")
-        default:
-            return
         }
         hashTagImageView.contentMode = .scaleAspectFit
     }
