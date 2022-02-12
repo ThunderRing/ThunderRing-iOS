@@ -34,29 +34,26 @@ final class AlarmTVC: UITableViewCell {
     
     // MARK: - Custom Method
     
-    func initCell(isThunder: Bool, isLightning: Bool, isFailed: Bool, title: String, description: String, time: String, hashTag: String) {
+    func initCell(alarmType: AlarmType, title: String, description: String, time: String, hashTag: String) {
         hashTagLabel.text = hashTag
         titleLabel.text = title
         descriptionLabel.text = description
         timeLabel.text = time
         
-        if isThunder {
+        switch alarmType {
+        case .thunder:
             if let image = UIImage(named: "icnAlarmThunder") {
                 markImageView.image = image
             }
-            markImageView.contentMode = .scaleAspectFill
-        }
-        if isLightning {
+        case .lightning:
             if let image = UIImage(named: "icnAlarmLight") {
                 markImageView.image = image
             }
-            markImageView.contentMode = .scaleAspectFill
-        }
-        if isFailed {
+        case .failed:
             if let image = UIImage(named: "iconAlarmCancel") {
                 markImageView.image = image
             }
-            markImageView.contentMode = .scaleAspectFill
         }
+        markImageView.contentMode = .scaleAspectFill
     }
 }
