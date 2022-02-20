@@ -13,7 +13,10 @@ final class AlarmTVC: UITableViewCell {
     // MARK: - Properties
     
     @IBOutlet weak var backView: UIView!
+
+    @IBOutlet weak var hashTagBackViewWidth: NSLayoutConstraint!
     
+    @IBOutlet weak var hashTagBackView: UIView!
     @IBOutlet weak var hashTagLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -30,6 +33,7 @@ final class AlarmTVC: UITableViewCell {
     
     private func configUI() {
         backView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 12, bounds: true)
+        hashTagBackView.initViewBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 9.5, bounds: true)
     }
     
     // MARK: - Custom Method
@@ -39,6 +43,10 @@ final class AlarmTVC: UITableViewCell {
         titleLabel.text = title
         descriptionLabel.text = description
         timeLabel.text = time
+        
+        hashTagBackViewWidth.constant = calculateCellWidth(text: hashTag)
+        print("📌", hashTagBackViewWidth.constant)
+        contentView.layoutSubviews()
         
         switch alarmType {
         case .thunder:
@@ -55,5 +63,13 @@ final class AlarmTVC: UITableViewCell {
             }
         }
         markImageView.contentMode = .scaleAspectFill
+    }
+    
+    private func calculateCellWidth(text: String) -> CGFloat {
+        let label = UILabel()
+        label.text = text
+        label.font = .SpoqaHanSansNeo(type: .regular, size: 12)
+        label.sizeToFit()
+        return label.frame.width + 16
     }
 }
