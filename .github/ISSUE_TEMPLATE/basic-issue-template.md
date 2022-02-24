@@ -1,7 +1,7 @@
 ---
 name: Basic issue template
 about: Beforeget iOS Basic Template
-title: "[FEAT]"
+title: "[Feat]"
 labels: ''
 assignees: ''
 
