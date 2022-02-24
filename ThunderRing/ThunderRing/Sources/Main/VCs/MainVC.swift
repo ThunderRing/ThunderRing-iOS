@@ -186,6 +186,7 @@ extension MainVC: UICollectionViewDataSource {
         case privateGroupCollectionView:
             guard let cell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as? PrivateGroupCVC else { return UICollectionViewCell() }
             cell.initCell(group: privateGroupData[indexPath.item])
+            cell.delegate = self
             return cell
         case publicGroupCollectionView:
             guard let cell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as? PublicGroupCVC else { return UICollectionViewCell() }
@@ -220,5 +221,15 @@ extension MainVC: UIGestureRecognizerDelegate {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool{
         return true
+    }
+}
+
+// MARK: - Custom Delegate
+
+extension MainVC: PrivateGroupCVCDelegate {
+    func touchUpEnterButton() {
+        let dvc = PrivateDetailVC()
+        dvc.modalPresentationStyle = .fullScreen
+        present(dvc, animated: true, completion: nil)
     }
 }

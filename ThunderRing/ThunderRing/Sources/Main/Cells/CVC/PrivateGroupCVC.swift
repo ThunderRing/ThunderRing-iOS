@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
+protocol PrivateGroupCVCDelegate: AnyObject {
+    func touchUpEnterButton()
+}
+
 final class PrivateGroupCVC: UICollectionViewCell {
     static let identifier = "MainPrivateCVC"
     
@@ -46,12 +50,15 @@ final class PrivateGroupCVC: UICollectionViewCell {
     private var enterButton = UIButton().then {
         $0.setTitle("", for: .normal)
         $0.setImage(UIImage(named: "btnEnter"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpEnterButton), for: .touchUpInside)
     }
     
     private var lightningButton = UIButton().then {
         $0.setTitle("", for: .normal)
         $0.setImage(UIImage(named: "btnLightning"), for: .normal)
     }
+    
+    weak var delegate: PrivateGroupCVCDelegate?
 
     // MARK: - Initializer
     
@@ -117,11 +124,9 @@ final class PrivateGroupCVC: UICollectionViewCell {
             $0.leading.equalTo(enterButton.snp.trailing).offset(9)
         }
     }
-}
-
-// MARK: - Custom Method
-
-extension PrivateGroupCVC {
+    
+    // MARK: - Custom Method
+    
     func initCell(group: PrivateGroupDataModel) {
         if group.groupImageName != nil {
             groupImageView.image = UIImage(named: group.groupImageName!)
@@ -132,5 +137,11 @@ extension PrivateGroupCVC {
         groupNameLabel.text = group.groupName
         groupDescriptionLabel.text = group.groupDescription
         countLabel.text = "\(group.memberCounts)"
+    }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpEnterButton() {
+        delegate?.touchUpEnterButton()
     }
 }
