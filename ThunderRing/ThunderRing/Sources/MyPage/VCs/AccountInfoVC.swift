@@ -40,6 +40,7 @@ final class AccountInfoVC: UIViewController {
         super.viewDidLoad()
         configUI()
         setLayout()
+        bind()
     }
     
     // MARK: - InitUI
@@ -93,4 +94,34 @@ final class AccountInfoVC: UIViewController {
     }
     
     // MARK: - Custom Method
+    
+    private func bind() {
+        bankTextField.delegate = self
+        accountTextField.delegate = self
+    }
+}
+
+// MARK: - UITextField Delegate
+
+extension AccountInfoVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
+        textField.setRightIcon(0, textField.frame.height, UIImage(named: "btnDelete")!)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
+        textField.setRightPaddingPoints(30)
+        
+        if bankTextField.hasText && accountTextField.hasText {
+            registerButton.isActivated = true
+        } else {
+            registerButton.isActivated = false
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.setRightPaddingPoints(30)
+        return textField.resignFirstResponder()
+    }
 }
