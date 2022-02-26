@@ -79,7 +79,9 @@ extension MyPublicVC {
         }), for: .touchUpInside)
         
         searchButton.addAction(UIAction(handler: { _ in
-            // search 화면으로 이동
+            let dvc = SearchPublicGroupVC()
+            dvc.modalPresentationStyle = .fullScreen
+            self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
     }
 }

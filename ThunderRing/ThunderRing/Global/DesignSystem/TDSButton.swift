@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class BDSButton: UIButton {
+final class TDSButton: UIButton {
     
     // MARK: - Properties
     

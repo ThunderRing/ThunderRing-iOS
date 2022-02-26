@@ -93,7 +93,9 @@ extension MyPrivateVC {
         }), for: .touchUpInside)
         
         searchButton.addAction(UIAction(handler: { _ in
-            // 검색 화면으로 이동
+            let dvc = SearchPrivateGroupVC()
+            dvc.modalPresentationStyle = .fullScreen
+            self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
     }
 }
