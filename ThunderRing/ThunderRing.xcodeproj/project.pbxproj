@@ -32,6 +32,7 @@
 		92291C522759130F0012927B /* CompleteCreatePrivateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92291C512759130F0012927B /* CompleteCreatePrivateVC.swift */; };
 		9244097827AE68EB00034510 /* CreatePublicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244097727AE68EB00034510 /* CreatePublicVC.swift */; };
 		9244097A27AE7F9000034510 /* CompleteCreatePublicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244097927AE7F9000034510 /* CompleteCreatePublicVC.swift */; };
+		9251955F27CA15E900C00E7E /* SearchBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9251955E27CA15E900C00E7E /* SearchBaseVC.swift */; };
 		9252EB952769CA9100809FEA /* ContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252EB942769CA9100809FEA /* ContactDataModel.swift */; };
 		9252EB97276A159F00809FEA /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252EB96276A159F00809FEA /* UIImage+.swift */; };
 		9258354E275C997900F64DC0 /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9258354D275C997900F64DC0 /* AccountInfo.storyboard */; };
@@ -157,6 +158,7 @@
 		92291C512759130F0012927B /* CompleteCreatePrivateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreatePrivateVC.swift; sourceTree = "<group>"; };
 		9244097727AE68EB00034510 /* CreatePublicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicVC.swift; sourceTree = "<group>"; };
 		9244097927AE7F9000034510 /* CompleteCreatePublicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreatePublicVC.swift; sourceTree = "<group>"; };
+		9251955E27CA15E900C00E7E /* SearchBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBaseVC.swift; sourceTree = "<group>"; };
 		9252EB942769CA9100809FEA /* ContactDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataModel.swift; sourceTree = "<group>"; };
 		9252EB96276A159F00809FEA /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		9258354D275C997900F64DC0 /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
@@ -721,6 +723,7 @@
 				926C7C5C2738043D0020F851 /* TabBarController.swift */,
 				926C7C61273805B70020F851 /* NavigationController.swift */,
 				92DD9FBB274C11710045C8C7 /* ModalNavigationController.swift */,
+				9251955E27CA15E900C00E7E /* SearchBaseVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1175,6 +1178,7 @@
 				926290E427A4055E006A3B58 /* CreatePublicDetailVC.swift in Sources */,
 				9244097A27AE7F9000034510 /* CompleteCreatePublicVC.swift in Sources */,
 				92B1568A2761426300939048 /* MyPublicVC.swift in Sources */,
+				9251955F27CA15E900C00E7E /* SearchBaseVC.swift in Sources */,
 				926C7C62273805B70020F851 /* NavigationController.swift in Sources */,
 				92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */,
 				92AFB39F27633A1E00977712 /* MyGroupTVC.swift in Sources */,
