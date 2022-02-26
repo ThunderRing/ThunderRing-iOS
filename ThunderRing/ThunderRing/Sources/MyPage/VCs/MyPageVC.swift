@@ -98,6 +98,13 @@ extension MyPageVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 52
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let dvc = AccountInfoVC()
+            navigationController?.pushViewController(dvc, animated: true)
+        }
+    }
 }
 
 // MARK: - UITableView DataSource
