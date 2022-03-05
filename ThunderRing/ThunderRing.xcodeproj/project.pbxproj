@@ -42,7 +42,6 @@
 		9248133B27D13B8E00A0CECC /* HomePrivateGroupCollectionViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133A27D13B8E00A0CECC /* HomePrivateGroupCollectionViewCellView.swift */; };
 		9251955F27CA15E900C00E7E /* SearchBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9251955E27CA15E900C00E7E /* SearchBaseVC.swift */; };
 		9252EB952769CA9100809FEA /* ContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252EB942769CA9100809FEA /* ContactDataModel.swift */; };
-		9252EB97276A159F00809FEA /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252EB96276A159F00809FEA /* UIImage+.swift */; };
 		9258354E275C997900F64DC0 /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9258354D275C997900F64DC0 /* AccountInfo.storyboard */; };
 		92583550275C999100F64DC0 /* AccountInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258354F275C999100F64DC0 /* AccountInfoVC.swift */; };
 		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
@@ -92,7 +91,6 @@
 		92A5B29127398366004149B2 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29027398366004149B2 /* Storyboard.swift */; };
 		92A5B29327398378004149B2 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29227398378004149B2 /* Const.swift */; };
 		92A5B295273983F0004149B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B294273983F0004149B2 /* ViewController.swift */; };
-		92A5B29727398835004149B2 /* UITabBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29627398835004149B2 /* UITabBar+.swift */; };
 		92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29927398D47004149B2 /* CustomNavigationBar.swift */; };
 		92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29B27399997004149B2 /* UIViewController+.swift */; };
 		92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29E2739AA2F004149B2 /* MyPageAlarmTVC.swift */; };
@@ -178,7 +176,6 @@
 		9248133A27D13B8E00A0CECC /* HomePrivateGroupCollectionViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePrivateGroupCollectionViewCellView.swift; sourceTree = "<group>"; };
 		9251955E27CA15E900C00E7E /* SearchBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBaseVC.swift; sourceTree = "<group>"; };
 		9252EB942769CA9100809FEA /* ContactDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataModel.swift; sourceTree = "<group>"; };
-		9252EB96276A159F00809FEA /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		9258354D275C997900F64DC0 /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
 		9258354F275C999100F64DC0 /* AccountInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoVC.swift; sourceTree = "<group>"; };
 		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -230,7 +227,6 @@
 		92A5B29027398366004149B2 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		92A5B29227398378004149B2 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		92A5B294273983F0004149B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		92A5B29627398835004149B2 /* UITabBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+.swift"; sourceTree = "<group>"; };
 		92A5B29927398D47004149B2 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		92A5B29B27399997004149B2 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		92A5B29E2739AA2F004149B2 /* MyPageAlarmTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTVC.swift; sourceTree = "<group>"; };
@@ -630,14 +626,12 @@
 			children = (
 				926C7C362737FB4C0020F851 /* UIView+.swift */,
 				926C7C412737FE7B0020F851 /* UITextField+.swift */,
-				92A5B29627398835004149B2 /* UITabBar+.swift */,
 				92A5B29B27399997004149B2 /* UIViewController+.swift */,
 				92A5B2AF2739B3B1004149B2 /* UIFont+.swift */,
 				9212667B2748167D009DE534 /* UIColor+.swift */,
 				92687A5627501E5C000D9A5D /* CALayer+.swift */,
 				9276B068275B457700915F57 /* UILabel+.swift */,
 				9276B06A275B458B00915F57 /* String+.swift */,
-				9252EB96276A159F00809FEA /* UIImage+.swift */,
 				92E416EE27B8264B00FD008F /* Adjust+.swift */,
 			);
 			path = Extensions;
@@ -1214,7 +1208,6 @@
 				92159CA22758D76D0081F20B /* MemberCVC.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
-				9252EB97276A159F00809FEA /* UIImage+.swift in Sources */,
 				926290E427A4055E006A3B58 /* CreatePublicDetailVC.swift in Sources */,
 				9244097A27AE7F9000034510 /* CompleteCreatePublicVC.swift in Sources */,
 				92B1568A2761426300939048 /* MyPublicVC.swift in Sources */,
@@ -1294,7 +1287,6 @@
 				92275FE827BE713E007B507D /* TestVC.swift in Sources */,
 				92F43A33274E8491006025EC /* CompleteLightningVC.swift in Sources */,
 				9248133427D1323400A0CECC /* CloseButton.swift in Sources */,
-				92A5B29727398835004149B2 /* UITabBar+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
