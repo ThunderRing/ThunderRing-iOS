@@ -90,9 +90,9 @@ final class TDSNavigationBar: UIView {
         self.closeButton = CloseButton(root: viewController)
         viewType = view
         configUI()
-        setUpLayout()
-        setUpBackButton(isHidden: backButtonIsHidden)
-        setUpCloseButton(isHidden: closeButtonIsHidden)
+        setLayout()
+        setBackButton(isHidden: backButtonIsHidden)
+        setCloseButton(isHidden: closeButtonIsHidden)
     }
     
     required init?(coder: NSCoder) {
@@ -106,7 +106,7 @@ final class TDSNavigationBar: UIView {
         titleLabel.text = viewType.title
     }
     
-    private func setUpLayout() {
+    private func setLayout() {
         addSubviews([backButton,
                      titleLabel,
                      closeButton])
@@ -135,11 +135,11 @@ final class TDSNavigationBar: UIView {
     
     // MARK: - Custom Method
     
-    private func setUpBackButton(isHidden: Bool) {
+    private func setBackButton(isHidden: Bool) {
         backButton.isHidden = isHidden
     }
     
-    private func setUpCloseButton(isHidden: Bool) {
+    private func setCloseButton(isHidden: Bool) {
         closeButton.isHidden = isHidden
     }
 }

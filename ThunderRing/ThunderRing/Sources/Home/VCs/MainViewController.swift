@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class MainViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -35,4 +35,16 @@ final class MainViewController: UIViewController {
     }
     
     // MARK: - Custom Method
+}
+
+// MARK: - Custom Delegate
+
+extension HomeViewController: HomePrivateGroupCollectionViewCellViewDelegate {
+    func touchUpEnterButton() {
+        print("입장 버튼 누름")
+    }
+    
+    func touchUpLightningButton() {
+        print("번개 버튼 누름")
+    }
 }
