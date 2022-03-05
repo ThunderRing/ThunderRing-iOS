@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIColor {
-    
     @nonobjc class var purple100: UIColor {
         return UIColor(red: 93.0 / 255.0, green: 61.0 / 255.0, blue: 1.0, alpha: 1.0)
     }
@@ -73,8 +72,27 @@ extension UIColor {
         return UIColor(red: 212.0 / 255.0, green: 193.0 / 255.0, blue: 1.0, alpha: 1.0)
     }
     
-    
     @nonobjc class var grayShadow: UIColor {
         return UIColor(red: 206.0 / 255.0, green: 206.0 / 255.0, blue: 206.0 / 255.0, alpha: 0.17)
+    }
+    
+    @nonobjc class var diligentColor: UIColor {
+        return UIColor(red: 255.0 / 255.0, green: 83.0 / 255.0, blue: 37.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var softColor: UIColor {
+        return UIColor(red: 255.0 / 255.0, green: 169.0 / 255.0, blue: 92.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var crowdColor: UIColor {
+        return UIColor(red: 255.0 / 255.0, green: 217.0 / 255.0, blue: 83.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var cozyColor: UIColor {
+        return UIColor(red: 183.0 / 255.0, green: 135.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
+    }
+    
+    @nonobjc class var emotionColor: UIColor {
+        return UIColor(red: 132.0 / 255.0, green: 172.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
     }
 }
