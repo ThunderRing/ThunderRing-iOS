@@ -61,8 +61,5 @@ final class HomePrivateGroupCollectionViewCell: UICollectionViewCell {
             $0.height.equalTo(147)
         }
     }
-    
-    // MARK: - Custom Method
-    
 }
 

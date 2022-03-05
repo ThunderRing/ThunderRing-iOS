@@ -104,8 +104,6 @@ extension MyGroupCVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        headerView.addAboveTheBottomBorderWithColor(color: .background)
-        headerView.addBottomBorderWithColor(color: .background)
         return headerView
     }
 }
