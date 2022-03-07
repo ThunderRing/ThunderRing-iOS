@@ -19,31 +19,35 @@ final class HomePrivateGroupCollectionViewCellView: UIView {
     
     // MARK: - Properties
     
-    private lazy var groupImageView = UIImageView().then {
+    private var groupImageView = UIImageView().then {
         $0.image = UIImage(named: "imgJuju")
         $0.contentMode = .scaleAspectFill
     }
     
-    private lazy var titleLabel = UILabel().then {
+    private var groupNameLabel = UILabel().then {
         $0.text = "그룹이름"
         $0.textColor = .black
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 17)
     }
     
-    private lazy var memberCountLabel = UILabel().then {
+    private var memberCountLabel = UILabel().then {
         $0.text = "0"
         $0.textColor = .gray150
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
     
-    private lazy var subTitleLabel = UILabel().then {
+    private var descriptionLabel = UILabel().then {
         $0.text = "그룹상세설명"
         $0.textColor = .gray150
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
     
-    private lazy var enterButton = ItemButton(buttonType: .enter)
-    private lazy var lightningButton = ItemButton(buttonType: .lightning)
+    private var enterButton = ItemButton(buttonType: .enter).then {
+        $0.addTarget(self, action: #selector(touchUpEnterButton), for: .touchUpInside)
+    }
+    private var lightningButton = ItemButton(buttonType: .lightning).then {
+        $0.addTarget(self, action: #selector(touchUpLightningButton), for: .touchUpInside)
+    }
     
     weak var delegate: HomePrivateGroupCollectionViewCellViewDelegate?
     
@@ -63,41 +67,52 @@ final class HomePrivateGroupCollectionViewCellView: UIView {
     
     private func configUI() {
         self.backgroundColor = .background
-        addSubviews([groupImageView, titleLabel, subTitleLabel, enterButton, lightningButton])
+        
+        self.addSubviews([groupImageView,
+                          groupNameLabel,
+                          descriptionLabel,
+                          memberCountLabel,
+                          enterButton,
+                          lightningButton])
         
         groupImageView.makeRounded(cornerRadius: 25)
     }
     
-    // FIXME: - 레이아웃 값 수정
     private func setLayout() {
         groupImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(18)
+            $0.width.equalTo(80)
+            $0.height.equalTo(82)
         }
         
-        titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(32)
-            $0.leading.equalTo(groupImageView.snp.trailing).offset(19)
+        groupNameLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(30)
+            $0.leading.equalTo(groupImageView.snp.trailing).offset(17)
         }
         
         memberCountLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(33)
-            $0.leading.equalTo(titleLabel.snp.trailing).offset(4)
+            $0.top.equalToSuperview().inset(31)
+            $0.leading.equalTo(groupNameLabel.snp.trailing).offset(4)
         }
         
-        subTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(5)
+        descriptionLabel.snp.makeConstraints {
+            $0.top.equalTo(groupNameLabel.snp.bottom).offset(5)
             $0.leading.equalTo(groupImageView.snp.trailing).offset(19)
         }
         
         enterButton.snp.makeConstraints {
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(12)
-            $0.leading.trailing.equalTo(groupImageView.snp.trailing).offset(19)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(10)
+            $0.leading.equalTo(groupImageView.snp.trailing).offset(17)
+            $0.width.equalTo(80)
+            $0.height.equalTo(30)
         }
-        
+
         lightningButton.snp.makeConstraints {
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(12)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(12)
             $0.leading.equalTo(enterButton.snp.trailing).offset(7)
+            $0.width.equalTo(80)
+            $0.height.equalTo(30)
         }
     }
     
@@ -109,6 +124,19 @@ final class HomePrivateGroupCollectionViewCellView: UIView {
     
     @objc func touchUpLightningButton() {
         delegate?.touchUpLightningButton()
+    }
+    
+    // MARK: - Public Method
+    
+    func configCell(group: PrivateGroupDataModel) {
+        guard let image = group.groupImageName else { return }
+        groupImageView.image = UIImage(named: image)
+        
+        groupNameLabel.text = group.groupName
+        
+        memberCountLabel.text = "\(group.memberCounts)"
+        
+        descriptionLabel.text = group.groupDescription
     }
 }
 
@@ -153,7 +181,6 @@ fileprivate final class ItemButton: UIButton {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
         $0.text = type.title
         $0.textColor = type.textColor
-        $0.backgroundColor = type.backgroundColor
         $0.textAlignment = .center
     }
 
@@ -169,7 +196,10 @@ fileprivate final class ItemButton: UIButton {
 
     private func setButton() {
         self.makeRounded(cornerRadius: 14)
-        addSubview(textLabel)
+        self.backgroundColor = type.backgroundColor
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.purple100.cgColor
+        self.addSubview(textLabel)
         textLabel.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }

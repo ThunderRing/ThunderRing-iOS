@@ -15,11 +15,11 @@ final class HomePrivateGroupCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    private lazy var firstCellView = HomePrivateGroupCollectionViewCellView()
+    var firstCellView = HomePrivateGroupCollectionViewCellView()
     private lazy var lineView = UIView().then {
         $0.backgroundColor = .gray350
     }
-    private lazy var secondCellView = HomePrivateGroupCollectionViewCellView()
+    var secondCellView = HomePrivateGroupCollectionViewCellView()
     
     // MARK: - Initializer
     
@@ -38,8 +38,14 @@ final class HomePrivateGroupCollectionViewCell: UICollectionViewCell {
     private func configUI() {
         backgroundColor = .background
         
-        addSubviews([firstCellView, lineView, secondCellView])
-        
+        contentView.addSubview(firstCellView)
+        contentView.addSubview(lineView)
+        contentView.addSubview(secondCellView)
+
+        contentView.initViewBorder(borderWidth: 1,
+                                   borderColor: UIColor.gray350.cgColor,
+                                   cornerRadius: 5,
+                                   bounds: true)
         lineView.makeRounded(cornerRadius: 0.5)
     }
     
@@ -50,8 +56,8 @@ final class HomePrivateGroupCollectionViewCell: UICollectionViewCell {
         }
         
         lineView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(12)
-            $0.top.equalTo(firstCellView.snp.bottom)
+            $0.centerY.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(11)
             $0.height.equalTo(1)
         }
         
@@ -60,6 +66,13 @@ final class HomePrivateGroupCollectionViewCell: UICollectionViewCell {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(147)
         }
+    }
+    
+    // MARK: - Public Method
+    
+    func initCell(groups: [PrivateGroupDataModel]) {
+        firstCellView.configCell(group: groups[0])
+        secondCellView.configCell(group: groups[1])
     }
 }
 

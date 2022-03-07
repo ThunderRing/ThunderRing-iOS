@@ -11,6 +11,7 @@ import SnapKit
 import Then
 
 final class HomePublicGroupCollectionViewCell: UICollectionViewCell {
+    static var CellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     
@@ -31,14 +32,19 @@ final class HomePublicGroupCollectionViewCell: UICollectionViewCell {
     // MARK: - InitUI
     
     private func configUI() {
-        self.backgroundColor = .background
-        addSubview(cellView)
+        backgroundColor = .background
+        contentView.addSubview(cellView)
+        contentView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 5, bounds: true)
     }
     
     private func setLayout() {
         cellView.snp.makeConstraints {
             $0.leading.trailing.top.bottom.equalToSuperview()
         }
+    }
+    
+    func initCell(group: PublicGroupDataModel) {
+        cellView.configCell(group: group)
     }
 }
 

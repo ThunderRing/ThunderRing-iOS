@@ -19,7 +19,7 @@ final class HomePublicGroupCollectionViewCellView: UIView {
         $0.contentMode = .scaleAspectFill
     }
     
-    private lazy var titleLabel = UILabel().then {
+    private lazy var groupNameLabel = UILabel().then {
         $0.text = "그룹이름"
         $0.textColor = .black
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 17)
@@ -31,11 +31,11 @@ final class HomePublicGroupCollectionViewCellView: UIView {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
     
-    private lazy var subTitleLabel = UILabel().then {
-        $0.text = "그룹상세설명"
-        $0.textColor = .gray150
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+    private lazy var tagImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
     }
+    
+    private var lightningButton = LightningButton()
     
     // MARK: - Initializer
     
@@ -52,50 +52,99 @@ final class HomePublicGroupCollectionViewCellView: UIView {
     // MARK: - InitUI
     
     private func configUI() {
+        addSubviews([groupImageView,
+                     groupNameLabel,
+                     memberCountLabel,
+                     tagImageView,
+                     lightningButton])
         
+        groupImageView.makeRounded(cornerRadius: 23)
+        
+        lightningButton.makeRounded(cornerRadius: 15)
     }
     
     private func setLayout() {
+        groupImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(22)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(74)
+            $0.height.equalTo(74)
+        }
         
-    }
-}
-
-// MARK: - Label
-
-fileprivate enum GroupType {
-    case cozy
-    case crowd
-    case diligent
-    case emotion
-    case soft
-    
-    var title: String {
-        switch self {
-        case .cozy:
-            return "#포근한 해질녘"
-        case .crowd:
-            return "#북적이는 오후"
-        case .diligent:
-            return "부지런한 동틀녘"
-        case .emotion:
-            return "감성적인 새벽녘"
-        case .soft:
-            return "사근한 오전"
+        groupNameLabel.snp.makeConstraints {
+            $0.top.equalTo(groupImageView.snp.bottom).offset(14)
+            $0.leading.equalToSuperview().inset(30)
+        }
+        
+        memberCountLabel.snp.makeConstraints {
+            $0.bottom.equalTo(groupNameLabel.snp.bottom)
+            $0.leading.equalTo(groupNameLabel.snp.trailing).offset(4)
+        }
+        
+        tagImageView.snp.makeConstraints {
+            $0.top.equalTo(memberCountLabel.snp.bottom).offset(6)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(21)
+        }
+        
+        lightningButton.snp.makeConstraints {
+            $0.top.equalTo(tagImageView.snp.bottom).offset(15)
+            $0.width.equalTo(88)
+            $0.height.equalTo(30)
+            $0.centerX.equalToSuperview()
         }
     }
     
-    var color: UIColor {
-        switch self {
-        case .cozy:
-            return UIColor.cozyColor
-        case .crowd:
-            return UIColor.crowdColor
+    // MARK: - Public Method
+    
+    func configCell(group: PublicGroupDataModel) {
+        groupImageView.image = UIImage(named: group.groupImage)
+        
+        groupNameLabel.text = group.groupName
+        
+        memberCountLabel.text = "\(group.memberCounts)/\(group.memberTotalCounts!)"
+        
+        switch group.publicGroupType {
         case .diligent:
-            return UIColor.diligentColor
+            tagImageView.image = UIImage(named: "tagDiligent")
+        case .crowd:
+            tagImageView.image = UIImage(named: "tagCrowd")
         case .emotion:
-            return UIColor.emotionColor
+            tagImageView.image = UIImage(named: "tagEmotion")
         case .soft:
-            return UIColor.softColor
+            tagImageView.image = UIImage(named: "tagSoft")
+        case .cozy:
+            tagImageView.image = UIImage(named: "tagCozy")
+        }
+        tagImageView.contentMode = .scaleAspectFit
+    }
+}
+
+// MARK: - Custom Button
+
+fileprivate final class LightningButton: UIButton {
+    private lazy var textLabel = UILabel().then {
+        $0.text = "번개"
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+        $0.textColor = .white
+        $0.textAlignment = .center
+    }
+
+    init() {
+        super.init(frame: .zero)
+        setButton()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setButton() {
+        self.makeRounded(cornerRadius: 14)
+        self.backgroundColor = .purple100
+        self.addSubview(textLabel)
+        textLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
         }
     }
 }
