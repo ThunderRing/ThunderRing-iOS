@@ -21,7 +21,7 @@ final class TabBarController: UITabBarController {
     
     private func initUI() {
         UITabBar.appearance().backgroundColor = .white
-        UITabBar.appearance().tintColor = UIColor(red: 157.0 / 255.0, green: 157.0 / 255.0, blue: 157.0 / 255.0, alpha: 1.0)
+        UITabBar.appearance().tintColor = .gray150
         
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -31,9 +31,12 @@ final class TabBarController: UITabBarController {
     }
     
     private func setTabBar() {
-        let mainStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Main, bundle: nil)
-        let mainTab = mainStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-        mainTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
+//        let mainStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Main, bundle: nil)
+//        let mainTab = mainStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
+//        mainTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
+        
+        let homeTab = HomeViewController()
+        homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
         
         let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
         let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
@@ -51,10 +54,10 @@ final class TabBarController: UITabBarController {
         let myTab = myStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
         myTab.tabBarItem = UITabBarItem(title: "프로필", image: UIImage(named: "mypageIn"), selectedImage: UIImage(named: "mypage"))
         
-        let tabs =  [mainTab, chatTab, lightningTab, alarmTab, myTab]
+        let tabs =  [homeTab, chatTab, lightningTab, alarmTab, myTab]
         
         self.setViewControllers(tabs, animated: false)
-        self.selectedViewController = mainTab
+        self.selectedViewController = homeTab
     }
 }
 

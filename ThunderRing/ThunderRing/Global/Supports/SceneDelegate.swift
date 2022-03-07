@@ -21,7 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Main, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.TabBar)
+//        window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.Main, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.TabBar)
+        
+        window?.rootViewController = TabBarController()
         
         window?.makeKeyAndVisible()
     }
