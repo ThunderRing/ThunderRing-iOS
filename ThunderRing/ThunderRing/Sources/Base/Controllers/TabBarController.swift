@@ -7,13 +7,11 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.delegate = self
-        
         initUI()
         setTabBar()
         getNotification()
@@ -23,7 +21,7 @@ class TabBarController: UITabBarController {
     
     private func initUI() {
         UITabBar.appearance().backgroundColor = .white
-        UITabBar.appearance().tintColor = UIColor(red: 157.0 / 255.0, green: 157.0 / 255.0, blue: 157.0 / 255.0, alpha: 1.0)
+        UITabBar.appearance().tintColor = .gray150
         
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -33,30 +31,33 @@ class TabBarController: UITabBarController {
     }
     
     private func setTabBar() {
-        let mainStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Main, bundle: nil)
-        let mainTab = mainStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-        mainTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
+//        let mainStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Main, bundle: nil)
+//        let mainTab = mainStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
+//        mainTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
+        
+        let homeTab = HomeViewController()
+        homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
         
         let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
         let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-        chatTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "chatIn"), selectedImage: UIImage(named: "chat"))
+        chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "chatIn"), selectedImage: UIImage(named: "chat"))
         
         let lightningStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Lightning, bundle: nil)
         let lightningTab = lightningStoryboard.instantiateViewController(identifier: Const.ViewController.Name.ModalNavigation)
-        lightningTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "thunder"), selectedImage: UIImage(named: "thunder"))
+        lightningTab.tabBarItem = UITabBarItem(title: "번개", image: UIImage(named: "thunder"), selectedImage: UIImage(named: "thunder"))
         
         let alarmStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Alarm, bundle: nil)
         let alarmTab = alarmStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-        alarmTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "alarmIn"), selectedImage: UIImage(named: "alarm"))
+        alarmTab.tabBarItem = UITabBarItem(title: "알림", image: UIImage(named: "alarmIn"), selectedImage: UIImage(named: "alarm"))
         
         let myStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.MyPage, bundle: nil)
         let myTab = myStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-        myTab.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "mypageIn"), selectedImage: UIImage(named: "mypage"))
+        myTab.tabBarItem = UITabBarItem(title: "프로필", image: UIImage(named: "mypageIn"), selectedImage: UIImage(named: "mypage"))
         
-        let tabs =  [mainTab, chatTab, lightningTab, alarmTab, myTab]
+        let tabs =  [homeTab, chatTab, lightningTab, alarmTab, myTab]
         
         self.setViewControllers(tabs, animated: false)
-        self.selectedViewController = mainTab
+        self.selectedViewController = homeTab
     }
 }
 
@@ -77,8 +78,7 @@ extension TabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(setSelectedTab(_:)), name: NSNotification.Name("EnterAppByPush"), object: nil)
     }
     
-    @objc
-    func setSelectedTab(_ notification: Notification) {
+    @objc func setSelectedTab(_ notification: Notification) {
         print("알람 탭으로 이동")
         self.selectedIndex = 3
     }

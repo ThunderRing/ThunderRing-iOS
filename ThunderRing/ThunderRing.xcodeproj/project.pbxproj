@@ -53,6 +53,7 @@
 		92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */; };
 		926290E127A40543006A3B58 /* PublicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290E027A40543006A3B58 /* PublicDetailVC.swift */; };
 		926290E427A4055E006A3B58 /* CreatePublicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290E327A4055E006A3B58 /* CreatePublicDetailVC.swift */; };
+		92640F9F27D678B800E71CBD /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92640F9E27D678B800E71CBD /* HomeHeaderView.swift */; };
 		92687A5727501E5C000D9A5D /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92687A5627501E5C000D9A5D /* CALayer+.swift */; };
 		926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C192737F93E0020F851 /* AppDelegate.swift */; };
 		926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1B2737F93E0020F851 /* SceneDelegate.swift */; };
@@ -187,6 +188,7 @@
 		92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLigntningDetailVC.swift; sourceTree = "<group>"; };
 		926290E027A40543006A3B58 /* PublicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicDetailVC.swift; sourceTree = "<group>"; };
 		926290E327A4055E006A3B58 /* CreatePublicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicDetailVC.swift; sourceTree = "<group>"; };
+		92640F9E27D678B800E71CBD /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		92687A5627501E5C000D9A5D /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		926C7C162737F93E0020F851 /* ThunderRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C7C192737F93E0020F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 				9248133A27D13B8E00A0CECC /* HomePrivateGroupCollectionViewCellView.swift */,
 				92B471AC27D37A3500D691E7 /* HomePublicGroupCollectionViewCell.swift */,
 				92B471AE27D3814500D691E7 /* HomePublicGroupCollectionViewCellView.swift */,
+				92640F9E27D678B800E71CBD /* HomeHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1239,6 +1242,7 @@
 				92FC851727C00E950020965A /* TestResponse.swift in Sources */,
 				92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */,
 				92CBCE79273B233F00A3F36D /* AlarmTVC.swift in Sources */,
+				92640F9F27D678B800E71CBD /* HomeHeaderView.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
 				92FF59B0275AB15000916189 /* MemberTVC.swift in Sources */,
 				9240852A27CA91460029E753 /* SearchPrivateGroupVC.swift in Sources */,
