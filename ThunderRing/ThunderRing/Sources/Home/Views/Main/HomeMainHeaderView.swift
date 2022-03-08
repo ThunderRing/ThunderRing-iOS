@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class HomeHeaderView: UIView {
+final class HomeMainHeaderView: UIView {
     
     var title = "" {
         didSet { titleLabel.text = title }

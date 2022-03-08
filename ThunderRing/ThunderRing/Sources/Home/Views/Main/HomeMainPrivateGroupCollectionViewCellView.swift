@@ -15,7 +15,7 @@ protocol HomePrivateGroupCollectionViewCellViewDelegate: AnyObject {
     func touchUpLightningButton()
 }
 
-final class HomePrivateGroupCollectionViewCellView: UIView {
+final class HomeMainPrivateGroupCollectionViewCellView: UIView {
     
     // MARK: - Properties
     

@@ -10,12 +10,12 @@ import UIKit
 import SnapKit
 import Then
 
-final class HomePublicGroupCollectionViewCell: UICollectionViewCell {
+final class HomeMainPublicGroupCollectionViewCell: UICollectionViewCell {
     static var CellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     
-    private lazy var cellView = HomePublicGroupCollectionViewCellView()
+    private lazy var cellView = HomeMainPublicGroupCollectionViewCellView()
     
     // MARK: - Life Cycle
     
@@ -32,7 +32,7 @@ final class HomePublicGroupCollectionViewCell: UICollectionViewCell {
     // MARK: - InitUI
     
     private func configUI() {
-        backgroundColor = .background
+        backgroundColor = .white
         contentView.addSubview(cellView)
         contentView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 5, bounds: true)
     }

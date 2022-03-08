@@ -34,12 +34,12 @@
 		9240852C27CA97C50029E753 /* SearchPublicGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852B27CA97C50029E753 /* SearchPublicGroupVC.swift */; };
 		9244097827AE68EB00034510 /* CreatePublicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244097727AE68EB00034510 /* CreatePublicVC.swift */; };
 		9244097A27AE7F9000034510 /* CompleteCreatePublicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244097927AE7F9000034510 /* CompleteCreatePublicVC.swift */; };
-		9248133027D130D600A0CECC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248132F27D130D600A0CECC /* HomeViewController.swift */; };
+		9248133027D130D600A0CECC /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248132F27D130D600A0CECC /* HomeMainViewController.swift */; };
 		9248133227D1319C00A0CECC /* TDSNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133127D1319C00A0CECC /* TDSNavigationBar.swift */; };
 		9248133427D1323400A0CECC /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133327D1323400A0CECC /* CloseButton.swift */; };
 		9248133627D132B400A0CECC /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133527D132B400A0CECC /* BackButton.swift */; };
-		9248133927D139A500A0CECC /* HomePrivateGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133827D139A500A0CECC /* HomePrivateGroupCollectionViewCell.swift */; };
-		9248133B27D13B8E00A0CECC /* HomePrivateGroupCollectionViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133A27D13B8E00A0CECC /* HomePrivateGroupCollectionViewCellView.swift */; };
+		9248133927D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133827D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift */; };
+		9248133B27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133A27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift */; };
 		9251955F27CA15E900C00E7E /* SearchBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9251955E27CA15E900C00E7E /* SearchBaseVC.swift */; };
 		9252EB952769CA9100809FEA /* ContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252EB942769CA9100809FEA /* ContactDataModel.swift */; };
 		9258354E275C997900F64DC0 /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9258354D275C997900F64DC0 /* AccountInfo.storyboard */; };
@@ -53,7 +53,7 @@
 		92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */; };
 		926290E127A40543006A3B58 /* PublicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290E027A40543006A3B58 /* PublicDetailVC.swift */; };
 		926290E427A4055E006A3B58 /* CreatePublicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290E327A4055E006A3B58 /* CreatePublicDetailVC.swift */; };
-		92640F9F27D678B800E71CBD /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92640F9E27D678B800E71CBD /* HomeHeaderView.swift */; };
+		92640F9F27D678B800E71CBD /* HomeMainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92640F9E27D678B800E71CBD /* HomeMainHeaderView.swift */; };
 		92687A5727501E5C000D9A5D /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92687A5627501E5C000D9A5D /* CALayer+.swift */; };
 		926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C192737F93E0020F851 /* AppDelegate.swift */; };
 		926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C1B2737F93E0020F851 /* SceneDelegate.swift */; };
@@ -89,6 +89,9 @@
 		928FDA0D2760D1C4009AC059 /* PrivateDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0C2760D1C4009AC059 /* PrivateDetailVC.swift */; };
 		928FDA0F2760DBAB009AC059 /* MyPrivateTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0E2760DBAB009AC059 /* MyPrivateTVC.swift */; };
 		929BB8CA27BCDF44003A3BB3 /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 929BB8C927BCDF44003A3BB3 /* TestData.json */; };
+		92A2445127D7EACF00A81738 /* HomeCruitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A2445027D7EACF00A81738 /* HomeCruitingViewController.swift */; };
+		92A2445327D7EE0D00A81738 /* HomeCruitingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A2445227D7EE0D00A81738 /* HomeCruitingCellView.swift */; };
+		92A2445727D8041500A81738 /* HomeCruitingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A2445627D8041500A81738 /* HomeCruitingTableViewCell.swift */; };
 		92A5B29127398366004149B2 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29027398366004149B2 /* Storyboard.swift */; };
 		92A5B29327398378004149B2 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29227398378004149B2 /* Const.swift */; };
 		92A5B295273983F0004149B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B294273983F0004149B2 /* ViewController.swift */; };
@@ -106,8 +109,8 @@
 		92AFB3A227633A4000977712 /* LookCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB3A027633A4000977712 /* LookCVC.swift */; };
 		92AFB3A327633A4000977712 /* LookCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AFB3A127633A4000977712 /* LookCVC.xib */; };
 		92B1568A2761426300939048 /* MyPublicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B156892761426300939048 /* MyPublicVC.swift */; };
-		92B471AD27D37A3500D691E7 /* HomePublicGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471AC27D37A3500D691E7 /* HomePublicGroupCollectionViewCell.swift */; };
-		92B471AF27D3814500D691E7 /* HomePublicGroupCollectionViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471AE27D3814500D691E7 /* HomePublicGroupCollectionViewCellView.swift */; };
+		92B471AD27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471AC27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift */; };
+		92B471AF27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471AE27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift */; };
 		92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */; };
 		92BCCCAA27650B3D00AA70D6 /* LookDetailCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCA927650B3D00AA70D6 /* LookDetailCVC.swift */; };
 		92BCCCAC2765180800AA70D6 /* LookSortCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCAB2765180800AA70D6 /* LookSortCVC.swift */; };
@@ -169,12 +172,12 @@
 		9240852B27CA97C50029E753 /* SearchPublicGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPublicGroupVC.swift; sourceTree = "<group>"; };
 		9244097727AE68EB00034510 /* CreatePublicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicVC.swift; sourceTree = "<group>"; };
 		9244097927AE7F9000034510 /* CompleteCreatePublicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreatePublicVC.swift; sourceTree = "<group>"; };
-		9248132F27D130D600A0CECC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9248132F27D130D600A0CECC /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
 		9248133127D1319C00A0CECC /* TDSNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDSNavigationBar.swift; sourceTree = "<group>"; };
 		9248133327D1323400A0CECC /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		9248133527D132B400A0CECC /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
-		9248133827D139A500A0CECC /* HomePrivateGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePrivateGroupCollectionViewCell.swift; sourceTree = "<group>"; };
-		9248133A27D13B8E00A0CECC /* HomePrivateGroupCollectionViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePrivateGroupCollectionViewCellView.swift; sourceTree = "<group>"; };
+		9248133827D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainPrivateGroupCollectionViewCell.swift; sourceTree = "<group>"; };
+		9248133A27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainPrivateGroupCollectionViewCellView.swift; sourceTree = "<group>"; };
 		9251955E27CA15E900C00E7E /* SearchBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBaseVC.swift; sourceTree = "<group>"; };
 		9252EB942769CA9100809FEA /* ContactDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataModel.swift; sourceTree = "<group>"; };
 		9258354D275C997900F64DC0 /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
@@ -188,7 +191,7 @@
 		92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLigntningDetailVC.swift; sourceTree = "<group>"; };
 		926290E027A40543006A3B58 /* PublicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicDetailVC.swift; sourceTree = "<group>"; };
 		926290E327A4055E006A3B58 /* CreatePublicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicDetailVC.swift; sourceTree = "<group>"; };
-		92640F9E27D678B800E71CBD /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		92640F9E27D678B800E71CBD /* HomeMainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainHeaderView.swift; sourceTree = "<group>"; };
 		92687A5627501E5C000D9A5D /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		926C7C162737F93E0020F851 /* ThunderRing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThunderRing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926C7C192737F93E0020F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +229,9 @@
 		928FDA0C2760D1C4009AC059 /* PrivateDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDetailVC.swift; sourceTree = "<group>"; };
 		928FDA0E2760DBAB009AC059 /* MyPrivateTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateTVC.swift; sourceTree = "<group>"; };
 		929BB8C927BCDF44003A3BB3 /* TestData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestData.json; sourceTree = "<group>"; };
+		92A2445027D7EACF00A81738 /* HomeCruitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCruitingViewController.swift; sourceTree = "<group>"; };
+		92A2445227D7EE0D00A81738 /* HomeCruitingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCruitingCellView.swift; sourceTree = "<group>"; };
+		92A2445627D8041500A81738 /* HomeCruitingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCruitingTableViewCell.swift; sourceTree = "<group>"; };
 		92A5B29027398366004149B2 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		92A5B29227398378004149B2 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		92A5B294273983F0004149B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -248,8 +254,8 @@
 		92AFB3A027633A4000977712 /* LookCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookCVC.swift; sourceTree = "<group>"; };
 		92AFB3A127633A4000977712 /* LookCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookCVC.xib; sourceTree = "<group>"; };
 		92B156892761426300939048 /* MyPublicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPublicVC.swift; sourceTree = "<group>"; };
-		92B471AC27D37A3500D691E7 /* HomePublicGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePublicGroupCollectionViewCell.swift; sourceTree = "<group>"; };
-		92B471AE27D3814500D691E7 /* HomePublicGroupCollectionViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePublicGroupCollectionViewCellView.swift; sourceTree = "<group>"; };
+		92B471AC27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainPublicGroupCollectionViewCell.swift; sourceTree = "<group>"; };
+		92B471AE27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainPublicGroupCollectionViewCellView.swift; sourceTree = "<group>"; };
 		92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTVC.swift; sourceTree = "<group>"; };
 		92BCCCA927650B3D00AA70D6 /* LookDetailCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookDetailCVC.swift; sourceTree = "<group>"; };
 		92BCCCAB2765180800AA70D6 /* LookSortCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookSortCVC.swift; sourceTree = "<group>"; };
@@ -417,11 +423,8 @@
 		9248133727D1398200A0CECC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9248133827D139A500A0CECC /* HomePrivateGroupCollectionViewCell.swift */,
-				9248133A27D13B8E00A0CECC /* HomePrivateGroupCollectionViewCellView.swift */,
-				92B471AC27D37A3500D691E7 /* HomePublicGroupCollectionViewCell.swift */,
-				92B471AE27D3814500D691E7 /* HomePublicGroupCollectionViewCellView.swift */,
-				92640F9E27D678B800E71CBD /* HomeHeaderView.swift */,
+				92A2445527D8035600A81738 /* Cruiting */,
+				92A2445427D802F700A81738 /* Main */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -717,7 +720,8 @@
 				926C7C1D2737F93E0020F851 /* MainVC.swift */,
 				1DF615C52752CD8F00D0CF7C /* RecruitingVC.swift */,
 				1DA5D063275BD7A100F78579 /* JoinVC.swift */,
-				9248132F27D130D600A0CECC /* HomeViewController.swift */,
+				9248132F27D130D600A0CECC /* HomeMainViewController.swift */,
+				92A2445027D7EACF00A81738 /* HomeCruitingViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -819,6 +823,27 @@
 				929BB8C927BCDF44003A3BB3 /* TestData.json */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		92A2445427D802F700A81738 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9248133827D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift */,
+				9248133A27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift */,
+				92B471AC27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift */,
+				92B471AE27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift */,
+				92640F9E27D678B800E71CBD /* HomeMainHeaderView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		92A2445527D8035600A81738 /* Cruiting */ = {
+			isa = PBXGroup;
+			children = (
+				92A2445627D8041500A81738 /* HomeCruitingTableViewCell.swift */,
+				92A2445227D7EE0D00A81738 /* HomeCruitingCellView.swift */,
+			);
+			path = Cruiting;
 			sourceTree = "<group>";
 		};
 		92A5B28F2739834F004149B2 /* Constants */ = {
@@ -1204,7 +1229,7 @@
 				9276B06B275B458B00915F57 /* String+.swift in Sources */,
 				92687A5727501E5C000D9A5D /* CALayer+.swift in Sources */,
 				92F9A53F27AFF4E3004F41FE /* TempCell.swift in Sources */,
-				9248133027D130D600A0CECC /* HomeViewController.swift in Sources */,
+				9248133027D130D600A0CECC /* HomeMainViewController.swift in Sources */,
 				928AE07B276B0D4C001155EE /* PrivateGroupCVC.swift in Sources */,
 				92E416EF27B8264B00FD008F /* Adjust+.swift in Sources */,
 				9248133227D1319C00A0CECC /* TDSNavigationBar.swift in Sources */,
@@ -1214,7 +1239,7 @@
 				926290E427A4055E006A3B58 /* CreatePublicDetailVC.swift in Sources */,
 				9244097A27AE7F9000034510 /* CompleteCreatePublicVC.swift in Sources */,
 				92B1568A2761426300939048 /* MyPublicVC.swift in Sources */,
-				9248133B27D13B8E00A0CECC /* HomePrivateGroupCollectionViewCellView.swift in Sources */,
+				9248133B27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift in Sources */,
 				9251955F27CA15E900C00E7E /* SearchBaseVC.swift in Sources */,
 				926C7C62273805B70020F851 /* NavigationController.swift in Sources */,
 				92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */,
@@ -1227,6 +1252,7 @@
 				92E416ED27B824CF00FD008F /* TDSButton.swift in Sources */,
 				92BCCCAA27650B3D00AA70D6 /* LookDetailCVC.swift in Sources */,
 				92291C522759130F0012927B /* CompleteCreatePrivateVC.swift in Sources */,
+				92A2445727D8041500A81738 /* HomeCruitingTableViewCell.swift in Sources */,
 				92AFB39A276339F000977712 /* MyGroupCVC.swift in Sources */,
 				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
 				926290E127A40543006A3B58 /* PublicDetailVC.swift in Sources */,
@@ -1242,7 +1268,7 @@
 				92FC851727C00E950020965A /* TestResponse.swift in Sources */,
 				92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */,
 				92CBCE79273B233F00A3F36D /* AlarmTVC.swift in Sources */,
-				92640F9F27D678B800E71CBD /* HomeHeaderView.swift in Sources */,
+				92640F9F27D678B800E71CBD /* HomeMainHeaderView.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
 				92FF59B0275AB15000916189 /* MemberTVC.swift in Sources */,
 				9240852A27CA91460029E753 /* SearchPrivateGroupVC.swift in Sources */,
@@ -1253,11 +1279,11 @@
 				92159CA02758D5620081F20B /* AddMemberVC.swift in Sources */,
 				928FDA0F2760DBAB009AC059 /* MyPrivateTVC.swift in Sources */,
 				9212667C2748167D009DE534 /* UIColor+.swift in Sources */,
-				9248133927D139A500A0CECC /* HomePrivateGroupCollectionViewCell.swift in Sources */,
+				9248133927D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift in Sources */,
 				92BCCCAC2765180800AA70D6 /* LookSortCVC.swift in Sources */,
 				928FDA0B2760D1B5009AC059 /* MyPrivateVC.swift in Sources */,
 				9276B067275B453E00915F57 /* BasePaddingLabel.swift in Sources */,
-				92B471AF27D3814500D691E7 /* HomePublicGroupCollectionViewCellView.swift in Sources */,
+				92B471AF27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift in Sources */,
 				9276B070275B477A00915F57 /* CounterpartChatCVC.swift in Sources */,
 				1DF615C62752CD8F00D0CF7C /* RecruitingVC.swift in Sources */,
 				925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */,
@@ -1271,7 +1297,7 @@
 				92583550275C999100F64DC0 /* AccountInfoVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */,
-				92B471AD27D37A3500D691E7 /* HomePublicGroupCollectionViewCell.swift in Sources */,
+				92B471AD27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift in Sources */,
 				9212667A2748055A009DE534 /* TestResultVC.swift in Sources */,
 				1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */,
 				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
@@ -1279,7 +1305,9 @@
 				92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */,
 				92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */,
 				92CBCE73273B132600A3F36D /* ProceedCVC.swift in Sources */,
+				92A2445327D7EE0D00A81738 /* HomeCruitingCellView.swift in Sources */,
 				92A5B2A32739AA83004149B2 /* QuestionTVC.swift in Sources */,
+				92A2445127D7EACF00A81738 /* HomeCruitingViewController.swift in Sources */,
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
 				92A5B2A12739AA49004149B2 /* AccountTVC.swift in Sources */,
 				9276B065275B44F700915F57 /* BaseCell.swift in Sources */,

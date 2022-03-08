@@ -10,16 +10,16 @@ import UIKit
 import SnapKit
 import Then
 
-final class HomePrivateGroupCollectionViewCell: UICollectionViewCell {
+final class HomeMainPrivateGroupCollectionViewCell: UICollectionViewCell {
     static var CellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     
-    var firstCellView = HomePrivateGroupCollectionViewCellView()
+    var firstCellView = HomeMainPrivateGroupCollectionViewCellView()
     private lazy var lineView = UIView().then {
         $0.backgroundColor = .gray350
     }
-    var secondCellView = HomePrivateGroupCollectionViewCellView()
+    var secondCellView = HomeMainPrivateGroupCollectionViewCellView()
     
     // MARK: - Initializer
     
@@ -36,7 +36,7 @@ final class HomePrivateGroupCollectionViewCell: UICollectionViewCell {
     // MARK: - InitUI
     
     private func configUI() {
-        backgroundColor = .background
+        backgroundColor = .white
         
         contentView.addSubview(firstCellView)
         contentView.addSubview(lineView)
