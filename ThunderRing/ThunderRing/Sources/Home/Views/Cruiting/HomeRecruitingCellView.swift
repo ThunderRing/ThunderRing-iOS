@@ -10,19 +10,12 @@ import UIKit
 import SnapKit
 import Then
 
-final class HomeCruitingCellView: UIView {
+final class HomeRecruitingCellView: UIView {
 
     // MARK: - Properties
     
-    private lazy var contentStackView = UIStackView().then {
-        $0.axis = .vertical
-        $0.distribution = .equalSpacing
-        $0.alignment = .fill
-        $0.spacing = 0
-    }
-    
     private lazy var backgroudView = UIView().then {
-        $0.backgroundColor = .gray350
+        $0.backgroundColor = .white
     }
     
     private lazy var countLabelView = CountLabelView()
@@ -32,35 +25,29 @@ final class HomeCruitingCellView: UIView {
     }
     
     private lazy var subtitleLabel = UILabel().then {
-        $0.text = "번개정보"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
     private lazy var titleLabel = UILabel().then {
-        $0.text = "[그룹명] 번개명"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
-    private lazy var imageStackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.distribution = .equalSpacing
-        $0.alignment = .fill
-        $0.spacing = 6
-    }
+    private lazy var memberCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = .zero
+        
+        return UICollectionView(frame: .zero, collectionViewLayout: layout).then {
+            $0.backgroundColor = .clear
+            $0.isScrollEnabled = false
+            $0.showsHorizontalScrollIndicator = false
+        }
+    }()
     
-    var members: [String] = ["김씨", "박씨"]
-    
-    private lazy var itemViews: [UIView] = members.map { data in
-        let view = MemberImageView(memberType: .participant)
-        return view
-    }
-    
-    private lazy var itemView: [UIView] = members[0].map { data in
-        let view = MemberImageView(memberType: .promoter)
-        return view
-    }
+    private var memberCount: Int = 1
     
     // MARK: - Initialzers
     
@@ -68,6 +55,7 @@ final class HomeCruitingCellView: UIView {
         super.init(frame: .zero)
         configUI()
         setLayout()
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -79,29 +67,28 @@ final class HomeCruitingCellView: UIView {
     private func configUI() {
         backgroundColor = .white
         
-        addSubview(contentStackView)
-        contentStackView.addArrangedSubview(backgroudView)
-        contentStackView.addArrangedSubview(countLabelView)
+        backgroudView.initViewBorder(borderWidth: 1,
+                                     borderColor: UIColor.gray350.cgColor,
+                                     cornerRadius: 5,
+                                     bounds: true)
+        
+        addSubviews([backgroudView, countLabelView])
         
         backgroudView.addSubviews([locationImageView,
                                    subtitleLabel,
                                    titleLabel,
-                                   imageStackView])
-        
-        for view in itemViews {
-            imageStackView.addArrangedSubview(view)
-        }
+                                   memberCollectionView])
     }
     
     private func setLayout() {
         backgroudView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(26)
-            $0.top.equalToSuperview().inset(14)
-            $0.bottom.equalToSuperview()
+            $0.top.equalToSuperview().inset(26)
+            $0.bottom.equalToSuperview().inset(12)
         }
         
         countLabelView.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().inset(12)
             $0.leading.equalToSuperview().inset(45)
             $0.width.equalTo(98)
             $0.height.equalTo(31)
@@ -124,14 +111,26 @@ final class HomeCruitingCellView: UIView {
             $0.leading.equalToSuperview().inset(19)
         }
         
-        imageStackView.snp.makeConstraints {
+        memberCollectionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(17)
+            $0.height.equalTo(50)
             $0.bottom.equalToSuperview().inset(16)
         }
     }
     
     // MARK: - Custom Method
+    
+    private func bind() {
+        
+    }
+    
+    internal func configCell(lightning: LightningDataModel) {
+        titleLabel.text = "\(lightning.groupName) \(lightning.lightningName)"
+        subtitleLabel.text = "\(lightning.location) \(lightning.date) \(lightning.time)"
+        
+        countLabelView.count = lightning.maxNumber - lightning.minNumber
+    }
 }
 
 // MARK: - Custom View
@@ -161,59 +160,13 @@ fileprivate final class CountLabelView: UIView {
     
     private func configUI() {
         backgroundColor = .purple100
+        makeRounded(cornerRadius: 15.5)
     }
     
     private func setLayout() {
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
-        }
-    }
-}
-
-// MARK: - Member
-
-fileprivate enum MemberType {
-    case promoter
-    case participant
-    
-    var image: UIImage {
-        switch self {
-        case .promoter:
-            return UIImage(named: "icnPromoter")!
-        case .participant:
-            return UIImage(named: "chat")!
-        }
-    }
-}
-
-fileprivate final class MemberImageView: UIImageView {
-    private lazy var type: MemberType = .promoter
-    
-    private lazy var iconImageView = UIImageView().then {
-        $0.image = type.image
-    }
-    
-    init(memberType: MemberType) {
-        super.init(frame: .zero)
-        self.type = memberType
-        configUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    private func configUI() {
-        clipsToBounds = false
-        image = type.image
-        makeRounded(cornerRadius: 15)
-        
-        addSubview(iconImageView)
-        iconImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(32)
-            $0.leading.equalToSuperview().inset(33)
-            $0.width.height.equalTo(22)
         }
     }
 }

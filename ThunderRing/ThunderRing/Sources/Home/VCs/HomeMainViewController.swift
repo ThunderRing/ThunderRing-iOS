@@ -229,7 +229,7 @@ final class HomeMainViewController: UIViewController {
     // MARK: - @objc
     
     @objc func touchUpRecruitingButton() {
-        let dvc = HomeCruitingViewController()
+        let dvc = HomeRecruitingViewController()
         navigationController?.pushViewController(dvc, animated: true)
     }
 }
