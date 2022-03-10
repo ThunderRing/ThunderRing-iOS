@@ -10,10 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-protocol HomeRecruitingTableViewCellViewDelegate: AnyObject {
-    func touchUpPlusButton()
-}
-
 final class HomeRecruitingTableViewCellView: UIView {
 
     // MARK: - Properties
@@ -38,21 +34,6 @@ final class HomeRecruitingTableViewCellView: UIView {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
-//    private lazy var memberCollectionView: UICollectionView = {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        layout.itemSize = UICollectionViewFlowLayout.automaticSize
-//        layout.estimatedItemSize = .zero
-//
-//        return UICollectionView(frame: .zero, collectionViewLayout: layout).then {
-//            $0.backgroundColor = .clear
-//            $0.isScrollEnabled = false
-//            $0.showsHorizontalScrollIndicator = false
-//            $0.register(HomeRecruitingCollectionViewCell.self,
-//                        forCellWithReuseIdentifier: HomeRecruitingCollectionViewCell.CellIdentifier)
-//        }
-//    }()
-    
     private lazy var memberStackView = UIStackView().then {
         $0.axis = .horizontal
         $0.alignment = .fill
@@ -73,7 +54,6 @@ final class HomeRecruitingTableViewCellView: UIView {
         super.init(frame: .zero)
         configUI()
         setLayout()
-        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -146,11 +126,6 @@ final class HomeRecruitingTableViewCellView: UIView {
     
     // MARK: - Custom Method
     
-    private func bind() {
-//        memberCollectionView.delegate = self
-//        memberCollectionView.dataSource = self
-    }
-    
     internal func configCell(lightning: LightningDataModel) {
         guard let count = lightning.members?.count else { return }
         memberCount = count
@@ -191,7 +166,6 @@ extension UIStackView {
 // MARK: - Custom Component
 
 fileprivate final class CountLabelView: UIView {
-    
     var count: Int = 0 {
         didSet {
             titleLabel.text = "잔여 \(count)자리"
@@ -227,12 +201,9 @@ fileprivate final class CountLabelView: UIView {
 }
 
 fileprivate final class PlusButton: UIButton {
-    
     private var plusImageView = UIImageView().then {
         $0.image = UIImage(named: "icn_plus")
     }
-    
-    weak var delegate: HomeRecruitingTableViewCellViewDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -244,55 +215,20 @@ fileprivate final class PlusButton: UIButton {
     }
     
     private func setButton() {
+        addTarget(self, action: #selector(touchUpPlusButton), for: .touchUpInside)
+        
         initViewBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 15, bounds: true)
         addSubview(plusImageView)
         plusImageView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
             $0.width.height.equalTo(18)
         }
-        
-        delegate?.touchUpPlusButton()
-        addTarget(self, action: #selector(touchUpPlusButton), for: .touchUpInside)
     }
     
     // MARK: - @objc
     
     @objc func touchUpPlusButton() {
-        delegate?.touchUpPlusButton()
+        NotificationCenter.default.post(name: NSNotification.Name("TouchUpPlusButton"), object: nil)
     }
 }
 
-// MARK: - UICollectionView Delegate
-
-extension HomeRecruitingTableViewCellView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 48, height: 50)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 12
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 12
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .zero
-    }
-}
-
-// MARK: - UICollectionView DataSource
-
-extension HomeRecruitingTableViewCellView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return memberCount
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecruitingCollectionViewCell.CellIdentifier, for: indexPath) as? HomeRecruitingCollectionViewCell else { return UICollectionViewCell() }
-        guard let data = data?.members else { return UICollectionViewCell() }
-        cell.initCell(imageName: data[indexPath.item])
-        return cell
-    }
-}
