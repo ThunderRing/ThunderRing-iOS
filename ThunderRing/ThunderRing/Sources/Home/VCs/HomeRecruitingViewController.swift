@@ -38,6 +38,11 @@ final class HomeRecruitingViewController: UIViewController {
         bind()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - InitUI
     
     private func configUI() {
@@ -84,6 +89,17 @@ final class HomeRecruitingViewController: UIViewController {
                                maxNumber: 9,
                                members: ["imgCoin", "imgDog1"])
         ]
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(touchUpPlusButton(_:)), name: NSNotification.Name("TouchUpPlusButton"), object: nil)
+    }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpPlusButton(_ notification: Notification) {
+        let dvc = HomeJoinViewController()
+        dvc.modalTransitionStyle = .crossDissolve
+        dvc.modalPresentationStyle = .overCurrentContext
+        self.present(dvc, animated: true, completion: nil)
     }
 }
 
@@ -103,13 +119,5 @@ extension HomeRecruitingViewController: UITableViewDataSource {
         cell.initCell(lightning: lightningData[indexPath.row])
         cell.selectionStyle = .none
         return cell
-    }
-}
-
-// MARK: - Custom Delegate
-
-extension HomeRecruitingViewController: HomeRecruitingTableViewCellViewDelegate {
-    func touchUpPlusButton() {
-        print("👏🏻 Tapped!!")
     }
 }
