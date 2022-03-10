@@ -30,6 +30,7 @@
 		92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92270D732750E1EB00364F3A /* AlarmDataModel.swift */; };
 		92275FE827BE713E007B507D /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92275FE727BE713E007B507D /* TestVC.swift */; };
 		9227F2F227DAB0C9001D1BB4 /* HomeJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227F2F127DAB0C9001D1BB4 /* HomeJoinViewController.swift */; };
+		9227F2F427DAB39C001D1BB4 /* HomeJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227F2F327DAB39C001D1BB4 /* HomeJoinView.swift */; };
 		92291C522759130F0012927B /* CompleteCreatePrivateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92291C512759130F0012927B /* CompleteCreatePrivateVC.swift */; };
 		9240852A27CA91460029E753 /* SearchPrivateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852927CA91460029E753 /* SearchPrivateGroupVC.swift */; };
 		9240852C27CA97C50029E753 /* SearchPublicGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852B27CA97C50029E753 /* SearchPublicGroupVC.swift */; };
@@ -170,6 +171,7 @@
 		92270D732750E1EB00364F3A /* AlarmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDataModel.swift; sourceTree = "<group>"; };
 		92275FE727BE713E007B507D /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		9227F2F127DAB0C9001D1BB4 /* HomeJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeJoinViewController.swift; sourceTree = "<group>"; };
+		9227F2F327DAB39C001D1BB4 /* HomeJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeJoinView.swift; sourceTree = "<group>"; };
 		92291C512759130F0012927B /* CompleteCreatePrivateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreatePrivateVC.swift; sourceTree = "<group>"; };
 		9240852927CA91460029E753 /* SearchPrivateGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPrivateGroupVC.swift; sourceTree = "<group>"; };
 		9240852B27CA97C50029E753 /* SearchPublicGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPublicGroupVC.swift; sourceTree = "<group>"; };
@@ -838,6 +840,7 @@
 				92B471AC27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift */,
 				92B471AE27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift */,
 				92640F9E27D678B800E71CBD /* HomeMainHeaderView.swift */,
+				9227F2F327DAB39C001D1BB4 /* HomeJoinView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1298,6 +1301,7 @@
 				9276B069275B457700915F57 /* UILabel+.swift in Sources */,
 				92E497762768C42E0029682C /* ChatListDataModel.swift in Sources */,
 				9248133627D132B400A0CECC /* BackButton.swift in Sources */,
+				9227F2F427DAB39C001D1BB4 /* HomeJoinView.swift in Sources */,
 				92159C9C2758C5B10081F20B /* CreatePrivateDetailVC.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
 				928FDA0D2760D1C4009AC059 /* PrivateDetailVC.swift in Sources */,
