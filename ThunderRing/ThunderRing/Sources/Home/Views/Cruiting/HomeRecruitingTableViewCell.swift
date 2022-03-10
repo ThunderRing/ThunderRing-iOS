@@ -15,7 +15,7 @@ final class HomeRecruitingTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    private lazy var cellView = HomeRecruitingCellView()
+    var cellView = HomeRecruitingTableViewCellView()
     
     // MARK: - Initializer
     

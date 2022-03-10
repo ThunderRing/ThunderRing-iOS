@@ -13,6 +13,10 @@ import Then
 final class HomeRecruitingCollectionViewCell: UICollectionViewCell {
     static var CellIdentifier: String { return String(describing: self) }
     
+    private var memberImageView = UIImageView().then {
+        $0.image = UIImage(named: "imgFlog")
+    }
+    
     // MARK: - Initialzier
     
     override init(frame: CGRect) {
@@ -28,51 +32,21 @@ final class HomeRecruitingCollectionViewCell: UICollectionViewCell {
     // MARK: - InitUI
     
     private func configUI() {
-        
+        contentView.addSubview(memberImageView)
+        contentView.makeRounded(cornerRadius: 15)
     }
     
     private func setLayout() {
-        
-    }
-}
-
-// MARK: - Cell View
-
-fileprivate final class HomeRecruitingCollectionViewCellView: UIView {
-
-    fileprivate enum MemberType {
-        case promoter
-        case participant
-        
-        var image: UIImage {
-            switch self {
-            case .promoter:
-                return UIImage(named: "icnPromoter")!
-            case .participant:
-                return UIImage(named: "chat")!
-            }
+        memberImageView.snp.makeConstraints {
+            $0.leading.trailing.top.bottom.equalToSuperview()
         }
     }
     
-    private var memberTpye: MemberType = .participant
+    // MARK: - Custom Method
     
-    init(memberType: MemberType) {
-        super.init(frame: .zero)
-        self.memberTpye = memberType
-        configUI()
-        setLayout()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configUI() {
-        
-    }
-    
-    private func setLayout() {
-        
+    internal func initCell(imageName: String) {
+        memberImageView.image = UIImage(named: imageName)
     }
 }
+
 

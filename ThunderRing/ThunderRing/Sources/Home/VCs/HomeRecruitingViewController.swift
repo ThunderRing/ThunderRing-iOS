@@ -106,3 +106,10 @@ extension HomeRecruitingViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Custom Delegate
+
+extension HomeRecruitingViewController: HomeRecruitingTableViewCellViewDelegate {
+    func touchUpPlusButton() {
+        print("👏🏻 Tapped!!")
+    }
+}
