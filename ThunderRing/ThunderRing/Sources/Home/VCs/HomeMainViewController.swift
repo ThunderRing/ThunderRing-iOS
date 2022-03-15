@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class HomeViewController: UIViewController {
+final class HomeMainViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -21,6 +21,7 @@ final class HomeViewController: UIViewController {
     private lazy var recruitingButton = UIButton().then {
         $0.setTitle("", for: .normal)
         $0.setImage(UIImage(named: "btnRecruit"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpRecruitingButton), for: .touchUpInside)
     }
     
     private lazy var searchButton = UIButton().then {
@@ -62,12 +63,12 @@ final class HomeViewController: UIViewController {
         $0.spacing = 0
     }
         
-    private lazy var privateGroupHeaderView = HomeHeaderView().then {
+    private lazy var privateGroupHeaderView = HomeMainHeaderView().then {
         $0.title = "비공개 그룹"
         $0.count = privateGroupData.count
     }
     
-    private lazy var publicGroupHeaderView = HomeHeaderView().then {
+    private lazy var publicGroupHeaderView = HomeMainHeaderView().then {
         $0.title = "공개 그룹"
         $0.count = publicGroupData.count
     }
@@ -103,6 +104,7 @@ final class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.isNavigationBarHidden = true
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidLoad() {
@@ -220,15 +222,22 @@ final class HomeViewController: UIViewController {
         publicGroupCollectionView.delegate = self
         publicGroupCollectionView.dataSource = self
 
-        privateGroupCollectionView.register(HomePrivateGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomePrivateGroupCollectionViewCell.CellIdentifier)
+        privateGroupCollectionView.register(HomeMainPrivateGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainPrivateGroupCollectionViewCell.CellIdentifier)
         
-        publicGroupCollectionView.register(HomePublicGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomePublicGroupCollectionViewCell.CellIdentifier)
+        publicGroupCollectionView.register(HomeMainPublicGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainPublicGroupCollectionViewCell.CellIdentifier)
+    }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpRecruitingButton() {
+        let dvc = HomeRecruitingViewController()
+        navigationController?.pushViewController(dvc, animated: true)
     }
 }
 
 // MARK: - Custom Delegate
 
-extension HomeViewController: HomePrivateGroupCollectionViewCellViewDelegate {
+extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate {
     func touchUpEnterButton() {
         print("입장 버튼 누름")
     }
@@ -240,7 +249,7 @@ extension HomeViewController: HomePrivateGroupCollectionViewCellViewDelegate {
 
 // MARK: - UICollectionView Delegate
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
+extension HomeMainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case privateGroupCollectionView:
@@ -276,7 +285,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension HomeViewController: UICollectionViewDataSource {
+extension HomeMainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case privateGroupCollectionView:
@@ -291,13 +300,13 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case privateGroupCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePrivateGroupCollectionViewCell.CellIdentifier, for: indexPath) as? HomePrivateGroupCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeMainPrivateGroupCollectionViewCell.CellIdentifier, for: indexPath) as? HomeMainPrivateGroupCollectionViewCell else { return UICollectionViewCell() }
             cell.initCell(groups: privateGroupData)
             cell.firstCellView.delegate = self
             cell.secondCellView.delegate = self
             return cell
         case publicGroupCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePublicGroupCollectionViewCell.CellIdentifier, for: indexPath) as? HomePublicGroupCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeMainPublicGroupCollectionViewCell.CellIdentifier, for: indexPath) as? HomeMainPublicGroupCollectionViewCell else { return UICollectionViewCell() }
             cell.initCell(group: publicGroupData[indexPath.item])
             return cell
         default:

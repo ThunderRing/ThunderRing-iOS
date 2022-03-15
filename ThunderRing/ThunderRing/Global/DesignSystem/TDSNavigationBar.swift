@@ -68,8 +68,8 @@ final class TDSNavigationBar: UIView {
     private var closeButton = CloseButton()
     
     private var titleLabel = UILabel().then {
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 20)
-        $0.textColor = .black
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        $0.textColor = .gray100
         $0.textAlignment = .center
     }
     
@@ -141,5 +141,9 @@ final class TDSNavigationBar: UIView {
     
     private func setCloseButton(isHidden: Bool) {
         closeButton.isHidden = isHidden
+    }
+    
+    func setTitle(title: String) {
+        titleLabel.text = title
     }
 }

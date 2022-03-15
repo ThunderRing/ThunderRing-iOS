@@ -35,7 +35,7 @@ final class TabBarController: UITabBarController {
 //        let mainTab = mainStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
 //        mainTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
         
-        let homeTab = HomeViewController()
+        let homeTab = UINavigationController(rootViewController: HomeMainViewController())
         homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
         
         let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
