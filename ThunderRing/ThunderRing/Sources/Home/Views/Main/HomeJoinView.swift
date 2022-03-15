@@ -10,6 +10,11 @@ import UIKit
 import SnapKit
 import Then
 
+protocol HomeJoinViewDelegate: AnyObject {
+    func touchUpCancelButton()
+    func touchUpJoinButton()
+}
+
 final class HomeJoinView: UIView {
     
     private lazy var titleLabel = UILabel().then {
@@ -30,8 +35,15 @@ final class HomeJoinView: UIView {
         $0.distribution = .fillEqually
     }
     
-    private lazy var cancelButton = JoinButton(type: .cancel)
-    private lazy var joinButton = JoinButton(type: .join)
+    private lazy var cancelButton = JoinButton(type: .cancel).then {
+        $0.addTarget(self, action: #selector(touchUpCancelButton), for: .touchUpInside)
+    }
+    
+    private lazy var joinButton = JoinButton(type: .join).then {
+        $0.addTarget(self, action: #selector(touchUpJoinButton), for: .touchUpInside)
+    }
+    
+    weak var delegate: HomeJoinViewDelegate?
     
     init() {
         super.init(frame: .zero)
@@ -73,6 +85,16 @@ final class HomeJoinView: UIView {
             $0.top.equalToSuperview().inset(126)
             $0.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpCancelButton() {
+        delegate?.touchUpCancelButton()
+    }
+    
+    @objc func touchUpJoinButton() {
+        delegate?.touchUpJoinButton()
     }
 }
 

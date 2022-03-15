@@ -27,6 +27,12 @@ final class HomeJoinViewController: UIViewController {
         super.viewDidLoad()
         configUI()
         setLayout()
+        bind()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - InitUI
@@ -44,5 +50,20 @@ final class HomeJoinViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(52)
             $0.height.equalTo(172)
         }
+    }
+    
+    private func bind() {
+        joinView.delegate = self
+    }
+}
+
+extension HomeJoinViewController: HomeJoinViewDelegate {
+    func touchUpCancelButton() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func touchUpJoinButton() {
+        NotificationCenter.default.post(name: NSNotification.Name(Const.Notification.join), object: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

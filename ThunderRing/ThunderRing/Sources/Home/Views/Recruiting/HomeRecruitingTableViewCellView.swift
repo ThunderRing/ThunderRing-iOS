@@ -34,13 +34,23 @@ final class HomeRecruitingTableViewCellView: UIView {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
-    private lazy var memberStackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.alignment = .fill
-        $0.distribution = .fillEqually
-        $0.spacing = 12
-    }
+    private lazy var memberCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = .zero
+        
+        return UICollectionView(frame: .zero, collectionViewLayout: layout).then {
+            $0.backgroundColor = .clear
+            $0.isScrollEnabled = false
+            $0.showsHorizontalScrollIndicator = false
+            $0.register(HomeRecruitingCollectionViewCell.self,
+                        forCellWithReuseIdentifier: HomeRecruitingCollectionViewCell.CellIdentifier)
+        }
+    }()
     
+    private lazy var plusButton = PlusButton()
+        
     private lazy var iconImageView = UIImageView().then {
         $0.image = UIImage(named: "icnPromoter")
     }
@@ -54,6 +64,7 @@ final class HomeRecruitingTableViewCellView: UIView {
         super.init(frame: .zero)
         configUI()
         setLayout()
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -75,7 +86,8 @@ final class HomeRecruitingTableViewCellView: UIView {
         backgroudView.addSubviews([locationImageView,
                                    subtitleLabel,
                                    titleLabel,
-                                   memberStackView,
+                                   memberCollectionView,
+                                   plusButton,
                                    iconImageView])
     }
     
@@ -110,11 +122,18 @@ final class HomeRecruitingTableViewCellView: UIView {
             $0.leading.equalToSuperview().inset(19)
         }
         
-        memberStackView.snp.makeConstraints {
+        memberCollectionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().inset(17)
-//            $0.height.equalTo(50)
+            $0.leading.trailing.equalToSuperview().inset(17)
+            $0.height.equalTo(50)
             $0.bottom.equalToSuperview().inset(16)
+        }
+        
+        plusButton.snp.makeConstraints {
+            $0.leading.equalTo(memberCollectionView.snp.trailing).offset(-50)
+            $0.centerY.equalTo(memberCollectionView.snp.centerY)
+            $0.width.equalTo(48)
+            $0.height.equalTo(50)
         }
         
         iconImageView.snp.makeConstraints {
@@ -126,42 +145,65 @@ final class HomeRecruitingTableViewCellView: UIView {
     
     // MARK: - Custom Method
     
+    private func bind() {
+        memberCollectionView.delegate = self
+        memberCollectionView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name(Const.Notification.join), object: nil)
+    }
+    
     internal func configCell(lightning: LightningDataModel) {
+        data = lightning
+       
         guard let count = lightning.members?.count else { return }
         memberCount = count
-        
-        guard let members = lightning.members else { return }
-        memberStackView.updateMemberStackView(members: members)
         
         titleLabel.text = "\(lightning.groupName) \(lightning.lightningName)"
         subtitleLabel.text = "\(lightning.location) \(lightning.date) \(lightning.time)"
         
         countLabelView.count = lightning.maxNumber - lightning.minNumber
     }
-}
-
-// MARK: - Extension
-
-extension UIStackView {
-    func updateMemberStackView(members: [String]) {
-        for member in members {
-            self.addArrangedSubview(initImageView(memberImageName: member))
-        }
-        let plusButton = PlusButton()
-        self.addArrangedSubview(plusButton)
-    }
     
-    private func initImageView(memberImageName: String) -> UIImageView {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: memberImageName)!
-        imageView.makeRounded(cornerRadius: 15)
-        imageView.snp.makeConstraints { make in
-            make.width.equalTo(48)
-            make.height.equalTo(50)
-        }
-        return imageView
+    @objc func touchUpJoinButton(_ notification: Notification) {
+        memberCollectionView.reloadData()
     }
 }
+
+// MARK: - UICollectionView Delegate
+
+extension HomeRecruitingTableViewCellView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 48, height: 50)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 12
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 12
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .zero
+    }
+}
+
+// MARK: - UICollectionView DataSource
+
+extension HomeRecruitingTableViewCellView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return memberCount
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecruitingCollectionViewCell.CellIdentifier, for: indexPath) as? HomeRecruitingCollectionViewCell else { return UICollectionViewCell() }
+        guard let data = data?.members else { return UICollectionViewCell() }
+        cell.initCell(imageName: data[indexPath.item])
+        return cell
+    }
+}
+
 
 // MARK: - Custom Component
 

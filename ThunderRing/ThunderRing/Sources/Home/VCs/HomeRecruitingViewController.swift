@@ -16,7 +16,7 @@ final class HomeRecruitingViewController: UIViewController {
     
     private lazy var navigationBar = TDSNavigationBar(self, view: .main, backButtonIsHidden: false, closeButtonIsHidden: true)
     
-    private var cruitingTableView = UITableView().then {
+    private var recruitingTableView = UITableView().then {
         $0.backgroundColor = .clear
         $0.register(HomeRecruitingTableViewCell.self, forCellReuseIdentifier: HomeRecruitingTableViewCell.CellIdentifier)
         $0.estimatedRowHeight = 204
@@ -30,6 +30,7 @@ final class HomeRecruitingViewController: UIViewController {
         super.viewWillAppear(true)
         navigationController?.isNavigationBarHidden = true
         tabBarController?.tabBar.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name(Const.Notification.join), object: nil)
     }
     
     override func viewDidLoad() {
@@ -51,7 +52,7 @@ final class HomeRecruitingViewController: UIViewController {
         
         navigationBar.setTitle(title: "모집 중인 번개")
         
-        view.addSubviews([navigationBar, cruitingTableView])
+        view.addSubviews([navigationBar, recruitingTableView])
     }
     
     private func setLayout() {
@@ -60,15 +61,15 @@ final class HomeRecruitingViewController: UIViewController {
             $0.height.equalTo(50)
         }
         
-        cruitingTableView.snp.makeConstraints {
+        recruitingTableView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom).offset(16)
             $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
     private func bind() {
-        cruitingTableView.delegate = self
-        cruitingTableView.dataSource = self
+        recruitingTableView.delegate = self
+        recruitingTableView.dataSource = self
         
         lightningData = [
             LightningDataModel(groupName: "[독서모임]",
@@ -102,6 +103,11 @@ final class HomeRecruitingViewController: UIViewController {
         dvc.modalPresentationStyle = .overCurrentContext
         self.present(dvc, animated: true, completion: nil)
     }
+    
+    @objc func touchUpJoinButton(_ notification: Notification) {
+        lightningData[0].members?.append("imgHike")
+        recruitingTableView.reloadData()
+    }
 }
 
 extension HomeRecruitingViewController: UITableViewDelegate {
@@ -117,8 +123,8 @@ extension HomeRecruitingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeRecruitingTableViewCell.CellIdentifier) as? HomeRecruitingTableViewCell else { return UITableViewCell() }
-        cell.initCell(lightning: lightningData[indexPath.row])
         cell.selectionStyle = .none
+        cell.initCell(lightning: lightningData[indexPath.row])
         return cell
     }
 }
