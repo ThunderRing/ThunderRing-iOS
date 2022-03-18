@@ -44,9 +44,9 @@ final class TDSNavigationBar: UIView {
             case .main:
                 return "어쩌고"
             case .chat:
-                return ""
-            case .lightning:
                 return "채팅"
+            case .lightning:
+                return "번개"
             case .alarm:
                 return "알람"
             case .mypage:
@@ -69,7 +69,7 @@ final class TDSNavigationBar: UIView {
     
     private var titleLabel = UILabel().then {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
-        $0.textColor = .gray100
+        $0.textColor = .black
         $0.textAlignment = .center
     }
     
@@ -111,25 +111,25 @@ final class TDSNavigationBar: UIView {
                      titleLabel,
                      closeButton])
         
-        snp.makeConstraints { make in
-            make.height.equalTo(Metric.navigationHeight)
+        snp.makeConstraints {
+            $0.height.equalTo(Metric.navigationHeight)
         }
         
-        backButton.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview().inset(Metric.buttonLeading)
-            make.width.height.equalTo(Metric.buttonSize)
+        backButton.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(Metric.buttonLeading)
+            $0.width.height.equalTo(Metric.buttonSize)
         }
         
-        titleLabel.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(9)
-            make.centerX.equalToSuperview()
+        titleLabel.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(12)
+            $0.leading.equalToSuperview().inset(25)
         }
         
-        closeButton.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.trailing.equalToSuperview().inset(Metric.buttonTrailing)
-            make.width.height.equalTo(Metric.buttonSize)
+        closeButton.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(Metric.buttonTrailing)
+            $0.width.height.equalTo(Metric.buttonSize)
         }
     }
     
