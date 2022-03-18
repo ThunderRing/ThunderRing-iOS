@@ -50,6 +50,11 @@ final class ChatMainTableViewCellView: UIView {
     
     private lazy var alarmView = AlarmView()
     
+    private lazy var lineView = UIView().then {
+        // FIXME: - 색상변경
+        $0.backgroundColor = .gray300
+    }
+    
     // MARK: - Initialzier
     
     init() {
@@ -73,7 +78,8 @@ final class ChatMainTableViewCellView: UIView {
                      subTitleLabel,
                      contentLabel,
                      timeLabel,
-                     alarmView])
+                     alarmView,
+                     lineView])
         
         chatImageView.makeRounded(cornerRadius: 8.33)
     }
@@ -115,6 +121,13 @@ final class ChatMainTableViewCellView: UIView {
             $0.trailing.equalToSuperview()
             $0.width.equalTo(24)
             $0.height.equalTo(17)
+        }
+        
+        lineView.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(64)
+            $0.height.equalTo(1)
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(6)
         }
     }
 }

@@ -68,6 +68,8 @@ final class ChatMainViewController: UIViewController {
     private func bind() {
         chatListTableView.delegate = self
         chatListTableView.dataSource = self
+        
+        chatListTableView.separatorStyle = .none
     }
 }
 
