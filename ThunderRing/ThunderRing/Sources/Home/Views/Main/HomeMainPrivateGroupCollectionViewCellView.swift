@@ -149,7 +149,7 @@ fileprivate enum ItemButtonType {
     var title: String {
         switch self {
         case .enter:
-            return "입장"
+            return "그룹상세"
         case .lightning:
             return "번개"
         }
