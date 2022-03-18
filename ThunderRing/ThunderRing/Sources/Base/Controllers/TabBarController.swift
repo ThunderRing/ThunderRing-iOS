@@ -38,8 +38,11 @@ final class TabBarController: UITabBarController {
         let homeTab = UINavigationController(rootViewController: HomeMainViewController())
         homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
         
-        let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
-        let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
+//        let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
+//        let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
+//        chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "chatIn"), selectedImage: UIImage(named: "chat"))
+        
+        let chatTab = UINavigationController(rootViewController: ChatMainViewController())
         chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "chatIn"), selectedImage: UIImage(named: "chat"))
         
         let lightningStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Lightning, bundle: nil)

@@ -53,6 +53,9 @@
 		925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC392742C5D400126166 /* PublicGroupDataModel.swift */; };
 		925BAC462742C76F00126166 /* PrivateListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC452742C76F00126166 /* PrivateListTVC.swift */; };
 		925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC472742C77C00126166 /* PublicListTVC.swift */; };
+		925DCD4527E51FD000331949 /* ChatMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DCD4427E51FD000331949 /* ChatMainViewController.swift */; };
+		925DCD4827E5210200331949 /* ChatMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DCD4727E5210200331949 /* ChatMainTableViewCell.swift */; };
+		925DCD4A27E5211500331949 /* ChatMainTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DCD4927E5211500331949 /* ChatMainTableViewCellView.swift */; };
 		92609ACB274BB7E800F0E401 /* SetLightningTitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */; };
 		92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */; };
 		926290E127A40543006A3B58 /* PublicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290E027A40543006A3B58 /* PublicDetailVC.swift */; };
@@ -196,6 +199,9 @@
 		925BAC392742C5D400126166 /* PublicGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupDataModel.swift; sourceTree = "<group>"; };
 		925BAC452742C76F00126166 /* PrivateListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateListTVC.swift; sourceTree = "<group>"; };
 		925BAC472742C77C00126166 /* PublicListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicListTVC.swift; sourceTree = "<group>"; };
+		925DCD4427E51FD000331949 /* ChatMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainViewController.swift; sourceTree = "<group>"; };
+		925DCD4727E5210200331949 /* ChatMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainTableViewCell.swift; sourceTree = "<group>"; };
+		925DCD4927E5211500331949 /* ChatMainTableViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainTableViewCellView.swift; sourceTree = "<group>"; };
 		92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLightningTitleVC.swift; sourceTree = "<group>"; };
 		92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLigntningDetailVC.swift; sourceTree = "<group>"; };
 		926290E027A40543006A3B58 /* PublicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicDetailVC.swift; sourceTree = "<group>"; };
@@ -425,7 +431,7 @@
 		92248C4327E0422B00D1EEC8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				92248C4427E0441200D1EEC8 /* ChatMainTopView.swift */,
+				925DCD4627E520DD00331949 /* Main */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -495,6 +501,16 @@
 				925BAC472742C77C00126166 /* PublicListTVC.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		925DCD4627E520DD00331949 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				92248C4427E0441200D1EEC8 /* ChatMainTopView.swift */,
+				925DCD4727E5210200331949 /* ChatMainTableViewCell.swift */,
+				925DCD4927E5211500331949 /* ChatMainTableViewCellView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		926290DE27A4050D006A3B58 /* MyPublic */ = {
@@ -975,6 +991,7 @@
 			children = (
 				926C7C432738022F0020F851 /* ChatListVC.swift */,
 				926C7C48273802890020F851 /* ChatVC.swift */,
+				925DCD4427E51FD000331949 /* ChatMainViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -1245,6 +1262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92FC851527C001750020965A /* TestView.swift in Sources */,
+				925DCD4A27E5211500331949 /* ChatMainTableViewCellView.swift in Sources */,
 				9276B060275B443F00915F57 /* MyChatCVC.swift in Sources */,
 				925BAC462742C76F00126166 /* PrivateListTVC.swift in Sources */,
 				92A5B295273983F0004149B2 /* ViewController.swift in Sources */,
@@ -1275,6 +1293,7 @@
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
 				92E416ED27B824CF00FD008F /* TDSButton.swift in Sources */,
 				92BCCCAA27650B3D00AA70D6 /* LookDetailCVC.swift in Sources */,
+				925DCD4827E5210200331949 /* ChatMainTableViewCell.swift in Sources */,
 				9227F2F227DAB0C9001D1BB4 /* HomeJoinViewController.swift in Sources */,
 				92291C522759130F0012927B /* CompleteCreatePrivateVC.swift in Sources */,
 				92A2445727D8041500A81738 /* HomeRecruitingTableViewCell.swift in Sources */,
@@ -1294,6 +1313,7 @@
 				92FC851727C00E950020965A /* TestResponse.swift in Sources */,
 				92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */,
 				92CBCE79273B233F00A3F36D /* AlarmTVC.swift in Sources */,
+				925DCD4527E51FD000331949 /* ChatMainViewController.swift in Sources */,
 				92640F9F27D678B800E71CBD /* HomeMainHeaderView.swift in Sources */,
 				9227F2F627DAB9F5001D1BB4 /* Notification+.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
