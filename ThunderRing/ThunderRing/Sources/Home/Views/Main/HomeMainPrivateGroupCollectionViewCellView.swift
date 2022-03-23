@@ -42,10 +42,10 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
     
-    private var enterButton = ItemButton(buttonType: .enter).then {
+    private lazy var enterButton = ItemButton(buttonType: .enter).then {
         $0.addTarget(self, action: #selector(touchUpEnterButton), for: .touchUpInside)
     }
-    private var lightningButton = ItemButton(buttonType: .lightning).then {
+    private lazy var lightningButton = ItemButton(buttonType: .lightning).then {
         $0.addTarget(self, action: #selector(touchUpLightningButton), for: .touchUpInside)
     }
     

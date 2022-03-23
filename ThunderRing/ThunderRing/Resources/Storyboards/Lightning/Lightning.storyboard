@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p2D-bl-Qoi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p2D-bl-Qoi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -56,7 +56,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JFA-P9-q55">
-                                <rect key="frame" x="25" y="215" width="364" height="647"/>
+                                <rect key="frame" x="25" y="215" width="364" height="681"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yD1-Cy-77L">
@@ -88,9 +88,8 @@
                             <constraint firstItem="yD1-Cy-77L" firstAttribute="top" secondItem="nms-h0-jdj" secondAttribute="bottom" id="bm8-Yg-C55"/>
                             <constraint firstItem="nms-h0-jdj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="fFN-6J-P3f"/>
                             <constraint firstItem="yD1-Cy-77L" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ozF-hE-pN7"/>
-                            <constraint firstItem="JFA-P9-q55" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="qcP-5B-0ae"/>
                             <constraint firstItem="JFA-P9-q55" firstAttribute="top" secondItem="yD1-Cy-77L" secondAttribute="bottom" id="tEZ-2y-z5v"/>
-                            <constraint firstItem="JFA-P9-q55" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="ywa-mO-P9k"/>
+                            <constraint firstItem="JFA-P9-q55" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="ywa-mO-P9k"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JFA-P9-q55" secondAttribute="trailing" constant="25" id="ywg-nX-YFN"/>
                         </constraints>
                     </view>

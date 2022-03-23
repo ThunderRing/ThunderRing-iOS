@@ -241,23 +241,25 @@ final class HomeMainViewController: UIViewController {
 
 extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate {
     func touchUpEnterButton() {
-        print("입장 버튼 누름")
+        print("그룹상세 화면으로 이동")
     }
     
     func touchUpLightningButton() {
-        print("번개 버튼 누름")
+        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Lightning) as? LightningVC else { return }
+        dvc.modalPresentationStyle = .fullScreen
+        present(dvc, animated: true)
     }
 }
 
 extension HomeMainViewController: HomeMainHeaderViewDelegate {
     func touchUpPrivateGroup() {
         guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPrivate, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPrivate) as? MyPrivateVC else { return }
-        self.navigationController?.pushViewController(dvc, animated: true)
+        navigationController?.pushViewController(dvc, animated: true)
     }
     
     func touchUpPublicGroup() {
         guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPublic, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPublic) as? MyPublicVC else { return }
-        self.navigationController?.pushViewController(dvc, animated: true)
+        navigationController?.pushViewController(dvc, animated: true)
     }
 }
 
