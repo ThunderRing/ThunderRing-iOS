@@ -7,7 +7,10 @@
 
 import UIKit
 
-class CreatePrivateDetailVC: UIViewController {
+import SnapKit
+import Then
+
+final class CreatePrivateDetailViewController: UIViewController {
     
     // MARK: - UI
     
@@ -20,7 +23,11 @@ class CreatePrivateDetailVC: UIViewController {
     @IBOutlet weak var addMemberButton: UIButton!
     @IBOutlet weak var memberCollectionView: UICollectionView!
     
-    @IBOutlet weak var nextButton: UIButton!
+    private lazy var nextButton = TDSButton().then {
+        $0.setTitle("다음", for: .normal)
+        $0.isActivated = false
+        $0.addTarget(self, action: #selector(touchUpNextButton), for: .touchUpInside)
+    }
     
     // MARK: - Properties
     
@@ -32,46 +39,49 @@ class CreatePrivateDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
-        setStatusBar(.background)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
-        setAction()
-        setTextField()
-        setCollectionView()
+        bind()
         getNotification()
     }
-}
-
-// MARK: - Custom Methods
-
-extension CreatePrivateDetailVC {
+    
+    // MARK: - Init UI
+    
     private func initUI() {
-        nextButton.isEnabled = false
-        nextButton.setTitleColor(.gray100, for: .normal)
-        nextButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 27, bounds: true)
-        
         descriptionTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-        descriptionTextField.setLeftPaddingPoints(15)
+        descriptionTextField.setLeftPaddingPoints(14)
         
         addMemberButton.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
+        
+        view.addSubview(nextButton)
+        nextButton.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(52)
+        }
+        NSLayoutConstraint.activate([
+            view.keyboardLayoutGuide.topAnchor.constraint(
+                equalTo: nextButton.bottomAnchor,
+                constant: 10
+            )
+        ])
     }
     
-    private func setAction() {
-        nextButton.addAction(UIAction(handler: { _ in
-            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteCreateVC") as? CompleteCreatePrivateVC else { return }
-            dvc.groupImage = self.groupImage
-            dvc.groupName = self.groupName
-            dvc.groupDescrption = self.descriptionTextField.text!
-            dvc.groupCounts = self.members.count + 1
-            self.navigationController?.pushViewController(dvc, animated: true)
-        }), for: .touchUpInside)
+    // MARK: - Custom Method
+    
+    private func bind() {
+        descriptionTextField.delegate = self
+        
+        memberCollectionView.delegate = self
+        memberCollectionView.dataSource = self
+        
+        memberCollectionView.register(MemberCVC.self, forCellWithReuseIdentifier: MemberCVC.identifier)
+        
+        memberCollectionView.showsVerticalScrollIndicator = false
         
         addMemberButton.addAction(UIAction(handler: { _ in
             guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "AddMemberVC") else { return }
@@ -80,23 +90,36 @@ extension CreatePrivateDetailVC {
         }), for: .touchUpInside)
     }
     
-    private func setTextField() {
-        descriptionTextField.delegate = self
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showCollectionView),
+                                               name: NSNotification.Name("AddMember"), object: nil)
     }
     
-    private func setCollectionView() {
-        memberCollectionView.delegate = self
-        memberCollectionView.dataSource = self
-        
-        memberCollectionView.register(MemberCVC.self, forCellWithReuseIdentifier: MemberCVC.identifier)
-        
-        memberCollectionView.showsVerticalScrollIndicator = false
+    // MARK: - @objc
+    
+    @objc func touchUpNextButton() {
+        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteCreateVC") as? CompleteCreatePrivateViewController else { return }
+        dvc.groupImage = self.groupImage
+        dvc.groupName = self.groupName
+        dvc.groupDescrption = self.descriptionTextField.text!
+        dvc.groupCounts = self.members.count + 1
+        self.navigationController?.pushViewController(dvc, animated: true)
     }
+
+    @objc func showCollectionView(_ notification: Notification) {
+        if let members = notification.object {
+            self.members = members as! [String]
+        }
+        memberCollectionView.reloadData()
+        memberCollectionView.isHidden = false
+    }
+    
 }
 
 // MARK: - UICollectionView Delegate
 
-extension CreatePrivateDetailVC: UICollectionViewDelegateFlowLayout {
+extension CreatePrivateDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = (collectionView.frame.width - 19 - 19) / 3
         let cellHeight = cellWidth
@@ -116,7 +139,7 @@ extension CreatePrivateDetailVC: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension CreatePrivateDetailVC: UICollectionViewDataSource {
+extension CreatePrivateDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return members.count
     }
@@ -131,7 +154,7 @@ extension CreatePrivateDetailVC: UICollectionViewDataSource {
 
 // MARK: - UITextField Delegate
 
-extension CreatePrivateDetailVC: UITextFieldDelegate {
+extension CreatePrivateDetailViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.becomeFirstResponder()
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
@@ -145,15 +168,11 @@ extension CreatePrivateDetailVC: UITextFieldDelegate {
         if descriptionTextField.hasText {
             descriptionCountLabel.textColor = .black
             
-            nextButton.isEnabled = true
-            nextButton.backgroundColor = .purple100
-            nextButton.setTitleColor(.white, for: .normal)
+            nextButton.isActivated = true
         } else {
             descriptionCountLabel.textColor = .gray200
             
-            nextButton.isEnabled = true
-            nextButton.backgroundColor = .gray200
-            nextButton.setTitleColor(.gray100, for: .normal)
+            nextButton.isActivated = false
         }
     }
     
@@ -168,24 +187,5 @@ extension CreatePrivateDetailVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newLength = (textField.text?.count)! + string.count - range.length
         return !(newLength > 15)
-    }
-}
-
-// MARK: - Notificaiton
-
-extension CreatePrivateDetailVC {
-    private func getNotification() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(showCollectionView),
-                                               name: NSNotification.Name("AddMember"), object: nil)
-    }
-    
-    @objc
-    func showCollectionView(_ notification: Notification) {
-        if let members = notification.object {
-            self.members = members as! [String]
-        }
-        memberCollectionView.reloadData()
-        memberCollectionView.isHidden = false
     }
 }

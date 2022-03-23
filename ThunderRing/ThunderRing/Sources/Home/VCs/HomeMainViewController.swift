@@ -63,12 +63,12 @@ final class HomeMainViewController: UIViewController {
         $0.spacing = 0
     }
         
-    private lazy var privateGroupHeaderView = HomeMainHeaderView().then {
+    private lazy var privateGroupHeaderView = HomeMainHeaderView(groupType: GroupType.privateGroup).then {
         $0.title = "비공개 그룹"
         $0.count = privateGroupData.count
     }
     
-    private lazy var publicGroupHeaderView = HomeMainHeaderView().then {
+    private lazy var publicGroupHeaderView = HomeMainHeaderView(groupType: GroupType.publicGroup).then {
         $0.title = "공개 그룹"
         $0.count = publicGroupData.count
     }
@@ -210,7 +210,6 @@ final class HomeMainViewController: UIViewController {
             $0.height.equalTo(733)
             $0.bottom.equalToSuperview()
         }
-        
     }
     
     // MARK: - Custom Method
@@ -225,6 +224,9 @@ final class HomeMainViewController: UIViewController {
         privateGroupCollectionView.register(HomeMainPrivateGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainPrivateGroupCollectionViewCell.CellIdentifier)
         
         publicGroupCollectionView.register(HomeMainPublicGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainPublicGroupCollectionViewCell.CellIdentifier)
+        
+        privateGroupHeaderView.delegate = self
+        publicGroupHeaderView.delegate = self
     }
     
     // MARK: - @objc
@@ -244,6 +246,18 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
     
     func touchUpLightningButton() {
         print("번개 버튼 누름")
+    }
+}
+
+extension HomeMainViewController: HomeMainHeaderViewDelegate {
+    func touchUpPrivateGroup() {
+        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPrivate, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPrivate) as? MyPrivateVC else { return }
+        self.navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    func touchUpPublicGroup() {
+        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPublic, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPublic) as? MyPublicVC else { return }
+        self.navigationController?.pushViewController(dvc, animated: true)
     }
 }
 

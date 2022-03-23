@@ -7,9 +7,12 @@
 
 import UIKit
 
-class CreatePrivateVC: UIViewController {
+import SnapKit
+import Then
+
+final class CreatePrivateViewController: UIViewController {
     
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var customNavigationBarView: UIView!
     
@@ -19,9 +22,11 @@ class CreatePrivateVC: UIViewController {
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var countLabel: UILabel!
     
-    @IBOutlet weak var nextButton: UIButton!
-    
-    // MARK: - Properties
+    private lazy var nextButton = TDSButton().then {
+        $0.setTitle("다음", for: .normal)
+        $0.isActivated = false
+        $0.addTarget(self, action: #selector(touchUpNextButton), for: .touchUpInside)
+    }
     
     let imagePicker = UIImagePickerController()
     
@@ -29,41 +34,39 @@ class CreatePrivateVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
-        setStatusBar(.background)
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "새로운 비공개 그룹", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
-        setAction()
         setTextField()
         setImagePicker()
     }
-}
-
-extension CreatePrivateVC {
+    
+    // MARK: - Init UI
+    
     private func initUI() {
-        userImageView.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 20, bounds: true)
-        
-        nextButton.isEnabled = false
-        nextButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 27, bounds: true)
+        userImageView.makeRounded(cornerRadius: 40)
         
         groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-        groupNameTextField.setLeftPaddingPoints(15)
+        groupNameTextField.setLeftPaddingPoints(14)
+        
+        view.addSubview(nextButton)
+        nextButton.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(52)
+        }
+        NSLayoutConstraint.activate([
+            view.keyboardLayoutGuide.topAnchor.constraint(
+                equalTo: nextButton.bottomAnchor,
+                constant: 10
+            )
+        ])
     }
     
-    private func setAction() {
-        nextButton.addAction(UIAction(handler: { _ in
-            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CreatePrivateDetailVC") as? CreatePrivateDetailVC else { return }
-            dvc.groupName = self.groupNameTextField.text!
-            dvc.groupImage = self.userImageView.image!
-            self.navigationController?.pushViewController(dvc, animated: true)
-        }), for: .touchUpInside)
-    }
+    // MARK: - Custom Method
     
     private func setTextField() {
         groupNameTextField.delegate = self
@@ -78,20 +81,25 @@ extension CreatePrivateVC {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
         userImageView.addGestureRecognizer(tapGesture)
     }
-}
-
-// MARK: - @objc
-
-extension CreatePrivateVC {
+    
+    // MARK: - @objc
+    
     @objc
     func pickImage() {
         self.present(self.imagePicker, animated: true)
+    }
+    
+    @objc func touchUpNextButton() {
+        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CreatePrivateDetailVC") as? CreatePrivateDetailViewController else { return }
+        dvc.groupName = self.groupNameTextField.text!
+        dvc.groupImage = self.userImageView.image!
+        self.navigationController?.pushViewController(dvc, animated: true)
     }
 }
 
 // MARK: - UITextFieldDelegate
 
-extension CreatePrivateVC: UITextFieldDelegate {
+extension CreatePrivateViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.becomeFirstResponder()
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
@@ -105,16 +113,12 @@ extension CreatePrivateVC: UITextFieldDelegate {
         if groupNameTextField.hasText {
             countLabel.textColor = .black
             
-            nextButton.isEnabled = true
-            nextButton.backgroundColor = .purple100
-            nextButton.setTitleColor(.white, for: .normal)
+            nextButton.isActivated = true
         } else {
             groupNameTextField.textColor = .black
             countLabel.textColor = .gray200
             
-            nextButton.isEnabled = true
-            nextButton.backgroundColor = .gray200
-            nextButton.setTitleColor(.white, for: .normal)
+            nextButton.isActivated = false
         }
     }
     
@@ -134,7 +138,7 @@ extension CreatePrivateVC: UITextFieldDelegate {
 
 // MARK: - UIImagePickerController Delegate
  
-extension CreatePrivateVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CreatePrivateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         var newImage: UIImage? = nil
