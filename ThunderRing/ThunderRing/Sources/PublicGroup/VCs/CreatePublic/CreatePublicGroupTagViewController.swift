@@ -52,6 +52,12 @@ final class CreatePublicGroupTagViewController: UIViewController {
         $0.placeholder = "#태그 #태그 #태그"
     }
     
+    private lazy var tagWarningLabel = UILabel().then {
+        $0.text = "3개 이하로 입력해주세요"
+        $0.textColor = .red
+        $0.isHidden = true
+    }
+    
     private lazy var nextButton = TDSButton().then {
         $0.setTitle("다음", for: .normal)
         $0.isActivated = false
@@ -60,6 +66,8 @@ final class CreatePublicGroupTagViewController: UIViewController {
     private let groupTendencyPickerView = UIPickerView()
     private var index = 0
     private var groupTendency = ["부지런한 동틀녘", "사근한 오전", "북적이는 오후", "포근한 해질녘", "감성적인 새벽녘"]
+    
+    private lazy var tagCount: Int = 0
     
     // MARK: - Life Cycle
     
@@ -100,6 +108,7 @@ final class CreatePublicGroupTagViewController: UIViewController {
                           tagLabel,
                           tagDiscriptionLabel,
                           groupTagTextField,
+                          tagWarningLabel,
                           nextButton])
         
         navigationBar.snp.makeConstraints {
@@ -143,6 +152,11 @@ final class CreatePublicGroupTagViewController: UIViewController {
             $0.top.equalTo(tagDiscriptionLabel.snp.bottom).offset(14)
             $0.leading.trailing.equalToSuperview().inset(26)
             $0.height.equalTo(50)
+        }
+        
+        tagWarningLabel.snp.makeConstraints {
+            $0.top.equalTo(groupTagTextField.snp.bottom).offset(4)
+            $0.leading.equalToSuperview().inset(25)
         }
         
         nextButton.snp.makeConstraints {
@@ -233,6 +247,71 @@ extension CreatePublicGroupTagViewController: UITextFieldDelegate {
 
         if groupTendencyTextField.hasText && groupTagTextField.hasText {
             nextButton.isActivated = true
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        guard let lastChar = str.last else { return true }
+        if lastChar == " " {
+            guard let text = groupTagTextField.text else { return true }
+            let firstTagView = TagView(groupTag: text)
+            groupTagTextField.addSubview(firstTagView)
+            firstTagView.snp.makeConstraints {
+                $0.leading.equalToSuperview().inset(13)
+                $0.top.bottom.equalToSuperview().inset(13)
+                $0.width.equalTo(74)
+            }
+            groupTagTextField.text = ""
+        }
+        return true
+    }
+}
+
+fileprivate final class TagView: UIView {
+    
+    // MARK: - Properties
+    
+    private lazy var groupTagLabel = UILabel().then {
+        $0.textColor = .black
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
+    }
+    
+    private lazy var cancelButton = UIButton().then {
+        $0.setTitle("", for: .normal)
+        $0.setImage(UIImage(named: ""), for: .normal)
+    }
+    
+    var groupTag: String = "" {
+        didSet {
+            groupTagLabel.text = groupTag
+        }
+    }
+    
+    // MARK: - Initialzier
+    
+    init(groupTag: String) {
+        super.init(frame: .zero)
+        self.groupTag = groupTag
+        setView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - init UI
+    
+    private func setView() {
+        backgroundColor = .gray350
+        addSubviews([groupTagLabel, cancelButton])
+        groupTagLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(14)
+            $0.top.bottom.equalToSuperview().inset(5)
+        }
+        cancelButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(10.5)
+            $0.top.bottom.equalToSuperview().inset(7)
         }
     }
 }
