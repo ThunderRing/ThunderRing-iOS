@@ -17,7 +17,7 @@ final class PrivateListTVC: UITableViewCell {
     
     private lazy var groupImageView = UIImageView().then {
         $0.image = UIImage(named: "imgRabbit")
-        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 27, bounds: true)
+        $0.makeRounded(cornerRadius: 17)
     }
     
     private lazy var groupNameLabel = UILabel().then {
