@@ -10,11 +10,11 @@ import UIKit
 import SnapKit
 import Then
 
-final class CreatePublicDetailVC: UIViewController {
+final class CreatePublicGroupDiscriptionViewController: UIViewController {
     
     // MARK: - Properties
     
-    private lazy var customNavigationBarView = CustomNavigationBar(vc: self, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
+    private lazy var navigationBar = TDSModalNavigationBar(self, title: "새로운 공개 그룹", backButtonIsHidden: false, closeButtonIsHidden: false)
     
     private var onelineLabel = UILabel().then {
         $0.text = "한 줄 설명"
@@ -26,17 +26,8 @@ final class CreatePublicDetailVC: UIViewController {
     }
     
     private var onelineTextCountLabel = UILabel().then {
-        $0.text = "0/15"
+        $0.text = "0/10"
         $0.textColor = .gray200
-    }
-    
-    private var hashtagLabel = UILabel().then {
-        $0.text = "해시태그"
-        $0.textColor = .gray100
-    }
-    
-    private var hashtagTextField = UITextField().then {
-        $0.placeholder = "부지런한 동틀녘"
     }
     
     private var maxCountLabel = UILabel().then {
@@ -60,12 +51,9 @@ final class CreatePublicDetailVC: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
     
-    private var nextButton = UIButton().then {
+    private lazy var nextButton = TDSButton().then {
         $0.setTitle("다음", for: .normal)
-        $0.titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 16)
-        $0.setTitleColor(.gray150, for: .normal)
-        $0.backgroundColor = .gray200
-        $0.isEnabled = false
+        $0.isActivated = false
         $0.addTarget(self, action: #selector(touchUpNextButton), for: .touchUpInside)
     }
     
@@ -92,98 +80,90 @@ final class CreatePublicDetailVC: UIViewController {
     private func configUI() {
         view.backgroundColor = .background
         
-        [onelineLabel, hashtagLabel, maxCountLabel].forEach {
+        [onelineLabel, maxCountLabel].forEach {
             $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
         }
         
-        [onelineTextField, hashtagTextField, maxCountTextField].forEach {
+        [onelineTextField, maxCountTextField].forEach {
             $0.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
             $0.setLeftPaddingPoints(15)
         }
         
         maxCountTextField.keyboardType = .numberPad
-        
-        nextButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 26, bounds: true)
     }
     
     private func setupLayout() {
-        view.addSubviews([customNavigationBarView,
+        view.addSubviews([navigationBar,
                           onelineLabel,
                           onelineTextField,
                           onelineTextCountLabel,
-                          hashtagLabel,
-                          hashtagTextField,
                           maxCountLabel,
                           maxCountTextField,
                           countLabel,
                           warningLabel,
                           nextButton])
         
-        customNavigationBarView.snp.makeConstraints {
+        navigationBar.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(57)
+            $0.height.equalTo(50)
         }
         
         onelineLabel.snp.makeConstraints {
-            $0.top.equalTo(customNavigationBarView.snp.bottom).offset(20)
+            $0.top.equalTo(navigationBar.snp.bottom).offset(30)
             $0.leading.equalToSuperview().inset(25)
         }
         
         onelineTextField.snp.makeConstraints {
-            $0.top.equalTo(onelineLabel.snp.bottom).offset(20)
+            $0.top.equalTo(onelineLabel.snp.bottom).offset(15)
             $0.leading.trailing.equalToSuperview().inset(26)
-            $0.height.equalTo(56)
+            $0.height.equalTo(50)
         }
         
         onelineTextCountLabel.snp.makeConstraints {
-            $0.top.equalTo(onelineTextField.snp.bottom).offset(4)
+            $0.top.equalTo(onelineTextField.snp.bottom).offset(5)
             $0.trailing.equalToSuperview().inset(25)
         }
         
-        hashtagLabel.snp.makeConstraints {
+        maxCountLabel.snp.makeConstraints {
             $0.top.equalTo(onelineTextCountLabel.snp.bottom).offset(15)
             $0.leading.equalToSuperview().inset(25)
         }
         
-        hashtagTextField.snp.makeConstraints {
-            $0.top.equalTo(hashtagLabel.snp.bottom).offset(20)
-            $0.leading.trailing.equalToSuperview().inset(25)
-            $0.height.equalTo(56)
-        }
-        
-        maxCountLabel.snp.makeConstraints {
-            $0.top.equalTo(hashtagTextField.snp.bottom).offset(40)
-            $0.leading.equalToSuperview().inset(25)
-        }
-        
         maxCountTextField.snp.makeConstraints {
-            $0.top.equalTo(maxCountLabel.snp.bottom).offset(20)
+            $0.top.equalTo(maxCountLabel.snp.bottom).offset(15)
             $0.leading.equalToSuperview().inset(25)
             $0.trailing.equalToSuperview().inset(61)
-            $0.height.equalTo(56)
+            $0.height.equalTo(50)
         }
         
         countLabel.snp.makeConstraints {
             $0.centerY.equalTo(maxCountTextField)
-            $0.leading.equalTo(maxCountTextField.snp.trailing).offset(18)
+            $0.leading.equalTo(maxCountTextField.snp.trailing).offset(17)
         }
         
         warningLabel.snp.makeConstraints {
             $0.top.equalTo(maxCountTextField.snp.bottom).offset(4)
             $0.leading.equalToSuperview().inset(25)
+            $0.height.equalTo(24)
         }
         
         nextButton.snp.makeConstraints {
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
-            $0.height.equalTo(52)
             $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(52)
         }
+        
+        NSLayoutConstraint.activate([
+            view.keyboardLayoutGuide.topAnchor.constraint(
+                equalTo: nextButton.bottomAnchor,
+                constant: 10
+            )
+        ])
     }
     
     // MARK: - Custom Method
     
     private func bind() {
-        [onelineTextField, hashtagTextField, maxCountTextField].forEach {
+        [onelineTextField, maxCountTextField].forEach {
             $0.delegate = self
         }
     }
@@ -191,14 +171,26 @@ final class CreatePublicDetailVC: UIViewController {
     // MARK: - @objc
     
     @objc func touchUpNextButton() {
-        let dvc = CompleteCreatePublicVC()
-        navigationController?.pushViewController(dvc, animated: true)
+        guard let text = maxCountTextField.text else { return }
+        guard let textCount = Int(text) else { return }
+        if textCount > 300 || textCount < 2 {
+            maxCountTextField.text = "300"
+            
+            maxCountTextField.layer.borderColor = UIColor.red.cgColor
+            warningLabel.textColor = .red
+            
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.error)
+        } else {
+            let dvc = CreatePublicGroupTagViewController()
+            navigationController?.pushViewController(dvc, animated: true)
+        }
     }
 }
 
 // MARK: - TextField Delegate
 
-extension CreatePublicDetailVC: UITextFieldDelegate {
+extension CreatePublicGroupDiscriptionViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.purple100.cgColor
     }
@@ -211,30 +203,16 @@ extension CreatePublicDetailVC: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if textField == onelineTextField {
             guard let text = textField.text else { return }
-            onelineTextCountLabel.text = String("\(text.count)/15")
+            onelineTextCountLabel.text = String("\(text.count)/10")
             onelineTextCountLabel.textColor = .black
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         textField.layer.borderColor = UIColor.gray300.cgColor
-        
-        if textField == maxCountTextField {
-            guard let text = maxCountTextField.text else { return }
-            guard let textCount = Int(text) else { return }
-            if textCount > 500 {
-                maxCountTextField.text = "500"
-                
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.error)
-            }
-        }
-        
-        if onelineTextField.hasText && hashtagTextField.hasText && maxCountTextField.hasText {
-            nextButton.isEnabled = true
-            
-            nextButton.backgroundColor = .purple100
-            nextButton.setTitleColor(.white, for: .normal)
+
+        if onelineTextField.hasText && maxCountTextField.hasText {
+            nextButton.isActivated = true
         }
     }
 }

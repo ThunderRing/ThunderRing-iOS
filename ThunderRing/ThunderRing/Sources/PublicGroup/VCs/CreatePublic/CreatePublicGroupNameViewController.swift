@@ -2,7 +2,7 @@
 //  CreatePublicViewController.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2022/02/05.
+//  Created by 소연 on 2022/02/05.
 //
 
 import UIKit
@@ -10,15 +10,11 @@ import UIKit
 import SnapKit
 import Then
 
-final class CreatePublicVC: UIViewController {
+final class CreatePublicGroupNameViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var closeButton = UIButton().then {
-        $0.setTitle("", for: .normal)
-        $0.setImage(UIImage(named: "btnClose"), for: .normal)
-        $0.addTarget(self, action: #selector(touchUpCloseButton), for: .touchUpInside)
-    }
+    private lazy var navigationBar = TDSModalNavigationBar(self, title: "새로운 공개 그룹", backButtonIsHidden: true, closeButtonIsHidden: false)
     
     private var profileLabel = UILabel().then {
         $0.text = "프로필"
@@ -32,11 +28,11 @@ final class CreatePublicVC: UIViewController {
     }
     
     private var profileChangeButton = UIButton().then {
-        $0.setImage(UIImage(named: "icnEdit"), for: .normal)
+        $0.setImage(UIImage(named: "icn_plus_purple"), for: .normal)
     }
     
     private var groupNameLabel = UILabel().then {
-        $0.text = "그룹명"
+        $0.text = "그룹 명"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
     }
@@ -50,11 +46,10 @@ final class CreatePublicVC: UIViewController {
         $0.textColor = .gray200
         $0.font = .DINPro(type: .regular, size: 16)
     }
-    
-    private var nextButton = UIButton().then {
+
+    private lazy var nextButton = TDSButton().then {
         $0.setTitle("다음", for: .normal)
-        $0.setTitleColor(.gray150, for: .normal)
-        $0.backgroundColor = .gray200
+        $0.isActivated = false
         $0.addTarget(self, action: #selector(touchUpNextButton), for: .touchUpInside)
     }
     
@@ -80,14 +75,14 @@ final class CreatePublicVC: UIViewController {
         nextButton.layer.cornerRadius = 26
         nextButton.layer.masksToBounds = true
         
-        profileImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 20, bounds: true)
+        profileImageView.makeRounded(cornerRadius: 40)
         
         groupNameTextField.initViewBorder(borderWidth: 1, borderColor: UIColor.gray200.cgColor, cornerRadius: 10, bounds: true)
         groupNameTextField.setLeftPaddingPoints(15)
     }
     
     private func setupLayout() {
-        view.addSubviews([closeButton,
+        view.addSubviews([navigationBar,
                           profileLabel,
                           profileImageView,
                           profileChangeButton,
@@ -96,21 +91,21 @@ final class CreatePublicVC: UIViewController {
                           groupNameCountLabel,
                           nextButton])
         
-        closeButton.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(5)
-            $0.trailing.equalTo(view.safeAreaLayoutGuide).inset(9)
-            $0.width.height.equalTo(48)
+        navigationBar.snp.makeConstraints {
+            $0.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(50)
         }
         
         profileLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(25)
-            $0.top.equalTo(closeButton.snp.bottom).offset(24)
+            $0.top.equalTo(navigationBar.snp.bottom).offset(30)
         }
         
         profileImageView.snp.makeConstraints {
-            $0.top.equalTo(profileLabel.snp.bottom).offset(20)
+            $0.top.equalTo(profileLabel.snp.bottom).offset(12)
             $0.centerX.equalToSuperview()
-            $0.width.height.equalTo(120)
+            $0.width.equalTo(118)
+            $0.height.equalTo(120)
         }
         
         profileChangeButton.snp.makeConstraints {
@@ -120,14 +115,14 @@ final class CreatePublicVC: UIViewController {
         }
         
         groupNameLabel.snp.makeConstraints {
-            $0.top.equalTo(profileImageView.snp.bottom).offset(40)
+            $0.top.equalTo(profileImageView.snp.bottom).offset(30)
             $0.leading.equalToSuperview().inset(25)
         }
         
         groupNameTextField.snp.makeConstraints {
-            $0.top.equalTo(groupNameLabel.snp.bottom).offset(20)
+            $0.top.equalTo(groupNameLabel.snp.bottom).offset(15)
             $0.leading.trailing.equalToSuperview().inset(26)
-            $0.height.equalTo(56)
+            $0.height.equalTo(50)
         }
         
         groupNameCountLabel.snp.makeConstraints {
@@ -136,10 +131,16 @@ final class CreatePublicVC: UIViewController {
         }
         
         nextButton.snp.makeConstraints {
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(52)
         }
+        
+        NSLayoutConstraint.activate([
+            view.keyboardLayoutGuide.topAnchor.constraint(
+                equalTo: nextButton.bottomAnchor,
+                constant: 10
+            )
+        ])
     }
     
     // MARK: - Custom Method
@@ -156,7 +157,7 @@ final class CreatePublicVC: UIViewController {
     
     @objc func touchUpNextButton() {
         if groupNameTextField.hasText {
-            let dvc = CreatePublicDetailVC()
+            let dvc = CreatePublicGroupDiscriptionViewController()
             navigationController?.pushViewController(dvc, animated: true)
         }
     }
@@ -164,7 +165,7 @@ final class CreatePublicVC: UIViewController {
 
 // MARK: - UITextField Delegate
 
-extension CreatePublicVC: UITextFieldDelegate {
+extension CreatePublicGroupNameViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         groupNameCountLabel.text = String("\(textField.text!.count)/10")
         groupNameCountLabel.textColor = .purple100
@@ -183,15 +184,11 @@ extension CreatePublicVC: UITextFieldDelegate {
         if groupNameTextField.hasText {
             groupNameCountLabel.textColor = .black
             
-            nextButton.isEnabled = true
-            nextButton.backgroundColor = .purple100
-            nextButton.setTitleColor(.white, for: .normal)
+            nextButton.isActivated = true
         } else {
             groupNameCountLabel.textColor = .gray200
             
-            nextButton.isEnabled = false
-            nextButton.backgroundColor = .gray200
-            nextButton.setTitleColor(.white, for: .normal)
+            nextButton.isActivated = false
         }
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class CompleteCreatePublicVC: UIViewController {
+final class CompleteCreatePublicViewController: UIViewController {
 
     // MARK: - Properties
     

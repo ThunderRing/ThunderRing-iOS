@@ -1,8 +1,8 @@
 //
-//  TDSNavigationBar.swift
+//  TDSModalNavigationBar.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2022/03/04.
+//  Created by 소연 on 2022/03/23.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import Foundation
 import SnapKit
 import Then
 
-final class TDSNavigationBar: UIView {
+final class TDSModalNavigationBar: UIView {
     
     // MARK: - Metric Enum
     
@@ -21,40 +21,6 @@ final class TDSNavigationBar: UIView {
         static let buttonLeading: CGFloat = 4
         static let buttonTrailing: CGFloat = 7
         static let buttonSize: CGFloat = 44
-    }
-    
-    // MARK: - PageView Enum
-    
-    public enum PageView {
-        case main
-        case chat
-        case lightning
-        case alarm
-        case mypage
-        case test
-        case publicGroup
-        case privateGroup
-        
-        var title: String {
-            switch self {
-            case .main:
-                return "홈"
-            case .chat:
-                return "채팅"
-            case .lightning:
-                return "번개"
-            case .alarm:
-                return "알람"
-            case .mypage:
-                return "마이페이지"
-            case .test:
-                return "성향테스트"
-            case .publicGroup:
-                return "공개그룹"
-            case .privateGroup:
-                return "비공개그룹"
-            }
-        }
     }
     
     // MARK: - Properties
@@ -69,22 +35,16 @@ final class TDSNavigationBar: UIView {
         $0.textAlignment = .center
     }
     
-    private var viewType: PageView = .main {
-        didSet {
-            configUI()
-        }
-    }
-    
     // MARK: - Initializer
     
     public init(_ viewController: UIViewController,
-                view: PageView,
+                title: String,
                 backButtonIsHidden: Bool,
                 closeButtonIsHidden: Bool) {
         super.init(frame: .zero)
         self.backButton = BackButton(root: viewController)
         self.closeButton = CloseButton(root: viewController)
-        viewType = view
+        titleLabel.text = title
         configUI()
         setLayout()
         setBackButton(isHidden: backButtonIsHidden)
@@ -99,7 +59,6 @@ final class TDSNavigationBar: UIView {
     
     private func configUI() {
         backgroundColor = .white
-        titleLabel.text = viewType.title
     }
     
     private func setLayout() {
@@ -119,7 +78,7 @@ final class TDSNavigationBar: UIView {
         
         titleLabel.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(12)
-            $0.leading.equalToSuperview().inset(25)
+            $0.centerX.equalToSuperview()
         }
         
         closeButton.snp.makeConstraints {
@@ -138,8 +97,5 @@ final class TDSNavigationBar: UIView {
     private func setCloseButton(isHidden: Bool) {
         closeButton.isHidden = isHidden
     }
-    
-    func setTitle(title: String) {
-        titleLabel.text = title
-    }
 }
+

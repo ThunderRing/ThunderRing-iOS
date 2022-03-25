@@ -6,9 +6,8 @@
 //
 
 import UIKit
-
-
-class CompleteCreatePrivateVC: UIViewController {
+ 
+final class CompleteCreatePrivateViewController: UIViewController {
 
     // MARK: - UI
     
@@ -31,15 +30,12 @@ class CompleteCreatePrivateVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.navigationBar.isHidden = true
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
-        setStatusBar(.background)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
         setAction()
     }
@@ -51,7 +47,7 @@ class CompleteCreatePrivateVC: UIViewController {
     }
 }
 
-extension CompleteCreatePrivateVC {
+extension CompleteCreatePrivateViewController {
     private func initUI() {
         groupImageView.image = self.groupImage
         groupImageView.layer.cornerRadius = 20
@@ -60,7 +56,7 @@ extension CompleteCreatePrivateVC {
         titleLabel.text = "\(groupName)"
         descriptionLabel.text = "\(groupDescrption)"
         
-        completeButton.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 27, bounds: true)
+        completeButton.makeRounded(cornerRadius: 43)
     }
     
     private func setAction() {

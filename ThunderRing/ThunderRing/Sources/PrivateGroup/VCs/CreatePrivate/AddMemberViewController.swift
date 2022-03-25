@@ -8,7 +8,7 @@
 import UIKit
 import Contacts
 
-class AddMemberVC: UIViewController {
+final class AddMemberViewController: UIViewController {
     
     // MARK: - UI
     
@@ -58,7 +58,7 @@ class AddMemberVC: UIViewController {
 
 // MARK: - Custome Methods
 
-extension AddMemberVC {
+extension AddMemberViewController {
     private func initUI() {
         var configuration = UIButton.Configuration.plain()
         configuration.baseForegroundColor = .lightGray
@@ -143,7 +143,7 @@ extension AddMemberVC {
 
 // MARK: - UITableView Delegate
 
-extension AddMemberVC: UITableViewDelegate {
+extension AddMemberViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 82
     }
@@ -166,7 +166,7 @@ extension AddMemberVC: UITableViewDelegate {
 
 // MARK: - UITableView DataSource
 
-extension AddMemberVC: UITableViewDataSource {
+extension AddMemberViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
     }

@@ -194,7 +194,7 @@ extension MyPublicVC: MyGroupCVCDelegate {
     }
     
     func touchUpCreateButton() {
-        let dvc = UINavigationController(rootViewController: CreatePublicVC())
+        let dvc = UINavigationController(rootViewController: CreatePublicGroupNameViewController())
         dvc.modalPresentationStyle = .fullScreen
         present(dvc, animated: true, completion: nil)
     }

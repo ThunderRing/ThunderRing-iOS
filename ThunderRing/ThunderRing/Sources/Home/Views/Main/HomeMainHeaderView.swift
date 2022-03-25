@@ -10,6 +10,16 @@ import UIKit
 import SnapKit
 import Then
 
+protocol HomeMainHeaderViewDelegate: AnyObject {
+    func touchUpPrivateGroup()
+    func touchUpPublicGroup()
+}
+
+enum GroupType {
+    case privateGroup
+    case publicGroup
+}
+
 final class HomeMainHeaderView: UIView {
     
     var title = "" {
@@ -34,10 +44,21 @@ final class HomeMainHeaderView: UIView {
         $0.font = .DINPro(type: .regular, size: 18)
     }
 
-    private lazy var moreButton = MoreButton()
+    private lazy var moreButton = MoreButton().then {
+        if groupType == .privateGroup {
+            $0.addTarget(self, action: #selector(touchUpMorePrivateGroup), for: .touchUpInside)
+        } else {
+            $0.addTarget(self, action: #selector(touchUpMorePublicGroup), for: .touchUpInside)
+        }
+    }
     
-    init() {
+    private lazy var groupType: GroupType = .privateGroup
+    
+    weak var delegate: HomeMainHeaderViewDelegate?
+    
+    init(groupType: GroupType) {
         super.init(frame: .zero)
+        self.groupType = groupType
         configUI()
         setLayout()
     }
@@ -67,6 +88,16 @@ final class HomeMainHeaderView: UIView {
             $0.width.equalTo(75)
             $0.height.equalTo(28)
         }
+    }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpMorePrivateGroup() {
+        delegate?.touchUpPrivateGroup()
+    }
+    
+    @objc func touchUpMorePublicGroup() {
+        delegate?.touchUpPublicGroup()
     }
 }
 
@@ -110,3 +141,4 @@ fileprivate final class MoreButton: UIButton {
         }
     }
 }
+
