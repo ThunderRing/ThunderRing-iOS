@@ -8,7 +8,6 @@
 import UIKit
 
 import SnapKit
-import Then
 
 final class LightningVC: UIViewController {
     
@@ -49,10 +48,7 @@ final class LightningVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        setAction()
-        setTableHeaderView()
-        setTableView()
-        setTextField()
+        bind()
     }
     
     // MARK: - Init UI
@@ -65,18 +61,9 @@ final class LightningVC: UIViewController {
             $0.backgroundColor = .background
         }
         
-        searchBackView.backgroundColor = .background
-    }
-    
-    // MARK: - Custom Method
-    
-    private func setAction() {
-        closeButton.addAction(UIAction(handler: { _ in
-            self.dismiss(animated: true, completion: nil)
-        }), for: .touchUpInside)
-    }
-    
-    private func setTableHeaderView() {
+        searchTextField.setLeftIcon(17, 16, UIImage(named: "icnSearch")!)
+        
+        /// table headerview
         privateHeaderView.addSubview(privateHeaderLabel)
         publicHeaderView.addSubview(publicHeaderLabel)
         
@@ -88,7 +75,14 @@ final class LightningVC: UIViewController {
         }
     }
     
-    private func setTableView() {
+    // MARK: - Custom Method
+    
+    private func bind() {
+        closeButton.addAction(UIAction(handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        }), for: .touchUpInside)
+        
+        /// tableview
         groupListTableView.delegate = self
         groupListTableView.dataSource = self
         
@@ -98,10 +92,6 @@ final class LightningVC: UIViewController {
         
         groupListTableView.register(PrivateListTVC.self, forCellReuseIdentifier: PrivateListTVC.identifier)
         groupListTableView.register(PublicListTVC.self, forCellReuseIdentifier: PublicListTVC.identifier)
-    }
-    
-    private func setTextField() {
-        searchTextField.setLeftIcon(17, 16, UIImage(named: "icnSearch")!)
     }
 }
 
@@ -136,12 +126,14 @@ extension LightningVC: UITableViewDelegate {
         dvc.index = indexPath.row
         
         if indexPath.section == 0 {
-            for i in 0 ... indexPath.row {
+            for i in 0 ... privateGroupData.count - 1 {
                 dvc.groupNames.append(privateGroupData[i].groupName)
+                dvc.groupMaxCounts.append(privateGroupData[i].memberCounts)
             }
         } else {
-            for i in 0 ... indexPath.row {
+            for i in 0 ... privateGroupData.count - 1 {
                 dvc.groupNames.append(publicGroupData[i].groupName)
+                dvc.groupMaxCounts.append(privateGroupData[i].memberCounts)
             }
         }
         
