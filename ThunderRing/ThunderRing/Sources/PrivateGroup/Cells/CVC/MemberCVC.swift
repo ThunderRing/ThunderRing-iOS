@@ -15,12 +15,15 @@ class MemberCVC: UICollectionViewCell {
     
     // MARK: - UI
     
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .SpoqaHanSansNeo(type: .regular, size: 16)
-        label.textColor = UIColor.purple100
-        return label
-    }()
+    private lazy var nameLabel = UILabel().then {
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+        $0.textColor = .black
+    }
+    
+    private lazy var cancelButton = UIButton().then {
+        $0.setTitle("", for: .normal)
+        $0.setImage(UIImage(named: "btnDelete"), for: .normal)
+    }
     
     // MARK: - Initializer
     
@@ -40,12 +43,19 @@ class MemberCVC: UICollectionViewCell {
 
 extension MemberCVC {
     func setLayout() {
-        contentView.addSubviews([nameLabel])
-        contentView.initViewBorder(borderWidth: 2, borderColor: UIColor.purple100.cgColor, cornerRadius: 40, bounds: true)
+        contentView.addSubviews([nameLabel, cancelButton])
+        contentView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 10, bounds: true)
 
         nameLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
+            $0.leading.equalToSuperview().inset(15)
+            $0.top.equalToSuperview().inset(14)
+            $0.bottom.equalToSuperview().inset(11)
+        }
+        
+        cancelButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(280)
+            $0.width.height.equalTo(48)
         }
     }
 }
