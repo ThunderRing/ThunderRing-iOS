@@ -33,7 +33,7 @@ final class HomeRecruitingCollectionViewCell: UICollectionViewCell {
     
     private func configUI() {
         contentView.addSubview(memberImageView)
-        contentView.makeRounded(cornerRadius: 15)
+        contentView.makeRounded(cornerRadius: 17)
     }
     
     private func setLayout() {
