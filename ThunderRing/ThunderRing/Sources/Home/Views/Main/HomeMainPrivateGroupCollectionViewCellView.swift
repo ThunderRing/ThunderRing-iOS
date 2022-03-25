@@ -68,6 +68,10 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
     private func configUI() {
         self.backgroundColor = .background
         
+        groupImageView.makeRounded(cornerRadius: 28)
+    }
+    
+    private func setLayout() {
         self.addSubviews([groupImageView,
                           groupNameLabel,
                           descriptionLabel,
@@ -75,10 +79,6 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
                           enterButton,
                           lightningButton])
         
-        groupImageView.makeRounded(cornerRadius: 25)
-    }
-    
-    private func setLayout() {
         groupImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(18)
