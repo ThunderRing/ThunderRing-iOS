@@ -35,6 +35,16 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
         $0.textColor = .gray100
     }
     
+    private lazy var bubbleImageView = UIImageView().then {
+        $0.image = UIImage(named: "icn-bubble")
+    }
+    
+    private lazy var bubbleLabel = UILabel().then {
+        $0.text = "본인을 포함하며, 최대 300명까지에요!"
+        $0.textColor = .white
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
+    }
+    
     private var maxCountTextField = UITextField().then {
         $0.placeholder = "최대 정원을 입력해주세요"
     }
@@ -46,9 +56,10 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     }
     
     private var warningLabel = UILabel().then {
-        $0.text = "*최대 정원은 주최자를 포함이며, 최대 500명 입니다"
-        $0.textColor = .purple100
+        $0.text = "*최대 정원을 확인해주세요"
+        $0.textColor = .red
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        $0.isHidden = true
     }
     
     private lazy var nextButton = TDSButton().then {
@@ -90,6 +101,8 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
         }
         
         maxCountTextField.keyboardType = .numberPad
+        
+        bubbleLabel.addCharacterSpacing()
     }
     
     private func setupLayout() {
@@ -99,9 +112,11 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
                           onelineTextCountLabel,
                           maxCountLabel,
                           maxCountTextField,
+                          bubbleImageView,
                           countLabel,
                           warningLabel,
                           nextButton])
+        bubbleImageView.addSubview(bubbleLabel)
         
         navigationBar.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
@@ -134,6 +149,19 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
             $0.leading.equalToSuperview().inset(25)
             $0.trailing.equalToSuperview().inset(61)
             $0.height.equalTo(50)
+        }
+        
+        bubbleImageView.snp.makeConstraints {
+            $0.leading.equalTo(maxCountLabel.snp.trailing).offset(4)
+            $0.centerY.equalTo(maxCountLabel.snp.centerY)
+            $0.width.equalTo(202)
+            $0.height.equalTo(26)
+        }
+        
+        bubbleLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(14)
+            $0.centerY.equalToSuperview()
+            $0.height.equalTo(17)
         }
         
         countLabel.snp.makeConstraints {
@@ -177,11 +205,13 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
             maxCountTextField.text = "300"
             
             maxCountTextField.layer.borderColor = UIColor.red.cgColor
-            warningLabel.textColor = .red
+            warningLabel.isHidden = false
             
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
         } else {
+            warningLabel.isHidden = true
+            
             let dvc = CreatePublicGroupTagViewController()
             navigationController?.pushViewController(dvc, animated: true)
         }
