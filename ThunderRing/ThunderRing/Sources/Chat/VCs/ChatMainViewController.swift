@@ -39,13 +39,14 @@ final class ChatMainViewController: UIViewController {
     
     private func configUI() {
         view.backgroundColor = .background
-        
-        view.addSubviews([navigationBar, chatMainTopView, chatListTableView])
+        setStatusBar(.white)
         
         navigationBar.layer.applyShadow()
     }
     
     private func setLayout() {
+        view.addSubviews([navigationBar, chatMainTopView, chatListTableView])
+        
         navigationBar.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(50)
