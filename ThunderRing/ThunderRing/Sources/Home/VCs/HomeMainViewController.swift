@@ -196,8 +196,6 @@ final class HomeMainViewController: UIViewController {
             $0.height.equalTo(285)
         }
 
-        // FIXME: 높이값 피그마 78 -> UIView를 추가 || 디자이너와 상의
-
         publicGroupHeaderView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(privateGroupCollectionView.snp.bottom)
@@ -245,7 +243,17 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
     }
     
     func touchUpLightningButton() {
-        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.Lightning) as? LightningVC else { return }
+//        let vc = SetLightningTitleVC()
+        guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SetLightningTitle) as? SetLightningTitleVC else { return }
+        let dvc = UINavigationController(rootViewController: vc)
+        
+        // FIXME: - index / private,public Group Data 수정
+        vc.index = 0
+        for i in 0 ... privateGroupData.count - 1 {
+            vc.groupNames.append(privateGroupData[i].groupName)
+            vc.groupMaxCounts.append(privateGroupData[i].memberCounts)
+        }
+        
         dvc.modalPresentationStyle = .fullScreen
         present(dvc, animated: true)
     }

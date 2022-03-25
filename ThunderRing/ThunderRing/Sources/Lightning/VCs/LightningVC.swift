@@ -2,13 +2,12 @@
 //  ThunderVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/11/07.
+//  Created by 소연 on 2021/11/07.
 //
 
 import UIKit
 
 import SnapKit
-import Then
 
 final class LightningVC: UIViewController {
     
@@ -25,11 +24,17 @@ final class LightningVC: UIViewController {
     private var publicHeaderView = UIView()
     
     private var privateHeaderLabel = UILabel().then {
-        $0.text = "비공개그룹"
+        $0.text = "비공개 그룹"
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        $0.addCharacterSpacing()
     }
     
     private var publicHeaderLabel = UILabel().then {
-        $0.text = "공개그룹"
+        $0.text = "공개 그룹"
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        $0.addCharacterSpacing()
     }
     
     // MARK: - Life Cycle
@@ -43,41 +48,22 @@ final class LightningVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        setAction()
-        setTableHeaderView()
-        setTableView()
-        setTextField()
+        bind()
     }
     
     // MARK: - Init UI
     
     private func initUI() {
         titleLabel.text = "번개 치기"
-        [titleLabel, privateHeaderLabel, publicHeaderLabel].forEach {
-            $0?.addCharacterSpacing()
-        }
-        
-        [privateHeaderLabel, publicHeaderLabel].forEach {
-            $0.textColor = .black
-            $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
-        }
+        titleLabel.addCharacterSpacing()
         
         [privateHeaderView, publicHeaderView].forEach {
             $0.backgroundColor = .background
         }
         
-        searchBackView.backgroundColor = .background
-    }
-    
-    // MARK: - Custom Method
-    
-    private func setAction() {
-        closeButton.addAction(UIAction(handler: { _ in
-            self.dismiss(animated: true, completion: nil)
-        }), for: .touchUpInside)
-    }
-    
-    private func setTableHeaderView() {
+        searchTextField.setLeftIcon(17, 16, UIImage(named: "icnSearch")!)
+        
+        /// table headerview
         privateHeaderView.addSubview(privateHeaderLabel)
         publicHeaderView.addSubview(publicHeaderLabel)
         
@@ -89,7 +75,14 @@ final class LightningVC: UIViewController {
         }
     }
     
-    private func setTableView() {
+    // MARK: - Custom Method
+    
+    private func bind() {
+        closeButton.addAction(UIAction(handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        }), for: .touchUpInside)
+        
+        /// tableview
         groupListTableView.delegate = self
         groupListTableView.dataSource = self
         
@@ -99,10 +92,6 @@ final class LightningVC: UIViewController {
         
         groupListTableView.register(PrivateListTVC.self, forCellReuseIdentifier: PrivateListTVC.identifier)
         groupListTableView.register(PublicListTVC.self, forCellReuseIdentifier: PublicListTVC.identifier)
-    }
-    
-    private func setTextField() {
-        searchTextField.setLeftIcon(17, 16, UIImage(named: "icnSearch")!)
     }
 }
 
@@ -137,12 +126,14 @@ extension LightningVC: UITableViewDelegate {
         dvc.index = indexPath.row
         
         if indexPath.section == 0 {
-            for i in 0 ... indexPath.row {
+            for i in 0 ... privateGroupData.count - 1 {
                 dvc.groupNames.append(privateGroupData[i].groupName)
+                dvc.groupMaxCounts.append(privateGroupData[i].memberCounts)
             }
         } else {
-            for i in 0 ... indexPath.row {
+            for i in 0 ... privateGroupData.count - 1 {
                 dvc.groupNames.append(publicGroupData[i].groupName)
+                dvc.groupMaxCounts.append(privateGroupData[i].memberCounts)
             }
         }
         
@@ -178,7 +169,10 @@ extension LightningVC: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTVC.identifier) as? PrivateListTVC else { return UITableViewCell() }
             cell.initCell(group: privateGroupData[indexPath.row])
-            cell.selectionStyle = .none
+            
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.init(red: 126 / 255, green: 101 / 255, blue: 255 / 255, alpha: 0.1)
+            cell.selectedBackgroundView = bgColorView
             
             if indexPath.row == 0 {
                 cell.clipsToBounds = true
@@ -194,7 +188,10 @@ extension LightningVC: UITableViewDataSource {
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PublicListTVC.identifier) as? PublicListTVC else { return UITableViewCell() }
             cell.initCell(group: publicGroupData[indexPath.row])
-            cell.selectionStyle = .none
+            
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.init(red: 126 / 255, green: 101 / 255, blue: 255 / 255, alpha: 0.1)
+            cell.selectedBackgroundView = bgColorView
             
             if indexPath.row == 0 {
                 cell.clipsToBounds = true

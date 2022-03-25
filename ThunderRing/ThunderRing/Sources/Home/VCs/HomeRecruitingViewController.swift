@@ -14,7 +14,7 @@ final class HomeRecruitingViewController: UIViewController {
     
     // MARK: - Properties
     
-    private lazy var navigationBar = TDSNavigationBar(self, view: .main, backButtonIsHidden: false, closeButtonIsHidden: true)
+    private lazy var navigationBar = TDSModalNavigationBar(self, title: "모집 중인 번개", backButtonIsHidden: false, closeButtonIsHidden: true)
     
     private var recruitingTableView = UITableView().then {
         $0.backgroundColor = .clear
@@ -49,13 +49,14 @@ final class HomeRecruitingViewController: UIViewController {
     
     private func configUI() {
         view.backgroundColor = .background
+        setStatusBar(.white)
         
-        navigationBar.setTitle(title: "모집 중인 번개")
-        
-        view.addSubviews([navigationBar, recruitingTableView])
+        navigationBar.layer.applyShadow()
     }
     
     private func setLayout() {
+        view.addSubviews([navigationBar, recruitingTableView])
+        
         navigationBar.snp.makeConstraints {
             $0.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(50)

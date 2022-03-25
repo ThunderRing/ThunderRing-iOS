@@ -279,7 +279,7 @@ fileprivate final class TagView: UIView {
     
     private lazy var cancelButton = UIButton().then {
         $0.setTitle("", for: .normal)
-        $0.setImage(UIImage(named: ""), for: .normal)
+        $0.setImage(UIImage(named: "icn_delete"), for: .normal)
     }
     
     var groupTag: String = "" {

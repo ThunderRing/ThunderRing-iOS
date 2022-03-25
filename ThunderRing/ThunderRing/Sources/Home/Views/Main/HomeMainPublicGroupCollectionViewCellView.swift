@@ -52,18 +52,18 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     // MARK: - InitUI
     
     private func configUI() {
+        groupImageView.makeRounded(cornerRadius: 28)
+        
+        lightningButton.makeRounded(cornerRadius: 14)
+    }
+    
+    private func setLayout() {
         addSubviews([groupImageView,
                      groupNameLabel,
                      memberCountLabel,
                      tagImageView,
                      lightningButton])
         
-        groupImageView.makeRounded(cornerRadius: 23)
-        
-        lightningButton.makeRounded(cornerRadius: 15)
-    }
-    
-    private func setLayout() {
         groupImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(22)
             $0.centerX.equalToSuperview()
