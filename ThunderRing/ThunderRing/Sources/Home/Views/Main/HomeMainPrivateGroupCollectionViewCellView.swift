@@ -109,7 +109,7 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
         }
 
         lightningButton.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom).offset(12)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(10)
             $0.leading.equalTo(enterButton.snp.trailing).offset(7)
             $0.width.equalTo(80)
             $0.height.equalTo(30)
@@ -195,11 +195,11 @@ fileprivate final class ItemButton: UIButton {
     }
 
     private func setButton() {
-        self.makeRounded(cornerRadius: 14)
-        self.backgroundColor = type.backgroundColor
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.purple100.cgColor
-        self.addSubview(textLabel)
+        makeRounded(cornerRadius: 14)
+        backgroundColor = type.backgroundColor
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.purple100.cgColor
+        addSubview(textLabel)
         textLabel.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }

@@ -129,10 +129,10 @@ fileprivate final class MoreButton: UIButton {
     // MARK: - InitUI
     
     private func setButton() {
-        self.layer.borderColor = UIColor.gray100.cgColor
-        self.layer.borderWidth = 1
+        layer.borderColor = UIColor.gray100.cgColor
+        layer.borderWidth = 1
         
-        self.makeRounded(cornerRadius: 14)
+        makeRounded(cornerRadius: 14)
         
         addSubview(textLabel)
         textLabel.snp.makeConstraints {
