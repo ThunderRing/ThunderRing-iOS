@@ -2,7 +2,7 @@
 //  PrivateListTVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/11/16.
+//  Created by 소연 on 2021/11/16.
 //
 
 import UIKit
@@ -10,8 +10,8 @@ import UIKit
 import SnapKit
 import Then
 
-final class PrivateListTVC: UITableViewCell {
-    static let identifier = "PrivateListTVC"
+final class PrivateListTableViewCell: UITableViewCell {
+    static let identifier = "PrivateListTableViewCell"
     
     // MARK: - Properties
     
@@ -25,13 +25,9 @@ final class PrivateListTVC: UITableViewCell {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
-    private lazy var countImageView = UIImageView().then {
-        $0.image = UIImage(named: "icnUser")
-    }
-    
     private lazy var countLabel = UILabel().then {
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
     
     // MARK: - Initializer
@@ -57,7 +53,7 @@ final class PrivateListTVC: UITableViewCell {
     }
     
     private func setLayout() {
-        self.addSubviews([groupImageView, groupNameLabel, countImageView, countLabel])
+        self.addSubviews([groupImageView, groupNameLabel, countLabel])
         
         groupImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(25)
@@ -70,14 +66,9 @@ final class PrivateListTVC: UITableViewCell {
             $0.centerY.equalToSuperview()
         }
         
-        countImageView.snp.makeConstraints {
-            $0.leading.equalTo(groupNameLabel.snp.trailing).offset(8)
-            $0.centerY.equalTo(groupNameLabel.snp.centerY)
-        }
-        
         countLabel.snp.makeConstraints {
-            $0.leading.equalTo(countImageView.snp.trailing).offset(2)
-            $0.centerY.equalTo(countImageView.snp.centerY)
+            $0.leading.equalTo(groupNameLabel.snp.trailing).offset(4)
+            $0.centerY.equalTo(groupNameLabel.snp.centerY)
         }
     }
     

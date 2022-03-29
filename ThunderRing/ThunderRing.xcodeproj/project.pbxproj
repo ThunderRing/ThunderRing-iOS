@@ -53,13 +53,13 @@
 		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
 		925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */; };
 		925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC392742C5D400126166 /* PublicGroupDataModel.swift */; };
-		925BAC462742C76F00126166 /* PrivateListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC452742C76F00126166 /* PrivateListTVC.swift */; };
-		925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC472742C77C00126166 /* PublicListTVC.swift */; };
+		925BAC462742C76F00126166 /* PrivateListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC452742C76F00126166 /* PrivateListTableViewCell.swift */; };
+		925BAC482742C77C00126166 /* PublicListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC472742C77C00126166 /* PublicListTableViewCell.swift */; };
 		925DCD4527E51FD000331949 /* ChatMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DCD4427E51FD000331949 /* ChatMainViewController.swift */; };
 		925DCD4827E5210200331949 /* ChatMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DCD4727E5210200331949 /* ChatMainTableViewCell.swift */; };
 		925DCD4A27E5211500331949 /* ChatMainTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925DCD4927E5211500331949 /* ChatMainTableViewCellView.swift */; };
-		92609ACB274BB7E800F0E401 /* SetLightningTitleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */; };
-		92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */; };
+		92609ACB274BB7E800F0E401 /* LightningTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACA274BB7E800F0E401 /* LightningTitleViewController.swift */; };
+		92609ACD274BD9A700F0E401 /* LigntningDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609ACC274BD9A700F0E401 /* LigntningDetailViewController.swift */; };
 		926290E127A40543006A3B58 /* PublicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290E027A40543006A3B58 /* PublicDetailVC.swift */; };
 		926290E427A4055E006A3B58 /* CreatePublicGroupDiscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926290E327A4055E006A3B58 /* CreatePublicGroupDiscriptionViewController.swift */; };
 		92640F9F27D678B800E71CBD /* HomeMainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92640F9E27D678B800E71CBD /* HomeMainHeaderView.swift */; };
@@ -75,7 +75,7 @@
 		926C7C442738022F0020F851 /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C432738022F0020F851 /* ChatListVC.swift */; };
 		926C7C47273802460020F851 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C46273802460020F851 /* Chat.storyboard */; };
 		926C7C49273802890020F851 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C48273802890020F851 /* ChatVC.swift */; };
-		926C7C4E273802F80020F851 /* LightningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C4D273802F80020F851 /* LightningVC.swift */; };
+		926C7C4E273802F80020F851 /* LightningMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C4D273802F80020F851 /* LightningMainViewController.swift */; };
 		926C7C50273803020020F851 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C4F273803020020F851 /* AlarmVC.swift */; };
 		926C7C522738030F0020F851 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C512738030F0020F851 /* MyPageVC.swift */; };
 		926C7C57273803980020F851 /* Lightning.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C56273803980020F851 /* Lightning.storyboard */; };
@@ -141,7 +141,8 @@
 		92E416ED27B824CF00FD008F /* TDSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E416EC27B824CF00FD008F /* TDSButton.swift */; };
 		92E416EF27B8264B00FD008F /* Adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E416EE27B8264B00FD008F /* Adjust+.swift */; };
 		92E497762768C42E0029682C /* ChatListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E497752768C42E0029682C /* ChatListDataModel.swift */; };
-		92F43A33274E8491006025EC /* CompleteLightningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F43A32274E8491006025EC /* CompleteLightningVC.swift */; };
+		92E7F9F927F22E3E00F1CFB7 /* GroupTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E7F9F827F22E3E00F1CFB7 /* GroupTagView.swift */; };
+		92F43A33274E8491006025EC /* CompleteLightningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F43A32274E8491006025EC /* CompleteLightningViewController.swift */; };
 		92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */; };
 		92F9A53F27AFF4E3004F41FE /* TempCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9A53E27AFF4E3004F41FE /* TempCell.swift */; };
 		92FA76DF27B3A69600CB54C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */; };
@@ -201,13 +202,13 @@
 		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupDataModel.swift; sourceTree = "<group>"; };
 		925BAC392742C5D400126166 /* PublicGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupDataModel.swift; sourceTree = "<group>"; };
-		925BAC452742C76F00126166 /* PrivateListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateListTVC.swift; sourceTree = "<group>"; };
-		925BAC472742C77C00126166 /* PublicListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicListTVC.swift; sourceTree = "<group>"; };
+		925BAC452742C76F00126166 /* PrivateListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateListTableViewCell.swift; sourceTree = "<group>"; };
+		925BAC472742C77C00126166 /* PublicListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicListTableViewCell.swift; sourceTree = "<group>"; };
 		925DCD4427E51FD000331949 /* ChatMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainViewController.swift; sourceTree = "<group>"; };
 		925DCD4727E5210200331949 /* ChatMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainTableViewCell.swift; sourceTree = "<group>"; };
 		925DCD4927E5211500331949 /* ChatMainTableViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainTableViewCellView.swift; sourceTree = "<group>"; };
-		92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLightningTitleVC.swift; sourceTree = "<group>"; };
-		92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLigntningDetailVC.swift; sourceTree = "<group>"; };
+		92609ACA274BB7E800F0E401 /* LightningTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningTitleViewController.swift; sourceTree = "<group>"; };
+		92609ACC274BD9A700F0E401 /* LigntningDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LigntningDetailViewController.swift; sourceTree = "<group>"; };
 		926290E027A40543006A3B58 /* PublicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicDetailVC.swift; sourceTree = "<group>"; };
 		926290E327A4055E006A3B58 /* CreatePublicGroupDiscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicGroupDiscriptionViewController.swift; sourceTree = "<group>"; };
 		92640F9E27D678B800E71CBD /* HomeMainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainHeaderView.swift; sourceTree = "<group>"; };
@@ -225,7 +226,7 @@
 		926C7C432738022F0020F851 /* ChatListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVC.swift; sourceTree = "<group>"; };
 		926C7C46273802460020F851 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		926C7C48273802890020F851 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
-		926C7C4D273802F80020F851 /* LightningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningVC.swift; sourceTree = "<group>"; };
+		926C7C4D273802F80020F851 /* LightningMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningMainViewController.swift; sourceTree = "<group>"; };
 		926C7C4F273803020020F851 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
 		926C7C512738030F0020F851 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		926C7C56273803980020F851 /* Lightning.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lightning.storyboard; sourceTree = "<group>"; };
@@ -291,7 +292,8 @@
 		92E416EC27B824CF00FD008F /* TDSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDSButton.swift; sourceTree = "<group>"; };
 		92E416EE27B8264B00FD008F /* Adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adjust+.swift"; sourceTree = "<group>"; };
 		92E497752768C42E0029682C /* ChatListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListDataModel.swift; sourceTree = "<group>"; };
-		92F43A32274E8491006025EC /* CompleteLightningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteLightningVC.swift; sourceTree = "<group>"; };
+		92E7F9F827F22E3E00F1CFB7 /* GroupTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTagView.swift; sourceTree = "<group>"; };
+		92F43A32274E8491006025EC /* CompleteLightningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteLightningViewController.swift; sourceTree = "<group>"; };
 		92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookHeaderView.swift; sourceTree = "<group>"; };
 		92F9A53E27AFF4E3004F41FE /* TempCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCell.swift; sourceTree = "<group>"; };
 		92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -490,10 +492,10 @@
 		925BAC352742C59200126166 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				926C7C4D273802F80020F851 /* LightningVC.swift */,
-				92609ACA274BB7E800F0E401 /* SetLightningTitleVC.swift */,
-				92609ACC274BD9A700F0E401 /* SetLigntningDetailVC.swift */,
-				92F43A32274E8491006025EC /* CompleteLightningVC.swift */,
+				926C7C4D273802F80020F851 /* LightningMainViewController.swift */,
+				92609ACA274BB7E800F0E401 /* LightningTitleViewController.swift */,
+				92609ACC274BD9A700F0E401 /* LigntningDetailViewController.swift */,
+				92F43A32274E8491006025EC /* CompleteLightningViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -501,8 +503,8 @@
 		925BAC3B2742C6D000126166 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				925BAC452742C76F00126166 /* PrivateListTVC.swift */,
-				925BAC472742C77C00126166 /* PublicListTVC.swift */,
+				925BAC452742C76F00126166 /* PrivateListTableViewCell.swift */,
+				925BAC472742C77C00126166 /* PublicListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -809,6 +811,7 @@
 			children = (
 				9276B064275B44F700915F57 /* BaseCell.swift */,
 				9276B066275B453E00915F57 /* BasePaddingLabel.swift */,
+				92E7F9F827F22E3E00F1CFB7 /* GroupTagView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1270,7 +1273,7 @@
 				92FC851527C001750020965A /* TestView.swift in Sources */,
 				925DCD4A27E5211500331949 /* ChatMainTableViewCellView.swift in Sources */,
 				9276B060275B443F00915F57 /* MyChatCVC.swift in Sources */,
-				925BAC462742C76F00126166 /* PrivateListTVC.swift in Sources */,
+				925BAC462742C76F00126166 /* PrivateListTableViewCell.swift in Sources */,
 				92A5B295273983F0004149B2 /* ViewController.swift in Sources */,
 				92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */,
 				9276B06B275B458B00915F57 /* String+.swift in Sources */,
@@ -1288,6 +1291,7 @@
 				9244097A27AE7F9000034510 /* CompleteCreatePublicViewController.swift in Sources */,
 				92B1568A2761426300939048 /* MyPublicVC.swift in Sources */,
 				9248133B27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift in Sources */,
+				92E7F9F927F22E3E00F1CFB7 /* GroupTagView.swift in Sources */,
 				9251955F27CA15E900C00E7E /* SearchBaseVC.swift in Sources */,
 				926C7C62273805B70020F851 /* NavigationController.swift in Sources */,
 				92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */,
@@ -1310,13 +1314,13 @@
 				1DA5D064275BD7A100F78579 /* JoinVC.swift in Sources */,
 				9244097827AE68EB00034510 /* CreatePublicGroupNameViewController.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
-				92609ACB274BB7E800F0E401 /* SetLightningTitleVC.swift in Sources */,
+				92609ACB274BB7E800F0E401 /* LightningTitleViewController.swift in Sources */,
 				9232069227EA637F0010FC4F /* CreatePublicGroupTagViewController.swift in Sources */,
 				92248C4527E0441200D1EEC8 /* ChatMainTopView.swift in Sources */,
 				9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */,
 				925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */,
 				926C7C1A2737F93E0020F851 /* AppDelegate.swift in Sources */,
-				926C7C4E273802F80020F851 /* LightningVC.swift in Sources */,
+				926C7C4E273802F80020F851 /* LightningMainViewController.swift in Sources */,
 				92FC851727C00E950020965A /* TestResponse.swift in Sources */,
 				9232069427EA7F500010FC4F /* TDSModalNavigationBar.swift in Sources */,
 				92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */,
@@ -1341,7 +1345,7 @@
 				92B471AF27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift in Sources */,
 				9276B070275B477A00915F57 /* CounterpartChatCVC.swift in Sources */,
 				1DF615C62752CD8F00D0CF7C /* RecruitingVC.swift in Sources */,
-				925BAC482742C77C00126166 /* PublicListTVC.swift in Sources */,
+				925BAC482742C77C00126166 /* PublicListTableViewCell.swift in Sources */,
 				9276B069275B457700915F57 /* UILabel+.swift in Sources */,
 				92E497762768C42E0029682C /* ChatListDataModel.swift in Sources */,
 				9248133627D132B400A0CECC /* BackButton.swift in Sources */,
@@ -1367,13 +1371,13 @@
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
 				92A5B2A12739AA49004149B2 /* AccountTVC.swift in Sources */,
 				9276B065275B44F700915F57 /* BaseCell.swift in Sources */,
-				92609ACD274BD9A700F0E401 /* SetLigntningDetailVC.swift in Sources */,
+				92609ACD274BD9A700F0E401 /* LigntningDetailViewController.swift in Sources */,
 				92AFB3A227633A4000977712 /* LookCVC.swift in Sources */,
 				92159C9A2758C21A0081F20B /* CreatePrivateViewController.swift in Sources */,
 				1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */,
 				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,
 				92275FE827BE713E007B507D /* TestVC.swift in Sources */,
-				92F43A33274E8491006025EC /* CompleteLightningVC.swift in Sources */,
+				92F43A33274E8491006025EC /* CompleteLightningViewController.swift in Sources */,
 				9248133427D1323400A0CECC /* CloseButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

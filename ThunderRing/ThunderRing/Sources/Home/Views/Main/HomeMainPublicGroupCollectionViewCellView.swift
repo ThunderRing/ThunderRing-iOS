@@ -31,9 +31,7 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
     
-    private lazy var tagImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
-    }
+    private lazy var groupTagView = GroupTagView(tagType: .diligent)
     
     private var lightningButton = LightningButton()
     
@@ -54,14 +52,16 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     private func configUI() {
         groupImageView.makeRounded(cornerRadius: 28)
         
-        lightningButton.makeRounded(cornerRadius: 14)
+        lightningButton.makeRounded(cornerRadius: 14 )
+        
+        groupTagView.makeRounded(cornerRadius: 3)
     }
     
     private func setLayout() {
         addSubviews([groupImageView,
                      groupNameLabel,
                      memberCountLabel,
-                     tagImageView,
+                     groupTagView,
                      lightningButton])
         
         groupImageView.snp.makeConstraints {
@@ -81,23 +81,32 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
             $0.leading.equalTo(groupNameLabel.snp.trailing).offset(4)
         }
         
-        tagImageView.snp.makeConstraints {
+        groupTagView.snp.makeConstraints {
             $0.top.equalTo(memberCountLabel.snp.bottom).offset(6)
-            $0.leading.trailing.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(84)
             $0.height.equalTo(21)
         }
         
         lightningButton.snp.makeConstraints {
-            $0.top.equalTo(tagImageView.snp.bottom).offset(15)
+            $0.top.equalTo(groupTagView.snp.bottom).offset(15)
             $0.width.equalTo(88)
             $0.height.equalTo(30)
             $0.centerX.equalToSuperview()
         }
     }
     
-    // MARK: - Public Method
+    // MARK: - Custom Method
     
-    func configCell(group: PublicGroupDataModel) {
+    private func calculateViewWidth(text: String) -> CGFloat {
+        let label = UILabel()
+        label.text = text
+        label.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        label.sizeToFit()
+        return label.frame.width + 12
+    }
+    
+    internal func configCell(group: PublicGroupDataModel) {
         groupImageView.image = UIImage(named: group.groupImage)
         
         groupNameLabel.text = group.groupName
@@ -106,17 +115,31 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         
         switch group.publicGroupType {
         case .diligent:
-            tagImageView.image = UIImage(named: "tagDiligent")
+            groupTagView.tagType = .diligent
+            groupTagView.snp.updateConstraints {
+                $0.width.equalTo(95)
+            }
         case .crowd:
-            tagImageView.image = UIImage(named: "tagCrowd")
+            groupTagView.tagType = .crowd
+            groupTagView.snp.updateConstraints {
+                $0.width.equalTo(84)
+            }
         case .emotion:
-            tagImageView.image = UIImage(named: "tagEmotion")
+            groupTagView.tagType = .emotion
+            groupTagView.snp.updateConstraints {
+                $0.width.equalTo(95)
+            }
         case .soft:
-            tagImageView.image = UIImage(named: "tagSoft")
+            groupTagView.tagType = .soft
+            groupTagView.snp.updateConstraints {
+                $0.width.equalTo(72)
+            }
         case .cozy:
-            tagImageView.image = UIImage(named: "tagCozy")
+            groupTagView.tagType = .cozy
+            groupTagView.snp.updateConstraints {
+                $0.width.equalTo(84)
+            }
         }
-        tagImageView.contentMode = .scaleAspectFit
     }
 }
 

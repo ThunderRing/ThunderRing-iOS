@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class LightningVC: UIViewController {
+final class LightningMainViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -17,7 +17,7 @@ final class LightningVC: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchBackView: UIView!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var groupListTableView: UITableView!
     
     private var privateHeaderView = UIView()
@@ -41,19 +41,19 @@ final class LightningVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        self.groupListTableView.reloadData()
+        navigationController?.isNavigationBarHidden = true
+        groupListTableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
+        configUI()
         bind()
     }
     
     // MARK: - Init UI
     
-    private func initUI() {
+    private func configUI() {
         titleLabel.text = "번개 치기"
         titleLabel.addCharacterSpacing()
         
@@ -78,6 +78,7 @@ final class LightningVC: UIViewController {
     // MARK: - Custom Method
     
     private func bind() {
+        /// button
         closeButton.addAction(UIAction(handler: { _ in
             self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
@@ -90,14 +91,14 @@ final class LightningVC: UIViewController {
         groupListTableView.backgroundColor = .background
         groupListTableView.showsVerticalScrollIndicator = false
         
-        groupListTableView.register(PrivateListTVC.self, forCellReuseIdentifier: PrivateListTVC.identifier)
-        groupListTableView.register(PublicListTVC.self, forCellReuseIdentifier: PublicListTVC.identifier)
+        groupListTableView.register(PrivateListTableViewCell.self, forCellReuseIdentifier: PrivateListTableViewCell.identifier)
+        groupListTableView.register(PublicListTableViewCell.self, forCellReuseIdentifier: PublicListTableViewCell.identifier)
     }
 }
 
 // MARK: - UITableView Delegate
 
-extension LightningVC: UITableViewDelegate {
+extension LightningMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 63
     }
@@ -113,22 +114,23 @@ extension LightningVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 80
+            return 86
         case 1:
-            return 96
+            return 86
         default:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLightningTitleVC") as? SetLightningTitleVC else { return }
+        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "LightningTitleViewController") as? LightningTitleViewController else { return }
         dvc.index = indexPath.row
         
         if indexPath.section == 0 {
             for i in 0 ... privateGroupData.count - 1 {
                 dvc.groupNames.append(privateGroupData[i].groupName)
                 dvc.groupMaxCounts.append(privateGroupData[i].memberCounts)
+                dvc.groupMaxCount = privateGroupData[indexPath.row].memberCounts
             }
         } else {
             for i in 0 ... privateGroupData.count - 1 {
@@ -142,16 +144,16 @@ extension LightningVC: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 10 {
-            searchBackView.layer.applyShadow()
+            topView.layer.applyShadow()
         } else {
-            searchBackView.layer.applyShadow(color: UIColor.clear, alpha: 0, x: 0, y: 0, blur: 0, spread: 0)
+            topView.layer.applyShadow(color: UIColor.clear, alpha: 0, x: 0, y: 0, blur: 0, spread: 0)
         }
     }
 }
 
 // MARK: - UITableView DataSource
 
-extension LightningVC: UITableViewDataSource {
+extension LightningMainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -167,7 +169,7 @@ extension LightningVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTVC.identifier) as? PrivateListTVC else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTableViewCell.identifier) as? PrivateListTableViewCell else { return UITableViewCell() }
             cell.initCell(group: privateGroupData[indexPath.row])
             
             let bgColorView = UIView()
@@ -186,7 +188,7 @@ extension LightningVC: UITableViewDataSource {
             }
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: PublicListTVC.identifier) as? PublicListTVC else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PublicListTableViewCell.identifier) as? PublicListTableViewCell else { return UITableViewCell() }
             cell.initCell(group: publicGroupData[indexPath.row])
             
             let bgColorView = UIView()

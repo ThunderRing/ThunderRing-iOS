@@ -2,14 +2,14 @@
 //  GroupListVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/11/22.
+//  Created by 소연 on 2021/11/22.
 //
 
 import UIKit
 
 import SnapKit
 
-final class SetLightningTitleVC: UIViewController {
+final class LightningTitleViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -37,19 +37,18 @@ final class SetLightningTitleVC: UIViewController {
     var index = 0
     var groupNames = [String]()
     var groupMaxCounts = [Int]()
-    
-    private lazy var groupMaxCount: Int = 4
+    var groupMaxCount: Int = 0
     
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
+        configUI()
         bind()
         setToolbar()
         getNotification()
@@ -57,26 +56,25 @@ final class SetLightningTitleVC: UIViewController {
     
     // MARK: - Init UI
     
-    private func initUI() {
+    private func configUI() {
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
         
         [groupSelectLabel, nameCountLabel, detailCountLabel].forEach {
             $0?.addCharacterSpacing()
         }
         
-        [groupNameTextField, nameTextField].forEach {
-            $0?.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-            $0?.setLeftPaddingPoints(15)
-        }
-        
+        groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
+        groupNameTextField.setLeftPaddingPoints(15)
         groupNameTextField.tintColor = .clear
         groupNameTextField.inputView = groupPickerView
         groupNameTextField.text = groupNames[index]
         
+        nameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
+        nameTextField.setLeftPaddingPoints(15)
         nameTextField.tintColor = .purple100
         
         detailTextView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-        detailTextView.textContainerInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        detailTextView.textContainerInset = UIEdgeInsets(top: 12, left: 15, bottom: 15, right: 15)
         detailTextView.tintColor = .purple100
         
         view.addSubview(nextButton)
@@ -127,11 +125,11 @@ final class SetLightningTitleVC: UIViewController {
     @objc func touchUpDoneButton() {
         NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHide"), object: nil)
         groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @objc func keyboardWillShow() {
-        self.view.frame.origin.y = -120
+        view.frame.origin.y = -120
         
         UIView.animate(withDuration: 0.5) {
             self.view.transform = CGAffineTransform.identity
@@ -139,7 +137,7 @@ final class SetLightningTitleVC: UIViewController {
     }
     
     @objc func keyboardWillHide() {
-        self.view.frame.origin.y = 0
+        view.frame.origin.y = 0
         
         UIView.animate(withDuration: 0.5) {
             self.view.transform = CGAffineTransform.identity
@@ -148,21 +146,21 @@ final class SetLightningTitleVC: UIViewController {
     
     @objc func touchUpNextButton() {
         if groupNameTextField.hasText {
-            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLigntningDetailVC") as? SetLigntningDetailVC else { return }
+            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "LigntningDetailViewController") as? LigntningDetailViewController else { return }
             dvc.groupName = self.groupNameTextField.text
             dvc.lightningName = self.nameTextField.text
             dvc.lightningDescription = self.detailTextView.text
             dvc.groupMaxCount = self.groupMaxCount
             
-            self.nextButton.titleLabel?.textColor = .white
-            self.navigationController?.pushViewController(dvc, animated: true)
+            nextButton.titleLabel?.textColor = .white
+            navigationController?.pushViewController(dvc, animated: true)
         }
     }
 }
 
 // MARK: - UITextField Delegate
 
-extension SetLightningTitleVC: UITextFieldDelegate {
+extension LightningTitleViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 10, bounds: true)
         textField.setRightIcon(0, textField.frame.height, UIImage(named: "btnDelete")!)
@@ -197,7 +195,7 @@ extension SetLightningTitleVC: UITextFieldDelegate {
     }
 }
 
-extension SetLightningTitleVC: UITextViewDelegate {
+extension LightningTitleViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         detailTextView.text = ""
         detailTextView.textColor = .black
@@ -226,13 +224,13 @@ extension SetLightningTitleVC: UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        self.detailCountLabel.text = String("\(textView.text.count)/100")
+        detailCountLabel.text = String("\(textView.text.count)/100")
     }
 }
 
 // MARK: - UIPickerView Protocols
 
-extension SetLightningTitleVC: UIPickerViewDelegate, UIPickerViewDataSource {
+extension LightningTitleViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

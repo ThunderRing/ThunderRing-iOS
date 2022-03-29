@@ -30,6 +30,6 @@ var publicGroupData : [PublicGroupDataModel] = [
     PublicGroupDataModel(groupImage: "imgFive", groupName: "05모임", memberCounts: 7, publicGroupType: .crowd, memberTotalCounts: 10, description: "개그에 자신 있으신 분"),
     PublicGroupDataModel(groupImage: "imgStudent", groupName: "서울중", memberCounts: 4, publicGroupType: .cozy, memberTotalCounts: 300, description: "서울중 동창 모여라"),
     PublicGroupDataModel(groupImage: "imgGame", groupName: "동숲하자", memberCounts: 3, publicGroupType: .soft, memberTotalCounts: 30, description: "고수만 들어오삼"),
-    PublicGroupDataModel(groupImage: "imgGame", groupName: "양파링걸", memberCounts: 3, publicGroupType: .soft, memberTotalCounts: 30, description: "고수만 들어오삼")
+    PublicGroupDataModel(groupImage: "imgGame", groupName: "양파링걸", memberCounts: 3, publicGroupType: .emotion, memberTotalCounts: 30, description: "고수만 들어오삼")
 ]
 

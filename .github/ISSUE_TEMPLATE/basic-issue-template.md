@@ -1,6 +1,6 @@
 ---
 name: Basic issue template
-about: Beforeget iOS Basic Template
+about: ThunderRing iOS Basic Template
 title: "[Feat]"
 labels: ''
 assignees: ''

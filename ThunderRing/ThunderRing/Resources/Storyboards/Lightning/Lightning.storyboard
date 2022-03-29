@@ -23,72 +23,66 @@
         </array>
     </customFonts>
     <scenes>
-        <!--LightningVC-->
+        <!--Lightning Main View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="LightningVC" id="Y6W-OH-hqX" customClass="LightningVC" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LightningMainViewController" id="Y6W-OH-hqX" customClass="LightningMainViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nms-h0-jdj">
-                                <rect key="frame" x="0.0" y="88" width="414" height="57"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JFA-P9-q55">
+                                <rect key="frame" x="25" y="218" width="364" height="678"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yD1-Cy-77L">
+                                <rect key="frame" x="0.0" y="88" width="414" height="130"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4F-kI-1au">
-                                        <rect key="frame" x="183.5" y="17" width="47" height="23"/>
+                                        <rect key="frame" x="183.5" y="13.5" width="47" height="23"/>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
                                         <color key="textColor" name="gray100"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="그룹 명을 검색해보세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rTI-Hx-2IJ">
+                                        <rect key="frame" x="26" y="71" width="362" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="gq8-pU-DzQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwX-SV-5Bt">
-                                        <rect key="frame" x="333" y="-2.5" width="72" height="62"/>
+                                        <rect key="frame" x="357" y="1" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="hMK-9P-akd"/>
+                                            <constraint firstAttribute="height" constant="48" id="se1-8P-0wH"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="icnClose"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" name="grayBackground"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ZwX-SV-5Bt" secondAttribute="trailing" constant="9" id="8Lv-kx-WJP"/>
-                                    <constraint firstItem="I4F-kI-1au" firstAttribute="centerY" secondItem="nms-h0-jdj" secondAttribute="centerYWithinMargins" id="Cv2-n2-2ti"/>
-                                    <constraint firstItem="ZwX-SV-5Bt" firstAttribute="centerY" secondItem="nms-h0-jdj" secondAttribute="centerY" id="Cz1-GI-6C9"/>
-                                    <constraint firstItem="I4F-kI-1au" firstAttribute="centerX" secondItem="nms-h0-jdj" secondAttribute="centerXWithinMargins" id="Qfi-Yk-Vdn"/>
-                                    <constraint firstAttribute="height" constant="57" id="WhX-4Y-Kf0"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JFA-P9-q55">
-                                <rect key="frame" x="25" y="215" width="364" height="681"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yD1-Cy-77L">
-                                <rect key="frame" x="0.0" y="145" width="414" height="70"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="그룹 명을 검색해보세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rTI-Hx-2IJ">
-                                        <rect key="frame" x="25" y="10" width="364" height="50"/>
-                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
                                 <color key="backgroundColor" name="background"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="1GM-jT-Btu"/>
-                                    <constraint firstAttribute="trailing" secondItem="rTI-Hx-2IJ" secondAttribute="trailing" constant="25" id="8Em-oj-p5E"/>
-                                    <constraint firstItem="rTI-Hx-2IJ" firstAttribute="leading" secondItem="yD1-Cy-77L" secondAttribute="leading" constant="25" id="TEi-Gy-xjB"/>
-                                    <constraint firstAttribute="bottom" secondItem="rTI-Hx-2IJ" secondAttribute="bottom" constant="10" id="Vaz-ub-B7l"/>
-                                    <constraint firstItem="rTI-Hx-2IJ" firstAttribute="top" secondItem="yD1-Cy-77L" secondAttribute="top" constant="10" id="xPa-O3-cuq"/>
+                                    <constraint firstItem="ZwX-SV-5Bt" firstAttribute="top" secondItem="yD1-Cy-77L" secondAttribute="top" constant="1" id="Bwb-cR-Yrd"/>
+                                    <constraint firstItem="rTI-Hx-2IJ" firstAttribute="top" secondItem="ZwX-SV-5Bt" secondAttribute="bottom" constant="22" id="E3O-v2-C4z"/>
+                                    <constraint firstAttribute="trailing" secondItem="rTI-Hx-2IJ" secondAttribute="trailing" constant="26" id="HvM-Em-IgO"/>
+                                    <constraint firstItem="rTI-Hx-2IJ" firstAttribute="leading" secondItem="yD1-Cy-77L" secondAttribute="leading" constant="26" id="Mmx-UC-qCx"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZwX-SV-5Bt" secondAttribute="trailing" constant="9" id="NC9-9i-DQ9"/>
+                                    <constraint firstItem="I4F-kI-1au" firstAttribute="centerX" secondItem="yD1-Cy-77L" secondAttribute="centerX" id="XPA-L8-JzU"/>
+                                    <constraint firstItem="I4F-kI-1au" firstAttribute="centerY" secondItem="ZwX-SV-5Bt" secondAttribute="centerY" id="idx-kA-prf"/>
+                                    <constraint firstAttribute="height" constant="130" id="w5F-iO-uQY"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="grayBackground"/>
                         <constraints>
-                            <constraint firstItem="nms-h0-jdj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6hL-6h-c1S"/>
-                            <constraint firstItem="yD1-Cy-77L" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="9hu-yv-evA"/>
-                            <constraint firstItem="nms-h0-jdj" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ycu-ZS-w8F"/>
+                            <constraint firstItem="yD1-Cy-77L" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6vf-Jb-Fet"/>
                             <constraint firstItem="JFA-P9-q55" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="a3a-yZ-L9Z"/>
-                            <constraint firstItem="yD1-Cy-77L" firstAttribute="top" secondItem="nms-h0-jdj" secondAttribute="bottom" id="bm8-Yg-C55"/>
-                            <constraint firstItem="nms-h0-jdj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="fFN-6J-P3f"/>
-                            <constraint firstItem="yD1-Cy-77L" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ozF-hE-pN7"/>
-                            <constraint firstItem="JFA-P9-q55" firstAttribute="top" secondItem="yD1-Cy-77L" secondAttribute="bottom" id="tEZ-2y-z5v"/>
+                            <constraint firstItem="JFA-P9-q55" firstAttribute="top" secondItem="yD1-Cy-77L" secondAttribute="bottom" id="a7I-HW-VgZ"/>
+                            <constraint firstItem="yD1-Cy-77L" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="j4Q-wQ-lZL"/>
+                            <constraint firstItem="yD1-Cy-77L" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="pIl-zi-lev"/>
                             <constraint firstItem="JFA-P9-q55" firstAttribute="bottom" secondItem="5EZ-qb-Rvc" secondAttribute="bottom" id="ywa-mO-P9k"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JFA-P9-q55" secondAttribute="trailing" constant="25" id="ywg-nX-YFN"/>
                         </constraints>
@@ -97,19 +91,19 @@
                     <connections>
                         <outlet property="closeButton" destination="ZwX-SV-5Bt" id="JMh-k9-VIQ"/>
                         <outlet property="groupListTableView" destination="JFA-P9-q55" id="ScA-kG-EA8"/>
-                        <outlet property="searchBackView" destination="yD1-Cy-77L" id="NZi-Mk-jjU"/>
                         <outlet property="searchTextField" destination="rTI-Hx-2IJ" id="qfn-Wt-oeR"/>
                         <outlet property="titleLabel" destination="I4F-kI-1au" id="iWb-rN-Et9"/>
+                        <outlet property="topView" destination="yD1-Cy-77L" id="NZi-Mk-jjU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2749.275362318841" y="93.75"/>
         </scene>
-        <!--Set Lightning TitleVC-->
+        <!--Lightning Title View Controller-->
         <scene sceneID="tyN-db-Rid">
             <objects>
-                <viewController storyboardIdentifier="SetLightningTitleVC" id="T8y-86-imL" customClass="SetLightningTitleVC" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LightningTitleViewController" id="T8y-86-imL" customClass="LightningTitleViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oPF-DL-Ws3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="3713.04347826087" y="93.75"/>
         </scene>
-        <!--Set Ligntning DetailVC-->
+        <!--Ligntning Detail View Controller-->
         <scene sceneID="IPB-9v-GCS">
             <objects>
-                <viewController storyboardIdentifier="SetLigntningDetailVC" id="0uo-sC-H70" customClass="SetLigntningDetailVC" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LigntningDetailViewController" id="0uo-sC-H70" customClass="LigntningDetailViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aId-9d-ln0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,19 +222,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAh-xq-PGi">
-                                <rect key="frame" x="25" y="252" width="34" height="23"/>
+                                <rect key="frame" x="25" y="252" width="33.5" height="23"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
                                 <color key="textColor" name="gray100"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="장소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3G-bF-hXM">
-                                <rect key="frame" x="25" y="380" width="34" height="23"/>
+                                <rect key="frame" x="25" y="380" width="33.5" height="23"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
                                 <color key="textColor" name="gray100"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIZ-7h-h5I">
-                                <rect key="frame" x="23" y="511.5" width="34" height="23"/>
+                                <rect key="frame" x="23" y="511.5" width="33.5" height="23"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
                                 <color key="textColor" name="gray100"/>
                                 <nil key="highlightedColor"/>
@@ -316,14 +310,14 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn-bubble" translatesAutoresizingMaskIntoConstraints="NO" id="lcF-CR-F1S">
-                                <rect key="frame" x="61" y="510" width="242" height="26"/>
+                                <rect key="frame" x="60.5" y="510" width="242" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="242" id="EMA-w9-qmR"/>
                                     <constraint firstAttribute="height" constant="26" id="Xxy-4t-mP6"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="본인을 포함하며, 그룹원 수를 초과할 수 없어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9Y-lo-IKv">
-                                <rect key="frame" x="75" y="515" width="232" height="16"/>
+                                <rect key="frame" x="74.5" y="515.5" width="232" height="15.5"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -386,10 +380,10 @@
             </objects>
             <point key="canvasLocation" x="4402.898550724638" y="93.75"/>
         </scene>
-        <!--Complete LightningVC-->
+        <!--Complete Lightning View Controller-->
         <scene sceneID="LaZ-Qz-x6m">
             <objects>
-                <viewController storyboardIdentifier="CompleteLightningVC" id="WHP-QS-4TQ" customClass="CompleteLightningVC" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompleteLightningViewController" id="WHP-QS-4TQ" customClass="CompleteLightningViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sZc-TJ-OlC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
