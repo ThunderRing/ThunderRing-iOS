@@ -243,7 +243,6 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
     }
     
     func touchUpLightningButton() {
-//        let vc = SetLightningTitleVC()
         guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SetLightningTitle) as? SetLightningTitleVC else { return }
         let dvc = UINavigationController(rootViewController: vc)
         
