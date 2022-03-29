@@ -95,7 +95,7 @@
 		928FDA042760D130009AC059 /* MyPrivate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928FDA032760D130009AC059 /* MyPrivate.storyboard */; };
 		928FDA062760D156009AC059 /* PrivateDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928FDA052760D156009AC059 /* PrivateDetail.storyboard */; };
 		928FDA0B2760D1B5009AC059 /* MyPrivateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0A2760D1B5009AC059 /* MyPrivateVC.swift */; };
-		928FDA0D2760D1C4009AC059 /* PrivateDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0C2760D1C4009AC059 /* PrivateDetailVC.swift */; };
+		928FDA0D2760D1C4009AC059 /* PrivateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0C2760D1C4009AC059 /* PrivateDetailViewController.swift */; };
 		928FDA0F2760DBAB009AC059 /* MyPrivateTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0E2760DBAB009AC059 /* MyPrivateTVC.swift */; };
 		929BB8CA27BCDF44003A3BB3 /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 929BB8C927BCDF44003A3BB3 /* TestData.json */; };
 		92A2445127D7EACF00A81738 /* HomeRecruitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A2445027D7EACF00A81738 /* HomeRecruitingViewController.swift */; };
@@ -246,7 +246,7 @@
 		928FDA032760D130009AC059 /* MyPrivate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPrivate.storyboard; sourceTree = "<group>"; };
 		928FDA052760D156009AC059 /* PrivateDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PrivateDetail.storyboard; sourceTree = "<group>"; };
 		928FDA0A2760D1B5009AC059 /* MyPrivateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateVC.swift; sourceTree = "<group>"; };
-		928FDA0C2760D1C4009AC059 /* PrivateDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDetailVC.swift; sourceTree = "<group>"; };
+		928FDA0C2760D1C4009AC059 /* PrivateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDetailViewController.swift; sourceTree = "<group>"; };
 		928FDA0E2760DBAB009AC059 /* MyPrivateTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateTVC.swift; sourceTree = "<group>"; };
 		929BB8C927BCDF44003A3BB3 /* TestData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestData.json; sourceTree = "<group>"; };
 		92A2445027D7EACF00A81738 /* HomeRecruitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingViewController.swift; sourceTree = "<group>"; };
@@ -848,7 +848,7 @@
 		928FDA092760D199009AC059 /* PrivateDetail */ = {
 			isa = PBXGroup;
 			children = (
-				928FDA0C2760D1C4009AC059 /* PrivateDetailVC.swift */,
+				928FDA0C2760D1C4009AC059 /* PrivateDetailViewController.swift */,
 			);
 			path = PrivateDetail;
 			sourceTree = "<group>";
@@ -1352,7 +1352,7 @@
 				9227F2F427DAB39C001D1BB4 /* HomeJoinView.swift in Sources */,
 				92159C9C2758C5B10081F20B /* CreatePrivateDetailViewController.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
-				928FDA0D2760D1C4009AC059 /* PrivateDetailVC.swift in Sources */,
+				928FDA0D2760D1C4009AC059 /* PrivateDetailViewController.swift in Sources */,
 				92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */,
 				92583550275C999100F64DC0 /* AccountInfoVC.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
