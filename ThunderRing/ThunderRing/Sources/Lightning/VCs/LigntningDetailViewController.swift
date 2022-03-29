@@ -13,7 +13,6 @@ final class LigntningDetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var customNavigationBarView: UIView!
@@ -69,7 +68,7 @@ final class LigntningDetailViewController: UIViewController {
     var lightningName: String?
     var lightningDescription: String?
     
-    var groupMaxCount: Int = 4
+    var groupMaxCount: Int = 0
     
     // MARK: - Life Cycle
     
@@ -80,7 +79,7 @@ final class LigntningDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
+        configUI()
         setToolBar()
         getNotification()
         setDatePickerView()
@@ -89,7 +88,7 @@ final class LigntningDetailViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func initUI() {
+    private func configUI() {
         view.backgroundColor = .background
         
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
@@ -199,7 +198,7 @@ final class LigntningDetailViewController: UIViewController {
     
     @objc func touchUpDoneButton() {
         NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHideNotification"), object: nil)
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @objc func touchUpDateDoneButton() {
@@ -212,12 +211,12 @@ final class LigntningDetailViewController: UIViewController {
             timePickerView.minimumDate = .none
         }
         
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @objc func touchUpTimeDoneButton() {
         timeTextField.text = timeFormatter.string(from: timePickerView.date)
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     @objc func touchUpCompleteButton() {
@@ -236,21 +235,21 @@ final class LigntningDetailViewController: UIViewController {
         if let maxNumber = self.maxTextField.text {
             dvc.maxNumber = Int(maxNumber)
         }
-        self.navigationController?.pushViewController(dvc, animated: true)
+        navigationController?.pushViewController(dvc, animated: true)
     }
     
     @objc func minFieldDidChange(_ sender: Any?) {
         if minTextField.text == "0" || minTextField.text == "1" {
-            numGuideLabel.textColor = .red
+            numGuideLabel.isHidden = false
             
-            minTextField.layer.borderColor = UIColor.red.cgColor
-            minTextField.layer.borderWidth = 1
+            minTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 10, bounds: true)
             
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
         } else {
-            minTextField.layer.borderColor = UIColor.purple100.cgColor
-            minTextField.layer.borderWidth = 1
+            numGuideLabel.isHidden = true
+            
+            minTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 10, bounds: true)
         }
     }
     
@@ -266,7 +265,7 @@ final class LigntningDetailViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        self.view.frame.origin.y = -300
+        view.frame.origin.y = -300
         
         UIView.animate(withDuration: 0.5) {
             self.view.transform = .identity
@@ -274,7 +273,7 @@ final class LigntningDetailViewController: UIViewController {
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        self.view.frame.origin.y = 0
+        view.frame.origin.y = 0
         
         UIView.animate(withDuration: 0.5) {
             self.view.transform = .identity
@@ -307,38 +306,51 @@ extension LigntningDetailViewController: UITextFieldDelegate {
             countLabel.textColor = .gray100
         }
         
-        if minTextField.hasText && maxTextField.hasText {
-            numGuideLabel.isHidden = false
-        } else {
-            numGuideLabel.isHidden = true
-        }
-        
         if dateTextField.hasText && timeTextField.hasText && locationTextField.hasText && minTextField.hasText && maxTextField.hasText {
             completeButton.isActivated = true
         } else {
             completeButton.isActivated = false
         }
         
-        guard let minCount = Int(minTextField.text ?? "2") else { return }
-        guard let maxCount = Int(maxTextField.text ?? "\(groupMaxCount)") else { return }
+//        if let min = minTextField.text, let max = maxTextField.text {
+//            guard let minCount = Int(min) else { return }
+//            guard let maxCount = Int(max) else { return }
+//
+//            if minCount >= maxCount {
+//                numGuideLabel.isHidden = false
+//
+//                minTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 10, bounds: true)
+//
+//                let generator = UINotificationFeedbackGenerator()
+//                generator.notificationOccurred(.error)
+//            } else {
+//                numGuideLabel.isHidden = true
+//
+//                minTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
+//            }
+//        }
         
-        if minCount >= maxCount {
-            numGuideLabel.isHidden = false
+        if let max = maxTextField.text {
+            guard let maxCount = Int(max) else { return }
             
-            minTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 10, bounds: true)
-            
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.error)
-        } else {
-            numGuideLabel.isHidden = true
-            
-            minTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
+            if maxCount > groupMaxCount {
+                numGuideLabel.isHidden = false
+                
+                maxTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 10, bounds: true)
+                
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.error)
+            } else {
+                numGuideLabel.isHidden = true
+                
+                maxTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
+            }
         }
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if textField == locationTextField {
-            self.countLabel.text = String("\(textField.text!.count)/10")
+            countLabel.text = String("\(textField.text!.count)/20")
         }
     }
     

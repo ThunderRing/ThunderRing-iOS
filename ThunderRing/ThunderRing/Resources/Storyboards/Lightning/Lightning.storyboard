@@ -26,7 +26,7 @@
         <!--Lightning Main View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="LightningVC" id="Y6W-OH-hqX" customClass="LightningMainViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LightningMainViewController" id="Y6W-OH-hqX" customClass="LightningMainViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,7 +103,7 @@
         <!--Lightning Title View Controller-->
         <scene sceneID="tyN-db-Rid">
             <objects>
-                <viewController storyboardIdentifier="SetLightningTitleVC" id="T8y-86-imL" customClass="LightningTitleViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LightningTitleViewController" id="T8y-86-imL" customClass="LightningTitleViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oPF-DL-Ws3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,7 +210,7 @@
         <!--Ligntning Detail View Controller-->
         <scene sceneID="IPB-9v-GCS">
             <objects>
-                <viewController storyboardIdentifier="SetLigntningDetailVC" id="0uo-sC-H70" customClass="LigntningDetailViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LigntningDetailViewController" id="0uo-sC-H70" customClass="LigntningDetailViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aId-9d-ln0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -383,7 +383,7 @@
         <!--Complete Lightning View Controller-->
         <scene sceneID="LaZ-Qz-x6m">
             <objects>
-                <viewController storyboardIdentifier="CompleteLightningVC" id="WHP-QS-4TQ" customClass="CompleteLightningViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompleteLightningViewController" id="WHP-QS-4TQ" customClass="CompleteLightningViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sZc-TJ-OlC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

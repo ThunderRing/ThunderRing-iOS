@@ -11,7 +11,7 @@ import UIKit
 
 final class CompleteLightningViewController: UIViewController {
 
-    /// MARK: - Properties
+    // MARK: - Properties
     
     @IBOutlet weak var confirmButton: UIButton!
     

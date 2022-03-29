@@ -47,13 +47,13 @@ final class LightningMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
+        configUI()
         bind()
     }
     
     // MARK: - Init UI
     
-    private func initUI() {
+    private func configUI() {
         titleLabel.text = "번개 치기"
         titleLabel.addCharacterSpacing()
         
@@ -78,6 +78,7 @@ final class LightningMainViewController: UIViewController {
     // MARK: - Custom Method
     
     private func bind() {
+        /// button
         closeButton.addAction(UIAction(handler: { _ in
             self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
@@ -122,13 +123,14 @@ extension LightningMainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLightningTitleVC") as? LightningTitleViewController else { return }
+        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "LightningTitleViewController") as? LightningTitleViewController else { return }
         dvc.index = indexPath.row
         
         if indexPath.section == 0 {
             for i in 0 ... privateGroupData.count - 1 {
                 dvc.groupNames.append(privateGroupData[i].groupName)
                 dvc.groupMaxCounts.append(privateGroupData[i].memberCounts)
+                dvc.groupMaxCount = privateGroupData[indexPath.row].memberCounts
             }
         } else {
             for i in 0 ... privateGroupData.count - 1 {

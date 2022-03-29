@@ -243,7 +243,7 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
     }
     
     func touchUpLightningButton() {
-        guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SetLightningTitle) as? LightningTitleViewController else { return }
+        guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
         let dvc = UINavigationController(rootViewController: vc)
         
         // FIXME: - index / private,public Group Data 수정

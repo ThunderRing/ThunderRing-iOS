@@ -47,12 +47,14 @@ final class PublicListTableViewCell: UITableViewCell {
     // MARK: - Init UI
     
     private func configUI() {
-        self.layer.borderColor = UIColor.gray350.cgColor
-        self.layer.borderWidth = 1
+        layer.borderColor = UIColor.gray350.cgColor
+        layer.borderWidth = 1
+        
+        groupTagView.makeRounded(cornerRadius: 3)
     }
     
     private func setLayout() {
-        self.addSubviews([groupImageView, groupNameLabel, countLabel, groupTagView])
+        addSubviews([groupImageView, groupNameLabel, countLabel, groupTagView])
         
         groupImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(21)
