@@ -2,14 +2,14 @@
 //  GroupListVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/11/22.
+//  Created by 소연 on 2021/11/22.
 //
 
 import UIKit
 
 import SnapKit
 
-final class SetLightningTitleVC: UIViewController {
+final class LightningTitleViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -44,7 +44,7 @@ final class SetLightningTitleVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidLoad() {
@@ -148,7 +148,7 @@ final class SetLightningTitleVC: UIViewController {
     
     @objc func touchUpNextButton() {
         if groupNameTextField.hasText {
-            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLigntningDetailVC") as? SetLigntningDetailVC else { return }
+            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLigntningDetailVC") as? LigntningDetailViewController else { return }
             dvc.groupName = self.groupNameTextField.text
             dvc.lightningName = self.nameTextField.text
             dvc.lightningDescription = self.detailTextView.text
@@ -162,7 +162,7 @@ final class SetLightningTitleVC: UIViewController {
 
 // MARK: - UITextField Delegate
 
-extension SetLightningTitleVC: UITextFieldDelegate {
+extension LightningTitleViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 10, bounds: true)
         textField.setRightIcon(0, textField.frame.height, UIImage(named: "btnDelete")!)
@@ -197,7 +197,7 @@ extension SetLightningTitleVC: UITextFieldDelegate {
     }
 }
 
-extension SetLightningTitleVC: UITextViewDelegate {
+extension LightningTitleViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         detailTextView.text = ""
         detailTextView.textColor = .black
@@ -232,7 +232,7 @@ extension SetLightningTitleVC: UITextViewDelegate {
 
 // MARK: - UIPickerView Protocols
 
-extension SetLightningTitleVC: UIPickerViewDelegate, UIPickerViewDataSource {
+extension LightningTitleViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

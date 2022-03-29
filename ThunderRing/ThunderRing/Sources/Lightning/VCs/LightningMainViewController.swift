@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class LightningViewController: UIViewController {
+final class LightningMainViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -17,7 +17,7 @@ final class LightningViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var searchBackView: UIView!
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var groupListTableView: UITableView!
     
     private var privateHeaderView = UIView()
@@ -41,8 +41,8 @@ final class LightningViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        self.groupListTableView.reloadData()
+        navigationController?.isNavigationBarHidden = true
+        groupListTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -97,7 +97,7 @@ final class LightningViewController: UIViewController {
 
 // MARK: - UITableView Delegate
 
-extension LightningViewController: UITableViewDelegate {
+extension LightningMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 63
     }
@@ -122,7 +122,7 @@ extension LightningViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLightningTitleVC") as? SetLightningTitleVC else { return }
+        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "SetLightningTitleVC") as? LightningTitleViewController else { return }
         dvc.index = indexPath.row
         
         if indexPath.section == 0 {
@@ -142,16 +142,16 @@ extension LightningViewController: UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 10 {
-            searchBackView.layer.applyShadow()
+            topView.layer.applyShadow()
         } else {
-            searchBackView.layer.applyShadow(color: UIColor.clear, alpha: 0, x: 0, y: 0, blur: 0, spread: 0)
+            topView.layer.applyShadow(color: UIColor.clear, alpha: 0, x: 0, y: 0, blur: 0, spread: 0)
         }
     }
 }
 
 // MARK: - UITableView DataSource
 
-extension LightningViewController: UITableViewDataSource {
+extension LightningMainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }

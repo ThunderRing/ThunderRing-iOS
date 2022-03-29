@@ -2,14 +2,14 @@
 //  CompleteLightningVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/11/24.
+//  Created by 소연 on 2021/11/24.
 //
 
 import FirebaseDatabase
 
 import UIKit
 
-class CompleteLightningVC: UIViewController {
+final class CompleteLightningViewController: UIViewController {
 
     /// MARK: - Properties
     

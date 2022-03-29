@@ -2,14 +2,14 @@
 //  SetLigntningDetailVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/11/22.
+//  Created by 소연 on 2021/11/22.
 //
 
 import UIKit
 
 import SnapKit
 
-final class SetLigntningDetailVC: UIViewController {
+final class LigntningDetailViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -221,7 +221,7 @@ final class SetLigntningDetailVC: UIViewController {
     }
     
     @objc func touchUpCompleteButton() {
-        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: Const.ViewController.Name.CompleteLightning) as? CompleteLightningVC else { return }
+        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: Const.ViewController.Name.CompleteLightning) as? CompleteLightningViewController else { return }
         dvc.groupName = self.groupName
         dvc.lightningName = self.lightningName
         dvc.lightningDescription = self.lightningDescription
@@ -284,7 +284,7 @@ final class SetLigntningDetailVC: UIViewController {
 
 // MARK: - UITextField Delegate
 
-extension SetLigntningDetailVC: UITextFieldDelegate {
+extension LigntningDetailViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 10, bounds: true)
         
