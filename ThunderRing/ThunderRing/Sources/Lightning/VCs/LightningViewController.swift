@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class LightningVC: UIViewController {
+final class LightningViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -90,14 +90,14 @@ final class LightningVC: UIViewController {
         groupListTableView.backgroundColor = .background
         groupListTableView.showsVerticalScrollIndicator = false
         
-        groupListTableView.register(PrivateListTVC.self, forCellReuseIdentifier: PrivateListTVC.identifier)
-        groupListTableView.register(PublicListTVC.self, forCellReuseIdentifier: PublicListTVC.identifier)
+        groupListTableView.register(PrivateListTableViewCell.self, forCellReuseIdentifier: PrivateListTableViewCell.identifier)
+        groupListTableView.register(PublicListTableViewCell.self, forCellReuseIdentifier: PublicListTableViewCell.identifier)
     }
 }
 
 // MARK: - UITableView Delegate
 
-extension LightningVC: UITableViewDelegate {
+extension LightningViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 63
     }
@@ -113,9 +113,9 @@ extension LightningVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 80
+            return 86
         case 1:
-            return 96
+            return 86
         default:
             return 0
         }
@@ -151,7 +151,7 @@ extension LightningVC: UITableViewDelegate {
 
 // MARK: - UITableView DataSource
 
-extension LightningVC: UITableViewDataSource {
+extension LightningViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -167,7 +167,7 @@ extension LightningVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTVC.identifier) as? PrivateListTVC else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTableViewCell.identifier) as? PrivateListTableViewCell else { return UITableViewCell() }
             cell.initCell(group: privateGroupData[indexPath.row])
             
             let bgColorView = UIView()
@@ -186,7 +186,7 @@ extension LightningVC: UITableViewDataSource {
             }
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: PublicListTVC.identifier) as? PublicListTVC else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PublicListTableViewCell.identifier) as? PublicListTableViewCell else { return UITableViewCell() }
             cell.initCell(group: publicGroupData[indexPath.row])
             
             let bgColorView = UIView()
