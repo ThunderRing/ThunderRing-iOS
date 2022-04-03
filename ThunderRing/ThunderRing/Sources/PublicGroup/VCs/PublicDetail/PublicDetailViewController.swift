@@ -1,8 +1,8 @@
 //
-//  PrivateDetailVC.swift
+//  PublicDetailVC.swift
 //  ThunderRing
 //
-//  Created by 소연 on 2021/12/08.
+//  Created by soyeon on 2022/01/28.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class PrivateDetailViewController: UIViewController {
+final class PublicDetailViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -26,6 +26,8 @@ final class PrivateDetailViewController: UIViewController {
     
     private lazy var settingButton = UIButton().then {
         $0.setTitle("", for: .normal)
+        $0.setImage(UIImage(named: "btn_dot"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpSettingButton), for: .touchUpInside)
     }
     
     private lazy var scrollView = UIScrollView().then {
@@ -37,7 +39,7 @@ final class PrivateDetailViewController: UIViewController {
         $0.backgroundColor = .clear
     }
     
-    private lazy var headerView = PrivateGroupDetailHeaderView().then {
+    private lazy var headerView = PublicGroupDetailHeaderView().then {
         $0.delegate = self
     }
     
@@ -152,7 +154,7 @@ final class PrivateDetailViewController: UIViewController {
         }
     }
     
-    // TODO: - 분기처리 
+    // TODO: - 분기처리
     var isMemberViewOpen: Bool = true {
         didSet {
             memberMoreButton.setImage(isMemberViewOpen ? UIImage(named: "btn_more") : UIImage(named: " "), for: .normal)
@@ -234,7 +236,7 @@ final class PrivateDetailViewController: UIViewController {
         
         headerView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(292)
+            $0.height.equalTo(354)
         }
         
         memberTitleLabel.snp.makeConstraints {
@@ -341,8 +343,31 @@ final class PrivateDetailViewController: UIViewController {
     }
     
     @objc func touchUpSettingButton() {
-        let dvc = PrivateDetailSettingViewController()
-        navigationController?.pushViewController(dvc, animated: true)
+        if isOwner {
+            let dvc = PrivateDetailSettingViewController()
+            navigationController?.pushViewController(dvc, animated: true)
+        } else {
+            let optionMenu = UIAlertController()
+            
+            let deleteAction = UIAlertAction(title: "신고", style: .default, handler: {
+                (alert: UIAlertAction!) -> Void in
+                print("신고")
+            })
+            let saveAction = UIAlertAction(title: "그룹 탈퇴", style: .destructive, handler: {
+                (alert: UIAlertAction!) -> Void in
+                print("그룹 탈퇴")
+            })
+            
+            let cancelAction = UIAlertAction(title: "닫기", style: .cancel, handler: {
+                (alert: UIAlertAction!) -> Void in
+            })
+            
+            optionMenu.addAction(deleteAction)
+            optionMenu.addAction(saveAction)
+            optionMenu.addAction(cancelAction)
+            
+            present(optionMenu, animated: true, completion: nil)
+        }
     }
     
     @objc func touchUpMemeberMoreButton() {
@@ -356,7 +381,7 @@ final class PrivateDetailViewController: UIViewController {
 
 // MARK: - Custom Delegate
 
-extension PrivateDetailViewController: PrivateGroupDetailHeaderViewDelegate {
+extension PublicDetailViewController: PublicGroupDetailHeaderViewDelegate {
     func touchUpInviteButton() {
         isOwner ? print("그룹원 초대") : print("❌가입 먼저❌")
     }
@@ -371,7 +396,7 @@ extension PrivateDetailViewController: PrivateGroupDetailHeaderViewDelegate {
 
 // MARK: - UICollectionView Protocol
 
-extension PrivateDetailViewController: UICollectionViewDelegateFlowLayout {
+extension PublicDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case memberCollectionView:
@@ -421,7 +446,7 @@ extension PrivateDetailViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension PrivateDetailViewController: UICollectionViewDataSource {
+extension PublicDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case memberCollectionView:
@@ -446,3 +471,4 @@ extension PrivateDetailViewController: UICollectionViewDataSource {
         }
     }
 }
+

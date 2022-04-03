@@ -30,7 +30,7 @@ final class PublicListTableViewCell: UITableViewCell {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
     
-    private lazy var groupTagView = GroupTagView(tagType: .diligent)
+    private lazy var groupTagView = GroupTendencyView(tagType: .diligent)
 
     // MARK: - Life Cycle
     

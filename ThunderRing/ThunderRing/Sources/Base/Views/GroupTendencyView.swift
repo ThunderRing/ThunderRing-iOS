@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class GroupTagView: UIView {
+final class GroupTendencyView: UIView {
     var tagType: TagType = .cozy {
         didSet {
             titlaLabel.text = tagType.title

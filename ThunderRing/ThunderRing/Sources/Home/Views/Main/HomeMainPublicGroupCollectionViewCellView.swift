@@ -31,7 +31,7 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
     
-    private lazy var groupTagView = GroupTagView(tagType: .diligent)
+    private lazy var groupTendencyView = GroupTendencyView(tagType: .diligent)
     
     private var lightningButton = LightningButton()
     
@@ -54,14 +54,14 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         
         lightningButton.makeRounded(cornerRadius: 14 )
         
-        groupTagView.makeRounded(cornerRadius: 3)
+        groupTendencyView.makeRounded(cornerRadius: 3)
     }
     
     private func setLayout() {
         addSubviews([groupImageView,
                      groupNameLabel,
                      memberCountLabel,
-                     groupTagView,
+                     groupTendencyView,
                      lightningButton])
         
         groupImageView.snp.makeConstraints {
@@ -81,7 +81,7 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
             $0.leading.equalTo(groupNameLabel.snp.trailing).offset(4)
         }
         
-        groupTagView.snp.makeConstraints {
+        groupTendencyView.snp.makeConstraints {
             $0.top.equalTo(memberCountLabel.snp.bottom).offset(6)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(84)
@@ -89,7 +89,7 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         }
         
         lightningButton.snp.makeConstraints {
-            $0.top.equalTo(groupTagView.snp.bottom).offset(15)
+            $0.top.equalTo(groupTendencyView.snp.bottom).offset(15)
             $0.width.equalTo(88)
             $0.height.equalTo(30)
             $0.centerX.equalToSuperview()
@@ -115,28 +115,28 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         
         switch group.publicGroupType {
         case .diligent:
-            groupTagView.tagType = .diligent
-            groupTagView.snp.updateConstraints {
+            groupTendencyView.tagType = .diligent
+            groupTendencyView.snp.updateConstraints {
                 $0.width.equalTo(95)
             }
         case .crowd:
-            groupTagView.tagType = .crowd
-            groupTagView.snp.updateConstraints {
+            groupTendencyView.tagType = .crowd
+            groupTendencyView.snp.updateConstraints {
                 $0.width.equalTo(84)
             }
         case .emotion:
-            groupTagView.tagType = .emotion
-            groupTagView.snp.updateConstraints {
+            groupTendencyView.tagType = .emotion
+            groupTendencyView.snp.updateConstraints {
                 $0.width.equalTo(95)
             }
         case .soft:
-            groupTagView.tagType = .soft
-            groupTagView.snp.updateConstraints {
+            groupTendencyView.tagType = .soft
+            groupTendencyView.snp.updateConstraints {
                 $0.width.equalTo(72)
             }
         case .cozy:
-            groupTagView.tagType = .cozy
-            groupTagView.snp.updateConstraints {
+            groupTendencyView.tagType = .cozy
+            groupTendencyView.snp.updateConstraints {
                 $0.width.equalTo(84)
             }
         }

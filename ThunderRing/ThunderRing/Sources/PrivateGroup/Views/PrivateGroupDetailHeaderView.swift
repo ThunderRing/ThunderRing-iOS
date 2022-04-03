@@ -10,12 +10,12 @@ import UIKit
 import SnapKit
 import Then
 
-protocol GroupDeatilHeaderViewDelegate: AnyObject {
+protocol PrivateGroupDetailHeaderViewDelegate: AnyObject {
     func touchUpInviteButton()
     func touchUpShareButton()
 }
 
-final class GroupDetailHeaderView: UIView {
+final class PrivateGroupDetailHeaderView: UIView {
     // MARK: - Properties
     
     private lazy var groupImageView = UIImageView().then {
@@ -56,7 +56,7 @@ final class GroupDetailHeaderView: UIView {
         $0.addTarget(self, action: #selector(touchUpShareButton), for: .touchUpInside)
     }
     
-    weak var delegate: GroupDeatilHeaderViewDelegate?
+    weak var delegate: PrivateGroupDetailHeaderViewDelegate?
     
     // MARK: - Initializer
     

@@ -173,10 +173,10 @@ extension MyPublicVC: UICollectionViewDataSource {
         case 0 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyGroupCVC.identifier, for: indexPath) as? MyGroupCVC else { return UICollectionViewCell() }
             cell.delegate = self
-            return  cell
+            return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LookCVC.identifier, for: indexPath) as? LookCVC else { return UICollectionViewCell() }
-            return  cell
+            return cell
         default:
             return UICollectionViewCell()
         }
@@ -197,5 +197,10 @@ extension MyPublicVC: MyGroupCVCDelegate {
         let dvc = UINavigationController(rootViewController: CreatePublicGroupNameViewController())
         dvc.modalPresentationStyle = .fullScreen
         present(dvc, animated: true, completion: nil)
+    }
+    
+    func touchUpCell() {
+        let dvc = PublicDetailViewController()
+        navigationController?.pushViewController(dvc, animated: true)
     }
 }
