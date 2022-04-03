@@ -228,7 +228,7 @@ extension MainVC: UIGestureRecognizerDelegate {
 
 extension MainVC: PrivateGroupCVCDelegate {
     func touchUpEnterButton() {
-        let dvc = PrivateDetailVC()
+        let dvc = PrivateDetailViewController()
         dvc.modalPresentationStyle = .fullScreen
         present(dvc, animated: true, completion: nil)
     }

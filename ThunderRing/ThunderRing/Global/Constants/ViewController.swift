@@ -31,7 +31,7 @@ extension Const {
                 static let CompleteLightning = "CompleteLightningViewController"
                 
                 static let MyPrivate = "MyPrivateVC"
-                static let PrivateDetail = "PrivateDetailVC"
+                static let PrivateDetail = "PrivateDetailViewController"
                 static let CreatePrivate = "CreatePrivateVC"
                 
                 static let MyPublic = "MyPublicVC"

@@ -239,7 +239,9 @@ final class HomeMainViewController: UIViewController {
 
 extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate {
     func touchUpEnterButton() {
-        print("그룹상세 화면으로 이동")
+        let dvc = PrivateDetailViewController()
+        dvc.isOwner = true
+        navigationController?.pushViewController(dvc, animated: true)
     }
     
     func touchUpLightningButton() {

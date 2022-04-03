@@ -28,6 +28,8 @@ final class TDSButton: UIButton {
     private var activatedBgColor: UIColor = .purple100
     private var activatedFontColor: UIColor = .white
     
+    private lazy var leftIconImageView = UIImageView()
+    
     init() {
         super.init(frame: .zero)
         setLayout()
@@ -44,15 +46,20 @@ final class TDSButton: UIButton {
     
     /// 디폴트 버튼 스타일 설정
     private func setDefaultStyle() {
-        self.makeRounded(cornerRadius: 26.adjusted)
-        self.titleLabel?.font = .SpoqaHanSansNeo(type: .regular, size: 16)
-        self.backgroundColor = self.normalBgColor
-        self.tintColor = .white
-        self.setTitleColor(self.normalFontColor, for: .normal)
+        makeRounded(cornerRadius: 26.adjusted)
+        titleLabel?.font = .SpoqaHanSansNeo(type: .regular, size: 16)
+        titleLabel?.addCharacterSpacing()
+        backgroundColor = self.normalBgColor
+        tintColor = .white
+        setTitleColor(self.normalFontColor, for: .normal)
     }
     
     private func setLayout() {
-
+        addSubview(leftIconImageView)
+        leftIconImageView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalTo(titleLabel!.snp.leading).offset(-4)
+        }
     }
     
     // MARK: - Public Methods
@@ -65,7 +72,7 @@ final class TDSButton: UIButton {
     }
     
     /// 버튼 타이틀과 스타일 변경 폰트 사이즈 adjusted 적용
-    public func setTitleWithStyle(title: String, size: CGFloat, weight: FontWeight = .regular) {
+    internal func setTitleWithStyle(title: String, size: CGFloat, weight: FontWeight = .regular) {
         let font: UIFont
         
         switch weight {
@@ -82,12 +89,20 @@ final class TDSButton: UIButton {
         
         }
         
-        self.titleLabel?.font = font
-        self.setTitle(title, for: .normal)
+        titleLabel?.font = font
+        setTitle(title, for: .normal)
     }
     
-    public func setBorder(width: CGFloat, color: UIColor) {
-        self.layer.borderWidth = width
-        self.layer.borderColor = color.cgColor
+    internal func setBorder(width: CGFloat, color: UIColor) {
+        layer.borderWidth = width
+        layer.borderColor = color.cgColor
+    }
+    
+    internal func setCornerRadius(radius: CGFloat) {
+        makeRounded(cornerRadius: radius)
+    }
+    
+    internal func setLeftIconImage(imageName: String) {
+        leftIconImageView.image = UIImage(named: imageName)
     }
 }

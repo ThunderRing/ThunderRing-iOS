@@ -163,9 +163,9 @@ fileprivate final class LightningButton: UIButton {
     }
 
     private func setButton() {
-        self.makeRounded(cornerRadius: 14)
-        self.backgroundColor = .purple100
-        self.addSubview(textLabel)
+        makeRounded(cornerRadius: 14)
+        backgroundColor = .purple100
+        addSubview(textLabel)
         textLabel.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }
