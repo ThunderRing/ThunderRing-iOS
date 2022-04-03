@@ -240,6 +240,7 @@ final class HomeMainViewController: UIViewController {
 extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate {
     func touchUpEnterButton() {
         let dvc = PrivateDetailViewController()
+        dvc.isOwner = true
         navigationController?.pushViewController(dvc, animated: true)
     }
     

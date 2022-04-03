@@ -14,7 +14,7 @@ final class PrivateDetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var navigationView = UIView().then {
+    private var navigationBar = UIView().then {
         $0.backgroundColor = .background
     }
     
@@ -24,9 +24,143 @@ final class PrivateDetailViewController: UIViewController {
         $0.addTarget(self, action: #selector(touchUpBackButton), for: .touchUpInside)
     }
     
-    private lazy var setttingButton = UIButton().then {
+    private lazy var settingButton = UIButton().then {
         $0.setTitle("", for: .normal)
-        $0.setImage(UIImage(named: "btnSetting"), for: .normal)
+    }
+    
+    private lazy var scrollView = UIScrollView().then {
+        $0.isScrollEnabled = true
+        $0.isPagingEnabled = false
+    }
+    
+    private lazy var contentView = UIView().then {
+        $0.backgroundColor = .clear
+    }
+    
+    private lazy var headerView = GroupDetailHeaderView()
+    
+    private lazy var lightningButton = TDSButton().then {
+        $0.setTitle("번개 치기", for: .normal)
+        $0.isActivated = true
+        $0.addTarget(self, action: #selector(touchUpLightningButton), for: .touchUpInside)
+        $0.makeRounded(cornerRadius: 24)
+        $0.setLeftIconImage(imageName: "icn_lightning_new")
+    }
+    
+    private lazy var lineView = UIView().then {
+        $0.backgroundColor = .gray150
+    }
+    
+    private lazy var buttonBackView = UIView().then {
+        $0.backgroundColor = .white
+    }
+    
+    private lazy var memberTitleLabel = UILabel().then {
+        $0.text = "그룹 원"
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
+    }
+    
+    private lazy var memberCountsLabel = UILabel().then {
+        $0.text = "0"
+        $0.textColor = .gray100
+        $0.font = .DINPro(type: .medium, size: 16)
+    }
+    
+    private lazy var memberSubtitleLabel = UILabel().then {
+        $0.text = "명"
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
+    }
+    
+    private lazy var memberMoreButton = UIButton().then {
+        $0.setTitle("", for: .normal)
+        $0.setImage(UIImage(named: "btn_more"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpMemeberMoreButton), for: .touchUpInside)
+    }
+    
+    private lazy var memberCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = .zero
+        
+        return UICollectionView(frame: .zero, collectionViewLayout: layout).then {
+            $0.backgroundColor = .clear
+            $0.isScrollEnabled = false
+            $0.register(PrivateDetailMemberCollectionViewCell.self, forCellWithReuseIdentifier: PrivateDetailMemberCollectionViewCell.CellIdentifier)
+        }
+    }()
+    
+    private lazy var historyTitleLabel = UILabel().then {
+        $0.text = "번개 기록"
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
+    }
+    
+    private lazy var historyCountsLabel = UILabel().then {
+        $0.text = "0"
+        $0.textColor = .gray100
+        $0.font = .DINPro(type: .medium, size: 16)
+    }
+    
+    private lazy var historySubtitleLabel = UILabel().then {
+        $0.text = "회"
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
+    }
+    
+    private lazy var historyMoreButton = UIButton().then {
+        $0.setTitle("", for: .normal)
+        $0.setImage(UIImage(named: "btn_more"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpHistoryMoreButton), for: .touchUpInside)
+    }
+    
+    private lazy var historyCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        layout.estimatedItemSize = .zero
+        
+        return UICollectionView(frame: .zero, collectionViewLayout: layout).then {
+            $0.backgroundColor = .clear
+            $0.isScrollEnabled = false
+            $0.register(PrivateDetailHistoryCollectionViewCell.self, forCellWithReuseIdentifier: PrivateDetailHistoryCollectionViewCell.CellIdentifier)
+        }
+    }()
+    
+    var isOwner: Bool = false {
+        didSet {
+            settingButton.setImage(isOwner ? UIImage(named: "btnSetting") : UIImage(named: " "), for: .normal)
+            settingButton.addTarget(self, action: #selector(touchUpSettingButton), for: .touchUpInside)
+        }
+    }
+    
+    var isPrivate: Bool = false
+    
+    var memberCounts: Int = 0 {
+        didSet {
+            memberCountsLabel.text = "\(memberCounts)"
+        }
+    }
+    
+    var historyCounts: Int = 0 {
+        didSet {
+            historyCountsLabel.text = "\(historyCounts)"
+        }
+    }
+    
+    // TODO: - 분기처리 
+    var isMemberViewOpen: Bool = true {
+        didSet {
+            memberMoreButton.setImage(isMemberViewOpen ? UIImage(named: "btn_more") : UIImage(named: " "), for: .normal)
+        }
+    }
+    
+    var isHistoryViewOpen: Bool = true {
+        didSet {
+            historyMoreButton.setImage(isHistoryViewOpen ? UIImage(named: "btn_more") : UIImage(named: " "), for: .normal)
+        }
     }
     
     // MARK: - Life Cycle
@@ -41,6 +175,7 @@ final class PrivateDetailViewController: UIViewController {
         super.viewDidLoad()
         configUI()
         setLayout()
+        bind()
     }
     
     // MARK: - InitUI
@@ -51,10 +186,23 @@ final class PrivateDetailViewController: UIViewController {
     }
     
     private func setLayout() {
-        view.addSubviews([navigationView])
-        navigationView.addSubviews([backButton, setttingButton])
+        view.addSubviews([navigationBar, scrollView, lineView, buttonBackView])
+        buttonBackView.addSubview(lightningButton)
+        navigationBar.addSubviews([backButton, settingButton])
+        scrollView.addSubview(contentView)
+        contentView.addSubviews([headerView,
+                                 memberTitleLabel,
+                                 memberCountsLabel,
+                                 memberSubtitleLabel,
+                                 memberMoreButton,
+                                 memberCollectionView,
+                                 historyTitleLabel,
+                                 historyCountsLabel,
+                                 historySubtitleLabel,
+                                 historyMoreButton,
+                                 historyCollectionView])
         
-        navigationView.snp.makeConstraints {
+        navigationBar.snp.makeConstraints {
             $0.leading.top.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(57)
         }
@@ -65,18 +213,217 @@ final class PrivateDetailViewController: UIViewController {
             $0.width.height.equalTo(48)
         }
         
-        setttingButton.snp.makeConstraints {
+        settingButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(9)
             $0.bottom.equalToSuperview().inset(4)
             $0.width.height.equalTo(48)
+        }
+        
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom)
+            $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        contentView.snp.makeConstraints {
+            $0.top.leading.trailing.bottom.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.greaterThanOrEqualToSuperview()
+        }
+        
+        headerView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(292)
+        }
+        
+        memberTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(23)
+            $0.leading.equalToSuperview().inset(25)
+        }
+        
+        memberCountsLabel.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(22)
+            $0.trailing.equalTo(memberSubtitleLabel.snp.leading).offset(-1)
+        }
+        
+        memberSubtitleLabel.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(24)
+            $0.trailing.equalToSuperview().inset(48)
+        }
+        
+        memberCollectionView.snp.makeConstraints {
+            $0.top.equalTo(memberTitleLabel.snp.bottom).offset(25)
+            $0.leading.trailing.equalToSuperview()
+            // TODO: - 높이값 수정
+            $0.height.equalTo(81)
+        }
+        
+        memberMoreButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(7)
+            $0.centerY.equalTo(memberTitleLabel.snp.centerY)
+        }
+        
+        historyTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(memberCollectionView.snp.bottom).offset(43)
+            $0.leading.equalToSuperview().inset(25)
+        }
+        
+        historyCountsLabel.snp.makeConstraints {
+            $0.top.equalTo(memberCollectionView.snp.bottom).offset(42)
+            $0.trailing.equalTo(historySubtitleLabel.snp.leading).offset(-1)
+        }
+        
+        historySubtitleLabel.snp.makeConstraints {
+            $0.top.equalTo(memberCollectionView.snp.bottom).offset(43)
+            $0.trailing.equalToSuperview().inset(48)
+        }
+        
+        historyCollectionView.snp.makeConstraints {
+            $0.top.equalTo(historyTitleLabel.snp.bottom).offset(20)
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.height.equalTo(493)
+        }
+        
+        historyMoreButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(7)
+            $0.centerY.equalTo(historyTitleLabel.snp.centerY)
+        }
+        
+        lineView.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(56)
+            $0.height.equalTo(0.5)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        buttonBackView.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(56)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
+        lightningButton.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(48)
+            $0.bottom.equalToSuperview()
         }
     }
     
     // MARK: - Custom Method
     
+    private func bind() {
+        memberCollectionView.delegate = self
+        memberCollectionView.dataSource = self
+        
+        historyCollectionView.delegate = self
+        historyCollectionView.dataSource = self
+    }
+    
     // MARK: - @objc
     
     @objc func touchUpBackButton() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func touchUpLightningButton() {
+        guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
+        let dvc = UINavigationController(rootViewController: vc)
+        
+        // FIXME: - index / private,public Group Data 수정
+        vc.index = 0
+        for i in 0 ... privateGroupData.count - 1 {
+            vc.groupNames.append(privateGroupData[i].groupName)
+            vc.groupMaxCounts.append(privateGroupData[i].memberCounts)
+        }
+        
+        dvc.modalPresentationStyle = .fullScreen
+        present(dvc, animated: true)
+    }
+    
+    @objc func touchUpSettingButton() {
+        let dvc = PrivateDetailSettingViewController()
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    @objc func touchUpMemeberMoreButton() {
+        isMemberViewOpen.toggle()
+    }
+    
+    @objc func touchUpHistoryMoreButton() {
+        isHistoryViewOpen.toggle()
+    }
+}
+
+extension PrivateDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch collectionView {
+        case memberCollectionView:
+            let cellWidth = 53
+            let cellHeight = 81
+            return CGSize(width: cellWidth, height: cellHeight)
+        case historyCollectionView:
+            let cellWidth = 158
+            let cellHeight = 128
+            return CGSize(width: cellWidth, height: cellHeight)
+        default:
+            return .zero
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        switch collectionView {
+        case memberCollectionView:
+            return 23
+        case historyCollectionView:
+            return 7
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        switch collectionView {
+        case memberCollectionView:
+            return 15
+        case historyCollectionView:
+            return 7
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        switch collectionView {
+        case memberCollectionView:
+            return UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
+        case historyCollectionView:
+            return UIEdgeInsets(top: 0, left: 26, bottom: 95, right: 26)
+        default:
+            return .zero
+        }
+    }
+}
+
+extension PrivateDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch collectionView {
+        case memberCollectionView:
+            return 4
+        case historyCollectionView:
+            return 5
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch collectionView {
+        case memberCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailMemberCollectionViewCell.CellIdentifier, for: indexPath) as? PrivateDetailMemberCollectionViewCell else { return UICollectionViewCell() }
+            return cell
+        case historyCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailHistoryCollectionViewCell.CellIdentifier, for: indexPath) as? PrivateDetailHistoryCollectionViewCell else { return UICollectionViewCell() }
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
     }
 }

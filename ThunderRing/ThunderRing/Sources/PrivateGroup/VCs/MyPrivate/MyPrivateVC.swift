@@ -115,6 +115,11 @@ extension MyPrivateVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 88
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dvc = PrivateDetailViewController()
+        navigationController?.pushViewController(dvc, animated: true)
+    }
 }
 
 // MARK: - UITable DataSource

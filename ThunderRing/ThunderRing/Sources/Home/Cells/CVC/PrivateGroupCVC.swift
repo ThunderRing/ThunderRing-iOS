@@ -47,7 +47,7 @@ final class PrivateGroupCVC: UICollectionViewCell {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
-    private var enterButton = UIButton().then {
+    private lazy var enterButton = UIButton().then {
         $0.setTitle("", for: .normal)
         $0.setImage(UIImage(named: "btnEnter"), for: .normal)
         $0.addTarget(self, action: #selector(touchUpEnterButton), for: .touchUpInside)
