@@ -37,7 +37,9 @@ final class PrivateDetailViewController: UIViewController {
         $0.backgroundColor = .clear
     }
     
-    private lazy var headerView = GroupDetailHeaderView()
+    private lazy var headerView = GroupDetailHeaderView().then {
+        $0.delegate = self
+    }
     
     private lazy var lightningButton = TDSButton().then {
         $0.setTitle("번개 치기", for: .normal)
@@ -351,6 +353,23 @@ final class PrivateDetailViewController: UIViewController {
         isHistoryViewOpen.toggle()
     }
 }
+
+// MARK: - Custom Delegate
+
+extension PrivateDetailViewController: GroupDeatilHeaderViewDelegate {
+    func touchUpInviteButton() {
+        isOwner ? print("그룹원 초대") : print("❌가입 먼저❌")
+    }
+    
+    func touchUpShareButton() {
+        let activityVC = UIActivityViewController(activityItems: ["초대 링크 공유"], applicationActivities: nil)
+        activityVC.excludedActivityTypes = [UIActivity.ActivityType.addToReadingList]
+        
+        present(activityVC, animated: true, completion: nil)
+    }
+}
+
+// MARK: - UICollectionView Protocol
 
 extension PrivateDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
