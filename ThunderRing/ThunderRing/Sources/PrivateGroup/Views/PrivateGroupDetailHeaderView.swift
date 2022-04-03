@@ -10,7 +10,12 @@ import UIKit
 import SnapKit
 import Then
 
-final class GroupDetailHeaderView: UIView {
+protocol PrivateGroupDetailHeaderViewDelegate: AnyObject {
+    func touchUpInviteButton()
+    func touchUpShareButton()
+}
+
+final class PrivateGroupDetailHeaderView: UIView {
     // MARK: - Properties
     
     private lazy var groupImageView = UIImageView().then {
@@ -37,6 +42,7 @@ final class GroupDetailHeaderView: UIView {
         $0.setTitle("그룹원 초대", for: .normal)
         $0.setTitleColor(.gray100, for: .normal)
         $0.titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 14)
+        $0.addTarget(self, action: #selector(touchUpInviteButton), for: .touchUpInside)
     }
     
     private lazy var lineView = UIView().then {
@@ -47,7 +53,10 @@ final class GroupDetailHeaderView: UIView {
         $0.setTitle("초대 링크 공유", for: .normal)
         $0.setTitleColor(.purple100, for: .normal)
         $0.titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 14)
+        $0.addTarget(self, action: #selector(touchUpShareButton), for: .touchUpInside)
     }
+    
+    weak var delegate: PrivateGroupDetailHeaderViewDelegate?
     
     // MARK: - Initializer
     
@@ -115,6 +124,16 @@ final class GroupDetailHeaderView: UIView {
             $0.bottom.equalToSuperview().inset(12)
             $0.trailing.equalToSuperview().inset(23)
         }
+    }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpInviteButton() {
+        delegate?.touchUpInviteButton()
+    }
+    
+    @objc func touchUpShareButton() {
+        delegate?.touchUpShareButton()
     }
 }
 

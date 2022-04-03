@@ -35,7 +35,7 @@ extension Const {
                 static let CreatePrivate = "CreatePrivateVC"
                 
                 static let MyPublic = "MyPublicVC"
-                static let PublicDetail = "PublicDetailVC"
+                static let PublicDetail = "PublicDetailViewController"
                 static let CreatePublic = "CreatePublicVC"
             }
     }
