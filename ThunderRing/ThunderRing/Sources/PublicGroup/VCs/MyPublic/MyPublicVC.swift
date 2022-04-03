@@ -183,7 +183,7 @@ extension MyPublicVC: UICollectionViewDataSource {
     }
 }
 
-// MARK: - MyPublicCVC Delegate
+// MARK: - Custom Delegate
 
 extension MyPublicVC: MyGroupCVCDelegate {
     func touchUpTestButton() {
@@ -201,6 +201,7 @@ extension MyPublicVC: MyGroupCVCDelegate {
     
     func touchUpCell() {
         let dvc = PublicDetailViewController()
+        dvc.isOwner = false
         navigationController?.pushViewController(dvc, animated: true)
     }
 }

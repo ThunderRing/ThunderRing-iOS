@@ -26,7 +26,6 @@ final class PublicDetailViewController: UIViewController {
     
     private lazy var settingButton = UIButton().then {
         $0.setTitle("", for: .normal)
-        $0.setImage(UIImage(named: "btn_dot"), for: .normal)
         $0.addTarget(self, action: #selector(touchUpSettingButton), for: .touchUpInside)
     }
     
@@ -135,7 +134,7 @@ final class PublicDetailViewController: UIViewController {
     
     var isOwner: Bool = false {
         didSet {
-            settingButton.setImage(isOwner ? UIImage(named: "btnSetting") : UIImage(named: " "), for: .normal)
+            settingButton.setImage(isOwner ? UIImage(named: "btnSetting") : UIImage(named: "btn_dot"), for: .normal)
             settingButton.addTarget(self, action: #selector(touchUpSettingButton), for: .touchUpInside)
         }
     }
