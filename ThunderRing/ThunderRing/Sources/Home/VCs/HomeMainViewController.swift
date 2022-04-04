@@ -267,7 +267,7 @@ extension HomeMainViewController: HomeMainHeaderViewDelegate {
     }
     
     func touchUpPublicGroup() {
-        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPublic, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPublic) as? MyPublicVC else { return }
+        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPublic, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPublic) as? MyPublicViewController else { return }
         navigationController?.pushViewController(dvc, animated: true)
     }
 }

@@ -1,8 +1,8 @@
 //
-//  MyPrivateTVC.swift
+//  MyGroupTVC.swift
 //  ThunderRing
 //
-//  Created by 소연 on 2021/12/08.
+//  Created by soyeon on 2021/12/10.
 //
 
 import UIKit
@@ -10,8 +10,8 @@ import UIKit
 import SnapKit
 import Then
 
-final class MyPrivateTableViewCell: UITableViewCell {
-    static let identifier = "MyPrivateTableViewCell"
+final class MyPublicGroupTableViewCell: UITableViewCell {
+    static let identifier = "MyPublicGroupTableViewCell"
     
     // MARK: - Properties
     
@@ -38,7 +38,7 @@ final class MyPrivateTableViewCell: UITableViewCell {
         $0.textColor = .gray200
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
     }
-
+    
     // MARK: - Life Cycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -96,15 +96,11 @@ final class MyPrivateTableViewCell: UITableViewCell {
         }
     }
     
-    internal func initCell(group: PrivateGroupDataModel) {
-        if group.groupImageName != nil {
-            groupImageView.image = UIImage(named: group.groupImageName!)
-        } else {
-            groupImageView.image = group.groupImage
-        }
+    internal func initCell(group: PublicGroupDataModel) {
+        groupImageView.image = UIImage(named: group.groupImage)
         
         groupNameLabel.text = group.groupName
-        groupDescriptionLabel.text = group.groupDescription
+        groupDescriptionLabel.text = group.description
         countLabel.text = "\(group.memberCounts)"
     }
 }

@@ -60,7 +60,6 @@ final class MyPrivateViewController: UIViewController {
         customNavigationBarView.layer.applyShadow()
         
         groupTableView.separatorStyle = .none
-        groupTableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
         groupTableView.backgroundColor = .background
         groupTableView.showsVerticalScrollIndicator = false
         
@@ -94,7 +93,7 @@ final class MyPrivateViewController: UIViewController {
         }), for: .touchUpInside)
         
         searchButton.addAction(UIAction(handler: { _ in
-            let dvc = SearchPrivateGroupVC()
+            let dvc = SearchPrivateGroupViewController()
             dvc.modalPresentationStyle = .fullScreen
             self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
