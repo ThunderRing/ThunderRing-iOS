@@ -14,10 +14,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--My PrivateVC-->
+        <!--My Private View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MyPrivateVC" id="Y6W-OH-hqX" customClass="MyPrivateVC" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPrivateViewController" id="Y6W-OH-hqX" customClass="MyPrivateViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

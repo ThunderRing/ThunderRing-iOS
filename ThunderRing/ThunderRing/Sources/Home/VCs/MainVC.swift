@@ -104,7 +104,7 @@ extension MainVC {
         }), for: .touchUpInside)
         
         seePrivateButton.addAction(UIAction(handler: { _ in
-            guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPrivate, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPrivate) as? MyPrivateVC else { return }
+            guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPrivate, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPrivate) as? MyPrivateViewController else { return }
             self.navigationController?.pushViewController(dvc, animated: true)
         }), for: .touchUpInside)
         

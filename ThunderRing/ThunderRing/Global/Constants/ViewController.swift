@@ -30,7 +30,7 @@ extension Const {
                 static let LigntningDetail = "LigntningDetailViewController"
                 static let CompleteLightning = "CompleteLightningViewController"
                 
-                static let MyPrivate = "MyPrivateVC"
+                static let MyPrivate = "MyPrivateViewController"
                 static let PrivateDetail = "PrivateDetailViewController"
                 static let CreatePrivate = "CreatePrivateVC"
                 

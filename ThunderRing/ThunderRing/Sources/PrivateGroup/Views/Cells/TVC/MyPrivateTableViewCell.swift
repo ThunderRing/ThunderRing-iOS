@@ -2,7 +2,7 @@
 //  MyPrivateTVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/12/08.
+//  Created by 소연 on 2021/12/08.
 //
 
 import UIKit
@@ -13,7 +13,12 @@ import Then
 final class MyPrivateTableViewCell: UITableViewCell {
     static let identifier = "MyPrivateTableViewCell"
     
-    // MARK: - UI
+    // MARK: - Properties
+    
+    private var backView = UIView().then {
+        $0.backgroundColor = .white
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
+    }
     
     private var groupImageView = UIImageView().then {
         $0.layer.borderColor = UIColor.gray300.cgColor
@@ -21,48 +26,37 @@ final class MyPrivateTableViewCell: UITableViewCell {
     
     private var groupNameLabel = UILabel().then {
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .bold, size: 18)
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 17)
     }
     
     private var groupDescriptionLabel = UILabel().then {
-        $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
-    }
-    
-    private var countImageView = UIImageView().then {
-        $0.image = UIImage(named: "icnUser")
+        $0.textColor = .gray150
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
     
     private var countLabel = UILabel().then {
-        $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
+        $0.textColor = .gray200
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
     }
 
     // MARK: - Life Cycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        initUI()
+        configUI()
         setLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
 }
 
 extension MyPrivateTableViewCell {
-    private func initUI() {
-        self.backgroundColor = .white
-        self.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 0, bounds: true)
+    private func configUI() {
+        backgroundColor = .clear
         
-        groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 37, bounds: true)
+        groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 19, bounds: true)
         
         [groupNameLabel, groupDescriptionLabel, countLabel].forEach {
             $0.addCharacterSpacing()
@@ -70,38 +64,41 @@ extension MyPrivateTableViewCell {
     }
     
     private func setLayout() {
-        addSubviews([groupImageView, groupNameLabel, groupDescriptionLabel, countImageView, countLabel])
+        contentView.addSubview(backView)
+        backView.addSubviews([groupImageView,
+                              groupNameLabel,
+                              groupDescriptionLabel,
+                              countLabel])
+        
+        backView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(3.5)
+            $0.leading.trailing.equalToSuperview()
+        }
         
         groupImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(33)
-            $0.centerY.equalToSuperview()
-            $0.width.height.equalTo(75)
+            $0.top.bottom.equalToSuperview().inset(15)
+            $0.leading.equalToSuperview().inset(18)
+            $0.width.equalTo(53)
+            $0.height.equalTo(55)
         }
         
         groupNameLabel.snp.makeConstraints {
-            $0.leading.equalTo(groupImageView.snp.trailing).offset(12)
-            $0.top.equalToSuperview().inset(50)
-        }
-        
-        countImageView.snp.makeConstraints {
-            $0.leading.equalTo(groupNameLabel.snp.trailing).offset(8)
-            $0.centerY.equalTo(groupNameLabel.snp.centerY)
+            $0.leading.equalTo(groupImageView.snp.trailing).offset(14)
+            $0.top.equalToSuperview().inset(22)
         }
         
         countLabel.snp.makeConstraints {
-            $0.leading.equalTo(countImageView.snp.trailing).offset(3)
+            $0.leading.equalTo(groupNameLabel.snp.trailing).offset(4)
             $0.centerY.equalTo(groupNameLabel.snp.centerY)
         }
         
         groupDescriptionLabel.snp.makeConstraints {
-            $0.leading.equalTo(groupImageView.snp.trailing).offset(12)
-            $0.top.equalTo(groupNameLabel.snp.bottom).offset(7)
+            $0.leading.equalTo(groupImageView.snp.trailing).offset(14)
+            $0.top.equalTo(groupNameLabel.snp.bottom).offset(5)
         }
     }
-}
-
-extension MyPrivateTableViewCell {
-    func initCell(group: PrivateGroupDataModel) {
+    
+    internal func initCell(group: PrivateGroupDataModel) {
         if group.groupImageName != nil {
             groupImageView.image = UIImage(named: group.groupImageName!)
         } else {

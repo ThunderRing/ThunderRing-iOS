@@ -262,7 +262,7 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
 
 extension HomeMainViewController: HomeMainHeaderViewDelegate {
     func touchUpPrivateGroup() {
-        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPrivate, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPrivate) as? MyPrivateVC else { return }
+        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPrivate, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPrivate) as? MyPrivateViewController else { return }
         navigationController?.pushViewController(dvc, animated: true)
     }
     

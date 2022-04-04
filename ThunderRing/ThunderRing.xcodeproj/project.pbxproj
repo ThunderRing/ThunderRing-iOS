@@ -99,7 +99,7 @@
 		928C708027F3C288001E66BE /* PrivateDetailHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C707F27F3C288001E66BE /* PrivateDetailHistoryCollectionViewCell.swift */; };
 		928FDA042760D130009AC059 /* MyPrivate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928FDA032760D130009AC059 /* MyPrivate.storyboard */; };
 		928FDA062760D156009AC059 /* PrivateDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928FDA052760D156009AC059 /* PrivateDetail.storyboard */; };
-		928FDA0B2760D1B5009AC059 /* MyPrivateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0A2760D1B5009AC059 /* MyPrivateVC.swift */; };
+		928FDA0B2760D1B5009AC059 /* MyPrivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0A2760D1B5009AC059 /* MyPrivateViewController.swift */; };
 		928FDA0D2760D1C4009AC059 /* PrivateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0C2760D1C4009AC059 /* PrivateDetailViewController.swift */; };
 		928FDA0F2760DBAB009AC059 /* MyPrivateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0E2760DBAB009AC059 /* MyPrivateTableViewCell.swift */; };
 		929BB8CA27BCDF44003A3BB3 /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 929BB8C927BCDF44003A3BB3 /* TestData.json */; };
@@ -255,9 +255,9 @@
 		928C707F27F3C288001E66BE /* PrivateDetailHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDetailHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		928FDA032760D130009AC059 /* MyPrivate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPrivate.storyboard; sourceTree = "<group>"; };
 		928FDA052760D156009AC059 /* PrivateDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PrivateDetail.storyboard; sourceTree = "<group>"; };
-		928FDA0A2760D1B5009AC059 /* MyPrivateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateVC.swift; sourceTree = "<group>"; };
-		928FDA0E2760DBAB009AC059 /* MyPrivateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateTableViewCell.swift; sourceTree = "<group>"; };
+		928FDA0A2760D1B5009AC059 /* MyPrivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateViewController.swift; sourceTree = "<group>"; };
 		928FDA0C2760D1C4009AC059 /* PrivateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDetailViewController.swift; sourceTree = "<group>"; };
+		928FDA0E2760DBAB009AC059 /* MyPrivateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateTableViewCell.swift; sourceTree = "<group>"; };
 		929BB8C927BCDF44003A3BB3 /* TestData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestData.json; sourceTree = "<group>"; };
 		92A2445027D7EACF00A81738 /* HomeRecruitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingViewController.swift; sourceTree = "<group>"; };
 		92A2445227D7EE0D00A81738 /* HomeRecruitingTableViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingTableViewCellView.swift; sourceTree = "<group>"; };
@@ -858,7 +858,7 @@
 		928FDA082760D191009AC059 /* MyPrivate */ = {
 			isa = PBXGroup;
 			children = (
-				928FDA0A2760D1B5009AC059 /* MyPrivateVC.swift */,
+				928FDA0A2760D1B5009AC059 /* MyPrivateViewController.swift */,
 				9240852927CA91460029E753 /* SearchPrivateGroupVC.swift */,
 			);
 			path = MyPrivate;
@@ -1367,7 +1367,7 @@
 				9212667C2748167D009DE534 /* UIColor+.swift in Sources */,
 				9248133927D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift in Sources */,
 				92BCCCAC2765180800AA70D6 /* LookSortCVC.swift in Sources */,
-				928FDA0B2760D1B5009AC059 /* MyPrivateVC.swift in Sources */,
+				928FDA0B2760D1B5009AC059 /* MyPrivateViewController.swift in Sources */,
 				9276B067275B453E00915F57 /* BasePaddingLabel.swift in Sources */,
 				92B471AF27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift in Sources */,
 				9276B070275B477A00915F57 /* CounterpartChatCVC.swift in Sources */,

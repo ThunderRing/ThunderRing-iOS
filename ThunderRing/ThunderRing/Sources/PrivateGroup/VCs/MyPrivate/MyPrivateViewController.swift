@@ -1,8 +1,8 @@
 //
-//  MyPrivateVC.swift
+//  MyPrivateViewController.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/12/08.
+//  Created by 소연 on 2021/12/08.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class MyPrivateVC: UIViewController {
+final class MyPrivateViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -56,8 +56,10 @@ final class MyPrivateVC: UIViewController {
     
     private func configUI() {
         view.backgroundColor = .background
+        setStatusBar(.white)
         customNavigationBarView.layer.applyShadow()
         
+        groupTableView.separatorStyle = .none
         groupTableView.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
         groupTableView.backgroundColor = .background
         groupTableView.showsVerticalScrollIndicator = false
@@ -66,7 +68,6 @@ final class MyPrivateVC: UIViewController {
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(23)
-            $0.leading.equalToSuperview().inset(25)
         }
         
         countLabel.snp.makeConstraints {
@@ -79,6 +80,8 @@ final class MyPrivateVC: UIViewController {
         groupTableView.delegate = self
         groupTableView.dataSource = self
         groupTableView.register(MyPrivateTableViewCell.self, forCellReuseIdentifier: MyPrivateTableViewCell.identifier)
+        
+        count = privateGroupData.count
         
         backButton.addAction(UIAction(handler: { _ in
             self.navigationController?.popViewController(animated: true)
@@ -101,9 +104,9 @@ final class MyPrivateVC: UIViewController {
 
 // MARK: - UITableView Delegate
 
-extension MyPrivateVC: UITableViewDelegate {
+extension MyPrivateViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 148
+        return 92
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -123,7 +126,7 @@ extension MyPrivateVC: UITableViewDelegate {
 
 // MARK: - UITable DataSource
 
-extension MyPrivateVC: UITableViewDataSource {
+extension MyPrivateViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return privateGroupData.count
     }
