@@ -7,8 +7,11 @@
 
 import UIKit
 
-class MyPrivateTVC: UITableViewCell {
-    static let identifier = "MyPrivateTVC"
+import SnapKit
+import Then
+
+final class MyPrivateTableViewCell: UITableViewCell {
+    static let identifier = "MyPrivateTableViewCell"
     
     // MARK: - UI
     
@@ -54,7 +57,7 @@ class MyPrivateTVC: UITableViewCell {
 
 }
 
-extension MyPrivateTVC {
+extension MyPrivateTableViewCell {
     private func initUI() {
         self.backgroundColor = .white
         self.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 0, bounds: true)
@@ -97,7 +100,7 @@ extension MyPrivateTVC {
     }
 }
 
-extension MyPrivateTVC {
+extension MyPrivateTableViewCell {
     func initCell(group: PrivateGroupDataModel) {
         if group.groupImageName != nil {
             groupImageView.image = UIImage(named: group.groupImageName!)
