@@ -262,12 +262,12 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
 
 extension HomeMainViewController: HomeMainHeaderViewDelegate {
     func touchUpPrivateGroup() {
-        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPrivate, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPrivate) as? MyPrivateVC else { return }
+        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPrivate, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPrivate) as? MyPrivateViewController else { return }
         navigationController?.pushViewController(dvc, animated: true)
     }
     
     func touchUpPublicGroup() {
-        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPublic, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPublic) as? MyPublicVC else { return }
+        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.MyPublic, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.MyPublic) as? MyPublicViewController else { return }
         navigationController?.pushViewController(dvc, animated: true)
     }
 }

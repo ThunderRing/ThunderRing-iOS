@@ -7,22 +7,24 @@
 
 import UIKit
 
-class LookSortCVC: UICollectionViewCell {
-    static let identifier = "LookSortCVC"
+import SnapKit
+import Then
+
+class LookSortCollectinViewCell: UICollectionViewCell {
+    static let identifier = "LookSortCollectinViewCell"
     
-    // MARK: - UI
+    // MARK: - Properties
     
     private var sortLabel = UILabel().then {
         $0.textColor = .purple100
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
     // MARK: - Life Cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        initUI()
+        configUI()
     }
     
     required init?(coder: NSCoder) {
@@ -38,32 +40,22 @@ class LookSortCVC: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                layer.backgroundColor = UIColor.purple100.cgColor
+                contentView.backgroundColor = .purple100
                 sortLabel.textColor = .white
             } else {
-                layer.backgroundColor = UIColor.background.cgColor
-                sortLabel.textColor = .purple100
+                contentView.backgroundColor = .gray350
+                sortLabel.textColor = .gray100
             }
         }
     }
-}
-
-extension LookSortCVC {
-    private func initUI() {
+    
+    private func configUI() {
         contentView.addSubview(sortLabel)
-        
-        layer.cornerRadius = 15
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.purple100.cgColor
+        contentView.backgroundColor = .gray350
+        contentView.makeRounded(cornerRadius: 13.5)
     }
     
-    private func setAction() {
-        
-    }
-}
-
-extension LookSortCVC {
-    func setLabel(sort: String) {
+    internal func setLabel(sort: String) {
         sortLabel.text = sort
     }
 }

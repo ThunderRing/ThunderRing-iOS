@@ -14,7 +14,7 @@ protocol SortHeaderDelegate {
 class LookHeaderView: UICollectionReusableView {
     static let identifier = "LookHeaderView"
     
-    // MARK: - UI
+    // MARK: - Properties
     
     var sortCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -26,8 +26,6 @@ class LookHeaderView: UICollectionReusableView {
         return collectionView
     }()
     
-    // MARK: - Properties
-    
     private var sortList = [String]()
     private var selectedIndex = 0
     var sortHeaderDelegate: SortHeaderDelegate?
@@ -36,11 +34,9 @@ class LookHeaderView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         initUI()
         setLayout()
-        setData()
-        setCollectionView()
+        bind()
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -62,17 +58,15 @@ extension LookHeaderView {
         }
     }
     
-    private func setData() {
+    private func bind() {
         sortList.append(contentsOf: [
-            "# 부지런한 동틀녘", "# 사근한 오전", "# 북적이는 오후", "# 포근한 해질녘", "# 감성적인 새벽녘"
+            "전체", "부지런한 동틀녘", "사근한 오전", "북적이는 오후", "포근한 해질녘", "감성적인 새벽녘"
         ])
-    }
-    
-    private func setCollectionView() {
+        
         sortCollectionView.delegate = self
         sortCollectionView.dataSource = self
         
-        sortCollectionView.register(LookSortCVC.self, forCellWithReuseIdentifier: LookSortCVC.identifier)
+        sortCollectionView.register(LookSortCollectinViewCell.self, forCellWithReuseIdentifier: LookSortCollectinViewCell.identifier)
     }
     
     private func setLabelWidth(index: Int) -> CGFloat {
@@ -122,12 +116,11 @@ extension LookHeaderView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LookSortCVC.identifier, for: indexPath) as? LookSortCVC else { return UICollectionViewCell() }
-//        if indexPath.item == 0 {
-//            cell.isSelected = true
-//            collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
-//        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LookSortCollectinViewCell.identifier, for: indexPath) as? LookSortCollectinViewCell else { return UICollectionViewCell() }
         cell.setLabel(sort: sortList[indexPath.item])
+        if indexPath.item == 0 {
+            cell.isSelected = true
+        }
         return cell
     }
 }

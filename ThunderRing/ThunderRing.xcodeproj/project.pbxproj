@@ -36,7 +36,7 @@
 		92291C522759130F0012927B /* CompleteCreatePrivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92291C512759130F0012927B /* CompleteCreatePrivateViewController.swift */; };
 		9232069227EA637F0010FC4F /* CreatePublicGroupTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232069127EA637F0010FC4F /* CreatePublicGroupTagViewController.swift */; };
 		9232069427EA7F500010FC4F /* TDSModalNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232069327EA7F500010FC4F /* TDSModalNavigationBar.swift */; };
-		9240852A27CA91460029E753 /* SearchPrivateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852927CA91460029E753 /* SearchPrivateGroupVC.swift */; };
+		9240852A27CA91460029E753 /* SearchPrivateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852927CA91460029E753 /* SearchPrivateGroupViewController.swift */; };
 		9240852C27CA97C50029E753 /* SearchPublicGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852B27CA97C50029E753 /* SearchPublicGroupVC.swift */; };
 		9244097827AE68EB00034510 /* CreatePublicGroupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244097727AE68EB00034510 /* CreatePublicGroupNameViewController.swift */; };
 		9244097A27AE7F9000034510 /* CompleteCreatePublicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244097927AE7F9000034510 /* CompleteCreatePublicViewController.swift */; };
@@ -99,9 +99,9 @@
 		928C708027F3C288001E66BE /* PrivateDetailHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928C707F27F3C288001E66BE /* PrivateDetailHistoryCollectionViewCell.swift */; };
 		928FDA042760D130009AC059 /* MyPrivate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928FDA032760D130009AC059 /* MyPrivate.storyboard */; };
 		928FDA062760D156009AC059 /* PrivateDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928FDA052760D156009AC059 /* PrivateDetail.storyboard */; };
-		928FDA0B2760D1B5009AC059 /* MyPrivateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0A2760D1B5009AC059 /* MyPrivateVC.swift */; };
+		928FDA0B2760D1B5009AC059 /* MyPrivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0A2760D1B5009AC059 /* MyPrivateViewController.swift */; };
 		928FDA0D2760D1C4009AC059 /* PrivateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0C2760D1C4009AC059 /* PrivateDetailViewController.swift */; };
-		928FDA0F2760DBAB009AC059 /* MyPrivateTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0E2760DBAB009AC059 /* MyPrivateTVC.swift */; };
+		928FDA0F2760DBAB009AC059 /* MyPrivateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928FDA0E2760DBAB009AC059 /* MyPrivateTableViewCell.swift */; };
 		929BB8CA27BCDF44003A3BB3 /* TestData.json in Resources */ = {isa = PBXBuildFile; fileRef = 929BB8C927BCDF44003A3BB3 /* TestData.json */; };
 		92A2445127D7EACF00A81738 /* HomeRecruitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A2445027D7EACF00A81738 /* HomeRecruitingViewController.swift */; };
 		92A2445327D7EE0D00A81738 /* HomeRecruitingTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A2445227D7EE0D00A81738 /* HomeRecruitingTableViewCellView.swift */; };
@@ -117,18 +117,18 @@
 		92A5B2A52739AA95004149B2 /* InfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A42739AA95004149B2 /* InfoTVC.swift */; };
 		92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A62739AAA0004149B2 /* LogOutTVC.swift */; };
 		92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2AF2739B3B1004149B2 /* UIFont+.swift */; };
-		92AFB39A276339F000977712 /* MyGroupCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB398276339F000977712 /* MyGroupCVC.swift */; };
-		92AFB39B276339F000977712 /* MyGroupCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AFB399276339F000977712 /* MyGroupCVC.xib */; };
-		92AFB39F27633A1E00977712 /* MyGroupTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB39E27633A1E00977712 /* MyGroupTVC.swift */; };
-		92AFB3A227633A4000977712 /* LookCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB3A027633A4000977712 /* LookCVC.swift */; };
-		92AFB3A327633A4000977712 /* LookCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AFB3A127633A4000977712 /* LookCVC.xib */; };
-		92B1568A2761426300939048 /* MyPublicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B156892761426300939048 /* MyPublicVC.swift */; };
+		92AFB39A276339F000977712 /* MyGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB398276339F000977712 /* MyGroupCollectionViewCell.swift */; };
+		92AFB39B276339F000977712 /* MyGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AFB399276339F000977712 /* MyGroupCollectionViewCell.xib */; };
+		92AFB39F27633A1E00977712 /* MyPublicGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB39E27633A1E00977712 /* MyPublicGroupTableViewCell.swift */; };
+		92AFB3A227633A4000977712 /* LookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB3A027633A4000977712 /* LookCollectionViewCell.swift */; };
+		92AFB3A327633A4000977712 /* LookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AFB3A127633A4000977712 /* LookCollectionViewCell.xib */; };
+		92B1568A2761426300939048 /* MyPublicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B156892761426300939048 /* MyPublicViewController.swift */; };
 		92B471AD27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471AC27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift */; };
 		92B471AF27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471AE27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift */; };
 		92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */; };
 		92B7184427D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B7184327D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift */; };
-		92BCCCAA27650B3D00AA70D6 /* LookDetailCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCA927650B3D00AA70D6 /* LookDetailCVC.swift */; };
-		92BCCCAC2765180800AA70D6 /* LookSortCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCAB2765180800AA70D6 /* LookSortCVC.swift */; };
+		92BCCCAA27650B3D00AA70D6 /* LookDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCA927650B3D00AA70D6 /* LookDetailCollectionViewCell.swift */; };
+		92BCCCAC2765180800AA70D6 /* LookSortCollectinViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCAB2765180800AA70D6 /* LookSortCollectinViewCell.swift */; };
 		92C4148727629606000DB287 /* MyPublic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C4148627629606000DB287 /* MyPublic.storyboard */; };
 		92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBCE6D273B12EC00A3F36D /* CompleteCVC.swift */; };
 		92CBCE70273B12EC00A3F36D /* CompleteCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92CBCE6E273B12EC00A3F36D /* CompleteCVC.xib */; };
@@ -190,7 +190,7 @@
 		92291C512759130F0012927B /* CompleteCreatePrivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreatePrivateViewController.swift; sourceTree = "<group>"; };
 		9232069127EA637F0010FC4F /* CreatePublicGroupTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicGroupTagViewController.swift; sourceTree = "<group>"; };
 		9232069327EA7F500010FC4F /* TDSModalNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDSModalNavigationBar.swift; sourceTree = "<group>"; };
-		9240852927CA91460029E753 /* SearchPrivateGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPrivateGroupVC.swift; sourceTree = "<group>"; };
+		9240852927CA91460029E753 /* SearchPrivateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPrivateGroupViewController.swift; sourceTree = "<group>"; };
 		9240852B27CA97C50029E753 /* SearchPublicGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPublicGroupVC.swift; sourceTree = "<group>"; };
 		9244097727AE68EB00034510 /* CreatePublicGroupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicGroupNameViewController.swift; sourceTree = "<group>"; };
 		9244097927AE7F9000034510 /* CompleteCreatePublicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreatePublicViewController.swift; sourceTree = "<group>"; };
@@ -255,9 +255,9 @@
 		928C707F27F3C288001E66BE /* PrivateDetailHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDetailHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		928FDA032760D130009AC059 /* MyPrivate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPrivate.storyboard; sourceTree = "<group>"; };
 		928FDA052760D156009AC059 /* PrivateDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PrivateDetail.storyboard; sourceTree = "<group>"; };
-		928FDA0A2760D1B5009AC059 /* MyPrivateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateVC.swift; sourceTree = "<group>"; };
+		928FDA0A2760D1B5009AC059 /* MyPrivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateViewController.swift; sourceTree = "<group>"; };
 		928FDA0C2760D1C4009AC059 /* PrivateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateDetailViewController.swift; sourceTree = "<group>"; };
-		928FDA0E2760DBAB009AC059 /* MyPrivateTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateTVC.swift; sourceTree = "<group>"; };
+		928FDA0E2760DBAB009AC059 /* MyPrivateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPrivateTableViewCell.swift; sourceTree = "<group>"; };
 		929BB8C927BCDF44003A3BB3 /* TestData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestData.json; sourceTree = "<group>"; };
 		92A2445027D7EACF00A81738 /* HomeRecruitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingViewController.swift; sourceTree = "<group>"; };
 		92A2445227D7EE0D00A81738 /* HomeRecruitingTableViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingTableViewCellView.swift; sourceTree = "<group>"; };
@@ -278,18 +278,18 @@
 		92A5B2AD2739B31D004149B2 /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
 		92A5B2AE2739B31D004149B2 /* SpoqaHanSansNeo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.otf"; sourceTree = "<group>"; };
 		92A5B2AF2739B3B1004149B2 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
-		92AFB398276339F000977712 /* MyGroupCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupCVC.swift; sourceTree = "<group>"; };
-		92AFB399276339F000977712 /* MyGroupCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyGroupCVC.xib; sourceTree = "<group>"; };
-		92AFB39E27633A1E00977712 /* MyGroupTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupTVC.swift; sourceTree = "<group>"; };
-		92AFB3A027633A4000977712 /* LookCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookCVC.swift; sourceTree = "<group>"; };
-		92AFB3A127633A4000977712 /* LookCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookCVC.xib; sourceTree = "<group>"; };
-		92B156892761426300939048 /* MyPublicVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPublicVC.swift; sourceTree = "<group>"; };
+		92AFB398276339F000977712 /* MyGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupCollectionViewCell.swift; sourceTree = "<group>"; };
+		92AFB399276339F000977712 /* MyGroupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyGroupCollectionViewCell.xib; sourceTree = "<group>"; };
+		92AFB39E27633A1E00977712 /* MyPublicGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPublicGroupTableViewCell.swift; sourceTree = "<group>"; };
+		92AFB3A027633A4000977712 /* LookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookCollectionViewCell.swift; sourceTree = "<group>"; };
+		92AFB3A127633A4000977712 /* LookCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookCollectionViewCell.xib; sourceTree = "<group>"; };
+		92B156892761426300939048 /* MyPublicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPublicViewController.swift; sourceTree = "<group>"; };
 		92B471AC27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainPublicGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		92B471AE27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainPublicGroupCollectionViewCellView.swift; sourceTree = "<group>"; };
 		92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTVC.swift; sourceTree = "<group>"; };
 		92B7184327D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingCollectionViewCell.swift; sourceTree = "<group>"; };
-		92BCCCA927650B3D00AA70D6 /* LookDetailCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookDetailCVC.swift; sourceTree = "<group>"; };
-		92BCCCAB2765180800AA70D6 /* LookSortCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookSortCVC.swift; sourceTree = "<group>"; };
+		92BCCCA927650B3D00AA70D6 /* LookDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		92BCCCAB2765180800AA70D6 /* LookSortCollectinViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookSortCollectinViewCell.swift; sourceTree = "<group>"; };
 		92C4148627629606000DB287 /* MyPublic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPublic.storyboard; sourceTree = "<group>"; };
 		92CBCE6D273B12EC00A3F36D /* CompleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCVC.swift; sourceTree = "<group>"; };
 		92CBCE6E273B12EC00A3F36D /* CompleteCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteCVC.xib; sourceTree = "<group>"; };
@@ -532,7 +532,7 @@
 		926290DE27A4050D006A3B58 /* MyPublic */ = {
 			isa = PBXGroup;
 			children = (
-				92B156892761426300939048 /* MyPublicVC.swift */,
+				92B156892761426300939048 /* MyPublicViewController.swift */,
 				9240852B27CA97C50029E753 /* SearchPublicGroupVC.swift */,
 			);
 			path = MyPublic;
@@ -858,8 +858,8 @@
 		928FDA082760D191009AC059 /* MyPrivate */ = {
 			isa = PBXGroup;
 			children = (
-				928FDA0A2760D1B5009AC059 /* MyPrivateVC.swift */,
-				9240852927CA91460029E753 /* SearchPrivateGroupVC.swift */,
+				928FDA0A2760D1B5009AC059 /* MyPrivateViewController.swift */,
+				9240852927CA91460029E753 /* SearchPrivateGroupViewController.swift */,
 			);
 			path = MyPrivate;
 			sourceTree = "<group>";
@@ -976,12 +976,12 @@
 		92AFB39C276339F400977712 /* CVC */ = {
 			isa = PBXGroup;
 			children = (
-				92AFB398276339F000977712 /* MyGroupCVC.swift */,
-				92AFB399276339F000977712 /* MyGroupCVC.xib */,
-				92AFB3A027633A4000977712 /* LookCVC.swift */,
-				92AFB3A127633A4000977712 /* LookCVC.xib */,
-				92BCCCA927650B3D00AA70D6 /* LookDetailCVC.swift */,
-				92BCCCAB2765180800AA70D6 /* LookSortCVC.swift */,
+				92AFB398276339F000977712 /* MyGroupCollectionViewCell.swift */,
+				92AFB399276339F000977712 /* MyGroupCollectionViewCell.xib */,
+				92AFB3A027633A4000977712 /* LookCollectionViewCell.swift */,
+				92AFB3A127633A4000977712 /* LookCollectionViewCell.xib */,
+				92BCCCA927650B3D00AA70D6 /* LookDetailCollectionViewCell.swift */,
+				92BCCCAB2765180800AA70D6 /* LookSortCollectinViewCell.swift */,
 			);
 			path = CVC;
 			sourceTree = "<group>";
@@ -989,7 +989,7 @@
 		92AFB39D276339FA00977712 /* TVC */ = {
 			isa = PBXGroup;
 			children = (
-				92AFB39E27633A1E00977712 /* MyGroupTVC.swift */,
+				92AFB39E27633A1E00977712 /* MyPublicGroupTableViewCell.swift */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -1112,7 +1112,7 @@
 			isa = PBXGroup;
 			children = (
 				92FF59AF275AB15000916189 /* MemberTVC.swift */,
-				928FDA0E2760DBAB009AC059 /* MyPrivateTVC.swift */,
+				928FDA0E2760DBAB009AC059 /* MyPrivateTableViewCell.swift */,
 			);
 			path = TVC;
 			sourceTree = "<group>";
@@ -1212,11 +1212,11 @@
 				926C7C59273803A10020F851 /* Alarm.storyboard in Resources */,
 				92FFBBA9274CDE7E00706099 /* Buttons.xcassets in Resources */,
 				926C7C57273803980020F851 /* Lightning.storyboard in Resources */,
-				92AFB3A327633A4000977712 /* LookCVC.xib in Resources */,
+				92AFB3A327633A4000977712 /* LookCollectionViewCell.xib in Resources */,
 				92CD3372273FA2A00094CB1C /* SpoqaHanSansNeo-Bold.otf in Resources */,
 				926C7C262737F93F0020F851 /* LaunchScreen.storyboard in Resources */,
 				92159C97275896EF0081F20B /* DINPro-Medium.otf in Resources */,
-				92AFB39B276339F000977712 /* MyGroupCVC.xib in Resources */,
+				92AFB39B276339F000977712 /* MyGroupCollectionViewCell.xib in Resources */,
 				926C7C232737F93F0020F851 /* Assets.xcassets in Resources */,
 				926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */,
 				92CD3373273FA2A00094CB1C /* SpoqaHanSansNeo-Light.otf in Resources */,
@@ -1313,13 +1313,13 @@
 				926290E427A4055E006A3B58 /* CreatePublicGroupDiscriptionViewController.swift in Sources */,
 				92B7184427D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift in Sources */,
 				9244097A27AE7F9000034510 /* CompleteCreatePublicViewController.swift in Sources */,
-				92B1568A2761426300939048 /* MyPublicVC.swift in Sources */,
+				92B1568A2761426300939048 /* MyPublicViewController.swift in Sources */,
 				9248133B27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift in Sources */,
 				92E7F9F927F22E3E00F1CFB7 /* GroupTendencyView.swift in Sources */,
 				9251955F27CA15E900C00E7E /* SearchBaseVC.swift in Sources */,
 				926C7C62273805B70020F851 /* NavigationController.swift in Sources */,
 				92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */,
-				92AFB39F27633A1E00977712 /* MyGroupTVC.swift in Sources */,
+				92AFB39F27633A1E00977712 /* MyPublicGroupTableViewCell.swift in Sources */,
 				926C7C50273803020020F851 /* AlarmVC.swift in Sources */,
 				92A5B2A52739AA95004149B2 /* InfoTVC.swift in Sources */,
 				928C708027F3C288001E66BE /* PrivateDetailHistoryCollectionViewCell.swift in Sources */,
@@ -1327,12 +1327,12 @@
 				92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */,
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
 				92E416ED27B824CF00FD008F /* TDSButton.swift in Sources */,
-				92BCCCAA27650B3D00AA70D6 /* LookDetailCVC.swift in Sources */,
+				92BCCCAA27650B3D00AA70D6 /* LookDetailCollectionViewCell.swift in Sources */,
 				925DCD4827E5210200331949 /* ChatMainTableViewCell.swift in Sources */,
 				9227F2F227DAB0C9001D1BB4 /* HomeJoinViewController.swift in Sources */,
 				92291C522759130F0012927B /* CompleteCreatePrivateViewController.swift in Sources */,
 				92A2445727D8041500A81738 /* HomeRecruitingTableViewCell.swift in Sources */,
-				92AFB39A276339F000977712 /* MyGroupCVC.swift in Sources */,
+				92AFB39A276339F000977712 /* MyGroupCollectionViewCell.swift in Sources */,
 				926C7C49273802890020F851 /* ChatVC.swift in Sources */,
 				926290E127A40543006A3B58 /* PublicDetailViewController.swift in Sources */,
 				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
@@ -1357,17 +1357,17 @@
 				9227F2F627DAB9F5001D1BB4 /* Notification+.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
 				92FF59B0275AB15000916189 /* MemberTVC.swift in Sources */,
-				9240852A27CA91460029E753 /* SearchPrivateGroupVC.swift in Sources */,
+				9240852A27CA91460029E753 /* SearchPrivateGroupViewController.swift in Sources */,
 				9240852C27CA97C50029E753 /* SearchPublicGroupVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
 				9276B06E275B462900915F57 /* ChatDataModel.swift in Sources */,
 				9252EB952769CA9100809FEA /* ContactDataModel.swift in Sources */,
 				92159CA02758D5620081F20B /* AddMemberViewController.swift in Sources */,
-				928FDA0F2760DBAB009AC059 /* MyPrivateTVC.swift in Sources */,
+				928FDA0F2760DBAB009AC059 /* MyPrivateTableViewCell.swift in Sources */,
 				9212667C2748167D009DE534 /* UIColor+.swift in Sources */,
 				9248133927D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift in Sources */,
-				92BCCCAC2765180800AA70D6 /* LookSortCVC.swift in Sources */,
-				928FDA0B2760D1B5009AC059 /* MyPrivateVC.swift in Sources */,
+				92BCCCAC2765180800AA70D6 /* LookSortCollectinViewCell.swift in Sources */,
+				928FDA0B2760D1B5009AC059 /* MyPrivateViewController.swift in Sources */,
 				9276B067275B453E00915F57 /* BasePaddingLabel.swift in Sources */,
 				92B471AF27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift in Sources */,
 				9276B070275B477A00915F57 /* CounterpartChatCVC.swift in Sources */,
@@ -1400,7 +1400,7 @@
 				92A5B2A12739AA49004149B2 /* AccountTVC.swift in Sources */,
 				9276B065275B44F700915F57 /* BaseCell.swift in Sources */,
 				92609ACD274BD9A700F0E401 /* LigntningDetailViewController.swift in Sources */,
-				92AFB3A227633A4000977712 /* LookCVC.swift in Sources */,
+				92AFB3A227633A4000977712 /* LookCollectionViewCell.swift in Sources */,
 				92159C9A2758C21A0081F20B /* CreatePrivateViewController.swift in Sources */,
 				1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */,
 				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,

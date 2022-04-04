@@ -2,7 +2,7 @@
 //  SearchPrivateGroupVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2022/02/27.
+//  Created by 소연 on 2022/02/27.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class SearchPrivateGroupVC: SearchBaseVC {
+final class SearchPrivateGroupViewController: SearchBaseVC {
 
     // MARK: - Properties
     
