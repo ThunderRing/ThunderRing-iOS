@@ -17,10 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let notificationCenter = UNUserNotificationCenter.current()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // 스플래쉬 화면
+        /// 스플래쉬 화면
         sleep(1)
         
-        // 로컬 notification
+        /// 로컬 notification
         notificationCenter.delegate = self
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         notificationCenter.requestAuthorization(options: options) {
@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        // 구글 파이어베이스 연동 
+        /// 구글 파이어베이스 연동
         FirebaseApp.configure()
         
         // FIXME: - DB 설계 후 번개 데이터 읽기 
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    // iOS 13 이하 배지 초기화
+    /// iOS 13 이하 배지 초기화
     func applicationDidBecomeActive(_ application: UIApplication) {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
@@ -61,7 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - Local Notification
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -72,7 +71,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("푸시 알림 클릭 후 앱 진입")
         NotificationCenter.default.post(name: NSNotification.Name("EnterAppByPush"), object: nil)
         completionHandler()
     }

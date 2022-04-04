@@ -79,7 +79,9 @@ extension MyPublicVC {
         }), for: .touchUpInside)
         
         searchButton.addAction(UIAction(handler: { _ in
-            // search 화면으로 이동
+            let dvc = SearchPublicGroupVC()
+            dvc.modalPresentationStyle = .fullScreen
+            self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
     }
 }
@@ -171,17 +173,17 @@ extension MyPublicVC: UICollectionViewDataSource {
         case 0 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyGroupCVC.identifier, for: indexPath) as? MyGroupCVC else { return UICollectionViewCell() }
             cell.delegate = self
-            return  cell
+            return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LookCVC.identifier, for: indexPath) as? LookCVC else { return UICollectionViewCell() }
-            return  cell
+            return cell
         default:
             return UICollectionViewCell()
         }
     }
 }
 
-// MARK: - MyPublicCVC Delegate
+// MARK: - Custom Delegate
 
 extension MyPublicVC: MyGroupCVCDelegate {
     func touchUpTestButton() {
@@ -192,8 +194,14 @@ extension MyPublicVC: MyGroupCVCDelegate {
     }
     
     func touchUpCreateButton() {
-        let dvc = UINavigationController(rootViewController: CreatePublicVC())
+        let dvc = UINavigationController(rootViewController: CreatePublicGroupNameViewController())
         dvc.modalPresentationStyle = .fullScreen
         present(dvc, animated: true, completion: nil)
+    }
+    
+    func touchUpCell() {
+        let dvc = PublicDetailViewController()
+        dvc.isOwner = false
+        navigationController?.pushViewController(dvc, animated: true)
     }
 }

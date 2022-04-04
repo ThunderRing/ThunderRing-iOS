@@ -91,7 +91,9 @@ final class MyPrivateVC: UIViewController {
         }), for: .touchUpInside)
         
         searchButton.addAction(UIAction(handler: { _ in
-            print("검색 화면으로 이동")
+            let dvc = SearchPrivateGroupVC()
+            dvc.modalPresentationStyle = .fullScreen
+            self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
     }
 }
@@ -111,6 +113,11 @@ extension MyPrivateVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 57
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dvc = PrivateDetailViewController()
+        navigationController?.pushViewController(dvc, animated: true)
     }
 }
 

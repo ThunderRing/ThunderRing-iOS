@@ -45,7 +45,6 @@ final class AlarmTVC: UITableViewCell {
         timeLabel.text = time
         
         hashTagBackViewWidth.constant = calculateCellWidth(text: hashTag)
-        print("📌", hashTagBackViewWidth.constant)
         contentView.layoutSubviews()
         
         switch alarmType {

@@ -10,6 +10,7 @@ import UIKit
 protocol MyGroupCVCDelegate {
     func touchUpTestButton()
     func touchUpCreateButton()
+    func touchUpCell()
 }
 
 final class MyGroupCVC: UICollectionViewCell {
@@ -104,9 +105,11 @@ extension MyGroupCVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        headerView.addAboveTheBottomBorderWithColor(color: .background)
-        headerView.addBottomBorderWithColor(color: .background)
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.touchUpCell()
     }
 }
 

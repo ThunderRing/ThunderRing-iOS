@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class BDSTextField: UITextField {
+class TDSTextField: UITextField {
     
     // MARK: - Properties
     
@@ -36,16 +36,22 @@ class BDSTextField: UITextField {
     
     private func setDefaultStyle() {
         self.font = .SpoqaHanSansNeo(type: .regular, size: 16)
-        self.setLeftPaddingPoints(15)
-        self.setRightPaddingPoints(15)
         self.backgroundColor = .white
         self.tintColor = .purple100
-        self.borderStyle = .none
+        self.layer.borderColor = UIColor.gray300.cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 10
+        self.setLeftPaddingPoints(15)
+        self.setRightPaddingPoints(15)
     }
     
     // MARK: - Public Method
     
     public func setPlaceholder(placeholder: String) {
         self.placeholder = placeholder
+    }
+    
+    public func setTintColor(tintColor: UIColor) {
+        self.tintColor = tintColor
     }
 }

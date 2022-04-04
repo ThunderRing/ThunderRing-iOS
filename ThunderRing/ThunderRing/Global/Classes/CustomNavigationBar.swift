@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class CustomNavigationBar: UIView {
     
     // MARK: - Properties
@@ -24,19 +27,13 @@ class CustomNavigationBar: UIView {
         return label
     }()
     
-//    let separatorView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .gray
-//        return view
-//    }()
-    
     private let closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "icnClose"), for: .normal)
         return button
     }()
     
-    // MARK: - Methods
+    // MARK: - Initializer
     
     init(vc: UIViewController, title: String, backBtnIsHidden: Bool, closeBtnIsHidden: Bool, bgColor: UIColor) {
         super.init(frame: .zero)
@@ -53,36 +50,31 @@ class CustomNavigationBar: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - InitUI
+    
     private func initUI(bgColor: UIColor) {
         self.backgroundColor = bgColor
     }
     
     private func initLayout() {
-        addSubview(backButton)
-        addSubview(titleLabel)
-//        addSubview(separatorView)
-        addSubview(closeButton)
+        addSubviews([backButton, titleLabel, closeButton])
         
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//        separatorView.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(7)
+            $0.width.height.equalTo(48)
+            $0.centerY.equalTo(titleLabel.snp.centerY)
+        }
         
-        NSLayoutConstraint.activate([
-            backButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            backButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 7),
-            
-            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
-//            separatorView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            separatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            separatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-//            separatorView.heightAnchor.constraint(equalToConstant: 0.5)
-            
-            closeButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            closeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -9),
-        ])
+        titleLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(15.5)
+        }
+        
+        closeButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(9)
+            $0.width.height.equalTo(48)
+            $0.centerY.equalTo(titleLabel.snp.centerY)
+        }
     }
     
     private func initTitle(title: String) {
@@ -107,5 +99,11 @@ class CustomNavigationBar: UIView {
     
     private func initCloseButton(closeBtnIsHidden: Bool) {
         closeButton.isHidden = closeBtnIsHidden
+    }
+    
+    // MARK: - Public Method
+    
+    public func setTitle(title: String) {
+        self.titleLabel.text = title
     }
 }

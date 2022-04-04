@@ -21,7 +21,7 @@ final class MyPageAlarmTVC: UITableViewCell {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
     }
     
-    private var alarmSwitch = UISwitch().then {
+    private lazy var alarmSwitch = UISwitch().then {
         $0.onTintColor = .purple100
         $0.isOn = true
         $0.isEnabled = true
