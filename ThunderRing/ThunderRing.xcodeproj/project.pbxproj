@@ -48,7 +48,7 @@
 		9251955F27CA15E900C00E7E /* SearchBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9251955E27CA15E900C00E7E /* SearchBaseVC.swift */; };
 		9252EB952769CA9100809FEA /* ContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252EB942769CA9100809FEA /* ContactDataModel.swift */; };
 		9258354E275C997900F64DC0 /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9258354D275C997900F64DC0 /* AccountInfo.storyboard */; };
-		92583550275C999100F64DC0 /* AccountInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258354F275C999100F64DC0 /* AccountInfoVC.swift */; };
+		92583550275C999100F64DC0 /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9258354F275C999100F64DC0 /* AccountInfoViewController.swift */; };
 		925BAC332742B77E00126166 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 925BAC322742B77E00126166 /* Images.xcassets */; };
 		925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */; };
 		925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925BAC392742C5D400126166 /* PublicGroupDataModel.swift */; };
@@ -201,7 +201,7 @@
 		9251955E27CA15E900C00E7E /* SearchBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBaseVC.swift; sourceTree = "<group>"; };
 		9252EB942769CA9100809FEA /* ContactDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataModel.swift; sourceTree = "<group>"; };
 		9258354D275C997900F64DC0 /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
-		9258354F275C999100F64DC0 /* AccountInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoVC.swift; sourceTree = "<group>"; };
+		9258354F275C999100F64DC0 /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
 		925BAC322742B77E00126166 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		925BAC372742C5C800126166 /* PrivateGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupDataModel.swift; sourceTree = "<group>"; };
 		925BAC392742C5D400126166 /* PublicGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupDataModel.swift; sourceTree = "<group>"; };
@@ -758,7 +758,7 @@
 			isa = PBXGroup;
 			children = (
 				926C7C512738030F0020F851 /* MyPageViewController.swift */,
-				9258354F275C999100F64DC0 /* AccountInfoVC.swift */,
+				9258354F275C999100F64DC0 /* AccountInfoViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -1378,7 +1378,7 @@
 				926C7C522738030F0020F851 /* MyPageViewController.swift in Sources */,
 				928FDA0D2760D1C4009AC059 /* PrivateDetailViewController.swift in Sources */,
 				92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */,
-				92583550275C999100F64DC0 /* AccountInfoVC.swift in Sources */,
+				92583550275C999100F64DC0 /* AccountInfoViewController.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */,
 				92B471AD27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift in Sources */,
