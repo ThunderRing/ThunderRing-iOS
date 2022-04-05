@@ -50,6 +50,8 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     // MARK: - InitUI
     
     private func configUI() {
+        backgroundColor = .white
+        
         groupImageView.makeRounded(cornerRadius: 28)
         
         lightningButton.makeRounded(cornerRadius: 14 )

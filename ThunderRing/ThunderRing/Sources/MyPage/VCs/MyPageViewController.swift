@@ -41,6 +41,7 @@ final class MyPageViewController: UIViewController {
     
     private func configUI() {
         setNavigationBar(customNavigationBarView: navigationBar, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .background)
+        setStatusBar(.background)
         userImageView.makeRounded(cornerRadius: 30)
         userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 6, bounds: true)
         

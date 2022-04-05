@@ -33,17 +33,21 @@ final class HomeMainPublicGroupCollectionViewCell: UICollectionViewCell {
     
     private func configUI() {
         backgroundColor = .white
-        contentView.addSubview(cellView)
+        
         contentView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 5, bounds: true)
     }
     
     private func setLayout() {
+        contentView.addSubview(cellView)
+        
         cellView.snp.makeConstraints {
             $0.leading.trailing.top.bottom.equalToSuperview()
         }
     }
     
-    func initCell(group: PublicGroupDataModel) {
+    // MARK: - Custom Method
+    
+    internal func initCell(group: PublicGroupDataModel) {
         cellView.configCell(group: group)
     }
 }

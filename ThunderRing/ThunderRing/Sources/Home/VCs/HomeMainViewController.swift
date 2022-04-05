@@ -15,7 +15,7 @@ final class HomeMainViewController: UIViewController {
     // MARK: - Properties
     
     private lazy var navigationBar = UIView().then {
-        $0.backgroundColor = .background
+        $0.backgroundColor = .white
     }
     
     private lazy var recruitingButton = UIButton().then {
@@ -31,7 +31,7 @@ final class HomeMainViewController: UIViewController {
     }
     
     private lazy var topView = UIView().then {
-        $0.backgroundColor = .background
+        $0.backgroundColor = .white
     }
     
     private lazy var titleLabel = UILabel().then {
@@ -118,16 +118,7 @@ final class HomeMainViewController: UIViewController {
     
     private func configUI() {
         view.backgroundColor = .background
-
-        view.addSubviews([navigationBar, contentScrollView])
-
-        navigationBar.addSubviews([recruitingButton, searchButton])
-
-        contentScrollView.addSubview(contentView)
-
-        contentView.addSubviews([topView, contentStackView])
-        
-        topView.addSubviews([titleLabel, subTitleLabel])
+        setStatusBar(.white)
         topView.layer.applyShadow()
         
         [privateGroupHeaderView, privateGroupCollectionView, publicGroupHeaderView, publicGroupCollectionView].forEach {
@@ -136,6 +127,12 @@ final class HomeMainViewController: UIViewController {
     }
     
     private func setLayout() {
+        view.addSubviews([navigationBar, contentScrollView])
+        navigationBar.addSubviews([recruitingButton, searchButton])
+        contentScrollView.addSubview(contentView)
+        contentView.addSubviews([topView, contentStackView])
+        topView.addSubviews([titleLabel, subTitleLabel])
+        
         navigationBar.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(50)
@@ -301,7 +298,7 @@ extension HomeMainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch collectionView {
         case privateGroupCollectionView:
-            return UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 26)
         case publicGroupCollectionView:
             return UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 26)
         default:

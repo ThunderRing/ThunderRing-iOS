@@ -66,7 +66,7 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
     // MARK: - InitUI
     
     private func configUI() {
-        self.backgroundColor = .background
+        self.backgroundColor = .white
         
         groupImageView.makeRounded(cornerRadius: 28)
     }
