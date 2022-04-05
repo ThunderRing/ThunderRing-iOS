@@ -23,12 +23,14 @@ class ChatMainTableViewCell: UITableViewCell {
     }
 
     private func configUI() {
-        contentView.addSubview(cellView)
+        contentView.backgroundColor = .background
     }
     
     private func setLayout() {
+        contentView.addSubview(cellView)
+        
         cellView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(14)
+            $0.top.equalToSuperview().inset(17)
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.bottom.equalToSuperview()
         }
