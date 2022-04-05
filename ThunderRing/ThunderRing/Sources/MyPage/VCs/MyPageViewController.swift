@@ -40,12 +40,12 @@ final class MyPageViewController: UIViewController {
     }
     
     private func configUI() {
-        setNavigationBar(customNavigationBarView: navigationBar, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
+        setNavigationBar(customNavigationBarView: navigationBar, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .background)
         userImageView.makeRounded(cornerRadius: 30)
-        userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 6, bounds: true)
+        userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 6, bounds: true)
         
         myPageTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        myPageTableView.separatorColor = .gray
+        myPageTableView.separatorColor = .gray300
         myPageTableView.backgroundColor = .background
         myPageTableView.allowsMultipleSelection = true
         myPageTableView.isScrollEnabled = false

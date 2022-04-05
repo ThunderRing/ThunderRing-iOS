@@ -77,7 +77,7 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jSn-6D-D8u">
                                         <rect key="frame" x="109" y="22.5" width="1" height="52"/>
-                                        <color key="backgroundColor" name="grayStroke"/>
+                                        <color key="backgroundColor" name="gray350"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="T9f-bg-pUv"/>
                                             <constraint firstAttribute="width" constant="1" id="lZK-Jx-CUE"/>
@@ -85,7 +85,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYc-8b-GXT">
                                         <rect key="frame" x="254" y="22.5" width="1" height="52"/>
-                                        <color key="backgroundColor" name="grayStroke"/>
+                                        <color key="backgroundColor" name="gray350"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="K74-P9-dnS"/>
                                             <constraint firstAttribute="height" constant="52" id="qOO-Ac-une"/>
@@ -98,7 +98,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="white"/>
                                 <constraints>
                                     <constraint firstItem="nCe-ay-BFQ" firstAttribute="top" secondItem="zUt-as-Wod" secondAttribute="bottom" constant="5" id="0Vp-37-HuL"/>
                                     <constraint firstItem="jSn-6D-D8u" firstAttribute="centerY" secondItem="CwW-uy-z5v" secondAttribute="centerY" id="20L-tc-vMh"/>
@@ -195,11 +195,14 @@
         <namedColor name="gray100">
             <color red="0.31000000238418579" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="gray350">
+            <color red="0.94099998474121094" green="0.94099998474121094" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="grayBackground">
             <color red="0.98799997568130493" green="0.98799997568130493" blue="0.98799997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="grayStroke">
-            <color red="0.875" green="0.875" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="white">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
