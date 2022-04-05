@@ -43,6 +43,6 @@ extension UIViewController {
             navigationBar.bottomAnchor.constraint(equalTo: customNavigationBarView.bottomAnchor)
         ])
         
-        setStatusBar(.background)
+        setStatusBar(.white)
     }
 }

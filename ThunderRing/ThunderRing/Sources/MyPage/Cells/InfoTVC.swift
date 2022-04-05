@@ -13,7 +13,7 @@ import Then
 final class InfoTVC: UITableViewCell {
     static let identifier = "InfoTVC"
 
-    // MARK: - UI
+    // MARK: - Properties
     
     private var label = UILabel().then {
         $0.text = "서비스 관련 법률 및 개인정보"
@@ -25,6 +25,7 @@ final class InfoTVC: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configUI()
         setLayout()
     }
     

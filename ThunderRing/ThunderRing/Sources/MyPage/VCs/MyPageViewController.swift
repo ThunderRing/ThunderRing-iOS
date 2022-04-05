@@ -1,5 +1,5 @@
 //
-//  MyPageVC.swift
+//  MyPageViewController.swift
 //  ThunderRing
 //
 //  Created by soyeon on 2021/11/07.
@@ -7,21 +7,18 @@
 
 import UIKit
 
-final class MyPageVC: UIViewController {
+final class MyPageViewController: UIViewController {
     
-    // MARK: - UI
+    // MARK: - Properties
     
-    @IBOutlet weak var customNavigationBarView: UIView!
+    @IBOutlet weak var navigationBar: UIView!
     
-    @IBOutlet weak var profileBackView: UIView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBOutlet weak var userInfoView: UIView!
     
     @IBOutlet weak var myPageTableView: UITableView!
-    
-    // MARK: - Properties
     
     private var friendCount = 0
     private var groupCount = 0
@@ -33,32 +30,19 @@ final class MyPageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
-        setTableView()
-        setImagePicker()
-    }
-}
-
-// MARK: - Custom Methods
-
-extension MyPageVC {
-    func initUI() {
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
-        customNavigationBarView.layer.applyShadow()
-        
-        profileBackView.initViewBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: profileBackView.frame.width / 2, bounds: true)
-        
-        userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
+        configUI()
+        bind()
     }
     
-    func setTableView() {
-        myPageTableView.delegate = self
-        myPageTableView.dataSource = self
+    private func configUI() {
+        setNavigationBar(customNavigationBarView: navigationBar, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .white)
+        userImageView.makeRounded(cornerRadius: 30)
+        userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 6, bounds: true)
         
         myPageTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         myPageTableView.separatorColor = .gray
@@ -66,27 +50,29 @@ extension MyPageVC {
         myPageTableView.allowsMultipleSelection = true
         myPageTableView.isScrollEnabled = false
         
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+    }
+    
+    private func bind() {
+        myPageTableView.delegate = self
+        myPageTableView.dataSource = self
+        
         myPageTableView.register(MyPageAlarmTVC.self, forCellReuseIdentifier: MyPageAlarmTVC.identifier)
         myPageTableView.register(AccountTVC.self, forCellReuseIdentifier: AccountTVC.identifier)
         myPageTableView.register(QuestionTVC.self, forCellReuseIdentifier: QuestionTVC.identifier)
         myPageTableView.register(InfoTVC.self, forCellReuseIdentifier: InfoTVC.identifier)
         myPageTableView.register(LogOutTVC.self, forCellReuseIdentifier: LogOutTVC.identifier)
-    }
-    
-    private func setImagePicker() {
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
+        
         imagePicker.delegate = self
         
         userImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
         userImageView.addGestureRecognizer(tapGesture)
     }
-}
-
-// MARK: - @objc
-
-extension MyPageVC {
+    
+    // MARK: - @objc
+    
     @objc func pickImage() {
         self.present(self.imagePicker, animated: true)
     }
@@ -94,7 +80,7 @@ extension MyPageVC {
 
 // MARK: - UITableView Delegate
 
-extension MyPageVC: UITableViewDelegate {
+extension MyPageViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 52
     }
@@ -109,7 +95,7 @@ extension MyPageVC: UITableViewDelegate {
 
 // MARK: - UITableView DataSource
 
-extension MyPageVC: UITableViewDataSource {
+extension MyPageViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
@@ -149,7 +135,7 @@ extension MyPageVC: UITableViewDataSource {
 
 // MARK: - UIImagePickerController Delegate
  
-extension MyPageVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension MyPageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         var newImage: UIImage? = nil

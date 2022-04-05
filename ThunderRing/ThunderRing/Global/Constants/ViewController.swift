@@ -22,7 +22,7 @@ extension Const {
                 static let Chat = "ChatVC"
                 static let Lightning = "LightningMainViewController"
                 static let Alarm = "AlarmVC"
-                static let MyPage = "MyPageVC"
+                static let MyPage = "MyPageViewController"
                 
                 static let FirstTest = "FirstTestVC"
                 

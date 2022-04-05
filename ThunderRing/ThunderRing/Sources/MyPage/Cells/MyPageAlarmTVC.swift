@@ -32,7 +32,7 @@ final class MyPageAlarmTVC: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = .background
+        configUI()
         setLayout()
     }
     
@@ -41,6 +41,10 @@ final class MyPageAlarmTVC: UITableViewCell {
     }
 
     // MARK: - Init UI
+    
+    private func configUI() {
+        backgroundColor = .background
+    }
     
     private func setLayout() {
         self.addSubviews([label, alarmSwitch])

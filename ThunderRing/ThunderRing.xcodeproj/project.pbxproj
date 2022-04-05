@@ -76,7 +76,7 @@
 		926C7C49273802890020F851 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C48273802890020F851 /* ChatVC.swift */; };
 		926C7C4E273802F80020F851 /* LightningMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C4D273802F80020F851 /* LightningMainViewController.swift */; };
 		926C7C50273803020020F851 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C4F273803020020F851 /* AlarmVC.swift */; };
-		926C7C522738030F0020F851 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C512738030F0020F851 /* MyPageVC.swift */; };
+		926C7C522738030F0020F851 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C512738030F0020F851 /* MyPageViewController.swift */; };
 		926C7C57273803980020F851 /* Lightning.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C56273803980020F851 /* Lightning.storyboard */; };
 		926C7C59273803A10020F851 /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C58273803A10020F851 /* Alarm.storyboard */; };
 		926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C5A273803AA0020F851 /* MyPage.storyboard */; };
@@ -231,7 +231,7 @@
 		926C7C48273802890020F851 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		926C7C4D273802F80020F851 /* LightningMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningMainViewController.swift; sourceTree = "<group>"; };
 		926C7C4F273803020020F851 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
-		926C7C512738030F0020F851 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		926C7C512738030F0020F851 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		926C7C56273803980020F851 /* Lightning.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lightning.storyboard; sourceTree = "<group>"; };
 		926C7C58273803A10020F851 /* Alarm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alarm.storyboard; sourceTree = "<group>"; };
 		926C7C5A273803AA0020F851 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
@@ -757,7 +757,7 @@
 		926C7C5E273804A20020F851 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				926C7C512738030F0020F851 /* MyPageVC.swift */,
+				926C7C512738030F0020F851 /* MyPageViewController.swift */,
 				9258354F275C999100F64DC0 /* AccountInfoVC.swift */,
 			);
 			path = VCs;
@@ -1375,7 +1375,7 @@
 				9227F2F427DAB39C001D1BB4 /* HomeJoinView.swift in Sources */,
 				92159C9C2758C5B10081F20B /* CreatePrivateDetailViewController.swift in Sources */,
 				928C707E27F3C041001E66BE /* PrivateDetailMemberCollectionViewCell.swift in Sources */,
-				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
+				926C7C522738030F0020F851 /* MyPageViewController.swift in Sources */,
 				928FDA0D2760D1C4009AC059 /* PrivateDetailViewController.swift in Sources */,
 				92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */,
 				92583550275C999100F64DC0 /* AccountInfoVC.swift in Sources */,

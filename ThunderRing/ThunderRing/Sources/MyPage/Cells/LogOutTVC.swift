@@ -13,7 +13,7 @@ import Then
 final class LogOutTVC: UITableViewCell {
     static let identifier = "LogOutTVC"
 
-    // MARK: - UI
+    // MARK: - Properties
     
     private var label = UILabel().then {
         $0.text = "로그아웃"
@@ -25,6 +25,7 @@ final class LogOutTVC: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configUI()
         setLayout()
     }
     
