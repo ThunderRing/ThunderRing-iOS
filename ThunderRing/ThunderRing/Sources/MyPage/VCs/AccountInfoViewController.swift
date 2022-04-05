@@ -14,7 +14,7 @@ final class AccountInfoViewController: UIViewController {
     
     // MARK: - Properties
     
-    private lazy var customNavigationBarView = CustomNavigationBar(vc: self, title: "", backBtnIsHidden: false, closeBtnIsHidden: true, bgColor: .background)
+    private lazy var navigationBar = TDSModalNavigationBar(self, title: "계좌 정보", backButtonIsHidden: false, closeButtonIsHidden: true)
     
     private var bankLabel = UILabel().then {
         $0.text = "은행"
@@ -47,8 +47,7 @@ final class AccountInfoViewController: UIViewController {
     
     private func configUI() {
         view.backgroundColor = .background
-        
-        view.addSubviews([customNavigationBarView, bankLabel, bankTextField, accountLabel, accountTextField, registerButton])
+        navigationBar.backgroundColor = .background
         
         bankTextField.setPlaceholder(placeholder: "은행명을 입력해주세요")
         accountTextField.setPlaceholder(placeholder: "계좌번호를 입력해주세요")
@@ -57,21 +56,23 @@ final class AccountInfoViewController: UIViewController {
     }
     
     private func setLayout() {
-        customNavigationBarView.snp.makeConstraints {
+        view.addSubviews([navigationBar, bankLabel, bankTextField, accountLabel, accountTextField, registerButton])
+        
+        navigationBar.snp.makeConstraints {
             $0.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(50)
         }
         
         bankLabel.snp.makeConstraints {
-            $0.top.equalTo(customNavigationBarView.snp.bottom).offset(6)
+            $0.top.equalTo(navigationBar.snp.bottom).offset(30)
             $0.leading.equalToSuperview().inset(26)
             $0.height.equalTo(23)
         }
         
         bankTextField.snp.makeConstraints {
-            $0.top.equalTo(bankLabel.snp.bottom).offset(20)
+            $0.top.equalTo(bankLabel.snp.bottom).offset(15)
             $0.leading.trailing.equalToSuperview().inset(26)
-            $0.height.equalTo(56)
+            $0.height.equalTo(50)
         }
         
         accountLabel.snp.makeConstraints {
@@ -81,16 +82,22 @@ final class AccountInfoViewController: UIViewController {
         }
         
         accountTextField.snp.makeConstraints {
-            $0.top.equalTo(accountLabel.snp.bottom).offset(20)
+            $0.top.equalTo(accountLabel.snp.bottom).offset(15)
             $0.leading.trailing.equalToSuperview().inset(26)
-            $0.height.equalTo(56)
+            $0.height.equalTo(50)
         }
         
         registerButton.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(52)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(50)
         }
+        
+        NSLayoutConstraint.activate([
+            view.keyboardLayoutGuide.topAnchor.constraint(
+                equalTo: registerButton.bottomAnchor,
+                constant: 10
+            )
+        ])
     }
     
     // MARK: - Custom Method
@@ -98,6 +105,8 @@ final class AccountInfoViewController: UIViewController {
     private func bind() {
         bankTextField.delegate = self
         accountTextField.delegate = self
+        
+        accountTextField.keyboardType = .numberPad
     }
 }
 

@@ -88,7 +88,7 @@ extension MyPageViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            let dvc = AccountInfoVC()
+            let dvc = AccountInfoViewController()
             navigationController?.pushViewController(dvc, animated: true)
         }
     }
