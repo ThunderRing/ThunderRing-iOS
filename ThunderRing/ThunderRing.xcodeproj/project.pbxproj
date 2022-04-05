@@ -45,6 +45,10 @@
 		9248133627D132B400A0CECC /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133527D132B400A0CECC /* BackButton.swift */; };
 		9248133927D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133827D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift */; };
 		9248133B27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248133A27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift */; };
+		924ABCC827FCF258008BB2DA /* AlarmMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924ABCC727FCF258008BB2DA /* AlarmMainViewController.swift */; };
+		924ABCCB27FCF43A008BB2DA /* AlarmMainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924ABCCA27FCF43A008BB2DA /* AlarmMainHeaderView.swift */; };
+		924ABCCD27FCF7DC008BB2DA /* AlarmMainTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924ABCCC27FCF7DC008BB2DA /* AlarmMainTextView.swift */; };
+		924ABCCF27FCF7F2008BB2DA /* AlarmMainItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924ABCCE27FCF7F2008BB2DA /* AlarmMainItemView.swift */; };
 		9251955F27CA15E900C00E7E /* SearchBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9251955E27CA15E900C00E7E /* SearchBaseVC.swift */; };
 		9252EB952769CA9100809FEA /* ContactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9252EB942769CA9100809FEA /* ContactDataModel.swift */; };
 		9258354E275C997900F64DC0 /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9258354D275C997900F64DC0 /* AccountInfo.storyboard */; };
@@ -198,6 +202,10 @@
 		9248133527D132B400A0CECC /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		9248133827D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainPrivateGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		9248133A27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainPrivateGroupCollectionViewCellView.swift; sourceTree = "<group>"; };
+		924ABCC727FCF258008BB2DA /* AlarmMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMainViewController.swift; sourceTree = "<group>"; };
+		924ABCCA27FCF43A008BB2DA /* AlarmMainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMainHeaderView.swift; sourceTree = "<group>"; };
+		924ABCCC27FCF7DC008BB2DA /* AlarmMainTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMainTextView.swift; sourceTree = "<group>"; };
+		924ABCCE27FCF7F2008BB2DA /* AlarmMainItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMainItemView.swift; sourceTree = "<group>"; };
 		9251955E27CA15E900C00E7E /* SearchBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBaseVC.swift; sourceTree = "<group>"; };
 		9252EB942769CA9100809FEA /* ContactDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataModel.swift; sourceTree = "<group>"; };
 		9258354D275C997900F64DC0 /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
@@ -467,6 +475,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		924ABCC927FCF313008BB2DA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				924ABCCA27FCF43A008BB2DA /* AlarmMainHeaderView.swift */,
+				924ABCCC27FCF7DC008BB2DA /* AlarmMainTextView.swift */,
+				924ABCCE27FCF7F2008BB2DA /* AlarmMainItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9252EB932769CA7E00809FEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,6 +731,7 @@
 		926C7C4B273802E10020F851 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				924ABCC927FCF313008BB2DA /* Views */,
 				92270D722750E17B00364F3A /* Models */,
 				92CBCE60273B11C500A3F36D /* Cells */,
 				92CBCE5F273B11BF00A3F36D /* VCs */,
@@ -1042,6 +1061,7 @@
 			isa = PBXGroup;
 			children = (
 				926C7C4F273803020020F851 /* AlarmVC.swift */,
+				924ABCC727FCF258008BB2DA /* AlarmMainViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -1311,6 +1331,7 @@
 				92B7184427D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift in Sources */,
 				9244097A27AE7F9000034510 /* CompleteCreatePublicViewController.swift in Sources */,
 				92B1568A2761426300939048 /* MyPublicViewController.swift in Sources */,
+				924ABCCF27FCF7F2008BB2DA /* AlarmMainItemView.swift in Sources */,
 				9248133B27D13B8E00A0CECC /* HomeMainPrivateGroupCollectionViewCellView.swift in Sources */,
 				92E7F9F927F22E3E00F1CFB7 /* GroupTendencyView.swift in Sources */,
 				9251955F27CA15E900C00E7E /* SearchBaseVC.swift in Sources */,
@@ -1385,6 +1406,7 @@
 				9212667A2748055A009DE534 /* TestResultVC.swift in Sources */,
 				1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */,
 				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
+				924ABCCB27FCF43A008BB2DA /* AlarmMainHeaderView.swift in Sources */,
 				92E416EB27B8237900FD008F /* TDSTextField.swift in Sources */,
 				92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */,
 				92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */,
@@ -1397,8 +1419,10 @@
 				9276B065275B44F700915F57 /* BaseCell.swift in Sources */,
 				92609ACD274BD9A700F0E401 /* LigntningDetailViewController.swift in Sources */,
 				92AFB3A227633A4000977712 /* LookCollectionViewCell.swift in Sources */,
+				924ABCCD27FCF7DC008BB2DA /* AlarmMainTextView.swift in Sources */,
 				92159C9A2758C21A0081F20B /* CreatePrivateViewController.swift in Sources */,
 				1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */,
+				924ABCC827FCF258008BB2DA /* AlarmMainViewController.swift in Sources */,
 				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,
 				92275FE827BE713E007B507D /* TestVC.swift in Sources */,
 				92F43A33274E8491006025EC /* CompleteLightningViewController.swift in Sources */,
