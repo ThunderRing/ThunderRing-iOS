@@ -22,8 +22,8 @@ class CustomNavigationBar: UIView {
     
     private var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .gray100
-        label.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        label.textColor = .black
+        label.font = .SpoqaHanSansNeo(type: .medium, size: 20)
         return label
     }()
     
@@ -66,8 +66,8 @@ class CustomNavigationBar: UIView {
         }
         
         titleLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(15.5)
+            $0.top.equalToSuperview().inset(13)
+            $0.leading.equalToSuperview().inset(25)
         }
         
         closeButton.snp.makeConstraints {

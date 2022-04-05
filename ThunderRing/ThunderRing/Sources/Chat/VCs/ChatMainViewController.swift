@@ -15,10 +15,19 @@ final class ChatMainViewController: UIViewController {
     // MARK: - Properties
     
     private lazy var navigationBar = TDSNavigationBar(self, view: .chat, backButtonIsHidden: true, closeButtonIsHidden: true)
-    private lazy var chatMainTopView = ChatMainTopView()
+    private lazy var chatMainTopView = UIView().then {
+        $0.backgroundColor = .white
+    }
+    
+    private lazy var subTitleLabel = UILabel().then {
+        $0.text = "24시간이 지난 후 채팅방은 펑 사라져요"
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+    }
     
     private lazy var chatListTableView = UITableView().then {
         $0.register(ChatMainTableViewCell.self, forCellReuseIdentifier: ChatMainTableViewCell.CellIdentifier)
+        $0.backgroundColor = .background
     }
     
     // MARK: - Life Cycle
@@ -41,21 +50,28 @@ final class ChatMainViewController: UIViewController {
         view.backgroundColor = .background
         setStatusBar(.white)
         
-        navigationBar.layer.applyShadow()
+        chatMainTopView.layer.applyShadow()
     }
     
     private func setLayout() {
-        view.addSubviews([navigationBar, chatMainTopView, chatListTableView])
+        view.addSubviews([chatListTableView, chatMainTopView])
+        chatMainTopView.addSubview(navigationBar)
+        chatMainTopView.addSubview(subTitleLabel)
+        
+        chatMainTopView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(140)
+        }
         
         navigationBar.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalToSuperview().inset(47)
             $0.height.equalTo(50)
         }
         
-        chatMainTopView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
+        subTitleLabel.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom)
-            $0.height.equalTo(90)
+            $0.leading.equalToSuperview().inset(25)
         }
         
         chatListTableView.snp.makeConstraints {
@@ -78,7 +94,7 @@ final class ChatMainViewController: UIViewController {
 
 extension ChatMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 95
+        return 91
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -90,8 +106,8 @@ extension ChatMainViewController: UITableViewDelegate {
 
 extension ChatMainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // FIXME: - 정적으로 카운트
-        return 5
+        // FIXME: - 데이터 사용해서 동적으로 반환 
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

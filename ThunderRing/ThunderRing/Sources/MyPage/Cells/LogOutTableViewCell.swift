@@ -10,21 +10,22 @@ import UIKit
 import SnapKit
 import Then
 
-final class LogOutTVC: UITableViewCell {
-    static let identifier = "LogOutTVC"
+final class LogOutTableViewCell: UITableViewCell {
+    static let identifier = "LogOutTableViewCell"
 
-    // MARK: - UI
+    // MARK: - Properties
     
     private var label = UILabel().then {
         $0.text = "로그아웃"
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
 
     // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configUI()
         setLayout()
     }
     

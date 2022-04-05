@@ -1,5 +1,5 @@
 //
-//  AccountTVC.swift
+//  QuestionTVC.swift
 //  ThunderRing
 //
 //  Created by soyeon on 2021/11/09.
@@ -10,21 +10,22 @@ import UIKit
 import SnapKit
 import Then
 
-final class AccountTVC: UITableViewCell {
-    static let identifier = "AccountTVC"
+final class QuestionTableViewCell: UITableViewCell {
+    static let identifier = "QuestionTableViewCell"
     
     // MARK: - Properties
     
     private var label = UILabel().then {
-        $0.text = "계좌정보"
+        $0.text = "문의하기"
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
 
     // MARK: - Initializer
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configUI()
         setLayout()
     }
     

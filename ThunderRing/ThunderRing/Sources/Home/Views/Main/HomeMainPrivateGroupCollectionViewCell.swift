@@ -68,9 +68,9 @@ final class HomeMainPrivateGroupCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    // MARK: - Public Method
+    // MARK: - Custom Method
     
-    func initCell(groups: [PrivateGroupDataModel]) {
+    internal func initCell(groups: [PrivateGroupDataModel]) {
         firstCellView.configCell(group: groups[0])
         secondCellView.configCell(group: groups[1])
     }

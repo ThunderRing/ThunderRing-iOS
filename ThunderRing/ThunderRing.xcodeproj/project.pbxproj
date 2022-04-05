@@ -27,7 +27,6 @@
 		92159CA02758D5620081F20B /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92159C9F2758D5620081F20B /* AddMemberViewController.swift */; };
 		92159CA22758D76D0081F20B /* MemberCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92159CA12758D76D0081F20B /* MemberCVC.swift */; };
 		921A45C3275355AD001E8727 /* CreatePrivate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921A45C2275355AD001E8727 /* CreatePrivate.storyboard */; };
-		92248C4527E0441200D1EEC8 /* ChatMainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92248C4427E0441200D1EEC8 /* ChatMainTopView.swift */; };
 		92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92270D732750E1EB00364F3A /* AlarmDataModel.swift */; };
 		92275FE827BE713E007B507D /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92275FE727BE713E007B507D /* TestVC.swift */; };
 		9227F2F227DAB0C9001D1BB4 /* HomeJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227F2F127DAB0C9001D1BB4 /* HomeJoinViewController.swift */; };
@@ -77,7 +76,7 @@
 		926C7C49273802890020F851 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C48273802890020F851 /* ChatVC.swift */; };
 		926C7C4E273802F80020F851 /* LightningMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C4D273802F80020F851 /* LightningMainViewController.swift */; };
 		926C7C50273803020020F851 /* AlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C4F273803020020F851 /* AlarmVC.swift */; };
-		926C7C522738030F0020F851 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C512738030F0020F851 /* MyPageVC.swift */; };
+		926C7C522738030F0020F851 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926C7C512738030F0020F851 /* MyPageViewController.swift */; };
 		926C7C57273803980020F851 /* Lightning.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C56273803980020F851 /* Lightning.storyboard */; };
 		926C7C59273803A10020F851 /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C58273803A10020F851 /* Alarm.storyboard */; };
 		926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926C7C5A273803AA0020F851 /* MyPage.storyboard */; };
@@ -111,11 +110,11 @@
 		92A5B295273983F0004149B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B294273983F0004149B2 /* ViewController.swift */; };
 		92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29927398D47004149B2 /* CustomNavigationBar.swift */; };
 		92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29B27399997004149B2 /* UIViewController+.swift */; };
-		92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29E2739AA2F004149B2 /* MyPageAlarmTVC.swift */; };
-		92A5B2A12739AA49004149B2 /* AccountTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A02739AA49004149B2 /* AccountTVC.swift */; };
-		92A5B2A32739AA83004149B2 /* QuestionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A22739AA83004149B2 /* QuestionTVC.swift */; };
-		92A5B2A52739AA95004149B2 /* InfoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A42739AA95004149B2 /* InfoTVC.swift */; };
-		92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A62739AAA0004149B2 /* LogOutTVC.swift */; };
+		92A5B29F2739AA2F004149B2 /* MyPageAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29E2739AA2F004149B2 /* MyPageAlarmTableViewCell.swift */; };
+		92A5B2A12739AA49004149B2 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A02739AA49004149B2 /* AccountTableViewCell.swift */; };
+		92A5B2A32739AA83004149B2 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A22739AA83004149B2 /* QuestionTableViewCell.swift */; };
+		92A5B2A52739AA95004149B2 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A42739AA95004149B2 /* InfoTableViewCell.swift */; };
+		92A5B2A72739AAA0004149B2 /* LogOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2A62739AAA0004149B2 /* LogOutTableViewCell.swift */; };
 		92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B2AF2739B3B1004149B2 /* UIFont+.swift */; };
 		92AFB39A276339F000977712 /* MyGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB398276339F000977712 /* MyGroupCollectionViewCell.swift */; };
 		92AFB39B276339F000977712 /* MyGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AFB399276339F000977712 /* MyGroupCollectionViewCell.xib */; };
@@ -181,7 +180,6 @@
 		92159C9F2758D5620081F20B /* AddMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
 		92159CA12758D76D0081F20B /* MemberCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCVC.swift; sourceTree = "<group>"; };
 		921A45C2275355AD001E8727 /* CreatePrivate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePrivate.storyboard; sourceTree = "<group>"; };
-		92248C4427E0441200D1EEC8 /* ChatMainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMainTopView.swift; sourceTree = "<group>"; };
 		92270D732750E1EB00364F3A /* AlarmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDataModel.swift; sourceTree = "<group>"; };
 		92275FE727BE713E007B507D /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		9227F2F127DAB0C9001D1BB4 /* HomeJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeJoinViewController.swift; sourceTree = "<group>"; };
@@ -233,7 +231,7 @@
 		926C7C48273802890020F851 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		926C7C4D273802F80020F851 /* LightningMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningMainViewController.swift; sourceTree = "<group>"; };
 		926C7C4F273803020020F851 /* AlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmVC.swift; sourceTree = "<group>"; };
-		926C7C512738030F0020F851 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
+		926C7C512738030F0020F851 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		926C7C56273803980020F851 /* Lightning.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Lightning.storyboard; sourceTree = "<group>"; };
 		926C7C58273803A10020F851 /* Alarm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alarm.storyboard; sourceTree = "<group>"; };
 		926C7C5A273803AA0020F851 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
@@ -267,11 +265,11 @@
 		92A5B294273983F0004149B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92A5B29927398D47004149B2 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		92A5B29B27399997004149B2 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
-		92A5B29E2739AA2F004149B2 /* MyPageAlarmTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTVC.swift; sourceTree = "<group>"; };
-		92A5B2A02739AA49004149B2 /* AccountTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTVC.swift; sourceTree = "<group>"; };
-		92A5B2A22739AA83004149B2 /* QuestionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTVC.swift; sourceTree = "<group>"; };
-		92A5B2A42739AA95004149B2 /* InfoTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTVC.swift; sourceTree = "<group>"; };
-		92A5B2A62739AAA0004149B2 /* LogOutTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutTVC.swift; sourceTree = "<group>"; };
+		92A5B29E2739AA2F004149B2 /* MyPageAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAlarmTableViewCell.swift; sourceTree = "<group>"; };
+		92A5B2A02739AA49004149B2 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		92A5B2A22739AA83004149B2 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		92A5B2A42739AA95004149B2 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		92A5B2A62739AAA0004149B2 /* LogOutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutTableViewCell.swift; sourceTree = "<group>"; };
 		92A5B2AA2739B31D004149B2 /* SpoqaHanSansNeo-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.otf"; sourceTree = "<group>"; };
 		92A5B2AB2739B31D004149B2 /* SpoqaHanSansNeo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.otf"; sourceTree = "<group>"; };
 		92A5B2AC2739B31D004149B2 /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
@@ -522,7 +520,6 @@
 		925DCD4627E520DD00331949 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				92248C4427E0441200D1EEC8 /* ChatMainTopView.swift */,
 				925DCD4727E5210200331949 /* ChatMainTableViewCell.swift */,
 				925DCD4927E5211500331949 /* ChatMainTableViewCellView.swift */,
 			);
@@ -760,7 +757,7 @@
 		926C7C5E273804A20020F851 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				926C7C512738030F0020F851 /* MyPageVC.swift */,
+				926C7C512738030F0020F851 /* MyPageViewController.swift */,
 				9258354F275C999100F64DC0 /* AccountInfoVC.swift */,
 			);
 			path = VCs;
@@ -934,11 +931,11 @@
 		92A5B29D2739AA01004149B2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				92A5B29E2739AA2F004149B2 /* MyPageAlarmTVC.swift */,
-				92A5B2A02739AA49004149B2 /* AccountTVC.swift */,
-				92A5B2A22739AA83004149B2 /* QuestionTVC.swift */,
-				92A5B2A42739AA95004149B2 /* InfoTVC.swift */,
-				92A5B2A62739AAA0004149B2 /* LogOutTVC.swift */,
+				92A5B29E2739AA2F004149B2 /* MyPageAlarmTableViewCell.swift */,
+				92A5B2A02739AA49004149B2 /* AccountTableViewCell.swift */,
+				92A5B2A22739AA83004149B2 /* QuestionTableViewCell.swift */,
+				92A5B2A42739AA95004149B2 /* InfoTableViewCell.swift */,
+				92A5B2A62739AAA0004149B2 /* LogOutTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1308,7 +1305,7 @@
 				92E416EF27B8264B00FD008F /* Adjust+.swift in Sources */,
 				9248133227D1319C00A0CECC /* TDSNavigationBar.swift in Sources */,
 				92159CA22758D76D0081F20B /* MemberCVC.swift in Sources */,
-				92A5B29F2739AA2F004149B2 /* MyPageAlarmTVC.swift in Sources */,
+				92A5B29F2739AA2F004149B2 /* MyPageAlarmTableViewCell.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
 				926290E427A4055E006A3B58 /* CreatePublicGroupDiscriptionViewController.swift in Sources */,
 				92B7184427D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift in Sources */,
@@ -1321,7 +1318,7 @@
 				92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */,
 				92AFB39F27633A1E00977712 /* MyPublicGroupTableViewCell.swift in Sources */,
 				926C7C50273803020020F851 /* AlarmVC.swift in Sources */,
-				92A5B2A52739AA95004149B2 /* InfoTVC.swift in Sources */,
+				92A5B2A52739AA95004149B2 /* InfoTableViewCell.swift in Sources */,
 				928C708027F3C288001E66BE /* PrivateDetailHistoryCollectionViewCell.swift in Sources */,
 				925BAC382742C5C800126166 /* PrivateGroupDataModel.swift in Sources */,
 				92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */,
@@ -1341,7 +1338,6 @@
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
 				92609ACB274BB7E800F0E401 /* LightningTitleViewController.swift in Sources */,
 				9232069227EA637F0010FC4F /* CreatePublicGroupTagViewController.swift in Sources */,
-				92248C4527E0441200D1EEC8 /* ChatMainTopView.swift in Sources */,
 				9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */,
 				925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */,
 				92899E9227FA56CE001226A0 /* PublicGroupDetailHeaderView.swift in Sources */,
@@ -1355,7 +1351,7 @@
 				925DCD4527E51FD000331949 /* ChatMainViewController.swift in Sources */,
 				92640F9F27D678B800E71CBD /* HomeMainHeaderView.swift in Sources */,
 				9227F2F627DAB9F5001D1BB4 /* Notification+.swift in Sources */,
-				92A5B2A72739AAA0004149B2 /* LogOutTVC.swift in Sources */,
+				92A5B2A72739AAA0004149B2 /* LogOutTableViewCell.swift in Sources */,
 				92FF59B0275AB15000916189 /* MemberTVC.swift in Sources */,
 				9240852A27CA91460029E753 /* SearchPrivateGroupViewController.swift in Sources */,
 				9240852C27CA97C50029E753 /* SearchPublicGroupVC.swift in Sources */,
@@ -1379,7 +1375,7 @@
 				9227F2F427DAB39C001D1BB4 /* HomeJoinView.swift in Sources */,
 				92159C9C2758C5B10081F20B /* CreatePrivateDetailViewController.swift in Sources */,
 				928C707E27F3C041001E66BE /* PrivateDetailMemberCollectionViewCell.swift in Sources */,
-				926C7C522738030F0020F851 /* MyPageVC.swift in Sources */,
+				926C7C522738030F0020F851 /* MyPageViewController.swift in Sources */,
 				928FDA0D2760D1C4009AC059 /* PrivateDetailViewController.swift in Sources */,
 				92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */,
 				92583550275C999100F64DC0 /* AccountInfoVC.swift in Sources */,
@@ -1394,10 +1390,10 @@
 				92A5B29C27399997004149B2 /* UIViewController+.swift in Sources */,
 				92CBCE73273B132600A3F36D /* ProceedCVC.swift in Sources */,
 				92A2445327D7EE0D00A81738 /* HomeRecruitingTableViewCellView.swift in Sources */,
-				92A5B2A32739AA83004149B2 /* QuestionTVC.swift in Sources */,
+				92A5B2A32739AA83004149B2 /* QuestionTableViewCell.swift in Sources */,
 				92A2445127D7EACF00A81738 /* HomeRecruitingViewController.swift in Sources */,
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
-				92A5B2A12739AA49004149B2 /* AccountTVC.swift in Sources */,
+				92A5B2A12739AA49004149B2 /* AccountTableViewCell.swift in Sources */,
 				9276B065275B44F700915F57 /* BaseCell.swift in Sources */,
 				92609ACD274BD9A700F0E401 /* LigntningDetailViewController.swift in Sources */,
 				92AFB3A227633A4000977712 /* LookCollectionViewCell.swift in Sources */,
