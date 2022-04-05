@@ -1,5 +1,5 @@
 //
-//  InfoTVC.swift
+//  LogOutTVC.swift
 //  ThunderRing
 //
 //  Created by soyeon on 2021/11/09.
@@ -10,15 +10,15 @@ import UIKit
 import SnapKit
 import Then
 
-final class InfoTVC: UITableViewCell {
-    static let identifier = "InfoTVC"
+final class LogOutTableViewCell: UITableViewCell {
+    static let identifier = "LogOutTableViewCell"
 
     // MARK: - Properties
     
     private var label = UILabel().then {
-        $0.text = "서비스 관련 법률 및 개인정보"
+        $0.text = "로그아웃"
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
 
     // MARK: - Initializer
@@ -48,3 +48,4 @@ final class InfoTVC: UITableViewCell {
         }
     }
 }
+

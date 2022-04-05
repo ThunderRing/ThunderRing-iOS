@@ -10,15 +10,15 @@ import UIKit
 import SnapKit
 import Then
 
-final class MyPageAlarmTVC: UITableViewCell {
-    static let identifier = "MyPageAlarmTVC"
+final class MyPageAlarmTableViewCell: UITableViewCell {
+    static let identifier = "MyPageAlarmTableViewCell"
     
     // MARK: - Properties
     
     private var label = UILabel().then {
         $0.text = "알림"
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
     
     private lazy var alarmSwitch = UISwitch().then {

@@ -58,11 +58,11 @@ final class MyPageViewController: UIViewController {
         myPageTableView.delegate = self
         myPageTableView.dataSource = self
         
-        myPageTableView.register(MyPageAlarmTVC.self, forCellReuseIdentifier: MyPageAlarmTVC.identifier)
-        myPageTableView.register(AccountTVC.self, forCellReuseIdentifier: AccountTVC.identifier)
-        myPageTableView.register(QuestionTVC.self, forCellReuseIdentifier: QuestionTVC.identifier)
-        myPageTableView.register(InfoTVC.self, forCellReuseIdentifier: InfoTVC.identifier)
-        myPageTableView.register(LogOutTVC.self, forCellReuseIdentifier: LogOutTVC.identifier)
+        myPageTableView.register(MyPageAlarmTableViewCell.self, forCellReuseIdentifier: MyPageAlarmTableViewCell.identifier)
+        myPageTableView.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.identifier)
+        myPageTableView.register(QuestionTableViewCell.self, forCellReuseIdentifier: QuestionTableViewCell.identifier)
+        myPageTableView.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.identifier)
+        myPageTableView.register(LogOutTableViewCell.self, forCellReuseIdentifier: LogOutTableViewCell.identifier)
         
         imagePicker.delegate = self
         
@@ -107,24 +107,24 @@ extension MyPageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageAlarmTVC.identifier) as? MyPageAlarmTVC else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPageAlarmTableViewCell.identifier) as? MyPageAlarmTableViewCell else { return UITableViewCell() }
             cell.selectionStyle = .none
             cell.contentView.isUserInteractionEnabled = false
             return cell
         case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountTVC.identifier) as? AccountTVC else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountTableViewCell.identifier) as? AccountTableViewCell else { return UITableViewCell() }
             cell.selectionStyle = .none
             return cell
         case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: QuestionTVC.identifier) as? QuestionTVC else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: QuestionTableViewCell.identifier) as? QuestionTableViewCell else { return UITableViewCell() }
             cell.selectionStyle = .none
             return cell
         case 3:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoTVC.identifier) as? InfoTVC else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: InfoTableViewCell.identifier) as? InfoTableViewCell else { return UITableViewCell() }
             cell.selectionStyle = .none
             return cell
         case 4:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: LogOutTVC.identifier) as? LogOutTVC else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: LogOutTableViewCell.identifier) as? LogOutTableViewCell else { return UITableViewCell() }
             cell.selectionStyle = .none
             return cell
         default:
