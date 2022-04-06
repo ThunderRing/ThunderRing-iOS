@@ -58,6 +58,7 @@ final class LightningTitleViewController: UIViewController {
     
     private func configUI() {
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
         
         [groupSelectLabel, nameCountLabel, detailCountLabel].forEach {
             $0?.addCharacterSpacing()
@@ -85,7 +86,7 @@ final class LightningTitleViewController: UIViewController {
         NSLayoutConstraint.activate([
             view.keyboardLayoutGuide.topAnchor.constraint(
                 equalTo: nextButton.bottomAnchor,
-                constant: 10
+                constant: 16
             )
         ])
     }

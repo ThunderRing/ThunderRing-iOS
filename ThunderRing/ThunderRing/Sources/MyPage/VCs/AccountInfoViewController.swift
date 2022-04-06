@@ -95,7 +95,7 @@ final class AccountInfoViewController: UIViewController {
         NSLayoutConstraint.activate([
             view.keyboardLayoutGuide.topAnchor.constraint(
                 equalTo: registerButton.bottomAnchor,
-                constant: 10
+                constant: 16
             )
         ])
     }

@@ -18,9 +18,11 @@ final class TDSModalNavigationBar: UIView {
         static let navigationHeight: CGFloat = 50
         static let titleTop: CGFloat = 13
         static let titleLeading: CGFloat = 25
-        static let buttonLeading: CGFloat = 4
-        static let buttonTrailing: CGFloat = 7
-        static let buttonSize: CGFloat = 44
+        static let titleBottom: CGFloat = 14
+        static let buttonLeading: CGFloat = 7
+        static let buttonTrailing: CGFloat = 9
+        static let buttonBottom: CGFloat = 1
+        static let buttonSize: CGFloat = 48
     }
     
     // MARK: - Properties
@@ -71,18 +73,18 @@ final class TDSModalNavigationBar: UIView {
         }
         
         backButton.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(Metric.buttonBottom)
             $0.leading.equalToSuperview().inset(Metric.buttonLeading)
             $0.width.height.equalTo(Metric.buttonSize)
         }
         
         titleLabel.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(12)
+            $0.bottom.equalToSuperview().inset(Metric.titleBottom)
             $0.centerX.equalToSuperview()
         }
         
         closeButton.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(Metric.buttonBottom)
             $0.trailing.equalToSuperview().inset(Metric.buttonTrailing)
             $0.width.height.equalTo(Metric.buttonSize)
         }
