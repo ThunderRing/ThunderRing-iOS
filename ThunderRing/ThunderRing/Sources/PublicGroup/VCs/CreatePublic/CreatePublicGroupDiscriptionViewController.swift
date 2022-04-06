@@ -183,7 +183,7 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
         NSLayoutConstraint.activate([
             view.keyboardLayoutGuide.topAnchor.constraint(
                 equalTo: nextButton.bottomAnchor,
-                constant: 10
+                constant: 16
             )
         ])
     }

@@ -92,6 +92,7 @@ final class LigntningDetailViewController: UIViewController {
         view.backgroundColor = .background
         
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
         
         [dateTextField, timeTextField, locationTextField, minTextField, maxTextField].forEach {
             $0?.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
@@ -127,7 +128,7 @@ final class LigntningDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             view.keyboardLayoutGuide.topAnchor.constraint(
                 equalTo: completeButton.bottomAnchor,
-                constant: 10
+                constant: 16
             )
         ])
     }
