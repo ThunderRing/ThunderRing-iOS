@@ -105,9 +105,3 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         notificationCenter.setNotificationCategories([category])
     }
 }
-
-// MARK: - Read Firebase Database
-
-extension AppDelegate {
-    
-}
