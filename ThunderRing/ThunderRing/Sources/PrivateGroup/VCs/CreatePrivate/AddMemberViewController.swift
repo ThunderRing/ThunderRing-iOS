@@ -131,7 +131,7 @@ extension AddMemberViewController {
                 // 주소록 권한 비허용 -> 알람 메시지
                 let alert = UIAlertController(title: "알림", message: "친구 추가를 위해 연락처 연동을 허용해주세요", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (UIAction) -> Void in
-                    let settingURL = NSURL(string: UIApplication.openSettingsURLString) as! URL
+                    let settingURL = NSURL(string: UIApplication.openSettingsURLString)! as URL
                     UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
                 }))
                 self.present(alert, animated: true, completion: nil)

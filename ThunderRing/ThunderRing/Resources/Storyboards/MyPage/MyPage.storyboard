@@ -159,6 +159,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="mWu-Qi-x5a"/>
                     <connections>
+                        <outlet property="friendCountLabel" destination="zUt-as-Wod" id="iF3-Me-8v0"/>
+                        <outlet property="groupCountLabel" destination="00a-Vp-aXh" id="6Zx-h3-2M7"/>
+                        <outlet property="lightningCountLabel" destination="7hZ-CP-RZE" id="M12-t8-tPK"/>
                         <outlet property="myPageTableView" destination="30A-PY-Vv2" id="99y-Ux-t9O"/>
                         <outlet property="navigationBar" destination="5Vy-fz-Nwa" id="TiQ-Cb-j2H"/>
                         <outlet property="userImageView" destination="IfP-9y-vAj" id="GUn-Lr-Yox"/>

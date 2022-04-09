@@ -1,24 +1,22 @@
 //
-//  ThunderVC.swift
+//  MyPageGroupCountViewController.swift
 //  ThunderRing
 //
-//  Created by 소연 on 2021/11/07.
+//  Created by 소연 on 2022/04/10.
 //
 
 import UIKit
 
 import SnapKit
+import Then
 
-final class LightningMainViewController: UIViewController {
+final class MyPageGroupCountViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var closeButton: UIButton!
+    private lazy var navigationBar = TDSModalNavigationBar(self, title: "그룹", backButtonIsHidden: false, closeButtonIsHidden: true)
     
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var groupListTableView: UITableView!
+    private var groupTableView = UITableView(frame: .zero, style: .grouped)
     
     private var privateHeaderView = UIView()
     private var publicHeaderView = UIView()
@@ -39,29 +37,36 @@ final class LightningMainViewController: UIViewController {
     
     // MARK: - Life Cycle
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-        groupListTableView.reloadData()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        setLayout()
         bind()
     }
     
     // MARK: - Init UI
     
     private func configUI() {
-        titleLabel.text = "번개 치기"
-        titleLabel.addCharacterSpacing()
-        
+        view.backgroundColor = .background
+        setStatusBar(.white)
         [privateHeaderView, publicHeaderView].forEach {
             $0.backgroundColor = .background
         }
+        navigationBar.layer.applyShadow()
+    }
+    
+    private func setLayout() {
+        view.addSubviews([groupTableView, navigationBar])
+        navigationBar.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(50)
+        }
         
-        searchTextField.setLeftIcon(17, 16, UIImage(named: "icnSearch")!)
+        groupTableView.snp.makeConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.bottom.equalToSuperview()
+        }
         
         /// table headerview
         privateHeaderView.addSubview(privateHeaderLabel)
@@ -78,28 +83,20 @@ final class LightningMainViewController: UIViewController {
     // MARK: - Custom Method
     
     private func bind() {
-        /// button
-        closeButton.addAction(UIAction(handler: { _ in
-            self.dismiss(animated: true, completion: nil)
-        }), for: .touchUpInside)
+        groupTableView.delegate = self
+        groupTableView.dataSource = self
         
-        /// tableview
-        groupListTableView.delegate = self
-        groupListTableView.dataSource = self
+        groupTableView.separatorStyle = .none
+        groupTableView.backgroundColor = .background
+        groupTableView.showsVerticalScrollIndicator = false
+        groupTableView.separatorInset = UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
         
-        groupListTableView.separatorStyle = .none
-        groupListTableView.backgroundColor = .background
-        groupListTableView.showsVerticalScrollIndicator = false
-        groupListTableView.separatorInset = UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
-        
-        groupListTableView.register(PrivateListTableViewCell.self, forCellReuseIdentifier: PrivateListTableViewCell.identifier)
-        groupListTableView.register(PublicListTableViewCell.self, forCellReuseIdentifier: PublicListTableViewCell.identifier)
+        groupTableView.register(PrivateListTableViewCell.self, forCellReuseIdentifier: PrivateListTableViewCell.identifier)
+        groupTableView.register(PublicListTableViewCell.self, forCellReuseIdentifier: PublicListTableViewCell.identifier)
     }
 }
 
-// MARK: - UITableView Delegate
-
-extension LightningMainViewController: UITableViewDelegate {
+extension MyPageGroupCountViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 63
     }
@@ -124,37 +121,20 @@ extension LightningMainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "LightningTitleViewController") as? LightningTitleViewController else { return }
-        dvc.index = indexPath.row
-        
-        if indexPath.section == 0 {
-            for i in 0 ... privateGroupData.count - 1 {
-                dvc.groupNames.append(privateGroupData[i].groupName)
-                dvc.groupMaxCounts.append(privateGroupData[i].memberCounts)
-                dvc.groupMaxCount = privateGroupData[indexPath.row].memberCounts
-            }
-        } else {
-            for i in 0 ... privateGroupData.count - 1 {
-                dvc.groupNames.append(publicGroupData[i].groupName)
-                dvc.groupMaxCounts.append(privateGroupData[i].memberCounts)
-            }
-        }
-        
-        self.navigationController?.pushViewController(dvc, animated: true)
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 10 {
-            topView.layer.applyShadow()
-        } else {
-            topView.layer.applyShadow(color: UIColor.clear, alpha: 0, x: 0, y: 0, blur: 0, spread: 0)
+        switch indexPath.section {
+        case 0:
+            let dvc = PrivateDetailViewController()
+            navigationController?.pushViewController(dvc, animated: true)
+        case 1:
+            let dvc = PrivateDetailViewController()
+            navigationController?.pushViewController(dvc, animated: true)
+        default:
+            return
         }
     }
 }
 
-// MARK: - UITableView DataSource
-
-extension LightningMainViewController: UITableViewDataSource {
+extension MyPageGroupCountViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -172,19 +152,14 @@ extension LightningMainViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTableViewCell.identifier) as? PrivateListTableViewCell else { return UITableViewCell() }
             cell.initCell(group: privateGroupData[indexPath.row])
-            
-            let bgColorView = UIView()
-            bgColorView.backgroundColor = UIColor.init(red: 126 / 255, green: 101 / 255, blue: 255 / 255, alpha: 0.1)
-            cell.selectedBackgroundView = bgColorView
-            
             if indexPath.row == 0 {
                 cell.clipsToBounds = true
-                cell.layer.cornerRadius = 9
+                cell.layer.cornerRadius = 6
                 cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             }
             if indexPath.row == privateGroupData.count - 1 {
                 cell.clipsToBounds = true
-                cell.layer.cornerRadius = 9
+                cell.layer.cornerRadius = 6
                 cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             }
             return cell
@@ -198,12 +173,12 @@ extension LightningMainViewController: UITableViewDataSource {
             
             if indexPath.row == 0 {
                 cell.clipsToBounds = true
-                cell.layer.cornerRadius = 9
+                cell.layer.cornerRadius = 6
                 cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
             }
             if indexPath.row == publicGroupData.count - 1 {
                 cell.clipsToBounds = true
-                cell.layer.cornerRadius = 9
+                cell.layer.cornerRadius = 6
                 cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             }
             return cell

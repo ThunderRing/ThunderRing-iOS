@@ -36,7 +36,7 @@ final class CloseButton: UIButton {
     
     private func setupLayout() {
         self.snp.makeConstraints { make in
-            make.width.height.equalTo(44)
+            make.width.height.equalTo(48)
         }
     }
     
