@@ -14,6 +14,7 @@ final class MyPublicViewController: UIViewController {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var plusButton: UIButton!
     
     @IBOutlet weak var myGroupLabel: UILabel!
     @IBOutlet weak var lookLabel: UILabel!
@@ -72,6 +73,12 @@ final class MyPublicViewController: UIViewController {
         
         searchButton.addAction(UIAction(handler: { _ in
             let dvc = SearchPublicGroupVC()
+            dvc.modalPresentationStyle = .fullScreen
+            self.present(dvc, animated: true, completion: nil)
+        }), for: .touchUpInside)
+        
+        plusButton.addAction(UIAction(handler: { _ in
+            let dvc = CreatePublicGroupNameViewController()
             dvc.modalPresentationStyle = .fullScreen
             self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
