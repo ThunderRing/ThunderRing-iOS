@@ -70,7 +70,7 @@ extension ChatListVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as? ChatVC else { return }
+        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as? ChatViewController else { return }
         dvc.chatTitle = chatLists[indexPath.row].title
         self.navigationController?.pushViewController(dvc, animated: true)
     }
