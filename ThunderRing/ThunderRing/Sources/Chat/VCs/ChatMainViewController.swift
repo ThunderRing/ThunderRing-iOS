@@ -117,7 +117,7 @@ extension ChatMainViewController: UITableViewDelegate {
 extension ChatMainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // FIXME: - 데이터 사용해서 동적으로 반환 
-        return 4
+        return chatLists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

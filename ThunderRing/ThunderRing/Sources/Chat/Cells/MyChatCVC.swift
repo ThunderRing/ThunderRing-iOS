@@ -19,7 +19,7 @@ class MyChatCVC: BaseCell {
     }
     
     private var myTextLabel = BasePaddingLabel().then {
-        $0.font = .systemFont(ofSize: 14)
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
         $0.textColor = .white
         $0.textAlignment = .left
         $0.letterSpacing = -0.39
@@ -54,7 +54,7 @@ class MyChatCVC: BaseCell {
     // MARK: - layoutSubviews
     override func layoutSubviews() {
         super.layoutSubviews()
-        chatPurpleBackView.roundCorners(corners: [.topLeft, .bottomLeft, .bottomRight], radius: 10.0)
+        chatPurpleBackView.roundCorners(corners: [.topLeft, .bottomLeft, .bottomRight], radius: 15.0)
     }
 }
 

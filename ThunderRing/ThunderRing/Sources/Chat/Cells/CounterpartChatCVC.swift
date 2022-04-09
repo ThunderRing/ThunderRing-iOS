@@ -15,7 +15,7 @@ class CounterpartChatCVC: BaseCell {
     // MARK: - Properties
     
     private var profileBorderView = UIImageView().then {
-        $0.layer.cornerRadius = 22
+        $0.layer.cornerRadius = 15
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray300.cgColor
     }
@@ -25,7 +25,7 @@ class CounterpartChatCVC: BaseCell {
     }
     
     private var nicknameLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 14)
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
         $0.textColor = .black
         $0.textAlignment = .left
         $0.sizeToFit()
@@ -73,8 +73,8 @@ class CounterpartChatCVC: BaseCell {
     // MARK: - layoutSubviews
     override func layoutSubviews() {
         super.layoutSubviews()
-        chatGrayBackView.roundCorners(corners: [.topRight, .bottomLeft, .bottomRight], radius: 10.0)
-        profileImageView.roundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 22)
+        chatGrayBackView.roundCorners(corners: [.topRight, .bottomLeft, .bottomRight], radius: 15.0)
+        profileImageView.roundCorners(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: 215)
     }
 }
 // MARK: - Layout

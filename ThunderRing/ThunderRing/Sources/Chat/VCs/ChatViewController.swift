@@ -20,9 +20,9 @@ final class ChatViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var hamburgerButton: UIButton!
     
-    @IBOutlet weak var topView: UIView!
-    
-    @IBOutlet weak var descriptionLabel: UILabel!
+    private var guideView = GuideView().then {
+        $0.makeRounded(cornerRadius: 7)
+    }
     
     private var chatCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         let layout = UICollectionViewFlowLayout()
@@ -38,14 +38,16 @@ final class ChatViewController: UIViewController {
     }
     
     private var lineView = UIView().then {
-        $0.backgroundColor = .gray300
+        $0.backgroundColor = .gray200
     }
     
     private var textField = UITextField().then {
         $0.initViewBorder(borderWidth: 0, borderColor: UIColor.clear.cgColor, cornerRadius: 24, bounds: true)
         $0.backgroundColor = .gray350
         $0.placeholder = "메시지 입력하기"
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
         $0.setLeftPaddingPoints(19)
+        $0.setPlaceholder(color: .gray200)
     }
     
     private lazy var sendButton = UIButton().then {
@@ -69,65 +71,59 @@ final class ChatViewController: UIViewController {
         $0.dateFormat = "a hh:mm"
         $0.locale = Locale(identifier:"ko")
     }
-
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.tabBarController?.tabBar.isHidden = true
-        self.navigationController?.navigationBar.isHidden = true
-        setStatusBar(.white)
+        tabBarController?.tabBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initUI()
+        configUI()
         setLayout()
         setCollectionView()
         getNotification()
         setAction()
     }
-}
-
-extension ChatViewController {
-    private func initUI() {
+    
+    private func configUI() {
         view.backgroundColor = .background
         
         customNavigationBarView.backgroundColor = .white
+        setStatusBar(.white)
+        
         titleLabel.text = "\(chatTitle!) \(memberNum)"
         
-        topView.backgroundColor = .white
-        topView.layer.applyShadow()
+        customNavigationBarView.backgroundColor = .white
+        customNavigationBarView.layer.applyShadow()
         
-        descriptionLabel.text = "펑 시각 " + dateFormatter.string(from: nowDate.addingTimeInterval(+(60 * 60 * 24)))
-        descriptionLabel.textColor = .purple100
-        
-        [titleLabel, descriptionLabel].forEach {
-            $0?.addCharacterSpacing()
-        }
-        
-        guard let text = self.descriptionLabel.text else { return }
-        let attributeString = NSMutableAttributedString(string: text)
-        let font = UIFont.SpoqaHanSansNeo(type: .medium, size: 14)
-        attributeString.addAttribute(.font, value: font, range: (text as NSString).range(of: "펑 시각"))
-        attributeString.addAttribute(.foregroundColor, value: UIColor.gray100.cgColor, range: (text as NSString).range(of: "펑 시각"))
-        descriptionLabel.attributedText = attributeString
+        guideView.title = "내일 오후 9:41 펑"
+//        guideView.title = "펑 시각 " + dateFormatter.string(from: nowDate.addingTimeInterval(+(60 * 60 * 24)))
         
         chatCollectionView.backgroundColor = .background
         
         textField.delegate = self
-        textField.font = .SpoqaHanSansNeo(type: .regular, size: 14)
-        textField.setRightIcon(13, 17, UIImage(named: "icnHappy")!)
+        textField.font = .SpoqaHanSansNeo(type: .regular, size: 15)
+        textField.setRightIcon(8, 24, UIImage(named: "icnHappy")!)
     }
     
     private func setLayout() {
+        customNavigationBarView.addSubview(guideView)
         view.addSubviews([chatCollectionView, backgroundView])
-        backgroundView.addSubviews([textField, sendButton])
+        backgroundView.addSubviews([lineView, textField, sendButton])
+        
+        guideView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(51)
+            $0.width.equalTo(106)
+            $0.height.equalTo(23)
+            $0.centerX.equalToSuperview()
+        }
         
         chatCollectionView.snp.makeConstraints {
-            $0.top.equalTo(topView.snp.bottom).offset(5)
+            $0.top.equalTo(customNavigationBarView.snp.bottom).offset(5)
             $0.leading.trailing.equalTo(self.view)
             $0.bottom.equalToSuperview().inset(80)
         }
@@ -135,6 +131,11 @@ extension ChatViewController {
         backgroundView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(59)
+        }
+        
+        lineView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(0.5)
         }
         
         textField.snp.makeConstraints {
@@ -180,14 +181,23 @@ extension ChatViewController {
         }), for: .touchUpInside)
         
         hamburgerButton.addAction(UIAction(handler: { _ in
-            // FIXME: - 화면 연결 
+            // FIXME: - 화면 연결
         }), for: .touchUpInside)
     }
-}
-
-extension ChatViewController {
-    @objc
-    func sendMessage(_ notification: Notification) {
+    
+    private func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
+        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.font = font
+        label.text = text
+        label.sizeToFit()
+        return label.frame.height
+    }
+    
+    // MARK: - @objc
+    
+    @objc func sendMessage(_ notification: Notification) {
         textField.text = ""
         let getValue = notification.object as! String
         if !getValue.isEmpty {
@@ -260,25 +270,44 @@ extension ChatViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Label
-
-extension ChatViewController {
-    func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
-        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
-        label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
-        label.font = font
-        label.text = text
-        label.sizeToFit()
-        return label.frame.height
-    }
-}
-
 // MARK: - UITextField Delegate
 
 extension ChatViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// MARK: - Guide View
+
+fileprivate final class GuideView: UIView {
+    
+    private lazy var titleLabel = UILabel().then {
+        $0.textColor = .purple100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 12)
+    }
+    
+    var title: String = "" {
+        didSet {
+            titleLabel.text = "\(title)"
+        }
+    }
+    
+    init() {
+        super.init(frame: .zero)
+        setTitle()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setTitle() {
+        backgroundColor = .purple100.withAlphaComponent(0.1)
+        addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
     }
 }
