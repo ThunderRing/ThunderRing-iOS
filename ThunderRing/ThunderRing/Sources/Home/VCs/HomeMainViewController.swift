@@ -212,13 +212,12 @@ final class HomeMainViewController: UIViewController {
     private func bind() {
         privateGroupCollectionView.delegate = self
         privateGroupCollectionView.dataSource = self
+        privateGroupCollectionView.register(HomeMainPrivateGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainPrivateGroupCollectionViewCell.CellIdentifier)
         
         publicGroupCollectionView.delegate = self
         publicGroupCollectionView.dataSource = self
-
-        privateGroupCollectionView.register(HomeMainPrivateGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainPrivateGroupCollectionViewCell.CellIdentifier)
-        
         publicGroupCollectionView.register(HomeMainPublicGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainPublicGroupCollectionViewCell.CellIdentifier)
+        publicGroupCollectionView.isMultipleTouchEnabled = true
         
         privateGroupHeaderView.delegate = self
         publicGroupHeaderView.delegate = self
@@ -245,7 +244,6 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
         guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
         let dvc = UINavigationController(rootViewController: vc)
         
-        // FIXME: - index / private,public Group Data 수정
         vc.index = 0
         for i in 0 ... privateGroupData.count - 1 {
             vc.groupNames.append(privateGroupData[i].groupName)
@@ -269,7 +267,32 @@ extension HomeMainViewController: HomeMainHeaderViewDelegate {
     }
 }
 
+extension HomeMainViewController: HomeMainPublicGroupCollectionViewCellViewDelegate {
+    func touchUpButton() {
+        guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
+        let dvc = UINavigationController(rootViewController: vc)
+        
+        vc.index = 0
+        for i in 0 ... publicGroupData.count - 1 {
+            vc.groupNames.append(publicGroupData[i].groupName)
+            vc.groupMaxCounts.append(publicGroupData[i].memberCounts)
+        }
+        
+        dvc.modalPresentationStyle = .fullScreen
+        present(dvc, animated: true)
+    }
+}
+
 // MARK: - UICollectionView Delegate
+
+extension HomeMainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == publicGroupCollectionView {
+            let dvc = PublicDetailViewController()
+            navigationController?.pushViewController(dvc, animated: true)
+        }
+    }
+}
 
 extension HomeMainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -330,6 +353,7 @@ extension HomeMainViewController: UICollectionViewDataSource {
         case publicGroupCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeMainPublicGroupCollectionViewCell.CellIdentifier, for: indexPath) as? HomeMainPublicGroupCollectionViewCell else { return UICollectionViewCell() }
             cell.initCell(group: publicGroupData[indexPath.item])
+            cell.cellView.delegate = self
             return cell
         default:
             return UICollectionViewCell()

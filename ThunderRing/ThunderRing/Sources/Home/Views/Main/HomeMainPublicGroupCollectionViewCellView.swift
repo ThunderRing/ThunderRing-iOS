@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
+protocol HomeMainPublicGroupCollectionViewCellViewDelegate: AnyObject {
+    func touchUpButton()
+}
+
 final class HomeMainPublicGroupCollectionViewCellView: UIView {
     
     // MARK: - Properties
@@ -33,7 +37,11 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     
     private lazy var groupTendencyView = GroupTendencyView(tagType: .diligent)
     
-    private var lightningButton = LightningButton()
+    private lazy var lightningButton = LightningButton().then {
+        $0.addTarget(self, action: #selector(touchUpLightningButton), for: .touchUpInside)
+    }
+    
+    weak var delegate: HomeMainPublicGroupCollectionViewCellViewDelegate?
     
     // MARK: - Initializer
     
@@ -142,6 +150,12 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
                 $0.width.equalTo(84)
             }
         }
+    }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpLightningButton() {
+        delegate?.touchUpButton()
     }
 }
 
