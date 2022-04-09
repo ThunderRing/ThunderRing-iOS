@@ -54,7 +54,7 @@ final class MyPublicViewController: UIViewController {
         groupCollectionView.dataSource = self
         
         groupCollectionView.register(UINib(nibName: MyGroupCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: MyGroupCollectionViewCell.identifier)
-        groupCollectionView.register(UINib(nibName: LookCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: LookCollectionViewCell.identifier)
+        groupCollectionView.register(MyOverviewCollectionViewCell.self, forCellWithReuseIdentifier: MyOverviewCollectionViewCell.CellIdentifier)
         
         /// Gesture
         let tapMyGroupLabelGesture = UITapGestureRecognizer(target: self, action: #selector(dragToMyGroup))
@@ -163,7 +163,7 @@ extension MyPublicViewController: UICollectionViewDataSource {
             cell.count = publicGroupData.count
             return cell
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LookCollectionViewCell.identifier, for: indexPath) as? LookCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyOverviewCollectionViewCell.CellIdentifier, for: indexPath) as? MyOverviewCollectionViewCell else { return UICollectionViewCell() }
             return cell
         default:
             return UICollectionViewCell()

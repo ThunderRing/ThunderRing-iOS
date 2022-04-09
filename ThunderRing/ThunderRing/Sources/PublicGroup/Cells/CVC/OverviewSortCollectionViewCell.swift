@@ -2,7 +2,7 @@
 //  LookSortCVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/12/12.
+//  Created by 소연 on 2021/12/12.
 //
 
 import UIKit
@@ -10,31 +10,26 @@ import UIKit
 import SnapKit
 import Then
 
-class LookSortCollectinViewCell: UICollectionViewCell {
-    static let identifier = "LookSortCollectinViewCell"
+final class OverviewSortCollectionViewCell: UICollectionViewCell {
+    static let identifier = "OverviewSortCollectionViewCell"
     
     // MARK: - Properties
     
     private var sortLabel = UILabel().then {
-        $0.textColor = .purple100
+        $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
-    // MARK: - Life Cycle
+    // MARK: - Initialzier
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configUI()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutSubviews() {
-        sortLabel.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
-        }
     }
     
     override var isSelected: Bool {
@@ -49,11 +44,21 @@ class LookSortCollectinViewCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - Init UI
+    
     private func configUI() {
-        contentView.addSubview(sortLabel)
         contentView.backgroundColor = .gray350
         contentView.makeRounded(cornerRadius: 13.5)
     }
+    
+    private func setLayout() {
+        contentView.addSubview(sortLabel)
+        sortLabel.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+        }
+    }
+    
+    // MARK: - Custom
     
     internal func setLabel(sort: String) {
         sortLabel.text = sort

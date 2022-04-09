@@ -123,15 +123,13 @@
 		92AFB39A276339F000977712 /* MyGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB398276339F000977712 /* MyGroupCollectionViewCell.swift */; };
 		92AFB39B276339F000977712 /* MyGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AFB399276339F000977712 /* MyGroupCollectionViewCell.xib */; };
 		92AFB39F27633A1E00977712 /* MyPublicGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB39E27633A1E00977712 /* MyPublicGroupTableViewCell.swift */; };
-		92AFB3A227633A4000977712 /* LookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AFB3A027633A4000977712 /* LookCollectionViewCell.swift */; };
-		92AFB3A327633A4000977712 /* LookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AFB3A127633A4000977712 /* LookCollectionViewCell.xib */; };
 		92B1568A2761426300939048 /* MyPublicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B156892761426300939048 /* MyPublicViewController.swift */; };
 		92B471AD27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471AC27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift */; };
 		92B471AF27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B471AE27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift */; };
 		92B619CF273EEF4700BE31D1 /* ChatListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */; };
 		92B7184427D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B7184327D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift */; };
-		92BCCCAA27650B3D00AA70D6 /* LookDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCA927650B3D00AA70D6 /* LookDetailCollectionViewCell.swift */; };
-		92BCCCAC2765180800AA70D6 /* LookSortCollectinViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCAB2765180800AA70D6 /* LookSortCollectinViewCell.swift */; };
+		92BCCCAA27650B3D00AA70D6 /* OverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCA927650B3D00AA70D6 /* OverviewCollectionViewCell.swift */; };
+		92BCCCAC2765180800AA70D6 /* OverviewSortCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCAB2765180800AA70D6 /* OverviewSortCollectionViewCell.swift */; };
 		92C4148727629606000DB287 /* MyPublic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C4148627629606000DB287 /* MyPublic.storyboard */; };
 		92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBCE6D273B12EC00A3F36D /* CompleteCVC.swift */; };
 		92CBCE70273B12EC00A3F36D /* CompleteCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92CBCE6E273B12EC00A3F36D /* CompleteCVC.xib */; };
@@ -150,8 +148,9 @@
 		92E416EF27B8264B00FD008F /* Adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E416EE27B8264B00FD008F /* Adjust+.swift */; };
 		92E497762768C42E0029682C /* ChatListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E497752768C42E0029682C /* ChatListDataModel.swift */; };
 		92E7F9F927F22E3E00F1CFB7 /* GroupTendencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E7F9F827F22E3E00F1CFB7 /* GroupTendencyView.swift */; };
+		92EF6F6E2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F6D2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift */; };
+		92EF6F702801CCF400773F32 /* MyOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F6F2801CCF400773F32 /* MyOverviewCollectionViewCell.swift */; };
 		92F43A33274E8491006025EC /* CompleteLightningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F43A32274E8491006025EC /* CompleteLightningViewController.swift */; };
-		92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */; };
 		92F9A53F27AFF4E3004F41FE /* TempCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9A53E27AFF4E3004F41FE /* TempCell.swift */; };
 		92FA76DF27B3A69600CB54C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */; };
 		92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */; };
@@ -287,15 +286,13 @@
 		92AFB398276339F000977712 /* MyGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		92AFB399276339F000977712 /* MyGroupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyGroupCollectionViewCell.xib; sourceTree = "<group>"; };
 		92AFB39E27633A1E00977712 /* MyPublicGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPublicGroupTableViewCell.swift; sourceTree = "<group>"; };
-		92AFB3A027633A4000977712 /* LookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookCollectionViewCell.swift; sourceTree = "<group>"; };
-		92AFB3A127633A4000977712 /* LookCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LookCollectionViewCell.xib; sourceTree = "<group>"; };
 		92B156892761426300939048 /* MyPublicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPublicViewController.swift; sourceTree = "<group>"; };
 		92B471AC27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainPublicGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		92B471AE27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainPublicGroupCollectionViewCellView.swift; sourceTree = "<group>"; };
 		92B619CE273EEF4700BE31D1 /* ChatListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTVC.swift; sourceTree = "<group>"; };
 		92B7184327D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingCollectionViewCell.swift; sourceTree = "<group>"; };
-		92BCCCA927650B3D00AA70D6 /* LookDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookDetailCollectionViewCell.swift; sourceTree = "<group>"; };
-		92BCCCAB2765180800AA70D6 /* LookSortCollectinViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookSortCollectinViewCell.swift; sourceTree = "<group>"; };
+		92BCCCA927650B3D00AA70D6 /* OverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		92BCCCAB2765180800AA70D6 /* OverviewSortCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSortCollectionViewCell.swift; sourceTree = "<group>"; };
 		92C4148627629606000DB287 /* MyPublic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPublic.storyboard; sourceTree = "<group>"; };
 		92CBCE6D273B12EC00A3F36D /* CompleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCVC.swift; sourceTree = "<group>"; };
 		92CBCE6E273B12EC00A3F36D /* CompleteCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteCVC.xib; sourceTree = "<group>"; };
@@ -309,8 +306,9 @@
 		92E416EE27B8264B00FD008F /* Adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adjust+.swift"; sourceTree = "<group>"; };
 		92E497752768C42E0029682C /* ChatListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListDataModel.swift; sourceTree = "<group>"; };
 		92E7F9F827F22E3E00F1CFB7 /* GroupTendencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTendencyView.swift; sourceTree = "<group>"; };
+		92EF6F6D2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCellHeaderView.swift; sourceTree = "<group>"; };
+		92EF6F6F2801CCF400773F32 /* MyOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		92F43A32274E8491006025EC /* CompleteLightningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteLightningViewController.swift; sourceTree = "<group>"; };
-		92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookHeaderView.swift; sourceTree = "<group>"; };
 		92F9A53E27AFF4E3004F41FE /* TempCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCell.swift; sourceTree = "<group>"; };
 		92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningDataModel.swift; sourceTree = "<group>"; };
@@ -994,10 +992,9 @@
 			children = (
 				92AFB398276339F000977712 /* MyGroupCollectionViewCell.swift */,
 				92AFB399276339F000977712 /* MyGroupCollectionViewCell.xib */,
-				92AFB3A027633A4000977712 /* LookCollectionViewCell.swift */,
-				92AFB3A127633A4000977712 /* LookCollectionViewCell.xib */,
-				92BCCCA927650B3D00AA70D6 /* LookDetailCollectionViewCell.swift */,
-				92BCCCAB2765180800AA70D6 /* LookSortCollectinViewCell.swift */,
+				92EF6F6F2801CCF400773F32 /* MyOverviewCollectionViewCell.swift */,
+				92BCCCAB2765180800AA70D6 /* OverviewSortCollectionViewCell.swift */,
+				92BCCCA927650B3D00AA70D6 /* OverviewCollectionViewCell.swift */,
 			);
 			path = CVC;
 			sourceTree = "<group>";
@@ -1111,8 +1108,8 @@
 		92F98DFF2767BEB400CA10FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				92F98DFD2767BEB000CA10FE /* LookHeaderView.swift */,
 				92899E9127FA56CE001226A0 /* PublicGroupDetailHeaderView.swift */,
+				92EF6F6D2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1229,7 +1226,6 @@
 				926C7C59273803A10020F851 /* Alarm.storyboard in Resources */,
 				92FFBBA9274CDE7E00706099 /* Buttons.xcassets in Resources */,
 				926C7C57273803980020F851 /* Lightning.storyboard in Resources */,
-				92AFB3A327633A4000977712 /* LookCollectionViewCell.xib in Resources */,
 				92CD3372273FA2A00094CB1C /* SpoqaHanSansNeo-Bold.otf in Resources */,
 				926C7C262737F93F0020F851 /* LaunchScreen.storyboard in Resources */,
 				92159C97275896EF0081F20B /* DINPro-Medium.otf in Resources */,
@@ -1345,7 +1341,7 @@
 				92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */,
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
 				92E416ED27B824CF00FD008F /* TDSButton.swift in Sources */,
-				92BCCCAA27650B3D00AA70D6 /* LookDetailCollectionViewCell.swift in Sources */,
+				92BCCCAA27650B3D00AA70D6 /* OverviewCollectionViewCell.swift in Sources */,
 				925DCD4827E5210200331949 /* ChatMainTableViewCell.swift in Sources */,
 				9227F2F227DAB0C9001D1BB4 /* HomeJoinViewController.swift in Sources */,
 				92291C522759130F0012927B /* CompleteCreatePrivateViewController.swift in Sources */,
@@ -1383,7 +1379,7 @@
 				928FDA0F2760DBAB009AC059 /* MyPrivateTableViewCell.swift in Sources */,
 				9212667C2748167D009DE534 /* UIColor+.swift in Sources */,
 				9248133927D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift in Sources */,
-				92BCCCAC2765180800AA70D6 /* LookSortCollectinViewCell.swift in Sources */,
+				92BCCCAC2765180800AA70D6 /* OverviewSortCollectionViewCell.swift in Sources */,
 				928FDA0B2760D1B5009AC059 /* MyPrivateViewController.swift in Sources */,
 				9276B067275B453E00915F57 /* BasePaddingLabel.swift in Sources */,
 				92B471AF27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift in Sources */,
@@ -1398,12 +1394,13 @@
 				928C707E27F3C041001E66BE /* PrivateDetailMemberCollectionViewCell.swift in Sources */,
 				926C7C522738030F0020F851 /* MyPageViewController.swift in Sources */,
 				928FDA0D2760D1C4009AC059 /* PrivateDetailViewController.swift in Sources */,
-				92F98DFE2767BEB000CA10FE /* LookHeaderView.swift in Sources */,
+				92EF6F6E2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift in Sources */,
 				92583550275C999100F64DC0 /* AccountInfoViewController.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */,
 				92B471AD27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift in Sources */,
 				9212667A2748055A009DE534 /* TestResultVC.swift in Sources */,
+				92EF6F702801CCF400773F32 /* MyOverviewCollectionViewCell.swift in Sources */,
 				1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */,
 				926C7C442738022F0020F851 /* ChatListVC.swift in Sources */,
 				924ABCCB27FCF43A008BB2DA /* AlarmMainHeaderView.swift in Sources */,
@@ -1418,7 +1415,6 @@
 				92A5B2A12739AA49004149B2 /* AccountTableViewCell.swift in Sources */,
 				9276B065275B44F700915F57 /* BaseCell.swift in Sources */,
 				92609ACD274BD9A700F0E401 /* LigntningDetailViewController.swift in Sources */,
-				92AFB3A227633A4000977712 /* LookCollectionViewCell.swift in Sources */,
 				924ABCCD27FCF7DC008BB2DA /* AlarmMainTextView.swift in Sources */,
 				92159C9A2758C21A0081F20B /* CreatePrivateViewController.swift in Sources */,
 				1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */,
