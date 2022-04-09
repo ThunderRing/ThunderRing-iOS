@@ -138,6 +138,7 @@
                         <outlet property="groupCollectionView" destination="ob8-I9-EGD" id="qRX-Cw-yP6"/>
                         <outlet property="lookLabel" destination="n1O-c7-xhm" id="1rB-tA-eUD"/>
                         <outlet property="myGroupLabel" destination="EXn-hd-4ME" id="YiE-0u-a5w"/>
+                        <outlet property="plusButton" destination="aYZ-wJ-Bh9" id="vHH-Jd-1rP"/>
                         <outlet property="searchButton" destination="FiV-as-far" id="YfW-7U-gBp"/>
                         <outlet property="statusMovedView" destination="DUH-Tg-ugJ" id="RCK-lj-Wr9"/>
                         <outlet property="topView" destination="ACh-rL-vLs" id="suY-Jk-7J8"/>

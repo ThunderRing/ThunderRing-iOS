@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class ChatVC: UIViewController {
+final class ChatViewController: UIViewController {
     
     // MARK: - UI
     
@@ -91,7 +91,7 @@ final class ChatVC: UIViewController {
     }
 }
 
-extension ChatVC {
+extension ChatViewController {
     private func initUI() {
         view.backgroundColor = .background
         
@@ -185,7 +185,7 @@ extension ChatVC {
     }
 }
 
-extension ChatVC {
+extension ChatViewController {
     @objc
     func sendMessage(_ notification: Notification) {
         textField.text = ""
@@ -197,7 +197,7 @@ extension ChatVC {
     }
 }
 
-extension ChatVC: UICollectionViewDelegateFlowLayout {
+extension ChatViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if chatData[indexPath.row].chatType == .counterpart {
             let height = heightForView(text: chatData[indexPath.row].messageText, font: .systemFont(ofSize: 14), width: 220)
@@ -236,7 +236,7 @@ extension ChatVC: UICollectionViewDelegateFlowLayout {
     
 }
 
-extension ChatVC: UICollectionViewDataSource {
+extension ChatViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return chatData.count
     }
@@ -262,7 +262,7 @@ extension ChatVC: UICollectionViewDataSource {
 
 // MARK: - Label
 
-extension ChatVC {
+extension ChatViewController {
     func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
         let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
@@ -276,7 +276,7 @@ extension ChatVC {
 
 // MARK: - UITextField Delegate
 
-extension ChatVC: UITextFieldDelegate {
+extension ChatViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

@@ -15,7 +15,7 @@ final class HomeMainPublicGroupCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    private lazy var cellView = HomeMainPublicGroupCollectionViewCellView()
+    var cellView = HomeMainPublicGroupCollectionViewCellView()
     
     // MARK: - Life Cycle
     

@@ -30,11 +30,14 @@ final class ChatMainViewController: UIViewController {
         $0.backgroundColor = .background
     }
     
+    private var chatLists = [ChatListDataModel]()
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidLoad() {
@@ -87,6 +90,10 @@ final class ChatMainViewController: UIViewController {
         chatListTableView.dataSource = self
         
         chatListTableView.separatorStyle = .none
+        
+        chatLists.append(contentsOf: [
+            ChatListDataModel(groupImage: "imgDog1", hashTag: "양파링 걸즈", title: "혜화역 혼가츠 먹자", subTitle: "안녕하세요!", count: 3, time: 1)
+        ])
     }
 }
 
@@ -98,7 +105,10 @@ extension ChatMainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: - 채팅 화면으로 이동
+        let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
+        guard let dvc = chatStoryboard.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return }
+        dvc.chatTitle = chatLists[indexPath.row].title
+        self.navigationController?.pushViewController(dvc, animated: true)
     }
 }
 
