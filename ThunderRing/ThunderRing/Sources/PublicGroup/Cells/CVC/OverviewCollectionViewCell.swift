@@ -7,10 +7,13 @@
 
 import UIKit
 
-class LookDetailCollectionViewCell: UICollectionViewCell {
-    static let identifier = "LookDetailCollectionViewCell"
+import SnapKit
+import Then
+
+final class OverviewCollectionViewCell: UICollectionViewCell {
+    static let identifier = "OverviewCollectionViewCell"
     
-    // MARK: - UI
+    // MARK: - Properties
     
     private lazy var groupImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
@@ -18,6 +21,7 @@ class LookDetailCollectionViewCell: UICollectionViewCell {
     }
     
     private lazy var groupNameLabel = UILabel().then {
+        $0.text = "그룹이름"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .bold, size: 17)
         $0.addCharacterSpacing()
@@ -31,12 +35,11 @@ class LookDetailCollectionViewCell: UICollectionViewCell {
     
     private lazy var groupTagView = GroupTendencyView(tagType: .diligent)
     
-    // MARK: - Life Cycle
+    // MARK: - Initializer
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        initUI()
+        configUI()
         setLayout()
     }
     
@@ -44,10 +47,10 @@ class LookDetailCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension LookDetailCollectionViewCell {
-    private func initUI() {
+    
+    // MARK: - Init UI
+    
+    private func configUI() {
         backgroundColor = .white
         initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
         groupTagView.makeRounded(cornerRadius: 3)
@@ -80,10 +83,10 @@ extension LookDetailCollectionViewCell {
             $0.height.equalTo(21)
         }
     }
-}
-
-extension LookDetailCollectionViewCell {
-    func initCell(group: PublicGroupDataModel) {
+    
+    // MARK: - Custom Method
+    
+    internal func initCell(group: PublicGroupDataModel) {
         groupImageView.image = UIImage(named: group.groupImage)
         
         groupNameLabel.text = group.groupName

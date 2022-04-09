@@ -36,25 +36,25 @@ final class TabBarController: UITabBarController {
 //        mainTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
         
         let homeTab = UINavigationController(rootViewController: HomeMainViewController())
-        homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
+        homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "tap_home_inactive"), selectedImage: UIImage(named: "tap_home_active"))
         
 //        let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
 //        let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
 //        chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "chatIn"), selectedImage: UIImage(named: "chat"))
         
         let chatTab = UINavigationController(rootViewController: ChatMainViewController())
-        chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "chatIn"), selectedImage: UIImage(named: "chat"))
+        chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "tap_chat_inactive"), selectedImage: UIImage(named: "tap_chat_active"))
         
         let lightningStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Lightning, bundle: nil)
         let lightningTab = lightningStoryboard.instantiateViewController(identifier: Const.ViewController.Name.ModalNavigation)
         lightningTab.tabBarItem = UITabBarItem(title: "번개", image: UIImage(named: "thunder"), selectedImage: UIImage(named: "thunder"))
         
         let alarmTab = UINavigationController(rootViewController: AlarmMainViewController())
-        alarmTab.tabBarItem = UITabBarItem(title: "알림", image: UIImage(named: "alarmIn"), selectedImage: UIImage(named: "alarm"))
+        alarmTab.tabBarItem = UITabBarItem(title: "알림", image: UIImage(named: "tap_alarm_inactive"), selectedImage: UIImage(named: "tap_alarm_active"))
         
         let myStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.MyPage, bundle: nil)
         let myTab = myStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-        myTab.tabBarItem = UITabBarItem(title: "프로필", image: UIImage(named: "mypageIn"), selectedImage: UIImage(named: "mypage"))
+        myTab.tabBarItem = UITabBarItem(title: "프로필", image: UIImage(named: "tap_mypage_inactive"), selectedImage: UIImage(named: "tap_mypage_active"))
         
         let tabs =  [homeTab, chatTab, lightningTab, alarmTab, myTab]
         

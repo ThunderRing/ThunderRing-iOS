@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 protocol MyGroupCollectionViewCellDelegate {
     func touchUpTestButton()
     func touchUpCell()
@@ -15,7 +18,7 @@ protocol MyGroupCollectionViewCellDelegate {
 final class MyGroupCollectionViewCell: UICollectionViewCell {
     static let identifier = "MyGroupCollectionViewCell"
 
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var groupTableView: UITableView!
     
@@ -44,11 +47,9 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    // MARK: - Properties
-    
     var delegate: MyGroupCollectionViewCellDelegate?
     
-    // MARK: - Life Cycle
+    // MARK: - Initialzier
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -57,6 +58,8 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
         bind()
     }
 
+    // MARK: - Init UI
+    
     private func configUI() {
         contentView.backgroundColor = .clear
         testBackView.makeRounded(cornerRadius: 6)
@@ -81,6 +84,8 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
             $0.leading.equalTo(titleLabel.snp.trailing).offset(4)
         }
     }
+    
+    // MARK: - Custom Method
     
     private func bind() {
         groupTableView.delegate = self
