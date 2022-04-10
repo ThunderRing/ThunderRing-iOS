@@ -27,11 +27,13 @@ final class HomeRecruitingTableViewCellView: UIView {
     private lazy var subtitleLabel = UILabel().then {
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
+        $0.addCharacterSpacing(kernValue: -0.4, paragraphValue: 4)
     }
     
     private lazy var titleLabel = UILabel().then {
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
+        $0.addCharacterSpacing()
     }
     
     private lazy var memberCollectionView: UICollectionView = {
@@ -217,6 +219,7 @@ fileprivate final class CountLabelView: UIView {
     private lazy var titleLabel = UILabel().then {
         $0.textColor = .white
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
+        $0.addCharacterSpacing()
     }
     
     init() {

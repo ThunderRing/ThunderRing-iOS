@@ -127,7 +127,7 @@ final class HomeMainViewController: UIViewController {
     }
     
     private func setLayout() {
-        view.addSubviews([navigationBar, contentScrollView])
+        view.addSubviews([contentScrollView, navigationBar])
         navigationBar.addSubviews([recruitingButton, searchButton])
         contentScrollView.addSubview(contentView)
         contentView.addSubviews([topView, contentStackView])
@@ -178,7 +178,7 @@ final class HomeMainViewController: UIViewController {
 
         subTitleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(25)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(3)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
         }
 
         privateGroupHeaderView.snp.makeConstraints {
@@ -221,6 +221,8 @@ final class HomeMainViewController: UIViewController {
         
         privateGroupHeaderView.delegate = self
         publicGroupHeaderView.delegate = self
+        
+        contentScrollView.delegate = self
     }
     
     // MARK: - @objc
@@ -280,6 +282,18 @@ extension HomeMainViewController: HomeMainPublicGroupCollectionViewCellViewDeleg
         
         dvc.modalPresentationStyle = .fullScreen
         present(dvc, animated: true)
+    }
+}
+
+// MARK: - UIScrollView Delegate
+
+extension HomeMainViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 10 {
+            navigationBar.layer.applyShadow()
+        } else {
+            navigationBar.layer.applyShadow(color: UIColor.clear, alpha: 0, x: 0, y: 0, blur: 0, spread: 0)
+        }
     }
 }
 

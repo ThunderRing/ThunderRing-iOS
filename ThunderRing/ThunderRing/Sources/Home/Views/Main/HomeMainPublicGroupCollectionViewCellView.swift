@@ -25,7 +25,7 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     
     private lazy var groupNameLabel = UILabel().then {
         $0.text = "그룹이름"
-        $0.textColor = .black
+        $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 17)
     }
     
@@ -60,9 +60,9 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     private func configUI() {
         backgroundColor = .white
         
-        groupImageView.makeRounded(cornerRadius: 28)
+        groupImageView.makeRounded(cornerRadius: 27)
         
-        lightningButton.makeRounded(cornerRadius: 14 )
+        lightningButton.makeRounded(cornerRadius: 14)
         
         groupTendencyView.makeRounded(cornerRadius: 3)
     }
@@ -78,7 +78,7 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
             $0.top.equalToSuperview().inset(22)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(74)
-            $0.height.equalTo(74)
+            $0.height.equalTo(76)
         }
         
         groupNameLabel.snp.makeConstraints {
@@ -127,27 +127,27 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         case .diligent:
             groupTendencyView.tagType = .diligent
             groupTendencyView.snp.updateConstraints {
-                $0.width.equalTo(95)
+                $0.width.equalTo(98)
             }
         case .crowd:
             groupTendencyView.tagType = .crowd
             groupTendencyView.snp.updateConstraints {
-                $0.width.equalTo(84)
+                $0.width.equalTo(87)
             }
         case .emotion:
             groupTendencyView.tagType = .emotion
             groupTendencyView.snp.updateConstraints {
-                $0.width.equalTo(95)
+                $0.width.equalTo(98)
             }
         case .soft:
             groupTendencyView.tagType = .soft
             groupTendencyView.snp.updateConstraints {
-                $0.width.equalTo(72)
+                $0.width.equalTo(75)
             }
         case .cozy:
             groupTendencyView.tagType = .cozy
             groupTendencyView.snp.updateConstraints {
-                $0.width.equalTo(84)
+                $0.width.equalTo(87)
             }
         }
     }
