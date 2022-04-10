@@ -32,8 +32,9 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
     
     private var titleLabel = UILabel().then {
         $0.text = "그룹"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
     private var countLabel = UILabel().then {
@@ -44,6 +45,7 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
     var count: Int = 0 {
         didSet {
             countLabel.text = "\(count)"
+            countLabel.setTextSpacingBy(value: -0.6)
         }
     }
     
@@ -80,6 +82,7 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
         }
         
         countLabel.snp.makeConstraints {
+            $0.height.equalTo(23)
             $0.top.equalTo(testBackView.snp.bottom).offset(15)
             $0.leading.equalTo(titleLabel.snp.trailing).offset(4)
         }

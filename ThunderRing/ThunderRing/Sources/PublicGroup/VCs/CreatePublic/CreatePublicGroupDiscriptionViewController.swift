@@ -23,6 +23,7 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     
     private var onelineTextField = UITextField().then {
         $0.placeholder = "그룹 설명을 입력해주세요"
+        $0.tintColor = .purple100
     }
     
     private var onelineTextCountLabel = UILabel().then {
@@ -41,12 +42,14 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     
     private lazy var bubbleLabel = UILabel().then {
         $0.text = "본인을 포함하며, 최대 300명까지에요!"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .white
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
     private var maxCountTextField = UITextField().then {
         $0.placeholder = "최대 정원을 입력해주세요"
+        $0.tintColor = .purple100
     }
     
     private var countLabel = UILabel().then {
@@ -83,7 +86,7 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     // MARK: - InitUI

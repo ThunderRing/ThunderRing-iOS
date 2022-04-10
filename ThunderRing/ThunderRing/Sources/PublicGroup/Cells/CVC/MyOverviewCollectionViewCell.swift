@@ -113,7 +113,8 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.text = sortList[index]
         label.sizeToFit()
-        return label.frame.width + 10 + 10
+        label.setTextSpacingBy(value: -0.6)
+        return label.frame.width + 10
     }
 }
 
@@ -122,7 +123,7 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
 extension MyOverviewCollectionViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == sortCollectionView {
-            selectedIndex = indexPath.row
+            selectedIndex = indexPath.item
             collectionView.scrollToItem(at: IndexPath(item: indexPath.row, section: 0), at: .centeredHorizontally, animated: true)
         }
     }
@@ -132,54 +133,44 @@ extension MyOverviewCollectionViewCell: UICollectionViewDelegate {
 
 extension MyOverviewCollectionViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch collectionView {
-        case sortCollectionView:
+        if collectionView == sortCollectionView {
             return CGSize(width: setLabelWidth(index: indexPath.item), height: 27)
-        case groupCollectionView:
+        } else {
             return CGSize(width: 158, height: 182)
-        default:
-            return .zero
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        switch collectionView {
-        case groupCollectionView:
+        if collectionView == sortCollectionView {
+            return 8
+        } else {
             return 7
-        default:
-            return .zero
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        switch collectionView {
-        case sortCollectionView:
+        if collectionView == sortCollectionView {
             return 8
-        case groupCollectionView:
+        } else {
             return 7
-        default:
-            return .zero
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        switch collectionView {
-        case sortCollectionView:
+        if collectionView == sortCollectionView {
             return UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 25)
-        case groupCollectionView:
+        } else {
             return UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 26)
-        default:
-            return .zero
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if collectionView == groupCollectionView {
-            return CGSize(width: collectionView.frame.width, height: 52)
+            return CGSize(width: collectionView.frame.width, height: 58)
+        } else {
+            return .zero
         }
-        return .zero
     }
-    
 }
 
 // MARK: - UICollectionView DataSource

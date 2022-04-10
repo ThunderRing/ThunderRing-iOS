@@ -26,6 +26,7 @@ final class MyPrivateViewController: UIViewController {
     
     private var titleLabel = UILabel().then {
         $0.text = "그룹"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
@@ -52,6 +53,7 @@ final class MyPrivateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        setLayout()
         bind()
     }
     
@@ -63,8 +65,6 @@ final class MyPrivateViewController: UIViewController {
         groupTableView.separatorStyle = .none
         groupTableView.backgroundColor = .background
         groupTableView.showsVerticalScrollIndicator = false
-        
-        titleLabel.setTextSpacingBy(value: -0.6)
     }
     
     private func setLayout() {
