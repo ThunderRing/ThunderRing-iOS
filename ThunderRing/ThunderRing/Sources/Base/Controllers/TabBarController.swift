@@ -47,7 +47,7 @@ final class TabBarController: UITabBarController {
         
         let lightningStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Lightning, bundle: nil)
         let lightningTab = lightningStoryboard.instantiateViewController(identifier: Const.ViewController.Name.ModalNavigation)
-        lightningTab.tabBarItem = UITabBarItem(title: "번개", image: UIImage(named: "thunder"), selectedImage: UIImage(named: "thunder"))
+        lightningTab.tabBarItem = UITabBarItem(title: "번개", image: UIImage(named: "tap_lightning"), selectedImage: UIImage(named: "tap_lightning"))
         
         let alarmTab = UINavigationController(rootViewController: AlarmMainViewController())
         alarmTab.tabBarItem = UITabBarItem(title: "알림", image: UIImage(named: "tap_alarm_inactive"), selectedImage: UIImage(named: "tap_alarm_active"))
