@@ -107,9 +107,6 @@ final class LigntningDetailViewController: UIViewController {
             $0?.setRightIcon(0, 56, UIImage(named: "btnDown")!)
         }
         
-        [countLabel, numGuideLabel].forEach {
-            $0?.addCharacterSpacing()
-        }
         numGuideLabel.isHidden = true
         
         dateTextField.placeholder = dateFormatter.string(from: nowDate)
@@ -186,8 +183,6 @@ final class LigntningDetailViewController: UIViewController {
         timePickerView.datePickerMode = .time
         
         timeTextField.inputAccessoryView = toolBar
-        
-        capacityLabel.addCharacterSpacing()
     }
     
     private func getNotification() {

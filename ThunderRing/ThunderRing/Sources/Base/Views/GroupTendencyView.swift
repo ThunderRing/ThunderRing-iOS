@@ -21,7 +21,6 @@ final class GroupTendencyView: UIView {
     private lazy var titlaLabel = UILabel().then {
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
-        $0.addCharacterSpacing()
     }
     
     init(tagType: TagType) {

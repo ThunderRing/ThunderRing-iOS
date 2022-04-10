@@ -94,10 +94,6 @@ final class AlarmMainItemView: UIView {
     
     private func configUI() {
         backgroundColor = .background
-        
-        titleLabel.addCharacterSpacing()
-        timeLabel.addCharacterSpacing()
-        descriptionLabel.addCharacterSpacing()
     }
     
     private func setLayout() {

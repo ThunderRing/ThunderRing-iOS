@@ -60,10 +60,6 @@ final class LightningTitleViewController: UIViewController {
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
         setStatusBar(.background)
         
-        [groupSelectLabel, nameCountLabel, detailCountLabel].forEach {
-            $0?.addCharacterSpacing()
-        }
-        
         groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         groupNameTextField.setLeftPaddingPoints(15)
         groupNameTextField.tintColor = .clear

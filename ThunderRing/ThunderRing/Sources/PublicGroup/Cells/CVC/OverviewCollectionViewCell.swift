@@ -24,13 +24,11 @@ final class OverviewCollectionViewCell: UICollectionViewCell {
         $0.text = "그룹이름"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .bold, size: 17)
-        $0.addCharacterSpacing()
     }
     
     private lazy var countLabel = UILabel().then {
         $0.text = "0/0"
         $0.font = .DINPro(type: .regular, size: 14)
-        $0.addCharacterSpacing()
     }
     
     private lazy var groupTagView = GroupTendencyView(tagType: .diligent)

@@ -101,8 +101,6 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
         }
         
         maxCountTextField.keyboardType = .numberPad
-        
-        bubbleLabel.addCharacterSpacing()
     }
     
     private func setupLayout() {

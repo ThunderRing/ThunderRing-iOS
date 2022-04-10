@@ -55,10 +55,6 @@ extension RecruitingTVC {
         
         memberStackView.spacing = 15
         remainView.layer.cornerRadius = 15
-        
-        [recruitingTitleLabel, remainCountLabel].forEach {
-            $0?.addCharacterSpacing()
-        }
     }
     
     private func setAction() {

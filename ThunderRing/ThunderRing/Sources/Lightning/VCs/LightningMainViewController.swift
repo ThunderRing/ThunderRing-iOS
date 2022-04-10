@@ -27,14 +27,12 @@ final class LightningMainViewController: UIViewController {
         $0.text = "비공개 그룹"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
-        $0.addCharacterSpacing()
     }
     
     private var publicHeaderLabel = UILabel().then {
         $0.text = "공개 그룹"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
-        $0.addCharacterSpacing()
     }
     
     // MARK: - Life Cycle
@@ -55,8 +53,6 @@ final class LightningMainViewController: UIViewController {
     
     private func configUI() {
         titleLabel.text = "번개 치기"
-        titleLabel.addCharacterSpacing()
-        
         [privateHeaderView, publicHeaderView].forEach {
             $0.backgroundColor = .background
         }

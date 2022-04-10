@@ -27,7 +27,7 @@ final class MyPrivateViewController: UIViewController {
     private var titleLabel = UILabel().then {
         $0.text = "그룹"
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
     private var countLabel = UILabel().then {
@@ -38,6 +38,7 @@ final class MyPrivateViewController: UIViewController {
     var count: Int = 0 {
         didSet {
             countLabel.text = "\(count)"
+            countLabel.setTextSpacingBy(value: -0.6)
         }
     }
     
@@ -63,6 +64,10 @@ final class MyPrivateViewController: UIViewController {
         groupTableView.backgroundColor = .background
         groupTableView.showsVerticalScrollIndicator = false
         
+        titleLabel.setTextSpacingBy(value: -0.6)
+    }
+    
+    private func setLayout() {
         headerView.addSubviews([titleLabel, countLabel])
         
         titleLabel.snp.makeConstraints {
@@ -70,7 +75,7 @@ final class MyPrivateViewController: UIViewController {
         }
         
         countLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().inset(21)
             $0.leading.equalTo(titleLabel.snp.trailing).offset(4)
         }
     }
@@ -105,7 +110,7 @@ final class MyPrivateViewController: UIViewController {
 
 extension MyPrivateViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 92
+        return 90
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -114,7 +119,7 @@ extension MyPrivateViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 57
+        return 55
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -55,10 +55,6 @@ final class MyPublicGroupTableViewCell: UITableViewCell {
         backgroundColor = .clear
         
         groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 19, bounds: true)
-        
-        [groupNameLabel, groupDescriptionLabel, countLabel].forEach {
-            $0.addCharacterSpacing()
-        }
     }
     
     private func setLayout() {

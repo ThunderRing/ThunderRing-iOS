@@ -27,13 +27,11 @@ final class HomeRecruitingTableViewCellView: UIView {
     private lazy var subtitleLabel = UILabel().then {
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
-        $0.addCharacterSpacing(kernValue: -0.4, paragraphValue: 4)
     }
     
     private lazy var titleLabel = UILabel().then {
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
-        $0.addCharacterSpacing()
     }
     
     private lazy var memberCollectionView: UICollectionView = {
@@ -160,7 +158,10 @@ final class HomeRecruitingTableViewCellView: UIView {
         memberCount = count
         
         titleLabel.text = "\(lightning.groupName) \(lightning.lightningName)"
+        titleLabel.setTextSpacingBy(value: -0.6)
+        
         subtitleLabel.text = "\(lightning.location) \(lightning.date) \(lightning.time)"
+        subtitleLabel.setTextSpacingBy(value: -0.4)
         
         countLabelView.count = lightning.maxNumber - lightning.minNumber
     }
@@ -212,13 +213,13 @@ fileprivate final class CountLabelView: UIView {
     var count: Int = 0 {
         didSet {
             titleLabel.text = "잔여 \(count)자리"
+            titleLabel.setTextSpacingBy(value: -0.6)
         }
     }
     
     private lazy var titleLabel = UILabel().then {
         $0.textColor = .white
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
-        $0.addCharacterSpacing()
     }
     
     init() {
