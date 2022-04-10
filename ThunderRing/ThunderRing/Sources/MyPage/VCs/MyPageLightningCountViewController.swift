@@ -38,7 +38,7 @@ final class MyPageLightningCountViewController: UIViewController {
     // MARK: - Init UI
     
     private func configUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         setStatusBar(.white)
         navigationBar.layer.applyShadow()
     }

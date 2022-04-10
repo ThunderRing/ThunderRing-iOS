@@ -49,10 +49,11 @@ final class MyPageGroupCountViewController: UIViewController {
     private func configUI() {
         view.backgroundColor = .background
         setStatusBar(.white)
+        navigationBar.layer.applyShadow()
+        
         [privateHeaderView, publicHeaderView].forEach {
             $0.backgroundColor = .background
         }
-        navigationBar.layer.applyShadow()
     }
     
     private func setLayout() {
