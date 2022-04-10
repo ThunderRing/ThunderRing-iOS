@@ -21,7 +21,7 @@ final class HomeRecruitingTableViewCellView: UIView {
     private lazy var countLabelView = CountLabelView()
     
     private lazy var locationImageView = UIImageView().then {
-        $0.image = UIImage(named: "icn_location")
+        $0.image = UIImage(named: "icn_small_location")
     }
     
     private lazy var subtitleLabel = UILabel().then {
@@ -108,15 +108,14 @@ final class HomeRecruitingTableViewCellView: UIView {
         }
         
         locationImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(19)
+            $0.leading.equalToSuperview().inset(16)
             $0.top.equalToSuperview().inset(36)
-            $0.width.equalTo(10)
-            $0.height.equalTo(15)
+            $0.width.height.equalTo(20)
         }
         
         subtitleLabel.snp.makeConstraints {
             $0.centerY.equalTo(locationImageView.snp.centerY)
-            $0.leading.equalTo(locationImageView.snp.trailing).offset(5)
+            $0.leading.equalToSuperview().inset(35)
         }
         
         titleLabel.snp.makeConstraints {

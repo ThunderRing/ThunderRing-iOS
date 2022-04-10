@@ -50,7 +50,6 @@ final class HomeRecruitingViewController: UIViewController {
     private func configUI() {
         view.backgroundColor = .background
         setStatusBar(.white)
-        
         navigationBar.layer.applyShadow()
     }
     
