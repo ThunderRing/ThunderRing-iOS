@@ -20,7 +20,7 @@ final class TDSNavigationBar: UIView {
         static let titleLeading: CGFloat = 25
         static let buttonLeading: CGFloat = 4
         static let buttonTrailing: CGFloat = 7
-        static let buttonSize: CGFloat = 44
+        static let buttonSize: CGFloat = 48
     }
     
     // MARK: - PageView Enum

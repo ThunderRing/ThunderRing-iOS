@@ -131,6 +131,7 @@
 		92BCCCAA27650B3D00AA70D6 /* OverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCA927650B3D00AA70D6 /* OverviewCollectionViewCell.swift */; };
 		92BCCCAC2765180800AA70D6 /* OverviewSortCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCAB2765180800AA70D6 /* OverviewSortCollectionViewCell.swift */; };
 		92C4148727629606000DB287 /* MyPublic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C4148627629606000DB287 /* MyPublic.storyboard */; };
+		92C42FEC2802875E00F6B98C /* AlarmPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42FEB2802875E00F6B98C /* AlarmPopUpViewController.swift */; };
 		92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBCE6D273B12EC00A3F36D /* CompleteCVC.swift */; };
 		92CBCE70273B12EC00A3F36D /* CompleteCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92CBCE6E273B12EC00A3F36D /* CompleteCVC.xib */; };
 		92CBCE73273B132600A3F36D /* ProceedCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBCE71273B132600A3F36D /* ProceedCVC.swift */; };
@@ -297,6 +298,7 @@
 		92BCCCA927650B3D00AA70D6 /* OverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		92BCCCAB2765180800AA70D6 /* OverviewSortCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSortCollectionViewCell.swift; sourceTree = "<group>"; };
 		92C4148627629606000DB287 /* MyPublic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPublic.storyboard; sourceTree = "<group>"; };
+		92C42FEB2802875E00F6B98C /* AlarmPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewController.swift; sourceTree = "<group>"; };
 		92CBCE6D273B12EC00A3F36D /* CompleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCVC.swift; sourceTree = "<group>"; };
 		92CBCE6E273B12EC00A3F36D /* CompleteCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteCVC.xib; sourceTree = "<group>"; };
 		92CBCE71273B132600A3F36D /* ProceedCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProceedCVC.swift; sourceTree = "<group>"; };
@@ -1068,6 +1070,7 @@
 			children = (
 				926C7C4F273803020020F851 /* AlarmVC.swift */,
 				924ABCC727FCF258008BB2DA /* AlarmMainViewController.swift */,
+				92C42FEB2802875E00F6B98C /* AlarmPopUpViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -1425,6 +1428,7 @@
 				92A2445127D7EACF00A81738 /* HomeRecruitingViewController.swift in Sources */,
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
 				92A5B2A12739AA49004149B2 /* AccountTableViewCell.swift in Sources */,
+				92C42FEC2802875E00F6B98C /* AlarmPopUpViewController.swift in Sources */,
 				9276B065275B44F700915F57 /* BaseCell.swift in Sources */,
 				92609ACD274BD9A700F0E401 /* LigntningDetailViewController.swift in Sources */,
 				924ABCCD27FCF7DC008BB2DA /* AlarmMainTextView.swift in Sources */,
