@@ -22,7 +22,11 @@ final class MyPageViewController: UIViewController {
     
     private var friendCount = 0
     private var groupCount = 0
-    private var thunderCount = 0
+    private var lightningCount = 0
+    
+    @IBOutlet weak var friendCountLabel: UILabel!
+    @IBOutlet weak var groupCountLabel: UILabel!
+    @IBOutlet weak var lightningCountLabel: UILabel!
     
     private let imagePicker = UIImagePickerController()
     
@@ -56,6 +60,7 @@ final class MyPageViewController: UIViewController {
     }
     
     private func bind() {
+        /// TableView
         myPageTableView.delegate = self
         myPageTableView.dataSource = self
         
@@ -65,17 +70,48 @@ final class MyPageViewController: UIViewController {
         myPageTableView.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.identifier)
         myPageTableView.register(LogOutTableViewCell.self, forCellReuseIdentifier: LogOutTableViewCell.identifier)
         
+        /// Image Picker
         imagePicker.delegate = self
         
+        /// Image View
         userImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
         userImageView.addGestureRecognizer(tapGesture)
+        
+        /// Label
+        [friendCountLabel, groupCountLabel, lightningCountLabel].forEach {
+            $0?.isUserInteractionEnabled = true
+        }
+        
+        let friendCountTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpFriendCount))
+        friendCountLabel.addGestureRecognizer(friendCountTapGesture)
+        
+        let groupCountTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpGroupCount))
+        groupCountLabel.addGestureRecognizer(groupCountTapGesture)
+        
+        let lightningCountTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpLightningCount))
+        lightningCountLabel.addGestureRecognizer(lightningCountTapGesture)
     }
     
     // MARK: - @objc
     
     @objc func pickImage() {
         self.present(self.imagePicker, animated: true)
+    }
+    
+    @objc func touchUpFriendCount() {
+        let dvc = MyPageFriendCountViewController()
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    @objc func touchUpGroupCount() {
+        let dvc = MyPageGroupCountViewController()
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    @objc func touchUpLightningCount() {
+        let dvc = MyPageLightningCountViewController()
+        navigationController?.pushViewController(dvc, animated: true)
     }
 }
 

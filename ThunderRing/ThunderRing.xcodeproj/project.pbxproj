@@ -150,6 +150,9 @@
 		92E7F9F927F22E3E00F1CFB7 /* GroupTendencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E7F9F827F22E3E00F1CFB7 /* GroupTendencyView.swift */; };
 		92EF6F6E2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F6D2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift */; };
 		92EF6F702801CCF400773F32 /* MyOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F6F2801CCF400773F32 /* MyOverviewCollectionViewCell.swift */; };
+		92EF6F72280205D000773F32 /* MyPageFriendCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F71280205D000773F32 /* MyPageFriendCountViewController.swift */; };
+		92EF6F74280205E000773F32 /* MyPageGroupCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F73280205E000773F32 /* MyPageGroupCountViewController.swift */; };
+		92EF6F76280205F500773F32 /* MyPageLightningCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F75280205F500773F32 /* MyPageLightningCountViewController.swift */; };
 		92F43A33274E8491006025EC /* CompleteLightningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F43A32274E8491006025EC /* CompleteLightningViewController.swift */; };
 		92F9A53F27AFF4E3004F41FE /* TempCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9A53E27AFF4E3004F41FE /* TempCell.swift */; };
 		92FA76DF27B3A69600CB54C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */; };
@@ -308,6 +311,9 @@
 		92E7F9F827F22E3E00F1CFB7 /* GroupTendencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTendencyView.swift; sourceTree = "<group>"; };
 		92EF6F6D2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCellHeaderView.swift; sourceTree = "<group>"; };
 		92EF6F6F2801CCF400773F32 /* MyOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		92EF6F71280205D000773F32 /* MyPageFriendCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageFriendCountViewController.swift; sourceTree = "<group>"; };
+		92EF6F73280205E000773F32 /* MyPageGroupCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageGroupCountViewController.swift; sourceTree = "<group>"; };
+		92EF6F75280205F500773F32 /* MyPageLightningCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageLightningCountViewController.swift; sourceTree = "<group>"; };
 		92F43A32274E8491006025EC /* CompleteLightningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteLightningViewController.swift; sourceTree = "<group>"; };
 		92F9A53E27AFF4E3004F41FE /* TempCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCell.swift; sourceTree = "<group>"; };
 		92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -776,6 +782,9 @@
 			children = (
 				926C7C512738030F0020F851 /* MyPageViewController.swift */,
 				9258354F275C999100F64DC0 /* AccountInfoViewController.swift */,
+				92EF6F71280205D000773F32 /* MyPageFriendCountViewController.swift */,
+				92EF6F73280205E000773F32 /* MyPageGroupCountViewController.swift */,
+				92EF6F75280205F500773F32 /* MyPageLightningCountViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -1323,6 +1332,7 @@
 				92159CA22758D76D0081F20B /* MemberCVC.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTableViewCell.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
+				92EF6F72280205D000773F32 /* MyPageFriendCountViewController.swift in Sources */,
 				926290E427A4055E006A3B58 /* CreatePublicGroupDiscriptionViewController.swift in Sources */,
 				92B7184427D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift in Sources */,
 				9244097A27AE7F9000034510 /* CompleteCreatePublicViewController.swift in Sources */,
@@ -1395,10 +1405,12 @@
 				926C7C522738030F0020F851 /* MyPageViewController.swift in Sources */,
 				928FDA0D2760D1C4009AC059 /* PrivateDetailViewController.swift in Sources */,
 				92EF6F6E2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift in Sources */,
+				92EF6F76280205F500773F32 /* MyPageLightningCountViewController.swift in Sources */,
 				92583550275C999100F64DC0 /* AccountInfoViewController.swift in Sources */,
 				92A5B29327398378004149B2 /* Const.swift in Sources */,
 				92A5B2B02739B3B1004149B2 /* UIFont+.swift in Sources */,
 				92B471AD27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift in Sources */,
+				92EF6F74280205E000773F32 /* MyPageGroupCountViewController.swift in Sources */,
 				9212667A2748055A009DE534 /* TestResultVC.swift in Sources */,
 				92EF6F702801CCF400773F32 /* MyOverviewCollectionViewCell.swift in Sources */,
 				1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */,
