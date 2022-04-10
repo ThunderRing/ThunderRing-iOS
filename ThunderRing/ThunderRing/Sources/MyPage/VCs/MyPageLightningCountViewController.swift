@@ -126,6 +126,16 @@ fileprivate final class ItemCell: UICollectionViewCell {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 14)
     }
     
+    private lazy var groupImageView = UIImageView().then {
+        $0.image = UIImage(named: "icn_people_small")
+    }
+    
+    private lazy var groupNameLabel = UILabel().then {
+        $0.text = "양파링걸즈"
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+    }
+    
     private lazy var memberImageView = UIImageView().then {
         $0.image = UIImage(named: "icn_people_small")
     }
@@ -141,7 +151,7 @@ fileprivate final class ItemCell: UICollectionViewCell {
     }
     
     private lazy var locationCountLabel = UILabel().then {
-        $0.text = "이태원역 4번출구"
+        $0.text = "Zoom 미팅"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
@@ -164,7 +174,14 @@ fileprivate final class ItemCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        contentView.addSubviews([dateLabel, titleLabel, memberImageView, memberCountLabel, locationImageView, locationCountLabel])
+        contentView.addSubviews([dateLabel,
+                                 titleLabel,
+                                 groupImageView,
+                                 groupNameLabel,
+                                 memberImageView,
+                                 memberCountLabel,
+                                 locationImageView,
+                                 locationCountLabel])
         
         dateLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(15)
@@ -176,15 +193,26 @@ fileprivate final class ItemCell: UICollectionViewCell {
             $0.leading.equalToSuperview().inset(13)
         }
         
-        memberImageView.snp.makeConstraints {
+        groupImageView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(13)
+            $0.leading.equalToSuperview().inset(10)
+            $0.width.height.equalTo(20)
+        }
+        
+        groupNameLabel.snp.makeConstraints {
+            $0.leading.equalTo(groupImageView.snp.trailing).offset(2)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+        }
+        
+        memberImageView.snp.makeConstraints {
+            $0.top.equalTo(groupImageView.snp.bottom).offset(6)
             $0.leading.equalToSuperview().inset(10)
             $0.width.height.equalTo(20)
         }
         
         memberCountLabel.snp.makeConstraints {
             $0.leading.equalTo(memberImageView.snp.trailing).offset(2)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(16)
+            $0.top.equalTo(groupNameLabel.snp.bottom).offset(7)
         }
         
         locationImageView.snp.makeConstraints {
