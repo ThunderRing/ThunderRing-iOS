@@ -114,7 +114,7 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         label.text = sortList[index]
         label.sizeToFit()
         label.setTextSpacingBy(value: -0.6)
-        return label.frame.width + 10
+        return label.frame.width + 10 + 10
     }
 }
 
