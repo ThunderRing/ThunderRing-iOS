@@ -40,6 +40,7 @@ final class MemberCollectionViewCell: UICollectionViewCell {
     // MARK: - Custom Method
     
     private func setLayout() {
+        contentView.backgroundColor = .white
         contentView.addSubviews([nameLabel, cancelButton])
         contentView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 10, bounds: true)
 

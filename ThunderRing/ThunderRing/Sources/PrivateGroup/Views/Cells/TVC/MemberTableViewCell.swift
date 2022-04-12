@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 import Then
 
@@ -39,8 +40,7 @@ final class MemberTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        initUI()
+        configUI()
         setLayout()
     }
     
@@ -57,11 +57,11 @@ final class MemberTableViewCell: UITableViewCell {
             checkButton.setImage(UIImage(named: "btnCheckIn"), for: .normal)
         }
     }
-}
-
-extension MemberTableViewCell {
-    private func initUI() {
-        self.backgroundColor = .white
+    
+    // MARK: - Custom Method
+    
+    private func configUI() {
+        backgroundColor = .white
     }
     
     private func setLayout() {
@@ -89,15 +89,13 @@ extension MemberTableViewCell {
             $0.centerY.equalToSuperview()
         }
     }
-}
-
-extension MemberTableViewCell {
-    func initCell(contact: ContactDataModel) {
+    
+    internal func initCell(contact: ContactDataModel) {
         userNameLabel.text = contact.familyName + contact.givenName
         phoneNumberLabel.text = contact.phoneNumber
     }
     
-    func setUserImage(index: Int) {
+    internal func setUserImage(index: Int) {
         switch index {
         case 0:
             self.userImageView.image = UIImage(named: "tendencyEmotion")
@@ -110,7 +108,7 @@ extension MemberTableViewCell {
         case 4:
             self.userImageView.image = UIImage(named: "tendencyDiligent")
         default :
-            // FIXME: - empty icon으로 설정 
+            // FIXME: - empty icon으로 설정
             self.userImageView.image = UIImage(named: "mypageIn")
         }
     }
