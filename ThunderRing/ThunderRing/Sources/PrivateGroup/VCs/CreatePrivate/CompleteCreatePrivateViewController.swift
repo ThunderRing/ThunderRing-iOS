@@ -9,7 +9,7 @@ import UIKit
  
 final class CompleteCreatePrivateViewController: UIViewController {
 
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var customNavigationBarView: UIView!
     
@@ -18,8 +18,6 @@ final class CompleteCreatePrivateViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var completeButton: UIButton!
-    
-    // MARK: - Properties
     
     var groupImage = UIImage()
     var groupName = "그룹명"
@@ -30,34 +28,40 @@ final class CompleteCreatePrivateViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+        configNavigationBar()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
+        configUI()
         setAction()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self)
     }
-}
-
-extension CompleteCreatePrivateViewController {
-    private func initUI() {
+    
+    // MARK: - Init UI
+    
+    private func configNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+    }
+    
+    private func configUI() {
         groupImageView.image = self.groupImage
-        groupImageView.layer.cornerRadius = 20
-        groupImageView.layer.masksToBounds = true
+        groupImageView.makeRounded(cornerRadius: 20)
         
         titleLabel.text = "\(groupName)"
         descriptionLabel.text = "\(groupDescrption)"
         
-        completeButton.makeRounded(cornerRadius: 43)
+        completeButton.makeRounded(cornerRadius: 26)
+        completeButton.backgroundColor = .purple100
+        completeButton.setTitleColor(.white, for: .normal)
     }
+    
+    // MARK: - Custom Method
     
     private func setAction() {
         completeButton.addAction(UIAction(handler: { _ in

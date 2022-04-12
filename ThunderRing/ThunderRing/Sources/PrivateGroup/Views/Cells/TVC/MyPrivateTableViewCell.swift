@@ -70,7 +70,7 @@ final class MyPrivateTableViewCell: UITableViewCell {
         }
         
         groupImageView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(15)
+            $0.top.equalToSuperview().inset(15)
             $0.leading.equalToSuperview().inset(19)
             $0.width.equalTo(53)
             $0.height.equalTo(55)
