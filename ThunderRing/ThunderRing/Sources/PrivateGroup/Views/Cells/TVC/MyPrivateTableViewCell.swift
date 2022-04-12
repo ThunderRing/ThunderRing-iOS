@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class MyPrivateTableViewCell: UITableViewCell {
-    static let identifier = "MyPrivateTableViewCell"
+    static var CellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     
@@ -50,6 +50,8 @@ final class MyPrivateTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Init UI
     
     private func configUI() {
         backgroundColor = .clear
@@ -91,6 +93,8 @@ final class MyPrivateTableViewCell: UITableViewCell {
             $0.top.equalTo(groupNameLabel.snp.bottom).offset(5)
         }
     }
+    
+    // MARK: - Custom Method
     
     internal func initCell(group: PrivateGroupDataModel) {
         if group.groupImageName != nil {

@@ -10,7 +10,7 @@ import Contacts
 
 final class AddMemberViewController: UIViewController {
     
-    // MARK: - UI
+    // MARK: - Properties
     
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
@@ -18,13 +18,11 @@ final class AddMemberViewController: UIViewController {
     
     @IBOutlet weak var memberTableView: UITableView!
     
-    // MARK: - Properties
-    
     let app = UIApplication.shared.delegate as! AppDelegate
     
     private let contactStroe = CNContactStore()
     private var contacts = [ContactDataModel]()
-    private var selectedMembers = [String]()
+    var selectedMembers = [String]()
     private var count = 0
     
     // MARK: - Life Cycle
@@ -38,7 +36,7 @@ final class AddMemberViewController: UIViewController {
             }
         }
         
-        initUI()
+        configUI()
         setTableView()
         setTextField()
         setAction()
@@ -51,7 +49,6 @@ final class AddMemberViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         NotificationCenter.default.removeObserver(self)
     }
 }
@@ -59,7 +56,7 @@ final class AddMemberViewController: UIViewController {
 // MARK: - Custome Methods
 
 extension AddMemberViewController {
-    private func initUI() {
+    private func configUI() {
         var configuration = UIButton.Configuration.plain()
         configuration.baseForegroundColor = .lightGray
         configuration.attributedTitle = AttributedString("확인", attributes: AttributeContainer([NSAttributedString.Key.foregroundColor: UIColor.purple100, NSAttributedString.Key.font: UIFont.SpoqaHanSansNeo(type: .medium, size: 18)]))
@@ -80,7 +77,7 @@ extension AddMemberViewController {
         memberTableView.showsVerticalScrollIndicator = false
         memberTableView.allowsMultipleSelection = true
         
-        memberTableView.register(MemberTVC.self, forCellReuseIdentifier: MemberTVC.identifier)
+        memberTableView.register(MemberTableViewCell.self, forCellReuseIdentifier: MemberTableViewCell.CellIdentifier)
     }
     
     private func setTextField() {
@@ -172,7 +169,7 @@ extension AddMemberViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MemberTVC.identifier) as? MemberTVC else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MemberTableViewCell.CellIdentifier) as? MemberTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.isSelected = false
         cell.initCell(contact: contacts[indexPath.row])

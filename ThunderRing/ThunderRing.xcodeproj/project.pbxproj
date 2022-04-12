@@ -25,7 +25,7 @@
 		92159C9A2758C21A0081F20B /* CreatePrivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92159C992758C21A0081F20B /* CreatePrivateViewController.swift */; };
 		92159C9C2758C5B10081F20B /* CreatePrivateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92159C9B2758C5B10081F20B /* CreatePrivateDetailViewController.swift */; };
 		92159CA02758D5620081F20B /* AddMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92159C9F2758D5620081F20B /* AddMemberViewController.swift */; };
-		92159CA22758D76D0081F20B /* MemberCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92159CA12758D76D0081F20B /* MemberCVC.swift */; };
+		92159CA22758D76D0081F20B /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92159CA12758D76D0081F20B /* MemberCollectionViewCell.swift */; };
 		921A45C3275355AD001E8727 /* CreatePrivate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921A45C2275355AD001E8727 /* CreatePrivate.storyboard */; };
 		92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92270D732750E1EB00364F3A /* AlarmDataModel.swift */; };
 		92275FE827BE713E007B507D /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92275FE727BE713E007B507D /* TestVC.swift */; };
@@ -161,7 +161,7 @@
 		92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */; };
 		92FC851527C001750020965A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC851427C001750020965A /* TestView.swift */; };
 		92FC851727C00E950020965A /* TestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC851627C00E950020965A /* TestResponse.swift */; };
-		92FF59B0275AB15000916189 /* MemberTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF59AF275AB15000916189 /* MemberTVC.swift */; };
+		92FF59B0275AB15000916189 /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FF59AF275AB15000916189 /* MemberTableViewCell.swift */; };
 		92FFBBA7274CDE5500706099 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FFBBA6274CDE5500706099 /* Icons.xcassets */; };
 		92FFBBA9274CDE7E00706099 /* Buttons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FFBBA8274CDE7E00706099 /* Buttons.xcassets */; };
 /* End PBXBuildFile section */
@@ -186,7 +186,7 @@
 		92159C992758C21A0081F20B /* CreatePrivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePrivateViewController.swift; sourceTree = "<group>"; };
 		92159C9B2758C5B10081F20B /* CreatePrivateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePrivateDetailViewController.swift; sourceTree = "<group>"; };
 		92159C9F2758D5620081F20B /* AddMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemberViewController.swift; sourceTree = "<group>"; };
-		92159CA12758D76D0081F20B /* MemberCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCVC.swift; sourceTree = "<group>"; };
+		92159CA12758D76D0081F20B /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		921A45C2275355AD001E8727 /* CreatePrivate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePrivate.storyboard; sourceTree = "<group>"; };
 		92270D732750E1EB00364F3A /* AlarmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDataModel.swift; sourceTree = "<group>"; };
 		92275FE727BE713E007B507D /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
@@ -324,7 +324,7 @@
 		92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningDataModel.swift; sourceTree = "<group>"; };
 		92FC851427C001750020965A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		92FC851627C00E950020965A /* TestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponse.swift; sourceTree = "<group>"; };
-		92FF59AF275AB15000916189 /* MemberTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTVC.swift; sourceTree = "<group>"; };
+		92FF59AF275AB15000916189 /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
 		92FFBBA6274CDE5500706099 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		92FFBBA8274CDE7E00706099 /* Buttons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Buttons.xcassets; sourceTree = "<group>"; };
 		D45A7455144AD6FAA3ED7282 /* Pods-ThunderRing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderRing.release.xcconfig"; path = "Target Support Files/Pods-ThunderRing/Pods-ThunderRing.release.xcconfig"; sourceTree = "<group>"; };
@@ -1140,7 +1140,7 @@
 		92FF59B1275AB15B00916189 /* TVC */ = {
 			isa = PBXGroup;
 			children = (
-				92FF59AF275AB15000916189 /* MemberTVC.swift */,
+				92FF59AF275AB15000916189 /* MemberTableViewCell.swift */,
 				928FDA0E2760DBAB009AC059 /* MyPrivateTableViewCell.swift */,
 			);
 			path = TVC;
@@ -1149,7 +1149,7 @@
 		92FF59B2275AB16000916189 /* CVC */ = {
 			isa = PBXGroup;
 			children = (
-				92159CA12758D76D0081F20B /* MemberCVC.swift */,
+				92159CA12758D76D0081F20B /* MemberCollectionViewCell.swift */,
 				928C707D27F3C041001E66BE /* PrivateDetailMemberCollectionViewCell.swift */,
 				928C707F27F3C288001E66BE /* PrivateDetailHistoryCollectionViewCell.swift */,
 			);
@@ -1335,7 +1335,7 @@
 				928AE07B276B0D4C001155EE /* PrivateGroupCVC.swift in Sources */,
 				92E416EF27B8264B00FD008F /* Adjust+.swift in Sources */,
 				9248133227D1319C00A0CECC /* TDSNavigationBar.swift in Sources */,
-				92159CA22758D76D0081F20B /* MemberCVC.swift in Sources */,
+				92159CA22758D76D0081F20B /* MemberCollectionViewCell.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTableViewCell.swift in Sources */,
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
 				92EF6F72280205D000773F32 /* MyPageFriendCountViewController.swift in Sources */,
@@ -1386,7 +1386,7 @@
 				9227F2F627DAB9F5001D1BB4 /* Notification+.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTableViewCell.swift in Sources */,
 				929A95EA2805C30D00082A7B /* CustomModalNavigationBar.swift in Sources */,
-				92FF59B0275AB15000916189 /* MemberTVC.swift in Sources */,
+				92FF59B0275AB15000916189 /* MemberTableViewCell.swift in Sources */,
 				9240852A27CA91460029E753 /* SearchPrivateGroupViewController.swift in Sources */,
 				9240852C27CA97C50029E753 /* SearchPublicGroupVC.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,

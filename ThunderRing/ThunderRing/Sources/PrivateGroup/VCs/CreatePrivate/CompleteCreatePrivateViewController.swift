@@ -1,5 +1,5 @@
 //
-//  CompleteCreateVC.swift
+//  CompleteCreatePrivateViewController.swift
 //  ThunderRing
 //
 //  Created by soyeon on 2021/12/02.

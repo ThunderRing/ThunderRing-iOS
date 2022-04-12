@@ -54,8 +54,12 @@ final class MyPrivateViewController: UIViewController {
         super.viewDidLoad()
         configUI()
         setLayout()
-        bind()
+        setData()
+        setTableView()
+        setAction()
     }
+    
+    // MARK: - Init UI
     
     private func configUI() {
         view.backgroundColor = .background
@@ -80,13 +84,19 @@ final class MyPrivateViewController: UIViewController {
         }
     }
     
-    private func bind() {
+    // MARK: - Custom Method
+    
+    private func setData() {
+        count = privateGroupData.count
+    }
+    
+    private func setTableView() {
         groupTableView.delegate = self
         groupTableView.dataSource = self
-        groupTableView.register(MyPrivateTableViewCell.self, forCellReuseIdentifier: MyPrivateTableViewCell.identifier)
-        
-        count = privateGroupData.count
-        
+        groupTableView.register(MyPrivateTableViewCell.self, forCellReuseIdentifier: MyPrivateTableViewCell.CellIdentifier)
+    }
+    
+    private func setAction() {
         backButton.addAction(UIAction(handler: { _ in
             self.navigationController?.popViewController(animated: true)
         }), for: .touchUpInside)
@@ -136,7 +146,7 @@ extension MyPrivateViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPrivateTableViewCell.identifier) as? MyPrivateTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPrivateTableViewCell.CellIdentifier) as? MyPrivateTableViewCell else { return UITableViewCell() }
         cell.initCell(group: privateGroupData[indexPath.row])
         cell.selectionStyle = .none
         return cell

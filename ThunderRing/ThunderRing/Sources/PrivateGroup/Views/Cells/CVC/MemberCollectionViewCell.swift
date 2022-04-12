@@ -10,10 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
-class MemberCVC: UICollectionViewCell {
-    static let identifier = "MemberCVC"
+final class MemberCollectionViewCell: UICollectionViewCell {
+    static var CellIdentifier: String { return String(describing: self) }
     
-    // MARK: - UI
+    // MARK: - Properties
     
     private lazy var nameLabel = UILabel().then {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
@@ -29,7 +29,6 @@ class MemberCVC: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setLayout()
     }
     
@@ -37,12 +36,10 @@ class MemberCVC: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-// MARK: - Custom Methods
-
-extension MemberCVC {
-    func setLayout() {
+    
+    // MARK: - Custom Method
+    
+    private func setLayout() {
         contentView.addSubviews([nameLabel, cancelButton])
         contentView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 10, bounds: true)
 
@@ -58,10 +55,8 @@ extension MemberCVC {
             $0.width.height.equalTo(48)
         }
     }
-}
-
-extension MemberCVC {
-    func initCell(name: String) {
+    
+    internal func initCell(name: String) {
         nameLabel.text = name
         nameLabel.sizeToFit()
     }
