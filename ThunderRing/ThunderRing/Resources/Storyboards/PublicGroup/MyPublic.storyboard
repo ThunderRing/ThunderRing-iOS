@@ -56,13 +56,13 @@
                                         <buttonConfiguration key="configuration" style="plain" image="btnBack"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 그룹" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXn-hd-4ME">
-                                        <rect key="frame" x="73" y="60" width="45" height="19"/>
+                                        <rect key="frame" x="73" y="61" width="45" height="19"/>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
                                         <color key="textColor" name="gray100"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="둘러보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1O-c7-xhm">
-                                        <rect key="frame" x="282.5" y="60" width="55.5" height="19"/>
+                                        <rect key="frame" x="292.5" y="61" width="55.5" height="19"/>
                                         <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="15"/>
                                         <color key="textColor" name="gray200"/>
                                         <nil key="highlightedColor"/>
@@ -116,16 +116,16 @@
                                     <constraint firstAttribute="bottom" secondItem="DUH-Tg-ugJ" secondAttribute="bottom" id="DWm-aJ-gdd"/>
                                     <constraint firstItem="FiV-as-far" firstAttribute="centerY" secondItem="aYZ-wJ-Bh9" secondAttribute="centerY" id="E0P-F7-zyv"/>
                                     <constraint firstAttribute="trailing" secondItem="FiV-as-far" secondAttribute="trailing" constant="15" id="Epa-nc-nDN"/>
-                                    <constraint firstAttribute="bottom" secondItem="n1O-c7-xhm" secondAttribute="bottom" constant="13" id="UX6-l6-T1u"/>
+                                    <constraint firstAttribute="bottom" secondItem="n1O-c7-xhm" secondAttribute="bottom" constant="12" id="UX6-l6-T1u"/>
                                     <constraint firstItem="1Gg-oi-dV3" firstAttribute="top" secondItem="ACh-rL-vLs" secondAttribute="top" constant="5" id="UaV-9u-fBH"/>
                                     <constraint firstAttribute="height" constant="92" id="Y0e-wz-vhQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="EXn-hd-4ME" secondAttribute="bottom" constant="13" id="aMY-FQ-aur"/>
+                                    <constraint firstAttribute="bottom" secondItem="EXn-hd-4ME" secondAttribute="bottom" constant="12" id="aMY-FQ-aur"/>
                                     <constraint firstItem="EXn-hd-4ME" firstAttribute="leading" secondItem="ACh-rL-vLs" secondAttribute="leading" constant="73" id="dt7-Eu-r2K"/>
                                     <constraint firstItem="1Gg-oi-dV3" firstAttribute="leading" secondItem="ACh-rL-vLs" secondAttribute="leading" constant="7" id="ehb-R9-JKb"/>
                                     <constraint firstItem="wNh-hN-iyc" firstAttribute="centerY" secondItem="1Gg-oi-dV3" secondAttribute="centerY" id="fyc-Yc-4L0"/>
                                     <constraint firstItem="aYZ-wJ-Bh9" firstAttribute="centerY" secondItem="1Gg-oi-dV3" secondAttribute="centerY" id="i11-Dr-rn4"/>
                                     <constraint firstItem="wNh-hN-iyc" firstAttribute="centerX" secondItem="ACh-rL-vLs" secondAttribute="centerX" id="lUj-IF-Jwo"/>
-                                    <constraint firstAttribute="trailing" secondItem="n1O-c7-xhm" secondAttribute="trailing" constant="76" id="pZw-cr-WtJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="n1O-c7-xhm" secondAttribute="trailing" constant="66" id="pZw-cr-WtJ"/>
                                     <constraint firstItem="WnT-r7-a0M" firstAttribute="bottom" secondItem="ACh-rL-vLs" secondAttribute="bottom" constant="1" id="wB9-y7-YaK"/>
                                     <constraint firstItem="DUH-Tg-ugJ" firstAttribute="leading" secondItem="ACh-rL-vLs" secondAttribute="leading" id="wkY-tf-GoL"/>
                                 </constraints>

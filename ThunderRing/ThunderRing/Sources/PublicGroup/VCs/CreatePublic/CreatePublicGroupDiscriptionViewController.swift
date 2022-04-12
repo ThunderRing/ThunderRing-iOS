@@ -75,7 +75,7 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+        configNavigationBar()
     }
     
     override func viewDidLoad() {
@@ -90,6 +90,10 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     }
     
     // MARK: - InitUI
+    
+    private func configNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+    }
     
     private func configUI() {
         view.backgroundColor = .background

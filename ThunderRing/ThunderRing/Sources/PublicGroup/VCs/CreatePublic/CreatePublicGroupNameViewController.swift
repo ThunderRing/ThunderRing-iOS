@@ -37,7 +37,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
     }
     
-    private var groupNameTextField = UITextField().then {
+    private lazy var groupNameTextField = UITextField().then {
         $0.placeholder = "그룹 명을 입력해주세요"
         $0.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         $0.tintColor = .purple100
@@ -59,7 +59,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationController?.isNavigationBarHidden = true
+        configNavigationBar()
     }
     
     override func viewDidLoad() {
@@ -70,6 +70,10 @@ final class CreatePublicGroupNameViewController: UIViewController {
     }
     
     // MARK: - InitUI
+    
+    private func configNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+    }
     
     private func configUI() {
         view.backgroundColor = .white
