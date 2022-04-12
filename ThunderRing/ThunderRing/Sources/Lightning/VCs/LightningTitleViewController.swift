@@ -61,13 +61,13 @@ final class LightningTitleViewController: UIViewController {
         setStatusBar(.background)
         
         groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-        groupNameTextField.setLeftPaddingPoints(15)
+        groupNameTextField.setLeftPaddingPoints(14)
         groupNameTextField.tintColor = .clear
         groupNameTextField.inputView = groupPickerView
         groupNameTextField.text = groupNames[index]
         
         nameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-        nameTextField.setLeftPaddingPoints(15)
+        nameTextField.setLeftPaddingPoints(14)
         nameTextField.tintColor = .purple100
         
         detailTextView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
