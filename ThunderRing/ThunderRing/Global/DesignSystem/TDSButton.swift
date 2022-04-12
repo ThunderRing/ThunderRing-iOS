@@ -47,7 +47,7 @@ final class TDSButton: UIButton {
     /// 디폴트 버튼 스타일 설정
     private func setDefaultStyle() {
         makeRounded(cornerRadius: 26.adjusted)
-        titleLabel?.font = .SpoqaHanSansNeo(type: .regular, size: 16)
+        titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 16)
         backgroundColor = self.normalBgColor
         tintColor = .white
         setTitleColor(self.normalFontColor, for: .normal)
