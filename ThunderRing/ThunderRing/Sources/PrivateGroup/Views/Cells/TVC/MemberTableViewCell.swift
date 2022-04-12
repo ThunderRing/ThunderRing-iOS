@@ -9,10 +9,10 @@ import UIKit
 import SnapKit
 import Then
 
-class MemberTVC: UITableViewCell {
-    static let identifier = "MemberTVC"
+final class MemberTableViewCell: UITableViewCell {
+    static var CellIdentifier: String { return String(describing: self) }
     
-    // MARK: - UI
+    // MARK: - Properties
     
     private var userImageView = UIImageView().then {
         $0.image = UIImage(named: "icnUser")
@@ -59,7 +59,7 @@ class MemberTVC: UITableViewCell {
     }
 }
 
-extension MemberTVC {
+extension MemberTableViewCell {
     private func initUI() {
         self.backgroundColor = .white
     }
@@ -91,7 +91,7 @@ extension MemberTVC {
     }
 }
 
-extension MemberTVC {
+extension MemberTableViewCell {
     func initCell(contact: ContactDataModel) {
         userNameLabel.text = contact.familyName + contact.givenName
         phoneNumberLabel.text = contact.phoneNumber

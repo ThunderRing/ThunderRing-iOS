@@ -27,7 +27,7 @@
         <!--Create Private View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="CreatePrivateVC" id="Y6W-OH-hqX" customClass="CreatePrivateViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreatePrivateViewController" id="Y6W-OH-hqX" customClass="CreatePrivateViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,7 +236,7 @@
         <!--Add Member View Controller-->
         <scene sceneID="4TF-Zi-YtQ">
             <objects>
-                <viewController storyboardIdentifier="AddMemberVC" id="aQX-WN-XG4" customClass="AddMemberViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddMemberViewController" id="aQX-WN-XG4" customClass="AddMemberViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mUB-e1-emw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,7 +306,7 @@
         <!--Complete Create Private View Controller-->
         <scene sceneID="Kkj-kQ-7BG">
             <objects>
-                <viewController storyboardIdentifier="CompleteCreateVC" id="2El-EZ-xNw" customClass="CompleteCreatePrivateViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompleteCreatePrivateViewController" id="2El-EZ-xNw" customClass="CompleteCreatePrivateViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nr5-Uz-zXB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -39,7 +39,6 @@ final class CreatePrivateDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configUI()
     }
     
     override func viewDidLoad() {
@@ -89,14 +88,15 @@ final class CreatePrivateDetailViewController: UIViewController {
         memberCollectionView.delegate = self
         memberCollectionView.dataSource = self
         
-        memberCollectionView.register(MemberCVC.self, forCellWithReuseIdentifier: MemberCVC.identifier)
+        memberCollectionView.register(MemberCollectionViewCell.self, forCellWithReuseIdentifier: MemberCollectionViewCell.CellIdentifier)
         
         memberCollectionView.showsVerticalScrollIndicator = false
+        memberCollectionView.isUserInteractionEnabled = true
     }
     
     private func setAction() {
         addMemberButton.addAction(UIAction(handler: { _ in
-            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "AddMemberVC") else { return }
+            guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "AddMemberViewController") as? AddMemberViewController else { return }
             dvc.modalPresentationStyle = .fullScreen
             self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
@@ -111,7 +111,7 @@ final class CreatePrivateDetailViewController: UIViewController {
     // MARK: - @objc
     
     @objc func touchUpNextButton() {
-        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteCreateVC") as? CompleteCreatePrivateViewController else { return }
+        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteCreatePrivateViewController") as? CompleteCreatePrivateViewController else { return }
         dvc.groupImage = self.groupImage
         dvc.groupName = self.groupName
         dvc.groupDescrption = self.descriptionTextField.text!
@@ -148,6 +148,14 @@ extension CreatePrivateDetailViewController: UICollectionViewDelegateFlowLayout 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .zero
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Tapped")
+        members.remove(at: indexPath.item)
+        DispatchQueue.main.async {
+            collectionView.reloadData()
+        }
+    }
 }
 
 extension CreatePrivateDetailViewController: UICollectionViewDataSource {
@@ -156,8 +164,8 @@ extension CreatePrivateDetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCVC.identifier, for: indexPath) as? MemberCVC else { return UICollectionViewCell() }
-        cell.initCell(name: members[indexPath.row])
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCollectionViewCell.CellIdentifier, for: indexPath) as? MemberCollectionViewCell else { return UICollectionViewCell() }
+        cell.initCell(name: members[indexPath.item])
         return cell
     }
 }
