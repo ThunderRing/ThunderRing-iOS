@@ -96,8 +96,8 @@ final class LigntningDetailViewController: UIViewController {
         
         [dateTextField, timeTextField, locationTextField, minTextField, maxTextField].forEach {
             $0?.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
-            $0?.setLeftPaddingPoints(15)
-            $0?.setRightPaddingPoints(15)
+            $0?.setLeftPaddingPoints(14)
+            $0?.setRightPaddingPoints(14)
             
             $0?.delegate = self
             $0?.tintColor = .purple100
@@ -107,9 +107,6 @@ final class LigntningDetailViewController: UIViewController {
             $0?.setRightIcon(0, 56, UIImage(named: "btnDown")!)
         }
         
-        [countLabel, numGuideLabel].forEach {
-            $0?.addCharacterSpacing()
-        }
         numGuideLabel.isHidden = true
         
         dateTextField.placeholder = dateFormatter.string(from: nowDate)
@@ -186,8 +183,6 @@ final class LigntningDetailViewController: UIViewController {
         timePickerView.datePickerMode = .time
         
         timeTextField.inputAccessoryView = toolBar
-        
-        capacityLabel.addCharacterSpacing()
     }
     
     private func getNotification() {

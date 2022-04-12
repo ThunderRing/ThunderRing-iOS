@@ -32,21 +32,13 @@ extension UILabel {
             }
         }
     }
-    
-    func addCharacterSpacing(kernValue: Double = -0.6, paragraphValue: CGFloat = 4.0) {
-        if let labelText = text, labelText.count > 0 {
-            let attributedString = NSMutableAttributedString(string: labelText)
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = paragraphValue
-            attributedString.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: attributedString.length - 1))
-            attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
+
+    func setTextSpacingBy(value: Double) {
+        if let textString = self.text {
+            let attributedString = NSMutableAttributedString(string: textString)
+            attributedString.addAttribute(NSAttributedString.Key.kern, value: value, range: NSRange(location: 0, length: attributedString.length - 1))
             attributedText = attributedString
-            
-            if #available(iOS 14.0, *) {
-                lineBreakStrategy = .hangulWordPriority
-            } else {
-                lineBreakMode = .byWordWrapping
-            }
         }
     }
+
 }

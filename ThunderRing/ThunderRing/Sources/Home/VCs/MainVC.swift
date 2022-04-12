@@ -66,10 +66,6 @@ extension MainVC {
         
         imageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: imageView.bounds.width / 2, bounds: true)
         
-        [attendanceLabel, privateGroupCountLabel, publicGroupCountLabel].forEach {
-            $0?.addCharacterSpacing()
-        }
-        
         privateGroupCountLabel.text = "\(privateGroupData.count)"
         publicGroupCountLabel.text = "\(publicGroupData.count)"
         attendanceLabel.attributedText = NSMutableAttributedString()

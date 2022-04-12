@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Property 1=tap_chat_active.png",
+      "filename" : "tap_lightning.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Property 1=tap_chat_active@2x.png",
+      "filename" : "tap_lightning@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Property 1=tap_chat_active@3x.png",
+      "filename" : "tap_lightning@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -39,20 +39,27 @@ final class CreatePrivateDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
+        configUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
-        bind()
+        configNavigationBar()
+        configUI()
+        setTextField()
+        setCollectionView()
+        setAction()
         getNotification()
     }
     
     // MARK: - Init UI
     
-    private func initUI() {
+    private func configNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
+    }
+    
+    private func configUI() {
         descriptionTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         descriptionTextField.setLeftPaddingPoints(14)
         
@@ -73,16 +80,21 @@ final class CreatePrivateDetailViewController: UIViewController {
     
     // MARK: - Custom Method
     
-    private func bind() {
+    private func setTextField() {
         descriptionTextField.delegate = self
-        
+        descriptionTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    private func setCollectionView() {
         memberCollectionView.delegate = self
         memberCollectionView.dataSource = self
         
         memberCollectionView.register(MemberCVC.self, forCellWithReuseIdentifier: MemberCVC.identifier)
         
         memberCollectionView.showsVerticalScrollIndicator = false
-        
+    }
+    
+    private func setAction() {
         addMemberButton.addAction(UIAction(handler: { _ in
             guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "AddMemberVC") else { return }
             dvc.modalPresentationStyle = .fullScreen
@@ -115,6 +127,9 @@ final class CreatePrivateDetailViewController: UIViewController {
         memberCollectionView.isHidden = false
     }
     
+    @objc func textFieldDidChange(_ sender: Any) {
+        nextButton.isActivated = descriptionTextField.hasText
+    }
 }
 
 // MARK: - UICollectionView Delegate
@@ -182,6 +197,6 @@ extension CreatePrivateDetailViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newLength = (textField.text?.count)! + string.count - range.length
-        return !(newLength > 15)
+        return !(newLength > 20)
     }
 }

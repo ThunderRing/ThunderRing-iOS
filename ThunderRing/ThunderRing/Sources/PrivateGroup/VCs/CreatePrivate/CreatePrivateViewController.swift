@@ -34,20 +34,24 @@ final class CreatePrivateViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "새로운 비공개 그룹", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+        configUINavigationBar()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
+        configUI()
         setTextField()
         setImagePicker()
     }
     
     // MARK: - Init UI
     
-    private func initUI() {
+    private func configUINavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+        setModalNavigationBar(customNavigationBarView: customNavigationBarView, title: "새로운 비공개 그룹", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+    }
+    
+    private func configUI() {
         userImageView.makeRounded(cornerRadius: 40)
         
         groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
@@ -70,12 +74,18 @@ final class CreatePrivateViewController: UIViewController {
     
     private func setTextField() {
         groupNameTextField.delegate = self
+        
+        groupNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        
+        groupNameTextField.setRightPaddingPoints(30)
+        
+        groupNameTextField.tintColor = .purple100
     }
     
     private func setImagePicker() {
-        self.imagePicker.sourceType = .photoLibrary
-        self.imagePicker.allowsEditing = true
-        self.imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
         
         userImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
@@ -84,8 +94,7 @@ final class CreatePrivateViewController: UIViewController {
     
     // MARK: - @objc
     
-    @objc
-    func pickImage() {
+    @objc func pickImage() {
         self.present(self.imagePicker, animated: true)
     }
     
@@ -93,7 +102,11 @@ final class CreatePrivateViewController: UIViewController {
         guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CreatePrivateDetailVC") as? CreatePrivateDetailViewController else { return }
         dvc.groupName = self.groupNameTextField.text!
         dvc.groupImage = self.userImageView.image!
-        self.navigationController?.pushViewController(dvc, animated: true)
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    @objc func textFieldDidChange(_ sender: Any) {
+        nextButton.isActivated = groupNameTextField.hasText
     }
 }
 
@@ -104,11 +117,14 @@ extension CreatePrivateViewController: UITextFieldDelegate {
         textField.becomeFirstResponder()
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 12, bounds: true)
         
+        textField.setRightIcon(0, textField.frame.height, UIImage(named: "btnDelete")!)
+        
         countLabel.textColor = .purple100
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
+        textField.setRightPaddingPoints(0)
         
         if groupNameTextField.hasText {
             countLabel.textColor = .black

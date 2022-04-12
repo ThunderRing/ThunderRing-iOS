@@ -46,10 +46,6 @@ final class PrivateListTableViewCell: UITableViewCell {
     
     private func configUI() {
         initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 0, bounds: true)
-        
-        [groupNameLabel, countLabel].forEach {
-            $0.addCharacterSpacing()
-        }
     }
     
     private func setLayout() {

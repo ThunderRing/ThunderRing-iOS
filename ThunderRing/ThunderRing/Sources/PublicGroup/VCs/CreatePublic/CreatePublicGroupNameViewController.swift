@@ -37,8 +37,10 @@ final class CreatePublicGroupNameViewController: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
     }
     
-    private var groupNameTextField = UITextField().then {
+    private lazy var groupNameTextField = UITextField().then {
         $0.placeholder = "그룹 명을 입력해주세요"
+        $0.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        $0.tintColor = .purple100
     }
     
     private var groupNameCountLabel = UILabel().then {
@@ -57,7 +59,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationController?.isNavigationBarHidden = true
+        configNavigationBar()
     }
     
     override func viewDidLoad() {
@@ -68,6 +70,10 @@ final class CreatePublicGroupNameViewController: UIViewController {
     }
     
     // MARK: - InitUI
+    
+    private func configNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+    }
     
     private func configUI() {
         view.backgroundColor = .white
@@ -156,10 +162,13 @@ final class CreatePublicGroupNameViewController: UIViewController {
     }
     
     @objc func touchUpNextButton() {
-        if groupNameTextField.hasText {
-            let dvc = CreatePublicGroupDiscriptionViewController()
-            navigationController?.pushViewController(dvc, animated: true)
-        }
+        groupNameTextField.resignFirstResponder()
+        let dvc = CreatePublicGroupDiscriptionViewController()
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    @objc func textFieldDidChange(_ sender: Any) {
+        nextButton.isActivated = groupNameTextField.hasText
     }
 }
 
@@ -180,15 +189,5 @@ extension CreatePublicGroupNameViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-        
-        if groupNameTextField.hasText {
-            groupNameCountLabel.textColor = .black
-            
-            nextButton.isActivated = true
-        } else {
-            groupNameCountLabel.textColor = .gray200
-            
-            nextButton.isActivated = false
-        }
     }
 }

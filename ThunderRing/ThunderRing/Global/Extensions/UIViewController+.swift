@@ -45,4 +45,20 @@ extension UIViewController {
         
         setStatusBar(.white)
     }
+    
+    func setModalNavigationBar(customNavigationBarView: UIView, title: String, backBtnIsHidden: Bool, closeBtnIsHidden: Bool, bgColor: UIColor) {
+        let navigationBar = CustomModalNavigationBar(vc: self, title: title, backBtnIsHidden: backBtnIsHidden, closeBtnIsHidden: closeBtnIsHidden, bgColor: bgColor)
+        
+        customNavigationBarView.addSubview(navigationBar)
+        navigationBar.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            navigationBar.topAnchor.constraint(equalTo: customNavigationBarView.safeAreaLayoutGuide.topAnchor),
+            navigationBar.leadingAnchor.constraint(equalTo: customNavigationBarView.safeAreaLayoutGuide.leadingAnchor),
+            navigationBar.trailingAnchor.constraint(equalTo: customNavigationBarView.safeAreaLayoutGuide.trailingAnchor),
+            navigationBar.bottomAnchor.constraint(equalTo: customNavigationBarView.bottomAnchor)
+        ])
+        
+        setStatusBar(.white)
+    }
 }

@@ -51,6 +51,14 @@ extension UITextField {
         
         rightView = outerView
         rightViewMode = .always
+        
+        outerView.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(touchUpDeleteButton))
+        outerView.addGestureRecognizer(gesture)
+    }
+    
+    @objc func touchUpDeleteButton() {
+        self.text = ""
     }
     
     func setPlaceholder(color: UIColor) {

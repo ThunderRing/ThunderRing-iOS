@@ -17,20 +17,19 @@ final class OverviewCollectionViewCell: UICollectionViewCell {
     
     private lazy var groupImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
-        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 38, bounds: true)
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 27, bounds: true)
     }
     
     private lazy var groupNameLabel = UILabel().then {
         $0.text = "그룹이름"
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .bold, size: 17)
-        $0.addCharacterSpacing()
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 17)
     }
     
     private lazy var countLabel = UILabel().then {
         $0.text = "0/0"
+        $0.textColor = .gray100
         $0.font = .DINPro(type: .regular, size: 14)
-        $0.addCharacterSpacing()
     }
     
     private lazy var groupTagView = GroupTendencyView(tagType: .diligent)
@@ -52,7 +51,7 @@ final class OverviewCollectionViewCell: UICollectionViewCell {
     
     private func configUI() {
         backgroundColor = .white
-        initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
+        initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 5, bounds: true)
         groupTagView.makeRounded(cornerRadius: 3)
     }
     

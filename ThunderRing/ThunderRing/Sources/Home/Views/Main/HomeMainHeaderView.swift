@@ -27,7 +27,7 @@ final class HomeMainHeaderView: UIView {
     }
     
     var count = 0 {
-        didSet { }
+        didSet { countLabel.text = "\(count)" }
     }
     
     var isMoreEnabled = true {
@@ -41,7 +41,7 @@ final class HomeMainHeaderView: UIView {
     
     private lazy var countLabel = UILabel().then {
         $0.textColor = .gray200
-        $0.font = .DINPro(type: .regular, size: 18)
+        $0.font = .DINPro(type: .medium, size: 18)
     }
 
     private lazy var moreButton = MoreButton().then {

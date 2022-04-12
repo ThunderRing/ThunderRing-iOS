@@ -78,7 +78,7 @@ final class MyPublicViewController: UIViewController {
         }), for: .touchUpInside)
         
         plusButton.addAction(UIAction(handler: { _ in
-            let dvc = CreatePublicGroupNameViewController()
+            let dvc = UINavigationController(rootViewController: CreatePublicGroupNameViewController())
             dvc.modalPresentationStyle = .fullScreen
             self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
@@ -119,7 +119,7 @@ extension MyPublicViewController: UICollectionViewDelegate {
         let targetIndex = targetContentOffset.pointee.x / scrollView.frame.size.width
         if targetIndex == 1 && currentIndex == 0 {
             UIView.animate(withDuration: 0.5) {
-                self.statusMovedView.transform = CGAffineTransform(translationX: 165, y: 0)
+                self.statusMovedView.transform = CGAffineTransform(translationX: 165.5, y: 0)
             }
             currentIndex = 1
             self.myGroupLabel.textColor = .gray
@@ -167,7 +167,8 @@ extension MyPublicViewController: UICollectionViewDataSource {
         case 0 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyGroupCollectionViewCell.identifier, for: indexPath) as? MyGroupCollectionViewCell else { return UICollectionViewCell() }
             cell.delegate = self
-            cell.count = publicGroupData.count
+            // FIXME: - 데이터 갯수
+            cell.count = publicGroupData.count + 1
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyOverviewCollectionViewCell.CellIdentifier, for: indexPath) as? MyOverviewCollectionViewCell else { return UICollectionViewCell() }

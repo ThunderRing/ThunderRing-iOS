@@ -17,11 +17,11 @@ final class MyPrivateTableViewCell: UITableViewCell {
     
     private var backView = UIView().then {
         $0.backgroundColor = .white
-        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 5, bounds: true)
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 5, bounds: true)
     }
     
     private var groupImageView = UIImageView().then {
-        $0.layer.borderColor = UIColor.gray300.cgColor
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 19, bounds: true)
     }
     
     private var groupNameLabel = UILabel().then {
@@ -55,10 +55,6 @@ final class MyPrivateTableViewCell: UITableViewCell {
         backgroundColor = .clear
         
         groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 19, bounds: true)
-        
-        [groupNameLabel, groupDescriptionLabel, countLabel].forEach {
-            $0.addCharacterSpacing()
-        }
     }
     
     private func setLayout() {
@@ -74,8 +70,8 @@ final class MyPrivateTableViewCell: UITableViewCell {
         }
         
         groupImageView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(15)
-            $0.leading.equalToSuperview().inset(18)
+            $0.top.equalToSuperview().inset(15)
+            $0.leading.equalToSuperview().inset(19)
             $0.width.equalTo(53)
             $0.height.equalTo(55)
         }
@@ -104,7 +100,11 @@ final class MyPrivateTableViewCell: UITableViewCell {
         }
         
         groupNameLabel.text = group.groupName
+        groupNameLabel.setTextSpacingBy(value: -0.6)
+        
         groupDescriptionLabel.text = group.groupDescription
+        groupDescriptionLabel.setTextSpacingBy(value: -0.6)
+        
         countLabel.text = "\(group.memberCounts)"
     }
 }
