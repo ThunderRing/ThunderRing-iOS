@@ -9,8 +9,13 @@ import UIKit
 
 import SnapKit
 import Then
+import Firebase
 
 final class ChatViewController: UIViewController {
+    // MARK: - Properties
+    
+    public var destinationRoomID: String?
+    var uid: String?
     
     // MARK: - UI
     
@@ -82,6 +87,11 @@ final class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        uid = FirebaseDataService.instance.currentUserUid
+        Database.database().reference().child("users").observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
+            let dic = datasnapshot.value as! [String:AnyObject]
+        })
         configUI()
         setLayout()
         setCollectionView()
@@ -203,6 +213,16 @@ final class ChatViewController: UIViewController {
         if !getValue.isEmpty {
             chatData.append(MessageData(chatType: .me, messageText: getValue, profileImageName: "", nickname: "", sendTime: timeFormatter.string(from: nowDate)))
             chatCollectionView.reloadData()
+        }
+        
+        let value : Dictionary<String,Any> = [
+            "uid": uid!,
+            "message": textField.text!,
+            "timestamp": ServerValue.timestamp()
+        ]
+        
+        Database.database().reference().child("chatrooms").child(destinationRoomID!).child("comments").childByAutoId().setValue(value) {(err, ref) in
+            self.textField.text = ""
         }
     }
 }
