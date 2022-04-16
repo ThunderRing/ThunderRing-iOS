@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D12752C280AE70600726651 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D12752B280AE70600726651 /* SignIn.storyboard */; };
+		1D12752E280AE73000726651 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D12752D280AE73000726651 /* SignInViewController.swift */; };
 		1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25F5F92752D1C600BF7C31 /* RecruitingTVC.swift */; };
 		1D25F5FC2752D1C600BF7C31 /* RecruitingTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D25F5FA2752D1C600BF7C31 /* RecruitingTVC.xib */; };
 		1DA5D064275BD7A100F78579 /* JoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA5D063275BD7A100F78579 /* JoinVC.swift */; };
@@ -167,6 +169,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D12752B280AE70600726651 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		1D12752D280AE73000726651 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		1D25F5F92752D1C600BF7C31 /* RecruitingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitingTVC.swift; sourceTree = "<group>"; };
 		1D25F5FA2752D1C600BF7C31 /* RecruitingTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitingTVC.xib; sourceTree = "<group>"; };
 		1DA5D063275BD7A100F78579 /* JoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVC.swift; sourceTree = "<group>"; };
@@ -342,6 +346,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D127529280AE66700726651 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				1D12752D280AE73000726651 /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		1D12752A280AE6E700726651 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				1D12752B280AE70600726651 /* SignIn.storyboard */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		1DEAB5FA27405A5100074B72 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,6 +643,7 @@
 		926C7C2E2737F9CE0020F851 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1D127529280AE66700726651 /* SignIn */,
 				9276B061275B44C100915F57 /* Base */,
 				92B156872761423000939048 /* PublicGroup */,
 				92159C982758C2010081F20B /* PrivateGroup */,
@@ -661,6 +682,7 @@
 		926C7C312737F9F40020F851 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				1D12752A280AE6E700726651 /* SignIn */,
 				92C41485276295E8000DB287 /* PublicGroup */,
 				921A45C12753557C001E8727 /* PrivateGroup */,
 				926C7C552738038E0020F851 /* MyPage */,
@@ -1246,6 +1268,7 @@
 				92159C97275896EF0081F20B /* DINPro-Medium.otf in Resources */,
 				92AFB39B276339F000977712 /* MyGroupCollectionViewCell.xib in Resources */,
 				926C7C232737F93F0020F851 /* Assets.xcassets in Resources */,
+				1D12752C280AE70600726651 /* SignIn.storyboard in Resources */,
 				926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */,
 				92CD3373273FA2A00094CB1C /* SpoqaHanSansNeo-Light.otf in Resources */,
 				92CD3375273FA2A00094CB1C /* SpoqaHanSansNeo-Medium.otf in Resources */,
@@ -1398,6 +1421,7 @@
 				9248133927D139A500A0CECC /* HomeMainPrivateGroupCollectionViewCell.swift in Sources */,
 				92BCCCAC2765180800AA70D6 /* OverviewSortCollectionViewCell.swift in Sources */,
 				928FDA0B2760D1B5009AC059 /* MyPrivateViewController.swift in Sources */,
+				1D12752E280AE73000726651 /* SignInViewController.swift in Sources */,
 				9276B067275B453E00915F57 /* BasePaddingLabel.swift in Sources */,
 				92B471AF27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift in Sources */,
 				9276B070275B477A00915F57 /* CounterpartChatCVC.swift in Sources */,
@@ -1592,7 +1616,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PU64TS56AD;
+				DEVELOPMENT_TEAM = 49K483Q8Y9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ThunderRing/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1621,7 +1645,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PU64TS56AD;
+				DEVELOPMENT_TEAM = 49K483Q8Y9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ThunderRing/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

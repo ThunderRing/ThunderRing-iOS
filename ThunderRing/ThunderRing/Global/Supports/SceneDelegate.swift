@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,8 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-
-        window?.rootViewController = TabBarController()
+        
+        if Auth.auth().currentUser != nil {
+            
+            window?.rootViewController = TabBarController()
+            
+        } else {
+            window?.rootViewController = UIStoryboard(name: Const.Storyboard.Name.SignIn, bundle: nil).instantiateInitialViewController()
+        }
         
         window?.makeKeyAndVisible()
     }

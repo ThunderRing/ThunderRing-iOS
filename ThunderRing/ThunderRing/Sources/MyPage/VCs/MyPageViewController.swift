@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 final class MyPageViewController: UIViewController {
     
