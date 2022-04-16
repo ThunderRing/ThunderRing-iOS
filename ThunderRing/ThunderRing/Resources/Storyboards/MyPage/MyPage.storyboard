@@ -32,8 +32,8 @@
                                     <constraint firstAttribute="height" constant="50" id="69u-Lc-5ki"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="양파링" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgn-Xg-Oij">
-                                <rect key="frame" x="182" y="275" width="50" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgn-Xg-Oij">
+                                <rect key="frame" x="168.5" y="275" width="77" height="23"/>
                                 <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
                                 <color key="textColor" name="gray100"/>
                                 <nil key="highlightedColor"/>
@@ -119,7 +119,7 @@
                                     <constraint firstItem="24R-FJ-DZx" firstAttribute="top" secondItem="7hZ-CP-RZE" secondAttribute="bottom" constant="5" id="waj-5j-sio"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgJuju" translatesAutoresizingMaskIntoConstraints="NO" id="IfP-9y-vAj">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IfP-9y-vAj">
                                 <rect key="frame" x="164" y="173" width="86" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="F5X-Lp-KsY"/>
@@ -194,7 +194,6 @@
     </scenes>
     <resources>
         <image name="icn_plus_purple" width="48" height="48"/>
-        <image name="imgJuju" width="75" height="75"/>
         <namedColor name="gray100">
             <color red="0.31000000238418579" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

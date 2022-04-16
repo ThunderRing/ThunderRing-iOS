@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D12752C280AE70600726651 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D12752B280AE70600726651 /* SignIn.storyboard */; };
 		1D12752E280AE73000726651 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D12752D280AE73000726651 /* SignInViewController.swift */; };
+		1D127530280AEF6400726651 /* FirebaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D12752F280AEF6400726651 /* FirebaseDataService.swift */; };
 		1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D25F5F92752D1C600BF7C31 /* RecruitingTVC.swift */; };
 		1D25F5FC2752D1C600BF7C31 /* RecruitingTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D25F5FA2752D1C600BF7C31 /* RecruitingTVC.xib */; };
 		1DA5D064275BD7A100F78579 /* JoinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA5D063275BD7A100F78579 /* JoinVC.swift */; };
@@ -171,6 +172,7 @@
 /* Begin PBXFileReference section */
 		1D12752B280AE70600726651 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		1D12752D280AE73000726651 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		1D12752F280AEF6400726651 /* FirebaseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataService.swift; sourceTree = "<group>"; };
 		1D25F5F92752D1C600BF7C31 /* RecruitingTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecruitingTVC.swift; sourceTree = "<group>"; };
 		1D25F5FA2752D1C600BF7C31 /* RecruitingTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecruitingTVC.xib; sourceTree = "<group>"; };
 		1DA5D063275BD7A100F78579 /* JoinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinVC.swift; sourceTree = "<group>"; };
@@ -977,6 +979,7 @@
 			children = (
 				92A5B29927398D47004149B2 /* CustomNavigationBar.swift */,
 				929A95E92805C30D00082A7B /* CustomModalNavigationBar.swift */,
+				1D12752F280AEF6400726651 /* FirebaseDataService.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1348,6 +1351,7 @@
 				925DCD4A27E5211500331949 /* ChatMainTableViewCellView.swift in Sources */,
 				9276B060275B443F00915F57 /* MyChatCVC.swift in Sources */,
 				925BAC462742C76F00126166 /* PrivateListTableViewCell.swift in Sources */,
+				1D127530280AEF6400726651 /* FirebaseDataService.swift in Sources */,
 				92A5B295273983F0004149B2 /* ViewController.swift in Sources */,
 				92DD9FBC274C11710045C8C7 /* ModalNavigationController.swift in Sources */,
 				928C707C27F3BDFD001E66BE /* PrivateDetailSettingViewController.swift in Sources */,
