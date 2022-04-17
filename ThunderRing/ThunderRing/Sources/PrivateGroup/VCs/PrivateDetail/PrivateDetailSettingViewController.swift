@@ -14,6 +14,7 @@ final class PrivateDetailSettingViewController: UIViewController {
     
     // MARK: - Properties
     
+    private lazy var navigationBar = TDSModalNavigationBar(self, title: "설정", backButtonIsHidden: true, closeButtonIsHidden: false)
     
     // MARK: - Life Cycle
     
@@ -27,10 +28,17 @@ final class PrivateDetailSettingViewController: UIViewController {
     
     private func configUI() {
         view.backgroundColor = .background
+        
+        navigationBar.layer.applyShadow()
     }
     
     private func setLayout() {
+        view.addSubviews([navigationBar])
         
+        navigationBar.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(50)
+        }
     }
     
     // MARK: - Custom Method
