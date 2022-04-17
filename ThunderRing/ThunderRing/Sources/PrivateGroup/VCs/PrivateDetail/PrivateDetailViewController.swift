@@ -41,12 +41,9 @@ final class PrivateDetailViewController: UIViewController {
         $0.delegate = self
     }
     
-    private lazy var lightningButton = TDSButton().then {
-        $0.setTitle("번개 치기", for: .normal)
-        $0.isActivated = true
+    private lazy var lightningButton = GroupLightningButton().then {
         $0.addTarget(self, action: #selector(touchUpLightningButton), for: .touchUpInside)
         $0.makeRounded(cornerRadius: 24)
-        $0.setLeftIconImage(imageName: "icn_lightning_new")
     }
     
     private lazy var lineView = UIView().then {
@@ -140,18 +137,6 @@ final class PrivateDetailViewController: UIViewController {
     
     var isPrivate: Bool = false
     
-    var memberCounts: Int = 0 {
-        didSet {
-            memberCountsLabel.text = "\(memberCounts)"
-        }
-    }
-    
-    var historyCounts: Int = 0 {
-        didSet {
-            historyCountsLabel.text = "\(historyCounts)"
-        }
-    }
-    
     // TODO: - 분기처리 
     var isMemberViewOpen: Bool = true {
         didSet {
@@ -165,6 +150,11 @@ final class PrivateDetailViewController: UIViewController {
         }
     }
     
+    private var members = [String]()
+    private var history = [History]()
+    
+    var index: Int = 0
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -175,6 +165,11 @@ final class PrivateDetailViewController: UIViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.getDetailData()
+            self.memberCollectionView.reloadData()
+            self.historyCollectionView.reloadData()
+        }
         configUI()
         setLayout()
         bind()
@@ -188,7 +183,7 @@ final class PrivateDetailViewController: UIViewController {
     }
     
     private func setLayout() {
-        view.addSubviews([navigationBar, scrollView, lineView, buttonBackView])
+        view.addSubviews([scrollView, lineView, buttonBackView, navigationBar])
         buttonBackView.addSubview(lightningButton)
         navigationBar.addSubviews([backButton, settingButton])
         scrollView.addSubview(contentView)
@@ -275,7 +270,7 @@ final class PrivateDetailViewController: UIViewController {
         }
         
         historySubtitleLabel.snp.makeConstraints {
-            $0.top.equalTo(memberCollectionView.snp.bottom).offset(43)
+            $0.top.equalTo(memberCollectionView.snp.bottom).offset(44)
             $0.trailing.equalToSuperview().inset(48)
         }
         
@@ -317,6 +312,22 @@ final class PrivateDetailViewController: UIViewController {
         
         historyCollectionView.delegate = self
         historyCollectionView.dataSource = self
+        
+        scrollView.delegate = self
+    }
+    
+    private func load() -> Data? {
+        let fileNm: String = "PrivateGroupDetailData"
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
     }
     
     // MARK: - @objc
@@ -426,9 +437,9 @@ extension PrivateDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case memberCollectionView:
-            return 4
+            return members.count
         case historyCollectionView:
-            return 5
+            return history.count
         default:
             return 0
         }
@@ -438,12 +449,84 @@ extension PrivateDetailViewController: UICollectionViewDataSource {
         switch collectionView {
         case memberCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailMemberCollectionViewCell.CellIdentifier, for: indexPath) as? PrivateDetailMemberCollectionViewCell else { return UICollectionViewCell() }
+            cell.initCell(name: members[indexPath.item])
             return cell
         case historyCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailHistoryCollectionViewCell.CellIdentifier, for: indexPath) as? PrivateDetailHistoryCollectionViewCell else { return UICollectionViewCell() }
+            cell.initCell(history: history[indexPath.item])
             return cell
         default:
             return UICollectionViewCell()
         }
     }
 }
+
+// MARK: - UIScrollView Delegate
+
+extension PrivateDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 10 {
+            navigationBar.layer.applyShadow()
+        } else {
+            navigationBar.layer.applyShadow(color: UIColor.clear, alpha: 0, x: 0, y: 0, blur: 0, spread: 0)
+        }
+    }
+}
+
+// MARK: - Network
+
+extension PrivateDetailViewController {
+    private func getDetailData() {
+        guard
+            let jsonData = self.load(),
+            let data = try? JSONDecoder().decode(PrivateGroupDetailResponse.self, from: jsonData)
+        else { return }
+        
+        headerView.groupName = data.groupDetailData[index].groupName
+        headerView.groupDescription = data.groupDetailData[index].groupDescription
+        
+        members = data.groupDetailData[index].groupMembers
+        history = data.groupDetailData[index].history
+        
+        memberCountsLabel.text = "\(data.groupDetailData[index].groupMembers.count)"
+        historyCountsLabel.text = "\(data.groupDetailData[index].history.count)"
+    }
+}
+
+// MARK: - Button
+
+fileprivate final class GroupLightningButton: UIButton {
+    
+    private lazy var iconImage = UIImageView().then {
+        $0.image = UIImage(named: "icn_lightning_new")
+    }
+    
+    private lazy var label = UILabel().then {
+        $0.text = "번개 치기"
+        $0.textColor = .white
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
+    }
+    
+    init() {
+        super.init(frame: .zero)
+        setButton()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setButton() {
+        backgroundColor = .purple100
+        addSubviews([iconImage, label])
+        iconImage.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(127)
+        }
+        label.snp.makeConstraints {
+            $0.leading.equalTo(iconImage.snp.trailing).offset(4)
+            $0.centerY.equalToSuperview()
+        }
+    }
+}
+

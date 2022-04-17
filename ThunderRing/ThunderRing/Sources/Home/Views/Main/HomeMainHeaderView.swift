@@ -78,7 +78,7 @@ final class HomeMainHeaderView: UIView {
         }
         
         countLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.top)
+            $0.top.equalToSuperview().inset(26)
             $0.leading.equalTo(titleLabel.snp.trailing).offset(6)
         }
 

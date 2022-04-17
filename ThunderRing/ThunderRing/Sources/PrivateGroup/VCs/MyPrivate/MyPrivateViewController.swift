@@ -134,6 +134,8 @@ extension MyPrivateViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dvc = PrivateDetailViewController()
+        dvc.isOwner = true
+        dvc.index = 0
         navigationController?.pushViewController(dvc, animated: true)
     }
 }
@@ -152,4 +154,6 @@ extension MyPrivateViewController: UITableViewDataSource {
         return cell
     }
 }
+
+
 

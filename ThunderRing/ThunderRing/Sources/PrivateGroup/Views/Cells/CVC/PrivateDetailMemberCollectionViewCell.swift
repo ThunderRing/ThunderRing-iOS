@@ -58,4 +58,9 @@ final class PrivateDetailMemberCollectionViewCell: UICollectionViewCell {
             $0.centerX.equalToSuperview()
         }
     }
+    
+    internal func initCell(name: String) {
+        memberNameLabel.text = name
+        memberNameLabel.setTextSpacingBy(value: -0.6)
+    }
 }
