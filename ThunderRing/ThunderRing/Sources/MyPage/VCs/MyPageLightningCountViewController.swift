@@ -127,7 +127,7 @@ fileprivate final class ItemCell: UICollectionViewCell {
     }
     
     private lazy var groupImageView = UIImageView().then {
-        $0.image = UIImage(named: "icn_people_small")
+        $0.image = UIImage(named: "icn_goup")
     }
     
     private lazy var groupNameLabel = UILabel().then {

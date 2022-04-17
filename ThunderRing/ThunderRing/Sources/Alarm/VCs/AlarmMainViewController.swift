@@ -73,8 +73,8 @@ final class AlarmMainViewController: UIViewController {
             view.alarmDescription = data.value[1]
             view.time = data.value[2]
             view.isActive = data.isActive
-            view.isUserInteractionEnabled = true
-            let gesture = UITapGestureRecognizer(target: self, action: #selector(touchUpView(gesture:)))
+            view.isUserInteractionEnabled = data.isActive
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(touchUpView))
             view.addGestureRecognizer(gesture)
             return view
         }
@@ -139,14 +139,11 @@ final class AlarmMainViewController: UIViewController {
     
     // MARK: - @objc
     
-    @objc func touchUpView(gesture: CustomGesture) {
+    @objc func touchUpView() {
         let dvc = AlarmPopUpViewController()
         dvc.modalTransitionStyle = .crossDissolve
         dvc.modalPresentationStyle = .overFullScreen
+        dvc.handleTap(alarmType: .lightning)
         present(dvc, animated: true)
     }
-}
-
-class CustomGesture: UITapGestureRecognizer {
-    var alarmType: AlarmType = .lightning
 }

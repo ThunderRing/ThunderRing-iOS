@@ -150,7 +150,6 @@ extension CreatePrivateDetailViewController: UICollectionViewDelegateFlowLayout 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Tapped")
         members.remove(at: indexPath.item)
         DispatchQueue.main.async {
             collectionView.reloadData()

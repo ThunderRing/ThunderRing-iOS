@@ -172,7 +172,7 @@ final class PrivateDetailViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         tabBarController?.tabBar.isHidden = true
     }
-    
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -342,7 +342,8 @@ final class PrivateDetailViewController: UIViewController {
     
     @objc func touchUpSettingButton() {
         let dvc = PrivateDetailSettingViewController()
-        navigationController?.pushViewController(dvc, animated: true)
+        dvc.modalPresentationStyle = .fullScreen
+        present(dvc, animated: true)
     }
     
     @objc func touchUpMemeberMoreButton() {
