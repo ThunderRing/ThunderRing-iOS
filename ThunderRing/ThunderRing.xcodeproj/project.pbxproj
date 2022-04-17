@@ -924,7 +924,6 @@
 				92B471AC27D37A3500D691E7 /* HomeMainPublicGroupCollectionViewCell.swift */,
 				92B471AE27D3814500D691E7 /* HomeMainPublicGroupCollectionViewCellView.swift */,
 				92640F9E27D678B800E71CBD /* HomeMainHeaderView.swift */,
-				9227F2F327DAB39C001D1BB4 /* HomeJoinView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -935,6 +934,7 @@
 				92A2445627D8041500A81738 /* HomeRecruitingTableViewCell.swift */,
 				92A2445227D7EE0D00A81738 /* HomeRecruitingTableViewCellView.swift */,
 				92B7184327D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift */,
+				9227F2F327DAB39C001D1BB4 /* HomeJoinView.swift */,
 			);
 			path = Recruiting;
 			sourceTree = "<group>";
