@@ -1,0 +1,41 @@
+{
+  "groupDetailData": [
+    {
+      "groupName": "양파링걸즈",
+      "groupDescription": "우린 양파링은 킹왕짱이다",
+      "groupMembers": ["김소연", "이지원", "윤하민", "마예지"],
+      "history": [
+          {
+              "date": "21/08/03",
+              "lightningName": "이태원 모각작 모아요",
+              "memberCount": 4,
+              "location": "이태원 4번 출구"
+          },
+          {
+              "date": "21/08/03",
+              "lightningName": "이태원 모각작 모아요",
+              "memberCount": 4,
+              "location": "이태원 4번 출구"
+          },
+          {
+              "date": "21/08/03",
+              "lightningName": "이태원 모각작 모아요",
+              "memberCount": 4,
+              "location": "이태원 4번 출구"
+          },
+          {
+              "date": "21/08/03",
+              "lightningName": "이태원 모각작 모아요",
+              "memberCount": 4,
+              "location": "이태원 4번 출구"
+          },
+          {
+              "date": "21/08/03",
+              "lightningName": "이태원 모각작 모아요",
+              "memberCount": 4,
+              "location": "이태원 4번 출구"
+          }
+      ]
+    }
+  ]
+}
