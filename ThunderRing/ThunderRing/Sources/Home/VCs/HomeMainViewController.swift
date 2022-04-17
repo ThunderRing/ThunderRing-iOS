@@ -65,7 +65,6 @@ final class HomeMainViewController: UIViewController {
         
     private lazy var privateGroupHeaderView = HomeMainHeaderView(groupType: GroupType.privateGroup).then {
         $0.title = "비공개 그룹"
-        $0.count = privateGroupData.count
     }
     
     private lazy var publicGroupHeaderView = HomeMainHeaderView(groupType: GroupType.publicGroup).then {
@@ -99,6 +98,8 @@ final class HomeMainViewController: UIViewController {
         }
     }()
     
+    private var privateGroupData = [PrivateGroupDetailData]()
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,6 +110,11 @@ final class HomeMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.getPrivateGroupData()
+            self.privateGroupCollectionView.reloadData()
+            self.publicGroupCollectionView.reloadData()
+        }
         configUI()
         setLayout()
         bind()
@@ -225,6 +231,20 @@ final class HomeMainViewController: UIViewController {
         contentScrollView.delegate = self
     }
     
+    private func load() -> Data? {
+        let fileNm: String = "PrivateGroupDetailData"
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
+    }
+    
     // MARK: - @objc
     
     @objc func touchUpRecruitingButton() {
@@ -239,6 +259,7 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
     func touchUpEnterButton() {
         let dvc = PrivateDetailViewController()
         dvc.isOwner = true
+        dvc.index = 0
         navigationController?.pushViewController(dvc, animated: true)
     }
     
@@ -249,7 +270,7 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
         vc.index = 0
         for i in 0 ... privateGroupData.count - 1 {
             vc.groupNames.append(privateGroupData[i].groupName)
-            vc.groupMaxCounts.append(privateGroupData[i].memberCounts)
+            vc.groupMaxCounts.append(privateGroupData[i].groupMembers.count)
         }
         
         dvc.modalPresentationStyle = .fullScreen
@@ -372,5 +393,20 @@ extension HomeMainViewController: UICollectionViewDataSource {
         default:
             return UICollectionViewCell()
         }
+    }
+}
+
+// MARK: - Network
+
+extension HomeMainViewController {
+    private func getPrivateGroupData() {
+        guard
+            let jsonData = self.load(),
+            let data = try? JSONDecoder().decode(PrivateGroupDetailResponse.self, from: jsonData)
+        else { return }
+        
+        privateGroupData = data.groupDetailData
+        
+        privateGroupHeaderView.count = data.groupDetailData.count
     }
 }

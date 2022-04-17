@@ -97,4 +97,15 @@ final class PrivateDetailHistoryCollectionViewCell: UICollectionViewCell {
             $0.top.equalTo(memberCountLabel.snp.bottom).offset(7)
         }
     }
+    
+    internal func initCell(history: History) {
+        dateLabel.text = history.date
+        titleLabel.text = history.lightningName
+        memberCountLabel.text = "\(history.memberCount)명"
+        locationCountLabel.text = history.location
+        
+        [dateLabel, titleLabel, memberCountLabel, locationCountLabel].forEach {
+            $0.setTextSpacingBy(value: -0.6)
+        }
+    }
 }

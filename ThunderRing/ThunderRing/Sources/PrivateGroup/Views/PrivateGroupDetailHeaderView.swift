@@ -16,6 +16,7 @@ protocol PrivateGroupDetailHeaderViewDelegate: AnyObject {
 }
 
 final class PrivateGroupDetailHeaderView: UIView {
+    
     // MARK: - Properties
     
     private lazy var groupImageView = UIImageView().then {
@@ -42,6 +43,7 @@ final class PrivateGroupDetailHeaderView: UIView {
         $0.setTitle("그룹원 초대", for: .normal)
         $0.setTitleColor(.gray100, for: .normal)
         $0.titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 14)
+        $0.titleLabel?.setTextSpacingBy(value: -0.6)
         $0.addTarget(self, action: #selector(touchUpInviteButton), for: .touchUpInside)
     }
     
@@ -53,10 +55,25 @@ final class PrivateGroupDetailHeaderView: UIView {
         $0.setTitle("초대 링크 공유", for: .normal)
         $0.setTitleColor(.purple100, for: .normal)
         $0.titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 14)
+        $0.titleLabel?.setTextSpacingBy(value: -0.6)
         $0.addTarget(self, action: #selector(touchUpShareButton), for: .touchUpInside)
     }
     
     weak var delegate: PrivateGroupDetailHeaderViewDelegate?
+    
+    var groupName: String = "" {
+        didSet {
+            groupNameLabel.text = groupName
+            groupNameLabel.setTextSpacingBy(value: -0.6)
+        }
+    }
+    
+    var groupDescription: String = "" {
+        didSet {
+            groupDescriptionLabel.text = groupDescription
+            groupDescriptionLabel.setTextSpacingBy(value: -0.6)
+        }
+    }
     
     // MARK: - Initializer
     

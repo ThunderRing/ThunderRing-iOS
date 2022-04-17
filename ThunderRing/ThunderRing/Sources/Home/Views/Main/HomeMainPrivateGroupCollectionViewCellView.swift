@@ -128,13 +128,13 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
     
     // MARK: - Public Method
     
-    func configCell(group: PrivateGroupDataModel) {
-        guard let image = group.groupImageName else { return }
-        groupImageView.image = UIImage(named: image)
+    func configCell(group: PrivateGroupDetailData) {
+//        guard let image = group.groupImageName else { return }
+//        groupImageView.image = UIImage(named: image)
         
         groupNameLabel.text = group.groupName
         
-        memberCountLabel.text = "\(group.memberCounts)"
+        memberCountLabel.text = "\(group.groupMembers.count)"
         
         descriptionLabel.text = group.groupDescription
     }
