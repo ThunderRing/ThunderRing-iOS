@@ -1,0 +1,82 @@
+{
+    "publicGroupData": [
+        {
+            "groupName": "카트왕 랄프",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "매일 3시 카러플 랭킹전 모집함",
+            "groupTag": ["게임", "카트", "온라인"],
+            "groupMembers": ["이나영", "이지원", "김루희", "김규민", "황주희", "박수아", "채정아"],
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupName": "카트왕 랄프",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "매일 3시 카러플 랭킹전 모집함",
+            "groupTag": ["게임", "카트", "온라인"],
+            "groupMembers": ["이나영", "이지원", "김루희", "김규민", "황주희", "박수아", "채정아"],
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        }
+    ]
+}

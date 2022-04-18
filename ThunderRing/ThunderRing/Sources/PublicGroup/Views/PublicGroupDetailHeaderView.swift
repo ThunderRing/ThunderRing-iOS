@@ -16,6 +16,7 @@ protocol PublicGroupDetailHeaderViewDelegate: AnyObject {
 }
 
 final class PublicGroupDetailHeaderView: UIView {
+    
     // MARK: - Properties
     
     private lazy var groupImageView = UIImageView().then {
@@ -45,7 +46,6 @@ final class PublicGroupDetailHeaderView: UIView {
         layout.estimatedItemSize = .zero
         
         return UICollectionView(frame: .zero, collectionViewLayout: layout).then {
-            $0.backgroundColor = .purple300
             $0.isScrollEnabled = false
         }
     }()
@@ -74,12 +74,36 @@ final class PublicGroupDetailHeaderView: UIView {
     
     weak var delegate: PublicGroupDetailHeaderViewDelegate?
     
+    var groupTendency: String = "" {
+        didSet {
+            groupTendencyView.tagType = .emotion
+        }
+    }
+    
+    var groupName: String = "" {
+        didSet {
+            groupNameLabel.text = groupName
+        }
+    }
+    
+    var groupDescription: String = "" {
+        didSet {
+            groupDescriptionLabel.text = groupDescription
+        }
+    }
+    
+    var tags = [String]()
+    
     // MARK: - Initializer
     
     init() {
         super.init(frame: .zero)
+        DispatchQueue.main.async {
+            self.groupTagCollectionView.reloadData()
+        }
         configUI()
         setLayout()
+        setCollectionView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -93,7 +117,7 @@ final class PublicGroupDetailHeaderView: UIView {
         
         buttonBackView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 10, bounds: true)
         
-        groupImageView.makeRounded(cornerRadius: 33)
+        groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 33, bounds: true)
         
         groupTendencyView.tagType = .emotion
         groupTendencyView.snp.updateConstraints {
@@ -111,7 +135,8 @@ final class PublicGroupDetailHeaderView: UIView {
         buttonBackView.addSubviews([inviteButton, lineView, shareButton])
         
         groupImageView.snp.makeConstraints {
-            $0.top.centerX.equalToSuperview()
+            $0.top.equalToSuperview().inset(21)
+            $0.centerX.equalToSuperview()
             $0.width.equalTo(98)
             $0.height.equalTo(100)
         }
@@ -165,6 +190,24 @@ final class PublicGroupDetailHeaderView: UIView {
         }
     }
     
+    // MARK: - Custom Method
+    
+    private func setCollectionView() {
+        groupTagCollectionView.delegate = self
+        groupTagCollectionView.dataSource = self
+        
+        groupTagCollectionView.register(ItemCell.self, forCellWithReuseIdentifier: ItemCell.CellIdentifier)
+    }
+    
+    private func calculateCellWidth(text: String) -> CGFloat {
+        let label = UILabel()
+        label.text = "#\(text)"
+        label.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        label.setTextSpacingBy(value: -0.6)
+        label.sizeToFit()
+        return label.frame.width + 12
+    }
+    
     // MARK: - @objc
     
     @objc func touchUpInviteButton() {
@@ -176,4 +219,84 @@ final class PublicGroupDetailHeaderView: UIView {
     }
 }
 
+// MARK: - UICollectionView Protocols
+
+extension PublicGroupDetailHeaderView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: calculateCellWidth(text: tags[indexPath.item]), height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 7
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 7
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .zero
+    }
+}
+
+extension PublicGroupDetailHeaderView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tags.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.CellIdentifier, for: indexPath) as? ItemCell else { return UICollectionViewCell() }
+        cell.initCell(tag: tags[indexPath.item])
+        return cell
+    }
+}
+
+// MARK: - Item Cell
+
+fileprivate final class ItemCell: UICollectionViewCell {
+    static var CellIdentifier: String { return String(describing: self) }
+    
+    // MARK: - Properties
+    
+    private lazy var titleLabel = UILabel().then {
+        $0.text = "#태그"
+        $0.textColor = .purple100
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        $0.setTextSpacingBy(value: -0.6)
+    }
+    
+    // MARK: - Initialzier
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configUI()
+        setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Init UI
+    
+    private func configUI() {
+        contentView.backgroundColor = UIColor(red: 198.0 / 255.0, green: 198.0 / 255.0, blue: 198.0 / 255.0, alpha: 0.27)
+        contentView.makeRounded(cornerRadius: 4)
+    }
+    
+    private func setLayout() {
+        contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(6)
+            $0.centerY.equalToSuperview()
+        }
+    }
+    
+    // MARK: - Custom Method
+    
+    internal func initCell(tag: String) {
+        titleLabel.text = "#\(tag)"
+        titleLabel.setTextSpacingBy(value: -0.6)
+    }
+}
 
