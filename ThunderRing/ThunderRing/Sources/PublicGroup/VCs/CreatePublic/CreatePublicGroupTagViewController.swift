@@ -32,8 +32,9 @@ final class CreatePublicGroupTagViewController: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
     }
     
-    private var groupTendencyTextField = UITextField().then {
+    private lazy var groupTendencyTextField = UITextField().then {
         $0.placeholder = "부지런한 동틀녘"
+        $0.addTarget(self, action: #selector(touchUpGroupTendencyTextField), for: .allTouchEvents)
     }
     
     private var tagLabel = UILabel().then {
@@ -48,14 +49,16 @@ final class CreatePublicGroupTagViewController: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
     }
     
-    private var groupTagTextField = UITextField().then {
+    private lazy var groupTagTextField = UITextField().then {
         $0.placeholder = "#태그 #태그 #태그"
+        $0.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
     
     private lazy var tagWarningLabel = UILabel().then {
-        $0.text = "3개 이하로 입력해주세요"
+        $0.text = "*3개 이하로 입력해주세요"
         $0.textColor = .red
         $0.isHidden = true
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
     
     private lazy var nextButton = TDSButton().then {
@@ -88,6 +91,7 @@ final class CreatePublicGroupTagViewController: UIViewController {
     
     private func configNavigationBar() {
         navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     private func configUI() {
@@ -209,7 +213,23 @@ final class CreatePublicGroupTagViewController: UIViewController {
     
     @objc func touchUpDoneButton() {
         groupTendencyTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
+        nextButton.isHidden = false
         self.view.endEditing(true)
+    }
+    
+    @objc func touchUpGroupTendencyTextField() {
+        nextButton.isHidden = true
+    }
+    
+    @objc func textFieldDidChange(_ sender: Any) {
+        var count = 0
+        guard let str = groupTagTextField.text else { return }
+        count = Array(str).filter{ $0 == "#" }.count
+        if count > 3 {
+            tagWarningLabel.isHidden = false
+        } else {
+            tagWarningLabel.isHidden = true
+        }
     }
 }
 
@@ -252,23 +272,6 @@ extension CreatePublicGroupTagViewController: UITextFieldDelegate {
         if groupTendencyTextField.hasText && groupTagTextField.hasText {
             nextButton.isActivated = true
         }
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        guard let lastChar = str.last else { return true }
-        if lastChar == " " {
-            guard let text = groupTagTextField.text else { return true }
-            let firstTagView = TagView(groupTag: text)
-            groupTagTextField.addSubview(firstTagView)
-            firstTagView.snp.makeConstraints {
-                $0.leading.equalToSuperview().inset(13)
-                $0.top.bottom.equalToSuperview().inset(13)
-                $0.width.equalTo(74)
-            }
-            groupTagTextField.text = ""
-        }
-        return true
     }
 }
 

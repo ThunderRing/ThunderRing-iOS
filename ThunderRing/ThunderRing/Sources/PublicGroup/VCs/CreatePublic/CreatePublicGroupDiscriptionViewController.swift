@@ -19,16 +19,20 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     private var onelineLabel = UILabel().then {
         $0.text = "한 줄 설명"
         $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        $0.setTextSpacingBy(value: -0.6)
     }
     
-    private var onelineTextField = UITextField().then {
+    private lazy var onelineTextField = UITextField().then {
         $0.placeholder = "그룹 설명을 입력해주세요"
         $0.tintColor = .purple100
+        $0.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     private var onelineTextCountLabel = UILabel().then {
-        $0.text = "0/10"
-        $0.textColor = .gray200
+        $0.text = "0/20"
+        $0.textColor = .gray100
+        $0.font = .DINPro(type: .regular, size: 16)
     }
     
     private var maxCountLabel = UILabel().then {
@@ -47,9 +51,10 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
-    private var maxCountTextField = UITextField().then {
+    private lazy var maxCountTextField = UITextField().then {
         $0.placeholder = "최대 정원을 입력해주세요"
         $0.tintColor = .purple100
+        $0.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
     private var countLabel = UILabel().then {
@@ -86,6 +91,9 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        onelineTextField.setRightPaddingPoints(30)
+        maxCountTextField.setRightPaddingPoints(30)
+        
         view.endEditing(true)
     }
     
@@ -93,6 +101,7 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     
     private func configNavigationBar() {
         navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     private func configUI() {
@@ -204,21 +213,27 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     // MARK: - @objc
     
     @objc func touchUpNextButton() {
+        let dvc = CreatePublicGroupTagViewController()
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    @objc func textFieldDidChange(_ sender: Any) {
+        if onelineTextField.hasText && maxCountTextField.hasText {
+            nextButton.isActivated = true
+        }
+        
         guard let text = maxCountTextField.text else { return }
         guard let textCount = Int(text) else { return }
+        
         if textCount > 300 || textCount < 2 {
-            maxCountTextField.text = "300"
-            
             maxCountTextField.layer.borderColor = UIColor.red.cgColor
             warningLabel.isHidden = false
             
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
         } else {
+            maxCountTextField.layer.borderColor = UIColor.purple100.cgColor
             warningLabel.isHidden = true
-            
-            let dvc = CreatePublicGroupTagViewController()
-            navigationController?.pushViewController(dvc, animated: true)
         }
     }
 }
@@ -228,6 +243,7 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
 extension CreatePublicGroupDiscriptionViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.purple100.cgColor
+        textField.setRightIcon(0, textField.frame.height, UIImage(named: "btnDelete")!)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -238,16 +254,20 @@ extension CreatePublicGroupDiscriptionViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if textField == onelineTextField {
             guard let text = textField.text else { return }
-            onelineTextCountLabel.text = String("\(text.count)/10")
+            onelineTextCountLabel.text = String("\(text.count)/20")
             onelineTextCountLabel.textColor = .black
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         textField.layer.borderColor = UIColor.gray300.cgColor
-
-        if onelineTextField.hasText && maxCountTextField.hasText {
-            nextButton.isActivated = true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == onelineTextField {
+            let newLength = (textField.text?.count)! + string.count - range.length
+            return !(newLength > 20)
         }
+        return true
     }
 }
