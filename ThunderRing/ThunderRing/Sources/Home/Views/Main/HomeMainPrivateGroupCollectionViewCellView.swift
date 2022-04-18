@@ -128,7 +128,7 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
     
     // MARK: - Public Method
     
-    func configCell(group: PrivateGroupDetailData) {
+    func configCell(group: PrivateGroupData) {
 //        guard let image = group.groupImageName else { return }
 //        groupImageView.image = UIImage(named: image)
         

@@ -15,7 +15,7 @@
 		1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */; };
 		76F17246B58289076DF19965 /* Pods_ThunderRing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E4DD19CD69E27D0BA6EDBC /* Pods_ThunderRing.framework */; };
 		9209959B280C7EE9008C3491 /* PrivageGroupDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209959A280C7EE9008C3491 /* PrivageGroupDetailResponse.swift */; };
-		9209959D280C8671008C3491 /* PrivateGroupDetailData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9209959C280C8671008C3491 /* PrivateGroupDetailData.json */; };
+		9209959D280C8671008C3491 /* PrivateGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9209959C280C8671008C3491 /* PrivateGroupData.json */; };
 		9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212663E2747BB2B009DE534 /* TestDataModel.swift */; };
 		9212667A2748055A009DE534 /* TestResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266792748055A009DE534 /* TestResultVC.swift */; };
 		9212667C2748167D009DE534 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212667B2748167D009DE534 /* UIColor+.swift */; };
@@ -178,7 +178,7 @@
 		56E4DD19CD69E27D0BA6EDBC /* Pods_ThunderRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThunderRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79421393DC8C74F93D07628F /* Pods-ThunderRing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderRing.debug.xcconfig"; path = "Target Support Files/Pods-ThunderRing/Pods-ThunderRing.debug.xcconfig"; sourceTree = "<group>"; };
 		9209959A280C7EE9008C3491 /* PrivageGroupDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivageGroupDetailResponse.swift; sourceTree = "<group>"; };
-		9209959C280C8671008C3491 /* PrivateGroupDetailData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PrivateGroupDetailData.json; sourceTree = "<group>"; };
+		9209959C280C8671008C3491 /* PrivateGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PrivateGroupData.json; sourceTree = "<group>"; };
 		9212663E2747BB2B009DE534 /* TestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataModel.swift; sourceTree = "<group>"; };
 		921266792748055A009DE534 /* TestResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultVC.swift; sourceTree = "<group>"; };
 		9212667B2748167D009DE534 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -917,7 +917,7 @@
 			isa = PBXGroup;
 			children = (
 				929BB8C927BCDF44003A3BB3 /* TestData.json */,
-				9209959C280C8671008C3491 /* PrivateGroupDetailData.json */,
+				9209959C280C8671008C3491 /* PrivateGroupData.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1244,7 +1244,7 @@
 				92CD3371273FA2A00094CB1C /* SpoqaHanSansNeo-Regular.otf in Resources */,
 				925BAC332742B77E00126166 /* Images.xcassets in Resources */,
 				92C4148727629606000DB287 /* MyPublic.storyboard in Resources */,
-				9209959D280C8671008C3491 /* PrivateGroupDetailData.json in Resources */,
+				9209959D280C8671008C3491 /* PrivateGroupData.json in Resources */,
 				926C7C59273803A10020F851 /* Alarm.storyboard in Resources */,
 				92FFBBA9274CDE7E00706099 /* Buttons.xcassets in Resources */,
 				926C7C57273803980020F851 /* Lightning.storyboard in Resources */,

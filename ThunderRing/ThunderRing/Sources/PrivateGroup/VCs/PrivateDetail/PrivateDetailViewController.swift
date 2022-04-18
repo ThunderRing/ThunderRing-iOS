@@ -317,7 +317,7 @@ final class PrivateDetailViewController: UIViewController {
     }
     
     private func load() -> Data? {
-        let fileNm: String = "PrivateGroupDetailData"
+        let fileNm: String = "PrivateGroupData"
         let extensionType = "json"
         guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
         
@@ -479,17 +479,17 @@ extension PrivateDetailViewController {
     private func getDetailData() {
         guard
             let jsonData = self.load(),
-            let data = try? JSONDecoder().decode(PrivateGroupDetailResponse.self, from: jsonData)
+            let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
         else { return }
         
-        headerView.groupName = data.groupDetailData[index].groupName
-        headerView.groupDescription = data.groupDetailData[index].groupDescription
+        headerView.groupName = data.privateGroupData[index].groupName
+        headerView.groupDescription = data.privateGroupData[index].groupDescription
         
-        members = data.groupDetailData[index].groupMembers
-        history = data.groupDetailData[index].history
+        members = data.privateGroupData[index].groupMembers
+        history = data.privateGroupData[index].history
         
-        memberCountsLabel.text = "\(data.groupDetailData[index].groupMembers.count)"
-        historyCountsLabel.text = "\(data.groupDetailData[index].history.count)"
+        memberCountsLabel.text = "\(data.privateGroupData[index].groupMembers.count)"
+        historyCountsLabel.text = "\(data.privateGroupData[index].history.count)"
     }
 }
 
