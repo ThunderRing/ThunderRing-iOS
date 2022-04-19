@@ -65,7 +65,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        setupLayout()
+        setUpLayout()
         bind()
     }
     
@@ -73,6 +73,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
     
     private func configNavigationBar() {
         navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
     private func configUI() {
@@ -83,11 +84,11 @@ final class CreatePublicGroupNameViewController: UIViewController {
         
         profileImageView.makeRounded(cornerRadius: 40)
         
-        groupNameTextField.initViewBorder(borderWidth: 1, borderColor: UIColor.gray200.cgColor, cornerRadius: 10, bounds: true)
+        groupNameTextField.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
         groupNameTextField.setLeftPaddingPoints(15)
     }
     
-    private func setupLayout() {
+    private func setUpLayout() {
         view.addSubviews([navigationBar,
                           profileLabel,
                           profileImageView,
@@ -175,11 +176,15 @@ final class CreatePublicGroupNameViewController: UIViewController {
 // MARK: - UITextField Delegate
 
 extension CreatePublicGroupNameViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.purple100.cgColor
+        textField.setRightIcon(0, textField.frame.height, UIImage(named: "btnDelete")!)
+        
+        groupNameCountLabel.textColor = .purple100
+    }
+    
     func textFieldDidChangeSelection(_ textField: UITextField) {
         groupNameCountLabel.text = String("\(textField.text!.count)/10")
-        groupNameCountLabel.textColor = .purple100
-        
-        groupNameTextField.layer.borderColor = UIColor.purple100.cgColor
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -189,5 +194,11 @@ extension CreatePublicGroupNameViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
+        groupNameCountLabel.textColor = .black
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newLength = (textField.text?.count)! + string.count - range.length
+        return !(newLength > 10)
     }
 }

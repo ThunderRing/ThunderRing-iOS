@@ -98,7 +98,7 @@ final class HomeMainViewController: UIViewController {
         }
     }()
     
-    private var privateGroupData = [PrivateGroupDetailData]()
+    private var privateGroupData = [PrivateGroupData]()
     
     // MARK: - Life Cycle
     
@@ -232,7 +232,7 @@ final class HomeMainViewController: UIViewController {
     }
     
     private func load() -> Data? {
-        let fileNm: String = "PrivateGroupDetailData"
+        let fileNm: String = "PrivateGroupData"
         let extensionType = "json"
         guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
         
@@ -402,11 +402,10 @@ extension HomeMainViewController {
     private func getPrivateGroupData() {
         guard
             let jsonData = self.load(),
-            let data = try? JSONDecoder().decode(PrivateGroupDetailResponse.self, from: jsonData)
+            let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
         else { return }
         
-        privateGroupData = data.groupDetailData
-        
-        privateGroupHeaderView.count = data.groupDetailData.count
+        privateGroupData = data.privateGroupData
+        privateGroupHeaderView.count = data.privateGroupData.count
     }
 }

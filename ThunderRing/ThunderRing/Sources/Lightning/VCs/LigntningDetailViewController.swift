@@ -28,6 +28,15 @@ final class LigntningDetailViewController: UIViewController {
     
     @IBOutlet weak var capacityLabel: UILabel!
     
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
+    
+    private lazy var titleLabel = UILabel().then {
+        $0.text = "번개 치기"
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+    }
+    
     private lazy var completeButton = TDSButton().then {
         $0.setTitle("다음", for: .normal)
         $0.isActivated = false
@@ -74,26 +83,52 @@ final class LigntningDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        setTextField()
         setToolBar()
         getNotification()
         setDatePickerView()
         setTimePickerView()
+        setAction()
     }
     
     // MARK: - Init UI
     
+    private func configNavigationUI() {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     private func configUI() {
         view.backgroundColor = .background
-        
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
         setStatusBar(.background)
         
+        numGuideLabel.isHidden = true
+        
+        capacityLabel.setTextSpacingBy(value: -0.6)
+        
+        view.addSubview(completeButton)
+        
+        completeButton.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(52)
+        }
+        
+        NSLayoutConstraint.activate([
+            view.keyboardLayoutGuide.topAnchor.constraint(
+                equalTo: completeButton.bottomAnchor,
+                constant: 16
+            )
+        ])
+    }
+    
+    // MARK: - Custom Method
+    
+    private func setTextField() {
         [dateTextField, timeTextField, locationTextField, minTextField, maxTextField].forEach {
             $0?.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
             $0?.setLeftPaddingPoints(14)
@@ -107,30 +142,15 @@ final class LigntningDetailViewController: UIViewController {
             $0?.setRightIcon(0, 56, UIImage(named: "btnDown")!)
         }
         
-        numGuideLabel.isHidden = true
+        dateTextField.addTarget(self, action: #selector(touchUpDateTextField), for: .allTouchEvents)
         
-        dateTextField.placeholder = dateFormatter.string(from: nowDate)
-        timeTextField.placeholder = timeFormatter.string(from: nowDate)
+        timeTextField.addTarget(self, action: #selector(touchUpTimeTextField), for: .allTouchEvents)
         
         minTextField.addTarget(self, action: #selector(self.minFieldDidChange(_:)), for: .editingChanged)
         dateTextField.addTarget(self, action: #selector(self.dateFieldDidChange), for: .valueChanged)
         
         maxTextField.placeholder = "최대 \(groupMaxCount)명"
-        
-        view.addSubview(completeButton)
-        completeButton.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(25)
-            $0.height.equalTo(52)
-        }
-        NSLayoutConstraint.activate([
-            view.keyboardLayoutGuide.topAnchor.constraint(
-                equalTo: completeButton.bottomAnchor,
-                constant: 16
-            )
-        ])
     }
-    
-    // MARK: - Custom Method
     
     private func setToolBar() {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 375, height: 44))
@@ -190,14 +210,27 @@ final class LigntningDetailViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name("KeyboardWillHideNotification"), object: nil)
     }
     
+    private func setAction() {
+        backButton.addAction(UIAction(handler: { action in
+            self.navigationController?.popViewController(animated: true)
+        }), for: .touchUpInside)
+        
+        closeButton.addAction(UIAction(handler: { action in
+            self.dismiss(animated: true)
+        }), for: .touchUpInside)
+    }
+    
     // MARK: - @objc
     
     @objc func touchUpDoneButton() {
+        completeButton.isHidden = false
         NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHideNotification"), object: nil)
         view.endEditing(true)
     }
     
     @objc func touchUpDateDoneButton() {
+        completeButton.isHidden = false
+        
         dateTextField.text = dateFormatter.string(from: datePickerView.date)
         
         let date = Date()
@@ -211,6 +244,8 @@ final class LigntningDetailViewController: UIViewController {
     }
     
     @objc func touchUpTimeDoneButton() {
+        completeButton.isHidden = false
+        
         timeTextField.text = timeFormatter.string(from: timePickerView.date)
         view.endEditing(true)
     }
@@ -274,6 +309,14 @@ final class LigntningDetailViewController: UIViewController {
         UIView.animate(withDuration: 0.5) {
             self.view.transform = .identity
         }
+    }
+    
+    @objc func touchUpDateTextField() {
+        completeButton.isHidden = true
+    }
+    
+    @objc func touchUpTimeTextField() {
+        completeButton.isHidden = true
     }
 }
 

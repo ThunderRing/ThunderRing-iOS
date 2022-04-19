@@ -26,8 +26,8 @@ final class PrivateListTableViewCell: UITableViewCell {
     }
     
     private lazy var countLabel = UILabel().then {
-        $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
+        $0.textColor = .gray150
+        $0.font = .DINPro(type: .regular, size: 15)
     }
     
     // MARK: - Initializer
@@ -45,20 +45,23 @@ final class PrivateListTableViewCell: UITableViewCell {
     // MARK: - Init UI
     
     private func configUI() {
-        initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 0, bounds: true)
+        backgroundColor = .white
+        
+        initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 1, bounds: true)
     }
     
     private func setLayout() {
-        self.addSubviews([groupImageView, groupNameLabel, countLabel])
+        addSubviews([groupImageView, groupNameLabel, countLabel])
         
         groupImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(25)
-            $0.width.height.equalTo(54)
-            $0.centerY.equalToSuperview()
+            $0.top.equalToSuperview().inset(18)
+            $0.leading.equalToSuperview().inset(21)
+            $0.width.equalTo(48)
+            $0.height.equalTo(50)
         }
         
         groupNameLabel.snp.makeConstraints {
-            $0.leading.equalTo(groupImageView.snp.trailing).offset(25)
+            $0.leading.equalTo(groupImageView.snp.trailing).offset(14)
             $0.centerY.equalToSuperview()
         }
         

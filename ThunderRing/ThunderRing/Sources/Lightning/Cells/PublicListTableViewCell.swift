@@ -26,8 +26,8 @@ final class PublicListTableViewCell: UITableViewCell {
     }
     
     private var countLabel = UILabel().then {
-        $0.textColor = .darkGray
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
+        $0.textColor = .gray150
+        $0.font = .DINPro(type: .regular, size: 15)
     }
     
     private lazy var groupTagView = GroupTendencyView(tagType: .diligent)
@@ -47,20 +47,19 @@ final class PublicListTableViewCell: UITableViewCell {
     // MARK: - Init UI
     
     private func configUI() {
-        layer.borderColor = UIColor.gray350.cgColor
-        layer.borderWidth = 1
-        
         groupTagView.makeRounded(cornerRadius: 3)
+        
+        initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 1, bounds: true)
     }
     
     private func setLayout() {
         addSubviews([groupImageView, groupNameLabel, countLabel, groupTagView])
         
         groupImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(18)
             $0.leading.equalToSuperview().inset(21)
             $0.width.equalTo(48)
             $0.height.equalTo(50)
-            $0.centerY.equalToSuperview()
         }
         
         groupNameLabel.snp.makeConstraints {

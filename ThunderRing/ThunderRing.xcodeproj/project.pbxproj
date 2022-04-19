@@ -14,8 +14,10 @@
 		1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFC0BBF274C080300C5001D /* PublicGroupCVC.swift */; };
 		1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */; };
 		76F17246B58289076DF19965 /* Pods_ThunderRing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E4DD19CD69E27D0BA6EDBC /* Pods_ThunderRing.framework */; };
-		9209959B280C7EE9008C3491 /* PrivageGroupDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209959A280C7EE9008C3491 /* PrivageGroupDetailResponse.swift */; };
-		9209959D280C8671008C3491 /* PrivateGroupDetailData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9209959C280C8671008C3491 /* PrivateGroupDetailData.json */; };
+		9209959B280C7EE9008C3491 /* PrivateGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209959A280C7EE9008C3491 /* PrivateGroupResponse.swift */; };
+		9209959D280C8671008C3491 /* PrivateGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9209959C280C8671008C3491 /* PrivateGroupData.json */; };
+		920995A4280D3D5E008C3491 /* PublicGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920995A3280D3D5E008C3491 /* PublicGroupResponse.swift */; };
+		920995A6280D415C008C3491 /* PublicGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 920995A5280D415C008C3491 /* PublicGroupData.json */; };
 		9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212663E2747BB2B009DE534 /* TestDataModel.swift */; };
 		9212667A2748055A009DE534 /* TestResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266792748055A009DE534 /* TestResultVC.swift */; };
 		9212667C2748167D009DE534 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212667B2748167D009DE534 /* UIColor+.swift */; };
@@ -177,8 +179,10 @@
 		1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicGroupCVC.xib; sourceTree = "<group>"; };
 		56E4DD19CD69E27D0BA6EDBC /* Pods_ThunderRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThunderRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79421393DC8C74F93D07628F /* Pods-ThunderRing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderRing.debug.xcconfig"; path = "Target Support Files/Pods-ThunderRing/Pods-ThunderRing.debug.xcconfig"; sourceTree = "<group>"; };
-		9209959A280C7EE9008C3491 /* PrivageGroupDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivageGroupDetailResponse.swift; sourceTree = "<group>"; };
-		9209959C280C8671008C3491 /* PrivateGroupDetailData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PrivateGroupDetailData.json; sourceTree = "<group>"; };
+		9209959A280C7EE9008C3491 /* PrivateGroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupResponse.swift; sourceTree = "<group>"; };
+		9209959C280C8671008C3491 /* PrivateGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PrivateGroupData.json; sourceTree = "<group>"; };
+		920995A3280D3D5E008C3491 /* PublicGroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupResponse.swift; sourceTree = "<group>"; };
+		920995A5280D415C008C3491 /* PublicGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PublicGroupData.json; sourceTree = "<group>"; };
 		9212663E2747BB2B009DE534 /* TestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataModel.swift; sourceTree = "<group>"; };
 		921266792748055A009DE534 /* TestResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultVC.swift; sourceTree = "<group>"; };
 		9212667B2748167D009DE534 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -374,6 +378,14 @@
 			path = TVC;
 			sourceTree = "<group>";
 		};
+		920995A2280D3D40008C3491 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				920995A3280D3D5E008C3491 /* PublicGroupResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		921266392747AB72009DE534 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,7 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				9252EB942769CA9100809FEA /* ContactDataModel.swift */,
-				9209959A280C7EE9008C3491 /* PrivageGroupDetailResponse.swift */,
+				9209959A280C7EE9008C3491 /* PrivateGroupResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -917,7 +929,8 @@
 			isa = PBXGroup;
 			children = (
 				929BB8C927BCDF44003A3BB3 /* TestData.json */,
-				9209959C280C8671008C3491 /* PrivateGroupDetailData.json */,
+				9209959C280C8671008C3491 /* PrivateGroupData.json */,
+				920995A5280D415C008C3491 /* PublicGroupData.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1030,6 +1043,7 @@
 		92B156872761423000939048 /* PublicGroup */ = {
 			isa = PBXGroup;
 			children = (
+				920995A2280D3D40008C3491 /* Models */,
 				92F98DFF2767BEB400CA10FE /* Views */,
 				92AFB3972763398F00977712 /* Cells */,
 				92B156882761423E00939048 /* VCs */,
@@ -1244,7 +1258,7 @@
 				92CD3371273FA2A00094CB1C /* SpoqaHanSansNeo-Regular.otf in Resources */,
 				925BAC332742B77E00126166 /* Images.xcassets in Resources */,
 				92C4148727629606000DB287 /* MyPublic.storyboard in Resources */,
-				9209959D280C8671008C3491 /* PrivateGroupDetailData.json in Resources */,
+				9209959D280C8671008C3491 /* PrivateGroupData.json in Resources */,
 				926C7C59273803A10020F851 /* Alarm.storyboard in Resources */,
 				92FFBBA9274CDE7E00706099 /* Buttons.xcassets in Resources */,
 				926C7C57273803980020F851 /* Lightning.storyboard in Resources */,
@@ -1271,6 +1285,7 @@
 				92159C96275896EF0081F20B /* DINPro-Light.otf in Resources */,
 				92FA76DF27B3A69600CB54C1 /* GoogleService-Info.plist in Resources */,
 				921A45C3275355AD001E8727 /* CreatePrivate.storyboard in Resources */,
+				920995A6280D415C008C3491 /* PublicGroupData.json in Resources */,
 				92159C93275896EF0081F20B /* DINPro-Regular.otf in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
 				928FDA062760D156009AC059 /* PrivateDetail.storyboard in Resources */,
@@ -1440,13 +1455,14 @@
 				926C7C1C2737F93E0020F851 /* SceneDelegate.swift in Sources */,
 				92A5B2A12739AA49004149B2 /* AccountTableViewCell.swift in Sources */,
 				92C42FEC2802875E00F6B98C /* AlarmPopUpViewController.swift in Sources */,
+				920995A4280D3D5E008C3491 /* PublicGroupResponse.swift in Sources */,
 				9276B065275B44F700915F57 /* BaseCell.swift in Sources */,
 				92609ACD274BD9A700F0E401 /* LigntningDetailViewController.swift in Sources */,
 				924ABCCD27FCF7DC008BB2DA /* AlarmMainTextView.swift in Sources */,
 				92159C9A2758C21A0081F20B /* CreatePrivateViewController.swift in Sources */,
 				1D25F5FB2752D1C600BF7C31 /* RecruitingTVC.swift in Sources */,
 				924ABCC827FCF258008BB2DA /* AlarmMainViewController.swift in Sources */,
-				9209959B280C7EE9008C3491 /* PrivageGroupDetailResponse.swift in Sources */,
+				9209959B280C7EE9008C3491 /* PrivateGroupResponse.swift in Sources */,
 				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,
 				92275FE827BE713E007B507D /* TestVC.swift in Sources */,
 				92F43A33274E8491006025EC /* CompleteLightningViewController.swift in Sources */,

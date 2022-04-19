@@ -14,11 +14,12 @@ final class CompleteCreatePublicViewController: UIViewController {
 
     // MARK: - Properties
     
-    private lazy var customNavigationBarView = CustomNavigationBar(vc: self, title: "공개 그룹 생성", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+    private lazy var customNavigationBarView = CustomNavigationBar(vc: self, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
     
     private var profileImageView = UIImageView().then {
         $0.image = UIImage(named: "imgDog1")
         $0.contentMode = .scaleAspectFit
+        $0.makeRounded(cornerRadius: 40)
     }
     
     private var hashTagImageView = UIImageView().then {
@@ -42,29 +43,49 @@ final class CompleteCreatePublicViewController: UIViewController {
         $0.setTitle("생성", for: .normal)
         $0.backgroundColor = .purple100
         $0.setTitleColor(.white, for: .normal)
+        $0.makeRounded(cornerRadius: 26)
+    }
+    
+    var groupName: String = "" {
+        didSet {
+            groupNameLabel.text = groupName
+        }
+    }
+    
+    var groupDescription: String = "" {
+        didSet {
+            groupDescriptionLabel.text = groupDescription
+        }
     }
     
     // MARK: - Life Cycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configNavigationBar()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        setupLayout()
+        setUpLayout()
     }
     
     // MARK: - InitUI
+    
+    private func configNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
     
     private func configUI() {
         view.backgroundColor = .white
         
         createButton.layer.cornerRadius = 26
         createButton.layer.masksToBounds = true
-        
-        profileImageView.layer.cornerRadius = 20
-        profileImageView.layer.masksToBounds = true
     }
     
-    private func setupLayout() {
+    private func setUpLayout() {
         view.addSubviews([customNavigationBarView,
                          profileImageView,
                          hashTagImageView,
@@ -74,7 +95,7 @@ final class CompleteCreatePublicViewController: UIViewController {
         
         customNavigationBarView.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(57)
+            $0.height.equalTo(50)
         }
         
         profileImageView.snp.makeConstraints {

@@ -40,7 +40,7 @@ final class PrivateDetailMemberCollectionViewCell: UICollectionViewCell {
     private func configUI() {
         backgroundColor = .clear
         
-        memberImageView.makeRounded(cornerRadius: 19)
+        memberImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 19, bounds: true)
     }
     
     private func setLayout() {
@@ -48,7 +48,7 @@ final class PrivateDetailMemberCollectionViewCell: UICollectionViewCell {
         
         memberImageView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview()
+            $0.centerX.equalToSuperview()
             $0.width.equalTo(53)
             $0.height.equalTo(55)
         }

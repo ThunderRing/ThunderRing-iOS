@@ -9,13 +9,13 @@ import Foundation
 
 // MARK: - PrivateGroupDetailResponse
 
-struct PrivateGroupDetailResponse: Codable {
-    let groupDetailData: [PrivateGroupDetailData]
+struct PrivateGroupResponse: Codable {
+    let privateGroupData: [PrivateGroupData]
 }
 
 // MARK: - PrivateGroupDetailData
 
-struct PrivateGroupDetailData: Codable {
+struct PrivateGroupData: Codable {
     let groupName, groupDescription: String
     let groupMembers: [String]
     let history: [History]
