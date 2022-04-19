@@ -110,9 +110,35 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ett-mf-OxL">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번개 치기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOx-Ad-3VK">
+                                        <rect key="frame" x="172" y="13" width="70.5" height="23"/>
+                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
+                                        <color key="textColor" name="gray100"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                <real key="value" value="-0.59999999999999998"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVJ-70-2gE">
+                                        <rect key="frame" x="357" y="1" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="CvP-aA-geK"/>
+                                            <constraint firstAttribute="height" constant="48" id="RTS-sZ-bu0"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="btnClose"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="grayBackground"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mVJ-70-2gE" secondAttribute="trailing" constant="9" id="1mm-hz-iJR"/>
+                                    <constraint firstItem="MOx-Ad-3VK" firstAttribute="top" secondItem="Ett-mf-OxL" secondAttribute="top" constant="13" id="2Tf-4x-ZaY"/>
                                     <constraint firstAttribute="height" constant="50" id="BBM-aV-YRN"/>
+                                    <constraint firstAttribute="bottom" secondItem="mVJ-70-2gE" secondAttribute="bottom" constant="1" id="cdF-ym-N90"/>
+                                    <constraint firstItem="MOx-Ad-3VK" firstAttribute="centerX" secondItem="Ett-mf-OxL" secondAttribute="centerX" id="tvb-Tr-Vac"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그룹 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oaf-4B-hOF">
@@ -141,7 +167,7 @@
                                 <color key="textColor" name="grayTextNonInput"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48O-4D-k09">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/120" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48O-4D-k09">
                                 <rect key="frame" x="349.5" y="526.5" width="39.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="DINPro-Regular" family="DINPro" pointSize="16"/>
                                 <color key="textColor" name="grayTextNonInput"/>
@@ -193,6 +219,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="iMx-tT-yhu"/>
                     <connections>
+                        <outlet property="closeButton" destination="mVJ-70-2gE" id="Khd-iI-STk"/>
                         <outlet property="customNavigationBarView" destination="Ett-mf-OxL" id="6eW-tf-dJA"/>
                         <outlet property="detailCountLabel" destination="48O-4D-k09" id="6e2-M7-GNa"/>
                         <outlet property="detailTextView" destination="Kum-Wr-kP5" id="Ece-0q-lZr"/>
@@ -200,6 +227,7 @@
                         <outlet property="groupSelectLabel" destination="oaf-4B-hOF" id="nlJ-WI-2VL"/>
                         <outlet property="nameCountLabel" destination="4pT-pp-lCO" id="evi-u0-bE1"/>
                         <outlet property="nameTextField" destination="y34-4P-K98" id="gUG-gA-EHm"/>
+                        <outlet property="titleLabel" destination="MOx-Ad-3VK" id="yFy-8e-EFA"/>
                         <outlet property="topConstraint" destination="cKf-LB-ME0" id="2d5-qG-AnX"/>
                     </connections>
                 </viewController>
@@ -298,8 +326,45 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qW8-06-SkV">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번개 치기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sy8-iJ-ypH">
+                                        <rect key="frame" x="171.5" y="13" width="71" height="23"/>
+                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
+                                        <color key="textColor" name="gray100"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="letterSpacing">
+                                                <real key="value" value="-0.59999999999999998"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05L-oZ-NzE">
+                                        <rect key="frame" x="7" y="1" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="6f3-gc-53T"/>
+                                            <constraint firstAttribute="width" constant="48" id="cd3-3c-TL0"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="btnBack"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjR-if-GM4">
+                                        <rect key="frame" x="357" y="1" width="48" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="CUJ-aS-btz"/>
+                                            <constraint firstAttribute="height" constant="48" id="Hzb-6N-GdT"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="btnClose"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="grayBackground"/>
                                 <constraints>
+                                    <constraint firstItem="Sy8-iJ-ypH" firstAttribute="top" secondItem="qW8-06-SkV" secondAttribute="top" constant="13" id="8FJ-RO-e0v"/>
+                                    <constraint firstItem="Sy8-iJ-ypH" firstAttribute="centerX" secondItem="qW8-06-SkV" secondAttribute="centerX" id="OhW-Pc-sRD"/>
+                                    <constraint firstAttribute="trailing" secondItem="fjR-if-GM4" secondAttribute="trailing" constant="9" id="Rlw-gM-ZQo"/>
+                                    <constraint firstItem="05L-oZ-NzE" firstAttribute="leading" secondItem="qW8-06-SkV" secondAttribute="leading" constant="7" id="UbT-5C-DNI"/>
+                                    <constraint firstAttribute="bottom" secondItem="fjR-if-GM4" secondAttribute="bottom" constant="1" id="ZiM-Dx-iNY"/>
+                                    <constraint firstAttribute="bottom" secondItem="05L-oZ-NzE" secondAttribute="bottom" constant="1" id="eRJ-vR-jV6"/>
                                     <constraint firstAttribute="height" constant="50" id="rft-J1-a6Z"/>
                                 </constraints>
                             </view>
@@ -364,7 +429,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="05L-oZ-NzE" id="RaW-Pn-UMC"/>
                         <outlet property="capacityLabel" destination="n9Y-lo-IKv" id="nUS-H4-QGn"/>
+                        <outlet property="closeButton" destination="fjR-if-GM4" id="M46-qu-hhM"/>
                         <outlet property="countLabel" destination="0o0-Mw-JsM" id="Ag2-yH-kZI"/>
                         <outlet property="customNavigationBarView" destination="qW8-06-SkV" id="cfJ-Ap-XbI"/>
                         <outlet property="dateLabel" destination="rWq-JQ-9IT" id="UjX-3O-hod"/>
@@ -469,6 +536,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btnBack" width="48" height="48"/>
+        <image name="btnClose" width="48" height="48"/>
         <image name="icn-bubble" width="242" height="26"/>
         <image name="icnClose" width="48" height="48"/>
         <image name="icn_wave" width="18" height="7"/>

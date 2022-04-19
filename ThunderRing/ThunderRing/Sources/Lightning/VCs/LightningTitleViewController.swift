@@ -26,12 +26,19 @@ final class LightningTitleViewController: UIViewController {
     
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
+    
     private let groupPickerView = UIPickerView()
     
     private lazy var nextButton = TDSButton().then {
         $0.setTitle("다음", for: .normal)
         $0.isActivated = false
         $0.addTarget(self, action: #selector(touchUpNextButton), for: .touchUpInside)
+    }
+    
+    private lazy var iconImageView = UIImageView().then {
+        $0.image = UIImage(named: "btnDown")
     }
     
     var index = 0
@@ -43,7 +50,7 @@ final class LightningTitleViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
@@ -51,20 +58,31 @@ final class LightningTitleViewController: UIViewController {
         configUI()
         bind()
         setToolbar()
+        setAction()
         getNotification()
     }
     
     // MARK: - Init UI
     
-    private func configUI() {
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+    private func configNavigationUI() {
+        navigationController?.isNavigationBarHidden = true
         setStatusBar(.background)
-        
+    }
+    
+    private func configUI() {
         groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         groupNameTextField.setLeftPaddingPoints(14)
         groupNameTextField.tintColor = .clear
         groupNameTextField.inputView = groupPickerView
         groupNameTextField.text = groupNames[index]
+        groupNameTextField.addTarget(self, action: #selector(touchUpNameTextField), for: .allTouchEvents)
+        
+        groupNameTextField.addSubview(iconImageView)
+        iconImageView.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(277)
+            $0.top.bottom.equalToSuperview().inset(1)
+            $0.width.height.equalTo(48)
+        }
         
         nameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         nameTextField.setLeftPaddingPoints(14)
@@ -75,10 +93,12 @@ final class LightningTitleViewController: UIViewController {
         detailTextView.tintColor = .purple100
         
         view.addSubview(nextButton)
+        
         nextButton.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.height.equalTo(52)
         }
+        
         NSLayoutConstraint.activate([
             view.keyboardLayoutGuide.topAnchor.constraint(
                 equalTo: nextButton.bottomAnchor,
@@ -112,6 +132,12 @@ final class LightningTitleViewController: UIViewController {
         groupNameTextField.inputAccessoryView = toolBar
     }
     
+    private func setAction() {
+        closeButton.addAction(UIAction(handler: { action in
+            self.dismiss(animated: true)
+        }), for: .touchUpInside)
+    }
+    
     private func getNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name("KeyboardWillShow"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name("KeyboardWillHide"), object: nil)
@@ -122,6 +148,7 @@ final class LightningTitleViewController: UIViewController {
     @objc func touchUpDoneButton() {
         NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHide"), object: nil)
         groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
+        nextButton.isHidden = false
         view.endEditing(true)
     }
     
@@ -153,6 +180,10 @@ final class LightningTitleViewController: UIViewController {
             navigationController?.pushViewController(dvc, animated: true)
         }
     }
+    
+    @objc func touchUpNameTextField() {
+        nextButton.isHidden = true
+    }
 }
 
 // MARK: - UITextField Delegate
@@ -161,7 +192,6 @@ extension LightningTitleViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 10, bounds: true)
         textField.setRightIcon(0, textField.frame.height, UIImage(named: "btnDelete")!)
-        
         nameCountLabel.textColor = .purple100
     }
     
@@ -192,6 +222,8 @@ extension LightningTitleViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: - UITextView Delegate
+
 extension LightningTitleViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         detailTextView.text = ""
@@ -206,6 +238,9 @@ extension LightningTitleViewController: UITextViewDelegate {
         detailTextView.layer.borderColor = UIColor.gray300.cgColor
         
         if textView.text.isEmpty {
+            detailTextView.text = "세부 전달사항을 입력해주세요 (선택)"
+            detailTextView.textColor = .gray200
+            
             detailCountLabel.textColor = .gray200
         } else {
             detailCountLabel.textColor = .black
@@ -221,7 +256,7 @@ extension LightningTitleViewController: UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        detailCountLabel.text = String("\(textView.text.count)/100")
+        detailCountLabel.text = String("\(textView.text.count)/120")
     }
 }
 

@@ -23,63 +23,109 @@ final class LightningMainViewController: UIViewController {
     private var privateHeaderView = UIView()
     private var publicHeaderView = UIView()
     
-    private var privateHeaderLabel = UILabel().then {
+    private var privateTitleLabel = UILabel().then {
         $0.text = "비공개 그룹"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
-    private var publicHeaderLabel = UILabel().then {
+    private var privateCountLabel = UILabel().then {
+        $0.textColor = .gray200
+        $0.font = .DINPro(type: .regular, size: 18)
+    }
+    
+    private var publicTitleLabel = UILabel().then {
         $0.text = "공개 그룹"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
+    }
+    
+    private var publicCountLabel = UILabel().then {
+        $0.textColor = .gray200
+        $0.font = .DINPro(type: .regular, size: 18)
+    }
+    
+    var privateCount: Int = 0 {
+        didSet {
+            privateCountLabel.text = "\(privateCount)"
+        }
+    }
+    
+    var publicCount: Int = 0 {
+        didSet {
+            publicCountLabel.text = "\(publicCount)"
+        }
     }
     
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-        groupListTableView.reloadData()
+        configNavigationBar()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.groupListTableView.reloadData()
+        }
         configUI()
-        bind()
+        setLayout()
+        setAction()
+        setTableView()
     }
     
     // MARK: - Init UI
     
+    private func configNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     private func configUI() {
         titleLabel.text = "번개 치기"
+        privateCount = 4
+        publicCount = 4
+        
         [privateHeaderView, publicHeaderView].forEach {
             $0.backgroundColor = .background
         }
         
         searchTextField.setLeftIcon(17, 16, UIImage(named: "icnSearch")!)
+    }
+    
+    private func setLayout() {
+        privateHeaderView.addSubviews([privateTitleLabel, privateCountLabel])
+        publicHeaderView.addSubviews([publicTitleLabel, publicCountLabel])
         
-        /// table headerview
-        privateHeaderView.addSubview(privateHeaderLabel)
-        publicHeaderView.addSubview(publicHeaderLabel)
-        
-        [privateHeaderLabel, publicHeaderLabel].forEach {
+        [privateTitleLabel, publicTitleLabel].forEach {
             $0.snp.makeConstraints {
                 $0.leading.equalToSuperview()
                 $0.bottom.equalToSuperview().inset(15)
             }
         }
+        
+        privateCountLabel.snp.makeConstraints {
+            $0.leading.equalTo(privateTitleLabel.snp.trailing).offset(4)
+            $0.bottom.equalToSuperview().inset(15)
+        }
+        
+        publicCountLabel.snp.makeConstraints {
+            $0.leading.equalTo(publicTitleLabel.snp.trailing).offset(4)
+            $0.bottom.equalToSuperview().inset(15)
+        }
     }
     
     // MARK: - Custom Method
     
-    private func bind() {
-        /// button
+    private func setAction() {
         closeButton.addAction(UIAction(handler: { _ in
             self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
-        
-        /// tableview
+    }
+    
+    private func setTableView() {
         groupListTableView.delegate = self
         groupListTableView.dataSource = self
         
