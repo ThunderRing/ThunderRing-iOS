@@ -9,10 +9,13 @@ import UIKit
 
 import SnapKit
 import Then
+import Firebase
 
 final class MyPageFriendCountViewController: UIViewController {
-
+    
     // MARK: - Properties
+    
+    var userList: [UserModel] = []
     
     private lazy var navigationBar = TDSModalNavigationBar(self, title: "친구", backButtonIsHidden: false, closeButtonIsHidden: true)
     
@@ -21,7 +24,7 @@ final class MyPageFriendCountViewController: UIViewController {
     }
     
     private var titleLabel = UILabel().then {
-        $0.text = "그룹"
+        $0.text = "친구"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
     }
@@ -52,6 +55,7 @@ final class MyPageFriendCountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchUserList()
         configUI()
         setLayout()
         bind()
@@ -63,7 +67,7 @@ final class MyPageFriendCountViewController: UIViewController {
         view.backgroundColor = .background
         setStatusBar(.white)
         navigationBar.layer.applyShadow()
-        count = 4
+        count = 3
     }
     
     private func setLayout() {
@@ -103,6 +107,29 @@ final class MyPageFriendCountViewController: UIViewController {
         friendTableView.delegate = self
         friendTableView.dataSource = self
     }
+    
+    private func fetchUserList() {
+        
+        FirebaseDataService.instance.userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let data = snapshot.value as? Dictionary<String, AnyObject>, let uid = FirebaseDataService.instance.currentUserUid {
+                for (key, data) in data {
+                    if uid != key {
+                        if let userData = data as? Dictionary<String, AnyObject> {
+                            let username = userData["name"] as! String
+                            let profileImageName = userData["imageName"] as! String
+                            let tendency = userData["tendency"] as! String
+                            let user = UserModel(uid: uid, name: username, imageName: profileImageName, tendency: tendency)
+                            self.userList.append(user)
+                            
+                            DispatchQueue.main.async(execute: {
+                                self.friendTableView.reloadData()
+                            })
+                        }
+                    }
+                }
+            }
+        })
+    }
 }
 
 extension MyPageFriendCountViewController: UITableViewDelegate {
@@ -123,11 +150,12 @@ extension MyPageFriendCountViewController: UITableViewDelegate {
 extension MyPageFriendCountViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // FIXME: - 데이터 변경
-        return 4
+        return userList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.CellIdentifier) as? ItemCell else { return UITableViewCell() }
+        cell.initCell(userList: userList[indexPath.row])
         return cell
     }
 }
@@ -144,18 +172,18 @@ fileprivate final class ItemCell: UITableViewCell {
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 5, bounds: true)
     }
     
-    private lazy var userImageView = UIImageView().then {
+    var userImageView = UIImageView().then {
         $0.image = UIImage(named: "imgDog1")
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 17, bounds: true)
     }
     
-    private lazy var titleLabel = UILabel().then {
+    var titleLabel = UILabel().then {
         $0.text = "이름"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
-    private lazy var groupTendencyView = GroupTendencyView(tagType: .emotion).then {
+    var groupTendencyView = GroupTendencyView(tagType: .emotion).then {
         $0.makeRounded(cornerRadius: 3)
     }
     
@@ -206,7 +234,11 @@ fileprivate final class ItemCell: UITableViewCell {
     
     // MARK: - Custom Method
     
-    internal func initCell() {
+    internal func initCell(userList: UserModel) {
+        
+        userImageView.image = UIImage(named: userList.imageName!)
+        titleLabel.text = userList.name
+        // FIXME: - Tendency
         
     }
 }

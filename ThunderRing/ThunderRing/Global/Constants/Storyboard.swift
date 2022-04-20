@@ -23,6 +23,8 @@ extension Const {
             static let MyPublic = "MyPublic"
             static let PublicDetail = "PublicDetail"
             static let CreatePublic = "CreatePublic"
+            
+            static let SignIn = "SignIn"
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 final class MyPageViewController: UIViewController {
     
@@ -23,6 +24,7 @@ final class MyPageViewController: UIViewController {
     private var friendCount = 0
     private var groupCount = 0
     private var lightningCount = 0
+    let userID = FirebaseDataService.instance.currentUserUid
     
     @IBOutlet weak var friendCountLabel: UILabel!
     @IBOutlet weak var groupCountLabel: UILabel!
@@ -39,6 +41,7 @@ final class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUserInfo()
         configUI()
         bind()
     }
@@ -93,6 +96,21 @@ final class MyPageViewController: UIViewController {
         lightningCountLabel.addGestureRecognizer(lightningCountTapGesture)
     }
     
+    private func updateUserInfo(){
+        
+        FirebaseDataService.instance.userRef.child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            let userName = value?["name"] as? String ?? "error"
+            let imageName = value?["imageName"] as? String ?? "imageRabbit"
+            
+            self.userNameLabel.text = userName
+            self.userImageView.image = UIImage(named: imageName)
+            
+        })
+        
+    }
+    
     // MARK: - @objc
     
     @objc func pickImage() {
@@ -126,6 +144,20 @@ extension MyPageViewController: UITableViewDelegate {
         if indexPath.section == 1 {
             let dvc = AccountInfoViewController()
             navigationController?.pushViewController(dvc, animated: true)
+        } else if indexPath.section == 4{
+            
+            do {
+                try Auth.auth().signOut()
+                
+            } catch let signOutError as NSError{
+                print("Error signOut: %@", signOutError)
+            }
+            guard let vc = UIStoryboard(name: Const.Storyboard.Name.SignIn, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.SignIn) as? SignInViewController else { return }
+            let dvc = UINavigationController(rootViewController: vc)
+            dvc.modalTransitionStyle = .crossDissolve
+            dvc.modalPresentationStyle = .fullScreen
+            present(dvc, animated: true, completion: nil)
+            
         }
     }
 }

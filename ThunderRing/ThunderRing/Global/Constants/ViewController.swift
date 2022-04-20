@@ -37,6 +37,8 @@ extension Const {
                 static let MyPublic = "MyPublicViewController"
                 static let PublicDetail = "PublicDetailViewController"
                 static let CreatePublic = "CreatePublicVC"
+                
+                static let SignIn = "SignInViewController"
             }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ChatListVC: UIViewController {
 
@@ -19,6 +20,9 @@ class ChatListVC: UIViewController {
     // MARK: - Properties
     
     private var chatLists = [ChatListDataModel]()
+    var uid = FirebaseDataService.instance.currentUserUid
+    var keys: [String] = []
+    var destinationUsers : [String] = []
     
     // MARK: - Life Cycle
     
@@ -59,6 +63,20 @@ extension ChatListVC {
             ChatListDataModel(groupImage: "imgDog1", hashTag: "양파링 걸즈", title: "혜화역 혼가츠 먹자", subTitle: "안녕하세요!", count: 3, time: 1)
             ])
     }
+    
+//    private func getChatoomsList(){
+//        Database.database().reference().child("chatrooms").queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
+//
+//            for item in datasnapshot.children.allObjects as? [DataSnapshot]{
+//                self.chatLists.removeAll()
+//                if let chatlistDic = item.value as? [String: AnyObject]{
+//                    let chatListModel = ChatListDataModel(JSON: chatlistDic)
+//                    self.keys.append(item.key)
+//                    self.chatrooms.append(chatListModel)
+//                }
+//            }
+//        })
+//    }
 }
 
 // MARK: - UITableView Delegate
@@ -71,6 +89,7 @@ extension ChatListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as? ChatViewController else { return }
         dvc.chatTitle = chatLists[indexPath.row].title
+        dvc.destinationRoomID = self.keys[indexPath.row]
         self.navigationController?.pushViewController(dvc, animated: true)
     }
 }
