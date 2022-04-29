@@ -33,7 +33,7 @@ final class HomeRecruitingCollectionViewCell: UICollectionViewCell {
     
     private func configUI() {
         contentView.addSubview(memberImageView)
-        contentView.makeRounded(cornerRadius: 17)
+        contentView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 17, bounds: true)
     }
     
     private func setLayout() {

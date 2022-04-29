@@ -29,6 +29,7 @@ final class HomeRecruitingTableViewCell: UITableViewCell {
     }
 
     private func configUI() {
+        contentView.backgroundColor = .white
         contentView.addSubview(cellView)
         cellView.snp.makeConstraints {
             $0.leading.trailing.top.equalToSuperview()
