@@ -40,6 +40,16 @@ extension UITextField {
         leftViewMode = .always
     }
     
+    func setPlaceholderColor(_ placeholderColor: UIColor) {
+        attributedPlaceholder = NSAttributedString(
+            string: placeholder ?? "",
+            attributes: [
+                .foregroundColor: placeholderColor,
+                .font: font
+            ].compactMapValues { $0 }
+        )
+    }
+    
     func setRightIcon(_ padding: CGFloat, _ size: CGFloat, _ icon: UIImage) {
         let padding = padding
         let size = size
@@ -59,12 +69,5 @@ extension UITextField {
     
     @objc func touchUpDeleteButton() {
         self.text = ""
-    }
-    
-    func setPlaceholder(color: UIColor) {
-        guard let string = self.placeholder else {
-            return
-        }
-        attributedPlaceholder = NSAttributedString(string: string, attributes: [.foregroundColor: color])
     }
 }
