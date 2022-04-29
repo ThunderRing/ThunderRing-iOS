@@ -32,17 +32,21 @@ final class MyPublicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        bind()
+        setCollectionView()
+        setGesture()
+        setAction()
     }
     
     private func configUI() {
         topView.backgroundColor = .white
 
         groupCollectionView.backgroundColor = .background
+        
+        myGroupLabel.setTextSpacingBy(value: -0.6)
+        lookLabel.setTextSpacingBy(value: -0.6)
     }
     
-    private func bind() {
-        /// CollectionView
+    private func setCollectionView() {
         let groupCollectionViewlayout = groupCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         groupCollectionViewlayout?.scrollDirection = .horizontal
         groupCollectionViewlayout?.estimatedItemSize = .zero
@@ -56,8 +60,9 @@ final class MyPublicViewController: UIViewController {
         
         groupCollectionView.register(UINib(nibName: MyGroupCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: MyGroupCollectionViewCell.identifier)
         groupCollectionView.register(MyOverviewCollectionViewCell.self, forCellWithReuseIdentifier: MyOverviewCollectionViewCell.CellIdentifier)
-        
-        /// Gesture
+    }
+    
+    private func setGesture() {
         let tapMyGroupLabelGesture = UITapGestureRecognizer(target: self, action: #selector(dragToMyGroup))
         myGroupLabel.addGestureRecognizer(tapMyGroupLabelGesture)
         myGroupLabel.isUserInteractionEnabled = true
@@ -65,8 +70,9 @@ final class MyPublicViewController: UIViewController {
         let tapLookLabelGesture = UITapGestureRecognizer(target: self, action: #selector(dragToLook))
         lookLabel.addGestureRecognizer(tapLookLabelGesture)
         lookLabel.isUserInteractionEnabled = true
-        
-        /// Button
+    }
+    
+    private func setAction() {
         backButton.addAction(UIAction(handler: { _ in
             self.navigationController?.popViewController(animated: true)
         }), for: .touchUpInside)
@@ -103,7 +109,7 @@ final class MyPublicViewController: UIViewController {
         groupCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
         if currentIndex == 0 {
             UIView.animate(withDuration: 0.3) {
-                self.statusMovedView.transform = CGAffineTransform(translationX: 187, y: 0)
+                self.statusMovedView.transform = CGAffineTransform(translationX: 165.5, y: 0)
             }
             currentIndex = 1
             self.myGroupLabel.textColor = .gray150
@@ -122,15 +128,15 @@ extension MyPublicViewController: UICollectionViewDelegate {
                 self.statusMovedView.transform = CGAffineTransform(translationX: 165.5, y: 0)
             }
             currentIndex = 1
-            self.myGroupLabel.textColor = .gray
-            self.lookLabel.textColor = .black
+            self.myGroupLabel.textColor = .gray150
+            self.lookLabel.textColor = .gray100
         } else if targetIndex == 0 && currentIndex == 1 {
             UIView.animate(withDuration: 0.5) {
                 self.statusMovedView.transform = .identity
             }
             currentIndex = 0
-            self.myGroupLabel.textColor = .black
-            self.lookLabel.textColor = .gray
+            self.myGroupLabel.textColor = .gray100
+            self.lookLabel.textColor = .gray150
         }
     }
 }

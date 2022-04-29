@@ -159,7 +159,7 @@ final class PublicDetailViewController: UIViewController {
         }
     }
     
-    // TODO: - 분기처리
+    // FIXME: - 분기처리
     var isMemberViewOpen: Bool = true {
         didSet {
             memberMoreButton.setImage(isMemberViewOpen ? UIImage(named: "btn_more") : UIImage(named: " "), for: .normal)
@@ -181,7 +181,7 @@ final class PublicDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configNavigationBar()
+        configNavigationUI()
         configTabBar()
     }
     
@@ -199,7 +199,7 @@ final class PublicDetailViewController: UIViewController {
     
     // MARK: - InitUI
     
-    private func configNavigationBar() {
+    private func configNavigationUI() {
         navigationController?.isNavigationBarHidden = true
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
