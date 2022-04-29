@@ -63,7 +63,7 @@ final class LightningMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configNavigationBar()
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
@@ -79,7 +79,7 @@ final class LightningMainViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationBar() {
+    private func configNavigationUI() {
         navigationController?.isNavigationBarHidden = true
     }
     
