@@ -59,19 +59,19 @@ final class CreatePublicGroupNameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        configNavigationBar()
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
         setUpLayout()
-        bind()
+        setTextField()
     }
     
     // MARK: - InitUI
     
-    private func configNavigationBar() {
+    private func configNavigationUI() {
         navigationController?.isNavigationBarHidden = true
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
@@ -152,7 +152,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
     
     // MARK: - Custom Method
     
-    private func bind() {
+    private func setTextField() {
         groupNameTextField.delegate = self
     }
     
