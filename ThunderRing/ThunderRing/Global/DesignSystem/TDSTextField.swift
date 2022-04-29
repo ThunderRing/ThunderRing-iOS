@@ -41,8 +41,8 @@ class TDSTextField: UITextField {
         self.layer.borderColor = UIColor.gray300.cgColor
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 10
-        self.setLeftPaddingPoints(14)
-        self.setRightPaddingPoints(14)
+        self.setLeftPaddingPoints(12)
+        self.setRightPaddingPoints(12)
     }
     
     // MARK: - Public Method
