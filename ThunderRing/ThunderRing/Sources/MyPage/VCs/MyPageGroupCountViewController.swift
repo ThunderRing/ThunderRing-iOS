@@ -24,13 +24,23 @@ final class MyPageGroupCountViewController: UIViewController {
     private var privateHeaderLabel = UILabel().then {
         $0.text = "비공개 그룹"
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
+    }
+    
+    private var privateGroupCountLabel = UILabel().then {
+        $0.textColor = .gray200
+        $0.font = .DINPro(type: .regular, size: 18)
     }
     
     private var publicHeaderLabel = UILabel().then {
         $0.text = "공개 그룹"
         $0.textColor = .gray100
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
+    }
+    
+    private var publicGroupCountLabel = UILabel().then {
+        $0.textColor = .gray200
+        $0.font = .DINPro(type: .regular, size: 18)
     }
     
     private var privateGroupData = [PrivateGroupData]()
@@ -86,14 +96,24 @@ final class MyPageGroupCountViewController: UIViewController {
         }
         
         /// table headerview
-        privateHeaderView.addSubview(privateHeaderLabel)
-        publicHeaderView.addSubview(publicHeaderLabel)
+        privateHeaderView.addSubviews([privateHeaderLabel, privateGroupCountLabel])
+        publicHeaderView.addSubviews([publicHeaderLabel, publicGroupCountLabel])
         
         [privateHeaderLabel, publicHeaderLabel].forEach {
             $0.snp.makeConstraints {
                 $0.leading.equalToSuperview()
                 $0.bottom.equalToSuperview().inset(15)
             }
+        }
+        
+        privateGroupCountLabel.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(14)
+            $0.leading.equalTo(privateHeaderLabel.snp.trailing).offset(4)
+        }
+        
+        publicGroupCountLabel.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(14)
+            $0.leading.equalTo(publicHeaderLabel.snp.trailing).offset(4)
         }
     }
     
@@ -234,6 +254,7 @@ extension MyPageGroupCountViewController {
             let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
         else { return }
         privateGroupData = data.privateGroupData
+        privateGroupCountLabel.text = "\(data.privateGroupData.count)"
     }
     
     private func getPublicGroupData() {

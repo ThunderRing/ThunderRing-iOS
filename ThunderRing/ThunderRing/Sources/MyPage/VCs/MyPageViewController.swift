@@ -36,14 +36,18 @@ final class MyPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+        configNavigatioUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUserInfo()
         configUI()
         bind()
+        updateUserInfo()
+    }
+    
+    private func configNavigatioUI() {
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func configUI() {
@@ -144,7 +148,7 @@ extension MyPageViewController: UITableViewDelegate {
         if indexPath.section == 1 {
             let dvc = AccountInfoViewController()
             navigationController?.pushViewController(dvc, animated: true)
-        } else if indexPath.section == 4{
+        } else if indexPath.section == 4 {
             
             do {
                 try Auth.auth().signOut()
