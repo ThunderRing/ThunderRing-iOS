@@ -33,21 +33,39 @@ final class MyPageGroupCountViewController: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
     }
     
+    private var privateGroupData = [PrivateGroupData]()
+//    private var publicGroupData = [PublicGroupData]()
+    
     // MARK: - Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configNavigationUI()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.getPrivateGroupData()
+            self.getPublicGroupData()
+            self.groupTableView.reloadData()
+        }
         configUI()
         setLayout()
-        bind()
+        setTableView()
     }
     
     // MARK: - Init UI
     
-    private func configUI() {
-        view.backgroundColor = .background
+    private func configNavigationUI() {
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
         setStatusBar(.white)
         navigationBar.layer.applyShadow()
+    }
+    
+    private func configUI() {
+        view.backgroundColor = .background
         
         [privateHeaderView, publicHeaderView].forEach {
             $0.backgroundColor = .background
@@ -81,7 +99,7 @@ final class MyPageGroupCountViewController: UIViewController {
     
     // MARK: - Custom Method
     
-    private func bind() {
+    private func setTableView() {
         groupTableView.delegate = self
         groupTableView.dataSource = self
         
@@ -92,6 +110,20 @@ final class MyPageGroupCountViewController: UIViewController {
         
         groupTableView.register(PrivateListTableViewCell.self, forCellReuseIdentifier: PrivateListTableViewCell.identifier)
         groupTableView.register(PublicListTableViewCell.self, forCellReuseIdentifier: PublicListTableViewCell.identifier)
+    }
+    
+    private func load() -> Data? {
+        let fileNm: String = "PrivateGroupData"
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
     }
 }
 
@@ -123,6 +155,7 @@ extension MyPageGroupCountViewController: UITableViewDelegate {
         switch indexPath.section {
         case 0:
             let dvc = PrivateDetailViewController()
+            dvc.index = indexPath.row
             navigationController?.pushViewController(dvc, animated: true)
         case 1:
             let dvc = PrivateDetailViewController()
@@ -150,7 +183,12 @@ extension MyPageGroupCountViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTableViewCell.identifier) as? PrivateListTableViewCell else { return UITableViewCell() }
-//            cell.initCell(group: privateGroupData[indexPath.row])
+            
+            let bgColorView = UIView()
+            bgColorView.backgroundColor = UIColor.init(red: 126 / 255, green: 101 / 255, blue: 255 / 255, alpha: 0.1)
+            cell.selectedBackgroundView = bgColorView
+            
+            cell.initCell(privateGroupData[indexPath.row])
             if indexPath.row == 0 {
                 cell.clipsToBounds = true
                 cell.layer.cornerRadius = 6
@@ -186,3 +224,24 @@ extension MyPageGroupCountViewController: UITableViewDataSource {
         }
     }
 }
+
+// MARK: - Network
+
+extension MyPageGroupCountViewController {
+    private func getPrivateGroupData() {
+        guard
+            let jsonData = self.load(),
+            let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
+        else { return }
+        privateGroupData = data.privateGroupData
+    }
+    
+    private func getPublicGroupData() {
+        guard
+            let jsonData = self.load(),
+            let data = try? JSONDecoder().decode(PublicGroupResponse.self, from: jsonData)
+        else { return }
+        
+    }
+}
+
