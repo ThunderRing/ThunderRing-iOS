@@ -154,6 +154,8 @@ final class PrivateDetailViewController: UIViewController {
     private var history = [History]()
     
     var index: Int = 0
+    var groupImageName: String = ""
+    var groupDescription: String = ""
     
     // MARK: - Life Cycle
     
@@ -353,6 +355,8 @@ final class PrivateDetailViewController: UIViewController {
     
     @objc func touchUpSettingButton() {
         let dvc = PrivateDetailSettingViewController()
+        dvc.groupImageName = groupImageName
+        dvc.groupDescription = groupDescription
         dvc.modalPresentationStyle = .fullScreen
         present(dvc, animated: true)
     }
@@ -486,6 +490,9 @@ extension PrivateDetailViewController {
             let jsonData = self.load(),
             let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
         else { return }
+        
+        groupImageName = data.privateGroupData[index].groupImageName
+        groupDescription = data.privateGroupData[index].groupDescription
         
         headerView.groupImageName = data.privateGroupData[index].groupImageName
         headerView.groupName = data.privateGroupData[index].groupName

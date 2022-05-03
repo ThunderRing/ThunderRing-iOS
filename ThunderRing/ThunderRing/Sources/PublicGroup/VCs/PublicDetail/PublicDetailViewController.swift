@@ -182,7 +182,7 @@ final class PublicDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configNavigationUI()
-        configTabBar()
+        configTabBarUI()
     }
     
     override func viewDidLoad() {
@@ -204,7 +204,7 @@ final class PublicDetailViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
     
-    private func configTabBar() {
+    private func configTabBarUI() {
         tabBarController?.tabBar.isHidden = true
     }
     

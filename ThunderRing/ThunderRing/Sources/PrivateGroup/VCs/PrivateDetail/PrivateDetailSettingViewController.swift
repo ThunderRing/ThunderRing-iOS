@@ -39,7 +39,7 @@ final class PrivateDetailSettingViewController: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
     
-    private var subTitleLabel = UILabel().then {
+    private var groupDescriptionLabel = UILabel().then {
         $0.text = "우리양파링걸즈 킹왕짱"
         $0.textColor = .gray150
         $0.setTextSpacingBy(value: -0.6)
@@ -54,6 +54,18 @@ final class PrivateDetailSettingViewController: UIViewController {
         $0.setTitle("그룹 나가기", for: .normal)
         $0.setTitleColor(.red, for: .normal)
         $0.titleLabel?.font = .SpoqaHanSansNeo(type: .regular, size: 16)
+    }
+    
+    var groupImageName: String = "" {
+        didSet {
+            groupImageView.image = UIImage(named: groupImageName)
+        }
+    }
+    
+    var groupDescription: String = "" {
+        didSet {
+            groupDescriptionLabel.text = groupDescription
+        }
     }
     
     // MARK: - Life Cycle
@@ -71,7 +83,6 @@ final class PrivateDetailSettingViewController: UIViewController {
         setStatusBar(.background)
         
         groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 31, bounds: true)
-        
         exitButton.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 6, bounds: true)
     }
     
@@ -81,7 +92,7 @@ final class PrivateDetailSettingViewController: UIViewController {
                           editButton,
                           groupNameLabel,
                           titleLabel,
-                          subTitleLabel,
+                          groupDescriptionLabel,
                           lineView,
                           exitButton])
         
@@ -113,7 +124,7 @@ final class PrivateDetailSettingViewController: UIViewController {
             $0.leading.equalToSuperview().inset(35)
         }
         
-        subTitleLabel.snp.makeConstraints {
+        groupDescriptionLabel.snp.makeConstraints {
             $0.centerY.equalTo(titleLabel.snp.centerY)
             $0.trailing.equalToSuperview().inset(35)
         }
@@ -130,6 +141,4 @@ final class PrivateDetailSettingViewController: UIViewController {
             $0.height.equalTo(43)
         }
     }
-    
-    // MARK: - Custom Method
 }
