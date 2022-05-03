@@ -34,7 +34,7 @@ final class CreatePrivateViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configUINavigationBar()
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
@@ -46,9 +46,12 @@ final class CreatePrivateViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configUINavigationBar() {
+    private func configNavigationUI() {
         navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
         setModalNavigationBar(customNavigationBarView: customNavigationBarView, title: "새로운 비공개 그룹", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
     }
     
     private func configUI() {
@@ -78,7 +81,6 @@ final class CreatePrivateViewController: UIViewController {
         groupNameTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         groupNameTextField.setRightPaddingPoints(30)
-        
         groupNameTextField.tintColor = .purple100
     }
     

@@ -74,7 +74,8 @@ final class HomeRecruitingTableViewCellView: UIView {
     // MARK: - InitUI
     
     private func configUI() {
-        backgroundColor = .white
+        backgroundColor = .background
+        backgroudView.backgroundColor = .white
         
         backgroudView.initViewBorder(borderWidth: 1,
                                      borderColor: UIColor.gray350.cgColor,
@@ -107,7 +108,7 @@ final class HomeRecruitingTableViewCellView: UIView {
         
         locationImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(16)
-            $0.top.equalToSuperview().inset(36)
+            $0.top.equalToSuperview().inset(35)
             $0.width.height.equalTo(20)
         }
         
@@ -125,7 +126,7 @@ final class HomeRecruitingTableViewCellView: UIView {
             $0.top.equalTo(titleLabel.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(17)
             $0.height.equalTo(50)
-            $0.bottom.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(20)
         }
         
         plusButton.snp.makeConstraints {

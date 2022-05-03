@@ -32,7 +32,7 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
     
     private var memberCountLabel = UILabel().then {
         $0.text = "0"
-        $0.textColor = .gray150
+        $0.textColor = .gray200
         $0.font = .DINPro(type: .regular, size: 15)
     }
     
@@ -68,7 +68,7 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
     private func configUI() {
         self.backgroundColor = .white
         
-        groupImageView.makeRounded(cornerRadius: 28)
+        groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 28, bounds: true)
     }
     
     private func setLayout() {
@@ -133,10 +133,13 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
 //        groupImageView.image = UIImage(named: image)
         
         groupNameLabel.text = group.groupName
+        groupNameLabel.setTextSpacingBy(value: -0.6)
         
         memberCountLabel.text = "\(group.groupMembers.count)"
+        memberCountLabel.setTextSpacingBy(value: -0.6)
         
         descriptionLabel.text = group.groupDescription
+        descriptionLabel.setTextSpacingBy(value: -0.6)
     }
 }
 

@@ -37,8 +37,7 @@ final class GroupTendencyView: UIView {
         addSubview(titlaLabel)
         titlaLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().inset(3)
-            $0.bottom.equalToSuperview().inset(2)
+            $0.top.equalToSuperview().inset(2.5)
         }
     }
 }
@@ -53,15 +52,15 @@ internal enum TagType {
     var title: String {
         switch self {
         case .cozy:
-            return "포근한 해질녘"
+            return " 포근한 해질녘 "
         case .crowd:
-            return "북적이는 오후"
+            return " 북적이는 오후 "
         case .diligent:
-            return "부지런한 동틀녘"
+            return " 부지런한 동틀녘 "
         case .emotion:
-            return "감성적인 새벽녘"
+            return " 감성적인 새벽녘 "
         case .soft:
-            return "사근한 오전"
+            return " 사근한 오전 "
         }
     }
     

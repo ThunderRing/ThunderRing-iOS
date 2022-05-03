@@ -28,7 +28,7 @@ final class CompleteCreatePrivateViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configNavigationBar()
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
@@ -44,9 +44,12 @@ final class CompleteCreatePrivateViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationBar() {
+    private func configNavigationUI() {
         navigationController?.isNavigationBarHidden = true
-        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
     }
     
     private func configUI() {

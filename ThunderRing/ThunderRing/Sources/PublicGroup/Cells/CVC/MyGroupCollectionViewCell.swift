@@ -42,6 +42,15 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
         $0.font = .DINPro(type: .regular, size: 18)
     }
     
+    private lazy var testButton = UIButton().then {
+        $0.backgroundColor = .clear
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray150.cgColor, cornerRadius: 12.5, bounds: true)
+        $0.setTitle("테스트 하러가기", for: .normal)
+        $0.setTitleColor(.gray150, for: .normal)
+        $0.titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 11)
+        $0.addTarget(self, action: #selector(touchUpTestButton), for: .touchUpInside)
+    }
+    
     var count: Int = 0 {
         didSet {
             countLabel.text = "\(count)"
@@ -69,11 +78,18 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
     
     private func setLayout() {
         headerView.addSubviews([testBackView, titleLabel, countLabel])
+        testBackView.addSubview(testButton)
         
         testBackView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(18)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(65)
+        }
+        
+        testButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(30)
+            $0.trailing.equalToSuperview().inset(22)
+            $0.width.equalTo(94)
         }
         
         titleLabel.snp.makeConstraints {
@@ -112,7 +128,7 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
 
 extension MyGroupCollectionViewCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 92
+        return 90
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

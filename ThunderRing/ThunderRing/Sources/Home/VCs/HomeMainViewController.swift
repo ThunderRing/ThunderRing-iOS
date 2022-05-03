@@ -51,7 +51,7 @@ final class HomeMainViewController: UIViewController {
         $0.isScrollEnabled = true
         $0.isPagingEnabled = false
         $0.showsVerticalScrollIndicator = false
-        $0.backgroundColor = .clear
+        $0.backgroundColor = .background
     }
     
     private lazy var contentView = UIView()
@@ -123,7 +123,7 @@ final class HomeMainViewController: UIViewController {
     // MARK: - InitUI
     
     private func configUI() {
-        view.backgroundColor = .background
+        view.backgroundColor = .white
         setStatusBar(.white)
         topView.layer.applyShadow()
         

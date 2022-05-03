@@ -43,7 +43,7 @@ final class CreatePrivateDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configNavigationBar()
+        configNavigationUI()
         configUI()
         setTextField()
         setCollectionView()
@@ -53,14 +53,18 @@ final class CreatePrivateDetailViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationBar() {
+    private func configNavigationUI() {
         navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
+        setStatusBar(.background)
     }
     
     private func configUI() {
         descriptionTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         descriptionTextField.setLeftPaddingPoints(14)
+        descriptionTextField.tintColor = .purple100
         
         addMemberButton.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
         
@@ -130,6 +134,15 @@ final class CreatePrivateDetailViewController: UIViewController {
     @objc func textFieldDidChange(_ sender: Any) {
         nextButton.isActivated = descriptionTextField.hasText
     }
+    
+    @objc func touchUpCancelButton(sender : UIButton) {
+        memberCollectionView.deleteItems(at: [IndexPath.init(row: sender.tag, section: 0)])
+        members.remove(at: sender.tag)
+        
+        DispatchQueue.main.async {
+            self.memberCollectionView.reloadData()
+        }
+    }
 }
 
 // MARK: - UICollectionView Delegate
@@ -148,13 +161,6 @@ extension CreatePrivateDetailViewController: UICollectionViewDelegateFlowLayout 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .zero
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        members.remove(at: indexPath.item)
-        DispatchQueue.main.async {
-            collectionView.reloadData()
-        }
-    }
 }
 
 extension CreatePrivateDetailViewController: UICollectionViewDataSource {
@@ -165,10 +171,11 @@ extension CreatePrivateDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCollectionViewCell.CellIdentifier, for: indexPath) as? MemberCollectionViewCell else { return UICollectionViewCell() }
         cell.initCell(name: members[indexPath.item])
+        cell.cancelButton.tag = indexPath.item
+        cell.cancelButton.addTarget(self, action: #selector(touchUpCancelButton(sender:)), for: .touchUpInside)
         return cell
     }
 }
-
 
 // MARK: - UITextField Delegate
 

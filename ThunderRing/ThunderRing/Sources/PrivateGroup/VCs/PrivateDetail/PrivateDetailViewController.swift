@@ -172,7 +172,7 @@ final class PrivateDetailViewController: UIViewController {
         }
         configUI()
         setLayout()
-        bind()
+        setCollectionView()
     }
     
     // MARK: - InitUI
@@ -306,7 +306,7 @@ final class PrivateDetailViewController: UIViewController {
     
     // MARK: - Custom Method
     
-    private func bind() {
+    private func setCollectionView() {
         memberCollectionView.delegate = self
         memberCollectionView.dataSource = self
         

@@ -10,13 +10,17 @@ import UIKit
 import SnapKit
 import Then
 
+protocol TestViewDelegate: AnyObject {
+    func touchUpCellView(isSelected: Bool)
+}
+
 final class TestView: UIView {
     
     // MARK: - Properties
     
     private var questionLabel = UILabel().then {
         $0.textColor = .black
-        $0.font = .SpoqaHanSansNeo(type: .bold, size: 22)
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 22)
         $0.textAlignment = .left
         $0.numberOfLines = 2
     }
@@ -37,10 +41,13 @@ final class TestView: UIView {
     var question: String = "" {
         didSet {
             questionLabel.text = question
+            questionLabel.setTextSpacingBy(value: -0.6)
         }
     }
     
     var answer = [String]()
+    
+    weak var delegate: TestViewDelegate?
     
     // MARK: - Initializer
     
@@ -117,11 +124,22 @@ extension TestView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TestAnswerCell.CellIdentifier, for: indexPath) as? TestAnswerCell else { return UICollectionViewCell() }
         cell.initCell(text: answer[indexPath.item])
+        cell.delegate = self
         return cell
     }
 }
 
+extension TestView: TestAnswerCellDelegate {
+    func touchUpCell(isSelected: Bool) {
+        delegate?.touchUpCellView(isSelected: isSelected)
+    }
+}
+
 // MARK: - Answer Cell
+
+protocol TestAnswerCellDelegate: AnyObject {
+    func touchUpCell(isSelected: Bool)
+}
 
 final class TestAnswerCell: UICollectionViewCell {
     static var CellIdentifier: String { return String(describing: self) }
@@ -135,18 +153,26 @@ final class TestAnswerCell: UICollectionViewCell {
         $0.numberOfLines = 2
     }
     
+    weak var delegate: TestAnswerCellDelegate?
+    
     override var isSelected: Bool {
         didSet {
             if isSelected {
                 layer.borderColor = UIColor.purple100.cgColor
                 layer.borderWidth = 2
+                delegate?.touchUpCell(isSelected: true)
             } else {
                 layer.borderWidth = 0
+                delegate?.touchUpCell(isSelected: false)
             }
         }
     }
     
     // MARK: - Initializer
+    
+    override func prepareForReuse() {
+        delegate?.touchUpCell(isSelected: false)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -177,5 +203,6 @@ final class TestAnswerCell: UICollectionViewCell {
     
     func initCell(text: String) {
         textLabel.text = text
+        textLabel.setTextSpacingBy(value: -0.6)
     }
 }

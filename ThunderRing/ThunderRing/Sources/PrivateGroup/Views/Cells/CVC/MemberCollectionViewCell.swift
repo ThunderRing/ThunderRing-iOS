@@ -20,7 +20,7 @@ final class MemberCollectionViewCell: UICollectionViewCell {
         $0.textColor = .black
     }
     
-    private lazy var cancelButton = UIButton().then {
+    var cancelButton = UIButton().then {
         $0.setTitle("", for: .normal)
         $0.setImage(UIImage(named: "btnDelete"), for: .normal)
     }

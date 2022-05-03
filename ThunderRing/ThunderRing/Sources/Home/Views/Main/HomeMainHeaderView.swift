@@ -23,7 +23,10 @@ enum GroupType {
 final class HomeMainHeaderView: UIView {
     
     var title = "" {
-        didSet { titleLabel.text = title }
+        didSet {
+            titleLabel.text = title
+            titleLabel.setTextSpacingBy(value: -0.6)
+        }
     }
     
     var count = 0 {
@@ -79,7 +82,7 @@ final class HomeMainHeaderView: UIView {
         
         countLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(26)
-            $0.leading.equalTo(titleLabel.snp.trailing).offset(6)
+            $0.leading.equalTo(titleLabel.snp.trailing).offset(4)
         }
 
         moreButton.snp.makeConstraints {
