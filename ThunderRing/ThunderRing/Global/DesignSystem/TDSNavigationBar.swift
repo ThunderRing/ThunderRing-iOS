@@ -141,5 +141,6 @@ final class TDSNavigationBar: UIView {
     
     func setTitle(title: String) {
         titleLabel.text = title
+        titleLabel.setTextSpacingBy(value: -0.6)
     }
 }

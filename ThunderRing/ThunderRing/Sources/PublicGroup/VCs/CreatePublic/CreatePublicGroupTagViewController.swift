@@ -76,7 +76,7 @@ final class CreatePublicGroupTagViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configNavigationBar()
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
@@ -84,12 +84,13 @@ final class CreatePublicGroupTagViewController: UIViewController {
         configUI()
         setLayout()
         setToolbar()
-        bind()
+        setPickerView()
+        setToolbar()
     }
     
     // MARK: - InitUI
     
-    private func configNavigationBar() {
+    private func configNavigationUI() {
         navigationController?.isNavigationBarHidden = true
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
@@ -182,10 +183,12 @@ final class CreatePublicGroupTagViewController: UIViewController {
     
     // MARK: - Custom Method
     
-    private func bind() {
+    private func setPickerView() {
         groupTendencyPickerView.delegate = self
         groupTendencyPickerView.dataSource = self
-        
+    }
+    
+    private func setTextField() {
         groupTagTextField.delegate = self
     }
     

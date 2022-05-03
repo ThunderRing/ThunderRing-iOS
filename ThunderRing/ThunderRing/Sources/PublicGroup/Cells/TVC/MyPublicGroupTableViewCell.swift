@@ -65,7 +65,8 @@ final class MyPublicGroupTableViewCell: UITableViewCell {
                               countLabel])
         
         backView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(3.5)
+            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(5)
             $0.leading.trailing.equalToSuperview()
         }
         

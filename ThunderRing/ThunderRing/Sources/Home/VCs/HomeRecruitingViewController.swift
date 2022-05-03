@@ -28,9 +28,9 @@ final class HomeRecruitingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationController?.isNavigationBarHidden = true
-        tabBarController?.tabBar.isHidden = true
-        NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name(Const.Notification.join), object: nil)
+        configNavigationUI()
+        configTabBarUI()
+        getNotification()
     }
     
     override func viewDidLoad() {
@@ -47,14 +47,26 @@ final class HomeRecruitingViewController: UIViewController {
     
     // MARK: - InitUI
     
+    private func configNavigationUI() {
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+    private func configTabBarUI() {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     private func configUI() {
         view.backgroundColor = .background
+        
         setStatusBar(.white)
         navigationBar.layer.applyShadow()
+        
+        recruitingTableView.backgroundColor = .background
     }
     
     private func setLayout() {
-        view.addSubviews([navigationBar, recruitingTableView])
+        view.addSubviews([recruitingTableView, navigationBar])
         
         navigationBar.snp.makeConstraints {
             $0.leading.trailing.top.equalTo(view.safeAreaLayoutGuide)
@@ -62,7 +74,7 @@ final class HomeRecruitingViewController: UIViewController {
         }
         
         recruitingTableView.snp.makeConstraints {
-            $0.top.equalTo(navigationBar.snp.bottom).offset(16)
+            $0.top.equalTo(navigationBar.snp.bottom)
             $0.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
@@ -91,6 +103,10 @@ final class HomeRecruitingViewController: UIViewController {
                                maxNumber: 9,
                                members: ["imgCoin", "imgDog1"])
         ]
+    }
+    
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name(Const.Notification.join), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(touchUpPlusButton(_:)), name: NSNotification.Name("TouchUpPlusButton"), object: nil)
     }

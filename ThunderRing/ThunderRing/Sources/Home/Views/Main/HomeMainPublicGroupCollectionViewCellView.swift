@@ -60,7 +60,7 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     private func configUI() {
         backgroundColor = .white
         
-        groupImageView.makeRounded(cornerRadius: 27)
+        groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 27, bounds: true)
         
         lightningButton.makeRounded(cornerRadius: 14)
         

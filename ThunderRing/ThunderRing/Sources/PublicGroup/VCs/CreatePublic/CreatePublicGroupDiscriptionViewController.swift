@@ -80,7 +80,7 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configNavigationBar()
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
@@ -99,7 +99,7 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     
     // MARK: - InitUI
     
-    private func configNavigationBar() {
+    private func configNavigationUI() {
         navigationController?.isNavigationBarHidden = true
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }

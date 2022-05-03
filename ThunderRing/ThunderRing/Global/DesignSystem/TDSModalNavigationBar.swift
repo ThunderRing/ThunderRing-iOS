@@ -46,7 +46,10 @@ final class TDSModalNavigationBar: UIView {
         super.init(frame: .zero)
         self.backButton = BackButton(root: viewController)
         self.closeButton = CloseButton(root: viewController)
+        
         titleLabel.text = title
+        titleLabel.setTextSpacingBy(value: -0.6)
+        
         configUI()
         setLayout()
         setBackButton(isHidden: backButtonIsHidden)

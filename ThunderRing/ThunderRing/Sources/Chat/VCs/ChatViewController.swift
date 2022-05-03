@@ -52,7 +52,7 @@ final class ChatViewController: UIViewController {
         $0.placeholder = "메시지 입력하기"
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
         $0.setLeftPaddingPoints(19)
-        $0.setPlaceholder(color: .gray200)
+        $0.setPlaceholderColor(.gray200)
     }
     
     private lazy var sendButton = UIButton().then {
