@@ -36,7 +36,11 @@ final class MyPublicGroupTableViewCell: UITableViewCell {
     
     private var countLabel = UILabel().then {
         $0.textColor = .gray200
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
+        $0.font = .DINPro(type: .regular, size: 15)
+    }
+    
+    private var groupTendencyView = GroupTendencyView(tagType: .emotion).then {
+        $0.makeRounded(cornerRadius: 3)
     }
     
     // MARK: - Life Cycle
@@ -62,7 +66,8 @@ final class MyPublicGroupTableViewCell: UITableViewCell {
         backView.addSubviews([groupImageView,
                               groupNameLabel,
                               groupDescriptionLabel,
-                              countLabel])
+                              countLabel,
+                              groupTendencyView])
         
         backView.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -71,7 +76,7 @@ final class MyPublicGroupTableViewCell: UITableViewCell {
         }
         
         groupImageView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(15)
+            $0.top.bottom.equalToSuperview().inset(23)
             $0.leading.equalToSuperview().inset(18)
             $0.width.equalTo(53)
             $0.height.equalTo(55)
@@ -79,7 +84,7 @@ final class MyPublicGroupTableViewCell: UITableViewCell {
         
         groupNameLabel.snp.makeConstraints {
             $0.leading.equalTo(groupImageView.snp.trailing).offset(14)
-            $0.top.equalToSuperview().inset(22)
+            $0.top.equalToSuperview().inset(17)
         }
         
         countLabel.snp.makeConstraints {
@@ -91,18 +96,55 @@ final class MyPublicGroupTableViewCell: UITableViewCell {
             $0.leading.equalTo(groupImageView.snp.trailing).offset(14)
             $0.top.equalTo(groupNameLabel.snp.bottom).offset(5)
         }
+        
+        groupTendencyView.snp.makeConstraints {
+            $0.top.equalTo(groupDescriptionLabel.snp.bottom).offset(5)
+            $0.leading.equalTo(groupImageView.snp.trailing).offset(14)
+            $0.width.equalTo(84)
+            $0.height.equalTo(21)
+        }
     }
     
-    internal func initCell(group: PublicGroupDataModel) {
-        groupImageView.image = UIImage(named: group.groupImage)
+    internal func initCell(_ data: PublicGroupData) {
+        groupImageView.image = UIImage(named: data.groupImageName)
         
-        groupNameLabel.text = group.groupName
+        groupNameLabel.text = data.groupName
         groupNameLabel.setTextSpacingBy(value: -0.6)
         
-        groupDescriptionLabel.text = group.description
+        groupDescriptionLabel.text = data.groupDescription
         groupDescriptionLabel.setTextSpacingBy(value: -0.6)
         
-        countLabel.text = "\(group.memberCounts)"
+        countLabel.text = "\(data.groupMember.count)/ \(data.groupMaxCount)"
         countLabel.setTextSpacingBy(value: -0.6)
+        
+        switch data.groupTendency {
+        case "tendencyDiligent":
+            groupTendencyView.tagType = .diligent
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(98)
+            }
+        case "tendencyCrowd":
+            groupTendencyView.tagType = .crowd
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(87)
+            }
+        case "tendencyEmotion":
+            groupTendencyView.tagType = .emotion
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(98)
+            }
+        case "tendencySoft":
+            groupTendencyView.tagType = .soft
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(75)
+            }
+        case "tendencyCozy":
+            groupTendencyView.tagType = .cozy
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(87)
+            }
+        default:
+            groupTendencyView.tagType = .diligent
+        }
     }
 }

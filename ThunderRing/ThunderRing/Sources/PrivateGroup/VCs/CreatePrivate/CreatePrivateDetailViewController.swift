@@ -39,11 +39,11 @@ final class CreatePrivateDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configNavigationUI()
         configUI()
         setTextField()
         setCollectionView()
@@ -53,15 +53,10 @@ final class CreatePrivateDetailViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        
+    private func configUI() {
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
         setStatusBar(.background)
-    }
-    
-    private func configUI() {
+        
         descriptionTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         descriptionTextField.setLeftPaddingPoints(14)
         descriptionTextField.tintColor = .purple100

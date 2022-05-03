@@ -42,9 +42,18 @@ final class PublicDetailViewController: UIViewController {
         $0.delegate = self
     }
     
-    private lazy var lightningButton = GroupLightningButton().then {
+    private lazy var lightningButton = TDSGroupLightningButton().then {
         $0.addTarget(self, action: #selector(touchUpLightningButton), for: .touchUpInside)
         $0.makeRounded(cornerRadius: 24)
+        $0.isHidden = false
+    }
+    
+    private lazy var joinButton = TDSButton().then {
+        $0.addTarget(self, action: #selector(touchUpLightningButton), for: .touchUpInside)
+        $0.makeRounded(cornerRadius: 24)
+        $0.setTitleWithStyle(title: "그룹가입", size: 15)
+        $0.isActivated = true
+        $0.isHidden = true
     }
     
     private lazy var lineView = UIView().then {
@@ -88,7 +97,7 @@ final class PublicDetailViewController: UIViewController {
         return UICollectionView(frame: .zero, collectionViewLayout: layout).then {
             $0.backgroundColor = .clear
             $0.isScrollEnabled = false
-            $0.register(PrivateDetailMemberCollectionViewCell.self, forCellWithReuseIdentifier: PrivateDetailMemberCollectionViewCell.CellIdentifier)
+            $0.register(PrivateDetailMemberCollectionViewCell.self, forCellWithReuseIdentifier: PrivateDetailMemberCollectionViewCell.cellIdentifier)
         }
     }()
     
@@ -145,7 +154,15 @@ final class PublicDetailViewController: UIViewController {
         }
     }
     
-    var isPrivate: Bool = false
+    var isMember: Bool = true {
+        didSet {
+            settingButton.setImage(isMember ? UIImage(named: "btn_dot") : UIImage(named: "btnSetting"), for: .normal)
+            settingButton.addTarget(self, action: #selector(touchUpSettingButton), for: .touchUpInside)
+            
+            lightningButton.isHidden = !isMember
+            joinButton.isHidden = isMember
+        }
+    }
     
     var memberCounts: Int = 0 {
         didSet {
@@ -172,7 +189,7 @@ final class PublicDetailViewController: UIViewController {
         }
     }
     
-    private var members = [String]()
+    private var members = [GroupMember]()
     private var history = [History]()
     
     var index: Int = 0
@@ -182,7 +199,7 @@ final class PublicDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configNavigationUI()
-        configTabBar()
+        configTabBarUI()
     }
     
     override func viewDidLoad() {
@@ -199,12 +216,7 @@ final class PublicDetailViewController: UIViewController {
     
     // MARK: - InitUI
     
-    private func configNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-    }
-    
-    private func configTabBar() {
+    private func configTabBarUI() {
         tabBarController?.tabBar.isHidden = true
     }
     
@@ -216,6 +228,7 @@ final class PublicDetailViewController: UIViewController {
     private func setLayout() {
         view.addSubviews([scrollView, lineView, buttonBackView, navigationBar])
         buttonBackView.addSubview(lightningButton)
+        buttonBackView.addSubview(joinButton)
         navigationBar.addSubviews([backButton, settingButton])
         scrollView.addSubview(contentView)
         contentView.addSubviews([headerView,
@@ -341,6 +354,12 @@ final class PublicDetailViewController: UIViewController {
             $0.height.equalTo(48)
             $0.bottom.equalToSuperview()
         }
+        
+        joinButton.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(48)
+            $0.bottom.equalToSuperview()
+        }
     }
     
     // MARK: - Custom Method
@@ -355,20 +374,6 @@ final class PublicDetailViewController: UIViewController {
         historyCollectionView.dataSource = self
     }
     
-    private func load() -> Data? {
-        let fileNm: String = "PublicGroupData"
-        let extensionType = "json"
-        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
-        
-        do {
-            let data = try Data(contentsOf: fileLocation)
-            return data
-        } catch {
-            print("파일 로드 실패")
-            return nil
-        }
-    }
-    
     // MARK: - @objc
     
     @objc func touchUpBackButton() {
@@ -376,24 +381,28 @@ final class PublicDetailViewController: UIViewController {
     }
     
     @objc func touchUpLightningButton() {
-        guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
-        let dvc = UINavigationController(rootViewController: vc)
-        
-        // FIXME: - index / private,public Group Data 수정
-        vc.index = 0
-        for i in 0 ... privateGroupData.count - 1 {
-            vc.groupNames.append(privateGroupData[i].groupName)
-            vc.groupMaxCounts.append(privateGroupData[i].memberCounts)
+        if isMember {
+            guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
+            let dvc = UINavigationController(rootViewController: vc)
+            
+            vc.index = 0
+            for i in 0 ... privateGroupData.count - 1 {
+                vc.groupNames.append(privateGroupData[i].groupName)
+                vc.groupMaxCounts.append(privateGroupData[i].memberCounts)
+            }
+            
+            dvc.modalPresentationStyle = .fullScreen
+            present(dvc, animated: true)
+        } else {
+            print("그룹 가입")
         }
-        
-        dvc.modalPresentationStyle = .fullScreen
-        present(dvc, animated: true)
     }
     
     @objc func touchUpSettingButton() {
         if isOwner {
-            let dvc = PrivateDetailSettingViewController()
-            navigationController?.pushViewController(dvc, animated: true)
+            let dvc = PublicDetailSettingViewController()
+            dvc.modalPresentationStyle = .fullScreen
+            present(dvc, animated: true)
         } else {
             let optionMenu = UIAlertController()
             
@@ -431,7 +440,7 @@ final class PublicDetailViewController: UIViewController {
 
 extension PublicDetailViewController: PublicGroupDetailHeaderViewDelegate {
     func touchUpInviteButton() {
-        isOwner ? print("그룹원 초대") : print("❌가입 먼저❌")
+        isMember ? print("그룹원 초대") : showToast(message: "가입 후 그룹원을 초대해주세요", font: .SpoqaHanSansNeo(type: .regular, size: 15))
     }
     
     func touchUpShareButton() {
@@ -499,7 +508,7 @@ extension PublicDetailViewController: UICollectionViewDelegateFlowLayout {
         case memberCollectionView:
             return .zero
         case historyCollectionView:
-            return UIEdgeInsets(top: 0, left: 25, bottom: 95, right: 25)
+            return UIEdgeInsets(top: 0, left: 25, bottom: 95, right: 24)
         default:
             return .zero
         }
@@ -521,8 +530,13 @@ extension PublicDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case memberCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailMemberCollectionViewCell.CellIdentifier, for: indexPath) as? PrivateDetailMemberCollectionViewCell else { return UICollectionViewCell() }
-            cell.initCell(name: members[indexPath.item])
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailMemberCollectionViewCell.cellIdentifier, for: indexPath) as? PrivateDetailMemberCollectionViewCell else { return UICollectionViewCell() }
+            if indexPath.item == 0 {
+                cell.isOwner = true
+            } else {
+                cell.isOwner = false
+            }
+            cell.initCell(members[indexPath.item])
             return cell
         case historyCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailHistoryCollectionViewCell.CellIdentifier, for: indexPath) as? PrivateDetailHistoryCollectionViewCell else { return UICollectionViewCell() }
@@ -539,57 +553,21 @@ extension PublicDetailViewController: UICollectionViewDataSource {
 extension PublicDetailViewController {
     private func getDetailData() {
         guard
-            let jsonData = self.load(),
+            let jsonData = self.loadPublicGroupData(),
             let data = try? JSONDecoder().decode(PublicGroupResponse.self, from: jsonData)
         else { return }
         
-        headerView.groupName = data.publicGroupData[0].groupName
-        headerView.groupDescription = data.publicGroupData[0].groupDescription
-        headerView.tags = data.publicGroupData[0].groupTag
-        headerView.groupTendency = data.publicGroupData[0].groupTendency
+        headerView.groupImageName = data.publicGroupData[index].groupImageName
+        headerView.groupName = data.publicGroupData[index].groupName
+        headerView.groupDescription = data.publicGroupData[index].groupDescription
+        headerView.tags = data.publicGroupData[index].groupTag
+        headerView.groupTendency = data.publicGroupData[index].groupTendency
         
-        members = data.publicGroupData[0].groupMembers
-        history = data.publicGroupData[0].history
+        members = data.publicGroupData[index].groupMember
+        history = data.publicGroupData[index].history
         
-        memberCounts = data.publicGroupData[0].groupMembers.count
-        historyCounts = data.publicGroupData[0].history.count
-    }
-}
-
-// MARK: - Button
-
-fileprivate final class GroupLightningButton: UIButton {
-    
-    private lazy var iconImage = UIImageView().then {
-        $0.image = UIImage(named: "icn_lightning_new")
-    }
-    
-    private lazy var label = UILabel().then {
-        $0.text = "번개 치기"
-        $0.textColor = .white
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
-    }
-    
-    init() {
-        super.init(frame: .zero)
-        setButton()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setButton() {
-        backgroundColor = .purple100
-        addSubviews([iconImage, label])
-        iconImage.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(127)
-        }
-        label.snp.makeConstraints {
-            $0.leading.equalTo(iconImage.snp.trailing).offset(4)
-            $0.centerY.equalToSuperview()
-        }
+        memberCounts = data.publicGroupData[index].groupMember.count
+        historyCounts = data.publicGroupData[index].history.count
     }
 }
 

@@ -16,10 +16,19 @@ struct PublicGroupResponse: Codable {
 // MARK: - PublicGroupData
 
 struct PublicGroupData: Codable {
-    let groupName, groupTendency, groupDescription: String
+    let groupImageName, groupName, groupDescription: String
+    let groupTendency: String
     let groupTag: [String]
-    let groupMembers: [String]
+    let groupMember: [GroupMember]
+    let groupMaxCount: Int
     let history: [History]
 }
 
+//enum GroupTendency: String, Codable {
+//    case cozy
+//    case crowd
+//    case diligent
+//    case emotion
+//    case soft
+//}
 

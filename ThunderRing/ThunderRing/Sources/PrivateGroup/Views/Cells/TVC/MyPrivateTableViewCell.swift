@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class MyPrivateTableViewCell: UITableViewCell {
-    static var CellIdentifier: String { return String(describing: self) }
+    static var cellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     
@@ -96,19 +96,15 @@ final class MyPrivateTableViewCell: UITableViewCell {
     
     // MARK: - Custom Method
     
-    internal func initCell(group: PrivateGroupDataModel) {
-        if group.groupImageName != nil {
-            groupImageView.image = UIImage(named: group.groupImageName!)
-        } else {
-            groupImageView.image = group.groupImage
-        }
+    internal func initCell(_ data: PrivateGroupData) {
+        groupImageView.image = UIImage(named: data.groupImageName)
         
-        groupNameLabel.text = group.groupName
+        groupNameLabel.text = data.groupName
         groupNameLabel.setTextSpacingBy(value: -0.6)
         
-        groupDescriptionLabel.text = group.groupDescription
+        groupDescriptionLabel.text = data.groupDescription
         groupDescriptionLabel.setTextSpacingBy(value: -0.6)
         
-        countLabel.text = "\(group.memberCounts)"
+        countLabel.text = "\(data.groupMember.count)"
     }
 }

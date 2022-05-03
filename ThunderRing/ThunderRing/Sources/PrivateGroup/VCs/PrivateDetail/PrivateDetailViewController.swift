@@ -41,7 +41,7 @@ final class PrivateDetailViewController: UIViewController {
         $0.delegate = self
     }
     
-    private lazy var lightningButton = GroupLightningButton().then {
+    private lazy var lightningButton = TDSGroupLightningButton().then {
         $0.addTarget(self, action: #selector(touchUpLightningButton), for: .touchUpInside)
         $0.makeRounded(cornerRadius: 24)
     }
@@ -87,7 +87,7 @@ final class PrivateDetailViewController: UIViewController {
         return UICollectionView(frame: .zero, collectionViewLayout: layout).then {
             $0.backgroundColor = .clear
             $0.isScrollEnabled = false
-            $0.register(PrivateDetailMemberCollectionViewCell.self, forCellWithReuseIdentifier: PrivateDetailMemberCollectionViewCell.CellIdentifier)
+            $0.register(PrivateDetailMemberCollectionViewCell.self, forCellWithReuseIdentifier: PrivateDetailMemberCollectionViewCell.cellIdentifier)
         }
     }()
     
@@ -150,17 +150,19 @@ final class PrivateDetailViewController: UIViewController {
         }
     }
     
-    private var members = [String]()
+    private var members = [GroupMember]()
     private var history = [History]()
     
     var index: Int = 0
+    var groupImageName: String = ""
+    var groupDescription: String = ""
     
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-        tabBarController?.tabBar.isHidden = true
+        configNavigationUI()
+        configTabBarUI()
     }
      
     override func viewDidLoad() {
@@ -176,6 +178,10 @@ final class PrivateDetailViewController: UIViewController {
     }
     
     // MARK: - InitUI
+    
+    private func configTabBarUI() {
+        tabBarController?.tabBar.isHidden = true
+    }
     
     private func configUI() {
         view.backgroundColor = .background
@@ -353,6 +359,8 @@ final class PrivateDetailViewController: UIViewController {
     
     @objc func touchUpSettingButton() {
         let dvc = PrivateDetailSettingViewController()
+        dvc.groupImageName = groupImageName
+        dvc.groupDescription = groupDescription
         dvc.modalPresentationStyle = .fullScreen
         present(dvc, animated: true)
     }
@@ -448,8 +456,13 @@ extension PrivateDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case memberCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailMemberCollectionViewCell.CellIdentifier, for: indexPath) as? PrivateDetailMemberCollectionViewCell else { return UICollectionViewCell() }
-            cell.initCell(name: members[indexPath.item])
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailMemberCollectionViewCell.cellIdentifier, for: indexPath) as? PrivateDetailMemberCollectionViewCell else { return UICollectionViewCell() }
+            if indexPath.item == 0 {
+                cell.isOwner = true
+            } else {
+                cell.isOwner = false
+            }
+            cell.initCell(members[indexPath.item])
             return cell
         case historyCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailHistoryCollectionViewCell.CellIdentifier, for: indexPath) as? PrivateDetailHistoryCollectionViewCell else { return UICollectionViewCell() }
@@ -482,51 +495,17 @@ extension PrivateDetailViewController {
             let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
         else { return }
         
+        groupImageName = data.privateGroupData[index].groupImageName
+        groupDescription = data.privateGroupData[index].groupDescription
+        
+        headerView.groupImageName = data.privateGroupData[index].groupImageName
         headerView.groupName = data.privateGroupData[index].groupName
         headerView.groupDescription = data.privateGroupData[index].groupDescription
         
-        members = data.privateGroupData[index].groupMembers
+        members = data.privateGroupData[index].groupMember
         history = data.privateGroupData[index].history
         
-        memberCountsLabel.text = "\(data.privateGroupData[index].groupMembers.count)"
+        memberCountsLabel.text = "\(data.privateGroupData[index].groupMember.count)"
         historyCountsLabel.text = "\(data.privateGroupData[index].history.count)"
     }
 }
-
-// MARK: - Button
-
-fileprivate final class GroupLightningButton: UIButton {
-    
-    private lazy var iconImage = UIImageView().then {
-        $0.image = UIImage(named: "icn_lightning_new")
-    }
-    
-    private lazy var label = UILabel().then {
-        $0.text = "번개 치기"
-        $0.textColor = .white
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
-    }
-    
-    init() {
-        super.init(frame: .zero)
-        setButton()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setButton() {
-        backgroundColor = .purple100
-        addSubviews([iconImage, label])
-        iconImage.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(127)
-        }
-        label.snp.makeConstraints {
-            $0.leading.equalTo(iconImage.snp.trailing).offset(4)
-            $0.centerY.equalToSuperview()
-        }
-    }
-}
-

@@ -11,8 +11,8 @@ import SnapKit
 import Then
 
 protocol HomePrivateGroupCollectionViewCellViewDelegate: AnyObject {
-    func touchUpEnterButton()
-    func touchUpLightningButton()
+    func touchUpEnterButton(index: Int)
+    func touchUpLightningButton(index: Int)
 }
 
 final class HomeMainPrivateGroupCollectionViewCellView: UIView {
@@ -50,6 +50,8 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
     }
     
     weak var delegate: HomePrivateGroupCollectionViewCellViewDelegate?
+    
+    var index: Int = 0
     
     // MARK: - Initializer
     
@@ -119,23 +121,22 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
     // MARK: - @objc
     
     @objc func touchUpEnterButton() {
-        delegate?.touchUpEnterButton()
+        delegate?.touchUpEnterButton(index: index)
     }
     
     @objc func touchUpLightningButton() {
-        delegate?.touchUpLightningButton()
+        delegate?.touchUpLightningButton(index: index)
     }
     
     // MARK: - Public Method
     
     func configCell(group: PrivateGroupData) {
-//        guard let image = group.groupImageName else { return }
-//        groupImageView.image = UIImage(named: image)
+        groupImageView.image = UIImage(named: group.groupImageName)
         
         groupNameLabel.text = group.groupName
         groupNameLabel.setTextSpacingBy(value: -0.6)
         
-        memberCountLabel.text = "\(group.groupMembers.count)"
+        memberCountLabel.text = "\(group.groupMember.count)"
         memberCountLabel.setTextSpacingBy(value: -0.6)
         
         descriptionLabel.text = group.groupDescription

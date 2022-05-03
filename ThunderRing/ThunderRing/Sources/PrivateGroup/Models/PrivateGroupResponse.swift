@@ -16,9 +16,16 @@ struct PrivateGroupResponse: Codable {
 // MARK: - PrivateGroupDetailData
 
 struct PrivateGroupData: Codable {
+    let groupImageName: String
     let groupName, groupDescription: String
-    let groupMembers: [String]
+    let groupMember: [GroupMember]
     let history: [History]
+}
+
+// MARK: - History
+
+struct GroupMember: Codable {
+    let memberImageName, memberName: String
 }
 
 // MARK: - History
@@ -28,4 +35,3 @@ struct History: Codable {
     let memberCount: Int
     let location: String
 }
-

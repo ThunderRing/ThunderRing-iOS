@@ -73,11 +73,6 @@ final class CompleteCreatePublicViewController: UIViewController {
     
     // MARK: - InitUI
     
-    private func configNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-    }
-    
     private func configUI() {
         view.backgroundColor = .white
         

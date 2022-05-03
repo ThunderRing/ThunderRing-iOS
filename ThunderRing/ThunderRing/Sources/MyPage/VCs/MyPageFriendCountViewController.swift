@@ -36,7 +36,7 @@ final class MyPageFriendCountViewController: UIViewController {
     
     private var friendTableView = UITableView(frame: .zero, style: .grouped).then {
         $0.backgroundColor = .background
-        $0.register(ItemCell.self, forCellReuseIdentifier: ItemCell.CellIdentifier)
+        $0.register(ItemCell.self, forCellReuseIdentifier: ItemCell.cellIdentifier)
         $0.separatorStyle = .none
     }
     
@@ -154,8 +154,8 @@ extension MyPageFriendCountViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.CellIdentifier) as? ItemCell else { return UITableViewCell() }
-        cell.initCell(userList: userList[indexPath.row])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.cellIdentifier) as? ItemCell else { return UITableViewCell() }
+        cell.initCell(userList[indexPath.row])
         return cell
     }
 }
@@ -163,7 +163,7 @@ extension MyPageFriendCountViewController: UITableViewDataSource {
 // MARK: - Item Cell
 
 fileprivate final class ItemCell: UITableViewCell {
-    static var CellIdentifier: String { return String(describing: self) }
+    static var cellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     
@@ -229,16 +229,20 @@ fileprivate final class ItemCell: UITableViewCell {
         groupTendencyView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(7)
             $0.leading.equalTo(userImageView.snp.trailing).offset(14)
+            $0.width.equalTo(95)
+            $0.height.equalTo(21)
         }
     }
     
     // MARK: - Custom Method
     
-    internal func initCell(userList: UserModel) {
+    internal func initCell(_ data: UserModel) {
+        guard let imageName = data.imageName else { return }
+        userImageView.image = UIImage(named: imageName)
         
-        userImageView.image = UIImage(named: userList.imageName!)
-        titleLabel.text = userList.name
-        // FIXME: - Tendency
+        titleLabel.text = data.name
         
+        // MARK: - FIXME
+        groupTendencyView.tagType = .emotion
     }
 }

@@ -101,6 +101,10 @@
 		9276B06B275B458B00915F57 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276B06A275B458B00915F57 /* String+.swift */; };
 		9276B06E275B462900915F57 /* ChatDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276B06D275B462900915F57 /* ChatDataModel.swift */; };
 		9276B070275B477A00915F57 /* CounterpartChatCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9276B06F275B477A00915F57 /* CounterpartChatCVC.swift */; };
+		927D10F8282185CB001AEB78 /* DummyImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927D10F7282185CB001AEB78 /* DummyImages.xcassets */; };
+		927D10FB2821BAC7001AEB78 /* LoadData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927D10FA2821BAC7001AEB78 /* LoadData+.swift */; };
+		927D10FD2821DB1D001AEB78 /* TDSGroupLightningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927D10FC2821DB1D001AEB78 /* TDSGroupLightningButton.swift */; };
+		927D10FF2821E218001AEB78 /* PublicDetailSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927D10FE2821E218001AEB78 /* PublicDetailSettingViewController.swift */; };
 		92800AD3274CB3E200CA3E7E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92800AD2274CB3E200CA3E7E /* Colors.xcassets */; };
 		92899E9227FA56CE001226A0 /* PublicGroupDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92899E9127FA56CE001226A0 /* PublicGroupDetailHeaderView.swift */; };
 		928AE07B276B0D4C001155EE /* PrivateGroupCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928AE07A276B0D4C001155EE /* PrivateGroupCVC.swift */; };
@@ -272,6 +276,10 @@
 		9276B06A275B458B00915F57 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		9276B06D275B462900915F57 /* ChatDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataModel.swift; sourceTree = "<group>"; };
 		9276B06F275B477A00915F57 /* CounterpartChatCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterpartChatCVC.swift; sourceTree = "<group>"; };
+		927D10F7282185CB001AEB78 /* DummyImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DummyImages.xcassets; sourceTree = "<group>"; };
+		927D10FA2821BAC7001AEB78 /* LoadData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadData+.swift"; sourceTree = "<group>"; };
+		927D10FC2821DB1D001AEB78 /* TDSGroupLightningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDSGroupLightningButton.swift; sourceTree = "<group>"; };
+		927D10FE2821E218001AEB78 /* PublicDetailSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicDetailSettingViewController.swift; sourceTree = "<group>"; };
 		92800AD2274CB3E200CA3E7E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		92899E9127FA56CE001226A0 /* PublicGroupDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupDetailHeaderView.swift; sourceTree = "<group>"; };
 		928AE07A276B0D4C001155EE /* PrivateGroupCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupCVC.swift; sourceTree = "<group>"; };
@@ -550,6 +558,7 @@
 				925BAC322742B77E00126166 /* Images.xcassets */,
 				92FFBBA6274CDE5500706099 /* Icons.xcassets */,
 				92FFBBA8274CDE7E00706099 /* Buttons.xcassets */,
+				927D10F7282185CB001AEB78 /* DummyImages.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -606,6 +615,7 @@
 			isa = PBXGroup;
 			children = (
 				926290E027A40543006A3B58 /* PublicDetailViewController.swift */,
+				927D10FE2821E218001AEB78 /* PublicDetailSettingViewController.swift */,
 			);
 			path = PublicDetail;
 			sourceTree = "<group>";
@@ -906,6 +916,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		927D10F92821BA97001AEB78 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				927D10FA2821BAC7001AEB78 /* LoadData+.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		928C707627F3A99F001E66BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -947,6 +965,7 @@
 		929BB8C827BCDF31003A3BB3 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				927D10F92821BA97001AEB78 /* Base */,
 				929BB8CB27BCE0B2003A3BB3 /* Mock */,
 			);
 			path = Network;
@@ -1164,6 +1183,7 @@
 				9232069327EA7F500010FC4F /* TDSModalNavigationBar.swift */,
 				9248133327D1323400A0CECC /* CloseButton.swift */,
 				9248133527D132B400A0CECC /* BackButton.swift */,
+				927D10FC2821DB1D001AEB78 /* TDSGroupLightningButton.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -1295,6 +1315,7 @@
 				92159C97275896EF0081F20B /* DINPro-Medium.otf in Resources */,
 				92AFB39B276339F000977712 /* MyGroupCollectionViewCell.xib in Resources */,
 				926C7C232737F93F0020F851 /* Assets.xcassets in Resources */,
+				927D10F8282185CB001AEB78 /* DummyImages.xcassets in Resources */,
 				1D12752C280AE70600726651 /* SignIn.storyboard in Resources */,
 				926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */,
 				92CD3373273FA2A00094CB1C /* SpoqaHanSansNeo-Light.otf in Resources */,
@@ -1387,6 +1408,7 @@
 				9248133027D130D600A0CECC /* HomeMainViewController.swift in Sources */,
 				928AE07B276B0D4C001155EE /* PrivateGroupCVC.swift in Sources */,
 				92E416EF27B8264B00FD008F /* Adjust+.swift in Sources */,
+				927D10FB2821BAC7001AEB78 /* LoadData+.swift in Sources */,
 				9248133227D1319C00A0CECC /* TDSNavigationBar.swift in Sources */,
 				92159CA22758D76D0081F20B /* MemberCollectionViewCell.swift in Sources */,
 				92A5B29F2739AA2F004149B2 /* MyPageAlarmTableViewCell.swift in Sources */,
@@ -1416,10 +1438,12 @@
 				92291C522759130F0012927B /* CompleteCreatePrivateViewController.swift in Sources */,
 				92A2445727D8041500A81738 /* HomeRecruitingTableViewCell.swift in Sources */,
 				92AFB39A276339F000977712 /* MyGroupCollectionViewCell.swift in Sources */,
+				927D10FF2821E218001AEB78 /* PublicDetailSettingViewController.swift in Sources */,
 				926C7C49273802890020F851 /* ChatViewController.swift in Sources */,
 				926290E127A40543006A3B58 /* PublicDetailViewController.swift in Sources */,
 				926C7C422737FE7B0020F851 /* UITextField+.swift in Sources */,
 				1DA5D064275BD7A100F78579 /* JoinVC.swift in Sources */,
+				927D10FD2821DB1D001AEB78 /* TDSGroupLightningButton.swift in Sources */,
 				9244097827AE68EB00034510 /* CreatePublicGroupNameViewController.swift in Sources */,
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
 				92609ACB274BB7E800F0E401 /* LightningTitleViewController.swift in Sources */,

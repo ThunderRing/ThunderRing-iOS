@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class HomeMainPublicGroupCollectionViewCell: UICollectionViewCell {
-    static var CellIdentifier: String { return String(describing: self) }
+    static var cellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     
@@ -47,8 +47,8 @@ final class HomeMainPublicGroupCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Custom Method
     
-    internal func initCell(group: PublicGroupDataModel) {
-        cellView.configCell(group: group)
+    internal func initCell(group: PublicGroupData) {
+        cellView.configCell(group)
     }
 }
 

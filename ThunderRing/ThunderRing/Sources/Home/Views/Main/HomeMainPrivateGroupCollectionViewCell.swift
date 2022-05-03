@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class HomeMainPrivateGroupCollectionViewCell: UICollectionViewCell {
-    static var CellIdentifier: String { return String(describing: self) }
+    static var cellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     
@@ -70,9 +70,9 @@ final class HomeMainPrivateGroupCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Custom Method
     
-    internal func initCell(groups: [PrivateGroupData]) {
-        firstCellView.configCell(group: groups[0])
-        secondCellView.configCell(group: groups[1])
+    internal func initCell(firstGroup: PrivateGroupData, secondGroup: PrivateGroupData) {
+        firstCellView.configCell(group: firstGroup)
+        secondCellView.configCell(group: secondGroup)
     }
 }
 

@@ -61,6 +61,12 @@ final class PrivateGroupDetailHeaderView: UIView {
     
     weak var delegate: PrivateGroupDetailHeaderViewDelegate?
     
+    var groupImageName: String = "" {
+        didSet {
+            groupImageView.image = UIImage(named: groupImageName)
+        }
+    }
+    
     var groupName: String = "" {
         didSet {
             groupNameLabel.text = groupName

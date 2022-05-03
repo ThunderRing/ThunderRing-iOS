@@ -63,7 +63,7 @@ final class TDSModalNavigationBar: UIView {
     // MARK: - InitUI
     
     private func configUI() {
-        backgroundColor = .white
+        backgroundColor = .background
     }
     
     private func setLayout() {
