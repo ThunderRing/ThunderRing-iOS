@@ -44,7 +44,7 @@ final class MyPageGroupCountViewController: UIViewController {
     }
     
     private var privateGroupData = [PrivateGroupData]()
-//    private var publicGroupData = [PublicGroupData]()
+    private var publicGroupData = [PublicGroupData]()
     
     // MARK: - Life Cycle
     
@@ -136,20 +136,6 @@ final class MyPageGroupCountViewController: UIViewController {
         groupTableView.register(PrivateListTableViewCell.self, forCellReuseIdentifier: PrivateListTableViewCell.identifier)
         groupTableView.register(PublicListTableViewCell.self, forCellReuseIdentifier: PublicListTableViewCell.identifier)
     }
-    
-    private func load() -> Data? {
-        let fileNm: String = "PrivateGroupData"
-        let extensionType = "json"
-        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
-        
-        do {
-            let data = try Data(contentsOf: fileLocation)
-            return data
-        } catch {
-            print("파일 로드 실패")
-            return nil
-        }
-    }
 }
 
 extension MyPageGroupCountViewController: UITableViewDelegate {
@@ -213,7 +199,6 @@ extension MyPageGroupCountViewController: UITableViewDataSource {
             bgColorView.backgroundColor = UIColor.init(red: 126 / 255, green: 101 / 255, blue: 255 / 255, alpha: 0.1)
             cell.selectedBackgroundView = bgColorView
             
-            cell.initCell(privateGroupData[indexPath.row])
             if indexPath.row == 0 {
                 cell.clipsToBounds = true
                 cell.layer.cornerRadius = 6
@@ -224,10 +209,12 @@ extension MyPageGroupCountViewController: UITableViewDataSource {
                 cell.layer.cornerRadius = 6
                 cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             }
+            
+            cell.initCell(privateGroupData[indexPath.row])
+            
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PublicListTableViewCell.identifier) as? PublicListTableViewCell else { return UITableViewCell() }
-            cell.initCell(group: publicGroupData[indexPath.row])
             
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.init(red: 126 / 255, green: 101 / 255, blue: 255 / 255, alpha: 0.1)
@@ -243,6 +230,9 @@ extension MyPageGroupCountViewController: UITableViewDataSource {
                 cell.layer.cornerRadius = 6
                 cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
             }
+            
+            cell.initCell(publicGroupData[indexPath.row])
+            
             return cell
         default:
             return UITableViewCell()
@@ -255,7 +245,7 @@ extension MyPageGroupCountViewController: UITableViewDataSource {
 extension MyPageGroupCountViewController {
     private func getPrivateGroupData() {
         guard
-            let jsonData = self.load(),
+            let jsonData = self.loadPrivateGroupData(),
             let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
         else { return }
         privateGroupData = data.privateGroupData
@@ -264,10 +254,11 @@ extension MyPageGroupCountViewController {
     
     private func getPublicGroupData() {
         guard
-            let jsonData = self.load(),
+            let jsonData = self.loadPublicGroupData(),
             let data = try? JSONDecoder().decode(PublicGroupResponse.self, from: jsonData)
         else { return }
-        
+        publicGroupData = data.publicGroupData
+        publicGroupCountLabel.text = "\(data.publicGroupData.count)"
     }
 }
 

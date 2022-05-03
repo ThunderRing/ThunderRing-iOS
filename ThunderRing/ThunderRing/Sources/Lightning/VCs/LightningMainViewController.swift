@@ -30,7 +30,7 @@ final class LightningMainViewController: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
-    private var privateCountLabel = UILabel().then {
+    private var privateGroupCountLabel = UILabel().then {
         $0.textColor = .gray200
         $0.font = .DINPro(type: .regular, size: 18)
     }
@@ -42,24 +42,25 @@ final class LightningMainViewController: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
-    private var publicCountLabel = UILabel().then {
+    private var publicGroupCountLabel = UILabel().then {
         $0.textColor = .gray200
         $0.font = .DINPro(type: .regular, size: 18)
     }
     
     var privateCount: Int = 0 {
         didSet {
-            privateCountLabel.text = "\(privateCount)"
+            privateGroupCountLabel.text = "\(privateCount)"
         }
     }
     
     var publicCount: Int = 0 {
         didSet {
-            publicCountLabel.text = "\(publicCount)"
+            publicGroupCountLabel.text = "\(publicCount)"
         }
     }
     
     private var privateGroupData = [PrivateGroupData]()
+    private var publicGroupData = [PublicGroupData]()
     
     // MARK: - Life Cycle
     
@@ -100,8 +101,8 @@ final class LightningMainViewController: UIViewController {
     }
     
     private func setLayout() {
-        privateHeaderView.addSubviews([privateTitleLabel, privateCountLabel])
-        publicHeaderView.addSubviews([publicTitleLabel, publicCountLabel])
+        privateHeaderView.addSubviews([privateTitleLabel, privateGroupCountLabel])
+        publicHeaderView.addSubviews([publicTitleLabel, publicGroupCountLabel])
         
         [privateTitleLabel, publicTitleLabel].forEach {
             $0.snp.makeConstraints {
@@ -110,12 +111,12 @@ final class LightningMainViewController: UIViewController {
             }
         }
         
-        privateCountLabel.snp.makeConstraints {
+        privateGroupCountLabel.snp.makeConstraints {
             $0.leading.equalTo(privateTitleLabel.snp.trailing).offset(4)
             $0.bottom.equalToSuperview().inset(15)
         }
         
-        publicCountLabel.snp.makeConstraints {
+        publicGroupCountLabel.snp.makeConstraints {
             $0.leading.equalTo(publicTitleLabel.snp.trailing).offset(4)
             $0.bottom.equalToSuperview().inset(15)
         }
@@ -140,34 +141,6 @@ final class LightningMainViewController: UIViewController {
         
         groupListTableView.register(PrivateListTableViewCell.self, forCellReuseIdentifier: PrivateListTableViewCell.identifier)
         groupListTableView.register(PublicListTableViewCell.self, forCellReuseIdentifier: PublicListTableViewCell.identifier)
-    }
-    
-    private func loadPrivateGroupData() -> Data? {
-        let fileNm: String = "PrivateGroupData"
-        let extensionType = "json"
-        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
-        
-        do {
-            let data = try Data(contentsOf: fileLocation)
-            return data
-        } catch {
-            print("파일 로드 실패")
-            return nil
-        }
-    }
-    
-    private func loadPublicGroupData() -> Data? {
-        let fileNm: String = "PublicGroupData"
-        let extensionType = "json"
-        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
-        
-        do {
-            let data = try Data(contentsOf: fileLocation)
-            return data
-        } catch {
-            print("파일 로드 실패")
-            return nil
-        }
     }
 }
 
@@ -264,7 +237,7 @@ extension LightningMainViewController: UITableViewDataSource {
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PublicListTableViewCell.identifier) as? PublicListTableViewCell else { return UITableViewCell() }
-            cell.initCell(group: publicGroupData[indexPath.row])
+            cell.initCell(publicGroupData[indexPath.row])
             
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.init(red: 126 / 255, green: 101 / 255, blue: 255 / 255, alpha: 0.1)
@@ -295,7 +268,8 @@ extension LightningMainViewController {
             let jsonData = self.loadPrivateGroupData(),
             let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
         else { return }
-        self.privateGroupData = data.privateGroupData
+        privateGroupData = data.privateGroupData
+        privateGroupCountLabel.text = "\(data.privateGroupData.count)"
     }
     
     private func getPublicGroupData() {
@@ -303,5 +277,7 @@ extension LightningMainViewController {
             let jsonData = self.loadPublicGroupData(),
             let data = try? JSONDecoder().decode(PublicGroupResponse.self, from: jsonData)
         else { return }
+        publicGroupData = data.publicGroupData
+        publicGroupCountLabel.text = "\(data.publicGroupData.count)"
     }
 }

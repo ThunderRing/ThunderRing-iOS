@@ -74,6 +74,12 @@ final class PublicGroupDetailHeaderView: UIView {
     
     weak var delegate: PublicGroupDetailHeaderViewDelegate?
     
+    var groupImageName: String = "" {
+        didSet {
+            groupImageView.image = UIImage(named: groupImageName)
+        }
+    }
+    
     var groupTendency: String = "" {
         didSet {
             groupTendencyView.tagType = .emotion

@@ -87,7 +87,7 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         }
         
         memberCountLabel.snp.makeConstraints {
-            $0.bottom.equalTo(groupNameLabel.snp.bottom)
+            $0.top.equalTo(groupImageView.snp.bottom).offset(14)
             $0.leading.equalTo(groupNameLabel.snp.trailing).offset(4)
         }
         
@@ -116,39 +116,43 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         return label.frame.width + 12
     }
     
-    internal func configCell(group: PublicGroupDataModel) {
-        groupImageView.image = UIImage(named: group.groupImage)
+    internal func configCell(_ data: PublicGroupData) {
+        groupImageView.image = UIImage(named: data.groupImageName)
         
-        groupNameLabel.text = group.groupName
+        groupNameLabel.text = data.groupName
+        groupNameLabel.setTextSpacingBy(value: -0.6)
         
-        memberCountLabel.text = "\(group.memberCounts)/\(group.memberTotalCounts!)"
+        memberCountLabel.text = "\(data.groupMember.count)/\(data.groupMaxCount)"
+        memberCountLabel.setTextSpacingBy(value: -0.6)
         
-        switch group.publicGroupType {
-        case .diligent:
+        switch data.groupTendency {
+        case "tendencyDiligent":
             groupTendencyView.tagType = .diligent
             groupTendencyView.snp.updateConstraints {
                 $0.width.equalTo(98)
             }
-        case .crowd:
+        case "tendencyCrowd":
             groupTendencyView.tagType = .crowd
             groupTendencyView.snp.updateConstraints {
                 $0.width.equalTo(87)
             }
-        case .emotion:
+        case "tendencyEmotion":
             groupTendencyView.tagType = .emotion
             groupTendencyView.snp.updateConstraints {
                 $0.width.equalTo(98)
             }
-        case .soft:
+        case "tendencySoft":
             groupTendencyView.tagType = .soft
             groupTendencyView.snp.updateConstraints {
                 $0.width.equalTo(75)
             }
-        case .cozy:
+        case "tendencyCozy":
             groupTendencyView.tagType = .cozy
             groupTendencyView.snp.updateConstraints {
                 $0.width.equalTo(87)
             }
+        default:
+            groupTendencyView.tagType = .diligent
         }
     }
     

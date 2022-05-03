@@ -1,11 +1,53 @@
 {
     "publicGroupData": [
         {
-            "groupName": "카트왕 랄프",
+            "groupImageName": "mainPu1",
+            "groupName": "도예공방",
             "groupTendency": "tendencyEmotion",
-            "groupDescription": "매일 3시 카러플 랭킹전 모집함",
-            "groupTag": ["게임", "카트", "온라인"],
-            "groupMembers": ["이나영", "이지원", "김루희", "김규민", "황주희", "박수아", "채정아"],
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "이동근"
+                },{
+                    "memberImageName": "proYeji",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "이지원"
+                }, {
+                    "memberImageName": "proNamin",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김루희"
+                }
+                
+            ],
+            "groupMaxCount": 30,
             "history": [
                 {
                     "date": "21/08/03",
@@ -40,11 +82,292 @@
             ]
         },
         {
-            "groupName": "카트왕 랄프",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "매일 3시 카러플 랭킹전 모집함",
+            "groupImageName": "mainPu2",
+            "groupName": "칵테일러브",
+            "groupTendency": "tendencyDiligent",
+            "groupDescription": "#mood 칵테일 맛집 도장 깨기",
             "groupTag": ["게임", "카트", "온라인"],
-            "groupMembers": ["이나영", "이지원", "김루희", "김규민", "황주희", "박수아", "채정아"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                },{
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }, {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "mainPu3",
+            "groupName": "Oil PASTEL",
+            "groupTendency": "tendencySoft",
+            "groupDescription": "오일 파스텔 러버들 커몬",
+            "groupTag": ["게임", "카트", "온라인"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                },{
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }, {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }
+            ],
+            "groupMaxCount": 100,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "mainPu4",
+            "groupName": "아이스케키",
+            "groupTendency": "tendencyCrowd",
+            "groupDescription": "여름이 제일 좋은 사람들 모여라",
+            "groupTag": ["게임", "카트", "온라인"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                },{
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }, {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }
+            ],
+            "groupMaxCount": 100,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "mainPu5",
+            "groupName": "디미 모여라",
+            "groupTendency": "tendencyCozy",
+            "groupDescription": "서울여자대학교 디지털미디어학과",
+            "groupTag": ["게임", "카트", "온라인"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                },{
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }, {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }
+            ],
+            "groupMaxCount": 80,
             "history": [
                 {
                     "date": "21/08/03",

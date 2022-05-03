@@ -27,10 +27,16 @@ final class MyPublicViewController: UIViewController {
     
     private var currentIndex = 0
     
+    private var publicGroupData = [PublicGroupData]()
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.getPublicGroupData()
+            self.groupCollectionView.reloadData()
+        }
         configUI()
         setCollectionView()
         setGesture()
@@ -91,6 +97,7 @@ final class MyPublicViewController: UIViewController {
     }
     
     // MARK: - @objc
+    
     @objc func dragToMyGroup() {
         if currentIndex == 1 {
             let indexPath = IndexPath(item: 0, section: 0)
@@ -173,8 +180,8 @@ extension MyPublicViewController: UICollectionViewDataSource {
         case 0 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyGroupCollectionViewCell.identifier, for: indexPath) as? MyGroupCollectionViewCell else { return UICollectionViewCell() }
             cell.delegate = self
-            // FIXME: - 데이터 갯수
-            cell.count = publicGroupData.count + 1
+            cell.count = publicGroupData.count
+            cell.initCell(publicGroupData)
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyOverviewCollectionViewCell.CellIdentifier, for: indexPath) as? MyOverviewCollectionViewCell else { return UICollectionViewCell() }
@@ -201,9 +208,22 @@ extension MyPublicViewController: MyGroupCollectionViewCellDelegate {
         present(dvc, animated: true, completion: nil)
     }
     
-    func touchUpCell() {
+    func touchUpCell(index: Int) {
         let dvc = PublicDetailViewController()
+        dvc.index = index
         dvc.isOwner = false
         navigationController?.pushViewController(dvc, animated: true)
+    }
+}
+
+// MARK: - Network
+
+extension MyPublicViewController {
+    private func getPublicGroupData() {
+        guard
+            let jsonData = self.loadPublicGroupData(),
+            let data = try? JSONDecoder().decode(PublicGroupResponse.self, from: jsonData)
+        else { return }
+        publicGroupData = data.publicGroupData
     }
 }

@@ -188,6 +188,7 @@ extension MyPrivateViewController {
             let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
         else { return }
         privateGroupData = data.privateGroupData
+        count = data.privateGroupData.count
     }
 }
 

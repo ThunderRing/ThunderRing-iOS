@@ -12,7 +12,7 @@ import Then
 
 protocol MyGroupCollectionViewCellDelegate {
     func touchUpTestButton()
-    func touchUpCell()
+    func touchUpCell(index: Int)
 }
 
 final class MyGroupCollectionViewCell: UICollectionViewCell {
@@ -59,6 +59,8 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
     }
     
     var delegate: MyGroupCollectionViewCellDelegate?
+    
+    private var publicGroupData = [PublicGroupData]()
     
     // MARK: - Initialzier
     
@@ -117,6 +119,11 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
         groupTableView.register(MyPublicGroupTableViewCell.self, forCellReuseIdentifier: MyPublicGroupTableViewCell.identifier)
     }
     
+    internal func initCell(_ data: [PublicGroupData]) {
+        publicGroupData = data
+        groupTableView.reloadData()
+    }
+    
     // MARK: - @objc
     
     @objc func touchUpTestButton() {
@@ -128,7 +135,7 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
 
 extension MyGroupCollectionViewCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 109
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -140,7 +147,7 @@ extension MyGroupCollectionViewCell: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.touchUpCell()
+        delegate?.touchUpCell(index: indexPath.row)
     }
 }
 
@@ -153,7 +160,7 @@ extension MyGroupCollectionViewCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPublicGroupTableViewCell.identifier) as? MyPublicGroupTableViewCell else { return UITableViewCell() }
-        cell.initCell(group: publicGroupData[indexPath.row])
+        cell.initCell(publicGroupData[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }

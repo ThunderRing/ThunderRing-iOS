@@ -30,7 +30,9 @@ final class PublicListTableViewCell: UITableViewCell {
         $0.font = .DINPro(type: .regular, size: 15)
     }
     
-    private lazy var groupTagView = GroupTendencyView(tagType: .diligent)
+    private lazy var groupTendencyView = GroupTendencyView(tagType: .diligent).then {
+        $0.makeRounded(cornerRadius: 3)
+    }
 
     // MARK: - Life Cycle
     
@@ -47,13 +49,11 @@ final class PublicListTableViewCell: UITableViewCell {
     // MARK: - Init UI
     
     private func configUI() {
-        groupTagView.makeRounded(cornerRadius: 3)
-        
         initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 1, bounds: true)
     }
     
     private func setLayout() {
-        addSubviews([groupImageView, groupNameLabel, countLabel, groupTagView])
+        addSubviews([groupImageView, groupNameLabel, countLabel, groupTendencyView])
         
         groupImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(18)
@@ -72,48 +72,53 @@ final class PublicListTableViewCell: UITableViewCell {
             $0.centerY.equalTo(groupNameLabel.snp.centerY)
         }
         
-        groupTagView.snp.makeConstraints {
+        groupTendencyView.snp.makeConstraints {
             $0.leading.equalTo(groupImageView.snp.trailing).offset(14)
             $0.top.equalTo(countLabel.snp.bottom).offset(7)
             $0.width.equalTo(84)
+            $0.height.equalTo(21)
         }
     }
     
     // MARK: - Custom Method
     
-    func initCell(group: PublicGroupDataModel) {
-        groupImageView.image = UIImage(named: group.groupImage)
+    func initCell(_ data: PublicGroupData) {
+        groupImageView.image = UIImage(named: data.groupImageName)
         
-        groupNameLabel.text = group.groupName
+        groupNameLabel.text = data.groupName
+        groupNameLabel.setTextSpacingBy(value: -0.6)
         
-        countLabel.text = "\(group.memberCounts)"
+        countLabel.text = "\(data.groupMember.count)"
+        countLabel.setTextSpacingBy(value: -0.6)
         
-        switch group.publicGroupType {
-        case .diligent:
-            groupTagView.tagType = .diligent
-            groupTagView.snp.updateConstraints {
-                $0.width.equalTo(95)
+        switch data.groupTendency {
+        case "tendencyDiligent":
+            groupTendencyView.tagType = .diligent
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(98)
             }
-        case .crowd:
-            groupTagView.tagType = .crowd
-            groupTagView.snp.updateConstraints {
-                $0.width.equalTo(84)
+        case "tendencyCrowd":
+            groupTendencyView.tagType = .crowd
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(87)
             }
-        case .emotion:
-            groupTagView.tagType = .emotion
-            groupTagView.snp.updateConstraints {
-                $0.width.equalTo(95)
+        case "tendencyEmotion":
+            groupTendencyView.tagType = .emotion
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(98)
             }
-        case .soft:
-            groupTagView.tagType = .soft
-            groupTagView.snp.updateConstraints {
-                $0.width.equalTo(72)
+        case "tendencySoft":
+            groupTendencyView.tagType = .soft
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(75)
             }
-        case .cozy:
-            groupTagView.tagType = .cozy
-            groupTagView.snp.updateConstraints {
-                $0.width.equalTo(84)
+        case "tendencyCozy":
+            groupTendencyView.tagType = .cozy
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(87)
             }
+        default:
+            groupTendencyView.tagType = .diligent
         }
     }
 }
