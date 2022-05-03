@@ -41,7 +41,7 @@ final class PrivateDetailViewController: UIViewController {
         $0.delegate = self
     }
     
-    private lazy var lightningButton = GroupLightningButton().then {
+    private lazy var lightningButton = TDSGroupLightningButton().then {
         $0.addTarget(self, action: #selector(touchUpLightningButton), for: .touchUpInside)
         $0.makeRounded(cornerRadius: 24)
     }
@@ -505,41 +505,3 @@ extension PrivateDetailViewController {
         historyCountsLabel.text = "\(data.privateGroupData[index].history.count)"
     }
 }
-
-// MARK: - Button
-
-fileprivate final class GroupLightningButton: UIButton {
-    
-    private lazy var iconImage = UIImageView().then {
-        $0.image = UIImage(named: "icn_lightning_new")
-    }
-    
-    private lazy var label = UILabel().then {
-        $0.text = "번개 치기"
-        $0.textColor = .white
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
-    }
-    
-    init() {
-        super.init(frame: .zero)
-        setButton()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setButton() {
-        backgroundColor = .purple100
-        addSubviews([iconImage, label])
-        iconImage.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(127)
-        }
-        label.snp.makeConstraints {
-            $0.leading.equalTo(iconImage.snp.trailing).offset(4)
-            $0.centerY.equalToSuperview()
-        }
-    }
-}
-

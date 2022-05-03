@@ -210,8 +210,13 @@ extension MyPublicViewController: MyGroupCollectionViewCellDelegate {
     
     func touchUpCell(index: Int) {
         let dvc = PublicDetailViewController()
+        dvc.isMember = true
         dvc.index = index
-        dvc.isOwner = false
+        if index == 0 {
+            dvc.isOwner = true
+        } else {
+            dvc.isOwner = false
+        }
         navigationController?.pushViewController(dvc, animated: true)
     }
 }
