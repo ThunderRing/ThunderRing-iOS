@@ -43,15 +43,21 @@ final class MyPrivateViewController: UIViewController {
         }
     }
     
+    private var privateGroupData = [PrivateGroupData]()
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        groupTableView.reloadData()
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.getPrivateGroupData()
+            self.groupTableView.reloadData()
+        }
         configUI()
         setLayout()
         setData()
@@ -61,10 +67,13 @@ final class MyPrivateViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configUI() {
-        view.backgroundColor = .background
+    private func configNavigationUI() {
         setStatusBar(.white)
         customNavigationBarView.layer.applyShadow()
+    }
+    
+    private func configUI() {
+        view.backgroundColor = .background
         
         groupTableView.separatorStyle = .none
         groupTableView.backgroundColor = .background
@@ -93,7 +102,7 @@ final class MyPrivateViewController: UIViewController {
     private func setTableView() {
         groupTableView.delegate = self
         groupTableView.dataSource = self
-        groupTableView.register(MyPrivateTableViewCell.self, forCellReuseIdentifier: MyPrivateTableViewCell.CellIdentifier)
+        groupTableView.register(MyPrivateTableViewCell.self, forCellReuseIdentifier: MyPrivateTableViewCell.cellIdentifier)
     }
     
     private func setAction() {
@@ -112,6 +121,20 @@ final class MyPrivateViewController: UIViewController {
             dvc.modalPresentationStyle = .fullScreen
             self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
+    }
+    
+    private func load() -> Data? {
+        let fileNm: String = "PrivateGroupData"
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
     }
 }
 
@@ -135,7 +158,7 @@ extension MyPrivateViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dvc = PrivateDetailViewController()
         dvc.isOwner = true
-        dvc.index = 0
+        dvc.index = indexPath.row
         navigationController?.pushViewController(dvc, animated: true)
     }
 }
@@ -148,12 +171,24 @@ extension MyPrivateViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPrivateTableViewCell.CellIdentifier) as? MyPrivateTableViewCell else { return UITableViewCell() }
-        cell.initCell(group: privateGroupData[indexPath.row])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPrivateTableViewCell.cellIdentifier) as? MyPrivateTableViewCell else { return UITableViewCell() }
+        cell.initCell(privateGroupData[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }
 }
 
+
+// MARK: - Network
+
+extension MyPrivateViewController {
+    private func getPrivateGroupData() {
+        guard
+            let jsonData = self.load(),
+            let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
+        else { return }
+        privateGroupData = data.privateGroupData
+    }
+}
 
 

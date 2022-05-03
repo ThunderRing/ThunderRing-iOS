@@ -59,6 +59,8 @@ final class LightningMainViewController: UIViewController {
         }
     }
     
+    private var privateGroupData = [PrivateGroupData]()
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +71,8 @@ final class LightningMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
+            self.getPrivateGroupData()
+            self.getPublicGroupData()
             self.groupListTableView.reloadData()
         }
         configUI()
@@ -137,6 +141,34 @@ final class LightningMainViewController: UIViewController {
         groupListTableView.register(PrivateListTableViewCell.self, forCellReuseIdentifier: PrivateListTableViewCell.identifier)
         groupListTableView.register(PublicListTableViewCell.self, forCellReuseIdentifier: PublicListTableViewCell.identifier)
     }
+    
+    private func loadPrivateGroupData() -> Data? {
+        let fileNm: String = "PrivateGroupData"
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
+    }
+    
+    private func loadPublicGroupData() -> Data? {
+        let fileNm: String = "PublicGroupData"
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
+    }
 }
 
 // MARK: - UITableView Delegate
@@ -172,13 +204,13 @@ extension LightningMainViewController: UITableViewDelegate {
         if indexPath.section == 0 {
             for i in 0 ... privateGroupData.count - 1 {
                 dvc.groupNames.append(privateGroupData[i].groupName)
-                dvc.groupMaxCounts.append(privateGroupData[i].memberCounts)
-                dvc.groupMaxCount = privateGroupData[indexPath.row].memberCounts
+                dvc.groupMaxCounts.append(privateGroupData[i].groupMember.count)
+                dvc.groupMaxCount = privateGroupData[indexPath.row].groupMember.count
             }
         } else {
             for i in 0 ... privateGroupData.count - 1 {
                 dvc.groupNames.append(publicGroupData[i].groupName)
-                dvc.groupMaxCounts.append(privateGroupData[i].memberCounts)
+                dvc.groupMaxCounts.append(privateGroupData[i].groupMember.count)
             }
         }
         
@@ -213,7 +245,7 @@ extension LightningMainViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTableViewCell.identifier) as? PrivateListTableViewCell else { return UITableViewCell() }
-            cell.initCell(group: privateGroupData[indexPath.row])
+            cell.initCell(privateGroupData[indexPath.row])
             
             let bgColorView = UIView()
             bgColorView.backgroundColor = UIColor.init(red: 126 / 255, green: 101 / 255, blue: 255 / 255, alpha: 0.1)
@@ -252,5 +284,24 @@ extension LightningMainViewController: UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+}
+
+// MARK: - Network
+
+extension LightningMainViewController {
+    private func getPrivateGroupData() {
+        guard
+            let jsonData = self.loadPrivateGroupData(),
+            let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
+        else { return }
+        self.privateGroupData = data.privateGroupData
+    }
+    
+    private func getPublicGroupData() {
+        guard
+            let jsonData = self.loadPublicGroupData(),
+            let data = try? JSONDecoder().decode(PublicGroupResponse.self, from: jsonData)
+        else { return }
     }
 }

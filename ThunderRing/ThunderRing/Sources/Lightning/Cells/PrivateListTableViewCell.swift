@@ -48,6 +48,8 @@ final class PrivateListTableViewCell: UITableViewCell {
         backgroundColor = .white
         
         initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 1, bounds: true)
+        
+        groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 19, bounds: true)
     }
     
     private func setLayout() {
@@ -73,11 +75,10 @@ final class PrivateListTableViewCell: UITableViewCell {
     
     // MARK: - Custom Method
     
-    func initCell(group: PrivateGroupDataModel) {
-        guard let groupImageName = group.groupImageName else { return }
-        groupImageView.image = UIImage(named: groupImageName)
+    func initCell(_ data: PrivateGroupData) {
+        groupImageView.image = UIImage(named: data.groupImageName)
         
-        groupNameLabel.text = group.groupName
-        countLabel.text = "\(group.memberCounts)"
+        groupNameLabel.text = data.groupName
+        countLabel.text = "\(data.groupMember.count)"
     }
 }

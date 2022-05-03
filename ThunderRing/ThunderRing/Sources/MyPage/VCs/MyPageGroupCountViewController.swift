@@ -150,7 +150,7 @@ extension MyPageGroupCountViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PrivateListTableViewCell.identifier) as? PrivateListTableViewCell else { return UITableViewCell() }
-            cell.initCell(group: privateGroupData[indexPath.row])
+//            cell.initCell(group: privateGroupData[indexPath.row])
             if indexPath.row == 0 {
                 cell.clipsToBounds = true
                 cell.layer.cornerRadius = 6
