@@ -14,7 +14,7 @@ final class TestVC: UIViewController {
     
     // MARK: - Properties
     
-    private lazy var customNavigationBar = CustomNavigationBar(vc: self, title: "테스트 질문", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+    private lazy var customNavigationBar = CustomNavigationBar(vc: self, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
     
     private var indexLabel = UILabel().then {
         $0.text = "1/8"
@@ -28,7 +28,7 @@ final class TestVC: UIViewController {
     }
     
     private var contentScrollView = UIScrollView().then {
-        $0.isScrollEnabled = true
+        $0.isScrollEnabled = false
         $0.isPagingEnabled = true
     }
     
@@ -77,6 +77,7 @@ final class TestVC: UIViewController {
         views = [view1, view2, view3, view4, view5, view6, view7, view8]
         for view in views {
             contentStackView.addArrangedSubview(view)
+            view.delegate = self
         }
         
         indexLabel.text = "\(currentIndex)/8"
@@ -89,8 +90,8 @@ final class TestVC: UIViewController {
         }
         
         indexLabel.snp.makeConstraints {
-            $0.top.equalTo(customNavigationBar.snp.bottom).offset(10)
-            $0.trailing.equalToSuperview().inset(25)
+            $0.top.equalTo(customNavigationBar.snp.bottom).offset(16)
+            $0.leading.equalToSuperview().inset(26)
         }
         
         progressView.snp.makeConstraints {
@@ -126,6 +127,10 @@ final class TestVC: UIViewController {
                 self.progressView.setProgress(0.125 * Float(index), animated: true)
             }
         }
+    }
+    
+    private func updateScrollView() {
+        contentScrollView.isScrollEnabled
     }
     
     private func load() -> Data? {
@@ -174,6 +179,14 @@ extension TestVC: UIScrollViewDelegate {
             updateProgressViewWithAnimation(index: 8)
         default: return
         }
+    }
+}
+
+// MARK: - Custom Delegate
+
+extension TestVC: TestViewDelegate {
+    func touchUpCellView(isSelected: Bool) {
+        contentScrollView.isScrollEnabled = isSelected
     }
 }
 
