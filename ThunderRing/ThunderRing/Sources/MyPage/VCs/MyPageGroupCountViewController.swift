@@ -61,6 +61,7 @@ final class MyPageGroupCountViewController: UIViewController {
             self.groupTableView.reloadData()
         }
         configUI()
+        configTabBarUI()
         setLayout()
         setTableView()
     }
@@ -72,6 +73,10 @@ final class MyPageGroupCountViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         setStatusBar(.white)
         navigationBar.layer.applyShadow()
+    }
+    
+    private func configTabBarUI() {
+        tabBarController?.tabBar.isHidden = true
     }
     
     private func configUI() {

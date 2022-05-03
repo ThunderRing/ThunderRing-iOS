@@ -37,6 +37,7 @@ final class MyPageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configNavigatioUI()
+        configTabBarUI()
     }
     
     override func viewDidLoad() {
@@ -48,6 +49,10 @@ final class MyPageViewController: UIViewController {
     
     private func configNavigatioUI() {
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func configTabBarUI() {
+        tabBarController?.tabBar.isHidden = false
     }
     
     private func configUI() {
