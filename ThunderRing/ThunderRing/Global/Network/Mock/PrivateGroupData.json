@@ -1,152 +1,334 @@
 {
-  "privateGroupData": [
-    {
-      "groupName": "양파링걸즈",
-      "groupDescription": "우린 양파링은 킹왕짱이다",
-      "groupMembers": ["김소연", "이지원", "윤하민", "마예지"],
-      "history": [
-          {
-              "date": "21/08/03",
-              "lightningName": "이태원 모각작 모아요",
-              "memberCount": 4,
-              "location": "이태원 4번 출구"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "피파 달글 줌맥",
-              "memberCount": 4,
-              "location": "Zoom 미팅"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "서울여대 도서관 가기",
-              "memberCount": 4,
-              "location": "서울여대 중앙도서관"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "석계 야채곱창 뿌시기",
-              "memberCount": 3,
-              "location": "석계역 4번 출구"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "스파이더맨 보러가자",
-              "memberCount": 2,
-              "location": "CGV 대학로점"
-          }
-      ]
-    },
-    {
-      "groupName": "공릉동불주먹",
-      "groupDescription": "우린 양파링은 킹왕짱이다",
-      "groupMembers": ["김소연", "이지원", "윤하민", "마예지", "김소연", "이지원", "윤하민", "마예지"],
-      "history": [
-          {
-              "date": "21/08/03",
-              "lightningName": "이태원 모각작 모아요",
-              "memberCount": 4,
-              "location": "이태원 4번 출구"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "피파 달글 줌맥",
-              "memberCount": 4,
-              "location": "Zoom 미팅"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "서울여대 도서관 가기",
-              "memberCount": 4,
-              "location": "서울여대 중앙도서관"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "석계 야채곱창 뿌시기",
-              "memberCount": 3,
-              "location": "석계역 4번 출구"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "스파이더맨 보러가자",
-              "memberCount": 2,
-              "location": "CGV 대학로점"
-          }
-      ]
-    },
-    {
-      "groupName": "어쩌구저쩌구",
-      "groupDescription": "우린 양파링은 킹왕짱이다",
-      "groupMembers": ["김소연", "이지원", "윤하민", "마예지", "윤하민", "마예지"],
-      "history": [
-          {
-              "date": "21/08/03",
-              "lightningName": "이태원 모각작 모아요",
-              "memberCount": 4,
-              "location": "이태원 4번 출구"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "피파 달글 줌맥",
-              "memberCount": 4,
-              "location": "Zoom 미팅"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "서울여대 도서관 가기",
-              "memberCount": 4,
-              "location": "서울여대 중앙도서관"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "석계 야채곱창 뿌시기",
-              "memberCount": 3,
-              "location": "석계역 4번 출구"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "스파이더맨 보러가자",
-              "memberCount": 2,
-              "location": "CGV 대학로점"
-          }
-      ]
-    },
-    {
-      "groupName": "성수동패거리",
-      "groupDescription": "우린 양파링은 킹왕짱이다",
-      "groupMembers": ["김소연", "이지원", "윤하민", "마예지"],
-      "history": [
-          {
-              "date": "21/08/03",
-              "lightningName": "이태원 모각작 모아요",
-              "memberCount": 4,
-              "location": "이태원 4번 출구"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "피파 달글 줌맥",
-              "memberCount": 4,
-              "location": "Zoom 미팅"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "서울여대 도서관 가기",
-              "memberCount": 4,
-              "location": "서울여대 중앙도서관"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "석계 야채곱창 뿌시기",
-              "memberCount": 3,
-              "location": "석계역 4번 출구"
-          },
-          {
-              "date": "21/08/03",
-              "lightningName": "스파이더맨 보러가자",
-              "memberCount": 2,
-              "location": "CGV 대학로점"
-          }
-      ]
-    }
-  ]
+    "privateGroupData": [
+        {
+            "groupImageName": "mainPr1",
+            "groupName": "양파링걸즈",
+            "groupDescription": "썬더링 개발자 시크릿 모임",
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }
+            ],
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "mainPr2",
+            "groupName": "썬데이모닝",
+            "groupDescription": "매주 일요일 아침 브런치 디긴",
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }
+            ],
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "mainPr3",
+            "groupName": "젤리팟",
+            "groupDescription": "쩰리파 모이셔요",
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }
+            ],
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "mainPr4",
+            "groupName": "평화지킴이",
+            "groupDescription": "Love Peace Love Earth",
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }
+            ],
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "mainPr5",
+            "groupName": "스노우보드",
+            "groupDescription": "서울여대 스노우보드 동아리",
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }
+            ],
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "mainPr6",
+            "groupName": "키치클럽",
+            "groupDescription": "키치한 무드를 사랑해요",
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "마예지"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "윤하민"
+                },
+                {
+                    "memberImageName": "proSoyeon",
+                    "memberName": "김소연"
+                }
+            ],
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        }
+    ]
 }

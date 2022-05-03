@@ -218,7 +218,7 @@ final class HomeMainViewController: UIViewController {
     private func bind() {
         privateGroupCollectionView.delegate = self
         privateGroupCollectionView.dataSource = self
-        privateGroupCollectionView.register(HomeMainPrivateGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainPrivateGroupCollectionViewCell.CellIdentifier)
+        privateGroupCollectionView.register(HomeMainPrivateGroupCollectionViewCell.self, forCellWithReuseIdentifier: HomeMainPrivateGroupCollectionViewCell.cellIdentifier)
         
         publicGroupCollectionView.delegate = self
         publicGroupCollectionView.dataSource = self
@@ -256,21 +256,21 @@ final class HomeMainViewController: UIViewController {
 // MARK: - Custom Delegate
 
 extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate {
-    func touchUpEnterButton() {
+    func touchUpEnterButton(index: Int) {
         let dvc = PrivateDetailViewController()
         dvc.isOwner = true
-        dvc.index = 0
+        dvc.index = index
         navigationController?.pushViewController(dvc, animated: true)
     }
     
-    func touchUpLightningButton() {
+    func touchUpLightningButton(index: Int) {
         guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
         let dvc = UINavigationController(rootViewController: vc)
         
-        vc.index = 0
+        vc.index = index
         for i in 0 ... privateGroupData.count - 1 {
             vc.groupNames.append(privateGroupData[i].groupName)
-            vc.groupMaxCounts.append(privateGroupData[i].groupMembers.count)
+            vc.groupMaxCounts.append(privateGroupData[i].groupMember.count)
         }
         
         dvc.modalPresentationStyle = .fullScreen
@@ -380,8 +380,22 @@ extension HomeMainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case privateGroupCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeMainPrivateGroupCollectionViewCell.CellIdentifier, for: indexPath) as? HomeMainPrivateGroupCollectionViewCell else { return UICollectionViewCell() }
-            cell.initCell(groups: privateGroupData)
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeMainPrivateGroupCollectionViewCell.cellIdentifier, for: indexPath) as? HomeMainPrivateGroupCollectionViewCell else { return UICollectionViewCell() }
+            
+            if indexPath.item == 0 {
+                cell.initCell(firstGroup: privateGroupData[0], secondGroup: privateGroupData[1])
+                cell.firstCellView.index = 0
+                cell.secondCellView.index = 1
+            } else if indexPath.item == 1 {
+                cell.initCell(firstGroup: privateGroupData[2], secondGroup: privateGroupData[3])
+                cell.firstCellView.index = 2
+                cell.secondCellView.index = 3
+            } else {
+                cell.initCell(firstGroup: privateGroupData[4], secondGroup: privateGroupData[5])
+                cell.firstCellView.index = 4
+                cell.secondCellView.index = 5
+            }
+            
             cell.firstCellView.delegate = self
             cell.secondCellView.delegate = self
             return cell
@@ -404,7 +418,6 @@ extension HomeMainViewController {
             let jsonData = self.load(),
             let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
         else { return }
-        
         privateGroupData = data.privateGroupData
         privateGroupHeaderView.count = data.privateGroupData.count
     }

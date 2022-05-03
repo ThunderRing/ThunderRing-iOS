@@ -59,8 +59,10 @@ final class PrivateDetailMemberCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    internal func initCell(name: String) {
-        memberNameLabel.text = name
+    internal func initCell(_ data: GroupMember) {
+        memberImageView.image = UIImage(named: data.memberImageName)
+        
+        memberNameLabel.text = data.memberName
         memberNameLabel.setTextSpacingBy(value: -0.6)
     }
 }

@@ -150,7 +150,7 @@ final class PrivateDetailViewController: UIViewController {
         }
     }
     
-    private var members = [String]()
+    private var members = [GroupMember]()
     private var history = [History]()
     
     var index: Int = 0
@@ -449,7 +449,7 @@ extension PrivateDetailViewController: UICollectionViewDataSource {
         switch collectionView {
         case memberCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailMemberCollectionViewCell.CellIdentifier, for: indexPath) as? PrivateDetailMemberCollectionViewCell else { return UICollectionViewCell() }
-            cell.initCell(name: members[indexPath.item])
+            cell.initCell(members[indexPath.item])
             return cell
         case historyCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PrivateDetailHistoryCollectionViewCell.CellIdentifier, for: indexPath) as? PrivateDetailHistoryCollectionViewCell else { return UICollectionViewCell() }
@@ -482,13 +482,14 @@ extension PrivateDetailViewController {
             let data = try? JSONDecoder().decode(PrivateGroupResponse.self, from: jsonData)
         else { return }
         
+        headerView.groupImageName = data.privateGroupData[index].groupImageName
         headerView.groupName = data.privateGroupData[index].groupName
         headerView.groupDescription = data.privateGroupData[index].groupDescription
         
-        members = data.privateGroupData[index].groupMembers
+        members = data.privateGroupData[index].groupMember
         history = data.privateGroupData[index].history
         
-        memberCountsLabel.text = "\(data.privateGroupData[index].groupMembers.count)"
+        memberCountsLabel.text = "\(data.privateGroupData[index].groupMember.count)"
         historyCountsLabel.text = "\(data.privateGroupData[index].history.count)"
     }
 }
