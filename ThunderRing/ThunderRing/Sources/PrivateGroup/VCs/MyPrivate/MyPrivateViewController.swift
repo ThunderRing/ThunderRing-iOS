@@ -50,6 +50,7 @@ final class MyPrivateViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configNavigationUI()
+        configTabBarUI()
     }
     
     override func viewDidLoad() {
@@ -67,13 +68,14 @@ final class MyPrivateViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationUI() {
-        setStatusBar(.white)
-        customNavigationBarView.layer.applyShadow()
+    private func configTabBarUI() {
+        tabBarController?.tabBar.isHidden = false
     }
     
     private func configUI() {
         view.backgroundColor = .background
+        setStatusBar(.white)
+        customNavigationBarView.layer.applyShadow()
         
         groupTableView.separatorStyle = .none
         groupTableView.backgroundColor = .background

@@ -32,7 +32,7 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     private lazy var memberCountLabel = UILabel().then {
         $0.text = "0/000"
         $0.textColor = .gray150
-        $0.font = .DINPro(type: .regular, size: 15)
+        $0.font = .DINPro(type: .regular, size: 14)
     }
     
     private lazy var groupTendencyView = GroupTendencyView(tagType: .diligent)

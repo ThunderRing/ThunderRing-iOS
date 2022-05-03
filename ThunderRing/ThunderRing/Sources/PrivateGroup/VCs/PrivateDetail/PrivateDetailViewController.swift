@@ -161,8 +161,8 @@ final class PrivateDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-        tabBarController?.tabBar.isHidden = true
+        configNavigationUI()
+        configTabBarUI()
     }
      
     override func viewDidLoad() {
@@ -178,6 +178,10 @@ final class PrivateDetailViewController: UIViewController {
     }
     
     // MARK: - InitUI
+    
+    private func configTabBarUI() {
+        tabBarController?.tabBar.isHidden = true
+    }
     
     private func configUI() {
         view.backgroundColor = .background

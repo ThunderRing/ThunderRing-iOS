@@ -64,12 +64,9 @@ final class LightningTitleViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-        setStatusBar(.background)
-    }
-    
     private func configUI() {
+        setStatusBar(.background)
+        
         groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
         groupNameTextField.setLeftPaddingPoints(14)
         groupNameTextField.tintColor = .clear

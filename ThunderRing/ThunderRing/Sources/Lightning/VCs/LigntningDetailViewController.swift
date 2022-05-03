@@ -99,10 +99,6 @@ final class LigntningDetailViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     private func configUI() {
         view.backgroundColor = .background
         setStatusBar(.background)

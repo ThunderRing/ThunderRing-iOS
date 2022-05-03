@@ -84,10 +84,6 @@ final class LightningMainViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     private func configUI() {
         titleLabel.text = "번개 치기"
         privateCount = 4

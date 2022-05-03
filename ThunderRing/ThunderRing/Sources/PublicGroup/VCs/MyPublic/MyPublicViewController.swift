@@ -31,6 +31,12 @@ final class MyPublicViewController: UIViewController {
     
     // MARK: - Life Cycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configNavigationUI()
+        configTabBarUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
@@ -41,6 +47,10 @@ final class MyPublicViewController: UIViewController {
         setCollectionView()
         setGesture()
         setAction()
+    }
+    
+    private func configTabBarUI() {
+        tabBarController?.tabBar.isHidden = false
     }
     
     private func configUI() {

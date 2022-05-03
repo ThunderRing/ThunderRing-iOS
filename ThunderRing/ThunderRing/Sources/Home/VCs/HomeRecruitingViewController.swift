@@ -46,12 +46,7 @@ final class HomeRecruitingViewController: UIViewController {
     }
     
     // MARK: - InitUI
-    
-    private func configNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-    }
-    
+
     private func configTabBarUI() {
         tabBarController?.tabBar.isHidden = true
     }

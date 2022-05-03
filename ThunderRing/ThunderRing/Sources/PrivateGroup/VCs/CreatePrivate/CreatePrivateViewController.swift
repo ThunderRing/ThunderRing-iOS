@@ -46,15 +46,10 @@ final class CreatePrivateViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        
+    private func configUI() {
         setModalNavigationBar(customNavigationBarView: customNavigationBarView, title: "새로운 비공개 그룹", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
         setStatusBar(.background)
-    }
-    
-    private func configUI() {
+        
         userImageView.makeRounded(cornerRadius: 40)
         
         groupNameTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)

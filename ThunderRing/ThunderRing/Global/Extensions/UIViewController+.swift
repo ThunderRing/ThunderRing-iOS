@@ -86,4 +86,9 @@ extension UIViewController {
                        animations: { toastLabel.alpha = 0.0 },
                        completion: {(isCompleted) in toastLabel.removeFromSuperview() })
     }
+    
+    func configNavigationUI() {
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
 }

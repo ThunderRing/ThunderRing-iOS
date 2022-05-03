@@ -68,19 +68,14 @@ final class MyPageGroupCountViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        setStatusBar(.white)
-        navigationBar.layer.applyShadow()
-    }
-    
     private func configTabBarUI() {
         tabBarController?.tabBar.isHidden = true
     }
     
     private func configUI() {
         view.backgroundColor = .background
+        setStatusBar(.white)
+        navigationBar.layer.applyShadow()
         
         [privateHeaderView, publicHeaderView].forEach {
             $0.backgroundColor = .background

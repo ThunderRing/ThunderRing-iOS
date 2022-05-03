@@ -44,15 +44,10 @@ final class CompleteCreatePrivateViewController: UIViewController {
     
     // MARK: - Init UI
     
-    private func configNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        
+    private func configUI() {
         setNavigationBar(customNavigationBarView: customNavigationBarView, title: "", backBtnIsHidden: false, closeBtnIsHidden: false, bgColor: .background)
         setStatusBar(.background)
-    }
-    
-    private func configUI() {
+        
         groupImageView.image = self.groupImage
         groupImageView.makeRounded(cornerRadius: 20)
         
