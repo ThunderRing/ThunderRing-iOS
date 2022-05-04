@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 protocol HomeMainPublicGroupCollectionViewCellViewDelegate: AnyObject {
-    func touchUpButton()
+    func touchUpButton(index: Int)
 }
 
 final class HomeMainPublicGroupCollectionViewCellView: UIView {
@@ -29,11 +29,11 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 17)
     }
     
-    private lazy var memberCountLabel = UILabel().then {
-        $0.text = "0/000"
-        $0.textColor = .gray150
-        $0.font = .DINPro(type: .regular, size: 14)
-    }
+//    private lazy var memberCountLabel = UILabel().then {
+//        $0.text = "0/000"
+//        $0.textColor = .gray150
+//        $0.font = .DINPro(type: .regular, size: 14)
+//    }
     
     private lazy var groupTendencyView = GroupTendencyView(tagType: .diligent)
     
@@ -42,6 +42,8 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     }
     
     weak var delegate: HomeMainPublicGroupCollectionViewCellViewDelegate?
+    
+    var index: Int = 0
     
     // MARK: - Initializer
     
@@ -70,7 +72,6 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     private func setLayout() {
         addSubviews([groupImageView,
                      groupNameLabel,
-                     memberCountLabel,
                      groupTendencyView,
                      lightningButton])
         
@@ -83,16 +84,11 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         
         groupNameLabel.snp.makeConstraints {
             $0.top.equalTo(groupImageView.snp.bottom).offset(14)
-            $0.leading.equalToSuperview().inset(30)
-        }
-        
-        memberCountLabel.snp.makeConstraints {
-            $0.top.equalTo(groupImageView.snp.bottom).offset(14)
-            $0.leading.equalTo(groupNameLabel.snp.trailing).offset(4)
+            $0.centerX.equalToSuperview()
         }
         
         groupTendencyView.snp.makeConstraints {
-            $0.top.equalTo(memberCountLabel.snp.bottom).offset(6)
+            $0.top.equalTo(groupNameLabel.snp.bottom).offset(6)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(84)
             $0.height.equalTo(21)
@@ -122,8 +118,8 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         groupNameLabel.text = data.groupName
         groupNameLabel.setTextSpacingBy(value: -0.6)
         
-        memberCountLabel.text = "\(data.groupMember.count)/\(data.groupMaxCount)"
-        memberCountLabel.setTextSpacingBy(value: -0.6)
+//        memberCountLabel.text = "\(data.groupMember.count)/\(data.groupMaxCount)"
+//        memberCountLabel.setTextSpacingBy(value: -0.6)
         
         switch data.groupTendency {
         case "tendencyDiligent":
@@ -159,7 +155,7 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     // MARK: - @objc
     
     @objc func touchUpLightningButton() {
-        delegate?.touchUpButton()
+        delegate?.touchUpButton(index: index)
     }
 }
 
