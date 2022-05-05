@@ -45,11 +45,9 @@ final class HomeRecruitingTableViewCellView: UIView {
             $0.isScrollEnabled = false
             $0.showsHorizontalScrollIndicator = false
             $0.register(HomeRecruitingCollectionViewCell.self,
-                        forCellWithReuseIdentifier: HomeRecruitingCollectionViewCell.CellIdentifier)
+                        forCellWithReuseIdentifier: HomeRecruitingCollectionViewCell.cellIdentifier)
         }
     }()
-    
-    private lazy var plusButton = PlusButton()
         
     private lazy var iconImageView = UIImageView().then {
         $0.image = UIImage(named: "icnPromoter")
@@ -64,7 +62,8 @@ final class HomeRecruitingTableViewCellView: UIView {
         super.init(frame: .zero)
         configUI()
         setLayout()
-        bind()
+        setCollectionView()
+        getNotification()
     }
     
     required init?(coder: NSCoder) {
@@ -81,18 +80,17 @@ final class HomeRecruitingTableViewCellView: UIView {
                                      borderColor: UIColor.gray350.cgColor,
                                      cornerRadius: 5,
                                      bounds: true)
-        
+    }
+    
+    private func setLayout() {
         addSubviews([backgroudView, countLabelView])
         
         backgroudView.addSubviews([locationImageView,
                                    subtitleLabel,
                                    titleLabel,
                                    memberCollectionView,
-                                   plusButton,
                                    iconImageView])
-    }
-    
-    private func setLayout() {
+        
         backgroudView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(26)
             $0.top.equalToSuperview().inset(26)
@@ -129,13 +127,6 @@ final class HomeRecruitingTableViewCellView: UIView {
             $0.bottom.equalToSuperview().inset(20)
         }
         
-        plusButton.snp.makeConstraints {
-            $0.leading.equalTo(memberCollectionView.snp.trailing).offset(-50)
-            $0.centerY.equalTo(memberCollectionView.snp.centerY)
-            $0.width.equalTo(48)
-            $0.height.equalTo(50)
-        }
-        
         iconImageView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(53)
             $0.leading.equalToSuperview().inset(50)
@@ -145,14 +136,16 @@ final class HomeRecruitingTableViewCellView: UIView {
     
     // MARK: - Custom Method
     
-    private func bind() {
+    private func setCollectionView() {
         memberCollectionView.delegate = self
         memberCollectionView.dataSource = self
-        
+    }
+    
+    private func getNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name(Const.Notification.join), object: nil)
     }
     
-    internal func configCell(lightning: LightningDataModel) {
+    internal func initCell(lightning: LightningDataModel) {
         data = lightning
        
         guard let count = lightning.members?.count else { return }
@@ -167,12 +160,22 @@ final class HomeRecruitingTableViewCellView: UIView {
         countLabelView.count = lightning.maxNumber - lightning.minNumber
     }
     
+    // MARK: - @objc
+    
     @objc func touchUpJoinButton(_ notification: Notification) {
         memberCollectionView.reloadData()
     }
 }
 
-// MARK: - UICollectionView Delegate
+// MARK: - UICollectionView Protocol
+
+extension HomeRecruitingTableViewCellView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (indexPath.last != nil) {
+            NotificationCenter.default.post(name: NSNotification.Name("TouchUpPlusButton"), object: nil)
+        }
+    }
+}
 
 extension HomeRecruitingTableViewCellView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -192,89 +195,24 @@ extension HomeRecruitingTableViewCellView: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - UICollectionView DataSource
-
 extension HomeRecruitingTableViewCellView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memberCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecruitingCollectionViewCell.CellIdentifier, for: indexPath) as? HomeRecruitingCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeRecruitingCollectionViewCell.cellIdentifier, for: indexPath) as? HomeRecruitingCollectionViewCell else { return UICollectionViewCell() }
+        
         guard let data = data?.members else { return UICollectionViewCell() }
         cell.initCell(imageName: data[indexPath.item])
+        
+        if indexPath.item == memberCount - 1 {
+            cell.contentView.layer.borderWidth = 0
+        }
+
         return cell
     }
 }
 
 
-// MARK: - Custom Component
-
-fileprivate final class CountLabelView: UIView {
-    var count: Int = 0 {
-        didSet {
-            titleLabel.text = "잔여 \(count)자리"
-            titleLabel.setTextSpacingBy(value: -0.6)
-        }
-    }
-    
-    private lazy var titleLabel = UILabel().then {
-        $0.textColor = .white
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
-    }
-    
-    init() {
-        super.init(frame: .zero)
-        configUI()
-        setLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configUI() {
-        backgroundColor = .purple100
-        makeRounded(cornerRadius: 15.5)
-    }
-    
-    private func setLayout() {
-        addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
-    }
-}
-
-fileprivate final class PlusButton: UIButton {
-    private var plusImageView = UIImageView().then {
-        $0.image = UIImage(named: "icn_plus")
-    }
-    
-    init() {
-        super.init(frame: .zero)
-        setButton()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setButton() {
-        addTarget(self, action: #selector(touchUpPlusButton), for: .touchUpInside)
-        
-        initViewBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 15, bounds: true)
-        addSubview(plusImageView)
-        plusImageView.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-            $0.width.height.equalTo(18)
-        }
-    }
-    
-    // MARK: - @objc
-    
-    @objc func touchUpPlusButton() {
-        NotificationCenter.default.post(name: NSNotification.Name("TouchUpPlusButton"), object: nil)
-    }
-}
 

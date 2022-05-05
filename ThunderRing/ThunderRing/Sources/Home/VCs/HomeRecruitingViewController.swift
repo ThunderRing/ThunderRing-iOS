@@ -77,27 +77,6 @@ final class HomeRecruitingViewController: UIViewController {
     private func bind() {
         recruitingTableView.delegate = self
         recruitingTableView.dataSource = self
-        
-        lightningData = [
-            LightningDataModel(groupName: "[독서모임]",
-                               lightningName: "Post Poetics 방문해요",
-                               description: "",
-                               date: "10/26",
-                               time: "오전 11:00",
-                               location: "이태원역",
-                               minNumber: 3,
-                               maxNumber: 7,
-                               members: ["imgCoin"]),
-            LightningDataModel(groupName: "[디미모여]",
-                               lightningName: "스벅 카공 할 사람",
-                               description: "",
-                               date: "10/26",
-                               time: "오후 8:00",
-                               location: "태릉입구역",
-                               minNumber: 2,
-                               maxNumber: 9,
-                               members: ["imgCoin", "imgDog1"])
-        ]
     }
     
     private func getNotification() {
@@ -116,6 +95,7 @@ final class HomeRecruitingViewController: UIViewController {
     }
     
     @objc func touchUpJoinButton(_ notification: Notification) {
+        lightningData[0].members?.removeLast()
         lightningData[0].members?.append("imgHike")
         recruitingTableView.reloadData()
     }

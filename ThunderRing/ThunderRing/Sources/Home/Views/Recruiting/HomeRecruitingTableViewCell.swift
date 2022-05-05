@@ -40,6 +40,6 @@ final class HomeRecruitingTableViewCell: UITableViewCell {
     // MARK: - Public Method
     
     internal func initCell(lightning: LightningDataModel) {
-        cellView.configCell(lightning: lightning)
+        cellView.initCell(lightning: lightning)
     }
 }
