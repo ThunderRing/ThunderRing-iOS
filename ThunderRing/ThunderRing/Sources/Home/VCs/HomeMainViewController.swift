@@ -279,11 +279,11 @@ extension HomeMainViewController: HomeMainHeaderViewDelegate {
 }
 
 extension HomeMainViewController: HomeMainPublicGroupCollectionViewCellViewDelegate {
-    func touchUpButton() {
+    func touchUpButton(index: Int) {
         guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
         let dvc = UINavigationController(rootViewController: vc)
         
-        vc.index = 0
+        vc.index = index
         for i in 0 ... publicGroupData.count - 1 {
             vc.groupNames.append(publicGroupData[i].groupName)
             vc.groupMaxCounts.append(publicGroupData[i].groupMaxCount)
@@ -393,6 +393,7 @@ extension HomeMainViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeMainPublicGroupCollectionViewCell.cellIdentifier, for: indexPath) as? HomeMainPublicGroupCollectionViewCell else { return UICollectionViewCell() }
             cell.initCell(group: publicGroupData[indexPath.item])
             cell.cellView.delegate = self
+            cell.cellView.index = indexPath.item
             return cell
         default:
             return UICollectionViewCell()

@@ -20,6 +20,14 @@ struct LightningDataModel {
     var members: [String]?
 }
 
-var lightningData : [LightningDataModel] = [
-    
+var lightningData = [
+    LightningDataModel(groupName: "[독서모임]",
+                       lightningName: "Post Poetics 방문해요",
+                       description: "",
+                       date: "10/26",
+                       time: "오전 11:00",
+                       location: "이태원역",
+                       minNumber: 3,
+                       maxNumber: 7,
+                       members: ["imgCoin", "btnPlueButton"])
 ]

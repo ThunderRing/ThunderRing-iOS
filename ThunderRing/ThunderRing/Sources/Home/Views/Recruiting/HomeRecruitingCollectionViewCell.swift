@@ -11,10 +11,11 @@ import SnapKit
 import Then
 
 final class HomeRecruitingCollectionViewCell: UICollectionViewCell {
-    static var CellIdentifier: String { return String(describing: self) }
+    static var cellIdentifier: String { return String(describing: self) }
     
     private var memberImageView = UIImageView().then {
         $0.image = UIImage(named: "imgFlog")
+        $0.isHidden = false
     }
     
     // MARK: - Initialzier
@@ -33,6 +34,7 @@ final class HomeRecruitingCollectionViewCell: UICollectionViewCell {
     
     private func configUI() {
         contentView.addSubview(memberImageView)
+        
         contentView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 17, bounds: true)
     }
     
@@ -48,5 +50,4 @@ final class HomeRecruitingCollectionViewCell: UICollectionViewCell {
         memberImageView.image = UIImage(named: imageName)
     }
 }
-
 

@@ -16,7 +16,6 @@ final class HomeJoinViewController: UIViewController {
     
     private lazy var joinView = HomeJoinView()
     
-    // FIXME: - 이미지 수정 및 추가 (레이아웃)
     private lazy var imageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
     }
