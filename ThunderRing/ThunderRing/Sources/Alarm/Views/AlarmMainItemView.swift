@@ -59,18 +59,21 @@ final class AlarmMainItemView: UIView {
     var title: String = "" {
         didSet {
             titleLabel.text = "\(title)"
+            titleLabel.setTextSpacingBy(value: -0.6)
         }
     }
     
     var alarmDescription: String = "" {
         didSet {
             descriptionLabel.text = "\(alarmDescription)"
+            descriptionLabel.setTextSpacingBy(value: -0.6)
         }
     }
     
     var time: String = "10" {
         didSet {
             timeLabel.text = "\(time)시간 전"
+            timeLabel.setTextSpacingBy(value: -0.6)
         }
     }
     

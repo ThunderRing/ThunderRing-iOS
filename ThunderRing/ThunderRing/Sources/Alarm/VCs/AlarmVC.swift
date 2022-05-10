@@ -80,7 +80,7 @@ final class AlarmVC: UIViewController {
     
     private func setData() {
         completeAlarms.append(contentsOf: [
-            AlarmDataModel(alarmType: .failed, lightningName: "방탈출 하자", description: "번개가 취소되었습니다", time: "3일 전", groupName: ""),
+            AlarmDataModel(alarmType: .cancel, lightningName: "방탈출 하자", description: "번개가 취소되었습니다", time: "3일 전", groupName: ""),
             AlarmDataModel(alarmType: .thunder, lightningName: "스벅가서 모각공", description: "채팅방에 먼저 참가해보세요", time: "1시간 전", groupName: "")
         ])
     }

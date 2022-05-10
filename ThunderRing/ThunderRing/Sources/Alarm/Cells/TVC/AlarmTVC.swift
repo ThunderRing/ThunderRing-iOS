@@ -56,7 +56,7 @@ final class AlarmTVC: UITableViewCell {
             if let image = UIImage(named: "icnAlarmLight") {
                 markImageView.image = image
             }
-        case .failed:
+        case .cancel:
             if let image = UIImage(named: "iconAlarmCancel") {
                 markImageView.image = image
             }
