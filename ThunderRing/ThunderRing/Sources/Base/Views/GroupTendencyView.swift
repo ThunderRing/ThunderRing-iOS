@@ -11,9 +11,10 @@ import SnapKit
 import Then
 
 final class GroupTendencyView: UIView {
-    var tagType: TagType = .cozy {
+    var tagType: TendencyType = .cozy {
         didSet {
             titlaLabel.text = tagType.title
+            titlaLabel.setTextSpacingBy(value: -0.6)
             backgroundColor = tagType.color
         }
     }
@@ -23,7 +24,7 @@ final class GroupTendencyView: UIView {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
     
-    init(tagType: TagType) {
+    init(tagType: TendencyType) {
         super.init(frame: .zero)
         self.tagType = tagType
         setView()
@@ -42,7 +43,7 @@ final class GroupTendencyView: UIView {
     }
 }
 
-internal enum TagType {
+internal enum TendencyType {
     case cozy
     case crowd
     case diligent
