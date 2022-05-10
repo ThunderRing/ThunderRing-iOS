@@ -80,18 +80,19 @@ final class HomeRecruitingViewController: UIViewController {
     }
     
     private func getNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name(Const.Notification.join), object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(touchUpPlusButton(_:)), name: NSNotification.Name("TouchUpPlusButton"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name(Const.Notification.join), object: nil)
     }
     
     // MARK: - @objc
     
     @objc func touchUpPlusButton(_ notification: Notification) {
-        let dvc = HomeJoinViewController()
+        let dvc = AlarmPopUpViewController()
         dvc.modalTransitionStyle = .crossDissolve
-        dvc.modalPresentationStyle = .overCurrentContext
-        self.present(dvc, animated: true, completion: nil)
+        dvc.modalPresentationStyle = .overFullScreen
+        dvc.handleTap(alarmType: .lightning)
+        present(dvc, animated: true)
     }
     
     @objc func touchUpJoinButton(_ notification: Notification) {
