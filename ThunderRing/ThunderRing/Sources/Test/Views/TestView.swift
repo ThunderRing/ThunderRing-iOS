@@ -10,10 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-protocol TestViewDelegate: AnyObject {
-    func touchUpCellView(isSelected: Bool)
-}
-
 final class TestView: UIView {
     
     // MARK: - Properties
@@ -47,9 +43,13 @@ final class TestView: UIView {
     
     var answer = [String]()
     
-    weak var delegate: TestViewDelegate?
-    
     // MARK: - Initializer
+    
+    var selected: Bool = false {
+        didSet {
+            NotificationCenter.default.post(name: NSNotification.Name("SelectedAnswer"), object: selected)
+        }
+    }
     
     init() {
         super.init(frame: .zero)
@@ -96,6 +96,12 @@ final class TestView: UIView {
 
 // MARK: - UICollectionView Delegate
 
+extension TestView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: NSNotification.Name("SelectedAnswer"), object: true)
+    }
+}
+
 extension TestView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = collectionView.frame.width 
@@ -124,21 +130,8 @@ extension TestView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TestAnswerCell.CellIdentifier, for: indexPath) as? TestAnswerCell else { return UICollectionViewCell() }
         cell.initCell(text: answer[indexPath.item])
-        cell.delegate = self
         return cell
     }
-}
-
-extension TestView: TestAnswerCellDelegate {
-    func touchUpCell(isSelected: Bool) {
-        delegate?.touchUpCellView(isSelected: isSelected)
-    }
-}
-
-// MARK: - Answer Cell
-
-protocol TestAnswerCellDelegate: AnyObject {
-    func touchUpCell(isSelected: Bool)
 }
 
 final class TestAnswerCell: UICollectionViewCell {
@@ -153,26 +146,18 @@ final class TestAnswerCell: UICollectionViewCell {
         $0.numberOfLines = 2
     }
     
-    weak var delegate: TestAnswerCellDelegate?
-    
     override var isSelected: Bool {
         didSet {
             if isSelected {
                 layer.borderColor = UIColor.purple100.cgColor
                 layer.borderWidth = 2
-                delegate?.touchUpCell(isSelected: true)
             } else {
                 layer.borderWidth = 0
-                delegate?.touchUpCell(isSelected: false)
             }
         }
     }
     
     // MARK: - Initializer
-    
-    override func prepareForReuse() {
-        delegate?.touchUpCell(isSelected: false)
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

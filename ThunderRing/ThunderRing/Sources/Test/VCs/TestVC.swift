@@ -64,6 +64,7 @@ final class TestVC: UIViewController {
         configUI()
         setLayout()
         bind()
+        getNotification()
     }
     
     // MARK: - InitUI
@@ -77,7 +78,6 @@ final class TestVC: UIViewController {
         views = [view1, view2, view3, view4, view5, view6, view7, view8]
         for view in views {
             contentStackView.addArrangedSubview(view)
-            view.delegate = self
         }
         
         indexLabel.text = "\(currentIndex)/8"
@@ -116,6 +116,7 @@ final class TestVC: UIViewController {
             view.snp.makeConstraints {
                 $0.width.height.equalTo(contentScrollView)
             }
+            view.selected = false
         }
     }
     
@@ -127,10 +128,6 @@ final class TestVC: UIViewController {
                 self.progressView.setProgress(0.125 * Float(index), animated: true)
             }
         }
-    }
-    
-    private func updateScrollView() {
-        contentScrollView.isScrollEnabled
     }
     
     private func load() -> Data? {
@@ -149,6 +146,21 @@ final class TestVC: UIViewController {
     
     private func bind() {
         contentScrollView.delegate = self
+    }
+    
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(getSelectedNotification), name: NSNotification.Name("SelectedAnswer"), object: nil)
+    }
+    
+    // MARK: - @objc
+    
+    @objc func getSelectedNotification(_ notification: Notification) {
+        let object = notification.object as! Bool
+        if object {
+            contentScrollView.isScrollEnabled = true
+        } else {
+            contentScrollView.isScrollEnabled = false
+        }
     }
 }
 
@@ -179,14 +191,6 @@ extension TestVC: UIScrollViewDelegate {
             updateProgressViewWithAnimation(index: 8)
         default: return
         }
-    }
-}
-
-// MARK: - Custom Delegate
-
-extension TestVC: TestViewDelegate {
-    func touchUpCellView(isSelected: Bool) {
-        contentScrollView.isScrollEnabled = isSelected
     }
 }
 

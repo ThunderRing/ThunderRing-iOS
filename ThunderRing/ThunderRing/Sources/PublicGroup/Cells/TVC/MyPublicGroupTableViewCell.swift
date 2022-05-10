@@ -71,12 +71,12 @@ final class MyPublicGroupTableViewCell: UITableViewCell {
         
         backView.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(5)
+            $0.bottom.equalToSuperview().inset(7)
             $0.leading.trailing.equalToSuperview()
         }
         
         groupImageView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(23)
+            $0.top.equalToSuperview().inset(23)
             $0.leading.equalToSuperview().inset(18)
             $0.width.equalTo(53)
             $0.height.equalTo(55)
