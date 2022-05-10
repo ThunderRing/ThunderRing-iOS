@@ -10,7 +10,7 @@ import Foundation
 enum AlarmType {
     case thunder
     case lightning
-    case failed
+    case cancel
 }
 
 struct AlarmDataModel {

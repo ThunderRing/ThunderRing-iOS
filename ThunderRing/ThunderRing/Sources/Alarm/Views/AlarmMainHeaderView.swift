@@ -16,6 +16,11 @@ protocol AlarmMainHeaderViewDelegate: AnyObject {
 
 final class AlarmMainHeaderView: UIView {
     
+    private var iconImageView = UIImageView().then {
+        $0.image = UIImage(named: "icn_group_gray")
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray100.cgColor, cornerRadius: 6, bounds: true)
+    }
+    
     private lazy var titleLabel = UILabel().then {
         $0.text = "그룹 가입 요청"
         $0.textColor = .gray100
@@ -48,7 +53,13 @@ final class AlarmMainHeaderView: UIView {
     }
     
     private func setLayout() {
-        addSubviews([titleLabel, lineView])
+        addSubviews([iconImageView, titleLabel, lineView])
+        
+        iconImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(19)
+            $0.leading.equalToSuperview().inset(26)
+            $0.width.height.equalTo(20)
+        }
         
         titleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(51)

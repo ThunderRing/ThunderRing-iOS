@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class AlarmMainViewController: UIViewController {
-
+    
     // MARK: - Properties
     
     private lazy var navigationBar = TDSNavigationBar(self, view: .alarm, backButtonIsHidden: true, closeButtonIsHidden: true)
@@ -74,8 +74,18 @@ final class AlarmMainViewController: UIViewController {
             view.time = data.value[2]
             view.isActive = data.isActive
             view.isUserInteractionEnabled = data.isActive
-            let gesture = UITapGestureRecognizer(target: self, action: #selector(touchUpView))
-            view.addGestureRecognizer(gesture)
+            
+            if view.alarmType == .cancel {
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(touchUpCancelView))
+                view.addGestureRecognizer(gesture)
+            } else if view.alarmType == .thunder {
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(touchUpThunderView))
+                view.addGestureRecognizer(gesture)
+            } else {
+                let gesture = UITapGestureRecognizer(target: self, action: #selector(touchUpLightningView))
+                view.addGestureRecognizer(gesture)
+            }
+            
             return view
         }
     }
@@ -84,13 +94,14 @@ final class AlarmMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
         setLayout()
+        getNotification()
     }
     
     // MARK: - Init UI
@@ -137,13 +148,82 @@ final class AlarmMainViewController: UIViewController {
         }
     }
     
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(getJoinNotification), name: NSNotification.Name("Join"), object: nil)
+    }
+    
     // MARK: - @objc
     
-    @objc func touchUpView() {
+    @objc func touchUpCancelView() {
+        let dvc = AlarmPopUpViewController()
+        dvc.modalTransitionStyle = .crossDissolve
+        dvc.modalPresentationStyle = .overFullScreen
+        dvc.handleTap(alarmType: .cancel)
+        present(dvc, animated: true)
+    }
+    
+    @objc func touchUpThunderView() {
+        self.tabBarController?.selectedIndex = 1
+    }
+    
+    @objc func touchUpLightningView() {
         let dvc = AlarmPopUpViewController()
         dvc.modalTransitionStyle = .crossDissolve
         dvc.modalPresentationStyle = .overFullScreen
         dvc.handleTap(alarmType: .lightning)
         present(dvc, animated: true)
+    }
+    
+    @objc func getJoinNotification() {
+        dataList = [
+            Data(type: DataType.text, value: ["진행중인 알람"], isActive: false),
+            Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .cancel, isActive: true),
+            Data(type: DataType.view, value: ["[양파링] 혜화역 혼가츠 먹자", "천둥이 울렸어요. 채팅을 볼까요?", "2"], alarmType: .thunder, isActive: true),
+            Data(type: DataType.view, value: ["[라이딩] 한강 라이딩 하실 분 ", "번개를 참여했어요", "2"], alarmType: .lightning, isActive: true),
+            Data(type: DataType.text, value: ["4월 8일"], isActive: false),
+            Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .cancel, isActive: false),
+            Data(type: DataType.text, value: ["4월 6일"], isActive: false),
+            Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .cancel, isActive: false),
+            Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .thunder, isActive: false)
+        ]
+        
+        for view in itemViews {
+            contentStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+        
+        itemViews = dataList.map { data in
+            switch data.type {
+            case .text:
+                let view = AlarmMainTextView()
+                view.text = data.value[0]
+                return view
+            case .view:
+                let view = AlarmMainItemView(alarmType: .thunder, isActive: true)
+                view.alarmType = data.alarmType ?? .thunder
+                view.title = data.value[0]
+                view.alarmDescription = data.value[1]
+                view.time = data.value[2]
+                view.isActive = data.isActive
+                view.isUserInteractionEnabled = data.isActive
+                
+                if view.alarmType == .cancel {
+                    let gesture = UITapGestureRecognizer(target: self, action: #selector(touchUpCancelView))
+                    view.addGestureRecognizer(gesture)
+                } else if view.alarmType == .thunder {
+                    let gesture = UITapGestureRecognizer(target: self, action: #selector(touchUpThunderView))
+                    view.addGestureRecognizer(gesture)
+                } else {
+                    let gesture = UITapGestureRecognizer(target: self, action: #selector(touchUpLightningView))
+                    view.addGestureRecognizer(gesture)
+                }
+                
+                return view
+            }
+        }
+        
+        for view in itemViews {
+            contentStackView.addArrangedSubview(view)
+        }
     }
 }
