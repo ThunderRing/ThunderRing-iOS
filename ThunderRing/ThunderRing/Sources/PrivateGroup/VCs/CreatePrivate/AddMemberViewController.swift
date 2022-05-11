@@ -21,7 +21,7 @@ final class AddMemberViewController: UIViewController {
     let app = UIApplication.shared.delegate as! AppDelegate
     
     private let contactStroe = CNContactStore()
-    private var contacts = [ContactDataModel]()
+    private var contactList = [ContactData]()
     var selectedMembers = [String]()
     private var count = 0
     
@@ -29,13 +29,14 @@ final class AddMemberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         contactStroe.requestAccess(for: .contacts) { (success, error) in
             if success {
                 print("주소록 접근 가능")
             }
         }
-        
+        DispatchQueue.main.async {
+            self.getContactData()
+        }
         configUI()
         setTableView()
         setTextField()
@@ -44,26 +45,26 @@ final class AddMemberViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getContacts()
+//        getContacts()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
     }
-}
-
-// MARK: - Custome Methods
-
-extension AddMemberViewController {
+    
+    // MARK: - Init UI
+    
     private func configUI() {
         var configuration = UIButton.Configuration.plain()
         configuration.baseForegroundColor = .lightGray
         configuration.attributedTitle = AttributedString("확인", attributes: AttributeContainer([NSAttributedString.Key.foregroundColor: UIColor.purple100, NSAttributedString.Key.font: UIFont.SpoqaHanSansNeo(type: .medium, size: 18)]))
         confirmButton.configuration = configuration
         
-        countLabel.text = "\(count)명"
+        countLabel.text = "\(count)"
     }
+    
+    // MARK: - Custom Method
     
     private func setTableView() {
         memberTableView.delegate = self
@@ -94,7 +95,7 @@ extension AddMemberViewController {
         confirmButton.addAction(UIAction(handler: { _ in
             
             self.memberTableView.indexPathsForSelectedRows?.forEach({ indexPath in
-                self.selectedMembers.append(self.contacts[indexPath.row].familyName+self.contacts[indexPath.row].givenName)
+                self.selectedMembers.append(self.contactList[indexPath.row].name)
             })
             
             NotificationCenter.default.post(name: NSNotification.Name("AddMember"), object: self.selectedMembers)
@@ -121,7 +122,7 @@ extension AddMemberViewController {
                             number = (contact.phoneNumbers.first?.value.stringValue)!
                         }
                         let contactsToAppend = ContactDataModel(givenName: name, familyName: familyName, phoneNumber: number)
-                        self.contacts.append(contactsToAppend)
+                        dump(contactsToAppend)
                     })
                 }
             } else {
@@ -136,13 +137,27 @@ extension AddMemberViewController {
         }
         memberTableView.reloadData()
     }
+    
+    private func load() -> Data? {
+        let fileNm: String = "ContactData"
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
+    }
 }
 
 // MARK: - UITableView Delegate
 
 extension AddMemberViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 82
+        return 86
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -156,7 +171,7 @@ extension AddMemberViewController: UITableViewDelegate {
     func updateCount(){
         if let list = memberTableView.indexPathsForSelectedRows {
             count = list.count
-            countLabel.text = "\(count)명"
+            countLabel.text = "\(count)"
         }
     }
 }
@@ -165,15 +180,40 @@ extension AddMemberViewController: UITableViewDelegate {
 
 extension AddMemberViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        return contactList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MemberTableViewCell.CellIdentifier) as? MemberTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.isSelected = false
-        cell.initCell(contact: contacts[indexPath.row])
-        cell.setUserImage(index: indexPath.row)
+        
+        cell.initCell(contactList[indexPath.row])
+        
+        if indexPath.row == 0 {
+            cell.clipsToBounds = true
+            cell.layer.cornerRadius = 9
+            cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
+        if indexPath.row == contactList.count - 1 {
+            cell.clipsToBounds = true
+            cell.layer.cornerRadius = 9
+            cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        }
+        
         return cell
+    }
+}
+
+// MARK: - Network
+
+extension AddMemberViewController {
+    private func getContactData() {
+        guard
+            let jsonData = self.load(),
+            let data = try? JSONDecoder().decode(ContactDataResponse.self, from: jsonData)
+        else { return }
+        contactList = data.addressData
+        memberTableView.reloadData()
     }
 }

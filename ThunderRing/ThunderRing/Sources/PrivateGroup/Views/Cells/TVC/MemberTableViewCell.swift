@@ -16,17 +16,21 @@ final class MemberTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     private var userImageView = UIImageView().then {
-        $0.image = UIImage(named: "icnUser")
+        $0.contentMode = .scaleAspectFill
+        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 17, bounds: true)
+        $0.isHidden = false
+    }
+    
+    private var defaultView = DefaultContactView(text: "김").then {
+        $0.isHidden = true
     }
     
     private var userNameLabel = UILabel().then {
-        $0.text = "이름"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
     }
     
     private var phoneNumberLabel = UILabel().then {
-        $0.text = "010-1234-5678"
         $0.textColor = .gray100
         $0.font = .DINPro(type: .regular, size: 14)
     }
@@ -34,6 +38,7 @@ final class MemberTableViewCell: UITableViewCell {
     private var checkButton = UIButton().then {
         $0.setTitle("", for: .normal)
         $0.setImage(UIImage(named: "btnCheckIn"), for: .normal)
+        $0.isHidden = true
     }
 
     // MARK: - Life Cycle
@@ -62,16 +67,24 @@ final class MemberTableViewCell: UITableViewCell {
     
     private func configUI() {
         backgroundColor = .white
+        initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 1, bounds: true)
     }
     
     private func setLayout() {
-        addSubviews([userImageView, userNameLabel, phoneNumberLabel, checkButton])
+        addSubviews([userImageView, defaultView, userNameLabel, phoneNumberLabel, checkButton])
         
         userImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(20)
-            $0.centerY.equalToSuperview()
-            $0.width.equalTo(55)
-            $0.height.equalTo(48)
+            $0.top.equalToSuperview().inset(18)
+            $0.width.equalTo(48)
+            $0.height.equalTo(50)
+        }
+        
+        defaultView.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().inset(18)
+            $0.width.equalTo(48)
+            $0.height.equalTo(50)
         }
         
         userNameLabel.snp.makeConstraints {
@@ -85,31 +98,62 @@ final class MemberTableViewCell: UITableViewCell {
         }
         
         checkButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(23)
+            $0.width.height.equalTo(20)
             $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(20)
         }
     }
     
-    internal func initCell(contact: ContactDataModel) {
-        userNameLabel.text = contact.familyName + contact.givenName
-        phoneNumberLabel.text = contact.phoneNumber
+    internal func initCell(_ data: ContactData) {
+        userNameLabel.text = data.name
+        phoneNumberLabel.text = data.number
+    
+        if data.isUser {
+            userImageView.image = UIImage(named: data.profileImageName)
+            
+            checkButton.isHidden = false
+            
+            defaultView.isHidden = true
+        } else {
+            userImageView.isHidden = true
+            
+            checkButton.isHidden = true
+            
+            defaultView.text = "\(data.name[data.name.index(data.name.startIndex, offsetBy: 0)])"
+            defaultView.isHidden = false
+        }
+    }
+}
+
+// MARK: - View
+
+fileprivate final class DefaultContactView: UIView {
+    
+    var text: String = "" {
+        didSet {
+            textLabel.text = text
+        }
     }
     
-    internal func setUserImage(index: Int) {
-        switch index {
-        case 0:
-            self.userImageView.image = UIImage(named: "tendencyEmotion")
-        case 1:
-            self.userImageView.image = UIImage(named: "tendencySoft")
-        case 2:
-            self.userImageView.image = UIImage(named: "tendencyCrowd")
-        case 3:
-            self.userImageView.image = UIImage(named: "tendencyCozy")
-        case 4:
-            self.userImageView.image = UIImage(named: "tendencyDiligent")
-        default :
-            // FIXME: - empty icon으로 설정
-            self.userImageView.image = UIImage(named: "mypageIn")
+    private var textLabel = UILabel().then {
+        $0.textColor = .gray200
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
+    }
+    
+    // MARK: - Initializer
+    
+    init(text: String) {
+        super.init(frame: .zero)
+        self.text = text
+        initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 17, bounds: true)
+        addSubview(textLabel)
+        textLabel.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(15)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
