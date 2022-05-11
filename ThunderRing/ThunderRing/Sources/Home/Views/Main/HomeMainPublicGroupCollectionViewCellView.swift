@@ -23,17 +23,23 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
         $0.contentMode = .scaleAspectFill
     }
     
+    private var labelView = UIView().then {
+        $0.backgroundColor = .clear
+    }
+    
     private lazy var groupNameLabel = UILabel().then {
         $0.text = "그룹이름"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 17)
     }
     
-//    private lazy var memberCountLabel = UILabel().then {
-//        $0.text = "0/000"
-//        $0.textColor = .gray150
-//        $0.font = .DINPro(type: .regular, size: 14)
-//    }
+    private  var memberCountStr: String = ""
+    
+    private lazy var memberCountLabel = UILabel().then {
+        $0.text = "0/000"
+        $0.textColor = .gray200
+        $0.font = .DINPro(type: .regular, size: 14)
+    }
     
     private lazy var groupTendencyView = GroupTendencyView(tagType: .diligent)
     
@@ -71,9 +77,10 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     
     private func setLayout() {
         addSubviews([groupImageView,
-                     groupNameLabel,
+                     labelView,
                      groupTendencyView,
                      lightningButton])
+        labelView.addSubviews([groupNameLabel, memberCountLabel])
         
         groupImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(22)
@@ -82,9 +89,20 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
             $0.height.equalTo(76)
         }
         
-        groupNameLabel.snp.makeConstraints {
+        labelView.snp.makeConstraints {
             $0.top.equalTo(groupImageView.snp.bottom).offset(14)
             $0.centerX.equalToSuperview()
+            $0.height.equalTo(21)
+            $0.width.equalTo(96)
+        }
+        
+        groupNameLabel.snp.makeConstraints {
+            $0.top.leading.bottom.equalToSuperview()
+        }
+        
+        memberCountLabel.snp.makeConstraints {
+            $0.top.equalTo(groupNameLabel.snp.top)
+            $0.leading.equalTo(groupNameLabel.snp.trailing).offset(3)
         }
         
         groupTendencyView.snp.makeConstraints {
@@ -104,22 +122,41 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     
     // MARK: - Custom Method
     
-    private func calculateViewWidth(text: String) -> CGFloat {
-        let label = UILabel()
-        label.text = text
-        label.font = .SpoqaHanSansNeo(type: .regular, size: 13)
-        label.sizeToFit()
-        return label.frame.width + 12
+    private func calculateViewWidth(groupName: String, memberCount: String) -> CGFloat {
+        let groupNameLabel = UILabel()
+        groupNameLabel.text = groupName
+        groupNameLabel.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        groupNameLabel.sizeToFit()
+        
+        let memberCountLabel = UILabel()
+        memberCountLabel.text = groupName
+        memberCountLabel.font = .DINPro(type: .regular, size: 14)
+        memberCountLabel.sizeToFit()
+        
+        return groupNameLabel.frame.width + memberCountLabel.frame.width
     }
     
     internal func configCell(_ data: PublicGroupData) {
         groupImageView.image = UIImage(named: data.groupImageName)
         
+        memberCountStr = " \(data.groupMember.count)/\(data.groupMaxCount)"
+        
         groupNameLabel.text = data.groupName
         groupNameLabel.setTextSpacingBy(value: -0.6)
         
-//        memberCountLabel.text = "\(data.groupMember.count)/\(data.groupMaxCount)"
-//        memberCountLabel.setTextSpacingBy(value: -0.6)
+//        guard let text = self.groupNameLabel.text else { return }
+//        let attributeString = NSMutableAttributedString(string: text)
+//        let font = UIFont.DINPro(type: .regular, size: 14)
+//        attributeString.addAttribute(.font, value: font, range: (text as NSString).range(of: memberCountStr))
+//        self.groupNameLabel.attributedText = attributeString
+        
+        memberCountLabel.text = "\(data.groupMember.count)/\(data.groupMaxCount)"
+        memberCountLabel.setTextSpacingBy(value: -0.6)
+        
+        let width = calculateViewWidth(groupName: data.groupName, memberCount: memberCountStr)
+        labelView.snp.updateConstraints {
+            $0.width.equalTo(width)
+        }
         
         switch data.groupTendency {
         case "tendencyDiligent":
