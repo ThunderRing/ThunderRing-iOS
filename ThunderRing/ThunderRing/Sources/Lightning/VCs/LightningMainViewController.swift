@@ -133,7 +133,6 @@ final class LightningMainViewController: UIViewController {
         groupListTableView.separatorStyle = .none
         groupListTableView.backgroundColor = .background
         groupListTableView.showsVerticalScrollIndicator = false
-        groupListTableView.separatorInset = UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
         
         groupListTableView.register(PrivateListTableViewCell.self, forCellReuseIdentifier: PrivateListTableViewCell.identifier)
         groupListTableView.register(PublicListTableViewCell.self, forCellReuseIdentifier: PublicListTableViewCell.identifier)

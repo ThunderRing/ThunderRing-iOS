@@ -150,6 +150,8 @@
 		92BCCCAC2765180800AA70D6 /* OverviewSortCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCAB2765180800AA70D6 /* OverviewSortCollectionViewCell.swift */; };
 		92BF2539282B1CAF00DE0205 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF2538282B1CAF00DE0205 /* TestViewController.swift */; };
 		92BF253B282B1F7700DE0205 /* TestResultTendencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF253A282B1F7700DE0205 /* TestResultTendencyView.swift */; };
+		92BF253D282B3DB600DE0205 /* ContactData.json in Resources */ = {isa = PBXBuildFile; fileRef = 92BF253C282B3DB600DE0205 /* ContactData.json */; };
+		92BF253F282B3F8C00DE0205 /* ContactDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF253E282B3F8C00DE0205 /* ContactDataResponse.swift */; };
 		92C4148727629606000DB287 /* MyPublic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C4148627629606000DB287 /* MyPublic.storyboard */; };
 		92C42FEC2802875E00F6B98C /* AlarmPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42FEB2802875E00F6B98C /* AlarmPopUpViewController.swift */; };
 		92CBCE6F273B12EC00A3F36D /* CompleteCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CBCE6D273B12EC00A3F36D /* CompleteCVC.swift */; };
@@ -337,6 +339,8 @@
 		92BCCCAB2765180800AA70D6 /* OverviewSortCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSortCollectionViewCell.swift; sourceTree = "<group>"; };
 		92BF2538282B1CAF00DE0205 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		92BF253A282B1F7700DE0205 /* TestResultTendencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultTendencyView.swift; sourceTree = "<group>"; };
+		92BF253C282B3DB600DE0205 /* ContactData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ContactData.json; sourceTree = "<group>"; };
+		92BF253E282B3F8C00DE0205 /* ContactDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataResponse.swift; sourceTree = "<group>"; };
 		92C4148627629606000DB287 /* MyPublic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPublic.storyboard; sourceTree = "<group>"; };
 		92C42FEB2802875E00F6B98C /* AlarmPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewController.swift; sourceTree = "<group>"; };
 		92CBCE6D273B12EC00A3F36D /* CompleteCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCVC.swift; sourceTree = "<group>"; };
@@ -561,6 +565,7 @@
 			children = (
 				9252EB942769CA9100809FEA /* ContactDataModel.swift */,
 				9209959A280C7EE9008C3491 /* PrivateGroupResponse.swift */,
+				92BF253E282B3F8C00DE0205 /* ContactDataResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -996,6 +1001,7 @@
 				9209959C280C8671008C3491 /* PrivateGroupData.json */,
 				920995A5280D415C008C3491 /* PublicGroupData.json */,
 				92A56C522823022D00DF18C1 /* LightningData.json */,
+				92BF253C282B3DB600DE0205 /* ContactData.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1333,6 +1339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92CD3371273FA2A00094CB1C /* SpoqaHanSansNeo-Regular.otf in Resources */,
+				92BF253D282B3DB600DE0205 /* ContactData.json in Resources */,
 				925BAC332742B77E00126166 /* Images.xcassets in Resources */,
 				92C4148727629606000DB287 /* MyPublic.storyboard in Resources */,
 				9209959D280C8671008C3491 /* PrivateGroupData.json in Resources */,
@@ -1425,6 +1432,7 @@
 			files = (
 				92FC851527C001750020965A /* TestView.swift in Sources */,
 				925DCD4A27E5211500331949 /* ChatMainTableViewCellView.swift in Sources */,
+				92BF253F282B3F8C00DE0205 /* ContactDataResponse.swift in Sources */,
 				9276B060275B443F00915F57 /* MyChatCVC.swift in Sources */,
 				9219E4D728245D2100BA247B /* CountLabelView.swift in Sources */,
 				925BAC462742C76F00126166 /* PrivateListTableViewCell.swift in Sources */,

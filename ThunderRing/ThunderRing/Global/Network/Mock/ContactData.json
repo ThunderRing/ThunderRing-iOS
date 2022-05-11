@@ -1,0 +1,65 @@
+{
+    "addressData": [
+        {
+            "profileImageName": "proSoyeon",
+            "name": "김소연",
+            "number": "010-3307-8044",
+            "isUser": true
+        },
+        {
+            "profileImageName": "proJiwon",
+            "name": "김슬기",
+            "number": "010-3307-8044",
+            "isUser": true
+        },
+        {
+            "profileImageName": "proYeji",
+            "name": "마예지",
+            "number": "010-3307-8044",
+            "isUser": true
+        },
+        {
+            "profileImageName": "proNamin",
+            "name": "윤하민",
+            "number": "010-3307-8044",
+            "isUser": true
+        },
+        {
+            "profileImageName": "proSoyeon",
+            "name": "이나영",
+            "number": "010-3307-8044",
+            "isUser": true
+        },
+        {
+            "profileImageName": " ",
+            "name": "강희주",
+            "number": "010-3927-5993",
+            "isUser": false
+        },
+        {
+            "profileImageName": " ",
+            "name": "김유진",
+            "number": "010-2038-2999",
+            "isUser": false
+        },
+        {
+            "profileImageName": " ",
+            "name": "소강준",
+            "number": "010-3307-8044",
+            "isUser": false
+        },
+        {
+            "profileImageName": " ",
+            "name": "송보윤",
+            "number": "010-3307-8044",
+            "isUser": false
+        },
+        {
+            "profileImageName": " ",
+            "name": "정태을",
+            "number": "010-3307-8044",
+            "isUser": false
+        }
+    ]
+}
+
