@@ -47,7 +47,7 @@
 		9232069227EA637F0010FC4F /* CreatePublicGroupTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232069127EA637F0010FC4F /* CreatePublicGroupTagViewController.swift */; };
 		9232069427EA7F500010FC4F /* TDSModalNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232069327EA7F500010FC4F /* TDSModalNavigationBar.swift */; };
 		9240852A27CA91460029E753 /* SearchPrivateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852927CA91460029E753 /* SearchPrivateGroupViewController.swift */; };
-		9240852C27CA97C50029E753 /* SearchPublicGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852B27CA97C50029E753 /* SearchPublicGroupVC.swift */; };
+		9240852C27CA97C50029E753 /* SearchPublicGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852B27CA97C50029E753 /* SearchPublicGroupViewController.swift */; };
 		9244097827AE68EB00034510 /* CreatePublicGroupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244097727AE68EB00034510 /* CreatePublicGroupNameViewController.swift */; };
 		9244097A27AE7F9000034510 /* CompleteCreatePublicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9244097927AE7F9000034510 /* CompleteCreatePublicViewController.swift */; };
 		9248133027D130D600A0CECC /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9248132F27D130D600A0CECC /* HomeMainViewController.swift */; };
@@ -229,7 +229,7 @@
 		9232069127EA637F0010FC4F /* CreatePublicGroupTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicGroupTagViewController.swift; sourceTree = "<group>"; };
 		9232069327EA7F500010FC4F /* TDSModalNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDSModalNavigationBar.swift; sourceTree = "<group>"; };
 		9240852927CA91460029E753 /* SearchPrivateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPrivateGroupViewController.swift; sourceTree = "<group>"; };
-		9240852B27CA97C50029E753 /* SearchPublicGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPublicGroupVC.swift; sourceTree = "<group>"; };
+		9240852B27CA97C50029E753 /* SearchPublicGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPublicGroupViewController.swift; sourceTree = "<group>"; };
 		9244097727AE68EB00034510 /* CreatePublicGroupNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicGroupNameViewController.swift; sourceTree = "<group>"; };
 		9244097927AE7F9000034510 /* CompleteCreatePublicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreatePublicViewController.swift; sourceTree = "<group>"; };
 		9248132F27D130D600A0CECC /* HomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
@@ -626,7 +626,7 @@
 			isa = PBXGroup;
 			children = (
 				92B156892761426300939048 /* MyPublicViewController.swift */,
-				9240852B27CA97C50029E753 /* SearchPublicGroupVC.swift */,
+				9240852B27CA97C50029E753 /* SearchPublicGroupViewController.swift */,
 			);
 			path = MyPublic;
 			sourceTree = "<group>";
@@ -1505,7 +1505,7 @@
 				929A95EA2805C30D00082A7B /* CustomModalNavigationBar.swift in Sources */,
 				92FF59B0275AB15000916189 /* MemberTableViewCell.swift in Sources */,
 				9240852A27CA91460029E753 /* SearchPrivateGroupViewController.swift in Sources */,
-				9240852C27CA97C50029E753 /* SearchPublicGroupVC.swift in Sources */,
+				9240852C27CA97C50029E753 /* SearchPublicGroupViewController.swift in Sources */,
 				92A5B29127398366004149B2 /* Storyboard.swift in Sources */,
 				9276B06E275B462900915F57 /* ChatDataModel.swift in Sources */,
 				9252EB952769CA9100809FEA /* ContactDataModel.swift in Sources */,

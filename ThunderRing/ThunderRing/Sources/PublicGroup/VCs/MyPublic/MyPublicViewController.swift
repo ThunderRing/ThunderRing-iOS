@@ -94,7 +94,7 @@ final class MyPublicViewController: UIViewController {
         }), for: .touchUpInside)
         
         searchButton.addAction(UIAction(handler: { _ in
-            let dvc = SearchPublicGroupVC()
+            let dvc = SearchPublicGroupViewController()
             dvc.modalPresentationStyle = .fullScreen
             self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
@@ -126,7 +126,7 @@ final class MyPublicViewController: UIViewController {
         groupCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
         if currentIndex == 0 {
             UIView.animate(withDuration: 0.3) {
-                self.statusMovedView.transform = CGAffineTransform(translationX: 165.5, y: 0)
+                self.statusMovedView.transform = CGAffineTransform(translationX: 187, y: 0)
             }
             currentIndex = 1
             self.myGroupLabel.textColor = .gray150
@@ -142,7 +142,7 @@ extension MyPublicViewController: UICollectionViewDelegate {
         let targetIndex = targetContentOffset.pointee.x / scrollView.frame.size.width
         if targetIndex == 1 && currentIndex == 0 {
             UIView.animate(withDuration: 0.5) {
-                self.statusMovedView.transform = CGAffineTransform(translationX: 165.5, y: 0)
+                self.statusMovedView.transform = CGAffineTransform(translationX: 187, y: 0)
             }
             currentIndex = 1
             self.myGroupLabel.textColor = .gray150

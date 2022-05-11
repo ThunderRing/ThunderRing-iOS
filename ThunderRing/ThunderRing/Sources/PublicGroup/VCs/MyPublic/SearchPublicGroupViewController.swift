@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class SearchPublicGroupVC: SearchBaseVC {
+final class SearchPublicGroupViewController: SearchBaseVC {
 
     // MARK: - Properties
     
