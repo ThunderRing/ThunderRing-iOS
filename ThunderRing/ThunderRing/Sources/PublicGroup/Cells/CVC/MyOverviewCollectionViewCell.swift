@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class MyOverviewCollectionViewCell: UICollectionViewCell {
-    static var CellIdentifier: String { return String(describing: self) }
+    static var cellIdentifier: String { return String(describing: self) }
     
     private lazy var contentScrollView = UIScrollView().then {
         $0.isScrollEnabled = true
@@ -32,6 +32,15 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         return collectionView
     }()
     
+    private var groupTotalCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.isScrollEnabled = false
+        collectionView.backgroundColor = .background
+        return collectionView
+    }()
+    
     private var groupCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -41,8 +50,13 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         return collectionView
     }()
     
-    private var sortList = [String]()
+    private var sortList: [String] = ["전체", "부지런한 동틀녘", "사근한 오전", "북적이는 오후", "포근한 해질녘", "감성적인 새벽녘"]
     private var selectedIndex = 0
+    
+    private var natureGroupData = [PublicGroupData]()
+    private var hobbyGroupData = [PublicGroupData]()
+    private var foodGroupData = [PublicGroupData]()
+    private var outdoorGroupData = [PublicGroupData]()
     
     // MARK: - Initializer
     
@@ -50,7 +64,8 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         configUI()
         setLayout()
-        bind()
+        setCollectionView()
+        getTotalGroupData()
     }
     
     required init?(coder: NSCoder) {
@@ -66,7 +81,7 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
     private func setLayout() {
         addSubview(contentScrollView)
         contentScrollView.addSubview(contentBackView)
-        contentBackView.addSubviews([sortCollectionView, groupCollectionView])
+        contentBackView.addSubviews([sortCollectionView, groupTotalCollectionView])
         
         contentScrollView.snp.makeConstraints {
             $0.top.leading.bottom.trailing.equalToSuperview()
@@ -84,24 +99,25 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
             $0.height.equalTo(27)
         }
         
-        groupCollectionView.snp.makeConstraints {
+        groupTotalCollectionView.snp.makeConstraints {
             $0.top.equalTo(sortCollectionView.snp.bottom).offset(2)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(1723)
+            $0.height.equalTo(2530)
             $0.bottom.equalToSuperview()
         }
     }
     
     // MARK: - Custom Method
     
-    private func bind() {
-        sortList.append(contentsOf: [
-            "전체", "부지런한 동틀녘", "사근한 오전", "북적이는 오후", "포근한 해질녘", "감성적인 새벽녘"
-        ])
-        
+    private func setCollectionView() {
         sortCollectionView.delegate = self
         sortCollectionView.dataSource = self
         sortCollectionView.register(OverviewSortCollectionViewCell.self, forCellWithReuseIdentifier: OverviewSortCollectionViewCell.identifier)
+        
+        groupTotalCollectionView.delegate = self
+        groupTotalCollectionView.dataSource = self
+        groupTotalCollectionView.register(OverviewCollectionViewCell.self, forCellWithReuseIdentifier: OverviewCollectionViewCell.identifier)
+        groupTotalCollectionView.register(OverviewCollectionViewCellHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.identifier)
         
         groupCollectionView.delegate = self
         groupCollectionView.dataSource = self
@@ -115,6 +131,20 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         label.sizeToFit()
         label.setTextSpacingBy(value: -0.6)
         return label.frame.width + 10 + 10
+    }
+    
+    private func loadTotalGroupData(filNm: String) -> Data? {
+        let fileNm: String = filNm
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
     }
 }
 
@@ -165,7 +195,7 @@ extension MyOverviewCollectionViewCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if collectionView == groupCollectionView {
+        if collectionView == groupTotalCollectionView {
             return CGSize(width: collectionView.frame.width, height: 58)
         } else {
             return .zero
@@ -177,8 +207,8 @@ extension MyOverviewCollectionViewCell: UICollectionViewDelegateFlowLayout {
 
 extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if collectionView == groupCollectionView {
-            return 3
+        if collectionView == groupTotalCollectionView {
+            return 4
         } else {
             return 1
         }
@@ -188,13 +218,15 @@ extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
         switch collectionView {
         case sortCollectionView:
             return sortList.count
-        case groupCollectionView:
+        case groupTotalCollectionView:
             if section == 0 {
-                return publicGroupData.count
+                return natureGroupData.count
             } else if section == 1 {
-                return publicGroupData.count
+                return hobbyGroupData.count
+            } else if section == 2 {
+                return foodGroupData.count
             } else {
-                return publicGroupData.count
+                return outdoorGroupData.count
             }
         default:
             return 0
@@ -213,9 +245,17 @@ extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
                 cell.isSelected = false
             }
             return cell
-        case groupCollectionView:
+        case groupTotalCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OverviewCollectionViewCell.identifier, for: indexPath) as? OverviewCollectionViewCell else { return UICollectionViewCell() }
-            cell.initCell(group: publicGroupData[indexPath.item])
+            if indexPath.section == 0 {
+                cell.initCell(natureGroupData[indexPath.row])
+            } else if indexPath.section == 1 {
+                cell.initCell(hobbyGroupData[indexPath.row])
+            } else if indexPath.section == 2 {
+                cell.initCell(foodGroupData[indexPath.row])
+            } else {
+                cell.initCell(outdoorGroupData[indexPath.row])
+            }
             return cell
         default:
             return UICollectionViewCell()
@@ -223,19 +263,39 @@ extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if collectionView == groupCollectionView {
+        if collectionView == groupTotalCollectionView {
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.identifier, for: indexPath) as? OverviewCollectionViewCellHeaderView else { return UICollectionReusableView() }
             if indexPath.section == 0 {
-                header.title = "이런 액티비티 어때요?"
+                header.title = "환경을 생각하는 그룹 어때요?"
             } else if indexPath.section == 1 {
+                header.title = "취미공유"
+            } else if indexPath.section == 2 {
                 header.title = "인기 맛집 탐방"
             } else {
-                header.title = "그리운 동창"
+                header.title = "야외로 나가고 싶을 때"
             }
             return header
         } else {
             return UICollectionReusableView()
         }
+    }
+}
+
+// MARK: - Network
+
+extension MyOverviewCollectionViewCell {
+    private func getTotalGroupData() {
+        guard
+            let jsonData = self.loadTotalGroupData(filNm: "TotalPublicGroupData"),
+            let data = try? JSONDecoder().decode(TotalGroupResponse.self, from: jsonData)
+        else { return }
+        
+        natureGroupData = data.natureGroupData
+        hobbyGroupData = data.hobbyGroupData
+        foodGroupData = data.foodGroupData
+        outdoorGroupData = data.outdoorGroupData
+        
+        groupTotalCollectionView.reloadData()
     }
 }
 

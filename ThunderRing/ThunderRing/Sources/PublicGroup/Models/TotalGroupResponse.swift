@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+// MARK: - TotalGroupResponse
+
+struct TotalGroupResponse: Codable {
+    let natureGroupData, hobbyGroupData, foodGroupData, outdoorGroupData: [PublicGroupData]
+
+    enum CodingKeys: String, CodingKey {
+        case natureGroupData = "NatureGroupData"
+        case hobbyGroupData = "HobbyGroupData"
+        case foodGroupData = "FoodGroupData"
+        case outdoorGroupData = "OutdoorGroupData"
+    }
+}
