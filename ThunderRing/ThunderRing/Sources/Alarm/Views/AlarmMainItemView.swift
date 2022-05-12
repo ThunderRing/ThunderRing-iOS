@@ -33,7 +33,7 @@ final class AlarmMainItemView: UIView {
     // FIXME: 그래픽 확정 시 이미지뷰로 변경
     private lazy var alarmImageView = UIView().then {
         $0.backgroundColor = type.color
-        $0.makeRounded(cornerRadius: 15)
+        $0.makeRounded(cornerRadius: 14)
     }
 
     private lazy var titleLabel = UILabel().then {

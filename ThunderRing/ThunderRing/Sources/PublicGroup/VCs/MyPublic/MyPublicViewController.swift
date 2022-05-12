@@ -75,7 +75,7 @@ final class MyPublicViewController: UIViewController {
         groupCollectionView.dataSource = self
         
         groupCollectionView.register(UINib(nibName: MyGroupCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: MyGroupCollectionViewCell.identifier)
-        groupCollectionView.register(MyOverviewCollectionViewCell.self, forCellWithReuseIdentifier: MyOverviewCollectionViewCell.CellIdentifier)
+        groupCollectionView.register(MyOverviewCollectionViewCell.self, forCellWithReuseIdentifier: MyOverviewCollectionViewCell.cellIdentifier)
     }
     
     private func setGesture() {
@@ -94,7 +94,7 @@ final class MyPublicViewController: UIViewController {
         }), for: .touchUpInside)
         
         searchButton.addAction(UIAction(handler: { _ in
-            let dvc = SearchPublicGroupVC()
+            let dvc = SearchPublicGroupViewController()
             dvc.modalPresentationStyle = .fullScreen
             self.present(dvc, animated: true, completion: nil)
         }), for: .touchUpInside)
@@ -126,7 +126,7 @@ final class MyPublicViewController: UIViewController {
         groupCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
         if currentIndex == 0 {
             UIView.animate(withDuration: 0.3) {
-                self.statusMovedView.transform = CGAffineTransform(translationX: 165.5, y: 0)
+                self.statusMovedView.transform = CGAffineTransform(translationX: 187, y: 0)
             }
             currentIndex = 1
             self.myGroupLabel.textColor = .gray150
@@ -142,7 +142,7 @@ extension MyPublicViewController: UICollectionViewDelegate {
         let targetIndex = targetContentOffset.pointee.x / scrollView.frame.size.width
         if targetIndex == 1 && currentIndex == 0 {
             UIView.animate(withDuration: 0.5) {
-                self.statusMovedView.transform = CGAffineTransform(translationX: 165.5, y: 0)
+                self.statusMovedView.transform = CGAffineTransform(translationX: 187, y: 0)
             }
             currentIndex = 1
             self.myGroupLabel.textColor = .gray150
@@ -194,7 +194,7 @@ extension MyPublicViewController: UICollectionViewDataSource {
             cell.initCell(publicGroupData)
             return cell
         case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyOverviewCollectionViewCell.CellIdentifier, for: indexPath) as? MyOverviewCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyOverviewCollectionViewCell.cellIdentifier, for: indexPath) as? MyOverviewCollectionViewCell else { return UICollectionViewCell() }
             return cell
         default:
             return UICollectionViewCell()

@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class MyOverviewCollectionViewCell: UICollectionViewCell {
-    static var CellIdentifier: String { return String(describing: self) }
+    static var cellIdentifier: String { return String(describing: self) }
     
     private lazy var contentScrollView = UIScrollView().then {
         $0.isScrollEnabled = true
@@ -32,6 +32,15 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         return collectionView
     }()
     
+    private var groupTotalCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.isScrollEnabled = false
+        collectionView.backgroundColor = .background
+        return collectionView
+    }()
+    
     private var groupCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -41,17 +50,33 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         return collectionView
     }()
     
-    private var sortList = [String]()
+    private var sortList: [String] = ["전체", "부지런한 동틀녘", "사근한 오전", "북적이는 오후", "포근한 해질녘", "감성적인 새벽녘"]
     private var selectedIndex = 0
+    
+    private var natureGroupData = [PublicGroupData]()
+    private var hobbyGroupData = [PublicGroupData]()
+    private var foodGroupData = [PublicGroupData]()
+    private var outdoorGroupData = [PublicGroupData]()
+    
+    private var diligentGroupData = [PublicGroupData]()
+    private var softGroupData = [PublicGroupData]()
+    private var crowdGroupData = [PublicGroupData]()
+    private var cozyGroupData = [PublicGroupData]()
+    private var emotionGroupData = [PublicGroupData]()
+    
+    private var groupData = [PublicGroupData]()
     
     // MARK: - Initializer
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        DispatchQueue.main.async {
+            self.getTotalGroupData()
+            self.getOverviewGroupData()
+        }
         configUI()
         setLayout()
-        bind()
-    }
+        setCollectionView()    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -61,12 +86,15 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
     
     private func configUI() {
         backgroundColor = .background
+        
+        groupTotalCollectionView.isHidden = false
+        groupCollectionView.isHidden = true
     }
     
     private func setLayout() {
         addSubview(contentScrollView)
         contentScrollView.addSubview(contentBackView)
-        contentBackView.addSubviews([sortCollectionView, groupCollectionView])
+        contentBackView.addSubviews([sortCollectionView, groupCollectionView, groupTotalCollectionView])
         
         contentScrollView.snp.makeConstraints {
             $0.top.leading.bottom.trailing.equalToSuperview()
@@ -87,21 +115,29 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         groupCollectionView.snp.makeConstraints {
             $0.top.equalTo(sortCollectionView.snp.bottom).offset(2)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(1723)
+            $0.height.equalTo(2530)
+            $0.bottom.equalToSuperview()
+        }
+        
+        groupTotalCollectionView.snp.makeConstraints {
+            $0.top.equalTo(sortCollectionView.snp.bottom).offset(2)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(2530)
             $0.bottom.equalToSuperview()
         }
     }
     
     // MARK: - Custom Method
     
-    private func bind() {
-        sortList.append(contentsOf: [
-            "전체", "부지런한 동틀녘", "사근한 오전", "북적이는 오후", "포근한 해질녘", "감성적인 새벽녘"
-        ])
-        
+    private func setCollectionView() {
         sortCollectionView.delegate = self
         sortCollectionView.dataSource = self
         sortCollectionView.register(OverviewSortCollectionViewCell.self, forCellWithReuseIdentifier: OverviewSortCollectionViewCell.identifier)
+        
+        groupTotalCollectionView.delegate = self
+        groupTotalCollectionView.dataSource = self
+        groupTotalCollectionView.register(OverviewCollectionViewCell.self, forCellWithReuseIdentifier: OverviewCollectionViewCell.identifier)
+        groupTotalCollectionView.register(OverviewCollectionViewCellHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.identifier)
         
         groupCollectionView.delegate = self
         groupCollectionView.dataSource = self
@@ -114,7 +150,21 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         label.text = sortList[index]
         label.sizeToFit()
         label.setTextSpacingBy(value: -0.6)
-        return label.frame.width + 10 + 10
+        return label.frame.width + 10
+    }
+    
+    private func loadTotalGroupData(filNm: String) -> Data? {
+        let fileNm: String = filNm
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
     }
 }
 
@@ -125,6 +175,41 @@ extension MyOverviewCollectionViewCell: UICollectionViewDelegate {
         if collectionView == sortCollectionView {
             selectedIndex = indexPath.item
             collectionView.scrollToItem(at: IndexPath(item: indexPath.row, section: 0), at: .centeredHorizontally, animated: true)
+            
+            if selectedIndex == 0 {
+                groupTotalCollectionView.isHidden = false
+                groupCollectionView.isHidden = true
+            } else if selectedIndex == 1 {
+                groupData = diligentGroupData
+                groupCollectionView.reloadData()
+                
+                groupTotalCollectionView.isHidden = true
+                groupCollectionView.isHidden = false
+            } else if selectedIndex == 2 {
+                groupData = softGroupData
+                groupCollectionView.reloadData()
+                
+                groupTotalCollectionView.isHidden = true
+                groupCollectionView.isHidden = false
+            } else if selectedIndex == 3 {
+                groupData = crowdGroupData
+                groupCollectionView.reloadData()
+                
+                groupTotalCollectionView.isHidden = true
+                groupCollectionView.isHidden = false
+            } else if selectedIndex == 4 {
+                groupData = cozyGroupData
+                groupCollectionView.reloadData()
+                
+                groupTotalCollectionView.isHidden = true
+                groupCollectionView.isHidden = false
+            } else if selectedIndex == 5 {
+                groupData = emotionGroupData
+                groupCollectionView.reloadData()
+                
+                groupTotalCollectionView.isHidden = true
+                groupCollectionView.isHidden = false
+            }
         }
     }
 }
@@ -165,10 +250,10 @@ extension MyOverviewCollectionViewCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if collectionView == groupCollectionView {
-            return CGSize(width: collectionView.frame.width, height: 58)
-        } else {
+        if collectionView == sortCollectionView {
             return .zero
+        } else {
+            return CGSize(width: collectionView.frame.width, height: 60)
         }
     }
 }
@@ -177,8 +262,8 @@ extension MyOverviewCollectionViewCell: UICollectionViewDelegateFlowLayout {
 
 extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if collectionView == groupCollectionView {
-            return 3
+        if collectionView == groupTotalCollectionView {
+            return 4
         } else {
             return 1
         }
@@ -188,14 +273,18 @@ extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
         switch collectionView {
         case sortCollectionView:
             return sortList.count
-        case groupCollectionView:
+        case groupTotalCollectionView:
             if section == 0 {
-                return publicGroupData.count
+                return natureGroupData.count
             } else if section == 1 {
-                return publicGroupData.count
+                return hobbyGroupData.count
+            } else if section == 2 {
+                return foodGroupData.count
             } else {
-                return publicGroupData.count
+                return outdoorGroupData.count
             }
+        case groupCollectionView:
+            return groupData.count
         default:
             return 0
         }
@@ -213,9 +302,21 @@ extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
                 cell.isSelected = false
             }
             return cell
+        case groupTotalCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OverviewCollectionViewCell.identifier, for: indexPath) as? OverviewCollectionViewCell else { return UICollectionViewCell() }
+            if indexPath.section == 0 {
+                cell.initCell(natureGroupData[indexPath.row])
+            } else if indexPath.section == 1 {
+                cell.initCell(hobbyGroupData[indexPath.row])
+            } else if indexPath.section == 2 {
+                cell.initCell(foodGroupData[indexPath.row])
+            } else {
+                cell.initCell(outdoorGroupData[indexPath.row])
+            }
+            return cell
         case groupCollectionView:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OverviewCollectionViewCell.identifier, for: indexPath) as? OverviewCollectionViewCell else { return UICollectionViewCell() }
-            cell.initCell(group: publicGroupData[indexPath.item])
+            cell.initCell(groupData[indexPath.row])
             return cell
         default:
             return UICollectionViewCell()
@@ -223,19 +324,56 @@ extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if collectionView == groupCollectionView {
+        if collectionView == groupTotalCollectionView {
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.identifier, for: indexPath) as? OverviewCollectionViewCellHeaderView else { return UICollectionReusableView() }
             if indexPath.section == 0 {
-                header.title = "이런 액티비티 어때요?"
+                header.title = "환경을 생각하는 그룹 어때요?"
             } else if indexPath.section == 1 {
+                header.title = "취미공유"
+            } else if indexPath.section == 2 {
                 header.title = "인기 맛집 탐방"
             } else {
-                header.title = "그리운 동창"
+                header.title = "야외로 나가고 싶을 때"
             }
+            return header
+        } else if collectionView == groupCollectionView {
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.identifier, for: indexPath) as? OverviewCollectionViewCellHeaderView else { return UICollectionReusableView() }
+            header.title = "그룹"
             return header
         } else {
             return UICollectionReusableView()
         }
+    }
+}
+
+// MARK: - Network
+
+extension MyOverviewCollectionViewCell {
+    private func getTotalGroupData() {
+        guard
+            let jsonData = self.loadTotalGroupData(filNm: "TotalPublicGroupData"),
+            let data = try? JSONDecoder().decode(TotalGroupResponse.self, from: jsonData)
+        else { return }
+        
+        natureGroupData = data.natureGroupData
+        hobbyGroupData = data.hobbyGroupData
+        foodGroupData = data.foodGroupData
+        outdoorGroupData = data.outdoorGroupData
+        
+        groupTotalCollectionView.reloadData()
+    }
+    
+    private func getOverviewGroupData() {
+        guard
+            let jsonData = self.loadTotalGroupData(filNm: "OverviewPublicGroupData"),
+            let data = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: jsonData)
+        else { return }
+        
+        diligentGroupData = data.diligentGroupData
+        softGroupData = data.softGroupData
+        crowdGroupData = data.crowdGroupData
+        cozyGroupData = data.cozyGroupData
+        emotionGroupData = data.emotionGroupData
     }
 }
 

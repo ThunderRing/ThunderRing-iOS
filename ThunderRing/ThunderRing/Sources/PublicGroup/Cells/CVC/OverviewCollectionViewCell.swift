@@ -20,15 +20,21 @@ final class OverviewCollectionViewCell: UICollectionViewCell {
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 27, bounds: true)
     }
     
+    private var labelView = UIView().then {
+        $0.backgroundColor = .clear
+    }
+    
     private lazy var groupNameLabel = UILabel().then {
         $0.text = "그룹이름"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 17)
     }
     
-    private lazy var countLabel = UILabel().then {
-        $0.text = "0/0"
-        $0.textColor = .gray100
+    private  var memberCountStr: String = ""
+    
+    private lazy var memberCountLabel = UILabel().then {
+        $0.text = "0/000"
+        $0.textColor = .gray200
         $0.font = .DINPro(type: .regular, size: 14)
     }
     
@@ -56,7 +62,8 @@ final class OverviewCollectionViewCell: UICollectionViewCell {
     }
     
     private func setLayout() {
-        addSubviews([groupImageView, groupNameLabel, countLabel, groupTagView])
+        addSubviews([groupImageView, labelView, groupTagView])
+        labelView.addSubviews([groupNameLabel, memberCountLabel])
         
         groupImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(22)
@@ -65,18 +72,24 @@ final class OverviewCollectionViewCell: UICollectionViewCell {
             $0.centerX.equalToSuperview()
         }
         
-        groupNameLabel.snp.makeConstraints {
+        labelView.snp.makeConstraints {
             $0.top.equalTo(groupImageView.snp.bottom).offset(14)
-            $0.leading.equalToSuperview().inset(31)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(21)
+            $0.width.equalTo(96)
         }
         
-        countLabel.snp.makeConstraints {
-            $0.top.equalTo(groupImageView.snp.bottom).offset(14)
+        groupNameLabel.snp.makeConstraints {
+            $0.top.leading.bottom.equalToSuperview()
+        }
+        
+        memberCountLabel.snp.makeConstraints {
+            $0.top.equalTo(groupNameLabel.snp.top)
             $0.leading.equalTo(groupNameLabel.snp.trailing).offset(3)
         }
         
         groupTagView.snp.makeConstraints {
-            $0.top.equalTo(groupNameLabel.snp.bottom).offset(6)
+            $0.top.equalTo(labelView.snp.bottom).offset(6)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(84)
             $0.height.equalTo(21)
@@ -85,38 +98,64 @@ final class OverviewCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Custom Method
     
-    internal func initCell(group: PublicGroupDataModel) {
-        groupImageView.image = UIImage(named: group.groupImage)
+    private func calculateViewWidth(groupName: String, memberCount: String) -> CGFloat {
+        let groupNameLabel = UILabel()
+        groupNameLabel.text = groupName
+        groupNameLabel.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        groupNameLabel.sizeToFit()
         
-        groupNameLabel.text = group.groupName
-        countLabel.text = "\(group.memberCounts)/\(group.memberTotalCounts!)"
+        let memberCountLabel = UILabel()
+        memberCountLabel.text = groupName
+        memberCountLabel.font = .DINPro(type: .regular, size: 14)
+        memberCountLabel.sizeToFit()
         
-        switch group.publicGroupType {
-        case .diligent:
+        return groupNameLabel.frame.width + memberCountLabel.frame.width
+    }
+    
+    internal func initCell(_ data: PublicGroupData) {
+        groupImageView.image = UIImage(named: data.groupImageName)
+
+        memberCountStr = " \(data.groupMember.count)/\(data.groupMaxCount)"
+
+        groupNameLabel.text = data.groupName
+        groupNameLabel.setTextSpacingBy(value: -0.6)
+
+        memberCountLabel.text = "\(data.groupMember.count)/\(data.groupMaxCount)"
+        memberCountLabel.setTextSpacingBy(value: -0.6)
+
+        let width = calculateViewWidth(groupName: data.groupName, memberCount: memberCountStr)
+        labelView.snp.updateConstraints {
+            $0.width.equalTo(width)
+        }
+        
+        switch data.groupTendency {
+        case "tendencyDiligent":
             groupTagView.tagType = .diligent
             groupTagView.snp.updateConstraints {
                 $0.width.equalTo(95)
             }
-        case .crowd:
+        case "tendencyCrowd":
             groupTagView.tagType = .crowd
             groupTagView.snp.updateConstraints {
                 $0.width.equalTo(84)
             }
-        case .emotion:
+        case "tendencyEmotion":
             groupTagView.tagType = .emotion
             groupTagView.snp.updateConstraints {
                 $0.width.equalTo(95)
             }
-        case .soft:
+        case "tendencySoft":
             groupTagView.tagType = .soft
             groupTagView.snp.updateConstraints {
                 $0.width.equalTo(72)
             }
-        case .cozy:
+        case "tendencyCozy":
             groupTagView.tagType = .cozy
             groupTagView.snp.updateConstraints {
                 $0.width.equalTo(84)
             }
+        default:
+            return 
         }
     }
 }
