@@ -125,11 +125,13 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     private func calculateViewWidth(groupName: String, memberCount: String) -> CGFloat {
         let groupNameLabel = UILabel()
         groupNameLabel.text = groupName
-        groupNameLabel.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        groupNameLabel.setTextSpacingBy(value: -0.6)
+        groupNameLabel.font = .SpoqaHanSansNeo(type: .medium, size: 17)
         groupNameLabel.sizeToFit()
         
         let memberCountLabel = UILabel()
-        memberCountLabel.text = groupName
+        memberCountLabel.text = memberCount
+        memberCountLabel.setTextSpacingBy(value: -0.6)
         memberCountLabel.font = .DINPro(type: .regular, size: 14)
         memberCountLabel.sizeToFit()
         
@@ -139,23 +141,17 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     internal func configCell(_ data: PublicGroupData) {
         groupImageView.image = UIImage(named: data.groupImageName)
         
-        memberCountStr = " \(data.groupMember.count)/\(data.groupMaxCount)"
-        
         groupNameLabel.text = data.groupName
         groupNameLabel.setTextSpacingBy(value: -0.6)
-        
-//        guard let text = self.groupNameLabel.text else { return }
-//        let attributeString = NSMutableAttributedString(string: text)
-//        let font = UIFont.DINPro(type: .regular, size: 14)
-//        attributeString.addAttribute(.font, value: font, range: (text as NSString).range(of: memberCountStr))
-//        self.groupNameLabel.attributedText = attributeString
         
         memberCountLabel.text = "\(data.groupMember.count)/\(data.groupMaxCount)"
         memberCountLabel.setTextSpacingBy(value: -0.6)
         
-        let width = calculateViewWidth(groupName: data.groupName, memberCount: memberCountStr)
+        let width = calculateViewWidth(groupName: data.groupName,
+                                       memberCount: "\(data.groupMember.count)/\(data.groupMaxCount)")
         labelView.snp.updateConstraints {
             $0.width.equalTo(width)
+            $0.centerX.equalToSuperview()
         }
         
         switch data.groupTendency {

@@ -101,11 +101,13 @@ final class OverviewCollectionViewCell: UICollectionViewCell {
     private func calculateViewWidth(groupName: String, memberCount: String) -> CGFloat {
         let groupNameLabel = UILabel()
         groupNameLabel.text = groupName
-        groupNameLabel.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        groupNameLabel.setTextSpacingBy(value: -0.6)
+        groupNameLabel.font = .SpoqaHanSansNeo(type: .medium, size: 17)
         groupNameLabel.sizeToFit()
         
         let memberCountLabel = UILabel()
-        memberCountLabel.text = groupName
+        memberCountLabel.text = memberCount
+        memberCountLabel.setTextSpacingBy(value: -0.6)
         memberCountLabel.font = .DINPro(type: .regular, size: 14)
         memberCountLabel.sizeToFit()
         
@@ -115,7 +117,7 @@ final class OverviewCollectionViewCell: UICollectionViewCell {
     internal func initCell(_ data: PublicGroupData) {
         groupImageView.image = UIImage(named: data.groupImageName)
 
-        memberCountStr = " \(data.groupMember.count)/\(data.groupMaxCount)"
+        memberCountStr = "\(data.groupMember.count)/\(data.groupMaxCount)"
 
         groupNameLabel.text = data.groupName
         groupNameLabel.setTextSpacingBy(value: -0.6)

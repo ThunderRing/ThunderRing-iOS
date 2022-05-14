@@ -10,6 +10,11 @@ import UIKit
 import SnapKit
 import Then
 
+protocol MyOverviewCollectionViewCellDelegate: AnyObject {
+    func touhcUpTotalCell(index: Int, section: Int)
+    func touchUpTendencyCell(index: Int, groupTag: Int)
+}
+
 final class MyOverviewCollectionViewCell: UICollectionViewCell {
     static var cellIdentifier: String { return String(describing: self) }
     
@@ -65,6 +70,9 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
     private var emotionGroupData = [PublicGroupData]()
     
     private var groupData = [PublicGroupData]()
+    private var groupTag: Int = 0
+    
+    weak var delegate: MyOverviewCollectionViewCellDelegate?
     
     // MARK: - Initializer
     
@@ -152,20 +160,6 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         label.setTextSpacingBy(value: -0.6)
         return label.frame.width + 10
     }
-    
-    private func loadTotalGroupData(filNm: String) -> Data? {
-        let fileNm: String = filNm
-        let extensionType = "json"
-        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
-        
-        do {
-            let data = try Data(contentsOf: fileLocation)
-            return data
-        } catch {
-            print("파일 로드 실패")
-            return nil
-        }
-    }
 }
 
 // MARK: - UICollectionView Delegate
@@ -174,6 +168,7 @@ extension MyOverviewCollectionViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == sortCollectionView {
             selectedIndex = indexPath.item
+            groupTag = selectedIndex
             collectionView.scrollToItem(at: IndexPath(item: indexPath.row, section: 0), at: .centeredHorizontally, animated: true)
             
             if selectedIndex == 0 {
@@ -210,6 +205,10 @@ extension MyOverviewCollectionViewCell: UICollectionViewDelegate {
                 groupTotalCollectionView.isHidden = true
                 groupCollectionView.isHidden = false
             }
+        } else if collectionView == groupTotalCollectionView {
+            delegate?.touhcUpTotalCell(index: indexPath.item, section: indexPath.section)
+        } else {
+            delegate?.touchUpTendencyCell(index: indexPath.item, groupTag: groupTag)
         }
     }
 }
@@ -351,7 +350,7 @@ extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
 extension MyOverviewCollectionViewCell {
     private func getTotalGroupData() {
         guard
-            let jsonData = self.loadTotalGroupData(filNm: "TotalPublicGroupData"),
+            let jsonData = self.loadData(filNm: "TotalPublicGroupData"),
             let data = try? JSONDecoder().decode(TotalGroupResponse.self, from: jsonData)
         else { return }
         
@@ -365,7 +364,7 @@ extension MyOverviewCollectionViewCell {
     
     private func getOverviewGroupData() {
         guard
-            let jsonData = self.loadTotalGroupData(filNm: "OverviewPublicGroupData"),
+            let jsonData = self.loadData(filNm: "OverviewPublicGroupData"),
             let data = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: jsonData)
         else { return }
         

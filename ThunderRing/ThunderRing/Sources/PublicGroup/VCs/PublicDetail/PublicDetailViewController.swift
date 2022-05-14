@@ -194,6 +194,13 @@ final class PublicDetailViewController: UIViewController {
     
     var index: Int = 0
     
+    var isOverview: Bool = false
+    
+    private var groupData = [PublicGroupData]()
+    
+    var groupSection: Int = 0
+    var groupTag: Int = 0
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -205,7 +212,16 @@ final class PublicDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DispatchQueue.main.async {
-            self.getDetailData()
+            if self.isOverview {
+                if self.groupTag == 0 {
+                    self.getTotalOverviewPublicGroupDetailData()
+                } else {
+                    self.getOverviewPublicGroupDetailData()
+                }
+            } else {
+                self.getMyPublicGroupDetailData()
+            }
+            
             self.memberCollectionView.reloadData()
             self.historyCollectionView.reloadData()
         }
@@ -551,7 +567,7 @@ extension PublicDetailViewController: UICollectionViewDataSource {
 // MARK: - Network
 
 extension PublicDetailViewController {
-    private func getDetailData() {
+    private func getMyPublicGroupDetailData() {
         guard
             let jsonData = self.loadPublicGroupData(),
             let data = try? JSONDecoder().decode(PublicGroupResponse.self, from: jsonData)
@@ -568,6 +584,72 @@ extension PublicDetailViewController {
         
         memberCounts = data.publicGroupData[index].groupMember.count
         historyCounts = data.publicGroupData[index].history.count
+    }
+    
+    private func getTotalOverviewPublicGroupDetailData() {
+        guard
+            let jsonData = self.loadData(filNm: "TotalPublicGroupData"),
+            let data = try? JSONDecoder().decode(TotalGroupResponse.self, from: jsonData)
+        else { return }
+        
+        switch groupSection {
+        case 0:
+            groupData = data.natureGroupData
+        case 1:
+            groupData = data.hobbyGroupData
+        case 2:
+            groupData = data.foodGroupData
+        case 3:
+            groupData = data.outdoorGroupData
+        default:
+            groupData = data.natureGroupData
+        }
+        
+        headerView.groupImageName = groupData[index].groupImageName
+        headerView.groupName = groupData[index].groupName
+        headerView.groupDescription = groupData[index].groupDescription
+        headerView.tags = groupData[index].groupTag
+        headerView.groupTendency = groupData[index].groupTendency
+        
+        members = groupData[index].groupMember
+        history = groupData[index].history
+        
+        memberCounts = groupData[index].groupMember.count
+        historyCounts = groupData[index].history.count
+    }
+    
+    private func getOverviewPublicGroupDetailData() {
+        guard
+            let jsonData = self.loadData(filNm: "OverviewPublicGroupData"),
+            let data = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: jsonData)
+        else { return }
+        
+        switch groupTag {
+        case 1:
+            groupData = data.diligentGroupData
+        case 2:
+            groupData = data.softGroupData
+        case 3:
+            groupData = data.crowdGroupData
+        case 4:
+            groupData = data.cozyGroupData
+        case 5:
+            groupData = data.emotionGroupData
+        default:
+            groupData = data.diligentGroupData
+        }
+        
+        headerView.groupImageName = groupData[index].groupImageName
+        headerView.groupName = groupData[index].groupName
+        headerView.groupDescription = groupData[index].groupDescription
+        headerView.tags = groupData[index].groupTag
+        headerView.groupTendency = groupData[index].groupTendency
+        
+        members = groupData[index].groupMember
+        history = groupData[index].history
+        
+        memberCounts = groupData[index].groupMember.count
+        historyCounts = groupData[index].history.count
     }
 }
 

@@ -195,6 +195,7 @@ extension MyPublicViewController: UICollectionViewDataSource {
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyOverviewCollectionViewCell.cellIdentifier, for: indexPath) as? MyOverviewCollectionViewCell else { return UICollectionViewCell() }
+            cell.delegate = self
             return cell
         default:
             return UICollectionViewCell()
@@ -204,7 +205,7 @@ extension MyPublicViewController: UICollectionViewDataSource {
 
 // MARK: - Custom Delegate
 
-extension MyPublicViewController: MyGroupCollectionViewCellDelegate {
+extension MyPublicViewController: MyGroupCollectionViewCellDelegate, MyOverviewCollectionViewCellDelegate {
     func touchUpTestButton() {
         // MARK: - FIX
         let dvc = TestResultViewController()
@@ -228,6 +229,25 @@ extension MyPublicViewController: MyGroupCollectionViewCellDelegate {
         } else {
             dvc.isOwner = false
         }
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    // 둘러보기 cell
+    func touhcUpTotalCell(index: Int, section: Int) {
+        let dvc = PublicDetailViewController()
+        dvc.isMember = false
+        dvc.index = index
+        dvc.isOverview = true
+        dvc.groupTag = 0
+        dvc.groupSection = section
+        navigationController?.pushViewController(dvc, animated: true)
+    }
+    
+    func touchUpTendencyCell(index: Int, groupTag: Int) {
+        let dvc = PublicDetailViewController()
+        dvc.isMember = false
+        dvc.index = index
+        dvc.isOverview = true
         navigationController?.pushViewController(dvc, animated: true)
     }
 }
