@@ -92,6 +92,12 @@ final class HomeRecruitingViewController: UIViewController {
         dvc.modalTransitionStyle = .crossDissolve
         dvc.modalPresentationStyle = .overFullScreen
         dvc.handleTap(alarmType: .lightning)
+        dvc.lightningName = "이태원 모각작 모아요"
+        dvc.groupName = "[양파링걸즈]"
+        dvc.member = "마예지"
+        dvc.memberCount = 4
+        dvc.date = "8월 3일 목요일 오전 11:00"
+        dvc.location = "이태원역 4번출구 할리스"
         present(dvc, animated: true)
     }
     

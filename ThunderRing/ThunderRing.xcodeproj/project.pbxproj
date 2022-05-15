@@ -18,6 +18,7 @@
 		1DFC0BC1274C080300C5001D /* PublicGroupCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFC0BBF274C080300C5001D /* PublicGroupCVC.swift */; };
 		1DFC0BC2274C080300C5001D /* PublicGroupCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */; };
 		76F17246B58289076DF19965 /* Pods_ThunderRing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E4DD19CD69E27D0BA6EDBC /* Pods_ThunderRing.framework */; };
+		9201FE63282F8CA300443946 /* CancelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9201FE62282F8CA300443946 /* CancelView.swift */; };
 		9209959B280C7EE9008C3491 /* PrivateGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209959A280C7EE9008C3491 /* PrivateGroupResponse.swift */; };
 		9209959D280C8671008C3491 /* PrivateGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9209959C280C8671008C3491 /* PrivateGroupData.json */; };
 		920995A4280D3D5E008C3491 /* PublicGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920995A3280D3D5E008C3491 /* PublicGroupResponse.swift */; };
@@ -204,6 +205,7 @@
 		1DFC0BC0274C080300C5001D /* PublicGroupCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicGroupCVC.xib; sourceTree = "<group>"; };
 		56E4DD19CD69E27D0BA6EDBC /* Pods_ThunderRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ThunderRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79421393DC8C74F93D07628F /* Pods-ThunderRing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThunderRing.debug.xcconfig"; path = "Target Support Files/Pods-ThunderRing/Pods-ThunderRing.debug.xcconfig"; sourceTree = "<group>"; };
+		9201FE62282F8CA300443946 /* CancelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelView.swift; sourceTree = "<group>"; };
 		9209959A280C7EE9008C3491 /* PrivateGroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateGroupResponse.swift; sourceTree = "<group>"; };
 		9209959C280C8671008C3491 /* PrivateGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PrivateGroupData.json; sourceTree = "<group>"; };
 		920995A3280D3D5E008C3491 /* PublicGroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupResponse.swift; sourceTree = "<group>"; };
@@ -935,6 +937,7 @@
 				92E7F9F827F22E3E00F1CFB7 /* GroupTendencyView.swift */,
 				9219E4D82824639900BA247B /* PopUpView.swift */,
 				9219E4DA2824668100BA247B /* JoinButton.swift */,
+				9201FE62282F8CA300443946 /* CancelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1448,6 +1451,7 @@
 				925DCD4A27E5211500331949 /* ChatMainTableViewCellView.swift in Sources */,
 				92BF253F282B3F8C00DE0205 /* ContactDataResponse.swift in Sources */,
 				9276B060275B443F00915F57 /* MyChatCVC.swift in Sources */,
+				9201FE63282F8CA300443946 /* CancelView.swift in Sources */,
 				9219E4D728245D2100BA247B /* CountLabelView.swift in Sources */,
 				925BAC462742C76F00126166 /* PrivateListTableViewCell.swift in Sources */,
 				1D127530280AEF6400726651 /* FirebaseDataService.swift in Sources */,

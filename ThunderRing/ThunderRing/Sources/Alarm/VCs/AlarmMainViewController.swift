@@ -50,14 +50,14 @@ final class AlarmMainViewController: UIViewController {
     
     private var dataList: [Data] = [
         Data(type: DataType.text, value: ["진행중인 알람"], isActive: false),
-        Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .cancel, isActive: true),
-        Data(type: DataType.view, value: ["[양파링] 혜화역 혼가츠 먹자", "천둥이 울렸어요. 채팅을 볼까요?", "2"], alarmType: .thunder, isActive: true),
-        Data(type: DataType.view, value: ["[라이딩] 한강 라이딩 하실 분 ", "번개가 도착했어요. 내용을 확인해보세요", "2"], alarmType: .lightning, isActive: true),
-        Data(type: DataType.text, value: ["4월 8일"], isActive: false),
-        Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .cancel, isActive: false),
-        Data(type: DataType.text, value: ["4월 6일"], isActive: false),
-        Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .cancel, isActive: false),
-        Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .thunder, isActive: false)
+        Data(type: DataType.view, value: ["[젤리팟]", "젤리먹자", "번개가 도착했어요. 내용을 확인해보세요", "1분 전"], alarmType: .lightning, isActive: true),
+        Data(type: DataType.view, value: ["[아이스케키]", "민초 먹으러 갈래","천둥이 울렸어요. 채팅을 볼까요?", "2시간 전"], alarmType: .thunder, isActive: true),
+        Data(type: DataType.view, value: ["[Oil PASTEL]", "공덕역 카페로","번개가 취소되었어요", "2시간 전"], alarmType: .cancel, isActive: true),
+        Data(type: DataType.text, value: ["5월 24일"], isActive: false),
+        Data(type: DataType.view, value: ["[양파링걸즈]", "한강 치맥하자","번개가 취소되었어요", "1일 전"], alarmType: .cancel, isActive: false),
+        Data(type: DataType.text, value: ["5월 22일"], isActive: false),
+        Data(type: DataType.view, value: ["[도예공방]", "오늘은 컵 만들어요","천둥이 울렸어요. 채팅을 볼까요?", "2일 전"], alarmType: .cancel, isActive: false),
+        Data(type: DataType.view, value: ["[러너]", "달려보아요", "천둥이 울렸어요. 채팅을 볼까요?", "3일 전"], alarmType: .thunder, isActive: false)
     ]
     
     private lazy var itemViews: [UIView] = dataList.map { data in
@@ -70,8 +70,9 @@ final class AlarmMainViewController: UIViewController {
             let view = AlarmMainItemView(alarmType: .thunder, isActive: true)
             view.alarmType = data.alarmType ?? .thunder
             view.title = data.value[0]
-            view.alarmDescription = data.value[1]
-            view.time = data.value[2]
+            view.subTitle = data.value[1]
+            view.alarmDescription = data.value[2]
+            view.time = data.value[3]
             view.isActive = data.isActive
             view.isUserInteractionEnabled = data.isActive
             
@@ -107,7 +108,7 @@ final class AlarmMainViewController: UIViewController {
     // MARK: - Init UI
     
     private func configUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         setStatusBar(.white)
         navigationBar.layer.applyShadow()
     }
@@ -144,7 +145,8 @@ final class AlarmMainViewController: UIViewController {
         
         contentStackView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom).offset(1)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(33)
         }
     }
     
@@ -170,6 +172,14 @@ final class AlarmMainViewController: UIViewController {
         let dvc = AlarmPopUpViewController()
         dvc.modalTransitionStyle = .crossDissolve
         dvc.modalPresentationStyle = .overFullScreen
+        
+        dvc.lightningName = dataList[1].value[1]
+        dvc.groupName = dataList[1].value[0]
+        dvc.member = "마예지"
+        dvc.memberCount = 5
+        dvc.date = "5월 25일 수요일 오후 2:00"
+        dvc.location = "연남동"
+        
         dvc.handleTap(alarmType: .lightning)
         present(dvc, animated: true)
     }
@@ -177,14 +187,14 @@ final class AlarmMainViewController: UIViewController {
     @objc func getJoinNotification() {
         dataList = [
             Data(type: DataType.text, value: ["진행중인 알람"], isActive: false),
-            Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .cancel, isActive: true),
-            Data(type: DataType.view, value: ["[양파링] 혜화역 혼가츠 먹자", "천둥이 울렸어요. 채팅을 볼까요?", "2"], alarmType: .thunder, isActive: true),
-            Data(type: DataType.view, value: ["[라이딩] 한강 라이딩 하실 분 ", "번개를 참여했어요", "2"], alarmType: .lightning, isActive: true),
-            Data(type: DataType.text, value: ["4월 8일"], isActive: false),
-            Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .cancel, isActive: false),
-            Data(type: DataType.text, value: ["4월 6일"], isActive: false),
-            Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .cancel, isActive: false),
-            Data(type: DataType.view, value: ["[러너] 한강 달리러 가실 분", "번개가 취소되었어요", "2"], alarmType: .thunder, isActive: false)
+            Data(type: DataType.view, value: ["[젤리팟]", "젤리먹자","번개에 참여했어요", "1분 전"], alarmType: .lightning, isActive: true),
+            Data(type: DataType.view, value: ["[아이스케키]", "민초 먹으러 갈래","천둥이 울렸어요. 채팅을 볼까요?", "2시간 전"], alarmType: .thunder, isActive: true),
+            Data(type: DataType.view, value: ["[Oil PASTEL]", "공덕역 카페로","번개가 취소되었어요", "2시간 전"], alarmType: .cancel, isActive: true),
+            Data(type: DataType.text, value: ["5월 24일"], isActive: false),
+            Data(type: DataType.view, value: ["[양파링걸즈]", "한강 치맥하자","번개가 취소되었어요", "1일 전"], alarmType: .cancel, isActive: false),
+            Data(type: DataType.text, value: ["5월 22일"], isActive: false),
+            Data(type: DataType.view, value: ["[도예공방]", "오늘은 컵 만들어요","천둥이 울렸어요. 채팅을 볼까요?", "3일 전"], alarmType: .cancel, isActive: false),
+            Data(type: DataType.view, value: ["[러너]", "달려보아요", "천둥이 울렸어요. 채팅을 볼까요?", "4일 전"], alarmType: .thunder, isActive: false)
         ]
         
         for view in itemViews {
@@ -202,8 +212,9 @@ final class AlarmMainViewController: UIViewController {
                 let view = AlarmMainItemView(alarmType: .thunder, isActive: true)
                 view.alarmType = data.alarmType ?? .thunder
                 view.title = data.value[0]
-                view.alarmDescription = data.value[1]
-                view.time = data.value[2]
+                view.subTitle = data.value[1]
+                view.alarmDescription = data.value[2]
+                view.time = data.value[3]
                 view.isActive = data.isActive
                 view.isUserInteractionEnabled = data.isActive
                 

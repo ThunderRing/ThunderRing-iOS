@@ -20,17 +20,16 @@ final class PopUpView: UIView {
     // MARK: - Properties
     
     private var alarmIconImageView = UIImageView().then {
-        $0.backgroundColor = .yellow200
+        $0.backgroundColor = .yellow300
+        $0.makeRounded(cornerRadius: 15)
     }
     
     private var lightningNameLabel = UILabel().then {
-        $0.text = "번개이름"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .bold, size: 16)
     }
     
     private var groupNameLabel = UILabel().then {
-        $0.text = "[그룹이름]주최자이름"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
@@ -53,7 +52,6 @@ final class PopUpView: UIView {
     }
     
     private var memberCountLabel = UILabel().then {
-        $0.text = "멤버명"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
     }
@@ -63,7 +61,6 @@ final class PopUpView: UIView {
     }
     
     private var dateLabel = UILabel().then {
-        $0.text = "멤버명"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
     }
@@ -73,7 +70,6 @@ final class PopUpView: UIView {
     }
     
     private var locationLabel = UILabel().then {
-        $0.text = "위치"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
     }
@@ -113,7 +109,7 @@ final class PopUpView: UIView {
     
     var groupName: String = "" {
         didSet {
-            groupNameLabel.text = lightningName
+            groupNameLabel.text = groupName
             groupNameLabel.setTextSpacingBy(value: -0.6)
         }
     }
@@ -122,6 +118,13 @@ final class PopUpView: UIView {
         didSet {
             memberCountLabel.text = "\(memberCount)명"
             memberCountLabel.setTextSpacingBy(value: -0.6)
+        }
+    }
+    
+    var date: String = "" {
+        didSet {
+            dateLabel.text = date
+            dateLabel.setTextSpacingBy(value: -0.6)
         }
     }
     
