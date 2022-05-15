@@ -26,32 +26,35 @@ final class AlarmMainItemView: UIView {
         }
     }
 
-    private lazy var contentView = UIView().then {
+    private var contentView = UIView().then {
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 10, bounds: true)
     }
     
-    // FIXME: 그래픽 확정 시 이미지뷰로 변경
     private lazy var alarmImageView = UIView().then {
         $0.backgroundColor = type.color
         $0.makeRounded(cornerRadius: 14)
     }
 
     private lazy var titleLabel = UILabel().then {
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
         $0.text = type.title
         $0.textAlignment = .center
+        $0.textColor = .gray100
+    }
+    
+    private lazy var subtitleLabel = UILabel().then {
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 15)
+        $0.text = type.subTitle
         $0.textColor = .black
     }
     
     private lazy var descriptionLabel = UILabel().then {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
         $0.text = type.description
-        $0.textAlignment = .center
         $0.textColor = .gray100
     }
     
     private lazy var timeLabel = UILabel().then {
-        $0.text = "분"
         $0.textColor = .gray150
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
@@ -60,6 +63,13 @@ final class AlarmMainItemView: UIView {
         didSet {
             titleLabel.text = "\(title)"
             titleLabel.setTextSpacingBy(value: -0.6)
+        }
+    }
+    
+    var subTitle: String = "" {
+        didSet {
+            subtitleLabel.text = "\(subTitle)"
+            subtitleLabel.setTextSpacingBy(value: -0.6)
         }
     }
     
@@ -72,18 +82,21 @@ final class AlarmMainItemView: UIView {
     
     var time: String = "10" {
         didSet {
-            timeLabel.text = "\(time)시간 전"
+            timeLabel.text = "\(time)"
             timeLabel.setTextSpacingBy(value: -0.6)
         }
     }
     
     var isActive: Bool = true {
         didSet {
-            alarmImageView.backgroundColor = isActive ? type.color : .gray100
+            alarmImageView.backgroundColor = isActive ? type.color : .gray350
             titleLabel.textColor = isActive ? .black : .gray100
+            subtitleLabel.textColor = isActive ? .black : .gray100
         }
     }
 
+    // MARK: - Initializer
+    
     init(alarmType: AlarmItemType, isActive: Bool) {
         super.init(frame: .zero)
         self.type = alarmType
@@ -95,13 +108,15 @@ final class AlarmMainItemView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Init UI
+    
     private func configUI() {
         backgroundColor = .background
     }
     
     private func setLayout() {
         addSubview(contentView)
-        contentView.addSubviews([alarmImageView, titleLabel, descriptionLabel, timeLabel])
+        contentView.addSubviews([alarmImageView, titleLabel, subtitleLabel, descriptionLabel, timeLabel])
         
         contentView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(25)
@@ -118,6 +133,12 @@ final class AlarmMainItemView: UIView {
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(19)
             $0.leading.equalTo(alarmImageView.snp.trailing).offset(10)
+            $0.height.equalTo(19)
+        }
+        
+        subtitleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(19)
+            $0.leading.equalTo(titleLabel.snp.trailing)
             $0.height.equalTo(19)
         }
         
@@ -143,7 +164,11 @@ enum AlarmItemType {
     case cancel
     
     var title: String {
-        return "[그룹명] 번개명"
+        return "[그룹명]"
+    }
+    
+    var subTitle: String {
+        return "번개명"
     }
     
     var description: String {
@@ -160,11 +185,11 @@ enum AlarmItemType {
     var color: UIColor {
         switch self {
         case .thunder:
-            return .blue
+            return .blue200
         case .lightning:
-            return .yellow200
+            return .yellow300
         case .cancel:
-            return .red
+            return .pink200
         }
     }
 }

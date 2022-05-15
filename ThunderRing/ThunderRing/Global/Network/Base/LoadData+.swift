@@ -35,4 +35,34 @@ extension UIViewController {
             return nil
         }
     }
+    
+    internal func loadData(filNm: String) -> Data? {
+        let fileNm: String = filNm
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
+    }
+}
+
+extension UICollectionViewCell {
+    internal func loadData(filNm: String) -> Data? {
+        let fileNm: String = filNm
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
+    }
 }

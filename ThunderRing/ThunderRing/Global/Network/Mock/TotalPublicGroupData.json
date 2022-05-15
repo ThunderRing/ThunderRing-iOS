@@ -1,11 +1,159 @@
 {
     "NatureGroupData": [
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
+            "groupImageName": "viewNa1",
+            "groupName": "제로 웨이스트",
+            "groupTendency": "tendencyCrowd",
+            "groupDescription": "환경",
+            "groupTag": ["환경", "지켜봐요", "나부터시작"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                }
+                
+            ],
+            "groupMaxCount": 80,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                }
+            ]
+        },
+        {
+            "groupImageName": "viewNa2",
+            "groupName": "헌책방",
             "groupTendency": "tendencyEmotion",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
+            "groupTag": ["새책보다는", "아무래도", "헌책이지"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                }
+                
+            ],
+            "groupMaxCount": 200,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                }
+            ]
+        },
+        {
+            "groupImageName": "viewNa3",
+            "groupName": "지구에게",
+            "groupTendency": "tendencyCozy",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["지구야", "미안해", "오래가자"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                }
+                
+            ],
+            "groupMaxCount": 300,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                }
+            ]
+        },
+        {
+            "groupImageName": "viewNa4",
+            "groupName": "아나바다",
+            "groupTendency": "tendencyCozy",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["아끼고", "나눠쓰고", "바꿔쓰고"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                }
+                
+            ],
+            "groupMaxCount": 85,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                }
+            ]
+        },
+        {
+            "groupImageName": "viewNa5",
+            "groupName": "비건카페",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["동물을", "사랑하자", "대체품먹자"],
             "groupMember": [
                 {
                     "memberImageName": "proYeji",
@@ -38,9 +186,9 @@
             ]
         },
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
+            "groupImageName": "viewNa6",
+            "groupName": "플로깅",
+            "groupTendency": "tendencyDiligent",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
             "groupMember": [
@@ -58,155 +206,7 @@
                 }
                 
             ],
-            "groupMaxCount": 30,
-            "history": [
-                {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                }
-            ]
-        },
-        {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
-            "groupMember": [
-                {
-                    "memberImageName": "proYeji",
-                    "memberName": "김서진"
-                },
-                {
-                    "memberImageName": "proJiwon",
-                    "memberName": "신윤아"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "서혜진"
-                }
-                
-            ],
-            "groupMaxCount": 30,
-            "history": [
-                {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                }
-            ]
-        },
-        {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
-            "groupMember": [
-                {
-                    "memberImageName": "proYeji",
-                    "memberName": "김서진"
-                },
-                {
-                    "memberImageName": "proJiwon",
-                    "memberName": "신윤아"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "서혜진"
-                }
-                
-            ],
-            "groupMaxCount": 30,
-            "history": [
-                {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                }
-            ]
-        },
-        {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
-            "groupMember": [
-                {
-                    "memberImageName": "proYeji",
-                    "memberName": "김서진"
-                },
-                {
-                    "memberImageName": "proJiwon",
-                    "memberName": "신윤아"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "서혜진"
-                }
-                
-            ],
-            "groupMaxCount": 30,
-            "history": [
-                {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                }
-            ]
-        },
-        {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
-            "groupMember": [
-                {
-                    "memberImageName": "proYeji",
-                    "memberName": "김서진"
-                },
-                {
-                    "memberImageName": "proJiwon",
-                    "memberName": "신윤아"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "서혜진"
-                }
-                
-            ],
-            "groupMaxCount": 30,
+            "groupMaxCount": 80,
             "history": [
                 {
                     "date": "21/08/03",
@@ -225,11 +225,11 @@
     ],
     "HobbyGroupData": [
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
+            "groupImageName": "viewHo1",
+            "groupName": "제과 베이킹",
+            "groupTendency": "tendencyCrowd",
+            "groupDescription": "취미",
+            "groupTag": ["빵순이", "쿠키최고", "밥보다는베이커리"],
             "groupMember": [
                 {
                     "memberImageName": "proYeji",
@@ -245,7 +245,7 @@
                 }
                 
             ],
-            "groupMaxCount": 30,
+            "groupMaxCount": 20,
             "history": [
                 {
                     "date": "21/08/03",
@@ -262,9 +262,9 @@
             ]
         },
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
+            "groupImageName": "viewHo2",
+            "groupName": "퀼트반",
+            "groupTendency": "tendencyDiligent",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
             "groupMember": [
@@ -282,7 +282,7 @@
                 }
                 
             ],
-            "groupMaxCount": 30,
+            "groupMaxCount": 40,
             "history": [
                 {
                     "date": "21/08/03",
@@ -299,11 +299,11 @@
             ]
         },
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
+            "groupImageName": "viewHo3",
+            "groupName": "캠코더 감성",
+            "groupTendency": "tendencyDiligent",
+            "groupDescription": "취미",
+            "groupTag": ["캠코더최고", "그감성", "잃지못해"],
             "groupMember": [
                 {
                     "memberImageName": "proYeji",
@@ -319,7 +319,7 @@
                 }
                 
             ],
-            "groupMaxCount": 30,
+            "groupMaxCount": 20,
             "history": [
                 {
                     "date": "21/08/03",
@@ -336,9 +336,9 @@
             ]
         },
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
+            "groupImageName": "viewHo4",
+            "groupName": "터프팅",
+            "groupTendency": "tendencyCozy",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
             "groupMember": [
@@ -356,7 +356,7 @@
                 }
                 
             ],
-            "groupMaxCount": 30,
+            "groupMaxCount": 90,
             "history": [
                 {
                     "date": "21/08/03",
@@ -373,9 +373,9 @@
             ]
         },
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
+            "groupImageName": "viewHo5",
+            "groupName": "빙글관람차",
+            "groupTendency": "tendencyCrowd",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
             "groupMember": [
@@ -393,7 +393,7 @@
                 }
                 
             ],
-            "groupMaxCount": 30,
+            "groupMaxCount": 100,
             "history": [
                 {
                     "date": "21/08/03",
@@ -410,8 +410,8 @@
             ]
         },
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
+            "groupImageName": "viewHo6",
+            "groupName": "조던 모아요",
             "groupTendency": "tendencyEmotion",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
@@ -430,7 +430,7 @@
                 }
                 
             ],
-            "groupMaxCount": 30,
+            "groupMaxCount": 60,
             "history": [
                 {
                     "date": "21/08/03",
@@ -449,9 +449,157 @@
     ],
     "FoodGroupData": [
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
+            "groupImageName": "viewFo1",
+            "groupName": "푸딩퐁퐁",
+            "groupTendency": "tendencyCozy",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                }
+                
+            ],
+            "groupMaxCount": 10,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                }
+            ]
+        },
+        {
+            "groupImageName": "viewFo2",
+            "groupName": "김볶밥 짱",
+            "groupTendency": "tendencyCrowd",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                }
+                
+            ],
+            "groupMaxCount": 20,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                }
+            ]
+        },
+        {
+            "groupImageName": "viewFo3",
+            "groupName": "시리얼 좋아",
+            "groupTendency": "tendencyDiligent",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                }
+                
+            ],
+            "groupMaxCount": 90,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                }
+            ]
+        },
+        {
+            "groupImageName": "viewFo4",
+            "groupName": "노티드 바",
+            "groupTendency": "tendencyCozy",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                }
+                
+            ],
+            "groupMaxCount": 80,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                }
+            ]
+        },
+        {
+            "groupImageName": "viewFo5",
+            "groupName": "한남동 파이프",
+            "groupTendency": "tendencyCrowd",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
             "groupMember": [
@@ -486,157 +634,9 @@
             ]
         },
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
-            "groupMember": [
-                {
-                    "memberImageName": "proYeji",
-                    "memberName": "김서진"
-                },
-                {
-                    "memberImageName": "proJiwon",
-                    "memberName": "신윤아"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "서혜진"
-                }
-                
-            ],
-            "groupMaxCount": 30,
-            "history": [
-                {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                }
-            ]
-        },
-        {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
-            "groupMember": [
-                {
-                    "memberImageName": "proYeji",
-                    "memberName": "김서진"
-                },
-                {
-                    "memberImageName": "proJiwon",
-                    "memberName": "신윤아"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "서혜진"
-                }
-                
-            ],
-            "groupMaxCount": 30,
-            "history": [
-                {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                }
-            ]
-        },
-        {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
-            "groupMember": [
-                {
-                    "memberImageName": "proYeji",
-                    "memberName": "김서진"
-                },
-                {
-                    "memberImageName": "proJiwon",
-                    "memberName": "신윤아"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "서혜진"
-                }
-                
-            ],
-            "groupMaxCount": 30,
-            "history": [
-                {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                }
-            ]
-        },
-        {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
-            "groupMember": [
-                {
-                    "memberImageName": "proYeji",
-                    "memberName": "김서진"
-                },
-                {
-                    "memberImageName": "proJiwon",
-                    "memberName": "신윤아"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "서혜진"
-                }
-                
-            ],
-            "groupMaxCount": 30,
-            "history": [
-                {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                }
-            ]
-        },
-        {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
+            "groupImageName": "viewFo6",
+            "groupName": "짜파게티 요리사",
+            "groupTendency": "tendencyDiligent",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
             "groupMember": [
@@ -673,9 +673,87 @@
     ],
     "OutdoorGroupData": [
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
+            "groupImageName": "viewOu1",
+            "groupName": "전시 보러가요",
+            "groupTendency": "tendencyCozy",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                }
+                
+            ],
+            "groupMaxCount": 70,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                }
+            ]
+        },
+        {
+            "groupImageName": "viewOu2",
+            "groupName": "LP바",
+            "groupTendency": "tendencyDiligent",
+            "groupDescription": "LP바 돌아다녀요",
+            "groupTag": ["LP", "LP바", "너바나"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "김루희"
+                }
+                
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                }
+            ]
+        },
+        {
+            "groupImageName": "viewOu3",
+            "groupName": "잠실 런닝회",
+            "groupTendency": "tendencyDiligent",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
             "groupMember": [
@@ -710,8 +788,8 @@
             ]
         },
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
+            "groupImageName": "viewOu4",
+            "groupName": "필카의 맛",
             "groupTendency": "tendencyEmotion",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
@@ -730,7 +808,7 @@
                 }
                 
             ],
-            "groupMaxCount": 30,
+            "groupMaxCount": 100,
             "history": [
                 {
                     "date": "21/08/03",
@@ -747,9 +825,9 @@
             ]
         },
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
+            "groupImageName": "viewOu5",
+            "groupName": "드라이브",
+            "groupTendency": "tendencyCrowd",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
             "groupMember": [
@@ -767,7 +845,7 @@
                 }
                 
             ],
-            "groupMaxCount": 30,
+            "groupMaxCount": 150,
             "history": [
                 {
                     "date": "21/08/03",
@@ -784,9 +862,9 @@
             ]
         },
         {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
+            "groupImageName": "viewOu6",
+            "groupName": "국내여행팟",
+            "groupTendency": "tendencyCozy",
             "groupDescription": "같이 도예 원데이 클래스 다녀요",
             "groupTag": ["도예", "도자기", "취미"],
             "groupMember": [
@@ -804,81 +882,7 @@
                 }
                 
             ],
-            "groupMaxCount": 30,
-            "history": [
-                {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                }
-            ]
-        },
-        {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
-            "groupMember": [
-                {
-                    "memberImageName": "proYeji",
-                    "memberName": "김서진"
-                },
-                {
-                    "memberImageName": "proJiwon",
-                    "memberName": "신윤아"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "서혜진"
-                }
-                
-            ],
-            "groupMaxCount": 30,
-            "history": [
-                {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                }
-            ]
-        },
-        {
-            "groupImageName": "mainPu1",
-            "groupName": "도예공방",
-            "groupTendency": "tendencyEmotion",
-            "groupDescription": "같이 도예 원데이 클래스 다녀요",
-            "groupTag": ["도예", "도자기", "취미"],
-            "groupMember": [
-                {
-                    "memberImageName": "proYeji",
-                    "memberName": "김서진"
-                },
-                {
-                    "memberImageName": "proJiwon",
-                    "memberName": "신윤아"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "서혜진"
-                }
-                
-            ],
-            "groupMaxCount": 30,
+            "groupMaxCount": 200,
             "history": [
                 {
                     "date": "21/08/03",
