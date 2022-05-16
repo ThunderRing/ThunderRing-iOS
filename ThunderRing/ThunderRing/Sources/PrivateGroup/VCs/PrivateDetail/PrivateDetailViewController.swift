@@ -157,6 +157,8 @@ final class PrivateDetailViewController: UIViewController {
     var groupImageName: String = ""
     var groupDescription: String = ""
     
+    var groupData = [PrivateGroupData]()
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -346,11 +348,11 @@ final class PrivateDetailViewController: UIViewController {
         guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
         let dvc = UINavigationController(rootViewController: vc)
         
-        // FIXME: - index / private,public Group Data 수정
-        vc.index = 0
-        for i in 0 ... privateGroupData.count - 1 {
-            vc.groupNames.append(privateGroupData[i].groupName)
-            vc.groupMaxCounts.append(privateGroupData[i].memberCounts)
+        vc.index = index
+        
+        for i in 0 ... groupData.count - 1 {
+            vc.groupNames.append(groupData[i].groupName)
+            vc.groupMaxCounts.append(groupData[i].groupMember.count)
         }
         
         dvc.modalPresentationStyle = .fullScreen
