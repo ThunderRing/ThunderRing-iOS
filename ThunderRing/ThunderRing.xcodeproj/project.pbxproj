@@ -40,7 +40,7 @@
 		9219E4DB2824668100BA247B /* JoinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9219E4DA2824668100BA247B /* JoinButton.swift */; };
 		921A45C3275355AD001E8727 /* CreatePrivate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 921A45C2275355AD001E8727 /* CreatePrivate.storyboard */; };
 		92270D742750E1EB00364F3A /* AlarmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92270D732750E1EB00364F3A /* AlarmDataModel.swift */; };
-		92275FE827BE713E007B507D /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92275FE727BE713E007B507D /* TestVC.swift */; };
+		92275FE827BE713E007B507D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92275FE727BE713E007B507D /* TestViewController.swift */; };
 		9227F2F227DAB0C9001D1BB4 /* HomeJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227F2F127DAB0C9001D1BB4 /* HomeJoinViewController.swift */; };
 		9227F2F427DAB39C001D1BB4 /* HomeJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227F2F327DAB39C001D1BB4 /* HomeJoinView.swift */; };
 		9227F2F627DAB9F5001D1BB4 /* Notification+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227F2F527DAB9F5001D1BB4 /* Notification+.swift */; };
@@ -149,7 +149,6 @@
 		92B7184427D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B7184327D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift */; };
 		92BCCCAA27650B3D00AA70D6 /* OverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCA927650B3D00AA70D6 /* OverviewCollectionViewCell.swift */; };
 		92BCCCAC2765180800AA70D6 /* OverviewSortCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BCCCAB2765180800AA70D6 /* OverviewSortCollectionViewCell.swift */; };
-		92BF2539282B1CAF00DE0205 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF2538282B1CAF00DE0205 /* TestViewController.swift */; };
 		92BF253B282B1F7700DE0205 /* TestResultTendencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF253A282B1F7700DE0205 /* TestResultTendencyView.swift */; };
 		92BF253D282B3DB600DE0205 /* ContactData.json in Resources */ = {isa = PBXBuildFile; fileRef = 92BF253C282B3DB600DE0205 /* ContactData.json */; };
 		92BF253F282B3F8C00DE0205 /* ContactDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF253E282B3F8C00DE0205 /* ContactDataResponse.swift */; };
@@ -181,8 +180,9 @@
 		92EF6F72280205D000773F32 /* MyPageFriendCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F71280205D000773F32 /* MyPageFriendCountViewController.swift */; };
 		92EF6F74280205E000773F32 /* MyPageGroupCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F73280205E000773F32 /* MyPageGroupCountViewController.swift */; };
 		92EF6F76280205F500773F32 /* MyPageLightningCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F75280205F500773F32 /* MyPageLightningCountViewController.swift */; };
+		92F2901D2831D8B1007013AC /* TestAnswerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F2901C2831D8B1007013AC /* TestAnswerCollectionViewCell.swift */; };
+		92F2901F2831DD78007013AC /* LastTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F2901E2831DD78007013AC /* LastTestView.swift */; };
 		92F43A33274E8491006025EC /* CompleteLightningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F43A32274E8491006025EC /* CompleteLightningViewController.swift */; };
-		92F9A53F27AFF4E3004F41FE /* TempCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F9A53E27AFF4E3004F41FE /* TempCell.swift */; };
 		92FA76DF27B3A69600CB54C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */; };
 		92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */; };
 		92FC851527C001750020965A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC851427C001750020965A /* TestView.swift */; };
@@ -227,7 +227,7 @@
 		9219E4DA2824668100BA247B /* JoinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinButton.swift; sourceTree = "<group>"; };
 		921A45C2275355AD001E8727 /* CreatePrivate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePrivate.storyboard; sourceTree = "<group>"; };
 		92270D732750E1EB00364F3A /* AlarmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDataModel.swift; sourceTree = "<group>"; };
-		92275FE727BE713E007B507D /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		92275FE727BE713E007B507D /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9227F2F127DAB0C9001D1BB4 /* HomeJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeJoinViewController.swift; sourceTree = "<group>"; };
 		9227F2F327DAB39C001D1BB4 /* HomeJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeJoinView.swift; sourceTree = "<group>"; };
 		9227F2F527DAB9F5001D1BB4 /* Notification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+.swift"; sourceTree = "<group>"; };
@@ -343,7 +343,6 @@
 		92B7184327D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingCollectionViewCell.swift; sourceTree = "<group>"; };
 		92BCCCA927650B3D00AA70D6 /* OverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		92BCCCAB2765180800AA70D6 /* OverviewSortCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewSortCollectionViewCell.swift; sourceTree = "<group>"; };
-		92BF2538282B1CAF00DE0205 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		92BF253A282B1F7700DE0205 /* TestResultTendencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultTendencyView.swift; sourceTree = "<group>"; };
 		92BF253C282B3DB600DE0205 /* ContactData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ContactData.json; sourceTree = "<group>"; };
 		92BF253E282B3F8C00DE0205 /* ContactDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataResponse.swift; sourceTree = "<group>"; };
@@ -370,8 +369,9 @@
 		92EF6F71280205D000773F32 /* MyPageFriendCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageFriendCountViewController.swift; sourceTree = "<group>"; };
 		92EF6F73280205E000773F32 /* MyPageGroupCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageGroupCountViewController.swift; sourceTree = "<group>"; };
 		92EF6F75280205F500773F32 /* MyPageLightningCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageLightningCountViewController.swift; sourceTree = "<group>"; };
+		92F2901C2831D8B1007013AC /* TestAnswerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAnswerCollectionViewCell.swift; sourceTree = "<group>"; };
+		92F2901E2831DD78007013AC /* LastTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTestView.swift; sourceTree = "<group>"; };
 		92F43A32274E8491006025EC /* CompleteLightningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteLightningViewController.swift; sourceTree = "<group>"; };
-		92F9A53E27AFF4E3004F41FE /* TempCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempCell.swift; sourceTree = "<group>"; };
 		92FA76DE27B3A69600CB54C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92FC3BB7276CCEBC00DDA976 /* LightningDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningDataModel.swift; sourceTree = "<group>"; };
 		92FC851427C001750020965A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
@@ -463,8 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				921266792748055A009DE534 /* TestResultViewController.swift */,
-				92275FE727BE713E007B507D /* TestVC.swift */,
-				92BF2538282B1CAF00DE0205 /* TestViewController.swift */,
+				92275FE727BE713E007B507D /* TestViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -481,7 +480,7 @@
 		921266402747BC3C009DE534 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				92F9A53E27AFF4E3004F41FE /* TempCell.swift */,
+				92F2901C2831D8B1007013AC /* TestAnswerCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1251,6 +1250,7 @@
 			children = (
 				92FC851427C001750020965A /* TestView.swift */,
 				92BF253A282B1F7700DE0205 /* TestResultTendencyView.swift */,
+				92F2901E2831DD78007013AC /* LastTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1461,8 +1461,8 @@
 				1DB573EC280B37FE00F8391A /* UserModel.swift in Sources */,
 				9276B06B275B458B00915F57 /* String+.swift in Sources */,
 				92687A5727501E5C000D9A5D /* CALayer+.swift in Sources */,
-				92F9A53F27AFF4E3004F41FE /* TempCell.swift in Sources */,
 				9248133027D130D600A0CECC /* HomeMainViewController.swift in Sources */,
+				92F2901D2831D8B1007013AC /* TestAnswerCollectionViewCell.swift in Sources */,
 				928AE07B276B0D4C001155EE /* PrivateGroupCVC.swift in Sources */,
 				92E416EF27B8264B00FD008F /* Adjust+.swift in Sources */,
 				927D10FB2821BAC7001AEB78 /* LoadData+.swift in Sources */,
@@ -1495,6 +1495,7 @@
 				92291C522759130F0012927B /* CompleteCreatePrivateViewController.swift in Sources */,
 				92A2445727D8041500A81738 /* HomeRecruitingTableViewCell.swift in Sources */,
 				92AFB39A276339F000977712 /* MyGroupCollectionViewCell.swift in Sources */,
+				92F2901F2831DD78007013AC /* LastTestView.swift in Sources */,
 				927D10FF2821E218001AEB78 /* PublicDetailSettingViewController.swift in Sources */,
 				926C7C49273802890020F851 /* ChatViewController.swift in Sources */,
 				926290E127A40543006A3B58 /* PublicDetailViewController.swift in Sources */,
@@ -1519,7 +1520,6 @@
 				92640F9F27D678B800E71CBD /* HomeMainHeaderView.swift in Sources */,
 				9227F2F627DAB9F5001D1BB4 /* Notification+.swift in Sources */,
 				92A5B2A72739AAA0004149B2 /* LogOutTableViewCell.swift in Sources */,
-				92BF2539282B1CAF00DE0205 /* TestViewController.swift in Sources */,
 				929A95EA2805C30D00082A7B /* CustomModalNavigationBar.swift in Sources */,
 				92FF59B0275AB15000916189 /* MemberTableViewCell.swift in Sources */,
 				9240852A27CA91460029E753 /* SearchPrivateGroupViewController.swift in Sources */,
@@ -1584,7 +1584,7 @@
 				9219E4DB2824668100BA247B /* JoinButton.swift in Sources */,
 				92A5B29A27398D47004149B2 /* CustomNavigationBar.swift in Sources */,
 				92C2ECA9282C49CF00610ADE /* OverviewPublicGroupResponse.swift in Sources */,
-				92275FE827BE713E007B507D /* TestVC.swift in Sources */,
+				92275FE827BE713E007B507D /* TestViewController.swift in Sources */,
 				92F43A33274E8491006025EC /* CompleteLightningViewController.swift in Sources */,
 				9248133427D1323400A0CECC /* CloseButton.swift in Sources */,
 			);

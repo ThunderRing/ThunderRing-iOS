@@ -10,18 +10,18 @@ import UIKit
 import SnapKit
 import Then
 
-final class TestView: UIView {
+class TestView: UIView {
     
     // MARK: - Properties
     
-    private var questionLabel = UILabel().then {
+    var questionLabel = UILabel().then {
         $0.textColor = .black
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 22)
         $0.textAlignment = .left
         $0.numberOfLines = 2
     }
     
-    private var answerCollectionView: UICollectionView = {
+    var answerCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.itemSize = UICollectionViewFlowLayout.automaticSize
@@ -41,21 +41,19 @@ final class TestView: UIView {
         }
     }
     
-    var answer = [String]()
-    
-    // MARK: - Initializer
-    
-    var selected: Bool = false {
+    var answer = [String]() {
         didSet {
-            NotificationCenter.default.post(name: NSNotification.Name("SelectedAnswer"), object: selected)
+            answerCollectionView.reloadData()
         }
     }
+    
+    // MARK: - Initializer
     
     init() {
         super.init(frame: .zero)
         configUI()
         setLayout()
-        bind()
+        setCollectionView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -64,13 +62,13 @@ final class TestView: UIView {
 
     // MARK: - InitUI
     
-    private func configUI() {
-        self.backgroundColor = .white
+    func configUI() {
+        backgroundColor = .background
         addSubviews([questionLabel, answerCollectionView])
         answerCollectionView.reloadData()
     }
     
-    private func setLayout() {
+    func setLayout() {
         questionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(30)
             $0.leading.equalToSuperview().inset(25)
@@ -86,11 +84,11 @@ final class TestView: UIView {
     
     // MARK: - Custom Method
     
-    private func bind() {
+    func setCollectionView() {
         answerCollectionView.delegate = self
         answerCollectionView.dataSource = self
         
-        answerCollectionView.register(TestAnswerCell.self, forCellWithReuseIdentifier: TestAnswerCell.CellIdentifier)
+        answerCollectionView.register(TestAnswerCollectionViewCell.self, forCellWithReuseIdentifier: TestAnswerCollectionViewCell.cellIdentifier)
     }
 }
 
@@ -124,70 +122,13 @@ extension TestView: UICollectionViewDelegateFlowLayout {
 
 extension TestView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return answer.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TestAnswerCell.CellIdentifier, for: indexPath) as? TestAnswerCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TestAnswerCollectionViewCell.cellIdentifier, for: indexPath) as? TestAnswerCollectionViewCell else { return UICollectionViewCell() }
         cell.initCell(text: answer[indexPath.item])
         return cell
     }
 }
 
-final class TestAnswerCell: UICollectionViewCell {
-    static var CellIdentifier: String { return String(describing: self) }
-    
-    // MARK: - Properties
-    
-    private lazy var textLabel = UILabel().then {
-        $0.textColor = .black
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
-        $0.textAlignment = .left
-        $0.numberOfLines = 2
-    }
-    
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                layer.borderColor = UIColor.purple100.cgColor
-                layer.borderWidth = 2
-            } else {
-                layer.borderWidth = 0
-            }
-        }
-    }
-    
-    // MARK: - Initializer
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        configUI()
-        setLayout()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: - InitUI
-    
-    private func configUI() {
-        self.backgroundColor = .gray350
-        self.layer.cornerRadius = 10
-        self.layer.masksToBounds = true
-        
-        addSubview(textLabel)
-    }
-    
-    private func setLayout() {
-        textLabel.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(20)
-        }
-    }
-    
-    func initCell(text: String) {
-        textLabel.text = text
-        textLabel.setTextSpacingBy(value: -0.6)
-    }
-}
