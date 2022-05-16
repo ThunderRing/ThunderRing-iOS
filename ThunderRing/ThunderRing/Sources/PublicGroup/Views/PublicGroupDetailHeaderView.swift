@@ -19,22 +19,18 @@ final class PublicGroupDetailHeaderView: UIView {
     
     // MARK: - Properties
     
-    private lazy var groupImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgDog1")
-    }
+    private lazy var groupImageView = UIImageView()
     
     private lazy var groupTendencyView = GroupTendencyView(tagType: .emotion).then {
         $0.makeRounded(cornerRadius: 3)
     }
     
     private lazy var groupNameLabel = UILabel().then {
-        $0.text = "그룹이름"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .bold, size: 20)
     }
     
     private lazy var groupDescriptionLabel = UILabel().then {
-        $0.text = "그룹상세설명"
         $0.textColor = .gray150
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
     }
@@ -79,10 +75,34 @@ final class PublicGroupDetailHeaderView: UIView {
             groupImageView.image = UIImage(named: groupImageName)
         }
     }
-    
-    var groupTendency: String = "" {
+
+    var viewWidth: CGFloat = 0.0 {
         didSet {
-            groupTendencyView.tagType = .emotion
+            groupTendencyView.snp.updateConstraints {
+                $0.width.equalTo(viewWidth)
+            }
+        }
+    }
+    
+    var groupTendency: String = "tendencyDiligent" {
+        didSet {
+            switch groupTendency {
+            case "tendencyEmotion":
+                groupTendencyView.tagType = .emotion
+                viewWidth = 95
+            case "tendencyDiligent":
+                groupTendencyView.tagType = .diligent
+                viewWidth = 95
+            case "tendencyCozy":
+                groupTendencyView.tagType = .cozy
+                viewWidth = 84
+            case "tendencyCrowd":
+                groupTendencyView.tagType = .crowd
+                viewWidth = 84
+            default:
+                groupTendencyView.tagType = .soft
+                viewWidth = 72
+            }
         }
     }
     
@@ -124,11 +144,6 @@ final class PublicGroupDetailHeaderView: UIView {
         buttonBackView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 10, bounds: true)
         
         groupImageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 33, bounds: true)
-        
-        groupTendencyView.tagType = .emotion
-        groupTendencyView.snp.updateConstraints {
-            $0.width.equalTo(95)
-        }
     }
     
     private func setLayout() {
@@ -150,6 +165,7 @@ final class PublicGroupDetailHeaderView: UIView {
         groupTendencyView.snp.makeConstraints {
             $0.top.equalTo(groupImageView.snp.bottom).offset(12)
             $0.centerX.equalToSuperview()
+            $0.width.equalTo(viewWidth)
             $0.height.equalTo(21)
         }
         
@@ -211,6 +227,16 @@ final class PublicGroupDetailHeaderView: UIView {
         label.font = .SpoqaHanSansNeo(type: .regular, size: 13)
         label.setTextSpacingBy(value: -0.6)
         label.sizeToFit()
+        return label.frame.width + 12
+    }
+    
+    private func calculateViewWidth(groupTendency: String) -> CGFloat {
+        let label = UILabel()
+        label.text = groupTendency
+        label.setTextSpacingBy(value: -0.6)
+        label.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        label.sizeToFit()
+        print(label.frame.width + 12)
         return label.frame.width + 12
     }
     

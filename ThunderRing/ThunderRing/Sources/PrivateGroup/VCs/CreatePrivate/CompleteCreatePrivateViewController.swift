@@ -63,7 +63,7 @@ final class CompleteCreatePrivateViewController: UIViewController {
     
     private func setAction() {
         completeButton.addAction(UIAction(handler: { _ in
-            privateGroupData.append(PrivateGroupDataModel(groupImage: self.groupImage, groupName: self.groupName, memberCounts: self.groupCounts, groupDescription: self.groupDescrption))
+            // MARK: - TODO : 그룹 추가 
             self.dismiss(animated: true, completion: nil)
         }), for: .touchUpInside)
     }

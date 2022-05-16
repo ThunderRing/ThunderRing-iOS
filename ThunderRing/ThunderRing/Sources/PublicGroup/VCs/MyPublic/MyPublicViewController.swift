@@ -208,47 +208,45 @@ extension MyPublicViewController: UICollectionViewDataSource {
 extension MyPublicViewController: MyGroupCollectionViewCellDelegate, MyOverviewCollectionViewCellDelegate {
     func touchUpTestButton() {
         // MARK: - FIX
-        let dvc = TestResultViewController()
-        dvc.modalTransitionStyle = .coverVertical
-        dvc.modalPresentationStyle = .fullScreen
-        present(dvc, animated: true, completion: nil)
+        let vc = TestResultViewController()
+        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
     func touchUpCreateButton() {
-        let dvc = UINavigationController(rootViewController: CreatePublicGroupNameViewController())
-        dvc.modalPresentationStyle = .fullScreen
-        present(dvc, animated: true, completion: nil)
+        let vc = UINavigationController(rootViewController: CreatePublicGroupNameViewController())
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
     
     func touchUpCell(index: Int) {
-        let dvc = PublicDetailViewController()
-        dvc.isMember = true
-        dvc.index = index
-        if index == 0 {
-            dvc.isOwner = true
-        } else {
-            dvc.isOwner = false
-        }
-        navigationController?.pushViewController(dvc, animated: true)
+        let vc = PublicDetailViewController()
+        vc.isMember = true
+        vc.index = index
+        vc.isOwner = false
+        vc.isOverview = false
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // 둘러보기 cell
     func touhcUpTotalCell(index: Int, section: Int) {
-        let dvc = PublicDetailViewController()
-        dvc.isMember = false
-        dvc.index = index
-        dvc.isOverview = true
-        dvc.groupTag = 0
-        dvc.groupSection = section
-        navigationController?.pushViewController(dvc, animated: true)
+        let vc = PublicDetailViewController()
+        vc.isMember = false
+        vc.index = index
+        vc.isOverview = true
+        vc.groupTag = 0
+        vc.groupSection = section
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func touchUpTendencyCell(index: Int, groupTag: Int) {
-        let dvc = PublicDetailViewController()
-        dvc.isMember = false
-        dvc.index = index
-        dvc.isOverview = true
-        navigationController?.pushViewController(dvc, animated: true)
+        let vc = PublicDetailViewController()
+        vc.isMember = false
+        vc.index = index
+        vc.isOverview = true
+        vc.groupTag = 1
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

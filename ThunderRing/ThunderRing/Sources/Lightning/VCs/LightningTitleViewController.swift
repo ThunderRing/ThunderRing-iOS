@@ -249,7 +249,11 @@ extension LightningTitleViewController: UITextViewDelegate {
             NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHide"), object: nil)
             textView.resignFirstResponder()
         }
-        return true
+        
+        guard let str = textView.text else { return true }
+        let newLength = str.count + text.count - range.length
+        
+        return newLength <= 120
     }
     
     func textViewDidChange(_ textView: UITextView) {

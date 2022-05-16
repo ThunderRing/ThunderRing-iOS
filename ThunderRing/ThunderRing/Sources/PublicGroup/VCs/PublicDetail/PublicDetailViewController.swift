@@ -401,10 +401,11 @@ final class PublicDetailViewController: UIViewController {
             guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
             let dvc = UINavigationController(rootViewController: vc)
             
-            vc.index = 0
-            for i in 0 ... privateGroupData.count - 1 {
-                vc.groupNames.append(privateGroupData[i].groupName)
-                vc.groupMaxCounts.append(privateGroupData[i].memberCounts)
+            vc.index = index
+            
+            for i in 0 ... groupData.count - 1 {
+                vc.groupNames.append(groupData[i].groupName)
+                vc.groupMaxCounts.append(groupData[i].groupMember.count)
             }
             
             dvc.modalPresentationStyle = .fullScreen
@@ -572,6 +573,8 @@ extension PublicDetailViewController {
             let jsonData = self.loadPublicGroupData(),
             let data = try? JSONDecoder().decode(PublicGroupResponse.self, from: jsonData)
         else { return }
+        
+        groupData = data.publicGroupData
         
         headerView.groupImageName = data.publicGroupData[index].groupImageName
         headerView.groupName = data.publicGroupData[index].groupName
