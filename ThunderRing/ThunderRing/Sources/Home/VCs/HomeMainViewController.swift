@@ -245,10 +245,11 @@ final class HomeMainViewController: UIViewController {
 
 extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate {
     func touchUpEnterButton(index: Int) {
-        let dvc = PrivateDetailViewController()
-        dvc.isOwner = true
-        dvc.index = index
-        navigationController?.pushViewController(dvc, animated: true)
+        let vc = PrivateDetailViewController()
+        vc.isOwner = true
+        vc.index = index
+        vc.groupData = privateGroupData
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func touchUpLightningButton(index: Int) {

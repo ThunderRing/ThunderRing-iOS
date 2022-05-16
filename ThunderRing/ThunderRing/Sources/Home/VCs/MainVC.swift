@@ -66,8 +66,6 @@ extension MainVC {
         
         imageView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: imageView.bounds.width / 2, bounds: true)
         
-        privateGroupCountLabel.text = "\(privateGroupData.count)"
-        publicGroupCountLabel.text = "\(publicGroupData.count)"
         attendanceLabel.attributedText = NSMutableAttributedString()
             .regular(string: "번개 ", fontSize: 14)
             .bold("\(lightningData.count)", fontSize: 14)
@@ -169,9 +167,9 @@ extension MainVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case privateGroupCollectionView:
-            return privateGroupData.count
+            return 0
         case publicGroupCollectionView:
-            return publicGroupData.count
+            return 0
         default:
             return 0
         }
@@ -181,12 +179,10 @@ extension MainVC: UICollectionViewDataSource {
         switch collectionView {
         case privateGroupCollectionView:
             guard let cell = privateGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PrivateGroupCVC.identifier, for: indexPath) as? PrivateGroupCVC else { return UICollectionViewCell() }
-            cell.initCell(group: privateGroupData[indexPath.item])
             cell.delegate = self
             return cell
         case publicGroupCollectionView:
             guard let cell = publicGroupCollectionView.dequeueReusableCell(withReuseIdentifier: PublicGroupCVC.identifier, for: indexPath) as? PublicGroupCVC else { return UICollectionViewCell() }
-            cell.initCell(group: publicGroupData[indexPath.item])
             return cell
         default:
             return UICollectionViewCell()

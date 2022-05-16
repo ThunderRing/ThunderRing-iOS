@@ -158,10 +158,11 @@ extension MyPrivateViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dvc = PrivateDetailViewController()
-        dvc.isOwner = true
-        dvc.index = indexPath.row
-        navigationController?.pushViewController(dvc, animated: true)
+        let vc = PrivateDetailViewController()
+        vc.isOwner = true
+        vc.index = indexPath.row
+        vc.groupData = privateGroupData
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

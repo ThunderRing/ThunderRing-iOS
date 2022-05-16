@@ -176,9 +176,9 @@ extension LightningMainViewController: UITableViewDelegate {
                 dvc.groupMaxCount = privateGroupData[indexPath.row].groupMember.count
             }
         } else {
-            for i in 0 ... privateGroupData.count - 1 {
+            for i in 0 ... publicGroupData.count - 1 {
                 dvc.groupNames.append(publicGroupData[i].groupName)
-                dvc.groupMaxCounts.append(privateGroupData[i].groupMember.count)
+                dvc.groupMaxCounts.append(publicGroupData[i].groupMember.count)
             }
         }
         
