@@ -47,7 +47,10 @@ final class MyPublicViewController: UIViewController {
         setCollectionView()
         setGesture()
         setAction()
+        getNotification()
     }
+    
+    // MARK: - Init UI
     
     private func configTabBarUI() {
         tabBarController?.tabBar.isHidden = false
@@ -61,6 +64,8 @@ final class MyPublicViewController: UIViewController {
         myGroupLabel.setTextSpacingBy(value: -0.6)
         lookLabel.setTextSpacingBy(value: -0.6)
     }
+    
+    // MARK: - Custom Method
     
     private func setCollectionView() {
         let groupCollectionViewlayout = groupCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
@@ -106,6 +111,10 @@ final class MyPublicViewController: UIViewController {
         }), for: .touchUpInside)
     }
     
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(searchPublicGroup(_:)), name: NSNotification.Name("SearchPublicGroup"), object: nil)
+    }
+    
     // MARK: - @objc
     
     @objc func dragToMyGroup() {
@@ -132,6 +141,21 @@ final class MyPublicViewController: UIViewController {
             self.myGroupLabel.textColor = .gray150
             self.lookLabel.textColor = .gray100
         }
+    }
+    
+    @objc func searchPublicGroup(_ notification: Notification) {
+        let indexPath = IndexPath(item: 1, section: 0)
+        groupCollectionView.scrollToItem(at: indexPath, at: .right, animated: true)
+        if currentIndex == 0 {
+            UIView.animate(withDuration: 0.3) {
+                self.statusMovedView.transform = CGAffineTransform(translationX: 187, y: 0)
+            }
+            currentIndex = 1
+            self.myGroupLabel.textColor = .gray150
+            self.lookLabel.textColor = .gray100
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name("DiligentTendency"), object: nil)
     }
 }
 
@@ -207,8 +231,7 @@ extension MyPublicViewController: UICollectionViewDataSource {
 
 extension MyPublicViewController: MyGroupCollectionViewCellDelegate, MyOverviewCollectionViewCellDelegate {
     func touchUpTestButton() {
-        // MARK: - FIX
-        let dvc = TestResultViewController()
+        let dvc = UINavigationController(rootViewController: TestViewController())
         dvc.modalTransitionStyle = .coverVertical
         dvc.modalPresentationStyle = .fullScreen
         present(dvc, animated: true, completion: nil)

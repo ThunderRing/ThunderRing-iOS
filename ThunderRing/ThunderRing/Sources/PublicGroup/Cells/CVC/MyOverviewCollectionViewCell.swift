@@ -84,7 +84,9 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         }
         configUI()
         setLayout()
-        setCollectionView()    }
+        setCollectionView()
+        getNotification()
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -159,6 +161,20 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
         label.sizeToFit()
         label.setTextSpacingBy(value: -0.6)
         return label.frame.width + 10
+    }
+    
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(selectedSort(_:)), name: NSNotification.Name("DiligentTendency"), object: nil)
+    }
+    
+    // MARK: - @objc
+    
+    @objc func selectedSort(_ notification: Notification) {
+        let indexPath = IndexPath(item: 0, section: 0)
+        sortCollectionView.scrollToItem(at: IndexPath(item: indexPath.row, section: 0), at: .centeredHorizontally, animated: true)
+        
+        groupTotalCollectionView.isHidden = true
+        groupCollectionView.isHidden = false
     }
 }
 
@@ -373,6 +389,8 @@ extension MyOverviewCollectionViewCell {
         crowdGroupData = data.crowdGroupData
         cozyGroupData = data.cozyGroupData
         emotionGroupData = data.emotionGroupData
+        
+        groupCollectionView.reloadData()
     }
 }
 

@@ -58,7 +58,7 @@ final class TestResultTendencyView: UIView {
     }
     
     private func configUI() {
-        
+        backgroundColor = .white
     }
     
     private func setLayout() {
