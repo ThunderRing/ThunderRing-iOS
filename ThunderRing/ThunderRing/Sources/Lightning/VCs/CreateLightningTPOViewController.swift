@@ -78,6 +78,7 @@ final class CreateLightningTPOViewController: UIViewController {
     private var countWarningLabel = UILabel().then {
         $0.text = "*정원을 확인해주세요"
         $0.setTextSpacingBy(value: -0.6)
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
         $0.textColor = .red
         $0.isHidden = true
     }
