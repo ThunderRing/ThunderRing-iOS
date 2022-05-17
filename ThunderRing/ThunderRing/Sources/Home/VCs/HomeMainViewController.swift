@@ -253,7 +253,7 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
     }
     
     func touchUpLightningButton(index: Int) {
-        guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
+        let vc = CreateLightningViewController()
         let dvc = UINavigationController(rootViewController: vc)
         
         vc.index = index
@@ -281,7 +281,7 @@ extension HomeMainViewController: HomeMainHeaderViewDelegate {
 
 extension HomeMainViewController: HomeMainPublicGroupCollectionViewCellViewDelegate {
     func touchUpButton(index: Int) {
-        guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
+        let vc = CreateLightningViewController()
         let dvc = UINavigationController(rootViewController: vc)
         
         vc.index = index
