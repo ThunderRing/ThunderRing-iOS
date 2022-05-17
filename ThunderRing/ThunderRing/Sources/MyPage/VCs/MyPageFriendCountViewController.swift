@@ -173,7 +173,7 @@ fileprivate final class ItemCell: UITableViewCell {
     }
     
     var userImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgDog1")
+        $0.image = UIImage(named: "img_groupFace")
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 17, bounds: true)
     }
     

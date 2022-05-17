@@ -26,8 +26,8 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
         $0.backgroundColor = .background
     }
     
-    private lazy var testBackView = UIView().then {
-        $0.backgroundColor = .gray350
+    private lazy var testImageView = UIImageView().then {
+        $0.image = UIImage(named: "img_testGo")
     }
     
     private var titleLabel = UILabel().then {
@@ -43,11 +43,7 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
     }
     
     private lazy var testButton = UIButton().then {
-        $0.backgroundColor = .clear
-        $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray150.cgColor, cornerRadius: 12.5, bounds: true)
-        $0.setTitle("테스트 하러가기", for: .normal)
-        $0.setTitleColor(.gray150, for: .normal)
-        $0.titleLabel?.font = .SpoqaHanSansNeo(type: .medium, size: 11)
+        $0.setTitle("", for: .normal)
         $0.addTarget(self, action: #selector(touchUpTestButton), for: .touchUpInside)
     }
     
@@ -75,33 +71,33 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
     
     private func configUI() {
         contentView.backgroundColor = .clear
-        testBackView.makeRounded(cornerRadius: 6)
+        testImageView.makeRounded(cornerRadius: 6)
     }
     
     private func setLayout() {
-        headerView.addSubviews([testBackView, titleLabel, countLabel])
-        testBackView.addSubview(testButton)
+        headerView.addSubviews([testImageView, testButton, titleLabel, countLabel])
         
-        testBackView.snp.makeConstraints {
+        testImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(18)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(65)
+            $0.height.equalTo(70)
         }
         
         testButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(30)
-            $0.trailing.equalToSuperview().inset(22)
-            $0.width.equalTo(94)
+            $0.top.equalTo(testImageView.snp.top).offset(32)
+            $0.trailing.equalTo(testImageView.snp.trailing).inset(121)
+            $0.width.equalTo(60)
+            $0.height.equalTo(19)
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(testBackView.snp.bottom).offset(18)
+            $0.top.equalTo(testImageView.snp.bottom).offset(18)
             $0.leading.equalToSuperview()
         }
         
         countLabel.snp.makeConstraints {
             $0.height.equalTo(23)
-            $0.top.equalTo(testBackView.snp.bottom).offset(15)
+            $0.top.equalTo(testImageView.snp.bottom).offset(15)
             $0.leading.equalTo(titleLabel.snp.trailing).offset(4)
         }
     }

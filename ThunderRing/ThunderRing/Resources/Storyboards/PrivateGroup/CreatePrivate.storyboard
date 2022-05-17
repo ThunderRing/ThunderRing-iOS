@@ -45,7 +45,7 @@
                                 <color key="textColor" name="gray100"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgDog1" translatesAutoresizingMaskIntoConstraints="NO" id="3Ig-Lm-Uho">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_groupFace" translatesAutoresizingMaskIntoConstraints="NO" id="3Ig-Lm-Uho">
                                 <rect key="frame" x="148" y="203" width="118" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="3PU-IT-aBC"/>
@@ -398,7 +398,7 @@
     </scenes>
     <resources>
         <image name="icn_plus_purple" width="48" height="48"/>
-        <image name="imgDog1" width="75" height="75"/>
+        <image name="img_groupFace" width="118.5" height="120"/>
         <namedColor name="black">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

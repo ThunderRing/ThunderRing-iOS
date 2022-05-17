@@ -17,7 +17,7 @@ final class PrivateDetailSettingViewController: UIViewController {
     private lazy var navigationBar = TDSModalNavigationBar(self, title: "설정", backButtonIsHidden: true, closeButtonIsHidden: false)
     
     private var groupImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgDog1")
+        $0.image = UIImage(named: "img_groupFace")
     }
     
     private var editButton = UIButton().then {

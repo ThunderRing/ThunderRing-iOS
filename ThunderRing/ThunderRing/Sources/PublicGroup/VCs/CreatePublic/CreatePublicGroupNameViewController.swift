@@ -23,7 +23,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
     }
     
     private var profileImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgDog1")
+        $0.image = UIImage(named: "img_groupFace")
         $0.contentMode = .scaleAspectFit
     }
     

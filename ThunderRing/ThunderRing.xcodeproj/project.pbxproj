@@ -126,6 +126,9 @@
 		92A2445127D7EACF00A81738 /* HomeRecruitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A2445027D7EACF00A81738 /* HomeRecruitingViewController.swift */; };
 		92A2445327D7EE0D00A81738 /* HomeRecruitingTableViewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A2445227D7EE0D00A81738 /* HomeRecruitingTableViewCellView.swift */; };
 		92A2445727D8041500A81738 /* HomeRecruitingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A2445627D8041500A81738 /* HomeRecruitingTableViewCell.swift */; };
+		92A4E7D82834125500D56783 /* NewPublicGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 92A4E7D72834125500D56783 /* NewPublicGroupData.json */; };
+		92A4E7DA2834156400D56783 /* GraphicImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A4E7D92834156400D56783 /* GraphicImages.xcassets */; };
+		92A4E7DC28341BBB00D56783 /* StartTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A4E7DB28341BBB00D56783 /* StartTestViewController.swift */; };
 		92A56C532823022D00DF18C1 /* LightningData.json in Resources */ = {isa = PBXBuildFile; fileRef = 92A56C522823022D00DF18C1 /* LightningData.json */; };
 		92A56C562823034E00DF18C1 /* LightningResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A56C552823034E00DF18C1 /* LightningResponse.swift */; };
 		92A5B29127398366004149B2 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B29027398366004149B2 /* Storyboard.swift */; };
@@ -317,6 +320,9 @@
 		92A2445027D7EACF00A81738 /* HomeRecruitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingViewController.swift; sourceTree = "<group>"; };
 		92A2445227D7EE0D00A81738 /* HomeRecruitingTableViewCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingTableViewCellView.swift; sourceTree = "<group>"; };
 		92A2445627D8041500A81738 /* HomeRecruitingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecruitingTableViewCell.swift; sourceTree = "<group>"; };
+		92A4E7D72834125500D56783 /* NewPublicGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NewPublicGroupData.json; sourceTree = "<group>"; };
+		92A4E7D92834156400D56783 /* GraphicImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = GraphicImages.xcassets; sourceTree = "<group>"; };
+		92A4E7DB28341BBB00D56783 /* StartTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTestViewController.swift; sourceTree = "<group>"; };
 		92A56C522823022D00DF18C1 /* LightningData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LightningData.json; sourceTree = "<group>"; };
 		92A56C552823034E00DF18C1 /* LightningResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightningResponse.swift; sourceTree = "<group>"; };
 		92A5B29027398366004149B2 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
@@ -468,6 +474,7 @@
 			children = (
 				921266792748055A009DE534 /* TestResultViewController.swift */,
 				92275FE727BE713E007B507D /* TestViewController.swift */,
+				92A4E7DB28341BBB00D56783 /* StartTestViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -594,6 +601,7 @@
 				92FFBBA6274CDE5500706099 /* Icons.xcassets */,
 				92FFBBA8274CDE7E00706099 /* Buttons.xcassets */,
 				927D10F7282185CB001AEB78 /* DummyImages.xcassets */,
+				92A4E7D92834156400D56783 /* GraphicImages.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -1022,6 +1030,7 @@
 				92BF253C282B3DB600DE0205 /* ContactData.json */,
 				92C2ECA2282C36B600610ADE /* TotalPublicGroupData.json */,
 				92C2ECA6282C496E00610ADE /* OverviewPublicGroupData.json */,
+				92A4E7D72834125500D56783 /* NewPublicGroupData.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1372,6 +1381,7 @@
 				92159C97275896EF0081F20B /* DINPro-Medium.otf in Resources */,
 				92AFB39B276339F000977712 /* MyGroupCollectionViewCell.xib in Resources */,
 				926C7C232737F93F0020F851 /* Assets.xcassets in Resources */,
+				92A4E7D82834125500D56783 /* NewPublicGroupData.json in Resources */,
 				927D10F8282185CB001AEB78 /* DummyImages.xcassets in Resources */,
 				1D12752C280AE70600726651 /* SignIn.storyboard in Resources */,
 				926C7C5B273803AA0020F851 /* MyPage.storyboard in Resources */,
@@ -1396,6 +1406,7 @@
 				921A45C3275355AD001E8727 /* CreatePrivate.storyboard in Resources */,
 				920995A6280D415C008C3491 /* PublicGroupData.json in Resources */,
 				92159C93275896EF0081F20B /* DINPro-Regular.otf in Resources */,
+				92A4E7DA2834156400D56783 /* GraphicImages.xcassets in Resources */,
 				926C7C212737F93E0020F851 /* Main.storyboard in Resources */,
 				928FDA062760D156009AC059 /* PrivateDetail.storyboard in Resources */,
 				92CBCE74273B132600A3F36D /* ProceedCVC.xib in Resources */,
@@ -1479,6 +1490,7 @@
 				926C7C372737FB4C0020F851 /* UIView+.swift in Sources */,
 				92EF6F72280205D000773F32 /* MyPageFriendCountViewController.swift in Sources */,
 				926290E427A4055E006A3B58 /* CreatePublicGroupDiscriptionViewController.swift in Sources */,
+				92A4E7DC28341BBB00D56783 /* StartTestViewController.swift in Sources */,
 				92B7184427D95CA200CF6DA9 /* HomeRecruitingCollectionViewCell.swift in Sources */,
 				9244097A27AE7F9000034510 /* CompleteCreatePublicViewController.swift in Sources */,
 				92B1568A2761426300939048 /* MyPublicViewController.swift in Sources */,

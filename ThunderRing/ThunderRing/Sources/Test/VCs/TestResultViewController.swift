@@ -25,7 +25,14 @@ final class TestResultViewController: UIViewController {
     }
     
     private var imageView = UIImageView().then {
-        $0.backgroundColor = .purple300
+        $0.image = UIImage(named: "img_buji")
+    }
+    
+    private var userLabel = UILabel().then {
+        $0.text = "이지원님의 성향은"
+        $0.setTextSpacingBy(value: -0.6)
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 17)
     }
     
     private var titleLabel = UILabel().then {
@@ -149,6 +156,8 @@ final class TestResultViewController: UIViewController {
         shareStackView.addArrangedSubview(kakakoShareButton)
         shareStackView.addArrangedSubview(facebookShareButton)
         
+        imageView.addSubview(userLabel)
+        
         scrollView.snp.makeConstraints {
             $0.leading.trailing.top.bottom.equalToSuperview()
         }
@@ -160,7 +169,12 @@ final class TestResultViewController: UIViewController {
         
         imageView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(398)
+            $0.height.equalTo(369)
+        }
+        
+        userLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(88)
+            $0.centerX.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints {
