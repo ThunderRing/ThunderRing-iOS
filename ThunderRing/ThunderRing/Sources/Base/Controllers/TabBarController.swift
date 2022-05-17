@@ -31,16 +31,8 @@ final class TabBarController: UITabBarController {
     }
     
     private func setTabBar() {
-//        let mainStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Main, bundle: nil)
-//        let mainTab = mainStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-//        mainTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "homeIn"), selectedImage: UIImage(named: "home"))
-        
         let homeTab = UINavigationController(rootViewController: HomeMainViewController())
         homeTab.tabBarItem = UITabBarItem(title: "홈", image: UIImage(named: "tap_home_inactive"), selectedImage: UIImage(named: "tap_home_active"))
-        
-//        let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
-//        let chatTab = chatStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
-//        chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "chatIn"), selectedImage: UIImage(named: "chat"))
         
         let chatTab = UINavigationController(rootViewController: ChatMainViewController())
         chatTab.tabBarItem = UITabBarItem(title: "채팅", image: UIImage(named: "tap_chat_inactive"), selectedImage: UIImage(named: "tap_chat_active"))
@@ -56,7 +48,7 @@ final class TabBarController: UITabBarController {
         let myTab = myStoryboard.instantiateViewController(identifier: Const.ViewController.Name.Navigation)
         myTab.tabBarItem = UITabBarItem(title: "프로필", image: UIImage(named: "tap_mypage_inactive"), selectedImage: UIImage(named: "tap_mypage_active"))
         
-        let tabs =  [homeTab, chatTab, lightningTab, alarmTab, myTab]
+        let tabs = [homeTab, chatTab, lightningTab, alarmTab, myTab]
         
         self.setViewControllers(tabs, animated: false)
         self.selectedViewController = homeTab
@@ -81,7 +73,6 @@ extension TabBarController {
     }
     
     @objc func setSelectedTab(_ notification: Notification) {
-        print("알람 탭으로 이동")
         self.selectedIndex = 3
     }
 }

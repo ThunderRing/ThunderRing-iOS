@@ -44,7 +44,7 @@ final class PopUpView: UIView {
     }
     
     private var contentLabel = UILabel().then {
-        $0.text = "오늘 이태원에서 모각작하고 같이 하실래요?\n저녁도 시간나면 먹어요"
+        $0.text = "연남동에 맛있는 젤리 가게가 있다는데 같이 먹으러 갈 사람 구한다"
         $0.setTextSpacingBy(value: -0.6)
         $0.numberOfLines = 0
         $0.textColor = .gray100

@@ -96,6 +96,7 @@ final class AlarmMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configNavigationUI()
+        configTabBarUI()
     }
     
     override func viewDidLoad() {
@@ -106,6 +107,10 @@ final class AlarmMainViewController: UIViewController {
     }
     
     // MARK: - Init UI
+    
+    private func configTabBarUI() {
+        tabBarController?.tabBar.isHidden = false
+    }
     
     private func configUI() {
         view.backgroundColor = .background
