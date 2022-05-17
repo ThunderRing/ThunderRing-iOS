@@ -86,7 +86,7 @@ final class LightningTitleViewController: UIViewController {
         nameTextField.tintColor = .purple100
         
         detailTextView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-        detailTextView.textContainerInset = UIEdgeInsets(top: 12, left: 15, bottom: 15, right: 15)
+        detailTextView.textContainerInset = UIEdgeInsets(top: 11, left: 15, bottom: 11, right: 15)
         detailTextView.tintColor = .purple100
         
         view.addSubview(nextButton)
@@ -171,7 +171,7 @@ final class LightningTitleViewController: UIViewController {
             dvc.groupName = self.groupNameTextField.text
             dvc.lightningName = self.nameTextField.text
             dvc.lightningDescription = self.detailTextView.text
-            dvc.groupMaxCount = self.groupMaxCount
+            dvc.groupMaxCount = self.groupMaxCounts[index]
             
             nextButton.titleLabel?.textColor = .white
             navigationController?.pushViewController(dvc, animated: true)

@@ -63,11 +63,16 @@ final class CreateLightningTPOViewController: UIViewController {
     }
     
     private var minCountTextField = UITextField().then {
-        $0.placeholder = ""
+        $0.placeholder = "최소 2명"
+        $0.keyboardType = .numberPad
+    }
+    
+    private var waveIconImageView = UIImageView().then {
+        $0.image = UIImage(named: "icn_wave")
     }
     
     private var maxCountTextField = UITextField().then {
-        $0.placeholder = ""
+        $0.keyboardType = .numberPad
     }
     
     private var countWarningLabel = UILabel().then {
@@ -78,11 +83,13 @@ final class CreateLightningTPOViewController: UIViewController {
     }
     
     private var countGuideImageView = UIImageView().then {
-        $0.image = UIImage(named: " ")
+        $0.image = UIImage(named: "icn-bubble")
     }
     
     private var countGuideLabel = UILabel().then {
         $0.text = "본인을 포함하며, 그룹원 수를 초과할 수 없어요!"
+        $0.textColor = .white
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
         $0.setTextSpacingBy(value: -0.6)
     }
 
@@ -138,6 +145,7 @@ final class CreateLightningTPOViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        setLayout()
         setTextField()
         setToolBar()
         getNotification()
@@ -153,7 +161,108 @@ final class CreateLightningTPOViewController: UIViewController {
     }
     
     private func setLayout() {
-        view.addSubview(completeButton)
+        view.addSubviews([navigationBar,
+                          dateLabel,
+                          dateTextField,
+                          timeLabel,
+                          timeTextField,
+                          locationLabel,
+                          locationTextField,
+                          locationCountLabel,
+                          totalCountLabel,
+                          minCountTextField,
+                          waveIconImageView,
+                          maxCountTextField,
+                          countWarningLabel,
+                          countGuideImageView,
+                          completeButton])
+        
+        navigationBar.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(50)
+        }
+        
+        dateLabel.snp.makeConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom).offset(30)
+            $0.leading.equalToSuperview().inset(25)
+        }
+        
+        dateTextField.snp.makeConstraints {
+            $0.top.equalTo(dateLabel.snp.bottom).offset(15)
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(50)
+        }
+        
+        timeLabel.snp.makeConstraints {
+            $0.top.equalTo(dateTextField.snp.bottom).offset(40)
+            $0.leading.equalToSuperview().inset(25)
+        }
+        
+        timeTextField.snp.makeConstraints {
+            $0.top.equalTo(timeLabel.snp.bottom).offset(15)
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(50)
+        }
+        
+        locationLabel.snp.updateConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom).offset(286)
+            $0.leading.equalToSuperview().inset(25)
+        }
+        
+        locationTextField.snp.makeConstraints {
+            $0.top.equalTo(locationLabel.snp.bottom).offset(15)
+            $0.leading.trailing.equalToSuperview().inset(25)
+            $0.height.equalTo(50)
+        }
+        
+        locationCountLabel.snp.makeConstraints {
+            $0.top.equalTo(locationTextField.snp.bottom).offset(4)
+            $0.trailing.equalToSuperview().inset(25)
+        }
+        
+        totalCountLabel.snp.makeConstraints {
+            $0.top.equalTo(locationCountLabel.snp.bottom).offset(15)
+            $0.leading.equalToSuperview().inset(25)
+        }
+        
+        minCountTextField.snp.makeConstraints {
+            $0.top.equalTo(totalCountLabel.snp.bottom).offset(15)
+            $0.leading.equalToSuperview().inset(25)
+            $0.width.equalTo(135)
+            $0.height.equalTo(50)
+        }
+        
+        waveIconImageView.snp.makeConstraints {
+            $0.centerY.equalTo(minCountTextField.snp.centerY)
+            $0.leading.equalTo(minCountTextField.snp.trailing).offset(18)
+            $0.width.equalTo(18)
+        }
+        
+        maxCountTextField.snp.makeConstraints {
+            $0.top.equalTo(totalCountLabel.snp.bottom).offset(15)
+            $0.trailing.equalToSuperview().inset(25)
+            $0.width.equalTo(135)
+            $0.height.equalTo(50)
+        }
+        
+        countGuideImageView.snp.makeConstraints {
+            $0.centerY.equalTo(totalCountLabel.snp.centerY)
+            $0.leading.equalTo(totalCountLabel.snp.trailing).offset(4)
+            $0.width.equalTo(240)
+            $0.height.equalTo(26)
+        }
+        
+        countGuideImageView.addSubview(countGuideLabel)
+
+        countGuideLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(14)
+            $0.top.equalToSuperview().inset(5)
+        }
+        
+        countWarningLabel.snp.makeConstraints {
+            $0.top.equalTo(minCountTextField.snp.bottom).inset(7)
+            $0.leading.equalToSuperview().inset(25)
+        }
         
         completeButton.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(25)
@@ -180,7 +289,9 @@ final class CreateLightningTPOViewController: UIViewController {
         }
         
         [dateTextField, timeTextField].forEach {
-            $0?.setRightIcon(0, 56, UIImage(named: "btnDown")!)
+            if let image = UIImage(named: "btnDown") {
+                $0.setRightIcon(0, 56, image)
+            }
         }
         
         dateTextField.addTarget(self, action: #selector(touchUpDateTextField), for: .allTouchEvents)
@@ -282,7 +393,8 @@ final class CreateLightningTPOViewController: UIViewController {
     }
     
     @objc func touchUpCompleteButton() {
-        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: Const.ViewController.Name.CompleteLightning) as? CompleteLightningViewController else { return }
+        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.CompleteLightning) as? CompleteLightningViewController else { return }
+        
         dvc.groupName = self.groupName
         dvc.lightningName = self.lightningName
         dvc.lightningDescription = self.lightningDescription
@@ -302,14 +414,14 @@ final class CreateLightningTPOViewController: UIViewController {
     
     @objc func minFieldDidChange(_ sender: Any?) {
         if minCountTextField.text == "0" || minCountTextField.text == "1" {
-            countGuideLabel.isHidden = false
+            countWarningLabel.isHidden = false
             
             minCountTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 10, bounds: true)
             
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
         } else {
-            countGuideLabel.isHidden = true
+            countWarningLabel.isHidden = true
             
             minCountTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 10, bounds: true)
         }
@@ -327,18 +439,26 @@ final class CreateLightningTPOViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        view.frame.origin.y = -300
+        dateLabel.isHidden = true
+        dateTextField.isHidden = true
         
-        UIView.animate(withDuration: 0.5) {
-            self.view.transform = .identity
+        timeLabel.isHidden = true
+        timeTextField.isHidden = true
+        
+        locationLabel.snp.updateConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom).offset(30)
         }
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        view.frame.origin.y = 0
+        dateLabel.isHidden = false
+        dateTextField.isHidden = false
         
-        UIView.animate(withDuration: 0.5) {
-            self.view.transform = .identity
+        timeLabel.isHidden = false
+        timeTextField.isHidden = false
+        
+        locationLabel.snp.updateConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom).offset(286)
         }
     }
     
@@ -360,6 +480,7 @@ extension CreateLightningTPOViewController: UITextFieldDelegate {
         switch textField {
         case locationTextField:
             locationCountLabel.textColor = .purple100
+            NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillShowNotification"), object: nil)
         case minCountTextField:
             NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillShowNotification"), object: nil)
         case maxCountTextField:
@@ -374,6 +495,7 @@ extension CreateLightningTPOViewController: UITextFieldDelegate {
         
         if textField == locationTextField {
             locationCountLabel.textColor = .gray100
+            NotificationCenter.default.post(name: NSNotification.Name("KeyboardWillHideNotification"), object: nil)
         }
         
         if dateTextField.hasText && timeTextField.hasText && locationTextField.hasText && minCountTextField.hasText && maxCountTextField.hasText {
@@ -386,14 +508,14 @@ extension CreateLightningTPOViewController: UITextFieldDelegate {
             guard let maxCount = Int(max) else { return }
             
             if maxCount > groupMaxCount {
-                countGuideLabel.isHidden = false
+                countWarningLabel.isHidden = false
                 
                 maxCountTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 10, bounds: true)
                 
                 let generator = UINotificationFeedbackGenerator()
                 generator.notificationOccurred(.error)
             } else {
-                countGuideLabel.isHidden = true
+                countWarningLabel.isHidden = true
                 
                 maxCountTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
             }

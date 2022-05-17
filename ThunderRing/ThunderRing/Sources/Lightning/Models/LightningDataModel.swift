@@ -21,13 +21,13 @@ struct LightningDataModel {
 }
 
 var lightningData = [
-    LightningDataModel(groupName: "[독서모임]",
-                       lightningName: "Post Poetics 방문해요",
-                       description: "",
-                       date: "10/26",
-                       time: "오전 11:00",
-                       location: "이태원역",
-                       minNumber: 3,
-                       maxNumber: 7,
-                       members: ["imgCoin", "btnPlueButton"])
+    LightningDataModel(groupName: "[젤리팟]",
+                       lightningName: "젤리 먹자",
+                       description: "연남동에 맛있는 젤리 가게가 있다는데 같이 먹으러 갈 사람 구한다",
+                       date: "5월 25일",
+                       time: "오후 2:00",
+                       location: "연남동",
+                       minNumber: 2,
+                       maxNumber: 5,
+                       members: ["pro4", "btnPlueButton"])
 ]

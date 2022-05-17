@@ -166,23 +166,23 @@ extension LightningMainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "LightningTitleViewController") as? LightningTitleViewController else { return }
-        dvc.index = indexPath.row
+        let vc = CreateLightningViewController()
+        vc.index = indexPath.row
         
         if indexPath.section == 0 {
             for i in 0 ... privateGroupData.count - 1 {
-                dvc.groupNames.append(privateGroupData[i].groupName)
-                dvc.groupMaxCounts.append(privateGroupData[i].groupMember.count)
-                dvc.groupMaxCount = privateGroupData[indexPath.row].groupMember.count
+                vc.groupNames.append(privateGroupData[i].groupName)
+                vc.groupMaxCounts.append(privateGroupData[i].groupMember.count)
+                vc.groupMaxCount = privateGroupData[indexPath.row].groupMember.count
             }
         } else {
             for i in 0 ... publicGroupData.count - 1 {
-                dvc.groupNames.append(publicGroupData[i].groupName)
-                dvc.groupMaxCounts.append(publicGroupData[i].groupMember.count)
+                vc.groupNames.append(publicGroupData[i].groupName)
+                vc.groupMaxCounts.append(publicGroupData[i].groupMember.count)
             }
         }
         
-        self.navigationController?.pushViewController(dvc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
