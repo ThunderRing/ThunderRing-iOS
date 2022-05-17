@@ -91,11 +91,12 @@ final class CreatePublicGroupTagViewController: UIViewController {
     // MARK: - InitUI
     
     private func configUI() {
-        view.backgroundColor = .white
+        setStatusBar(.background)
+        view.backgroundColor = .background
         
         [groupTendencyTextField, groupTagTextField].forEach {
             $0.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-            $0.setLeftPaddingPoints(15)
+            $0.setLeftPaddingPoints(14)
         }
         
         groupTendencyTextField.tintColor = .clear
@@ -227,6 +228,10 @@ final class CreatePublicGroupTagViewController: UIViewController {
             tagWarningLabel.isHidden = false
         } else {
             tagWarningLabel.isHidden = true
+        }
+        
+        if groupTendencyTextField.hasText && groupTagTextField.hasText {
+            nextButton.isActivated = true
         }
     }
 }

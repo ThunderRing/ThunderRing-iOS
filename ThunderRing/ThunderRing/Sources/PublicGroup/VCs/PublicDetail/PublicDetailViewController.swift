@@ -398,9 +398,8 @@ final class PublicDetailViewController: UIViewController {
     
     @objc func touchUpLightningButton() {
         if isMember {
-            guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
+            let vc = CreateLightningViewController()
             let dvc = UINavigationController(rootViewController: vc)
-            
             vc.index = index
             
             for i in 0 ... groupData.count - 1 {

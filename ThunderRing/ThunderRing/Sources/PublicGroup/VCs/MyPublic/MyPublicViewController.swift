@@ -231,7 +231,7 @@ extension MyPublicViewController: UICollectionViewDataSource {
 
 extension MyPublicViewController: MyGroupCollectionViewCellDelegate, MyOverviewCollectionViewCellDelegate {
     func touchUpTestButton() {
-        let dvc = UINavigationController(rootViewController: TestViewController())
+        let dvc = UINavigationController(rootViewController: StartTestViewController())
         dvc.modalTransitionStyle = .coverVertical
         dvc.modalPresentationStyle = .fullScreen
         present(dvc, animated: true, completion: nil)

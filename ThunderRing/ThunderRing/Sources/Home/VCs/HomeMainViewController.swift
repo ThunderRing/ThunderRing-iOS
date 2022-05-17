@@ -34,6 +34,10 @@ final class HomeMainViewController: UIViewController {
         $0.backgroundColor = .white
     }
     
+    private var graphicImageView = UIImageView().then {
+        $0.image = UIImage(named: "img_main")
+    }
+    
     private lazy var titleLabel = UILabel().then {
         $0.text = "번개를 치고\n천둥을 울려보세요"
         $0.textColor = .black
@@ -139,7 +143,7 @@ final class HomeMainViewController: UIViewController {
         navigationBar.addSubviews([recruitingButton, searchButton])
         contentScrollView.addSubview(contentView)
         contentView.addSubviews([topView, contentStackView])
-        topView.addSubviews([titleLabel, subTitleLabel])
+        topView.addSubviews([titleLabel, subTitleLabel, graphicImageView])
         
         navigationBar.snp.makeConstraints {
             $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
@@ -187,6 +191,12 @@ final class HomeMainViewController: UIViewController {
         subTitleLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(25)
             $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+        }
+        
+        graphicImageView.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(14)
+            $0.bottom.equalToSuperview()
+            $0.width.height.equalTo(157)
         }
 
         privateGroupHeaderView.snp.makeConstraints {
@@ -253,7 +263,7 @@ extension HomeMainViewController: HomePrivateGroupCollectionViewCellViewDelegate
     }
     
     func touchUpLightningButton(index: Int) {
-        guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
+        let vc = CreateLightningViewController()
         let dvc = UINavigationController(rootViewController: vc)
         
         vc.index = index
@@ -281,7 +291,7 @@ extension HomeMainViewController: HomeMainHeaderViewDelegate {
 
 extension HomeMainViewController: HomeMainPublicGroupCollectionViewCellViewDelegate {
     func touchUpButton(index: Int) {
-        guard let vc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.LightningTitle) as? LightningTitleViewController else { return }
+        let vc = CreateLightningViewController()
         let dvc = UINavigationController(rootViewController: vc)
         
         vc.index = index

@@ -100,6 +100,7 @@ final class CreatePublicGroupDiscriptionViewController: UIViewController {
     // MARK: - InitUI
 
     private func configUI() {
+        setStatusBar(.background)
         view.backgroundColor = .background
         
         [onelineLabel, maxCountLabel].forEach {

@@ -14,49 +14,35 @@ final class CompleteCreatePublicViewController: UIViewController {
 
     // MARK: - Properties
     
-    private lazy var customNavigationBarView = CustomNavigationBar(vc: self, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
-    
-    private var profileImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgDog1")
-        $0.contentMode = .scaleAspectFit
-        $0.makeRounded(cornerRadius: 40)
-    }
-    
-    private var hashTagImageView = UIImageView().then {
-        $0.image = UIImage(named: "tagCrowd")
+    private var contentImageView = UIImageView().then {
+        $0.image = UIImage(named: "img_groupComplete")
         $0.contentMode = .scaleAspectFit
     }
     
-    private var groupNameLabel = UILabel().then {
-        $0.text = "그룹명"
-        $0.textColor = .black
-        $0.font = .SpoqaHanSansNeo(type: .bold, size: 20)
+    private var typoImageView = UIImageView().then {
+        $0.image = UIImage(named: "text_groupComplete")
+        $0.contentMode = .scaleAspectFill
     }
     
-    private var groupDescriptionLabel = UILabel().then {
-        $0.text = "그룹 상세 설명"
-        $0.textColor = .gray200
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+    private var contentLabel = UILabel().then {
+        $0.text =
+        """
+        새로운 그룹이 생성되었어요
+        그룹원들에게 첫번째로 번개를 쳐보세요!
+        """
+        $0.numberOfLines = 2
+        $0.textColor = .gray100
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }
     
-    private var createButton = UIButton().then {
-        $0.setTitle("생성", for: .normal)
-        $0.backgroundColor = .purple100
-        $0.setTitleColor(.white, for: .normal)
-        $0.makeRounded(cornerRadius: 26)
+    private lazy var createButton = TDSButton().then {
+        $0.addTarget(self, action: #selector(touchUpCreateButton), for: .touchUpInside)
+        $0.setTitleWithStyle(title: "확인", size: 16, weight: .medium)
+        $0.isActivated = true
     }
     
-    var groupName: String = "" {
-        didSet {
-            groupNameLabel.text = groupName
-        }
-    }
-    
-    var groupDescription: String = "" {
-        didSet {
-            groupDescriptionLabel.text = groupDescription
-        }
-    }
+    var groupName: String = ""
+    var groupDescription: String = ""
     
     // MARK: - Life Cycle
     
@@ -68,51 +54,41 @@ final class CompleteCreatePublicViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        setUpLayout()
+        setLayout()
     }
     
     // MARK: - InitUI
     
     private func configUI() {
-        view.backgroundColor = .white
+        setStatusBar(.background)
+        view.backgroundColor = .background
         
         createButton.layer.cornerRadius = 26
         createButton.layer.masksToBounds = true
     }
     
-    private func setUpLayout() {
-        view.addSubviews([customNavigationBarView,
-                         profileImageView,
-                         hashTagImageView,
-                         groupNameLabel,
-                         groupDescriptionLabel,
-                         createButton])
+    private func setLayout() {
+        view.addSubviews([contentImageView,
+                          typoImageView,
+                          contentLabel,
+                          createButton
+                         ])
         
-        customNavigationBarView.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(50)
-        }
-        
-        profileImageView.snp.makeConstraints {
-            $0.top.equalTo(customNavigationBarView.snp.bottom).offset(153)
-            $0.centerX.equalToSuperview()
-            $0.width.height.equalTo(120)
-        }
-        
-        hashTagImageView.snp.makeConstraints {
-            $0.top.equalTo(profileImageView.snp.bottom).offset(17)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(120)
-            $0.height.equalTo(21)
-        }
-        
-        groupNameLabel.snp.makeConstraints {
-            $0.top.equalTo(hashTagImageView.snp.bottom).offset(19)
+        contentImageView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(110)
+            $0.width.height.equalTo(270)
             $0.centerX.equalToSuperview()
         }
         
-        groupDescriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(groupNameLabel.snp.bottom).offset(4)
+        typoImageView.snp.makeConstraints {
+            $0.top.equalTo(contentImageView.snp.bottom).inset(27)
+            $0.width.equalTo(180)
+            $0.height.equalTo(30)
+            $0.centerX.equalToSuperview()
+        }
+        
+        contentLabel.snp.makeConstraints {
+            $0.top.equalTo(typoImageView.snp.bottom).offset(22)
             $0.centerX.equalToSuperview()
         }
         
@@ -121,5 +97,11 @@ final class CompleteCreatePublicViewController: UIViewController {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
             $0.height.equalTo(52)
         }
+    }
+    
+    // MARK: - @objc
+    
+    @objc func touchUpCreateButton() {
+        dismiss(animated: true)
     }
 }

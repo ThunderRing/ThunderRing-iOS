@@ -18,7 +18,7 @@ final class HomeRecruitingViewController: UIViewController {
     
     private var recruitingTableView = UITableView().then {
         $0.backgroundColor = .clear
-        $0.register(HomeRecruitingTableViewCell.self, forCellReuseIdentifier: HomeRecruitingTableViewCell.CellIdentifier)
+        $0.register(HomeRecruitingTableViewCell.self, forCellReuseIdentifier: HomeRecruitingTableViewCell.cellIdentifier)
         $0.estimatedRowHeight = 204
         $0.rowHeight = UITableView.automaticDimension
         $0.separatorStyle = .none
@@ -92,18 +92,18 @@ final class HomeRecruitingViewController: UIViewController {
         dvc.modalTransitionStyle = .crossDissolve
         dvc.modalPresentationStyle = .overFullScreen
         dvc.handleTap(alarmType: .lightning)
-        dvc.lightningName = "이태원 모각작 모아요"
-        dvc.groupName = "[양파링걸즈]"
+        dvc.lightningName = "젤리 먹자"
+        dvc.groupName = "[젤리팟]"
         dvc.member = "마예지"
-        dvc.memberCount = 4
-        dvc.date = "8월 3일 목요일 오전 11:00"
-        dvc.location = "이태원역 4번출구 할리스"
+        dvc.memberCount = 5
+        dvc.date = "5월 25일 수요일 오후 2:00"
+        dvc.location = "연남동"
         present(dvc, animated: true)
     }
     
     @objc func touchUpJoinButton(_ notification: Notification) {
         lightningData[0].members?.removeLast()
-        lightningData[0].members?.append("imgHike")
+        lightningData[0].members?.append("proYeji")
         recruitingTableView.reloadData()
     }
 }
@@ -120,7 +120,7 @@ extension HomeRecruitingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeRecruitingTableViewCell.CellIdentifier) as? HomeRecruitingTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeRecruitingTableViewCell.cellIdentifier) as? HomeRecruitingTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         cell.initCell(lightning: lightningData[indexPath.row])
         return cell

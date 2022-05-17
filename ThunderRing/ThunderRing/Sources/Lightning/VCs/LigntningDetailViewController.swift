@@ -347,24 +347,6 @@ extension LigntningDetailViewController: UITextFieldDelegate {
             completeButton.isActivated = false
         }
         
-//        if let min = minTextField.text, let max = maxTextField.text {
-//            guard let minCount = Int(min) else { return }
-//            guard let maxCount = Int(max) else { return }
-//
-//            if minCount >= maxCount {
-//                numGuideLabel.isHidden = false
-//
-//                minTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 10, bounds: true)
-//
-//                let generator = UINotificationFeedbackGenerator()
-//                generator.notificationOccurred(.error)
-//            } else {
-//                numGuideLabel.isHidden = true
-//
-//                minTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
-//            }
-//        }
-        
         if let max = maxTextField.text {
             guard let maxCount = Int(max) else { return }
             

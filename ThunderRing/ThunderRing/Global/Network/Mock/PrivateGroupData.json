@@ -130,38 +130,42 @@
                 {
                     "memberImageName": "proSoyeon",
                     "memberName": "김소연"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
                 }
             ],
             "history": [
                 {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "서울여대 도서관 가기",
-                    "memberCount": 4,
-                    "location": "서울여대 중앙도서관"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "석계 야채곱창 뿌시기",
-                    "memberCount": 3,
-                    "location": "석계역 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "스파이더맨 보러가자",
+                    "date": "21/08/05",
+                    "lightningName": "성수동 군것질",
                     "memberCount": 2,
-                    "location": "CGV 대학로점"
+                    "location": "서울숲 2번 츌구"
+                },
+                {
+                    "date": "21/12/12",
+                    "lightningName": "연남동 젤리",
+                    "memberCount": 3,
+                    "location": "홍대 문화의 거리"
+                },
+                {
+                    "date": "22/02/14",
+                    "lightningName": "공릉동 젤리",
+                    "memberCount": 3,
+                    "location": "화랑대 2번 출구"
+                },
+                {
+                    "date": "22/03/03",
+                    "lightningName": "한남동 그릭요거트",
+                    "memberCount": 3,
+                    "location": "이태원역 1번 출구"
+                },
+                {
+                    "date": "22/04/18",
+                    "lightningName": "홍대 젤리 캔디",
+                    "memberCount": 3,
+                    "location": "홍대 할리스 앞"
                 }
             ]
         },

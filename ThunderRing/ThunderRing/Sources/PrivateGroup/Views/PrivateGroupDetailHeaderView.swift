@@ -20,7 +20,7 @@ final class PrivateGroupDetailHeaderView: UIView {
     // MARK: - Properties
     
     private lazy var groupImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgDog1")
+        $0.image = UIImage(named: "img_groupFace")
     }
     
     private lazy var groupNameLabel = UILabel().then {

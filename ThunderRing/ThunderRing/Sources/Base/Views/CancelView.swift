@@ -20,9 +20,14 @@ final class CancelView: UIView {
     
     // MARK: - Properties
     
-    private var alarmIconImageView = UIImageView().then {
+    private var alarmIconView = UIView().then {
         $0.backgroundColor = .pink200
         $0.makeRounded(cornerRadius: 15)
+    }
+    
+    private var alarmIconImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
+        $0.image = UIImage(named: "icn_beon_chi_small")
     }
     
     private var lightningNameLabel = UILabel().then {
@@ -85,16 +90,21 @@ final class CancelView: UIView {
     }
     
     private func setLayout() {
-        addSubviews([alarmIconImageView, lightningNameLabel, groupNameLabel, lineView, contentLabel, confirmButton])
-        
+        addSubviews([alarmIconView, lightningNameLabel, groupNameLabel, lineView, contentLabel, confirmButton])
+        alarmIconView.addSubview(alarmIconImageView)
         alarmIconImageView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(6)
+            $0.leading.trailing.equalToSuperview().inset(5)
+        }
+        
+        alarmIconView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(26)
             $0.width.height.equalTo(30)
             $0.centerX.equalToSuperview()
         }
         
         lightningNameLabel.snp.makeConstraints {
-            $0.top.equalTo(alarmIconImageView.snp.bottom).offset(13)
+            $0.top.equalTo(alarmIconView.snp.bottom).offset(13)
             $0.centerX.equalToSuperview()
         }
         
