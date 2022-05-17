@@ -44,7 +44,7 @@ final class TDSNavigationBar: UIView {
             case .lightning:
                 return "번개"
             case .alarm:
-                return "알람"
+                return "알림"
             case .mypage:
                 return "마이페이지"
             case .test:
