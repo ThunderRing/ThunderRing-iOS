@@ -74,7 +74,8 @@ final class CompleteCreatePublicViewController: UIViewController {
     // MARK: - InitUI
     
     private func configUI() {
-        view.backgroundColor = .white
+        setStatusBar(.background)
+        view.backgroundColor = .background
         
         createButton.layer.cornerRadius = 26
         createButton.layer.masksToBounds = true

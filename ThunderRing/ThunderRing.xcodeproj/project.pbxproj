@@ -175,6 +175,8 @@
 		92E416EF27B8264B00FD008F /* Adjust+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E416EE27B8264B00FD008F /* Adjust+.swift */; };
 		92E497762768C42E0029682C /* ChatListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E497752768C42E0029682C /* ChatListDataModel.swift */; };
 		92E7F9F927F22E3E00F1CFB7 /* GroupTendencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E7F9F827F22E3E00F1CFB7 /* GroupTendencyView.swift */; };
+		92EB7CBE2832D6B000B41F3B /* CreateLightningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB7CBD2832D6B000B41F3B /* CreateLightningViewController.swift */; };
+		92EB7CC02832E09E00B41F3B /* CreateLightningTPOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EB7CBF2832E09E00B41F3B /* CreateLightningTPOViewController.swift */; };
 		92EF6F6E2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F6D2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift */; };
 		92EF6F702801CCF400773F32 /* MyOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F6F2801CCF400773F32 /* MyOverviewCollectionViewCell.swift */; };
 		92EF6F72280205D000773F32 /* MyPageFriendCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EF6F71280205D000773F32 /* MyPageFriendCountViewController.swift */; };
@@ -364,6 +366,8 @@
 		92E416EE27B8264B00FD008F /* Adjust+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Adjust+.swift"; sourceTree = "<group>"; };
 		92E497752768C42E0029682C /* ChatListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListDataModel.swift; sourceTree = "<group>"; };
 		92E7F9F827F22E3E00F1CFB7 /* GroupTendencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTendencyView.swift; sourceTree = "<group>"; };
+		92EB7CBD2832D6B000B41F3B /* CreateLightningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLightningViewController.swift; sourceTree = "<group>"; };
+		92EB7CBF2832E09E00B41F3B /* CreateLightningTPOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLightningTPOViewController.swift; sourceTree = "<group>"; };
 		92EF6F6D2801C71600773F32 /* OverviewCollectionViewCellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCellHeaderView.swift; sourceTree = "<group>"; };
 		92EF6F6F2801CCF400773F32 /* MyOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		92EF6F71280205D000773F32 /* MyPageFriendCountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageFriendCountViewController.swift; sourceTree = "<group>"; };
@@ -611,6 +615,8 @@
 				92609ACA274BB7E800F0E401 /* LightningTitleViewController.swift */,
 				92609ACC274BD9A700F0E401 /* LigntningDetailViewController.swift */,
 				92F43A32274E8491006025EC /* CompleteLightningViewController.swift */,
+				92EB7CBD2832D6B000B41F3B /* CreateLightningViewController.swift */,
+				92EB7CBF2832E09E00B41F3B /* CreateLightningTPOViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -1448,6 +1454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92FC851527C001750020965A /* TestView.swift in Sources */,
+				92EB7CBE2832D6B000B41F3B /* CreateLightningViewController.swift in Sources */,
 				925DCD4A27E5211500331949 /* ChatMainTableViewCellView.swift in Sources */,
 				92BF253F282B3F8C00DE0205 /* ContactDataResponse.swift in Sources */,
 				9276B060275B443F00915F57 /* MyChatCVC.swift in Sources */,
@@ -1506,6 +1513,7 @@
 				926C7C1E2737F93E0020F851 /* MainVC.swift in Sources */,
 				92609ACB274BB7E800F0E401 /* LightningTitleViewController.swift in Sources */,
 				9232069227EA637F0010FC4F /* CreatePublicGroupTagViewController.swift in Sources */,
+				92EB7CC02832E09E00B41F3B /* CreateLightningTPOViewController.swift in Sources */,
 				9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */,
 				925BAC3A2742C5D400126166 /* PublicGroupDataModel.swift in Sources */,
 				92899E9227FA56CE001226A0 /* PublicGroupDetailHeaderView.swift in Sources */,

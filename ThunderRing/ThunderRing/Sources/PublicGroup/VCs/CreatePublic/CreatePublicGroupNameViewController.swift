@@ -72,7 +72,8 @@ final class CreatePublicGroupNameViewController: UIViewController {
     // MARK: - InitUI
     
     private func configUI() {
-        view.backgroundColor = .white
+        setStatusBar(.background)
+        view.backgroundColor = .background
         
         nextButton.layer.cornerRadius = 26
         nextButton.layer.masksToBounds = true
@@ -80,7 +81,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
         profileImageView.makeRounded(cornerRadius: 40)
         
         groupNameTextField.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
-        groupNameTextField.setLeftPaddingPoints(15)
+        groupNameTextField.setLeftPaddingPoints(14)
     }
     
     private func setUpLayout() {
