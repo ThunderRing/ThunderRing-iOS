@@ -17,12 +17,20 @@ protocol AlarmMainItemViewDelegate: AnyObject {
 }
 
 final class AlarmMainItemView: UIView {
-
     private lazy var type: AlarmItemType = .thunder
     
     var alarmType: AlarmItemType = .thunder {
         didSet {
             self.type = alarmType
+            
+            switch type {
+            case .thunder:
+                alarmImageView.image = UIImage(named: "icn_cheon")
+            case .lightning:
+                alarmImageView.image = UIImage(named: "icn_beon")
+            case .cancel:
+                alarmImageView.image = UIImage(named: "icn_beon_chi")
+            }
         }
     }
 
@@ -30,11 +38,15 @@ final class AlarmMainItemView: UIView {
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 10, bounds: true)
     }
     
-    private lazy var alarmImageView = UIView().then {
-        $0.backgroundColor = type.color
+    private lazy var alarmView = UIView().then {
+        $0.backgroundColor = alarmType.color
         $0.makeRounded(cornerRadius: 14)
     }
-
+    
+    private var alarmImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
+    }
+    
     private lazy var titleLabel = UILabel().then {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
         $0.text = type.title
@@ -89,7 +101,8 @@ final class AlarmMainItemView: UIView {
     
     var isActive: Bool = true {
         didSet {
-            alarmImageView.backgroundColor = isActive ? type.color : .gray350
+            alarmView.backgroundColor = isActive ? type.color : .gray350
+            if !isActive { alarmImageView.image = UIImage(named: "icn_beon_inactive")}
             titleLabel.textColor = isActive ? .black : .gray100
             subtitleLabel.textColor = isActive ? .black : .gray100
         }
@@ -99,7 +112,6 @@ final class AlarmMainItemView: UIView {
     
     init(alarmType: AlarmItemType, isActive: Bool) {
         super.init(frame: .zero)
-        self.type = alarmType
         configUI()
         setLayout()
     }
@@ -116,14 +128,20 @@ final class AlarmMainItemView: UIView {
     
     private func setLayout() {
         addSubview(contentView)
-        contentView.addSubviews([alarmImageView, titleLabel, subtitleLabel, descriptionLabel, timeLabel])
+        contentView.addSubviews([alarmView, titleLabel, subtitleLabel, descriptionLabel, timeLabel])
+        alarmView.addSubview(alarmImageView)
+        
+        alarmImageView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview().inset(6)
+            $0.leading.trailing.equalToSuperview().inset(5)
+        }
         
         contentView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(25)
             $0.top.bottom.equalToSuperview().inset(3.5)
         }
         
-        alarmImageView.snp.makeConstraints {
+        alarmView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(18)
             $0.leading.equalToSuperview().inset(15)
             $0.width.equalTo(40)
@@ -132,7 +150,7 @@ final class AlarmMainItemView: UIView {
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(19)
-            $0.leading.equalTo(alarmImageView.snp.trailing).offset(10)
+            $0.leading.equalTo(alarmView.snp.trailing).offset(10)
             $0.height.equalTo(19)
         }
         
@@ -144,7 +162,7 @@ final class AlarmMainItemView: UIView {
         
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(3)
-            $0.leading.equalTo(alarmImageView.snp.trailing).offset(10)
+            $0.leading.equalTo(alarmView.snp.trailing).offset(10)
             $0.bottom.equalToSuperview().inset(18)
         }
         
