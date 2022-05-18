@@ -21,9 +21,8 @@ class ChatListVC: UIViewController {
     
     private var chatLists = [ChatListDataModel]()
     var uid = FirebaseDataService.instance.currentUserUid
-    var keys: [String] = []
-    var destinationUsers : [String] = []
-    
+    var destinationRoomID: String?
+
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +35,6 @@ class ChatListVC: UIViewController {
         super.viewDidLoad()
         initUI()
         setTableView()
-        setData()
     }
 }
 
@@ -58,25 +56,19 @@ extension ChatListVC {
         chatListTableView.register(ChatListTVC.self, forCellReuseIdentifier: ChatListTVC.identifier)
     }
     
-    private func setData() {
-        chatLists.append(contentsOf: [
-            ChatListDataModel(groupImage: "imgDog1", hashTag: "양파링 걸즈", title: "혜화역 혼가츠 먹자", subTitle: "안녕하세요!", count: 3, time: 1)
-            ])
+    private func load() -> Data? {
+        let fileNm: String = "ChatListData"
+        let extensionType = "json"
+        guard let fileLocation = Bundle.main.url(forResource: fileNm, withExtension: extensionType) else { return nil }
+        
+        do {
+            let data = try Data(contentsOf: fileLocation)
+            return data
+        } catch {
+            print("파일 로드 실패")
+            return nil
+        }
     }
-    
-//    private func getChatoomsList(){
-//        Database.database().reference().child("chatrooms").queryOrdered(byChild: "users/"+uid!).queryEqual(toValue: true).observeSingleEvent(of: DataEventType.value, with: {(datasnapshot) in
-//
-//            for item in datasnapshot.children.allObjects as? [DataSnapshot]{
-//                self.chatLists.removeAll()
-//                if let chatlistDic = item.value as? [String: AnyObject]{
-//                    let chatListModel = ChatListDataModel(JSON: chatlistDic)
-//                    self.keys.append(item.key)
-//                    self.chatrooms.append(chatListModel)
-//                }
-//            }
-//        })
-//    }
 }
 
 // MARK: - UITableView Delegate
@@ -88,8 +80,8 @@ extension ChatListVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "ChatVC") as? ChatViewController else { return }
-        dvc.chatTitle = chatLists[indexPath.row].title
-        dvc.destinationRoomID = self.keys[indexPath.row]
+        dvc.chatTitle = chatLists[indexPath.row].thunderName
+        dvc.destinationUID = chatLists[indexPath.row].destinationUID
         self.navigationController?.pushViewController(dvc, animated: true)
     }
 }
@@ -104,7 +96,7 @@ extension ChatListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatListTVC.identifier) as? ChatListTVC else { return UITableViewCell() }
         cell.selectionStyle = .none
-        cell.initCell(chatList: chatLists[indexPath.row])
+//        cell.initCell(chatList: chatLists[indexPath.row])
         return cell
     }
 }

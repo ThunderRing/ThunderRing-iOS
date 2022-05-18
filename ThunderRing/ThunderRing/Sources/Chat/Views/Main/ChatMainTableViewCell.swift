@@ -35,4 +35,16 @@ class ChatMainTableViewCell: UITableViewCell {
             $0.bottom.equalToSuperview()
         }
     }
+    
+    func initCell(chatList: ChatListDataModel) {
+        cellView.chatImageView.image = UIImage(named: chatList.imageName!)
+        
+        cellView.subTitleLabel.text = chatList.groupName
+        cellView.titleLabel.text = chatList.thunderName
+        cellView.memberCountLabel.text = "\(chatList.countUsers!)"
+        cellView.contentLabel.text = chatList.contentLabel
+        cellView.timeLabel.text = chatList.timeStamp?.toRelativeTime
+        
+        cellView.messageCountView.messageCount = chatList.chatCount!
+    }
 }

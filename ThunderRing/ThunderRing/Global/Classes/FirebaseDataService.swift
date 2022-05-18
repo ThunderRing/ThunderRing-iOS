@@ -17,9 +17,7 @@ class FirebaseDataService {
     
     let userRef = baseRef.child("users")
     
-    let groupRef = baseRef.child("groups")
-    
-    let messageRef = baseRef.child("message")
+    let chatroomsRef = baseRef.child("chatrooms")
     
     //현재 접속중인 사용자의 uid
     var currentUserUid: String? {

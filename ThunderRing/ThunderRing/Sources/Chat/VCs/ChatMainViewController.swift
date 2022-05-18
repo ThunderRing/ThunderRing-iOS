@@ -10,6 +10,8 @@ import UIKit
 import SnapKit
 import Then
 
+import Firebase
+
 final class ChatMainViewController: UIViewController {
     
     // MARK: - Properties
@@ -31,7 +33,9 @@ final class ChatMainViewController: UIViewController {
     }
     
     private var chatLists = [ChatListDataModel]()
-    
+    var uid = FirebaseDataService.instance.currentUserUid
+    var destinationUID: String?
+
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +49,7 @@ final class ChatMainViewController: UIViewController {
         configUI()
         setLayout()
         bind()
+        fetchChatoomsList()
     }
     
     // MARK: - InitUI
@@ -90,11 +95,39 @@ final class ChatMainViewController: UIViewController {
         chatListTableView.dataSource = self
         
         chatListTableView.separatorStyle = .none
-        
-        chatLists.append(contentsOf: [
-            ChatListDataModel(groupImage: "imgDog1", hashTag: "양파링 걸즈", title: "혜화역 혼가츠 먹자", subTitle: "안녕하세요!", count: 3, time: 1)
-        ])
     }
+    
+    private func fetchChatoomsList(){
+        
+        FirebaseDataService.instance.userRef.child(self.uid!).child("chatRoomList").observe(.value, with: {(snapshot) in
+            self.chatLists.removeAll()
+            if let data = snapshot.value as? Dictionary<String, AnyObject> {
+                for (key, data) in data {
+                    
+                    if let chatListData = data as? Dictionary<String, AnyObject> {
+                        let destinationUID = chatListData["destinationUID"] as! String
+                        let groupName = chatListData["groupName"] as! String
+                        let imageName = chatListData["imageName"] as! String
+                        let thunderName = chatListData["thunderName"] as! String
+                        let countUsers = chatListData["userCount"] as! Int
+                        let contentLabel = chatListData["contentLabel"] as! String
+                        let timeStamp = chatListData["timeStamp"] as! Int
+                        let chatCount = chatListData["chatCount"] as! Int
+                        let chatList = ChatListDataModel(key: key, destinationUID: destinationUID, imageName: imageName, groupName: groupName, thunderName: thunderName, countUsers: countUsers, contentLabel: contentLabel, timeStamp: timeStamp, chatCount: chatCount)
+                        self.chatLists.append(chatList)
+                        
+                        DispatchQueue.main.async(execute: {
+                            self.chatListTableView.reloadData()
+                        })
+                    }
+                    
+                }
+            }
+            
+        })
+        
+    }
+
 }
 
 // MARK: - UITableView Delegate
@@ -107,7 +140,10 @@ extension ChatMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatStoryboard = UIStoryboard.init(name: Const.Storyboard.Name.Chat, bundle: nil)
         guard let dvc = chatStoryboard.instantiateViewController(withIdentifier: "ChatViewController") as? ChatViewController else { return }
-        dvc.chatTitle = chatLists[indexPath.row].title
+        dvc.chatTitle = chatLists[indexPath.row].thunderName
+        dvc.memberNum = chatLists[indexPath.row].countUsers!
+        dvc.chatRoomKey = chatLists[indexPath.row].key
+        dvc.destinationUID = chatLists[indexPath.row].destinationUID
         self.navigationController?.pushViewController(dvc, animated: true)
     }
 }
@@ -116,13 +152,29 @@ extension ChatMainViewController: UITableViewDelegate {
 
 extension ChatMainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // FIXME: - 데이터 사용해서 동적으로 반환 
+        // FIXME: - 데이터 사용해서 동적으로 반환
         return chatLists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatMainTableViewCell.CellIdentifier) as? ChatMainTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
+        chatLists.sort(by: {$0.timeStamp! >  $1.timeStamp!})
+        cell.initCell(chatList: chatLists[indexPath.row])
         return cell
+    }
+}
+
+extension Int {
+    
+    var toRelativeTime: String {
+        
+        let formatter = RelativeDateTimeFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        let now = Date()
+        let date = Date(timeIntervalSince1970: Double(self)/1000)
+        let dateString = formatter.localizedString(for: date, relativeTo: now)
+        
+        return dateString
     }
 }
