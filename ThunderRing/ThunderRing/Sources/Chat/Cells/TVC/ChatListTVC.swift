@@ -124,19 +124,3 @@ extension ChatListTVC {
         }
     }
 }
-
-extension ChatListTVC {
-    func initCell(chatList: ChatListDataModel) {
-        groupImageView.image = UIImage(named: chatList.groupImage)
-        
-        hashTagLabel.text = chatList.hashTag
-        
-        titleLabel.text = chatList.title
-        subTitleLabel.text = chatList.subTitle
-        
-        countLabel.text = "\(chatList.count)"
-        
-        timeLabel.text = "\(chatList.time)시간 전"
-    }
-}
-

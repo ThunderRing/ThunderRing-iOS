@@ -107,7 +107,7 @@ final class MyPageViewController: UIViewController {
     
     private func updateUserInfo(){
         
-        FirebaseDataService.instance.userRef.child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+        FirebaseDataService.instance.userRef.child(userID!).child("user").observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
             let userName = value?["name"] as? String ?? "error"
@@ -115,7 +115,6 @@ final class MyPageViewController: UIViewController {
             
             self.userNameLabel.text = userName
             self.userImageView.image = UIImage(named: imageName)
-            
         })
         
     }

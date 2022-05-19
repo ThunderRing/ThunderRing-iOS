@@ -154,6 +154,7 @@ extension MyPageFriendCountViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        userList.sort(by: {$0.name! < $1.name!})
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.cellIdentifier) as? ItemCell else { return UITableViewCell() }
         cell.initCell(userList[indexPath.row])
         return cell

@@ -3,11 +3,15 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="DINPro-Regular.otf">
+            <string>DINPro-Regular</string>
+        </array>
         <array key="SpoqaHanSansNeo-Medium.otf">
             <string>SpoqaHanSansNeo-Medium</string>
         </array>
@@ -119,13 +123,21 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="btnBack"/>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5b-yv-2yE">
+                                        <rect key="frame" x="234.5" y="15.5" width="8.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="DINPro-Regular" family="DINPro" pointSize="16"/>
+                                        <color key="textColor" name="gray200"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="0XJ-di-2a4"/>
                                     <constraint firstItem="ZJa-SZ-q2z" firstAttribute="top" secondItem="jee-3L-O5g" secondAttribute="top" constant="1" id="GNJ-AT-scX"/>
+                                    <constraint firstItem="L5b-yv-2yE" firstAttribute="leading" secondItem="x2H-B8-2FE" secondAttribute="trailing" constant="4" id="GtX-Q7-2Bg"/>
                                     <constraint firstItem="x2H-B8-2FE" firstAttribute="top" secondItem="jee-3L-O5g" secondAttribute="top" constant="16" id="NBZ-Ng-bNl"/>
                                     <constraint firstItem="iQe-TQ-adE" firstAttribute="top" secondItem="jee-3L-O5g" secondAttribute="top" constant="1" id="P9x-K9-R4i"/>
+                                    <constraint firstAttribute="bottom" secondItem="L5b-yv-2yE" secondAttribute="bottom" constant="54" id="SSl-ZG-JWL"/>
                                     <constraint firstItem="x2H-B8-2FE" firstAttribute="centerX" secondItem="jee-3L-O5g" secondAttribute="centerX" id="X6U-gw-auG"/>
                                     <constraint firstItem="iQe-TQ-adE" firstAttribute="leading" secondItem="jee-3L-O5g" secondAttribute="leading" constant="7" id="iOh-Df-jaC"/>
                                     <constraint firstAttribute="trailing" secondItem="ZJa-SZ-q2z" secondAttribute="trailing" constant="9" id="pJl-Cg-OMR"/>
@@ -145,6 +157,7 @@
                         <outlet property="customNavigationBarView" destination="jee-3L-O5g" id="24S-Eu-hXh"/>
                         <outlet property="hamburgerButton" destination="ZJa-SZ-q2z" id="TYN-Cc-ODT"/>
                         <outlet property="titleLabel" destination="x2H-B8-2FE" id="Ud7-U2-fbw"/>
+                        <outlet property="userCountLabel" destination="L5b-yv-2yE" id="SwV-9s-XUc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yer-FC-cLB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -174,6 +187,9 @@
         <image name="btnBack" width="48" height="48"/>
         <image name="btnHambuger" width="48" height="48"/>
         <image name="icnAnnounce" width="24" height="24"/>
+        <namedColor name="gray200">
+            <color red="0.69800001382827759" green="0.69800001382827759" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

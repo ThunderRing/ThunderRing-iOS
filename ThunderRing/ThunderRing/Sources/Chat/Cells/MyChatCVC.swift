@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 import Then
 
@@ -16,10 +17,13 @@ class MyChatCVC: BaseCell {
     
     var chatPurpleBackView = UIView().then {
         $0.backgroundColor = .purple100
+//        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray300.cgColor
     }
     
-    private var myTextLabel = BasePaddingLabel().then {
+    var myTextLabel = BasePaddingLabel().then {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+        $0.setTextSpacingBy(value: -4)
         $0.textColor = .white
         $0.textAlignment = .left
         $0.letterSpacing = -0.39
@@ -33,9 +37,9 @@ class MyChatCVC: BaseCell {
         $0.sizeToFit()
     }
     
-    private var sendTimeLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 11)
-        $0.textColor = .gray
+    var sendTimeLabel = UILabel().then {
+        $0.font = .SpoqaHanSansNeo(type: .regular, size: 10)
+        $0.textColor = .gray200
         $0.sizeToFit()
     }
     
@@ -48,7 +52,7 @@ class MyChatCVC: BaseCell {
     
     func bindData(data: MessageData) {
         myTextLabel.text = data.messageText
-        sendTimeLabel.text = data.sendTime
+        sendTimeLabel.text = data.timeStamp?.toDayTime
     }
     
     // MARK: - layoutSubviews
@@ -64,7 +68,7 @@ extension MyChatCVC {
         
         myTextLabel.snp.makeConstraints {
             $0.top.equalTo(self.snp.top).offset(0)
-            $0.trailing.equalTo(self.snp.trailing).offset(-23)
+            $0.trailing.equalTo(self.snp.trailing).offset(-25)
             $0.width.lessThanOrEqualTo(220)
         }
         

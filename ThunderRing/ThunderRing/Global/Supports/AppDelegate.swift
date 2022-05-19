@@ -5,11 +5,12 @@
 //  Created by soyeon on 2021/11/07.
 //
 
-import Firebase
-import FirebaseDatabase
-
 import UIKit
 import UserNotifications
+
+import Firebase
+import FirebaseDatabase
+import FirebaseMessaging
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /// 스플래쉬 화면
         sleep(1)
         
-        /// 로컬 notification
+        // 😊 파이어베이스 초기 설정
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
+        
+        // 😊 iOS 10 이상인 기기에 해당
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: { _, _ in }
+            )
+        } else {
+            let settings: UIUserNotificationSettings =
+            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+        
         notificationCenter.delegate = self
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         notificationCenter.requestAuthorization(options: options) {
@@ -29,11 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("User has declined notifications")
             }
         }
-        
-        /// 구글 파이어베이스 연동
-        FirebaseApp.configure()
-        
-        // FIXME: - DB 설계 후 번개 데이터 읽기 
         
         return true
     }
@@ -103,5 +120,29 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
                                               options: [])
         
         notificationCenter.setNotificationCategories([category])
+    }
+}
+
+// MARK: - MessagingDelegate
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        // 현재 등록 토큰 접근하기
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            print("Error fetching FCM registration token: \(error)")
+          } else if let token = token {
+            print("FCM registration token: \(token)")
+          }
+        }
+        
+        // 토큰 갱신 모니터링
+        print("Firebase registration token: \(String(describing: fcmToken))")
+
+          let dataDict: [String: String] = ["token": fcmToken ?? ""]
+          NotificationCenter.default.post(
+            name: Notification.Name("FCMToken"),
+            object: nil,
+            userInfo: dataDict
+          )
     }
 }

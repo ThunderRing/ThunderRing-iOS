@@ -12,44 +12,48 @@ import Then
 
 final class ChatMainTableViewCellView: UIView {
     
-    private lazy var chatImageView = UIImageView().then {
+    var chatImageView = UIImageView().then {
         $0.image = UIImage(named: "imgDog1")
         $0.makeRounded(cornerRadius: 19)
     }
     
-    private lazy var titleLabel = UILabel().then {
+    var titleLabel = UILabel().then {
         $0.text = "동물농장 같이 볼 사람? "
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
+        $0.setTextSpacingBy(value: -0.6)
     }
     
-    private lazy var memberCountLabel = UILabel().then {
+    var memberCountLabel = UILabel().then {
         $0.text = "20"
         $0.textColor = .gray200
-        $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
+        $0.font = .DINPro(type: .regular, size: 16)
     }
     
-    private lazy var subTitleLabel = UILabel().then {
+    var subTitleLabel = UILabel().then {
         $0.text = "댕댕쓰"
         $0.textColor = .purple100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
+        $0.setTextSpacingBy(value: -0.6)
     }
     
-    private lazy var contentLabel = UILabel().then {
+    var contentLabel = UILabel().then {
         $0.text = "어쩌구저쩌구동물농장시작합니당어쩌구저쩌구울랄라"
         $0.numberOfLines = 1
         $0.textColor = .gray150
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        $0.setTextSpacingBy(value: -0.6)
         $0.lineBreakMode = .byTruncatingTail
     }
     
-    private lazy var timeLabel = UILabel().then {
+    var timeLabel = UILabel().then {
         $0.text = "8분전"
         $0.textColor = .gray200
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
+        $0.setTextSpacingBy(value: -0.6)
     }
     
-    private lazy var messageCountView = MessageCountView()
+    var messageCountView = MessageCountView()
     
     private lazy var lineView = UIView().then {
         // FIXME: - 색상변경
@@ -101,7 +105,7 @@ final class ChatMainTableViewCellView: UIView {
         }
         
         memberCountLabel.snp.makeConstraints {
-            $0.centerY.equalTo(titleLabel.snp.centerY)
+            $0.top.equalTo(subTitleLabel.snp.top).offset(17)
             $0.leading.equalTo(titleLabel.snp.trailing).offset(6)
         }
         
@@ -130,12 +134,14 @@ final class ChatMainTableViewCellView: UIView {
     }
 }
 
-fileprivate final class MessageCountView: UIView {
+final class MessageCountView: UIView {
     
-    private lazy var label = UILabel().then {
+    var label = UILabel().then {
         $0.text = "10"
         $0.textColor = .purple100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 12)
+        $0.textAlignment = .center
+        $0.setTextSpacingBy(value: -0.6)
     }
     
     var messageCount: Int = 0 {
@@ -146,7 +152,12 @@ fileprivate final class MessageCountView: UIView {
     
     init() {
         super.init(frame: .zero)
+        
         setView()
+       
+//        if messageCount != 0 {
+//            setView()
+//        }
     }
     
     required init?(coder aDecoder: NSCoder) {

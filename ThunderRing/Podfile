@@ -9,6 +9,9 @@ target 'ThunderRing' do
 	pod 'Firebase/Core'
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
+	pod 'Firebase/Core'
+	pod 'Firebase/Analytics'
+	pod 'Firebase/Messaging'
   # Pods for ThunderRing
 
 end
