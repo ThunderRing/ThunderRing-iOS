@@ -65,7 +65,6 @@ class TestView: UIView {
     func configUI() {
         backgroundColor = .background
         addSubviews([questionLabel, answerCollectionView])
-        answerCollectionView.reloadData()
     }
     
     func setLayout() {

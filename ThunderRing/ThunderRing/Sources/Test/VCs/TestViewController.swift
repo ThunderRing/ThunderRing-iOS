@@ -14,7 +14,7 @@ final class TestViewController: UIViewController {
     
     // MARK: - Properties
     
-    private lazy var customNavigationBar = CustomNavigationBar(vc: self, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+    private lazy var customNavigationBar = CustomNavigationBar(vc: self, title: "", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .white)
     
     private var indexLabel = UILabel().then {
         $0.text = "1/8"
@@ -91,6 +91,8 @@ final class TestViewController: UIViewController {
         }
         
         indexLabel.text = "\(currentIndex)/8"
+        
+        customNavigationBar.setTitle(title: "")
     }
     
     private func setLayout() {
