@@ -6,6 +6,10 @@
 //
 
 import UIKit
+
+import SnapKit
+import Then
+
 import Firebase
 
 final class MyPageViewController: UIViewController {
@@ -32,24 +36,30 @@ final class MyPageViewController: UIViewController {
     
     private let imagePicker = UIImagePickerController()
     
+    private lazy var groupTendencyView = GroupTendencyView(tagType: .diligent).then {
+        $0.tagType = .diligent
+        $0.makeRounded(cornerRadius: 3)
+    }
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configNavigatioUI()
+        configNavigationUI()
         configTabBarUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        bind()
+        setTableView()
+        setTableView()
+        setImagePicker()
+        setGesture()
         updateUserInfo()
     }
     
-    private func configNavigatioUI() {
-        navigationController?.isNavigationBarHidden = true
-    }
+    // MARK: - Init UI
     
     private func configTabBarUI() {
         tabBarController?.tabBar.isHidden = false
@@ -58,8 +68,27 @@ final class MyPageViewController: UIViewController {
     private func configUI() {
         setNavigationBar(customNavigationBarView: navigationBar, title: "마이페이지", backBtnIsHidden: true, closeBtnIsHidden: true, bgColor: .background)
         setStatusBar(.background)
+        
         userImageView.makeRounded(cornerRadius: 30)
         userInfoView.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 6, bounds: true)
+    }
+    
+    // MARK: - Custom Method
+    
+    private func setTendencyView() {
+        view.addSubview(groupTendencyView)
+        
+        groupTendencyView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(238)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(95)
+            $0.height.equalTo(21)
+        }
+    }
+    
+    private func setTableView() {
+        myPageTableView.delegate = self
+        myPageTableView.dataSource = self
         
         myPageTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         myPageTableView.separatorColor = .gray300
@@ -67,33 +96,29 @@ final class MyPageViewController: UIViewController {
         myPageTableView.allowsMultipleSelection = true
         myPageTableView.isScrollEnabled = false
         
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-    }
-    
-    private func bind() {
-        /// TableView
-        myPageTableView.delegate = self
-        myPageTableView.dataSource = self
-        
         myPageTableView.register(MyPageAlarmTableViewCell.self, forCellReuseIdentifier: MyPageAlarmTableViewCell.identifier)
         myPageTableView.register(AccountTableViewCell.self, forCellReuseIdentifier: AccountTableViewCell.identifier)
         myPageTableView.register(QuestionTableViewCell.self, forCellReuseIdentifier: QuestionTableViewCell.identifier)
         myPageTableView.register(InfoTableViewCell.self, forCellReuseIdentifier: InfoTableViewCell.identifier)
         myPageTableView.register(LogOutTableViewCell.self, forCellReuseIdentifier: LogOutTableViewCell.identifier)
-        
-        /// Image Picker
+    }
+    
+    private func setImagePicker() {
         imagePicker.delegate = self
         
-        /// Image View
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+    }
+    
+    private func setGesture() {
         userImageView.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
-        userImageView.addGestureRecognizer(tapGesture)
         
-        /// Label
         [friendCountLabel, groupCountLabel, lightningCountLabel].forEach {
             $0?.isUserInteractionEnabled = true
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
+        userImageView.addGestureRecognizer(tapGesture)
         
         let friendCountTapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpFriendCount))
         friendCountLabel.addGestureRecognizer(friendCountTapGesture)
@@ -106,12 +131,11 @@ final class MyPageViewController: UIViewController {
     }
     
     private func updateUserInfo(){
-        
         FirebaseDataService.instance.userRef.child(userID!).child("user").observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
             let userName = value?["name"] as? String ?? "error"
-            let imageName = value?["imageName"] as? String ?? "imageRabbit"
+            let imageName = value?["imageName"] as? String ?? ""
             
             self.userNameLabel.text = userName
             self.userImageView.image = UIImage(named: imageName)
