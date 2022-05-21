@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L1w-sp-v8k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -17,77 +17,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Chat ListVC-->
-        <scene sceneID="s0d-6b-0kx">
-            <objects>
-                <viewController storyboardIdentifier="ChatListVC" id="Y6W-OH-hqX" customClass="ChatListVC" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tQL-LQ-BcI">
-                                <rect key="frame" x="0.0" y="192" width="414" height="670"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smm-aJ-K7O">
-                                <rect key="frame" x="0.0" y="88" width="414" height="104"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24시간이 지난 후 채팅방은 사라집니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxX-Av-ih9">
-                                        <rect key="frame" x="92" y="66" width="222.5" height="18"/>
-                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icnAnnounce" translatesAutoresizingMaskIntoConstraints="NO" id="l1N-TZ-ebS">
-                                        <rect key="frame" x="62" y="63" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="2yk-oK-H3E"/>
-                                            <constraint firstAttribute="height" constant="24" id="hXy-QT-RdJ"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="채팅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abr-1F-sRu">
-                                        <rect key="frame" x="190.5" y="16" width="33.5" height="23"/>
-                                        <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Medium" family="Spoqa Han Sans Neo" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="hxX-Av-ih9" firstAttribute="centerY" secondItem="l1N-TZ-ebS" secondAttribute="centerY" id="LfX-xY-X4f"/>
-                                    <constraint firstItem="l1N-TZ-ebS" firstAttribute="leading" secondItem="smm-aJ-K7O" secondAttribute="leading" constant="62" id="NtC-fN-ocJ"/>
-                                    <constraint firstItem="l1N-TZ-ebS" firstAttribute="top" secondItem="smm-aJ-K7O" secondAttribute="top" constant="63" id="Ubq-UA-6jv"/>
-                                    <constraint firstAttribute="height" constant="104" id="Vcu-gA-G7a"/>
-                                    <constraint firstItem="abr-1F-sRu" firstAttribute="top" secondItem="smm-aJ-K7O" secondAttribute="top" constant="16" id="gga-T4-M1Q"/>
-                                    <constraint firstItem="hxX-Av-ih9" firstAttribute="leading" secondItem="l1N-TZ-ebS" secondAttribute="trailing" constant="6" id="pZQ-I6-NLw"/>
-                                    <constraint firstItem="abr-1F-sRu" firstAttribute="centerX" secondItem="smm-aJ-K7O" secondAttribute="centerX" id="rvW-lS-meg"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="smm-aJ-K7O" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="09u-fS-h7i"/>
-                            <constraint firstItem="tQL-LQ-BcI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8C5-Ny-sN4"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="tQL-LQ-BcI" secondAttribute="bottom" id="KWf-69-tCQ"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tQL-LQ-BcI" secondAttribute="trailing" id="ba0-FF-CqF"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="smm-aJ-K7O" secondAttribute="trailing" id="kCJ-T5-st0"/>
-                            <constraint firstItem="tQL-LQ-BcI" firstAttribute="top" secondItem="smm-aJ-K7O" secondAttribute="bottom" id="qol-WP-csq"/>
-                            <constraint firstItem="smm-aJ-K7O" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vqh-Ba-m9k"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="8ab-Bj-lRA"/>
-                    <connections>
-                        <outlet property="chatListTableView" destination="tQL-LQ-BcI" id="fM9-bx-SpS"/>
-                        <outlet property="descriptionLabel" destination="hxX-Av-ih9" id="efo-6U-Khn"/>
-                        <outlet property="titleLabel" destination="abr-1F-sRu" id="v0h-0Z-fcH"/>
-                        <outlet property="topView" destination="smm-aJ-K7O" id="VKq-3A-LBD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="93.75"/>
-        </scene>
         <!--Chat View Controller-->
         <scene sceneID="xke-Ww-eqc">
             <objects>
@@ -164,29 +93,10 @@
             </objects>
             <point key="canvasLocation" x="1815.9420289855075" y="93.75"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ahU-Jh-v6q">
-            <objects>
-                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="L1w-sp-v8k" customClass="NavigationController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="26k-cD-Q2b">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="uGX-fb-MGT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gll-kc-NnK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
-        </scene>
     </scenes>
     <resources>
         <image name="btnBack" width="48" height="48"/>
         <image name="btnHambuger" width="48" height="48"/>
-        <image name="icnAnnounce" width="24" height="24"/>
         <namedColor name="gray200">
             <color red="0.69800001382827759" green="0.69800001382827759" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

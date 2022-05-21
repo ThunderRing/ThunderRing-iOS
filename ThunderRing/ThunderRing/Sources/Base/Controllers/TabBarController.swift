@@ -12,14 +12,14 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        initUI()
+        configUI()
         setTabBar()
         getNotification()
     }
     
     // MARK: - Custom Methods
     
-    private func initUI() {
+    private func configUI() {
         UITabBar.appearance().backgroundColor = .white
         UITabBar.appearance().tintColor = .gray150
         

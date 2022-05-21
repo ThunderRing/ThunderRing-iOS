@@ -142,7 +142,7 @@ final class HomeRecruitingTableViewCellView: UIView {
     }
     
     private func getNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name(Const.Notification.join), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name("JoinTheGroup"), object: nil)
     }
     
     internal func initCell(lightning: LightningDataModel) {

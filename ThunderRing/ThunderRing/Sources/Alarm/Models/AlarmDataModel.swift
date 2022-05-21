@@ -20,7 +20,3 @@ struct AlarmDataModel {
     var time: String
     var groupName: String
 }
-
-var alarmData : [AlarmDataModel] = [
-    AlarmDataModel(alarmType: .lightning, lightningName: "혜화역 혼카츠 먹자", description: "오후 6:00 | 혜화역 1번 출구", time: "30분 전", groupName: "양파링걸즈")
-]

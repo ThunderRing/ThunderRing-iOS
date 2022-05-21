@@ -82,7 +82,7 @@ final class HomeRecruitingViewController: UIViewController {
     private func getNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(touchUpPlusButton(_:)), name: NSNotification.Name("TouchUpPlusButton"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name(Const.Notification.join), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(touchUpJoinButton(_:)), name: NSNotification.Name("JoinTheGroup"), object: nil)
     }
     
     // MARK: - @objc

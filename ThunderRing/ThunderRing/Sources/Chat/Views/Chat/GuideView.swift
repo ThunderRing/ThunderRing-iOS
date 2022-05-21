@@ -7,14 +7,37 @@
 
 import UIKit
 
-class GuideView: UIView {
+import SnapKit
+import Then
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+final class GuideView: UIView {
+    
+    private lazy var titleLabel = UILabel().then {
+        $0.textColor = .purple100
+        $0.font = .SpoqaHanSansNeo(type: .medium, size: 12)
+        $0.setTextSpacingBy(value: -4)
     }
-    */
-
+    
+    var title: String = "" {
+        didSet {
+            titleLabel.text = "\(title)"
+        }
+    }
+    
+    init() {
+        super.init(frame: .zero)
+        setTitle()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setTitle() {
+        backgroundColor = .purple100.withAlphaComponent(0.1)
+        addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+    }
 }

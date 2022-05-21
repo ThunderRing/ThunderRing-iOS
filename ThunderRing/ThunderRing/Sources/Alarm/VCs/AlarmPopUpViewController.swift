@@ -119,7 +119,7 @@ extension AlarmPopUpViewController: PopUpViewDelegate, CancelViewDelegate {
     
     func touchUpJoinButton() {
         NotificationCenter.default.post(name: NSNotification.Name("Join"), object: nil)
-        NotificationCenter.default.post(name: NSNotification.Name(Const.Notification.join), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("JoinTheGroup"), object: nil)
         dismiss(animated: true)
     }
     

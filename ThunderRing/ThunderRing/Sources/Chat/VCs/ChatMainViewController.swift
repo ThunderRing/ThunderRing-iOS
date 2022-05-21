@@ -164,17 +164,3 @@ extension ChatMainViewController: UITableViewDataSource {
         return cell
     }
 }
-
-extension Int {
-    
-    var toRelativeTime: String {
-        
-        let formatter = RelativeDateTimeFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
-        let now = Date()
-        let date = Date(timeIntervalSince1970: Double(self)/1000)
-        let dateString = formatter.localizedString(for: date, relativeTo: now)
-        
-        return dateString
-    }
-}

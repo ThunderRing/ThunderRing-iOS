@@ -16,7 +16,6 @@ final class PublicListTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     private var groupImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgRabbit")
         $0.makeRounded(cornerRadius: 17)
     }
     

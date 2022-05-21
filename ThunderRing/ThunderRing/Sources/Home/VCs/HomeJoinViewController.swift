@@ -62,7 +62,7 @@ extension HomeJoinViewController: HomeJoinViewDelegate {
     }
     
     func touchUpJoinButton() {
-        NotificationCenter.default.post(name: NSNotification.Name(Const.Notification.join), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("JoinTheGroup"), object: nil)
         dismiss(animated: true, completion: nil)
     }
 }

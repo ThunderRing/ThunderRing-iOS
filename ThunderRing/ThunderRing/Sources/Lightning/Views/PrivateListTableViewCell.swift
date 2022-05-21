@@ -16,7 +16,6 @@ final class PrivateListTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     private lazy var groupImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgRabbit")
         $0.makeRounded(cornerRadius: 17)
     }
     
