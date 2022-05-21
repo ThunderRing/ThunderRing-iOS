@@ -13,7 +13,6 @@ extension Const {
             static let Main = "Main"
             static let Chat = "Chat"
             static let Lightning = "Lightning"
-            static let Alarm = "Alarm"
             static let MyPage = "MyPage"
             
             static let MyPrivate = "MyPrivate"
