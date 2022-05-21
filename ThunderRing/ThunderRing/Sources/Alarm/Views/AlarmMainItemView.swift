@@ -35,6 +35,7 @@ final class AlarmMainItemView: UIView {
     }
 
     private var contentView = UIView().then {
+        $0.backgroundColor = .white
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 10, bounds: true)
     }
     
