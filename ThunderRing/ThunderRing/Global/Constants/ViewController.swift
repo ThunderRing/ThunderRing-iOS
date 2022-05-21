@@ -14,17 +14,9 @@ extension Const {
                 static let Navigation = "NavigationController"
                 static let ModalNavigation = "ModalNavigationController"
                 
-                static let Main = "MainVC"
-                static let Recruiting = "RecruitingVC"
-                static let Join = "JoinVC"
-                
-                static let ChatList = "ChatListVC"
-                static let Chat = "ChatVC"
                 static let Lightning = "LightningMainViewController"
                 static let Alarm = "AlarmMainViewController"
                 static let MyPage = "MyPageViewController"
-                
-                static let FirstTest = "FirstTestVC"
                 
                 static let LightningTitle = "LightningTitleViewController"
                 static let LigntningDetail = "LigntningDetailViewController"

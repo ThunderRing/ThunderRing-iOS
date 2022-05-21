@@ -15,15 +15,6 @@ final class ChatViewController: UIViewController {
     
     // MARK: - Properties
     
-    public var destinationUID: String?
-    public var chatRoomKey: String?
-    public var chatCount: Int?
-    var comments : [MessageData] = []
-    var userInfo: [UserInfoModel] = []
-    var uid = FirebaseDataService.instance.currentUserUid
-    
-    // MARK: - UI
-    
     @IBOutlet weak var customNavigationBarView: UIView!
     
     @IBOutlet weak var backButton: UIButton!
@@ -68,6 +59,14 @@ final class ChatViewController: UIViewController {
     }
     
     // MARK: - Properties
+    
+    public var destinationUID: String?
+    public var chatRoomKey: String?
+    public var chatCount: Int?
+    
+    var comments : [MessageData] = []
+    var userInfo: [UserInfoModel] = []
+    var uid = FirebaseDataService.instance.currentUserUid
     
     var chatTitle: String?
     
@@ -120,7 +119,6 @@ final class ChatViewController: UIViewController {
         customNavigationBarView.layer.applyShadow()
         
         guideView.title = "내일 오후 9:41 펑"
-        //        guideView.title = "펑 시각 " + dateFormatter.string(from: nowDate.addingTimeInterval(+(60 * 60 * 24)))
         
         chatCollectionView.backgroundColor = .background
         
@@ -181,8 +179,8 @@ final class ChatViewController: UIViewController {
         chatCollectionView.delegate = self
         chatCollectionView.dataSource = self
         
-        chatCollectionView.register(CounterpartChatCVC.self, forCellWithReuseIdentifier: "CounterpartChatCVC")
-        chatCollectionView.register(MyChatCVC.self, forCellWithReuseIdentifier: "MyChatCVC")
+        chatCollectionView.register(CounterpartChatCollectionViewCell.self, forCellWithReuseIdentifier: CounterpartChatCollectionViewCell.identifier)
+        chatCollectionView.register(MyChatCollectionViewCell.self, forCellWithReuseIdentifier: MyChatCollectionViewCell.identifier)
     }
     
     private func getNotification() {
@@ -217,32 +215,26 @@ final class ChatViewController: UIViewController {
     // MARK: - @objc
     
     @objc func sendMessage(_ notification: Notification) {
-        
         if textField.text?.isEmpty == false {
             uploadChat()
         }
-        
         textField.text?.removeAll()
     }
     
     func uploadChat() {
-        
         let value : Dictionary<String,Any> = [
-            
             "uid" : uid!,
             "message" : textField.text!,
             "timeStamp" : ServerValue.timestamp()
         ]
         
         let updateNewMessage : Dictionary<String, Any> = [
-            
             "contentLabel" : textField.text!,
             "chatCount" : 0,
             "timeStamp" : ServerValue.timestamp(),
         ]
         
         let updateCounterPartMessage : Dictionary<String, Any> = [
-            
             "contentLabel" : textField.text!,
             "chatCount": chatCount! + 1,
             "timeStamp" : ServerValue.timestamp(),
@@ -251,11 +243,9 @@ final class ChatViewController: UIViewController {
         Database.database().reference().child("chatrooms").child(chatRoomKey!).child("comments").childByAutoId().setValue(value)
         FirebaseDataService.instance.userRef.child(uid!).child("chatRoomList").child(chatRoomKey!).updateChildValues(updateNewMessage)
         FirebaseDataService.instance.userRef.child(destinationUID!).child("chatRoomList").child(chatRoomKey!).updateChildValues(updateCounterPartMessage)
-        
-    } //successful
+    }
     
     func getDestinationUserInfo(){
-        
         FirebaseDataService.instance.userRef.child(destinationUID!).child("user").observeSingleEvent(of: .value, with: {(snapshot) in
             self.userInfo.removeAll()
             if let data = snapshot.value as? Dictionary<String, AnyObject> {
@@ -263,8 +253,8 @@ final class ChatViewController: UIViewController {
                 let profileImageName = data["imageName"] as! String
                 let uid = data["uid"] as! String
                 let userInfo = UserInfoModel(uid: uid, userName: username, profileImageName: profileImageName)
-                self.userInfo.append(userInfo)
                 
+                self.userInfo.append(userInfo)
                 self.getMessageList()
                 self.getDestinationUserChatCount()
             }
@@ -282,13 +272,11 @@ final class ChatViewController: UIViewController {
     }
     
     func getMessageList() {
-        
         FirebaseDataService.instance.chatroomsRef.child(chatRoomKey!).child("comments").observe(DataEventType.value, with: {
             (datasnapshot) in
             self.comments.removeAll()
             if let data = datasnapshot.value as? Dictionary<String, AnyObject> {
                 for (_, data) in data {
-                    
                     if let chatData = data as? Dictionary<String, AnyObject> {
                         let uid = chatData["uid"] as! String
                         let comment = chatData["message"] as! String
@@ -300,12 +288,11 @@ final class ChatViewController: UIViewController {
                             self.chatCollectionView.reloadData()
                         })
                     }
-                    
                 }
             }
             
         })
-    } //success
+    }
 }
 
 extension ChatViewController: UICollectionViewDelegateFlowLayout {
@@ -356,16 +343,16 @@ extension ChatViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         comments.sort(by: {$0.timeStamp! < $1.timeStamp!})
         if comments[indexPath.row].uid != uid {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CounterpartChatCVC.identifier, for: indexPath)
-            if let counterpartChatCell = cell as? CounterpartChatCVC {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CounterpartChatCollectionViewCell.identifier, for: indexPath)
+            if let counterpartChatCell = cell as? CounterpartChatCollectionViewCell {
                 counterpartChatCell.initUI(model: comments[indexPath.row], userModel: userInfo[0])
                 counterpartChatCell.couterpartTextLabel.adjustsFontSizeToFitWidth = true
             }
             return cell
             
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyChatCVC.identifier, for: indexPath)
-            if let myChatCell = cell as? MyChatCVC {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyChatCollectionViewCell.identifier, for: indexPath)
+            if let myChatCell = cell as? MyChatCollectionViewCell {
                 myChatCell.initUI(model: comments[indexPath.row])
             }
             return cell
@@ -376,57 +363,8 @@ extension ChatViewController: UICollectionViewDataSource {
 // MARK: - UITextField Delegate
 
 extension ChatViewController: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-}
-
-// MARK: - Guide View
-
-fileprivate final class GuideView: UIView {
-    
-    private lazy var titleLabel = UILabel().then {
-        $0.textColor = .purple100
-        $0.font = .SpoqaHanSansNeo(type: .medium, size: 12)
-        $0.setTextSpacingBy(value: -4)
-    }
-    
-    var title: String = "" {
-        didSet {
-            titleLabel.text = "\(title)"
-        }
-    }
-    
-    init() {
-        super.init(frame: .zero)
-        setTitle()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setTitle() {
-        backgroundColor = .purple100.withAlphaComponent(0.1)
-        addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
-    }
-}
-
-extension Int {
-    
-    var toDayTime: String {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.dateFormat = "a hh:mm"
-        
-        let date = Date(timeIntervalSince1970: Double(self)/1000)
-        
-        return dateFormatter.string(from: date)
     }
 }

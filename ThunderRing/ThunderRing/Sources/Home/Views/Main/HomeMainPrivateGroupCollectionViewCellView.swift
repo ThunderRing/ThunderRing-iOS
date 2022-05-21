@@ -20,7 +20,6 @@ final class HomeMainPrivateGroupCollectionViewCellView: UIView {
     // MARK: - Properties
     
     private var groupImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgJuju")
         $0.contentMode = .scaleAspectFill
     }
     

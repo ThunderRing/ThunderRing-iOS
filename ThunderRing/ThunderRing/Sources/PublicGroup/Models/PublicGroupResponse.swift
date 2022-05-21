@@ -23,12 +23,3 @@ struct PublicGroupData: Codable {
     let groupMaxCount: Int
     let history: [History]
 }
-
-//enum GroupTendency: String, Codable {
-//    case cozy
-//    case crowd
-//    case diligent
-//    case emotion
-//    case soft
-//}
-

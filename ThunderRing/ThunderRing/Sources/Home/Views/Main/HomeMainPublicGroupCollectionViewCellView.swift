@@ -19,7 +19,6 @@ final class HomeMainPublicGroupCollectionViewCellView: UIView {
     // MARK: - Properties
     
     private lazy var groupImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgJuju")
         $0.contentMode = .scaleAspectFill
     }
     

@@ -14,7 +14,6 @@ final class HomeRecruitingCollectionViewCell: UICollectionViewCell {
     static var cellIdentifier: String { return String(describing: self) }
     
     private var memberImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgFlog")
         $0.isHidden = false
     }
     
