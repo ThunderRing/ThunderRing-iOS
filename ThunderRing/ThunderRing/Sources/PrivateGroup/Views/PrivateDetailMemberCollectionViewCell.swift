@@ -14,7 +14,6 @@ final class PrivateDetailMemberCollectionViewCell: UICollectionViewCell {
     static var cellIdentifier: String { return String(describing: self) }
     
     private lazy var memberImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgNeedle")
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 19, bounds: true)
     }
     
