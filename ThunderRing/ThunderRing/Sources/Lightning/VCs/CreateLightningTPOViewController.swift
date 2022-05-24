@@ -261,7 +261,7 @@ final class CreateLightningTPOViewController: UIViewController {
         }
         
         countWarningLabel.snp.makeConstraints {
-            $0.top.equalTo(minCountTextField.snp.bottom).inset(7)
+            $0.top.equalTo(minCountTextField.snp.bottom).offset(7)
             $0.leading.equalToSuperview().inset(25)
         }
         
@@ -296,11 +296,10 @@ final class CreateLightningTPOViewController: UIViewController {
         }
         
         dateTextField.addTarget(self, action: #selector(touchUpDateTextField), for: .allTouchEvents)
-        
         timeTextField.addTarget(self, action: #selector(touchUpTimeTextField), for: .allTouchEvents)
-        
-        minCountTextField.addTarget(self, action: #selector(self.minFieldDidChange(_:)), for: .editingChanged)
-        dateTextField.addTarget(self, action: #selector(self.dateFieldDidChange), for: .valueChanged)
+        minCountTextField.addTarget(self, action: #selector(minFieldDidChange(_:)), for: .editingChanged)
+        maxCountTextField.addTarget(self, action: #selector(maxFieldDidChange(_:)), for: .editingChanged)
+        dateTextField.addTarget(self, action: #selector(dateFieldDidChange), for: .valueChanged)
         
         maxCountTextField.placeholder = "최대 \(groupMaxCount)명"
     }
@@ -394,27 +393,12 @@ final class CreateLightningTPOViewController: UIViewController {
     }
     
     @objc func touchUpCompleteButton() {
-        guard let dvc = UIStoryboard(name: Const.Storyboard.Name.Lightning, bundle: nil).instantiateViewController(withIdentifier: Const.ViewController.Name.CompleteLightning) as? CompleteLightningViewController else { return }
-        
-        dvc.groupName = self.groupName
-        dvc.lightningName = self.lightningName
-        dvc.lightningDescription = self.lightningDescription
-        dvc.date = self.dateTextField.text
-        dvc.time = self.timeTextField.text
-        dvc.location = self.locationTextField.text
-        
-        if let minNumber = self.minCountTextField.text {
-            dvc.minNumber = Int(minNumber)
-        }
-        
-        if let maxNumber = self.maxCountTextField.text {
-            dvc.maxNumber = Int(maxNumber)
-        }
+        let dvc = CompleteLightningViewController()
         navigationController?.pushViewController(dvc, animated: true)
     }
     
     @objc func minFieldDidChange(_ sender: Any?) {
-        if minCountTextField.text == "0" || minCountTextField.text == "1" {
+        if minCountTextField.text == "0" || minCountTextField.text == "1"{
             countWarningLabel.isHidden = false
             
             minCountTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 10, bounds: true)
@@ -425,6 +409,25 @@ final class CreateLightningTPOViewController: UIViewController {
             countWarningLabel.isHidden = true
             
             minCountTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 10, bounds: true)
+        }
+    }
+    
+    @objc func maxFieldDidChange(_ sender: Any?) {
+        if let max = maxCountTextField.text {
+            guard let maxCount = Int(max) else { return }
+            
+            if maxCount > groupMaxCount || maxCount < 2 {
+                countWarningLabel.isHidden = false
+                
+                maxCountTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 10, bounds: true)
+                
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.error)
+            } else {
+                countWarningLabel.isHidden = true
+                
+                maxCountTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
+            }
         }
     }
     
@@ -503,23 +506,6 @@ extension CreateLightningTPOViewController: UITextFieldDelegate {
             completeButton.isActivated = true
         } else {
             completeButton.isActivated = false
-        }
-        
-        if let max = minCountTextField.text {
-            guard let maxCount = Int(max) else { return }
-            
-            if maxCount > groupMaxCount {
-                countWarningLabel.isHidden = false
-                
-                maxCountTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 10, bounds: true)
-                
-                let generator = UINotificationFeedbackGenerator()
-                generator.notificationOccurred(.error)
-            } else {
-                countWarningLabel.isHidden = true
-                
-                maxCountTextField.initTextFieldBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 10, bounds: true)
-            }
         }
     }
     
