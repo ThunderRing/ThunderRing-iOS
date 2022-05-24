@@ -29,6 +29,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
     
     private var profileChangeButton = UIButton().then {
         $0.setImage(UIImage(named: "icn_plus_purple"), for: .normal)
+        $0.addTarget(self, action: #selector(touchUpEditButton), for: .touchUpInside)
     }
     
     private var groupNameLabel = UILabel().then {
@@ -55,6 +56,8 @@ final class CreatePublicGroupNameViewController: UIViewController {
         $0.addTarget(self, action: #selector(touchUpNextButton), for: .touchUpInside)
     }
     
+    private let imagePicker = UIImagePickerController()
+    
     // MARK: - Life Cycle
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +70,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
         configUI()
         setUpLayout()
         setTextField()
+        setImagePicker()
     }
     
     // MARK: - InitUI
@@ -152,6 +156,13 @@ final class CreatePublicGroupNameViewController: UIViewController {
         groupNameTextField.delegate = self
     }
     
+    private func setImagePicker() {
+        imagePicker.delegate = self
+        
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+    }
+    
     // MARK: - @objc
     
     @objc func touchUpCloseButton() {
@@ -166,6 +177,10 @@ final class CreatePublicGroupNameViewController: UIViewController {
     
     @objc func textFieldDidChange(_ sender: Any) {
         nextButton.isActivated = groupNameTextField.hasText
+    }
+    
+    @objc func touchUpEditButton() {
+        present(imagePicker, animated: true)
     }
 }
 
@@ -198,3 +213,24 @@ extension CreatePublicGroupNameViewController: UITextFieldDelegate {
         return !(newLength > 10)
     }
 }
+
+// MARK: - UIImagePickerController Delegate
+ 
+extension CreatePublicGroupNameViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        var newImage: UIImage? = nil
+        
+        if let possibleImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            newImage = possibleImage
+        } else if let possibleImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            newImage = possibleImage
+        }
+        
+        profileImageView.image = newImage
+        profileImageView.contentMode = .scaleAspectFill
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+

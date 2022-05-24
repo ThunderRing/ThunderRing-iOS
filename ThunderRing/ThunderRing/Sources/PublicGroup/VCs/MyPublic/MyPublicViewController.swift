@@ -79,7 +79,7 @@ final class MyPublicViewController: UIViewController {
         groupCollectionView.delegate = self
         groupCollectionView.dataSource = self
         
-        groupCollectionView.register(UINib(nibName: MyGroupCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: MyGroupCollectionViewCell.identifier)
+        groupCollectionView.register(UINib(nibName: MyGroupCollectionViewCell.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MyGroupCollectionViewCell.cellIdentifier)
         groupCollectionView.register(MyOverviewCollectionViewCell.self, forCellWithReuseIdentifier: MyOverviewCollectionViewCell.cellIdentifier)
     }
     
@@ -212,7 +212,7 @@ extension MyPublicViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.row {
         case 0 :
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyGroupCollectionViewCell.identifier, for: indexPath) as? MyGroupCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyGroupCollectionViewCell.cellIdentifier, for: indexPath) as? MyGroupCollectionViewCell else { return UICollectionViewCell() }
             cell.delegate = self
             cell.count = publicGroupData.count
             cell.initCell(publicGroupData)

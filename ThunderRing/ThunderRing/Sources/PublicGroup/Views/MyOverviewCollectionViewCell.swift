@@ -142,17 +142,17 @@ final class MyOverviewCollectionViewCell: UICollectionViewCell {
     private func setCollectionView() {
         sortCollectionView.delegate = self
         sortCollectionView.dataSource = self
-        sortCollectionView.register(OverviewSortCollectionViewCell.self, forCellWithReuseIdentifier: OverviewSortCollectionViewCell.identifier)
+        sortCollectionView.register(OverviewSortCollectionViewCell.self, forCellWithReuseIdentifier: OverviewSortCollectionViewCell.cellIdentifier)
         
         groupTotalCollectionView.delegate = self
         groupTotalCollectionView.dataSource = self
         groupTotalCollectionView.register(OverviewCollectionViewCell.self, forCellWithReuseIdentifier: OverviewCollectionViewCell.identifier)
-        groupTotalCollectionView.register(OverviewCollectionViewCellHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.identifier)
+        groupTotalCollectionView.register(OverviewCollectionViewCellHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.cellIdentifier)
         
         groupCollectionView.delegate = self
         groupCollectionView.dataSource = self
         groupCollectionView.register(OverviewCollectionViewCell.self, forCellWithReuseIdentifier: OverviewCollectionViewCell.identifier)
-        groupCollectionView.register(OverviewCollectionViewCellHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.identifier)
+        groupCollectionView.register(OverviewCollectionViewCellHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.cellIdentifier)
     }
     
     private func setLabelWidth(index: Int) -> CGFloat {
@@ -308,7 +308,7 @@ extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case sortCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OverviewSortCollectionViewCell.identifier, for: indexPath) as? OverviewSortCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OverviewSortCollectionViewCell.cellIdentifier, for: indexPath) as? OverviewSortCollectionViewCell else { return UICollectionViewCell() }
             cell.setLabel(sort: sortList[indexPath.item])
             if indexPath.row == 0 {
                 cell.isSelected = true
@@ -340,7 +340,7 @@ extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if collectionView == groupTotalCollectionView {
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.identifier, for: indexPath) as? OverviewCollectionViewCellHeaderView else { return UICollectionReusableView() }
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.cellIdentifier, for: indexPath) as? OverviewCollectionViewCellHeaderView else { return UICollectionReusableView() }
             if indexPath.section == 0 {
                 header.title = "환경을 생각하는 그룹 어때요?"
             } else if indexPath.section == 1 {
@@ -352,7 +352,7 @@ extension MyOverviewCollectionViewCell: UICollectionViewDataSource {
             }
             return header
         } else if collectionView == groupCollectionView {
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.identifier, for: indexPath) as? OverviewCollectionViewCellHeaderView else { return UICollectionReusableView() }
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: OverviewCollectionViewCellHeaderView.cellIdentifier, for: indexPath) as? OverviewCollectionViewCellHeaderView else { return UICollectionReusableView() }
             header.title = "그룹"
             return header
         } else {

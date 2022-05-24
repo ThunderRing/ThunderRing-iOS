@@ -66,6 +66,12 @@ final class CreatePublicGroupTagViewController: UIViewController {
         $0.isActivated = false
         $0.addTarget(self, action: #selector(touchUpNextButton), for: .touchUpInside)
     }
+    
+    private lazy var iconImageView = UIImageView().then {
+        $0.image = UIImage(named: "btnDown")
+    }
+    
+    
     private let groupTendencyPickerView = UIPickerView()
     private var index = 0
     private var groupTendency = ["부지런한 동틀녘", "사근한 오전", "북적이는 오후", "포근한 해질녘", "감성적인 새벽녘"]
@@ -85,6 +91,7 @@ final class CreatePublicGroupTagViewController: UIViewController {
         setLayout()
         setToolbar()
         setPickerView()
+        setTextField()
         setToolbar()
     }
     
@@ -141,6 +148,14 @@ final class CreatePublicGroupTagViewController: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(26)
             $0.top.equalTo(groupTendencyDiscriptionLabel.snp.bottom).offset(14)
             $0.height.equalTo(50)
+        }
+        
+        groupTendencyTextField.addSubview(iconImageView)
+        
+        iconImageView.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(277)
+            $0.top.bottom.equalToSuperview().inset(1)
+            $0.width.height.equalTo(48)
         }
         
         tagLabel.snp.makeConstraints {

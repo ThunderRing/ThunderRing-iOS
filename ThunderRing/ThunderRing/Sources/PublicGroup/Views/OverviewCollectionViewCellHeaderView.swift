@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class OverviewCollectionViewCellHeaderView: UICollectionReusableView {
-    static let identifier = "OverviewCollectionViewCellHeaderView"
+    static var cellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     

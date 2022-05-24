@@ -218,7 +218,7 @@ final class PublicGroupDetailHeaderView: UIView {
         groupTagCollectionView.delegate = self
         groupTagCollectionView.dataSource = self
         
-        groupTagCollectionView.register(ItemCell.self, forCellWithReuseIdentifier: ItemCell.CellIdentifier)
+        groupTagCollectionView.register(ItemCell.self, forCellWithReuseIdentifier: ItemCell.cellIdentifier)
     }
     
     private func calculateCellWidth(text: String) -> CGFloat {
@@ -277,7 +277,7 @@ extension PublicGroupDetailHeaderView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.CellIdentifier, for: indexPath) as? ItemCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.cellIdentifier, for: indexPath) as? ItemCell else { return UICollectionViewCell() }
         cell.initCell(tag: tags[indexPath.item])
         return cell
     }
@@ -286,7 +286,7 @@ extension PublicGroupDetailHeaderView: UICollectionViewDataSource {
 // MARK: - Item Cell
 
 fileprivate final class ItemCell: UICollectionViewCell {
-    static var CellIdentifier: String { return String(describing: self) }
+    static var cellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     
