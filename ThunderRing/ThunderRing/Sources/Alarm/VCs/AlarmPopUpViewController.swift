@@ -102,6 +102,7 @@ final class AlarmPopUpViewController: UIViewController {
             cancelView.isHidden = true
         case .lightning:
             lightningView.isHidden = false
+            lightningView.updateView()
             cancelView.isHidden = true
         case .cancel:
             lightningView.isHidden = true

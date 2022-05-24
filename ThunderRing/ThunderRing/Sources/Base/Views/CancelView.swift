@@ -66,6 +66,27 @@ final class CancelView: UIView {
     
     weak var delegate: CancelViewDelegate?
     
+    var lightningName: String = "" {
+        didSet {
+            lightningNameLabel.text = lightningName
+            lightningNameLabel.setTextSpacingBy(value: -0.6)
+        }
+    }
+    
+    var groupName: String = "" {
+        didSet {
+            groupNameLabel.text = groupName
+            groupNameLabel.setTextSpacingBy(value: -0.6)
+        }
+    }
+    
+    var content: String = "" {
+        didSet {
+            contentLabel.text = content
+            contentLabel.setTextSpacingBy(value: -0.6)
+        }
+    }
+    
     // MARK: - Initializer
     
     init() {
