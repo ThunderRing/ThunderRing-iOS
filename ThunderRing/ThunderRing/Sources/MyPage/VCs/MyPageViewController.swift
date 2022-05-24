@@ -52,7 +52,7 @@ final class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        setTableView()
+        setTendencyView()
         setTableView()
         setImagePicker()
         setGesture()
@@ -146,7 +146,7 @@ final class MyPageViewController: UIViewController {
     // MARK: - @objc
     
     @objc func pickImage() {
-        self.present(self.imagePicker, animated: true)
+        present(self.imagePicker, animated: true)
     }
     
     @objc func touchUpFriendCount() {
