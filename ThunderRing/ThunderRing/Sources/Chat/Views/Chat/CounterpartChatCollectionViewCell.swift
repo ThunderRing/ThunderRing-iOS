@@ -31,7 +31,6 @@ class CounterpartChatCollectionViewCell: BaseCell {
     
     private var nicknameLabel = UILabel().then {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
-        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray100
         $0.textAlignment = .left
         $0.sizeToFit()
@@ -39,7 +38,7 @@ class CounterpartChatCollectionViewCell: BaseCell {
     
     var chatGrayBackView = UIView().then {
         $0.backgroundColor = .gray350
-//        $0.layer.borderWidth = 1
+        $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray300.cgColor
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -47,15 +46,14 @@ class CounterpartChatCollectionViewCell: BaseCell {
     var couterpartTextLabel = BasePaddingLabel().then {
         $0.font = .systemFont(ofSize: 14)
         $0.textColor = .black
-        $0.setTextSpacingBy(value: -4)
         $0.textAlignment = .left
         $0.letterSpacing = -0.39
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.numberOfLines = 0
         $0.lineBreakMode = .byWordWrapping
-        $0.paddingTop = 12
-        $0.paddingLeft = 10
-        $0.paddingRight = 12
+        $0.paddingTop = 10
+        $0.paddingLeft = 13
+        $0.paddingRight = 13
         $0.paddingBottom = 10
         $0.sizeToFit()
     }
@@ -66,29 +64,37 @@ class CounterpartChatCollectionViewCell: BaseCell {
         $0.sizeToFit()
     }
     
-    // MARK: - init
-    func initUI(model: MessageData, userModel: UserInfoModel) {
+    // MARK: - Init UI
+    
+    func configUI(model: MessageData, userModel: UserInfoModel) {
         bindData(data: model, userData: userModel)
-        configureLayout()
+        setLayout()
     }
     
     func bindData(data: MessageData, userData: UserInfoModel) {
         profileImageView.image = UIImage(named: userData.profileImageName!)
+        
         nicknameLabel.text = userData.userName
+        nicknameLabel.setTextSpacingBy(value: -0.6)
         
         couterpartTextLabel.text = data.messageText
+        couterpartTextLabel.setTextSpacingBy(value: -0.6)
+        
         sendTimeLabel.text = data.timeStamp?.toDayTime
+        sendTimeLabel.setTextSpacingBy(value: -0.6)
     }
     
     // MARK: - layoutSubviews
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         chatGrayBackView.roundCorners(corners: [.topRight, .bottomLeft, .bottomRight], radius: 15.0)
     }
 }
 // MARK: - Layout
+
 extension CounterpartChatCollectionViewCell {
-    func configureLayout() {
+    func setLayout() {
         self.addSubviews([profileBorderView, profileImageView, nicknameLabel, chatGrayBackView, couterpartTextLabel, sendTimeLabel])
         
         profileBorderView.snp.makeConstraints {

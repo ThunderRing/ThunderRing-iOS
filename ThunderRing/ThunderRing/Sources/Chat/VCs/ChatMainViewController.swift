@@ -25,6 +25,7 @@ final class ChatMainViewController: UIViewController {
         $0.text = "24시간이 지난 후 채팅방은 펑 사라져요"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 14)
+        $0.setTextSpacingBy(value: -0.6)
     }
     
     private lazy var chatListTableView = UITableView().then {
