@@ -11,3 +11,8 @@ struct Const {
     // extension 해서 사용할 것
 }
 
+extension Const {
+    struct Lightning {
+        static var DateAndTime = ""
+    }
+}

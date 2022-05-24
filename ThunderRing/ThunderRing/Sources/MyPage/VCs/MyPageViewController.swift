@@ -136,9 +136,43 @@ final class MyPageViewController: UIViewController {
             let value = snapshot.value as? NSDictionary
             let userName = value?["name"] as? String ?? "error"
             let imageName = value?["imageName"] as? String ?? ""
+            let tendency = value?["tendency"] as? String ?? "diligent"
             
             self.userNameLabel.text = userName
             self.userImageView.image = UIImage(named: imageName)
+            
+            switch tendency {
+            case "diligent":
+                self.groupTendencyView.tagType = .diligent
+                self.groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(95)
+                }
+            case "cozy":
+                self.groupTendencyView.tagType = .cozy
+                self.groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(84)
+                }
+            case "soft":
+                self.groupTendencyView.tagType = .soft
+                self.groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(72)
+                }
+            case "crowd":
+                self.groupTendencyView.tagType = .crowd
+                self.groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(84)
+                }
+            case "emotion":
+                self.groupTendencyView.tagType = .emotion
+                self.groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(95)
+                }
+            default:
+                self.groupTendencyView.tagType = .emotion
+                self.groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(95)
+                }
+            }
         })
         
     }

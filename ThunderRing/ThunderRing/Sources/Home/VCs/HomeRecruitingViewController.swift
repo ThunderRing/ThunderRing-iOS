@@ -96,14 +96,14 @@ final class HomeRecruitingViewController: UIViewController {
         dvc.groupName = "[젤리팟]"
         dvc.member = "마예지"
         dvc.memberCount = 5
-        dvc.date = "5월 25일 수요일 오후 2:00"
+        dvc.date = "5월 25일 수요일 오후 8:00"
         dvc.location = "연남동"
         present(dvc, animated: true)
     }
     
     @objc func touchUpJoinButton(_ notification: Notification) {
         lightningData[0].members?.removeLast()
-        lightningData[0].members?.append("proYeji")
+        lightningData[0].members?.append("proJiwon")
         recruitingTableView.reloadData()
     }
 }

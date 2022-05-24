@@ -91,8 +91,6 @@ final class TestViewController: UIViewController {
         }
         
         indexLabel.text = "\(currentIndex)/8"
-        
-        customNavigationBar.setTitle(title: "")
     }
     
     private func setLayout() {

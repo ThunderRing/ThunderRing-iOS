@@ -12,7 +12,7 @@
                     "memberName": "김서진"
                 },
                 {
-                    "memberImageName": "proJiwon",
+                    "memberImageName": "pro3",
                     "memberName": "신윤아"
                 },
                 {
@@ -20,29 +20,29 @@
                     "memberName": "서혜진"
                 },
                 {
-                    "memberImageName": "proSoyeon",
+                    "memberImageName": "pro7",
                     "memberName": "이동근"
                 },{
-                    "memberImageName": "proYeji",
+                    "memberImageName": "pro9",
                     "memberName": "이희연"
                 },
                 {
-                    "memberImageName": "proJiwon",
+                    "memberImageName": "pro8",
                     "memberName": "임미루"
                 },
                 {
-                    "memberImageName": "proNamin",
+                    "memberImageName": "pro10",
                     "memberName": "이시윤"
                 },
                 {
-                    "memberImageName": "proSoyeon",
+                    "memberImageName": "proJiwon",
                     "memberName": "이지원"
                 }, {
-                    "memberImageName": "proNamin",
+                    "memberImageName": "pro13",
                     "memberName": "김부경"
                 },
                 {
-                    "memberImageName": "proSoyeon",
+                    "memberImageName": "proNayoung",
                     "memberName": "김루희"
                 }
                 
@@ -50,34 +50,34 @@
             "groupMaxCount": 30,
             "history": [
                 {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
+                    "date": "22/05/29",
+                    "lightningName": "연남동 자기집",
+                    "memberCount": 8,
+                    "location": "홍대입구 9번출구"
                 },
                 {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
+                    "date": "22/04/29",
+                    "lightningName": "도예 공방 체험해요",
+                    "memberCount": 5,
+                    "location": "미아사거리역 3번출구"
                 },
                 {
-                    "date": "21/08/03",
-                    "lightningName": "서울여대 도서관 가기",
+                    "date": "22/04/15",
+                    "lightningName": "마이포터리 도예공방",
                     "memberCount": 4,
-                    "location": "서울여대 중앙도서관"
+                    "location": "남양주시 수동면"
                 },
                 {
-                    "date": "21/08/03",
+                    "date": "22/03/28",
                     "lightningName": "석계 야채곱창 뿌시기",
                     "memberCount": 3,
-                    "location": "석계역 4번 출구"
+                    "location": "경복궁역 4번출구"
                 },
                 {
                     "date": "21/08/03",
-                    "lightningName": "스파이더맨 보러가자",
+                    "lightningName": "나만의 컵 만들기",
                     "memberCount": 2,
-                    "location": "CGV 대학로점"
+                    "location": "대학로"
                 }
             ]
         },

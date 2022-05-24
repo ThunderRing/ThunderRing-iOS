@@ -17,6 +17,7 @@ final class AlarmPopUpViewController: UIViewController {
     private var lightningView = PopUpView()
     
     private var cancelView = CancelView().then {
+        $0.content = "공덕역 카페로 번개 정원이\n충족되지 않았습니다"
         $0.backgroundColor = .white
         $0.isHidden = true
     }
