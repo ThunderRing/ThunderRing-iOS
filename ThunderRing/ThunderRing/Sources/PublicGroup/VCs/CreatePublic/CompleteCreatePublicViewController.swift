@@ -103,6 +103,7 @@ final class CompleteCreatePublicViewController: UIViewController {
     // MARK: - @objc
     
     @objc func touchUpCreateButton() {
+        NotificationCenter.default.post(name: NSNotification.Name("CreateNewPublicGroup"), object: nil)
         dismiss(animated: true)
     }
 }
