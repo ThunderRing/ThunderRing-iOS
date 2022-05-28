@@ -27,9 +27,9 @@ class MyChatCollectionViewCell: BaseCell {
         $0.textColor = .white
         $0.textAlignment = .left
         $0.letterSpacing = -0.39
-        $0.paddingTop = 12
-        $0.paddingLeft = 10
-        $0.paddingRight = 12
+        $0.paddingTop = 10
+        $0.paddingLeft = 13
+        $0.paddingRight = 13
         $0.paddingBottom = 10
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.numberOfLines = 0

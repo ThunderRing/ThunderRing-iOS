@@ -40,10 +40,19 @@ class ChatMainTableViewCell: UITableViewCell {
         cellView.chatImageView.image = UIImage(named: chatList.imageName!)
         
         cellView.subTitleLabel.text = chatList.groupName
+        cellView.subTitleLabel.setTextSpacingBy(value: -0.6)
+        
         cellView.titleLabel.text = chatList.thunderName
+        cellView.titleLabel.setTextSpacingBy(value: -0.6)
+        
         cellView.memberCountLabel.text = "\(chatList.countUsers!)"
+        cellView.memberCountLabel.setTextSpacingBy(value: -0.6)
+        
         cellView.contentLabel.text = chatList.contentLabel
+        cellView.contentLabel.setTextSpacingBy(value: -0.6)
+        
         cellView.timeLabel.text = chatList.timeStamp?.toRelativeTime
+        cellView.timeLabel.setTextSpacingBy(value: -0.6)
         
         cellView.messageCountView.messageCount = chatList.chatCount!
     }

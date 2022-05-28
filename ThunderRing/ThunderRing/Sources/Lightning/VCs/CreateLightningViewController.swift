@@ -18,6 +18,7 @@ final class CreateLightningViewController: UIViewController {
     
     private var groupNameLabel = UILabel().then {
         $0.text = "그룹 선택"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
     }
@@ -36,6 +37,7 @@ final class CreateLightningViewController: UIViewController {
     
     private lazy var lightningNameLabel = UILabel().then {
         $0.text = "번개 이름"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 18)
     }
@@ -51,6 +53,7 @@ final class CreateLightningViewController: UIViewController {
     
     private var lightningNameCountLabel = UILabel().then {
         $0.text = "0/10"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray200
         $0.font = .DINPro(type: .regular, size: 16)
     }
@@ -60,13 +63,14 @@ final class CreateLightningViewController: UIViewController {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 16)
         $0.textColor = .gray200
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray300.cgColor, cornerRadius: 12, bounds: true)
-        $0.textContainerInset = UIEdgeInsets(top: 11, left: 13, bottom: 11, right: 13)
+        $0.textContainerInset = UIEdgeInsets(top: 11, left: 12, bottom: 11, right: 12)
         $0.tintColor = .purple100
         $0.backgroundColor = .white
     }
     
     private var detailCountLabel = UILabel().then {
         $0.text = "0/120"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray200
         $0.font = .DINPro(type: .regular, size: 16)
     }

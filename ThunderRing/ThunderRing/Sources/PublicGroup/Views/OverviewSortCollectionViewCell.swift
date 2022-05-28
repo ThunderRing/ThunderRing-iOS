@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class OverviewSortCollectionViewCell: UICollectionViewCell {
-    static let identifier = "OverviewSortCollectionViewCell"
+    static var cellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     

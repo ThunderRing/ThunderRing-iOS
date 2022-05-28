@@ -31,15 +31,17 @@ final class CancelView: UIView {
     }
     
     private var lightningNameLabel = UILabel().then {
-        $0.text = "번개이름"
+        $0.text = "번개취소"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .bold, size: 16)
     }
     
     private var groupNameLabel = UILabel().then {
-        $0.text = "[그룹이름] 주최자이름"
+        $0.text = "[Oil PASTEL] 김소연"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+        $0.setTextSpacingBy(value: -0.6)
     }
     
     private var lineView = UIView().then {
@@ -47,7 +49,6 @@ final class CancelView: UIView {
     }
     
     private var contentLabel = UILabel().then {
-        $0.text = "공덕역 카페로 번개 정원이\n충족되지 않았습니다"
         $0.setTextSpacingBy(value: -0.6)
         $0.numberOfLines = 0
         $0.textColor = .gray100
@@ -65,6 +66,33 @@ final class CancelView: UIView {
     }
     
     weak var delegate: CancelViewDelegate?
+    
+    var lightningName: String = "" {
+        didSet {
+            lightningNameLabel.text = lightningName
+            lightningNameLabel.setTextSpacingBy(value: -0.6)
+        }
+    }
+    
+    var groupName: String = "" {
+        didSet {
+            groupNameLabel.text = groupName
+            groupNameLabel.setTextSpacingBy(value: -0.6)
+        }
+    }
+    
+    var content: String = "" {
+        didSet {
+            contentLabel.setTextSpacingBy(value: -0.6)
+            
+            let attributeString = NSMutableAttributedString(string: content)
+            let font = UIFont.SpoqaHanSansNeo(type: .medium, size: 14)
+            attributeString.addAttribute(.foregroundColor, value: UIColor.purple100, range: (content as NSString).range(of: "공덕역 카페로"))
+            attributeString.addAttribute(.font, value: font, range: (content as NSString).range(of: "공덕역 카페로"))
+            
+            contentLabel.attributedText = attributeString
+        }
+    }
     
     // MARK: - Initializer
     

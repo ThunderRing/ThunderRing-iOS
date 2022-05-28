@@ -79,7 +79,7 @@ final class MyPublicViewController: UIViewController {
         groupCollectionView.delegate = self
         groupCollectionView.dataSource = self
         
-        groupCollectionView.register(UINib(nibName: MyGroupCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: MyGroupCollectionViewCell.identifier)
+        groupCollectionView.register(UINib(nibName: MyGroupCollectionViewCell.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: MyGroupCollectionViewCell.cellIdentifier)
         groupCollectionView.register(MyOverviewCollectionViewCell.self, forCellWithReuseIdentifier: MyOverviewCollectionViewCell.cellIdentifier)
     }
     
@@ -113,6 +113,8 @@ final class MyPublicViewController: UIViewController {
     
     private func getNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(searchPublicGroup(_:)), name: NSNotification.Name("SearchPublicGroup"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getNewGroupNotification(_:)), name: NSNotification.Name("CreateNewPublicGroup"), object: nil)
     }
     
     // MARK: - @objc
@@ -156,6 +158,10 @@ final class MyPublicViewController: UIViewController {
         }
         
         NotificationCenter.default.post(name: NSNotification.Name("DiligentTendency"), object: nil)
+    }
+    
+    @objc func getNewGroupNotification(_ notification: Notification) {
+        getNewPublicGroupData()
     }
 }
 
@@ -212,7 +218,7 @@ extension MyPublicViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.row {
         case 0 :
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyGroupCollectionViewCell.identifier, for: indexPath) as? MyGroupCollectionViewCell else { return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyGroupCollectionViewCell.cellIdentifier, for: indexPath) as? MyGroupCollectionViewCell else { return UICollectionViewCell() }
             cell.delegate = self
             cell.count = publicGroupData.count
             cell.initCell(publicGroupData)
@@ -282,5 +288,14 @@ extension MyPublicViewController {
             let data = try? JSONDecoder().decode(PublicGroupResponse.self, from: jsonData)
         else { return }
         publicGroupData = data.publicGroupData
+    }
+    
+    private func getNewPublicGroupData() {
+        guard
+            let jsonData = self.loadData(filNm: "NewPublicGroupData"),
+            let data = try? JSONDecoder().decode(PublicGroupResponse.self, from: jsonData)
+        else { return }
+        publicGroupData = data.publicGroupData
+        groupCollectionView.reloadData()
     }
 }

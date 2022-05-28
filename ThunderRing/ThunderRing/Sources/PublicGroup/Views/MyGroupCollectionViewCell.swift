@@ -16,7 +16,7 @@ protocol MyGroupCollectionViewCellDelegate {
 }
 
 final class MyGroupCollectionViewCell: UICollectionViewCell {
-    static let identifier = "MyGroupCollectionViewCell"
+    static var cellIdentifier: String { return String(describing: self) }
 
     // MARK: - Properties
     
@@ -112,7 +112,7 @@ final class MyGroupCollectionViewCell: UICollectionViewCell {
         groupTableView.separatorStyle = .none
         groupTableView.showsVerticalScrollIndicator = false
         
-        groupTableView.register(MyPublicGroupTableViewCell.self, forCellReuseIdentifier: MyPublicGroupTableViewCell.identifier)
+        groupTableView.register(MyPublicGroupTableViewCell.self, forCellReuseIdentifier: MyPublicGroupTableViewCell.cellIdentifier)
     }
     
     internal func initCell(_ data: [PublicGroupData]) {
@@ -155,7 +155,7 @@ extension MyGroupCollectionViewCell: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPublicGroupTableViewCell.identifier) as? MyPublicGroupTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyPublicGroupTableViewCell.cellIdentifier) as? MyPublicGroupTableViewCell else { return UITableViewCell() }
         cell.initCell(publicGroupData[indexPath.row])
         cell.selectionStyle = .none
         return cell

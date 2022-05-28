@@ -25,9 +25,9 @@ var lightningData = [
                        lightningName: "젤리 먹자",
                        description: "연남동에 맛있는 젤리 가게가 있다는데 같이 먹으러 갈 사람 구한다",
                        date: "5월 25일",
-                       time: "오후 2:00",
+                       time: "오후 8:00",
                        location: "연남동",
                        minNumber: 2,
                        maxNumber: 5,
-                       members: ["pro4", "btnPlueButton"])
+                       members: ["proYeji", "btnPlueButton"])
 ]

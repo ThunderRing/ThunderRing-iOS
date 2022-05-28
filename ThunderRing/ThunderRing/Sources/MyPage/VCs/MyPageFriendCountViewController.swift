@@ -230,7 +230,7 @@ fileprivate final class ItemCell: UITableViewCell {
         groupTendencyView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(7)
             $0.leading.equalTo(userImageView.snp.trailing).offset(14)
-            $0.width.equalTo(95)
+            $0.width.equalTo(84)
             $0.height.equalTo(21)
         }
     }
@@ -242,8 +242,37 @@ fileprivate final class ItemCell: UITableViewCell {
         userImageView.image = UIImage(named: imageName)
         
         titleLabel.text = data.name
+        titleLabel.setTextSpacingBy(value: -0.6)
         
-        // MARK: - FIXME
-        groupTendencyView.tagType = .emotion
+        if let tendency = data.tendency {
+            switch tendency {
+            case "diligent":
+                groupTendencyView.tagType = .diligent
+                groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(95)
+                }
+            case "cozy":
+                groupTendencyView.tagType = .cozy
+                groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(84)
+                }
+            case "soft":
+                groupTendencyView.tagType = .soft
+                groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(72)
+                }
+            case "crowd":
+                groupTendencyView.tagType = .crowd
+                groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(84)
+                }
+            default:
+                groupTendencyView.tagType = .emotion
+                groupTendencyView.snp.updateConstraints {
+                    $0.width.equalTo(95)
+                }
+            }
+        }
+        
     }
 }

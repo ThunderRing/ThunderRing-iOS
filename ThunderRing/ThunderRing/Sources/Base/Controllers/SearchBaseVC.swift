@@ -14,7 +14,7 @@ class SearchBaseVC: UIViewController {
 
     // MARK: - Properties
     
-    lazy var navigationBarView = CustomNavigationBar(vc: self, title: "title", backBtnIsHidden: true, closeBtnIsHidden: false, bgColor: .background)
+    lazy var navigationBarView = TDSNavigationBar(self, view: .main, backButtonIsHidden: true, closeButtonIsHidden: false)
 
     private var searchBar = TDSTextField()
     

@@ -2,7 +2,7 @@
 //  ChatVC.swift
 //  ThunderRing
 //
-//  Created by soyeon on 2021/11/07.
+//  Created by 소연 on 2021/11/07.
 //
 
 import UIKit
@@ -31,14 +31,13 @@ final class ChatViewController: UIViewController {
     private var chatCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).then {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        $0.backgroundColor = .systemBackground
         $0.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         $0.showsHorizontalScrollIndicator = false
         $0.collectionViewLayout = layout
     }
     
     private var backgroundView = UIView().then {
-        $0.backgroundColor = .systemBackground
+        $0.backgroundColor = .background
     }
     
     private var lineView = UIView().then {
@@ -87,20 +86,24 @@ final class ChatViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = true
-        navigationController?.navigationBar.isHidden = true
+        configTabBarUI()
+        configNavigationUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         getDestinationUserInfo()
-        
         configUI()
         setLayout()
         setCollectionView()
         getNotification()
         setAction()
+    }
+    
+    // MARK: - Init UI
+    
+    private func configTabBarUI() {
+        tabBarController?.tabBar.isHidden = true
     }
     
     private func configUI() {
@@ -118,7 +121,7 @@ final class ChatViewController: UIViewController {
         customNavigationBarView.backgroundColor = .white
         customNavigationBarView.layer.applyShadow()
         
-        guideView.title = "내일 오후 9:41 펑"
+        guideView.title = "내일 오전 11:23 펑"
         
         chatCollectionView.backgroundColor = .background
         
@@ -198,7 +201,7 @@ final class ChatViewController: UIViewController {
         }), for: .touchUpInside)
         
         hamburgerButton.addAction(UIAction(handler: { _ in
-            // FIXME: - 화면 연결
+            print("햄버거 버튼")
         }), for: .touchUpInside)
     }
     
@@ -258,9 +261,7 @@ final class ChatViewController: UIViewController {
                 self.getMessageList()
                 self.getDestinationUserChatCount()
             }
-            
         })
-        
     }
     
     func getDestinationUserChatCount(){
@@ -332,7 +333,6 @@ extension ChatViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
     }
-    
 }
 
 extension ChatViewController: UICollectionViewDataSource {
@@ -345,11 +345,10 @@ extension ChatViewController: UICollectionViewDataSource {
         if comments[indexPath.row].uid != uid {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CounterpartChatCollectionViewCell.identifier, for: indexPath)
             if let counterpartChatCell = cell as? CounterpartChatCollectionViewCell {
-                counterpartChatCell.initUI(model: comments[indexPath.row], userModel: userInfo[0])
+                counterpartChatCell.configUI(model: comments[indexPath.row], userModel: userInfo[0])
                 counterpartChatCell.couterpartTextLabel.adjustsFontSizeToFitWidth = true
             }
             return cell
-            
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyChatCollectionViewCell.identifier, for: indexPath)
             if let myChatCell = cell as? MyChatCollectionViewCell {

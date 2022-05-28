@@ -33,6 +33,7 @@ final class CompleteCreatePublicViewController: UIViewController {
         $0.numberOfLines = 2
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
+        $0.textAlignment = .center
     }
     
     private lazy var createButton = TDSButton().then {
@@ -102,6 +103,7 @@ final class CompleteCreatePublicViewController: UIViewController {
     // MARK: - @objc
     
     @objc func touchUpCreateButton() {
+        NotificationCenter.default.post(name: NSNotification.Name("CreateNewPublicGroup"), object: nil)
         dismiss(animated: true)
     }
 }

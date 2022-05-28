@@ -73,7 +73,7 @@ class CustomNavigationBar: UIView {
         closeButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(9)
             $0.width.height.equalTo(48)
-            $0.centerY.equalTo(titleLabel.snp.centerY)
+            $0.bottom.equalToSuperview().inset(1)
         }
     }
     

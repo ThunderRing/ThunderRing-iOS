@@ -86,7 +86,6 @@ final class PopUpView: UIView {
     
     private var timeTagLabel = UILabel().then {
         $0.textColor = .purple100
-        $0.text = "모집 시간: 오후 3시 08분까지"
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
         $0.setTextSpacingBy(value: -0.6)
     }
@@ -276,11 +275,20 @@ final class PopUpView: UIView {
     
     // MARK: Custom Method
     
-    private func updateView() {
+    func updateView() {
         switch alarmType {
         case .thunder:
             return
         case .lightning:
+            timeTagLabel.text = "모집 시간: \(Const.Lightning.DateAndTime)까지"
+            timeTagLabel.setTextSpacingBy(value: -0.6)
+            
+            timeTagView.snp.updateConstraints {
+                $0.top.equalTo(locationImageView.snp.bottom).offset(19)
+                $0.width.equalTo(calculateViewWidth())
+                $0.height.equalTo(23)
+                $0.centerX.equalToSuperview()
+            }
             return
         case .cancel:
             timeTagView.initViewBorder(borderWidth: 1, borderColor: UIColor.red.cgColor, cornerRadius: 11.5, bounds: true)
@@ -300,8 +308,13 @@ final class PopUpView: UIView {
         }
     }
     
-    internal func setData() {
-        
+    private func calculateViewWidth() -> CGFloat {
+        let label = UILabel()
+        label.text = "모집 시간: \(Const.Lightning.DateAndTime)까지"
+        label.setTextSpacingBy(value: -0.6)
+        label.font = .SpoqaHanSansNeo(type: .regular, size: 12)
+        label.sizeToFit()
+        return label.frame.width + 14 + 14
     }
     
     // MARK: - @objc

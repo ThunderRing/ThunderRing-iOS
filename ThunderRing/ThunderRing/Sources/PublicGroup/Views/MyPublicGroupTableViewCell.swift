@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 final class MyPublicGroupTableViewCell: UITableViewCell {
-    static let identifier = "MyPublicGroupTableViewCell"
+    static var cellIdentifier: String { return String(describing: self) }
     
     // MARK: - Properties
     

@@ -21,6 +21,7 @@ final class GuideView: UIView {
     var title: String = "" {
         didSet {
             titleLabel.text = "\(title)"
+            titleLabel.setTextSpacingBy(value: -0.6)
         }
     }
     

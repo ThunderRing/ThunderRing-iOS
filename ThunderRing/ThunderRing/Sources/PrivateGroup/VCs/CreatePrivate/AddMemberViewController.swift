@@ -13,6 +13,8 @@ final class AddMemberViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var countLabel: UILabel!
     
@@ -56,10 +58,8 @@ final class AddMemberViewController: UIViewController {
     // MARK: - Init UI
     
     private func configUI() {
-        var configuration = UIButton.Configuration.plain()
-        configuration.baseForegroundColor = .lightGray
-        configuration.attributedTitle = AttributedString("확인", attributes: AttributeContainer([NSAttributedString.Key.foregroundColor: UIColor.purple100, NSAttributedString.Key.font: UIFont.SpoqaHanSansNeo(type: .medium, size: 18)]))
-        confirmButton.configuration = configuration
+        confirmButton.titleLabel?.font = .SpoqaHanSansNeo(type: .regular, size: 16)
+        cancelButton.titleLabel?.font = .SpoqaHanSansNeo(type: .regular, size: 16)
         
         countLabel.text = "\(count)"
     }

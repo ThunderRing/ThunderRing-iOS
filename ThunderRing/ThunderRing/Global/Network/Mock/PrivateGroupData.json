@@ -24,25 +24,25 @@
             ],
             "history": [
                 {
-                    "date": "21/08/03",
+                    "date": "22/02/03",
                     "lightningName": "이태원 모각작 모아요",
                     "memberCount": 4,
                     "location": "이태원 4번 출구"
                 },
                 {
-                    "date": "21/08/03",
+                    "date": "22/01/03",
                     "lightningName": "피파 달글 줌맥",
                     "memberCount": 4,
                     "location": "Zoom 미팅"
                 },
                 {
-                    "date": "21/08/03",
+                    "date": "21/11/17",
                     "lightningName": "서울여대 도서관 가기",
                     "memberCount": 4,
                     "location": "서울여대 중앙도서관"
                 },
                 {
-                    "date": "21/08/03",
+                    "date": "21/09/05",
                     "lightningName": "석계 야채곱창 뿌시기",
                     "memberCount": 3,
                     "location": "석계역 4번 출구"
@@ -71,33 +71,29 @@
                 {
                     "memberImageName": "proNamin",
                     "memberName": "윤하민"
-                },
-                {
-                    "memberImageName": "proSoyeon",
-                    "memberName": "김소연"
                 }
             ],
             "history": [
                 {
-                    "date": "21/08/03",
+                    "date": "22/04/05",
                     "lightningName": "이태원 모각작 모아요",
                     "memberCount": 4,
                     "location": "이태원 4번 출구"
                 },
                 {
-                    "date": "21/08/03",
+                    "date": "22/03/27",
                     "lightningName": "피파 달글 줌맥",
                     "memberCount": 4,
                     "location": "Zoom 미팅"
                 },
                 {
-                    "date": "21/08/03",
+                    "date": "22/01/03",
                     "lightningName": "서울여대 도서관 가기",
                     "memberCount": 4,
                     "location": "서울여대 중앙도서관"
                 },
                 {
-                    "date": "21/08/03",
+                    "date": "21/09/19",
                     "lightningName": "석계 야채곱창 뿌시기",
                     "memberCount": 3,
                     "location": "석계역 4번 출구"
@@ -138,13 +134,13 @@
             ],
             "history": [
                 {
-                    "date": "21/08/05",
+                    "date": "22/04/18",
                     "lightningName": "성수동 군것질",
                     "memberCount": 2,
                     "location": "서울숲 2번 츌구"
                 },
                 {
-                    "date": "21/12/12",
+                    "date": "22/03/03",
                     "lightningName": "연남동 젤리",
                     "memberCount": 3,
                     "location": "홍대 문화의 거리"
@@ -156,13 +152,13 @@
                     "location": "화랑대 2번 출구"
                 },
                 {
-                    "date": "22/03/03",
+                    "date": "21/12/12",
                     "lightningName": "한남동 그릭요거트",
                     "memberCount": 3,
                     "location": "이태원역 1번 출구"
                 },
                 {
-                    "date": "22/04/18",
+                    "date": "21/08/05",
                     "lightningName": "홍대 젤리 캔디",
                     "memberCount": 3,
                     "location": "홍대 할리스 앞"
@@ -179,48 +175,52 @@
                     "memberName": "마예지"
                 },
                 {
-                    "memberImageName": "proJiwon",
-                    "memberName": "이지원"
+                    "memberImageName": "pro9",
+                    "memberName": "이담원"
                 },
                 {
-                    "memberImageName": "proNamin",
-                    "memberName": "윤하민"
+                    "memberImageName": "pro10",
+                    "memberName": "이희연"
                 },
                 {
-                    "memberImageName": "proSoyeon",
-                    "memberName": "김소연"
+                    "memberImageName": "pro3",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "pro5",
+                    "memberName": "임미루"
                 }
             ],
             "history": [
                 {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
+                    "date": "22/05/21",
+                    "lightningName": "네셔널지오그래픽 보자",
                     "memberCount": 4,
                     "location": "Zoom 미팅"
                 },
                 {
-                    "date": "21/08/03",
+                    "date": "22/03/19",
+                    "lightningName": "넷플릭스 보자",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "22/02/03",
                     "lightningName": "서울여대 도서관 가기",
                     "memberCount": 4,
                     "location": "서울여대 중앙도서관"
                 },
                 {
-                    "date": "21/08/03",
-                    "lightningName": "석계 야채곱창 뿌시기",
-                    "memberCount": 3,
-                    "location": "석계역 4번 출구"
+                    "date": "21/09/15",
+                    "lightningName": "오늘은 지구의 날!!",
+                    "memberCount": 4,
+                    "location": "한강"
                 },
                 {
                     "date": "21/08/03",
-                    "lightningName": "스파이더맨 보러가자",
+                    "lightningName": "플로깅 가자",
                     "memberCount": 2,
-                    "location": "CGV 대학로점"
+                    "location": "서울숲 2번 출구"
                 }
             ]
         },
@@ -234,48 +234,48 @@
                     "memberName": "마예지"
                 },
                 {
+                    "memberImageName": "proNayoung",
+                    "memberName": "이나영"
+                },
+                {
+                    "memberImageName": "proSeulgi",
+                    "memberName": "김슬기"
+                },
+                {
                     "memberImageName": "proJiwon",
                     "memberName": "이지원"
-                },
-                {
-                    "memberImageName": "proNamin",
-                    "memberName": "윤하민"
-                },
-                {
-                    "memberImageName": "proSoyeon",
-                    "memberName": "김소연"
                 }
             ],
             "history": [
                 {
-                    "date": "21/08/03",
-                    "lightningName": "이태원 모각작 모아요",
-                    "memberCount": 4,
-                    "location": "이태원 4번 출구"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "피파 달글 줌맥",
-                    "memberCount": 4,
-                    "location": "Zoom 미팅"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "서울여대 도서관 가기",
-                    "memberCount": 4,
-                    "location": "서울여대 중앙도서관"
-                },
-                {
-                    "date": "21/08/03",
-                    "lightningName": "석계 야채곱창 뿌시기",
+                    "date": "22/01/19",
+                    "lightningName": "밸리밸리 워크밸리",
                     "memberCount": 3,
-                    "location": "석계역 4번 출구"
+                    "location": "워크밸리 매표소 앞"
                 },
                 {
-                    "date": "21/08/03",
-                    "lightningName": "스파이더맨 보러가자",
+                    "date": "22/01/02",
+                    "lightningName": "비발디파크",
                     "memberCount": 2,
-                    "location": "CGV 대학로점"
+                    "location": "강원도"
+                },
+                {
+                    "date": "21/12/19",
+                    "lightningName": "또이원",
+                    "memberCount": 2,
+                    "location": "하이원"
+                },
+                {
+                    "date": "21/12/10",
+                    "lightningName": "비발디파크 스키장가자",
+                    "memberCount": 3,
+                    "location": "비발디파크"
+                },
+                {
+                    "date": "21/12/03",
+                    "lightningName": "하이원에서 놀아요",
+                    "memberCount": 2,
+                    "location": "하이원 입구 앞"
                 }
             ]
         },

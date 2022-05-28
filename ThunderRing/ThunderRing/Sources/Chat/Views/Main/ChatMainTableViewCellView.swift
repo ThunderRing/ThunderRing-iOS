@@ -13,44 +13,34 @@ import Then
 final class ChatMainTableViewCellView: UIView {
     
     var chatImageView = UIImageView().then {
-        $0.image = UIImage(named: "imgDog1")
         $0.makeRounded(cornerRadius: 19)
     }
     
     var titleLabel = UILabel().then {
-        $0.text = "동물농장 같이 볼 사람? "
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 16)
-        $0.setTextSpacingBy(value: -0.6)
     }
     
     var memberCountLabel = UILabel().then {
-        $0.text = "20"
         $0.textColor = .gray200
         $0.font = .DINPro(type: .regular, size: 16)
     }
     
     var subTitleLabel = UILabel().then {
-        $0.text = "댕댕쓰"
         $0.textColor = .purple100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
-        $0.setTextSpacingBy(value: -0.6)
     }
     
     var contentLabel = UILabel().then {
-        $0.text = "어쩌구저쩌구동물농장시작합니당어쩌구저쩌구울랄라"
         $0.numberOfLines = 1
         $0.textColor = .gray150
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
-        $0.setTextSpacingBy(value: -0.6)
         $0.lineBreakMode = .byTruncatingTail
     }
     
     var timeLabel = UILabel().then {
-        $0.text = "8분전"
         $0.textColor = .gray200
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
-        $0.setTextSpacingBy(value: -0.6)
     }
     
     var messageCountView = MessageCountView()
@@ -147,6 +137,7 @@ final class MessageCountView: UIView {
     var messageCount: Int = 0 {
         didSet {
             label.text = "\(messageCount)"
+            label.setTextSpacingBy(value: -0.6)
         }
     }
     
