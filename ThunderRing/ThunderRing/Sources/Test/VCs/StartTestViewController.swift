@@ -26,6 +26,8 @@ class StartTestViewController: UIViewController {
     
     private var contentLabel = UILabel().then {
         $0.text = "이지원님의 성향을 분석해볼게요\n그룹 번개 케미, 나는 어떤 유형일까?"
+        $0.textAlignment = .center
+        $0.setTextSpacingBy(value: -0.6)
         $0.numberOfLines = 2
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 17)
