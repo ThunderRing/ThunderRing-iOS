@@ -33,6 +33,8 @@ final class CompleteCreatePublicViewController: UIViewController {
         $0.numberOfLines = 2
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
+        $0.setTextSpacingBy(value: -0.6)
+        $0.setLineSpacing(lineSpacing: 7, lineHeightMultiple: 0)
         $0.textAlignment = .center
     }
     
@@ -44,6 +46,8 @@ final class CompleteCreatePublicViewController: UIViewController {
     
     var groupName: String = ""
     var groupDescription: String = ""
+    
+    var isPrivate: Bool = false
     
     // MARK: - Life Cycle
     
@@ -103,7 +107,7 @@ final class CompleteCreatePublicViewController: UIViewController {
     // MARK: - @objc
     
     @objc func touchUpCreateButton() {
-        NotificationCenter.default.post(name: NSNotification.Name("CreateNewPublicGroup"), object: nil)
+        if !isPrivate { NotificationCenter.default.post(name: NSNotification.Name("CreateNewPublicGroup"), object: nil) }
         dismiss(animated: true)
     }
 }

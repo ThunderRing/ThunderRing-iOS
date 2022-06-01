@@ -13,9 +13,6 @@
         <array key="DINPro-Regular.otf">
             <string>DINPro-Regular</string>
         </array>
-        <array key="SpoqaHanSansNeo-Bold.otf">
-            <string>SpoqaHanSansNeo-Bold</string>
-        </array>
         <array key="SpoqaHanSansNeo-Medium.otf">
             <string>SpoqaHanSansNeo-Medium</string>
         </array>
@@ -313,80 +310,6 @@
             </objects>
             <point key="canvasLocation" x="2300" y="73.660714285714278"/>
         </scene>
-        <!--Complete Create Private View Controller-->
-        <scene sceneID="Kkj-kQ-7BG">
-            <objects>
-                <viewController storyboardIdentifier="CompleteCreatePrivateViewController" id="2El-EZ-xNw" customClass="CompleteCreatePrivateViewController" customModule="ThunderRing" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nr5-Uz-zXB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lN-Q2-FsG">
-                                <rect key="frame" x="0.0" y="44" width="414" height="57"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="7Ce-GB-z5n"/>
-                                </constraints>
-                            </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZQL-Ax-tNC">
-                                <rect key="frame" x="147" y="244" width="120" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="N3a-va-FoB"/>
-                                    <constraint firstAttribute="height" constant="120" id="nie-q7-1kE"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cN-1b-cZC">
-                                <rect key="frame" x="180" y="379" width="54.5" height="25.5"/>
-                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Bold" family="Spoqa Han Sans Neo" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJQ-Ve-6oY">
-                                <rect key="frame" x="189" y="408.5" width="36" height="18"/>
-                                <fontDescription key="fontDescription" name="SpoqaHanSansNeo-Regular" family="Spoqa Han Sans Neo" pointSize="14"/>
-                                <color key="textColor" name="gray150"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-dK-Cl4" customClass="TDSButton" customModule="ThunderRing" customModuleProvider="target">
-                                <rect key="frame" x="25" y="794" width="364" height="52"/>
-                                <color key="backgroundColor" name="purple100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="cqY-Tb-BjZ"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="생성"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="PdI-a9-FL5"/>
-                        <color key="backgroundColor" name="grayBackground"/>
-                        <constraints>
-                            <constraint firstItem="6cN-1b-cZC" firstAttribute="top" secondItem="ZQL-Ax-tNC" secondAttribute="bottom" constant="15" id="JTJ-dT-awf"/>
-                            <constraint firstItem="hJQ-Ve-6oY" firstAttribute="top" secondItem="6cN-1b-cZC" secondAttribute="bottom" constant="4" id="Khy-g5-fz7"/>
-                            <constraint firstItem="ZQL-Ax-tNC" firstAttribute="top" secondItem="0lN-Q2-FsG" secondAttribute="bottom" constant="143" id="Koe-wN-oYX"/>
-                            <constraint firstItem="OL0-dK-Cl4" firstAttribute="leading" secondItem="PdI-a9-FL5" secondAttribute="leading" constant="25" id="OTh-N1-CVR"/>
-                            <constraint firstItem="6cN-1b-cZC" firstAttribute="centerX" secondItem="PdI-a9-FL5" secondAttribute="centerX" id="YmV-xc-hGz"/>
-                            <constraint firstItem="ZQL-Ax-tNC" firstAttribute="centerX" secondItem="PdI-a9-FL5" secondAttribute="centerX" id="je9-uv-kaF"/>
-                            <constraint firstItem="0lN-Q2-FsG" firstAttribute="top" secondItem="PdI-a9-FL5" secondAttribute="top" id="lFm-q2-b6m"/>
-                            <constraint firstItem="PdI-a9-FL5" firstAttribute="bottom" secondItem="OL0-dK-Cl4" secondAttribute="bottom" constant="16" id="loj-VP-7jD"/>
-                            <constraint firstItem="0lN-Q2-FsG" firstAttribute="leading" secondItem="PdI-a9-FL5" secondAttribute="leading" id="qkl-fl-KH1"/>
-                            <constraint firstItem="PdI-a9-FL5" firstAttribute="trailing" secondItem="0lN-Q2-FsG" secondAttribute="trailing" id="sc1-Ht-lc9"/>
-                            <constraint firstItem="PdI-a9-FL5" firstAttribute="trailing" secondItem="OL0-dK-Cl4" secondAttribute="trailing" constant="25" id="vfl-dg-VXA"/>
-                            <constraint firstItem="hJQ-Ve-6oY" firstAttribute="centerX" secondItem="PdI-a9-FL5" secondAttribute="centerX" id="xoy-T2-Dr5"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="completeButton" destination="OL0-dK-Cl4" id="vtP-Nd-vv0"/>
-                        <outlet property="customNavigationBarView" destination="0lN-Q2-FsG" id="Rdy-ok-6Nh"/>
-                        <outlet property="descriptionLabel" destination="hJQ-Ve-6oY" id="eHo-hm-Nlb"/>
-                        <outlet property="groupImageView" destination="ZQL-Ax-tNC" id="pek-NZ-GU5"/>
-                        <outlet property="titleLabel" destination="6cN-1b-cZC" id="n3Y-S4-1aa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wls-83-WBE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2984" y="74"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="OlN-KX-vSq">
             <objects>
@@ -414,9 +337,6 @@
         </namedColor>
         <namedColor name="gray100">
             <color red="0.31000000238418579" green="0.31000000238418579" blue="0.31000000238418579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="gray150">
-            <color red="0.55299997329711914" green="0.55299997329711914" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="grayBackground">
             <color red="0.98799997568130493" green="0.98799997568130493" blue="0.98799997568130493" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

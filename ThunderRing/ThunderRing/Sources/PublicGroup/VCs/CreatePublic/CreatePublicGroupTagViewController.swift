@@ -222,6 +222,7 @@ final class CreatePublicGroupTagViewController: UIViewController {
     
     @objc func touchUpNextButton() {
         let dvc = CompleteCreatePublicViewController()
+        dvc.isPrivate = false
         navigationController?.pushViewController(dvc, animated: true)
     }
     
