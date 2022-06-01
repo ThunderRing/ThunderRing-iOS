@@ -49,7 +49,7 @@ final class AlarmMainViewController: UIViewController {
     }
     
     private var dataList: [Data] = [
-        Data(type: DataType.text, value: ["진행중인 알람"], isActive: false),
+        Data(type: DataType.text, value: ["진행중인 알림"], isActive: false),
         Data(type: DataType.view, value: ["[젤리팟]", "젤리먹자", "번개가 도착했어요. 내용을 확인해보세요", "1분 전"], alarmType: .lightning, isActive: true),
         Data(type: DataType.view, value: ["[아이스케키]", "민초 먹으러 갈래","천둥이 울렸어요. 채팅을 볼까요?", "2시간 전"], alarmType: .thunder, isActive: true),
         Data(type: DataType.view, value: ["[Oil PASTEL]", "공덕역 카페로","번개가 취소되었어요", "2시간 전"], alarmType: .cancel, isActive: true),
@@ -174,19 +174,19 @@ final class AlarmMainViewController: UIViewController {
     }
     
     @objc func touchUpLightningView() {
-        let dvc = AlarmPopUpViewController()
-        dvc.modalTransitionStyle = .crossDissolve
-        dvc.modalPresentationStyle = .overFullScreen
+        let vc = AlarmPopUpViewController()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
         
-        dvc.lightningName = dataList[1].value[1]
-        dvc.groupName = dataList[1].value[0]
-        dvc.member = "마예지"
-        dvc.memberCount = 5
-        dvc.date = "5월 25일 수요일 오후 2:00"
-        dvc.location = "연남동"
+        vc.lightningName = dataList[1].value[1]
+        vc.groupName = dataList[1].value[0]
+        vc.member = "마예지"
+        vc.memberCount = 5
+        vc.date = "5월 25일 수요일 오후 2:00"
+        vc.location = "연남동"
         
-        dvc.handleTap(alarmType: .lightning)
-        present(dvc, animated: true)
+        vc.handleTap(alarmType: .lightning)
+        present(vc, animated: true)
     }
     
     @objc func getJoinNotification() {

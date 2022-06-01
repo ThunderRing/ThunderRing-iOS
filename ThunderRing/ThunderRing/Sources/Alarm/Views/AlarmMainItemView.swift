@@ -195,7 +195,7 @@ enum AlarmItemType {
         case .thunder:
             return "번개가 취소되었어요"
         case .lightning:
-            return "천둥이 울렸어요. 채팅을 볼까요?"
+            return "천둥이 울렸어요. 채팅을 확인해 볼까요?"
         case .cancel:
             return "번개가 도착했어요. 내용을 확인해보세요"
         }
