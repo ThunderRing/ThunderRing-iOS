@@ -62,6 +62,11 @@ final class CompleteCreatePublicViewController: UIViewController {
         setLayout()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - InitUI
     
     private func configUI() {

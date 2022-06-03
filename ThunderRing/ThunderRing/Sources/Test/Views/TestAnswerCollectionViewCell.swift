@@ -22,12 +22,30 @@ final class TestAnswerCollectionViewCell: UICollectionViewCell {
         $0.numberOfLines = 2
     }
     
+    var index: Int = 0
+    var selectedAnswer: Int = 0 
+    
     override var isSelected: Bool {
         didSet {
             if isSelected {
                 layer.borderColor = UIColor.purple100.cgColor
                 layer.borderWidth = 2
                 
+                if index == 7 {
+                    NotificationCenter.default.post(name: NSNotification.Name("LastTest"), object: nil)
+                }
+                
+                if index == 3 {
+                    if selectedAnswer == 0 {
+                        NotificationCenter.default.post(name: NSNotification.Name("TestResultNoti"), object: "cozy")
+                    } else if selectedAnswer == 1 {
+                        NotificationCenter.default.post(name: NSNotification.Name("TestResultNoti"), object: "emotional")
+                    } else if selectedAnswer == 2 {
+                        NotificationCenter.default.post(name: NSNotification.Name("TestResultNoti"), object: "soft")
+                    } else if selectedAnswer == 3 {
+                        NotificationCenter.default.post(name: NSNotification.Name("TestResultNoti"), object: "diligent")
+                    }
+                }
             } else {
                 layer.borderWidth = 0
             }
