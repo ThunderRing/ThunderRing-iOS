@@ -113,6 +113,7 @@ fileprivate final class MoreButton: UIButton {
     private lazy var textLabel = UILabel().then {
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 12)
         $0.text = "전체보기"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray100
         $0.backgroundColor = .background
         $0.textAlignment = .center

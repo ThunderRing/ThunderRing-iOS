@@ -110,12 +110,9 @@ final class CreatePrivateDetailViewController: UIViewController {
     // MARK: - @objc
     
     @objc func touchUpNextButton() {
-        guard let dvc = self.storyboard?.instantiateViewController(withIdentifier: "CompleteCreatePrivateViewController") as? CompleteCreatePrivateViewController else { return }
-        dvc.groupImage = self.groupImage
-        dvc.groupName = self.groupName
-        dvc.groupDescrption = self.descriptionTextField.text!
-        dvc.groupCounts = self.members.count + 1
-        self.navigationController?.pushViewController(dvc, animated: true)
+        let vc = CompleteCreatePublicViewController()
+        vc.isPrivate = true
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc func showCollectionView(_ notification: Notification) {

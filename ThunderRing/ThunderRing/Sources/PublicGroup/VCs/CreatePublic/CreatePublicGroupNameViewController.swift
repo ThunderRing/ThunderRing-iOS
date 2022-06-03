@@ -27,7 +27,7 @@ final class CreatePublicGroupNameViewController: UIViewController {
         $0.contentMode = .scaleAspectFit
     }
     
-    private var profileChangeButton = UIButton().then {
+    private lazy var profileChangeButton = UIButton().then {
         $0.setImage(UIImage(named: "icn_plus_purple"), for: .normal)
         $0.addTarget(self, action: #selector(touchUpEditButton), for: .touchUpInside)
     }

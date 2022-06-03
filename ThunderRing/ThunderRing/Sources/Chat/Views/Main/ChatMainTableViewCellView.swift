@@ -43,10 +43,9 @@ final class ChatMainTableViewCellView: UIView {
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 12)
     }
     
-    var messageCountView = MessageCountView()
+    var chatCountView = ChatCountView()
     
     private lazy var lineView = UIView().then {
-        // FIXME: - 색상변경
         $0.backgroundColor = .gray300
     }
     
@@ -75,7 +74,7 @@ final class ChatMainTableViewCellView: UIView {
                      subTitleLabel,
                      contentLabel,
                      timeLabel,
-                     messageCountView,
+                     chatCountView,
                      lineView])
         
         chatImageView.snp.makeConstraints {
@@ -110,7 +109,7 @@ final class ChatMainTableViewCellView: UIView {
             $0.trailing.equalToSuperview()
         }
         
-        messageCountView.snp.makeConstraints {
+        chatCountView.snp.makeConstraints {
             $0.top.equalTo(timeLabel.snp.bottom).offset(9)
             $0.trailing.equalToSuperview()
             $0.width.equalTo(31)
@@ -124,31 +123,27 @@ final class ChatMainTableViewCellView: UIView {
     }
 }
 
-final class MessageCountView: UIView {
+final class ChatCountView: UIView {
     
     var label = UILabel().then {
-        $0.text = "10"
         $0.textColor = .purple100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 12)
         $0.textAlignment = .center
         $0.setTextSpacingBy(value: -0.6)
     }
     
-    var messageCount: Int = 0 {
+    var chatCount: Int = 0 {
         didSet {
-            label.text = "\(messageCount)"
+            label.text = "\(chatCount)"
             label.setTextSpacingBy(value: -0.6)
         }
     }
     
     init() {
         super.init(frame: .zero)
-        
-        setView()
-       
-//        if messageCount != 0 {
-//            setView()
-//        }
+        if chatCount != 0 {
+            setView()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

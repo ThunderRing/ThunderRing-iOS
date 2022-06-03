@@ -25,6 +25,7 @@ final class CompleteLightningViewController: UIViewController {
     private var contentLabel = UILabel().then {
         $0.text = "그룹원들에게 번개를 쳤어요\n1시간 뒤 천둥을 기대해보세요!"
         $0.setTextSpacingBy(value: -0.6)
+        $0.setLineSpacing(lineSpacing: 7, lineHeightMultiple: 0)
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
         $0.textAlignment = .center

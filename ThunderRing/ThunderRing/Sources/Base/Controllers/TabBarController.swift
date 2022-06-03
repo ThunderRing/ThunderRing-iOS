@@ -73,6 +73,12 @@ extension TabBarController {
     }
     
     @objc func setSelectedTab(_ notification: Notification) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "a h시 mm분"
+        let date = Calendar.current.date(byAdding: .hour, value: 1, to: Date())
+        Const.Lightning.DateAndTime = dateFormatter.string(from: date!)
+        
         self.selectedIndex = 3
     }
 }

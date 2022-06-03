@@ -40,6 +40,7 @@ final class HomeMainViewController: UIViewController {
     
     private lazy var titleLabel = UILabel().then {
         $0.text = "번개를 치고\n천둥을 울려보세요"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .black
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 21)
         $0.numberOfLines = 2
@@ -47,6 +48,7 @@ final class HomeMainViewController: UIViewController {
     
     private lazy var subTitleLabel = UILabel().then {
         $0.text = "누구와 약속을 잡아볼까요?"
+        $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .black
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
     }

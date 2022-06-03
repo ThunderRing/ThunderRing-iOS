@@ -13,6 +13,6 @@ struct Const {
 
 extension Const {
     struct Lightning {
-        static var DateAndTime = ""
+        static var DateAndTime = "오후 3시 08분"
     }
 }
