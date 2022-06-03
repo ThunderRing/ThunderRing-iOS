@@ -17,6 +17,8 @@
 		9209959D280C8671008C3491 /* PrivateGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9209959C280C8671008C3491 /* PrivateGroupData.json */; };
 		920995A4280D3D5E008C3491 /* PublicGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920995A3280D3D5E008C3491 /* PublicGroupResponse.swift */; };
 		920995A6280D415C008C3491 /* PublicGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 920995A5280D415C008C3491 /* PublicGroupData.json */; };
+		920B3C4C284A5C63002A940E /* TendencyTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B3C4B284A5C63002A940E /* TendencyTestViewController.swift */; };
+		920B3C4E284A5FC5002A940E /* TendencyTestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B3C4D284A5FC5002A940E /* TendencyTestCollectionViewCell.swift */; };
 		9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212663E2747BB2B009DE534 /* TestDataModel.swift */; };
 		9212667A2748055A009DE534 /* TestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266792748055A009DE534 /* TestResultViewController.swift */; };
 		9212667C2748167D009DE534 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212667B2748167D009DE534 /* UIColor+.swift */; };
@@ -186,6 +188,8 @@
 		9209959C280C8671008C3491 /* PrivateGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PrivateGroupData.json; sourceTree = "<group>"; };
 		920995A3280D3D5E008C3491 /* PublicGroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGroupResponse.swift; sourceTree = "<group>"; };
 		920995A5280D415C008C3491 /* PublicGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PublicGroupData.json; sourceTree = "<group>"; };
+		920B3C4B284A5C63002A940E /* TendencyTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendencyTestViewController.swift; sourceTree = "<group>"; };
+		920B3C4D284A5FC5002A940E /* TendencyTestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendencyTestCollectionViewCell.swift; sourceTree = "<group>"; };
 		9212663E2747BB2B009DE534 /* TestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataModel.swift; sourceTree = "<group>"; };
 		921266792748055A009DE534 /* TestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultViewController.swift; sourceTree = "<group>"; };
 		9212667B2748167D009DE534 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -401,6 +405,7 @@
 				921266792748055A009DE534 /* TestResultViewController.swift */,
 				92275FE727BE713E007B507D /* TestViewController.swift */,
 				92A4E7DB28341BBB00D56783 /* StartTestViewController.swift */,
+				920B3C4B284A5C63002A940E /* TendencyTestViewController.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -1090,6 +1095,7 @@
 				92FC851427C001750020965A /* TestView.swift */,
 				92BF253A282B1F7700DE0205 /* TestResultTendencyView.swift */,
 				92F2901C2831D8B1007013AC /* TestAnswerCollectionViewCell.swift */,
+				920B3C4D284A5FC5002A940E /* TendencyTestCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1266,6 +1272,7 @@
 				92BF253F282B3F8C00DE0205 /* ContactDataResponse.swift in Sources */,
 				9276B060275B443F00915F57 /* MyChatCollectionViewCell.swift in Sources */,
 				9201FE63282F8CA300443946 /* CancelView.swift in Sources */,
+				920B3C4E284A5FC5002A940E /* TendencyTestCollectionViewCell.swift in Sources */,
 				9219E4D728245D2100BA247B /* CountLabelView.swift in Sources */,
 				925BAC462742C76F00126166 /* PrivateListTableViewCell.swift in Sources */,
 				1D127530280AEF6400726651 /* FirebaseDataService.swift in Sources */,
@@ -1300,6 +1307,7 @@
 				92AFB39F27633A1E00977712 /* MyPublicGroupTableViewCell.swift in Sources */,
 				92A5B2A52739AA95004149B2 /* InfoTableViewCell.swift in Sources */,
 				928C708027F3C288001E66BE /* PrivateDetailHistoryCollectionViewCell.swift in Sources */,
+				920B3C4C284A5C63002A940E /* TendencyTestViewController.swift in Sources */,
 				92FC3BB8276CCEBC00DDA976 /* LightningDataModel.swift in Sources */,
 				926C7C5D2738043D0020F851 /* TabBarController.swift in Sources */,
 				92E416ED27B824CF00FD008F /* TDSButton.swift in Sources */,

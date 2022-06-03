@@ -12,7 +12,7 @@ import Then
 
 final class TestResultViewController: UIViewController {
     
-    // MARK: - UI
+    // MARK: - Properties
     
     private lazy var scrollView = UIScrollView().then {
         $0.backgroundColor = .clear
@@ -29,7 +29,7 @@ final class TestResultViewController: UIViewController {
     }
     
     private var userLabel = UILabel().then {
-        $0.text = "이지원님의 성향은"
+        $0.text = "썬더링님의 성향은"
         $0.setTextSpacingBy(value: -0.6)
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 17)
@@ -47,13 +47,10 @@ final class TestResultViewController: UIViewController {
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.gray350.cgColor, cornerRadius: 5, bounds: true)
     }
     
-    private var descriptionLabel = UILabel().then {
+    private lazy var descriptionLabel = UILabel().then {
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 15)
         $0.numberOfLines = 0
-        $0.text = "궁금한 것들 투성이에요. 특히 사람들이 궁금해요. 그래서 모임에 나가면 사람들에게 먼저 말을 걸어요. 한마디로 분위기 메이커죠. 상황에 몰입을 잘해서 때론 과몰입이라는 소리를 듣곤 해요. 그래도 조심해 주세요. 제 몰입을 깨는 건 용납 못해요."
-        $0.setTextSpacingBy(value: -0.6)
-        $0.setLineSpacing(lineSpacing: 7, lineHeightMultiple: 0)
     }
     
     private var subTitleLabel = UILabel().then {
@@ -114,12 +111,45 @@ final class TestResultViewController: UIViewController {
         $0.initViewBorder(borderWidth: 1, borderColor: UIColor.purple100.cgColor, cornerRadius: 26, bounds: true)
     }
     
-    // MARK: - Properties
-    
-    private var resultDescription = "" {
+    var tendency: String = "" {
         didSet {
-            descriptionLabel.text = "\(resultDescription)"
-            descriptionLabel.setTextSpacingBy(value: -0.6)
+            if tendency == "cozy" {
+                imageView.image = UIImage(named: "img_pogeun")
+                
+                descriptionLabel.text = "한마디로 표현하자면 '유유자적', '물아일체'에요. 리액션이 작아보이지만 막상 모임에 불러주면 누구보다 좋아해요. 무던한 성격 덕분인지 새로운 상황에 잘 적응해요. 하지만 금방 방전되거든요 저에게 에너지를 주세요."
+                descriptionLabel.setTextSpacingBy(value: -0.6)
+                descriptionLabel.setLineSpacing(lineSpacing: 7, lineHeightMultiple: 0)
+                
+                firstTendencyView.type = .soft
+                secondTendencyView.type = .diligent
+            } else if tendency == "emotional" {
+                imageView.image = UIImage(named: "img_gamseon")
+                
+                descriptionLabel.text = "자신만의 세계관을 만드는 것을 즐겨해서 상상력이 뛰어나죠. 아티스트의 피가 흘러 뚝딱뚝딱 만드는 모임을 좋아해요. 그래서인지 금방 그럴싸한 것들을 만들어 내곤하죠! 그래도 조심해주세요. 80데시벨 이상이 넘어가면 어지럽거든요."
+                descriptionLabel.setTextSpacingBy(value: -0.6)
+                descriptionLabel.setLineSpacing(lineSpacing: 7, lineHeightMultiple: 0)
+                
+                firstTendencyView.type = .crowd
+                secondTendencyView.type = .diligent
+            } else if tendency == "soft" {
+                imageView.image = UIImage(named: "img_sageun")
+                
+                descriptionLabel.text = "타고난 리스너로 어떤 모임이든 리액션을 담당하곤 해요. 그래서 모임을 나가 스트레스 풀며 즐거움을 느끼죠!  자상하고 세심해서 사람들이 잘 따라 활동을 주도해나가요! 그래도 조심해 주세요. 계획한 활동이 틀어지면 신경이 쓰이거든요."
+                descriptionLabel.setTextSpacingBy(value: -0.6)
+                descriptionLabel.setLineSpacing(lineSpacing: 7, lineHeightMultiple: 0)
+                
+                firstTendencyView.type = .cozy
+                secondTendencyView.type = .diligent
+            } else {
+                imageView.image = UIImage(named: "img_buji")
+                
+                descriptionLabel.text = "주변의 시선을 의식하지 않고 자신만의 길을 걸어  나가요. 꾸밈없이 내 마음을 표현하는 것을 즐겨하죠. 새로운 도전을 가감 없이 시도해요. 이에 따른 위험은 기꺼이 감수하죠.  그래서 새로운 모임을 주최하기를 좋아해요. 리더가 필요하다면 저를 찾아주세요!"
+                descriptionLabel.setTextSpacingBy(value: -0.6)
+                descriptionLabel.setLineSpacing(lineSpacing: 7, lineHeightMultiple: 0)
+                
+                firstTendencyView.type = .cozy
+                secondTendencyView.type = .crowd
+            }
         }
     }
     
@@ -235,11 +265,20 @@ final class TestResultViewController: UIViewController {
         }
     }
     
+    private func getNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(pushToResult(_:)), name: NSNotification.Name("LastTest"), object: nil)
+    }
+    
     // MARK: - @objc
     
     @objc func touchUpSearchButton() {
         NotificationCenter.default.post(name: NSNotification.Name("SearchPublicGroup"), object: nil)
         dismiss(animated: true)
+    }
+    
+    @objc func pushToResult(_ notification: Notification) {
+        let vc = TestResultViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

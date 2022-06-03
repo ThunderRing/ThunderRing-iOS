@@ -103,7 +103,7 @@ class StartTestViewController: UIViewController {
     }
     
     @objc func touchUpTestButton() {
-        let vc = TestViewController()
+        let vc = TendencyTestViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 }
