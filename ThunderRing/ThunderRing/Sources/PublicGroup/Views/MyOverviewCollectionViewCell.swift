@@ -380,15 +380,35 @@ extension MyOverviewCollectionViewCell {
     
     private func getOverviewGroupData() {
         guard
-            let jsonData = self.loadData(filNm: "OverviewPublicGroupData"),
-            let data = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: jsonData)
+            let diligentJsonData = self.loadData(filNm: "DiligentGroupData"),
+            let diligentData = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: diligentJsonData)
         else { return }
         
-        diligentGroupData = data.diligentGroupData
-        softGroupData = data.softGroupData
-        crowdGroupData = data.crowdGroupData
-        cozyGroupData = data.cozyGroupData
-        emotionGroupData = data.emotionGroupData
+        guard
+            let softJsonData = self.loadData(filNm: "SoftGroupData"),
+            let softData = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: softJsonData)
+        else { return }
+        
+        guard
+            let crowdJsonData = self.loadData(filNm: "CrowdGroupData"),
+            let crowdData = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: crowdJsonData)
+        else { return }
+        
+        guard
+            let cozyJsonData = self.loadData(filNm: "CozyGroupData"),
+            let cozyData = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: cozyJsonData)
+        else { return }
+        
+        guard
+            let emotionalJsonData = self.loadData(filNm: "EmotionalGroupData"),
+            let emotionalData = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: emotionalJsonData)
+        else { return }
+        
+        diligentGroupData = diligentData.groupData
+        softGroupData = softData.groupData
+        crowdGroupData = crowdData.groupData
+        cozyGroupData = cozyData.groupData
+        emotionGroupData = emotionalData.groupData
         
         groupCollectionView.reloadData()
     }

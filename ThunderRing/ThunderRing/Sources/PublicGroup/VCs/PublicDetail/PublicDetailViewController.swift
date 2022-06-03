@@ -622,23 +622,43 @@ extension PublicDetailViewController {
     
     private func getOverviewPublicGroupDetailData() {
         guard
-            let jsonData = self.loadData(filNm: "OverviewPublicGroupData"),
-            let data = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: jsonData)
+            let diligentJsonData = self.loadData(filNm: "DiligentGroupData"),
+            let diligentData = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: diligentJsonData)
+        else { return }
+        
+        guard
+            let softJsonData = self.loadData(filNm: "SoftGroupData"),
+            let softData = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: softJsonData)
+        else { return }
+        
+        guard
+            let crowdJsonData = self.loadData(filNm: "CrowdGroupData"),
+            let crowdData = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: crowdJsonData)
+        else { return }
+        
+        guard
+            let cozyJsonData = self.loadData(filNm: "CozyGroupData"),
+            let cozyData = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: cozyJsonData)
+        else { return }
+        
+        guard
+            let emotionalJsonData = self.loadData(filNm: "EmotionalGroupData"),
+            let emotionalData = try? JSONDecoder().decode(OverviewPublicGroupResponse.self, from: emotionalJsonData)
         else { return }
         
         switch groupTag {
         case 1:
-            groupData = data.diligentGroupData
+            groupData = diligentData.groupData
         case 2:
-            groupData = data.softGroupData
+            groupData = softData.groupData
         case 3:
-            groupData = data.crowdGroupData
+            groupData = crowdData.groupData
         case 4:
-            groupData = data.cozyGroupData
+            groupData = cozyData.groupData
         case 5:
-            groupData = data.emotionGroupData
+            groupData = emotionalData.groupData
         default:
-            groupData = data.diligentGroupData
+            groupData = emotionalData.groupData
         }
         
         headerView.groupImageName = groupData[index].groupImageName
