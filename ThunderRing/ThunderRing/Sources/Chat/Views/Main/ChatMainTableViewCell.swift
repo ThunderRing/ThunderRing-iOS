@@ -54,6 +54,6 @@ class ChatMainTableViewCell: UITableViewCell {
         cellView.timeLabel.text = chatList.timeStamp?.toRelativeTime
         cellView.timeLabel.setTextSpacingBy(value: -0.6)
         
-        cellView.messageCountView.messageCount = chatList.chatCount!
+        cellView.chatCountView.chatCount = chatList.chatCount!
     }
 }

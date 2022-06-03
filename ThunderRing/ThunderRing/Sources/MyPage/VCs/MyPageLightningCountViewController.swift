@@ -63,7 +63,7 @@ final class MyPageLightningCountViewController: UIViewController {
         historyCollectionView.delegate = self
         historyCollectionView.dataSource = self
         
-        historyCollectionView.register(ItemCell.self, forCellWithReuseIdentifier: ItemCell.CellIdentifier)
+        historyCollectionView.register(ItemCell.self, forCellWithReuseIdentifier: ItemCell.cellIdentifier)
         historyCollectionView.register(ItemCellHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: ItemCellHeaderView.CellIdentifier)
     }
 }
@@ -99,7 +99,7 @@ extension MyPageLightningCountViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.CellIdentifier, for: indexPath) as? ItemCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.cellIdentifier, for: indexPath) as? ItemCell else { return UICollectionViewCell() }
         return cell
     }
     
@@ -112,16 +112,14 @@ extension MyPageLightningCountViewController: UICollectionViewDataSource {
 // MARK: - Cell
 
 fileprivate final class ItemCell: UICollectionViewCell {
-    static var CellIdentifier: String { return String(describing: self) }
+    static var cellIdentifier: String { return String(describing: self) }
     
     private lazy var dateLabel = UILabel().then {
-        $0.text = "21/08/03"
         $0.textColor = .gray150
         $0.font = .DINPro(type: .regular, size: 14)
     }
     
     private lazy var titleLabel = UILabel().then {
-        $0.text = "이태원 모각작 모아요"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .medium, size: 14)
     }
@@ -131,7 +129,6 @@ fileprivate final class ItemCell: UICollectionViewCell {
     }
     
     private lazy var groupNameLabel = UILabel().then {
-        $0.text = "양파링걸즈"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
@@ -141,7 +138,6 @@ fileprivate final class ItemCell: UICollectionViewCell {
     }
     
     private lazy var memberCountLabel = UILabel().then {
-        $0.text = "4명"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
     }
@@ -151,9 +147,22 @@ fileprivate final class ItemCell: UICollectionViewCell {
     }
     
     private lazy var locationCountLabel = UILabel().then {
-        $0.text = "Zoom 미팅"
         $0.textColor = .gray100
         $0.font = .SpoqaHanSansNeo(type: .regular, size: 13)
+    }
+    
+    var date: String = "" {
+        didSet {
+            dateLabel.text = date
+            dateLabel.setTextSpacingBy(value: -0.6)
+        }
+    }
+    
+    var groupName: String = "" {
+        didSet {
+            groupNameLabel.text = groupName
+            groupNameLabel.setTextSpacingBy(value: -0.6)
+        }
     }
     
     // MARK: - Initializer

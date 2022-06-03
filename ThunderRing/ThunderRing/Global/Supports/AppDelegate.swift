@@ -96,7 +96,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let content = UNMutableNotificationContent()
         let categoryIdentifire = "Delete Notification Type"
         
-        content.title = "⚡썬더링⚡"
+        content.title = "썬더링"
         content.body = groupName + "에서 " + lightningName + " 번개를 쳤어요"
         content.sound = UNNotificationSound.default
         content.badge = 1

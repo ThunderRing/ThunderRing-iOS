@@ -64,8 +64,7 @@ final class ChatMainViewController: UIViewController {
     
     private func setLayout() {
         view.addSubviews([chatListTableView, chatMainTopView])
-        chatMainTopView.addSubview(navigationBar)
-        chatMainTopView.addSubview(subTitleLabel)
+        chatMainTopView.addSubviews([navigationBar, subTitleLabel])
         
         chatMainTopView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
@@ -74,7 +73,7 @@ final class ChatMainViewController: UIViewController {
         
         navigationBar.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalToSuperview().inset(47)
+            $0.top.equalToSuperview().inset(50)
             $0.height.equalTo(50)
         }
         
@@ -117,9 +116,9 @@ final class ChatMainViewController: UIViewController {
                         let chatList = ChatListDataModel(key: key, destinationUID: destinationUID, imageName: imageName, groupName: groupName, thunderName: thunderName, countUsers: countUsers, contentLabel: contentLabel, timeStamp: timeStamp, chatCount: chatCount)
                         self.chatLists.append(chatList)
                         
-                        DispatchQueue.main.async(execute: {
+                        DispatchQueue.main.async {
                             self.chatListTableView.reloadData()
-                        })
+                        }
                     }
                     
                 }

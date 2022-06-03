@@ -40,7 +40,6 @@
 		92275FE827BE713E007B507D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92275FE727BE713E007B507D /* TestViewController.swift */; };
 		9227F2F227DAB0C9001D1BB4 /* HomeJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227F2F127DAB0C9001D1BB4 /* HomeJoinViewController.swift */; };
 		9227F2F427DAB39C001D1BB4 /* HomeJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9227F2F327DAB39C001D1BB4 /* HomeJoinView.swift */; };
-		92291C522759130F0012927B /* CompleteCreatePrivateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92291C512759130F0012927B /* CompleteCreatePrivateViewController.swift */; };
 		9232069227EA637F0010FC4F /* CreatePublicGroupTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232069127EA637F0010FC4F /* CreatePublicGroupTagViewController.swift */; };
 		9232069427EA7F500010FC4F /* TDSModalNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232069327EA7F500010FC4F /* TDSModalNavigationBar.swift */; };
 		9240852A27CA91460029E753 /* SearchPrivateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9240852927CA91460029E753 /* SearchPrivateGroupViewController.swift */; };
@@ -210,7 +209,6 @@
 		92275FE727BE713E007B507D /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9227F2F127DAB0C9001D1BB4 /* HomeJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeJoinViewController.swift; sourceTree = "<group>"; };
 		9227F2F327DAB39C001D1BB4 /* HomeJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeJoinView.swift; sourceTree = "<group>"; };
-		92291C512759130F0012927B /* CompleteCreatePrivateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteCreatePrivateViewController.swift; sourceTree = "<group>"; };
 		9232069127EA637F0010FC4F /* CreatePublicGroupTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePublicGroupTagViewController.swift; sourceTree = "<group>"; };
 		9232069327EA7F500010FC4F /* TDSModalNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDSModalNavigationBar.swift; sourceTree = "<group>"; };
 		9240852927CA91460029E753 /* SearchPrivateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPrivateGroupViewController.swift; sourceTree = "<group>"; };
@@ -880,7 +878,6 @@
 				92159C992758C21A0081F20B /* CreatePrivateViewController.swift */,
 				92159C9B2758C5B10081F20B /* CreatePrivateDetailViewController.swift */,
 				92159C9F2758D5620081F20B /* AddMemberViewController.swift */,
-				92291C512759130F0012927B /* CompleteCreatePrivateViewController.swift */,
 			);
 			path = CreatePrivate;
 			sourceTree = "<group>";
@@ -1309,7 +1306,6 @@
 				92BCCCAA27650B3D00AA70D6 /* OverviewCollectionViewCell.swift in Sources */,
 				925DCD4827E5210200331949 /* ChatMainTableViewCell.swift in Sources */,
 				9227F2F227DAB0C9001D1BB4 /* HomeJoinViewController.swift in Sources */,
-				92291C522759130F0012927B /* CompleteCreatePrivateViewController.swift in Sources */,
 				92A2445727D8041500A81738 /* HomeRecruitingTableViewCell.swift in Sources */,
 				92AFB39A276339F000977712 /* MyGroupCollectionViewCell.swift in Sources */,
 				927D10FF2821E218001AEB78 /* PublicDetailSettingViewController.swift in Sources */,
