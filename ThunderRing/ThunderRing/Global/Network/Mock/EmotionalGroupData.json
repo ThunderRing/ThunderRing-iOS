@@ -1,0 +1,1972 @@
+{
+    "groupData": [
+        {
+            "groupImageName": "emotionPu1",
+            "groupName": "스쿠버 다이빙",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu2",
+            "groupName": "보드 모임",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 40,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu3",
+            "groupName": "나만아는맛집",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 20,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu4",
+            "groupName": "국토대장정",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 10,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu5",
+            "groupName": "스마일 치즈",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 25,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu6",
+            "groupName": "국토대장정",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu7",
+            "groupName": "피크닉 가자",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu8",
+            "groupName": "홈파티",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu9",
+            "groupName": "Unbirthday",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu10",
+            "groupName": "코스튬 파티",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu11",
+            "groupName": "피크닉 가자",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu12",
+            "groupName": "카메라 콜렉터",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu14",
+            "groupName": "젤라또 조아",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu14",
+            "groupName": "힙스터 모여",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu15",
+            "groupName": "쿠키 굽굽",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu16",
+            "groupName": "강아지 집사들",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu17",
+            "groupName": "봉세권",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu18",
+            "groupName": "올 때 메로나",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu19",
+            "groupName": "강아지 집사들",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu20",
+            "groupName": "골동품 모아",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu21",
+            "groupName": "수플레 먹자",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu22",
+            "groupName": "유화 그리기",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu23",
+            "groupName": "식태크",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        },
+        {
+            "groupImageName": "emotionPu24",
+            "groupName": "가죽 공예반",
+            "groupTendency": "tendencyEmotion",
+            "groupDescription": "같이 도예 원데이 클래스 다녀요",
+            "groupTag": ["도예", "도자기", "취미"],
+            "groupMember": [
+                {
+                    "memberImageName": "proYeji",
+                    "memberName": "김서진"
+                },
+                {
+                    "memberImageName": "pro3",
+                    "memberName": "신윤아"
+                },
+                {
+                    "memberImageName": "proNamin",
+                    "memberName": "서혜진"
+                },
+                {
+                    "memberImageName": "pro7",
+                    "memberName": "이동근"
+                },
+                {
+                    "memberImageName": "pro9",
+                    "memberName": "이희연"
+                },
+                {
+                    "memberImageName": "pro8",
+                    "memberName": "임미루"
+                },
+                {
+                    "memberImageName": "pro10",
+                    "memberName": "이시윤"
+                },
+                {
+                    "memberImageName": "proJiwon",
+                    "memberName": "이지원"
+                },
+                {
+                    "memberImageName": "pro13",
+                    "memberName": "김부경"
+                },
+                {
+                    "memberImageName": "proNayoung",
+                    "memberName": "김루희"
+                }
+            ],
+            "groupMaxCount": 30,
+            "history": [
+                {
+                    "date": "21/08/03",
+                    "lightningName": "이태원 모각작 모아요",
+                    "memberCount": 4,
+                    "location": "이태원 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "피파 달글 줌맥",
+                    "memberCount": 4,
+                    "location": "Zoom 미팅"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "서울여대 도서관 가기",
+                    "memberCount": 4,
+                    "location": "서울여대 중앙도서관"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "석계 야채곱창 뿌시기",
+                    "memberCount": 3,
+                    "location": "석계역 4번 출구"
+                },
+                {
+                    "date": "21/08/03",
+                    "lightningName": "스파이더맨 보러가자",
+                    "memberCount": 2,
+                    "location": "CGV 대학로점"
+                }
+            ]
+        }
+    ]
+}

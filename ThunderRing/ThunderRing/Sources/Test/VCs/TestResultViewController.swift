@@ -147,6 +147,10 @@ final class TestResultViewController: UIViewController {
                 descriptionLabel.setTextSpacingBy(value: -0.6)
                 descriptionLabel.setLineSpacing(lineSpacing: 7, lineHeightMultiple: 0)
                 
+                descriptionView.snp.updateConstraints {
+                    $0.height.equalTo(178)
+                }
+                
                 firstTendencyView.type = .cozy
                 secondTendencyView.type = .crowd
             }
@@ -216,7 +220,7 @@ final class TestResultViewController: UIViewController {
         descriptionView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(10)
             $0.leading.trailing.equalToSuperview().inset(25)
-            $0.height.equalTo(153)
+            $0.height.equalTo(178)
         }
         
         descriptionLabel.snp.makeConstraints {

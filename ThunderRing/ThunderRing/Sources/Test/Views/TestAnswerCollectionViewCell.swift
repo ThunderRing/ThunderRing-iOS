@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
+protocol TestAnswerCollectionViewCellDelegate: TendencyTestCollectionViewCell {
+    func touchUpAnswer()
+}
+
 final class TestAnswerCollectionViewCell: UICollectionViewCell {
     static var cellIdentifier: String { return String(describing: self) }
     
@@ -23,13 +27,17 @@ final class TestAnswerCollectionViewCell: UICollectionViewCell {
     }
     
     var index: Int = 0
-    var selectedAnswer: Int = 0 
+    var selectedAnswer: Int = 0
+    
+    var delegate: TestAnswerCollectionViewCellDelegate?
     
     override var isSelected: Bool {
         didSet {
             if isSelected {
                 layer.borderColor = UIColor.purple100.cgColor
                 layer.borderWidth = 2
+                
+                delegate?.touchUpAnswer()
                 
                 if index == 7 {
                     NotificationCenter.default.post(name: NSNotification.Name("LastTest"), object: nil)

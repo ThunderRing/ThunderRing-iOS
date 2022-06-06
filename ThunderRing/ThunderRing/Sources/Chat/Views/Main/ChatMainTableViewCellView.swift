@@ -141,6 +141,7 @@ final class ChatCountView: UIView {
     
     init() {
         super.init(frame: .zero)
+        setView()
         if chatCount != 0 {
             setView()
         }

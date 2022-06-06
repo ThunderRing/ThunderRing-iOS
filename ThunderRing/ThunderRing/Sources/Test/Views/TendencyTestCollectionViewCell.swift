@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
+protocol TendencyTestCollectionViewCellDelegate: TendencyTestViewController {
+    func touchUpAnswer(index: Int)
+}
+
 final class TendencyTestCollectionViewCell: UICollectionViewCell {
     static var cellIdentifier: String { return String(describing: self) }
     
@@ -49,6 +53,8 @@ final class TendencyTestCollectionViewCell: UICollectionViewCell {
     }
     
     var index: Int = 0
+    
+    var delegate: TendencyTestCollectionViewCellDelegate?
     
     // MARK: - Initializer
     
@@ -139,7 +145,13 @@ extension TendencyTestCollectionViewCell: UICollectionViewDataSource {
         cell.initCell(text: answer[indexPath.item])
         cell.index = index
         cell.selectedAnswer = indexPath.item
+        cell.delegate = self
         return cell
     }
 }
 
+extension TendencyTestCollectionViewCell: TestAnswerCollectionViewCellDelegate {
+    func touchUpAnswer() {
+        delegate?.touchUpAnswer(index: index)
+    }
+}

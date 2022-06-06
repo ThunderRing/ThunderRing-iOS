@@ -184,12 +184,16 @@ final class CreatePublicGroupTagViewController: UIViewController {
             $0.height.equalTo(52)
         }
         
-        NSLayoutConstraint.activate([
-            view.keyboardLayoutGuide.topAnchor.constraint(
-                equalTo: nextButton.bottomAnchor,
-                constant: 16
-            )
-        ])
+        if #available(iOS 15.0, *) {
+            NSLayoutConstraint.activate([
+                view.keyboardLayoutGuide.topAnchor.constraint(
+                    equalTo: nextButton.bottomAnchor,
+                    constant: 16
+                )
+            ])
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     // MARK: - Custom Method

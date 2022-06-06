@@ -10,13 +10,5 @@ import Foundation
 // MARK: - OverviewPublicGroupResponse
 
 struct OverviewPublicGroupResponse: Codable {
-    let diligentGroupData, softGroupData, crowdGroupData, cozyGroupData, emotionGroupData: [PublicGroupData]
-    
-    enum CodingKeys: String, CodingKey {
-        case diligentGroupData = "DiligentGroupData"
-        case softGroupData = "SoftGroupData"
-        case crowdGroupData = "CrowdGroupData"
-        case cozyGroupData = "CozyGroupData"
-        case emotionGroupData = "EmotionGroupData"
-    }
+    let groupData: [PublicGroupData]
 }

@@ -274,7 +274,7 @@ extension MyPublicViewController: MyGroupCollectionViewCellDelegate, MyOverviewC
         vc.isMember = false
         vc.index = index
         vc.isOverview = true
-        vc.groupTag = 1
+        vc.groupTag = groupTag
         navigationController?.pushViewController(vc, animated: true)
     }
 }

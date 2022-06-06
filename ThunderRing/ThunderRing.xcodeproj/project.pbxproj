@@ -19,6 +19,10 @@
 		920995A6280D415C008C3491 /* PublicGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 920995A5280D415C008C3491 /* PublicGroupData.json */; };
 		920B3C4C284A5C63002A940E /* TendencyTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B3C4B284A5C63002A940E /* TendencyTestViewController.swift */; };
 		920B3C4E284A5FC5002A940E /* TendencyTestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B3C4D284A5FC5002A940E /* TendencyTestCollectionViewCell.swift */; };
+		920B3C52284A9A51002A940E /* SoftGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 920B3C51284A9A51002A940E /* SoftGroupData.json */; };
+		920B3C54284A9F02002A940E /* CrowdGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 920B3C53284A9F02002A940E /* CrowdGroupData.json */; };
+		920B3C58284AA267002A940E /* EmotionalGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 920B3C57284AA267002A940E /* EmotionalGroupData.json */; };
+		920B3C5A284AA4A0002A940E /* CozyGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 920B3C59284AA4A0002A940E /* CozyGroupData.json */; };
 		9212663F2747BB2B009DE534 /* TestDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212663E2747BB2B009DE534 /* TestDataModel.swift */; };
 		9212667A2748055A009DE534 /* TestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921266792748055A009DE534 /* TestResultViewController.swift */; };
 		9212667C2748167D009DE534 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9212667B2748167D009DE534 /* UIColor+.swift */; };
@@ -143,7 +147,7 @@
 		92BF253F282B3F8C00DE0205 /* ContactDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF253E282B3F8C00DE0205 /* ContactDataResponse.swift */; };
 		92C2EC9F282C2AC100610ADE /* TotalGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C2EC9E282C2AC100610ADE /* TotalGroupResponse.swift */; };
 		92C2ECA3282C36B600610ADE /* TotalPublicGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 92C2ECA2282C36B600610ADE /* TotalPublicGroupData.json */; };
-		92C2ECA7282C496E00610ADE /* OverviewPublicGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 92C2ECA6282C496E00610ADE /* OverviewPublicGroupData.json */; };
+		92C2ECA7282C496E00610ADE /* DiligentGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 92C2ECA6282C496E00610ADE /* DiligentGroupData.json */; };
 		92C2ECA9282C49CF00610ADE /* OverviewPublicGroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C2ECA8282C49CF00610ADE /* OverviewPublicGroupResponse.swift */; };
 		92C4148727629606000DB287 /* MyPublic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C4148627629606000DB287 /* MyPublic.storyboard */; };
 		92C42FEC2802875E00F6B98C /* AlarmPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C42FEB2802875E00F6B98C /* AlarmPopUpViewController.swift */; };
@@ -190,6 +194,10 @@
 		920995A5280D415C008C3491 /* PublicGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PublicGroupData.json; sourceTree = "<group>"; };
 		920B3C4B284A5C63002A940E /* TendencyTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendencyTestViewController.swift; sourceTree = "<group>"; };
 		920B3C4D284A5FC5002A940E /* TendencyTestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TendencyTestCollectionViewCell.swift; sourceTree = "<group>"; };
+		920B3C51284A9A51002A940E /* SoftGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SoftGroupData.json; sourceTree = "<group>"; };
+		920B3C53284A9F02002A940E /* CrowdGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CrowdGroupData.json; sourceTree = "<group>"; };
+		920B3C57284AA267002A940E /* EmotionalGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EmotionalGroupData.json; sourceTree = "<group>"; };
+		920B3C59284AA4A0002A940E /* CozyGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CozyGroupData.json; sourceTree = "<group>"; };
 		9212663E2747BB2B009DE534 /* TestDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataModel.swift; sourceTree = "<group>"; };
 		921266792748055A009DE534 /* TestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultViewController.swift; sourceTree = "<group>"; };
 		9212667B2748167D009DE534 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -322,7 +330,7 @@
 		92BF253E282B3F8C00DE0205 /* ContactDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDataResponse.swift; sourceTree = "<group>"; };
 		92C2EC9E282C2AC100610ADE /* TotalGroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalGroupResponse.swift; sourceTree = "<group>"; };
 		92C2ECA2282C36B600610ADE /* TotalPublicGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TotalPublicGroupData.json; sourceTree = "<group>"; };
-		92C2ECA6282C496E00610ADE /* OverviewPublicGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OverviewPublicGroupData.json; sourceTree = "<group>"; };
+		92C2ECA6282C496E00610ADE /* DiligentGroupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DiligentGroupData.json; sourceTree = "<group>"; };
 		92C2ECA8282C49CF00610ADE /* OverviewPublicGroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewPublicGroupResponse.swift; sourceTree = "<group>"; };
 		92C4148627629606000DB287 /* MyPublic.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPublic.storyboard; sourceTree = "<group>"; };
 		92C42FEB2802875E00F6B98C /* AlarmPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPopUpViewController.swift; sourceTree = "<group>"; };
@@ -920,11 +928,15 @@
 				929BB8C927BCDF44003A3BB3 /* TestData.json */,
 				9209959C280C8671008C3491 /* PrivateGroupData.json */,
 				920995A5280D415C008C3491 /* PublicGroupData.json */,
+				92A4E7D72834125500D56783 /* NewPublicGroupData.json */,
 				92A56C522823022D00DF18C1 /* LightningData.json */,
 				92BF253C282B3DB600DE0205 /* ContactData.json */,
 				92C2ECA2282C36B600610ADE /* TotalPublicGroupData.json */,
-				92C2ECA6282C496E00610ADE /* OverviewPublicGroupData.json */,
-				92A4E7D72834125500D56783 /* NewPublicGroupData.json */,
+				92C2ECA6282C496E00610ADE /* DiligentGroupData.json */,
+				920B3C51284A9A51002A940E /* SoftGroupData.json */,
+				920B3C53284A9F02002A940E /* CrowdGroupData.json */,
+				920B3C59284AA4A0002A940E /* CozyGroupData.json */,
+				920B3C57284AA267002A940E /* EmotionalGroupData.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1184,6 +1196,7 @@
 				9209959D280C8671008C3491 /* PrivateGroupData.json in Resources */,
 				92FFBBA9274CDE7E00706099 /* Buttons.xcassets in Resources */,
 				926C7C57273803980020F851 /* Lightning.storyboard in Resources */,
+				920B3C52284A9A51002A940E /* SoftGroupData.json in Resources */,
 				92CD3372273FA2A00094CB1C /* SpoqaHanSansNeo-Bold.otf in Resources */,
 				926C7C262737F93F0020F851 /* LaunchScreen.storyboard in Resources */,
 				92159C97275896EF0081F20B /* DINPro-Medium.otf in Resources */,
@@ -1198,13 +1211,15 @@
 				929BB8CA27BCDF44003A3BB3 /* TestData.json in Resources */,
 				92159C95275896EF0081F20B /* DINPro-Black.otf in Resources */,
 				92800AD3274CB3E200CA3E7E /* Colors.xcassets in Resources */,
+				920B3C54284A9F02002A940E /* CrowdGroupData.json in Resources */,
 				926C7C47273802460020F851 /* Chat.storyboard in Resources */,
 				92FFBBA7274CDE5500706099 /* Icons.xcassets in Resources */,
 				928FDA042760D130009AC059 /* MyPrivate.storyboard in Resources */,
 				92159C94275896EF0081F20B /* DINPro-Bold.otf in Resources */,
 				92159C96275896EF0081F20B /* DINPro-Light.otf in Resources */,
-				92C2ECA7282C496E00610ADE /* OverviewPublicGroupData.json in Resources */,
+				92C2ECA7282C496E00610ADE /* DiligentGroupData.json in Resources */,
 				92FA76DF27B3A69600CB54C1 /* GoogleService-Info.plist in Resources */,
+				920B3C58284AA267002A940E /* EmotionalGroupData.json in Resources */,
 				92A56C532823022D00DF18C1 /* LightningData.json in Resources */,
 				921A45C3275355AD001E8727 /* CreatePrivate.storyboard in Resources */,
 				920995A6280D415C008C3491 /* PublicGroupData.json in Resources */,
@@ -1214,6 +1229,7 @@
 				928FDA062760D156009AC059 /* PrivateDetail.storyboard in Resources */,
 				92C2ECA3282C36B600610ADE /* TotalPublicGroupData.json in Resources */,
 				92CD3374273FA2A00094CB1C /* SpoqaHanSansNeo-Thin.otf in Resources */,
+				920B3C5A284AA4A0002A940E /* CozyGroupData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1554,6 +1570,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1585,6 +1602,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
