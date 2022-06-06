@@ -205,6 +205,7 @@ extension TendencyTestViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TendencyTestCollectionViewCell.cellIdentifier, for: indexPath) as? TendencyTestCollectionViewCell else { return UICollectionViewCell() }
         cell.initCell(testList[indexPath.item])
         cell.index = indexPath.item
+        cell.delegate = self
         return cell
     }
 }
@@ -223,3 +224,45 @@ extension TendencyTestViewController {
     }
 }
 
+// MARK: - Custom Delegate
+
+extension TendencyTestViewController: TendencyTestCollectionViewCellDelegate {
+    func touchUpAnswer(index: Int) {
+        if index == 0 {
+            indexLabel.text = "2/8"
+            updateProgressViewWithAnimation(index: 2)
+            
+            testCollectionView.scrollToItem(at: IndexPath(row: 1, section: 0), at: .centeredHorizontally, animated: true)
+        } else if index == 1 {
+            indexLabel.text = "3/8"
+            updateProgressViewWithAnimation(index: 3)
+            
+            testCollectionView.scrollToItem(at: IndexPath(row: 2, section: 0), at: .centeredHorizontally, animated: true)
+        } else if index == 2 {
+            indexLabel.text = "4/8"
+            updateProgressViewWithAnimation(index: 4)
+            
+            testCollectionView.scrollToItem(at: IndexPath(row: 3, section: 0), at: .centeredHorizontally, animated: true)
+        } else if index == 3 {
+            indexLabel.text = "5/8"
+            updateProgressViewWithAnimation(index: 5)
+            
+            testCollectionView.scrollToItem(at: IndexPath(row: 4, section: 0), at: .centeredHorizontally, animated: true)
+        } else if index == 4 {
+            indexLabel.text = "6/8"
+            updateProgressViewWithAnimation(index: 6)
+            
+            testCollectionView.scrollToItem(at: IndexPath(row: 5, section: 0), at: .centeredHorizontally, animated: true)
+        } else if index == 5 {
+            indexLabel.text = "7/8"
+            updateProgressViewWithAnimation(index: 7)
+            
+            testCollectionView.scrollToItem(at: IndexPath(row: 6, section: 0), at: .centeredHorizontally, animated: true)
+        } else if index == 6 {
+            indexLabel.text = "8/8"
+            updateProgressViewWithAnimation(index: 8)
+            
+            testCollectionView.scrollToItem(at: IndexPath(row: 7, section: 0), at: .centeredHorizontally, animated: true)
+        }
+    }
+}
